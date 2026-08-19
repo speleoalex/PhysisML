@@ -36,6 +36,9 @@ corpus_raw/
 *.swp
 *.swo
 
+# Local agent/tool config (machine-specific paths, not portable)
+.claude/
+
 # Private notes (not published)
 docs_internal/
 diario/
