@@ -6,7 +6,7 @@ Usage:
     python3 dynamic_model/test_model.py --level 0
     python3 dynamic_model/test_model.py --level 1 --checkpoint models/active.pt
 """
-import sys, os, argparse, re
+import sys, os, argparse, re, json
 _ROOT  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _TEST1 = os.path.join(_ROOT, "tests", "test_1")
 for _p in [_ROOT, _TEST1]:
@@ -52,11 +52,76 @@ LEVEL_CONFIG = {
 }
 
 
+def load_level_cases(lang: str, level: int) -> list:
+    """
+    Build the test cases from the level's ACTUAL curriculum
+    (training_files/{lang}/{level}/local_teacher.json), falling back to the
+    hardcoded LEVEL_CONFIG when no teacher config exists.
+
+    The hardcoded prompts drifted away from what the levels teach — L3 was
+    probed with 'io sono' / 'dove vai' / 'hai fame' while its curriculum is
+    'il cane dorme!', 'la mamma mangia!', 'physisml!', numbers and colours —
+    so a perfectly trained model scored 0%.
+
+    Returns a list of (prompt, expected_or_None).
+    """
+    path = os.path.join("training_files", lang, str(level), "local_teacher.json")
+    cases = []
+    if os.path.exists(path):
+        try:
+            with open(path, encoding="utf-8") as f:
+                cfg = json.load(f)
+            for step in cfg.get("steps", {}).values():
+                for t in step.get("targets", []):
+                    if isinstance(t, dict) and t.get("prompt"):
+                        cases.append((t["prompt"], (t.get("expected") or "").strip()))
+                    elif isinstance(t, str):
+                        tmpl = step.get("prompt_template", "{target}")
+                        cases.append((tmpl.replace("{target}", t), f"{t}!"))
+        except (json.JSONDecodeError, OSError):
+            cases = []
+    if not cases:
+        cfg = LEVEL_CONFIG.get(level, LEVEL_CONFIG[1])
+        cases = [(p, None) for p in cfg["prompts"]]
+    return cases
+
+
+def level_lexicon(lang: str, level: int, cases: list) -> list:
+    """Words the level actually teaches (from its gold answers)."""
+    lex = set()
+    for _, exp in cases:
+        for w in re.findall(r"[\w'àèéìòùÀÈÉÌÒÙ]+", (exp or "").lower()):
+            if w:
+                lex.add(w)
+    if not lex:
+        lex = set(LEVEL_CONFIG.get(level, LEVEL_CONFIG[1])["vocab"])
+    return sorted(lex)
+
+
 def score_output(text: str, vocab: list) -> float:
-    """Fraction of known vocabulary words found in the output."""
-    text_lower = text.lower()
-    words_found = sum(1 for w in vocab if w in text_lower)
-    return words_found / len(vocab)
+    """
+    Fraction of the OUTPUT's words that belong to the level lexicon.
+
+    The old version divided by len(vocab), i.e. it asked a single short answer
+    to contain the WHOLE level vocabulary: with 14 words listed, a correct
+    3-word reply could not exceed 21% and usually scored 0%. It also used a
+    bare substring test ('è' matches inside any word), the same defect fixed
+    in the teacher's keyword check.
+    """
+    words = re.findall(r"[\w'àèéìòùÀÈÉÌÒÙ]+", text.lower())
+    if not words:
+        return 0.0
+    known = set(w.lower() for w in vocab)
+    return sum(1 for w in words if w in known) / len(words)
+
+
+def is_exact(text: str, expected: str) -> bool:
+    """Normalised exact match against the gold answer."""
+    if not expected:
+        return False
+    norm = lambda s: re.sub(r"\s+", " ", s.replace("<|EOS|>", "")).strip().lower()
+    a, b = norm(text), norm(expected)
+    return a == b or a == b.rstrip("!.?")
 
 
 def clean_output(text: str) -> str:
@@ -73,6 +138,8 @@ def main():
                         help="Tokenizer JSON (auto-detected from checkpoint dir if omitted)")
     parser.add_argument("--max-tokens", type=int, default=25)
     parser.add_argument("--top-k",      type=int, default=20)
+    parser.add_argument("--samples",    type=int, default=12,
+                        help="Max test cases sampled from the curriculum (0 = all)")
     args = parser.parse_args()
 
     # Resolve checkpoint
@@ -119,49 +186,63 @@ def main():
     opt    = TorchAdamOptimizer(model.parameters(), lr=1e-4)
     trainer = TrainerB(model, tok, opt, affect, mod)
 
-    cfg = LEVEL_CONFIG.get(args.level, LEVEL_CONFIG[1])
+    cfg   = LEVEL_CONFIG.get(args.level, LEVEL_CONFIG[1])
+    cases = load_level_cases(args.lang, args.level)
+    lex   = level_lexicon(args.lang, args.level, cases)
+    if args.samples and args.samples < len(cases):
+        step = max(1, len(cases) // args.samples)
+        cases = cases[::step][:args.samples]
 
-    print(f"\n{'─'*58}")
+    print(f"\n{'─'*68}")
     print(f"  TEST MODELLO — Livello {args.level}: {cfg['desc']}")
     print(f"  Checkpoint: {ckpt}")
     print(f"  Params: {model.num_params:,}   Vocab: {model.vocab_size}")
-    print(f"{'─'*58}")
+    print(f"  Casi: {len(cases)} dal curriculum   Lessico: {len(lex)} parole")
+    print(f"{'─'*68}")
 
-    scores = []
-    confidences = []
+    scores, confidences, exacts = [], [], []
 
-    for prompt in cfg["prompts"]:
-        # Train passively on prompt (as in real interaction)
-        trainer.step("", prompt, feedback=0.0)
-
-        # Generate
-        out = trainer.generate(prompt, max_tokens=args.max_tokens,
-                               base_temperature=0.8, top_k=args.top_k)
+    for prompt, expected in cases:
+        # Generate. Budget sized on the gold answer, mirroring the teaching
+        # loop — a fixed max_tokens truncates the longer answers of high levels.
+        n_exp = len(tok.encode(expected)) if expected else 0
+        out = trainer.generate(
+            prompt,
+            max_tokens=int(max(args.max_tokens, min(2 * n_exp + 12, 120))),
+            base_temperature=0.8, top_k=args.top_k,
+            min_tokens=max(4, min(n_exp, 40)) if n_exp else 4,
+            stop_after=max(0, min(n_exp - 1, 40)) if n_exp else 2,
+        )
         generated = out[len(prompt):].strip()
         display   = clean_output(generated)
 
-        # Score
-        sc = score_output(generated, cfg["vocab"])
-        scores.append(sc)
+        sc = score_output(generated, lex)
+        ok = is_exact(generated, expected) if expected else False
+        scores.append(sc); exacts.append(ok)
         confidences.append(affect.confidence)
 
-        bar = "█" * int(sc * 20)
-        bar = f"{bar:<20}"
-        print(f"  {repr(prompt):18s} → {repr(display):40s}  [{bar}] {sc:.0%}")
+        mark = "✓" if ok else (" " if expected else "·")
+        bar  = f"{'█' * int(sc * 20):<20}"
+        exp_s = f"  atteso {expected!r}" if expected and not ok else ""
+        print(f"  {mark} {repr(prompt):26s} → {repr(display):34s} [{bar}] {sc:.0%}{exp_s}")
 
-    # Aggregate stats
     avg_score = float(np.mean(scores))
     avg_conf  = float(np.mean(confidences))
+    n_exact   = sum(exacts)
+    n_graded  = sum(1 for _, e in cases if e)
+    exact_rate = n_exact / n_graded if n_graded else 0.0
 
-    print(f"{'─'*58}")
-    print(f"  Vocabolario riconosciuto:  {avg_score:.0%}  "
-          f"({'ottimo' if avg_score > 0.5 else 'buono' if avg_score > 0.25 else 'da migliorare'})")
+    print(f"{'─'*68}")
+    if n_graded:
+        print(f"  Risposte esatte:           {n_exact}/{n_graded} = {exact_rate:.0%}  "
+              f"({'ottimo' if exact_rate > 0.6 else 'buono' if exact_rate > 0.3 else 'da migliorare'})")
+    print(f"  Parole del livello in output: {avg_score:.0%}")
     print(f"  Confidence media:          {avg_conf:.2f}")
     print(f"  Stato affettivo:           {affect}")
-    print(f"{'─'*58}\n")
+    print(f"{'─'*68}\n")
 
-    # Return exit code based on quality (useful for CI)
-    sys.exit(0 if avg_score > 0.1 else 1)
+    # Exit code from exact match when a gold answer exists, else from lexicon use
+    sys.exit(0 if (exact_rate if n_graded else avg_score) > 0.1 else 1)
 
 
 if __name__ == "__main__":
