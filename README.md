@@ -98,7 +98,7 @@ Key `train_curriculum.py` flags: `--phase 0|1`, `--level N`, `--lang it|en`,
 ## Project structure
 
 ```
-splx_model/
+PhysisML/
 ├── training_files/{it,en}/N/   ← text corpus per language and level
 │   ├── *.txt                   ← training texts (qa_corpus.txt = dialogue pairs)
 │   └── teacher_prompt.md       ← per-level teacher style (optional)

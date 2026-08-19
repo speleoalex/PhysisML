@@ -26,7 +26,7 @@ No other dependencies. The project only uses standard Python + NumPy + PyTorch.
 ## Project structure
 
 ```
-splx_model/
+PhysisML/
 ├── docs/
 │   ├── en/setup/        ← this folder
 │   └── it/setup/        ← Italian version

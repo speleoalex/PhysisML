@@ -99,7 +99,7 @@ Ollama, gratuito e con GPU).
 ## Struttura del progetto
 
 ```
-splx_model/
+PhysisML/
 ├── training_files/{it,en}/N/   ← corpus testuale per lingua e livello
 │   ├── *.txt                   ← testi di training (qa_corpus.txt = coppie dialogiche)
 │   └── teacher_prompt.md       ← stile insegnante per livello (opzionale)

@@ -69,7 +69,7 @@ def fetch_summary(title: str, lang: str = "it") -> str:
     encoded = urllib.parse.quote(title.replace(" ", "_"))
     url = f"https://{lang}.wikipedia.org/api/rest_v1/page/summary/{encoded}"
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "splx_model/1.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "PhysisML/1.0"})
         with urllib.request.urlopen(req, timeout=10) as r:
             data = json.loads(r.read())
             return data.get("extract", "").strip()
@@ -89,7 +89,7 @@ def fetch_full(title: str, lang: str = "it", max_chars: int = 8000) -> str:
     })
     url = f"https://{lang}.wikipedia.org/w/api.php?{params}"
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "splx_model/1.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "PhysisML/1.0"})
         with urllib.request.urlopen(req, timeout=15) as r:
             data = json.loads(r.read())
         pages = data.get("query", {}).get("pages", {})

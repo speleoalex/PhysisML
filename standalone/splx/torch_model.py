@@ -249,7 +249,7 @@ class TorchAdamOptimizer:
 
     weight_decay defaults to 0: with torch.optim.Adam the decay is COUPLED
     (added to the gradient) and progressively kills rarely-used embeddings
-    and LayerNorm gains during online training. See splx_model
+    and LayerNorm gains during online training. See PhysisML
     tests/test_1/splx/torch_model.py for details.
     """
     def __init__(self, parameters, lr=1e-3, weight_decay=0.0,
