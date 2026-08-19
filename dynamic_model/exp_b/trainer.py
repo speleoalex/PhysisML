@@ -111,7 +111,14 @@ class TrainerB:
         ids_np = np.array(
             self.tokenizer.encode(prompt + sep + response), dtype=np.int32)
         # Prompt tokens are conditioning context only — excluded from the loss.
-        n_prompt = len(self.tokenizer.encode(prompt + sep)) if prompt else 0
+        # The separator is deliberately counted as part of the RESPONSE: the
+        # model generates from encode(prompt) alone, so if the separator
+        # position were masked it would never learn to emit it and every turn
+        # would start from an off-distribution context. Measured at L0 with
+        # the separator masked: P('!'|'di ba') = 0.966 — the model treated the
+        # prompt's trailing syllable as its own answer and only added the
+        # terminator, capping step A at ~27% exact.
+        n_prompt = len(self.tokenizer.encode(prompt)) if prompt else 0
 
         if len(ids_np) < 2:
             return {"loss": None, "affect": self.affect.snapshot(),
