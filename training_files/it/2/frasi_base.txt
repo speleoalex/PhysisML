@@ -1,0 +1,376 @@
+Ciao.
+Buongiorno.
+Buona sera.
+Buona notte.
+Come stai?
+Sto bene.
+Sto male.
+Grazie.
+Prego.
+Scusa.
+Mi chiamo Marco.
+Mi chiamo Sofia.
+Come ti chiami?
+Quanti anni hai?
+Ho dieci anni.
+Ho venti anni.
+Dove abiti?
+Abito a Roma.
+Abito a Milano.
+Abito in Italia.
+
+Il gatto è sul tavolo.
+Il cane è nel giardino.
+Il bambino mangia la mela.
+La bambina beve il latte.
+Il sole è giallo.
+La luna è bianca.
+Il cielo è blu.
+L'erba è verde.
+Il fiore è rosso.
+La casa è grande.
+La scuola è piccola.
+Il libro è aperto.
+La porta è chiusa.
+La finestra è aperta.
+
+Uno, due, tre, quattro, cinque.
+Sei, sette, otto, nove, dieci.
+Undici, dodici, tredici, quattordici, quindici.
+Sedici, diciassette, diciotto, diciannove, venti.
+Trenta, quaranta, cinquanta, sessanta, settanta.
+Ottanta, novanta, cento, mille.
+
+Lunedì, martedì, mercoledì, giovedì, venerdì.
+Sabato, domenica.
+Gennaio, febbraio, marzo, aprile, maggio, giugno.
+Luglio, agosto, settembre, ottobre, novembre, dicembre.
+
+La mia famiglia.
+Mia madre si chiama Anna.
+Mio padre si chiama Giovanni.
+Mio fratello si chiama Luca.
+Mia sorella si chiama Maria.
+Il nonno è vecchio.
+La nonna è buona.
+Lo zio lavora in città.
+La zia abita in campagna.
+
+La mattina mi sveglio.
+Mi lavo le mani.
+Faccio colazione.
+Bevo un caffè.
+Mangio una brioche.
+Vado a scuola.
+Studio italiano.
+Studio matematica.
+Il pomeriggio gioco.
+La sera ceno.
+La notte dormo.
+
+Che tempo fa oggi?
+Oggi c'è il sole.
+Oggi piove.
+Oggi nevica.
+Fa caldo.
+Fa freddo.
+C'è vento.
+C'è nebbia.
+Il cielo è nuvoloso.
+Il cielo è sereno.
+
+La mela è un frutto.
+La banana è gialla.
+L'arancia è arancione.
+La pera è dolce.
+La ciliegia è rossa.
+Il limone è acido.
+L'uva è buona.
+La fragola è piccola e rossa.
+Il cocomero è verde fuori e rosso dentro.
+
+La carota è arancione.
+Il pomodoro è rosso.
+La patata è marrone.
+La cipolla è bianca.
+L'insalata è verde.
+Il pisello è piccolo e verde.
+La melanzana è viola.
+Il peperone è rosso o giallo o verde.
+
+Il cane abbaia.
+Il gatto miagola.
+La mucca fa mu.
+Il cavallo nitrisce.
+L'uccello canta.
+Il pesce nuota.
+Il coniglio salta.
+La tartaruga è lenta.
+La lepre è veloce.
+L'elefante è grande.
+Il topo è piccolo.
+La farfalla è bella.
+
+Il bambino corre.
+La bambina ride.
+Il ragazzo studia.
+La ragazza legge.
+L'uomo lavora.
+La donna cucina.
+Il vecchio cammina lentamente.
+Il giovane corre veloce.
+
+Ho fame.
+Ho sete.
+Ho sonno.
+Ho paura.
+Ho freddo.
+Ho caldo.
+Sono stanco.
+Sono contento.
+Sono triste.
+Sono arrabbiato.
+
+Dove è il gatto? Il gatto è qui.
+Dove è il cane? Il cane è lì.
+Dove è la palla? La palla è sotto il tavolo.
+Dove è il libro? Il libro è sopra la sedia.
+Dove è Marco? Marco è in casa.
+Dove è Sofia? Sofia è fuori.
+
+Questo è un albero.
+Questa è una casa.
+Questo è un fiore.
+Questa è una strada.
+Questo è un bambino.
+Questa è una bambina.
+Questi sono alberi.
+Queste sono case.
+
+Voglio mangiare.
+Voglio dormire.
+Voglio giocare.
+Voglio studiare.
+Non voglio mangiare.
+Non voglio dormire.
+Non voglio andare a scuola.
+Voglio andare al parco.
+Voglio vedere la televisione.
+
+Posso venire?
+Puoi aiutarmi?
+Dobbiamo studiare.
+Devo andare.
+Lui deve lavorare.
+Lei vuole dormire.
+Noi vogliamo giocare.
+Voi potete venire.
+Loro devono aspettare.
+
+La casa ha quattro stanze.
+Il salotto è grande.
+La cucina è piccola.
+La camera da letto è tranquilla.
+Il bagno è in fondo al corridoio.
+La finestra guarda sul giardino.
+La porta è di legno.
+Il tetto è rosso.
+Le scale salgono al primo piano.
+
+In cucina c'è il frigorifero.
+Sul tavolo c'è il piatto.
+Nel piatto c'è la pasta.
+La pasta è calda.
+La minestra è buona.
+Il pane è fresco.
+Il vino è rosso.
+L'acqua è fresca.
+
+A scuola.
+La maestra spiega.
+I bambini ascoltano.
+Marco alza la mano.
+Sofia risponde alla domanda.
+Il professore scrive alla lavagna.
+Gli studenti copiano sul quaderno.
+La campana suona.
+L'intervallo è finito.
+Si torna in classe.
+
+Nel bosco.
+Gli alberi sono alti.
+Le foglie sono verdi in estate.
+In autunno le foglie diventano gialle e rosse.
+In inverno gli alberi sono spogli.
+In primavera i fiori sbocciano.
+Un uccello canta sul ramo.
+Un coniglio corre nell'erba.
+Il ruscello scorre tra i sassi.
+Il sole filtra tra le foglie.
+
+Al mare.
+Le onde arrivano sulla riva.
+La sabbia è calda.
+I bambini giocano con la palla.
+Un gabbiano vola sul mare.
+Le barche sono all'orizzonte.
+Il mare è azzurro.
+L'acqua è salata.
+Un bambino costruisce un castello di sabbia.
+Andiamo a fare il bagno!
+
+In città.
+Le macchine corrono per le strade.
+Le persone camminano sui marciapiedi.
+Il semaforo è rosso. Ci fermiamo.
+Il semaforo è verde. Andiamo avanti.
+Il negozio è aperto.
+Il mercato è in piazza.
+La chiesa è antica.
+Il museo è interessante.
+Il parco è pieno di bambini.
+
+Dialogo 1.
+Marco: Ciao, Sofia!
+Sofia: Ciao, Marco! Come stai?
+Marco: Sto bene, grazie. E tu?
+Sofia: Anch'io sto bene. Dove vai?
+Marco: Vado al parco. Vieni con me?
+Sofia: Sì, volentieri!
+
+Dialogo 2.
+Cliente: Buongiorno. Vorrei del pane.
+Fornaio: Buongiorno. Quanto ne vuole?
+Cliente: Un chilo, per favore.
+Fornaio: Ecco a lei. Desidera altro?
+Cliente: No, grazie. Quanto fa?
+Fornaio: Due euro, per favore.
+Cliente: Ecco a lei. Arrivederci.
+Fornaio: Arrivederci e buona giornata!
+
+Dialogo 3.
+Mamma: Marco, hai fatto i compiti?
+Marco: Non ancora, mamma.
+Mamma: Devi fare i compiti prima di giocare.
+Marco: Va bene, mamma. Li faccio adesso.
+Mamma: Bravo. Poi potrai guardare la televisione.
+Marco: Grazie, mamma!
+
+Filastrocche.
+Ambarabà ciccì coccò,
+tre civette sul comò.
+Che facevano? Le calze.
+A chi? Alla signora.
+Povera signora,
+se n'è andata a fare spesa
+e ha comprato una sorpresa.
+
+Giro giro tondo,
+casca il mondo,
+casca la terra,
+tutti giù per terra!
+
+Stella stellina,
+la notte si avvicina.
+La fiamma traballa,
+la mucca è nella stalla,
+la mucca e il vitello,
+la pecora e l'agnello,
+la chioccia coi pulcini,
+la mamma coi bambini.
+Ognuno ha la sua mamma,
+e tutti fanno la nanna.
+
+Una storia semplice.
+C'era una volta un bambino che si chiamava Pietro.
+Pietro aveva sette anni.
+Pietro abitava in una piccola casa in campagna.
+Aveva un gatto di nome Micio e un cane di nome Fido.
+Ogni mattina Pietro si alzava presto.
+Faceva colazione con latte e biscotti.
+Poi andava a scuola a piedi.
+La strada per la scuola passava vicino al fiume.
+Pietro salutava sempre il vecchio pescatore.
+Il pescatore si chiamava Bernardo.
+Bernardo stava sempre seduto sul bordo del fiume.
+Aveva una lunga barba bianca.
+A Pietro piaceva guardare i pesci nell'acqua.
+A scuola Pietro aveva molti amici.
+Il suo migliore amico si chiamava Roberto.
+Roberto era alto e aveva i capelli ricci.
+Insieme giocavano a pallone nel cortile.
+Dopo la scuola Pietro tornava a casa.
+La mamma lo aspettava con il pranzo pronto.
+Di solito c'era la pasta al pomodoro.
+Pietro mangiava volentieri.
+Il pomeriggio faceva i compiti.
+Poi giocava con Micio e Fido nel giardino.
+La sera la famiglia cenava insieme.
+Il papà raccontava storie divertenti.
+La mamma rideva.
+Poi Pietro andava a dormire.
+Sognava avventure meravigliose.
+Era un bambino felice.
+
+I colori.
+Il rosso è il colore del fuoco e del sangue.
+Il blu è il colore del cielo e del mare.
+Il verde è il colore dell'erba e degli alberi.
+Il giallo è il colore del sole e dei limoni.
+Il bianco è il colore della neve e del latte.
+Il nero è il colore della notte.
+L'arancione è il colore delle arance.
+Il viola è il colore delle violette.
+Il rosa è il colore delle rose.
+Il marrone è il colore della terra e del legno.
+
+Le stagioni.
+La primavera è la stagione dei fiori.
+In primavera fa caldo e piove spesso.
+Gli alberi fioriscono.
+Gli uccelli cantano.
+L'estate è la stagione del caldo.
+D'estate andiamo al mare o in montagna.
+Il sole splende forte.
+I bambini giocano all'aperto.
+L'autunno è la stagione delle foglie colorate.
+In autunno la frutta matura.
+Le foglie cadono dagli alberi.
+Fa più fresco.
+L'inverno è la stagione fredda.
+In inverno nevica in montagna.
+Si accende il fuoco nel camino.
+I bambini fanno i pupazzi di neve.
+A Natale la famiglia si riunisce.
+
+Il corpo umano.
+La testa è in cima al corpo.
+Il viso ha due occhi, un naso e una bocca.
+Le orecchie sono ai lati della testa.
+I capelli crescono sulla testa.
+Il collo unisce la testa al busto.
+Le braccia hanno mani e dita.
+Le gambe hanno piedi e dita dei piedi.
+Il cuore batte nel petto.
+Lo stomaco digerisce il cibo.
+I polmoni respirano l'aria.
+
+Che cosa fai?
+Io leggo un libro.
+Tu ascolti la musica.
+Lui guarda la televisione.
+Lei cucina la cena.
+Noi giochiamo a carte.
+Voi parlate al telefono.
+Loro dormono.
+
+Ieri, oggi e domani.
+Ieri sono andato al parco.
+Oggi sto a casa.
+Domani andrò a scuola.
+La settimana scorsa ho visto un film.
+Questa settimana studio molto.
+La settimana prossima ci sarà una gita scolastica.
+L'anno scorso siamo andati al mare.
+Quest'anno restiamo in città.
+Il prossimo anno vorrei visitare Roma.

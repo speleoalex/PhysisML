@@ -1,0 +1,119 @@
+Il cane.
+
+Il cane si chiama Fido.
+Fido è grande.
+Fido è bello.
+Fido ha fame.
+Fido mangia il pane.
+Fido beve l'acqua.
+Fido dorme.
+Buonanotte Fido.
+
+
+Il gatto.
+
+Il gatto si chiama Micio.
+Micio è piccolo.
+Micio è bello.
+Micio ha sete.
+Micio beve il latte.
+Micio mangia il pesce.
+Micio dorme.
+Buonanotte Micio.
+
+
+La famiglia.
+
+La mamma è qui.
+Il papà è qui.
+La nonna è qui.
+Il nonno è qui.
+Il bambino è qui.
+La famiglia è bella.
+La famiglia è grande.
+
+
+Il pane.
+
+Il pane è buono.
+Il pane è caldo.
+La mamma dà il pane.
+Il bambino mangia il pane.
+Buono il pane!
+
+
+Il sole e la luna.
+
+Il sole è giallo.
+Il sole è grande.
+Il sole fa caldo.
+Buongiorno sole!
+La luna è bianca.
+La luna è bella.
+La luna brilla.
+Buonanotte luna!
+
+
+Il bambino e il cane.
+
+Il bambino si chiama Luca.
+Luca ha un cane.
+Il cane si chiama Rex.
+Rex è grande.
+Luca dà il pane a Rex.
+Rex mangia il pane.
+Rex è contento.
+Luca è contento.
+Luca e Rex sono amici.
+
+
+I colori.
+
+La mela è rossa.
+Il cielo è blu.
+L'erba è verde.
+Il sole è giallo.
+Il latte è bianco.
+La notte è nera.
+I colori sono belli.
+
+
+Il bambino si sveglia.
+
+Il bambino si sveglia.
+Buongiorno mamma.
+Buongiorno papà.
+Il bambino ha fame.
+La mamma dà il latte.
+La mamma dà il pane.
+Il bambino mangia.
+Il bambino è contento.
+
+
+Gli animali della fattoria.
+
+Nella fattoria c'è il cane.
+Il cane fa bau bau.
+Nella fattoria c'è il gatto.
+Il gatto fa miao miao.
+Nella fattoria c'è la mucca.
+La mucca fa mu mu.
+Nella fattoria c'è l'uccello.
+L'uccello fa cip cip.
+Gli animali sono belli.
+
+
+La nanna.
+
+La mamma dà un bacio.
+Il papà dà un bacio.
+Il bambino è stanco.
+Il bambino chiude gli occhi.
+Il bambino dorme.
+Buonanotte mamma.
+Buonanotte papà.
+Buonanotte stelle.
+
+
+physisml dice ciao.
+physisml saluta.

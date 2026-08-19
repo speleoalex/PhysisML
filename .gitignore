@@ -1,0 +1,44 @@
+# Secrets
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtualenvs and runtime state
+venv/
+.venv/
+*.pid
+*.db
+
+# Trained models and checkpoints (generated artifacts, can be multi-GB)
+models/
+*.pt
+*.npz
+*.bin
+*.safetensors
+*.gguf
+
+# Test-generated checkpoints
+tests/test_1/checkpoints/
+dynamic_model/exp_a/checkpoints/
+dynamic_model/exp_b/checkpoints/
+
+# Session logs (generated during training)
+*.jsonl
+
+# Raw corpus downloads (multi-GB)
+corpus_raw/
+
+# Editor / OS
+.DS_Store
+*.swp
+*.swo
+
+# Private notes (not published)
+docs_internal/
+diario/
+CLAUDE.md
+GEMINI.md
+appunti.md

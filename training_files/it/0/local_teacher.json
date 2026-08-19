@@ -1,0 +1,75 @@
+{
+  "lang": "it",
+  "level": 0,
+  "description": "Neonato — suoni e sillabe isolate",
+  "quality_threshold": 0.45,
+  "quality_strong_min": 0.3,
+  "steps": {
+    "A": {
+      "description": "Suoni isolati",
+      "targets": [
+        "ma",
+        "pa",
+        "ta",
+        "la",
+        "na",
+        "ba",
+        "da",
+        "fa",
+        "ra",
+        "sa"
+      ],
+      "prompt_template": "di {target}",
+      "expected_template": "{target}!",
+      "max_response_words": 3,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5
+    },
+    "B": {
+      "description": "Coppie di suoni (raddoppiati)",
+      "targets": [
+        "mama",
+        "papa",
+        "tata",
+        "nana",
+        "baba",
+        "lala"
+      ],
+      "prompt_template": "di {target}",
+      "expected_template": "{target}!",
+      "max_response_words": 3,
+      "advance_after_successes": 3,
+      "retry_after_failures": 5
+    },
+    "C": {
+      "description": "Esclamazioni e risposte base",
+      "targets": [
+        "sì",
+        "no",
+        "oh",
+        "ah",
+        "eh"
+      ],
+      "prompt_template": "di {target}",
+      "expected_template": "{target}!",
+      "max_response_words": 2,
+      "advance_after_successes": 3,
+      "retry_after_failures": 5
+    }
+  },
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "Ottimo! {target} chiaro e risposta breve.",
+    "comment_++": "Bene! {target} presente.",
+    "comment_+": "Quasi! Sento qualcosa.",
+    "comment_=": "Confuso, proviamo ancora.",
+    "comment_-": "Non riconoscibile, riprovo."
+  },
+  "encouragement": [
+    "bravo!",
+    "bene!",
+    "benissimo!",
+    "ottimo!"
+  ],
+  "retry_prefix": "{target} {target}. "
+}

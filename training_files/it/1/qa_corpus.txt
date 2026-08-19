@@ -1,0 +1,6540 @@
+l acqua l acqua. di: l acqua
+l acqua!
+
+ottimo! di: nonna
+nonna!
+
+di: physisml
+physisml!
+
+di: la mamma
+la mamma!
+
+di: bravo
+bravo!
+
+bravo! di: il pane
+il pane!
+
+benissimo! di: il cane
+il cane!
+
+ottimo! di: il papà
+il papà!
+
+di: l acqua
+l acqua!
+
+bravo! di: mamma
+mamma!
+
+di: il cane
+il cane!
+
+di: la casa
+la casa!
+
+bravo! di: bello
+bello!
+
+di: il sole
+il sole!
+
+di: mamma
+mamma!
+
+il papà il papà. di: il papà
+il papà!
+
+di: sì
+sì!
+
+benissimo! di: il gatto
+il gatto!
+
+benissimo! di: la luna
+la luna!
+
+benissimo! di: la casa
+la casa!
+
+di: nonno
+nonno!
+
+il naso il naso. di: il naso
+il naso!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+bene! di: il latte
+il latte!
+
+di: il piede
+il piede!
+
+bravo! di: la casa
+la casa!
+
+perfetto! di: il naso
+il naso!
+
+bravo! di: ciao
+ciao!
+
+ottimo! di: il sole
+il sole!
+
+il pane il pane. di: il pane
+il pane!
+
+benissimo! di: la mamma
+la mamma!
+
+bene! di: la mamma
+la mamma!
+
+ottimo! di: il latte
+il latte!
+
+perfetto! di: il latte
+il latte!
+
+di: la luna
+la luna!
+
+perfetto! di: la nonna
+la nonna!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+bravo! di: il cane
+il cane!
+
+ottimo! di: la mamma
+la mamma!
+
+perfetto! di: l acqua
+l acqua!
+
+la casa la casa. di: la casa
+la casa!
+
+no no. di: no
+no!
+
+bravo! di: il latte
+il latte!
+
+di: il naso
+il naso!
+
+sì sì. di: sì
+sì!
+
+perfetto! di: il pane
+il pane!
+
+perfetto! di: il papà
+il papà!
+
+il cane il cane. di: il cane
+il cane!
+
+ottimo! di: il pane
+il pane!
+
+ottimo! di: il cane
+il cane!
+
+di: il pane
+il pane!
+
+benissimo! di: la nonna
+la nonna!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+la mano la mano. di: la mano
+la mano!
+
+bravo! di: la mano
+la mano!
+
+il sole il sole. di: il sole
+il sole!
+
+bravo! di: il papà
+il papà!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+benissimo! di: il papà
+il papà!
+
+bravo! di: il sole
+il sole!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+mamma mamma. di: mamma
+mamma!
+
+ottimo! di: l acqua
+l acqua!
+
+bravo! di: la luna
+la luna!
+
+bravo! di: il gatto
+il gatto!
+
+di: la nonna
+la nonna!
+
+la luna la luna. di: la luna
+la luna!
+
+di: la mano
+la mano!
+
+di: il gatto
+il gatto!
+
+ottimo! di: mamma
+mamma!
+
+ottimo! di: la luna
+la luna!
+
+benissimo! di: mamma
+mamma!
+
+bene! di: la nonna
+la nonna!
+
+bene! di: la casa
+la casa!
+
+di: nonna
+nonna!
+
+ottimo! di ancora: la casa
+la casa!
+
+bene! di: il pane
+il pane!
+
+di: papà
+papà!
+
+benissimo! di: il latte
+il latte!
+
+papà papà. di: papà
+papà!
+
+di: il latte
+il latte!
+
+nonna nonna. di: nonna
+nonna!
+
+ottimo! di: la casa
+la casa!
+
+bravo! di: la mamma
+la mamma!
+
+ottimo! di: la nonna
+la nonna!
+
+benissimo! di: il sole
+il sole!
+
+perfetto! di: la mamma
+la mamma!
+
+di: ciao
+ciao!
+
+di: buono
+buono!
+
+bene! di: la luna
+la luna!
+
+perfetto! di: la casa
+la casa!
+
+perfetto! di: il cane
+il cane!
+
+perfetto! di: il sole
+il sole!
+
+bene! di: il cane
+il cane!
+
+benissimo! di ancora: il cane
+il cane!
+
+perfetto! di: il gatto
+il gatto!
+
+di: il papà
+il papà!
+
+bravo! di: la nonna
+la nonna!
+
+bravo! di: il naso
+il naso!
+
+di: no
+no!
+
+bene! di: il papà
+il papà!
+
+bene! di: il sole
+il sole!
+
+benissimo! di: il pane
+il pane!
+
+il latte il latte. di: il latte
+il latte!
+
+perfetto! di: la luna
+la luna!
+
+ottimo! di: il gatto
+il gatto!
+
+nonno nonno. di: nonno
+nonno!
+
+di: l occhio
+l occhio!
+
+ciao ciao. di: ciao
+ciao!
+
+perfetto! di: il cane
+il cane!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+di: papà
+papà!
+
+la luna la luna. di: la luna
+la luna!
+
+ottimo! di: il latte
+il latte!
+
+di: nonna
+nonna!
+
+di: no
+no!
+
+bene! di: il sole
+il sole!
+
+bravo! di: bello
+bello!
+
+ottimo! di: la casa
+la casa!
+
+perfetto! di: il sole
+il sole!
+
+bene! di: il cane
+il cane!
+
+perfetto! di: il gatto
+il gatto!
+
+ottimo! di: il papà
+il papà!
+
+di: il naso
+il naso!
+
+perfetto! di: la casa
+la casa!
+
+di: la nonna
+la nonna!
+
+di: il latte
+il latte!
+
+ciao ciao. di: ciao
+ciao!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+bravo! di: mamma
+mamma!
+
+ottimo! di ancora: la casa
+la casa!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+di: il piede
+il piede!
+
+benissimo! di: il pane
+il pane!
+
+di: il pane
+il pane!
+
+ottimo! di: il sole
+il sole!
+
+bene! di: il papà
+il papà!
+
+benissimo! di: la nonna
+la nonna!
+
+la mano la mano. di: la mano
+la mano!
+
+di: la mamma
+la mamma!
+
+perfetto! di: il latte
+il latte!
+
+ottimo! di: la nonna
+la nonna!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+bravo! di: la casa
+la casa!
+
+bravo! di: il naso
+il naso!
+
+bene! di: la nonna
+la nonna!
+
+bravo! di: ciao
+ciao!
+
+il pane il pane. di: il pane
+il pane!
+
+bravo! di: il latte
+il latte!
+
+bravo! di: il pane
+il pane!
+
+benissimo! di: la casa
+la casa!
+
+ottimo! di: il gatto
+il gatto!
+
+perfetto! di: la luna
+la luna!
+
+no no. di: no
+no!
+
+ottimo! di: mamma
+mamma!
+
+mamma mamma. di: mamma
+mamma!
+
+sì sì. di: sì
+sì!
+
+benissimo! di: il papà
+il papà!
+
+di: il papà
+il papà!
+
+ottimo! di: la luna
+la luna!
+
+ottimo! di: l acqua
+l acqua!
+
+benissimo! di: il gatto
+il gatto!
+
+bene! di: la luna
+la luna!
+
+nonno nonno. di: nonno
+nonno!
+
+perfetto! di: l acqua
+l acqua!
+
+di: mamma
+mamma!
+
+bene! di: la casa
+la casa!
+
+di: physisml
+physisml!
+
+bene! di: il latte
+il latte!
+
+perfetto! di: il papà
+il papà!
+
+di: bravo
+bravo!
+
+di: nonno
+nonno!
+
+di: l acqua
+l acqua!
+
+bravo! di: il papà
+il papà!
+
+il latte il latte. di: il latte
+il latte!
+
+ottimo! di: il pane
+il pane!
+
+di: la casa
+la casa!
+
+il papà il papà. di: il papà
+il papà!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+benissimo! di: mamma
+mamma!
+
+di: l occhio
+l occhio!
+
+ottimo! di: nonna
+nonna!
+
+ottimo! di: la mamma
+la mamma!
+
+di: il sole
+il sole!
+
+di: la luna
+la luna!
+
+benissimo! di: il cane
+il cane!
+
+bene! di: il pane
+il pane!
+
+bravo! di: il sole
+il sole!
+
+benissimo! di: il latte
+il latte!
+
+bravo! di: la mano
+la mano!
+
+il cane il cane. di: il cane
+il cane!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+benissimo! di: il sole
+il sole!
+
+nonna nonna. di: nonna
+nonna!
+
+perfetto! di: la nonna
+la nonna!
+
+bravo! di: il gatto
+il gatto!
+
+di: la mano
+la mano!
+
+di: ciao
+ciao!
+
+la casa la casa. di: la casa
+la casa!
+
+perfetto! di: il naso
+il naso!
+
+bravo! di: la nonna
+la nonna!
+
+ottimo! di: il cane
+il cane!
+
+bene! di: la mamma
+la mamma!
+
+benissimo! di: la mamma
+la mamma!
+
+perfetto! di: la mamma
+la mamma!
+
+bravo! di: la mamma
+la mamma!
+
+papà papà. di: papà
+papà!
+
+benissimo! di: la luna
+la luna!
+
+il naso il naso. di: il naso
+il naso!
+
+di: il cane
+il cane!
+
+perfetto! di: il pane
+il pane!
+
+di: sì
+sì!
+
+bravo! di: la luna
+la luna!
+
+bravo! di: il cane
+il cane!
+
+benissimo! di ancora: il cane
+il cane!
+
+di: il gatto
+il gatto!
+
+di: buono
+buono!
+
+il sole il sole. di: il sole
+il sole!
+
+di: sì
+sì!
+
+bravo! di: mamma
+mamma!
+
+bene! di: il pane
+il pane!
+
+benissimo! di: il cane
+il cane!
+
+ottimo! di: nonna
+nonna!
+
+bravo! di: il latte
+il latte!
+
+ottimo! di: il latte
+il latte!
+
+bene! di: il cane
+il cane!
+
+di: il piede
+il piede!
+
+bravo! di: il pane
+il pane!
+
+benissimo! di: il pane
+il pane!
+
+bene! di: la luna
+la luna!
+
+bravo! di: la mamma
+la mamma!
+
+il pane il pane. di: il pane
+il pane!
+
+papà papà. di: papà
+papà!
+
+nonna nonna. di: nonna
+nonna!
+
+il cane il cane. di: il cane
+il cane!
+
+bravo! di: la nonna
+la nonna!
+
+di: no
+no!
+
+bene! di: la casa
+la casa!
+
+la mano la mano. di: la mano
+la mano!
+
+bravo! di: il papà
+il papà!
+
+bravo! di: il gatto
+il gatto!
+
+nonno nonno. di: nonno
+nonno!
+
+bravo! di: la mano
+la mano!
+
+bravo! di: bello
+bello!
+
+benissimo! di ancora: il cane
+il cane!
+
+benissimo! di: la mamma
+la mamma!
+
+di: l acqua
+l acqua!
+
+bravo! di: il naso
+il naso!
+
+benissimo! di: la nonna
+la nonna!
+
+il papà il papà. di: il papà
+il papà!
+
+bravo! di: il sole
+il sole!
+
+perfetto! di: il sole
+il sole!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+no no. di: no
+no!
+
+ottimo! di: il sole
+il sole!
+
+di: il gatto
+il gatto!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+bravo! di: il cane
+il cane!
+
+ottimo! di: la mamma
+la mamma!
+
+bravo! di: ciao
+ciao!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+benissimo! di: il papà
+il papà!
+
+perfetto! di: la mamma
+la mamma!
+
+di: il papà
+il papà!
+
+ottimo! di ancora: la casa
+la casa!
+
+benissimo! di: il gatto
+il gatto!
+
+perfetto! di: la casa
+la casa!
+
+di: bravo
+bravo!
+
+benissimo! di: la luna
+la luna!
+
+perfetto! di: il cane
+il cane!
+
+ottimo! di: l acqua
+l acqua!
+
+di: la casa
+la casa!
+
+bravo! di: la casa
+la casa!
+
+di: papà
+papà!
+
+mamma mamma. di: mamma
+mamma!
+
+benissimo! di: mamma
+mamma!
+
+di: la mamma
+la mamma!
+
+di: la mano
+la mano!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+bene! di: il papà
+il papà!
+
+di: buono
+buono!
+
+bene! di: il sole
+il sole!
+
+ciao ciao. di: ciao
+ciao!
+
+benissimo! di: il latte
+il latte!
+
+di: il pane
+il pane!
+
+di: il latte
+il latte!
+
+di: nonno
+nonno!
+
+ottimo! di: il pane
+il pane!
+
+perfetto! di: il latte
+il latte!
+
+bravo! di: la luna
+la luna!
+
+bene! di: la mamma
+la mamma!
+
+benissimo! di: il sole
+il sole!
+
+di: il naso
+il naso!
+
+perfetto! di: il gatto
+il gatto!
+
+benissimo! di: la casa
+la casa!
+
+ottimo! di: la luna
+la luna!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+ottimo! di: il gatto
+il gatto!
+
+perfetto! di: l acqua
+l acqua!
+
+ottimo! di: mamma
+mamma!
+
+perfetto! di: il naso
+il naso!
+
+sì sì. di: sì
+sì!
+
+bene! di: la nonna
+la nonna!
+
+di: mamma
+mamma!
+
+il naso il naso. di: il naso
+il naso!
+
+perfetto! di: il pane
+il pane!
+
+perfetto! di: la nonna
+la nonna!
+
+ottimo! di: il cane
+il cane!
+
+ottimo! di: la casa
+la casa!
+
+di: il cane
+il cane!
+
+di: la nonna
+la nonna!
+
+di: l occhio
+l occhio!
+
+il latte il latte. di: il latte
+il latte!
+
+di: la luna
+la luna!
+
+di: nonna
+nonna!
+
+bene! di: il latte
+il latte!
+
+perfetto! di: il papà
+il papà!
+
+ottimo! di: la nonna
+la nonna!
+
+la luna la luna. di: la luna
+la luna!
+
+il sole il sole. di: il sole
+il sole!
+
+di: il sole
+il sole!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+ottimo! di: il papà
+il papà!
+
+perfetto! di: la luna
+la luna!
+
+di: ciao
+ciao!
+
+la casa la casa. di: la casa
+la casa!
+
+di: physisml
+physisml!
+
+di: bravo
+bravo!
+
+il papà il papà. di: il papà
+il papà!
+
+bene! di: il cane
+il cane!
+
+ottimo! di: l acqua
+l acqua!
+
+perfetto! di: la luna
+la luna!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+perfetto! di: il pane
+il pane!
+
+di: ciao
+ciao!
+
+ottimo! di: mamma
+mamma!
+
+bene! di: il sole
+il sole!
+
+di: la casa
+la casa!
+
+benissimo! di: la mamma
+la mamma!
+
+bravo! di: il naso
+il naso!
+
+di: la nonna
+la nonna!
+
+ottimo! di: il pane
+il pane!
+
+di: il cane
+il cane!
+
+ottimo! di: il gatto
+il gatto!
+
+di: nonno
+nonno!
+
+bravo! di: la luna
+la luna!
+
+benissimo! di: la nonna
+la nonna!
+
+la mano la mano. di: la mano
+la mano!
+
+benissimo! di: il cane
+il cane!
+
+di: il latte
+il latte!
+
+bravo! di: mamma
+mamma!
+
+bene! di: il papà
+il papà!
+
+di: il papà
+il papà!
+
+perfetto! di: il sole
+il sole!
+
+bene! di: la casa
+la casa!
+
+perfetto! di: il naso
+il naso!
+
+di: papà
+papà!
+
+di: mamma
+mamma!
+
+di: il naso
+il naso!
+
+di: buono
+buono!
+
+perfetto! di: la nonna
+la nonna!
+
+benissimo! di: la luna
+la luna!
+
+nonna nonna. di: nonna
+nonna!
+
+il latte il latte. di: il latte
+il latte!
+
+ottimo! di: il latte
+il latte!
+
+di: la mano
+la mano!
+
+ciao ciao. di: ciao
+ciao!
+
+ottimo! di: la luna
+la luna!
+
+bravo! di: il latte
+il latte!
+
+benissimo! di: il papà
+il papà!
+
+no no. di: no
+no!
+
+di: no
+no!
+
+bene! di: la nonna
+la nonna!
+
+bravo! di: il cane
+il cane!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+di: l acqua
+l acqua!
+
+il naso il naso. di: il naso
+il naso!
+
+benissimo! di: il sole
+il sole!
+
+ottimo! di: la nonna
+la nonna!
+
+il pane il pane. di: il pane
+il pane!
+
+papà papà. di: papà
+papà!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+di: il sole
+il sole!
+
+la luna la luna. di: la luna
+la luna!
+
+il sole il sole. di: il sole
+il sole!
+
+bravo! di: ciao
+ciao!
+
+benissimo! di ancora: il cane
+il cane!
+
+ottimo! di: il cane
+il cane!
+
+perfetto! di: l acqua
+l acqua!
+
+bravo! di: la mamma
+la mamma!
+
+mamma mamma. di: mamma
+mamma!
+
+benissimo! di: mamma
+mamma!
+
+bravo! di: il gatto
+il gatto!
+
+ottimo! di: la mamma
+la mamma!
+
+ottimo! di: nonna
+nonna!
+
+ottimo! di: il sole
+il sole!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+nonno nonno. di: nonno
+nonno!
+
+benissimo! di: la casa
+la casa!
+
+di: physisml
+physisml!
+
+di: la luna
+la luna!
+
+bravo! di: bello
+bello!
+
+ottimo! di: il papà
+il papà!
+
+bravo! di: il pane
+il pane!
+
+benissimo! di: il pane
+il pane!
+
+di: il piede
+il piede!
+
+di: sì
+sì!
+
+perfetto! di: il papà
+il papà!
+
+bravo! di: il papà
+il papà!
+
+bene! di: la mamma
+la mamma!
+
+perfetto! di: la casa
+la casa!
+
+di: nonna
+nonna!
+
+la casa la casa. di: la casa
+la casa!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+bene! di: il latte
+il latte!
+
+bene! di: la luna
+la luna!
+
+perfetto! di: il latte
+il latte!
+
+di: l occhio
+l occhio!
+
+bravo! di: la mano
+la mano!
+
+bene! di: il pane
+il pane!
+
+perfetto! di: il cane
+il cane!
+
+ottimo! di: la casa
+la casa!
+
+benissimo! di: il latte
+il latte!
+
+perfetto! di: la mamma
+la mamma!
+
+bravo! di: la casa
+la casa!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+di: il gatto
+il gatto!
+
+ottimo! di ancora: la casa
+la casa!
+
+bravo! di: la nonna
+la nonna!
+
+benissimo! di: il gatto
+il gatto!
+
+di: il pane
+il pane!
+
+perfetto! di: il gatto
+il gatto!
+
+bravo! di: il sole
+il sole!
+
+il cane il cane. di: il cane
+il cane!
+
+di: la mamma
+la mamma!
+
+sì sì. di: sì
+sì!
+
+bravo! di: bello
+bello!
+
+bravo! di: il papà
+il papà!
+
+bravo! di: mamma
+mamma!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+sì sì. di: sì
+sì!
+
+bravo! di: la mano
+la mano!
+
+benissimo! di: il gatto
+il gatto!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+ottimo! di: nonna
+nonna!
+
+benissimo! di: la mamma
+la mamma!
+
+benissimo! di: il cane
+il cane!
+
+perfetto! di: il cane
+il cane!
+
+la luna la luna. di: la luna
+la luna!
+
+di: la luna
+la luna!
+
+benissimo! di: la casa
+la casa!
+
+ottimo! di: mamma
+mamma!
+
+bene! di: il cane
+il cane!
+
+perfetto! di: il papà
+il papà!
+
+ottimo! di: il latte
+il latte!
+
+ottimo! di: il pane
+il pane!
+
+perfetto! di: la nonna
+la nonna!
+
+di: l acqua
+l acqua!
+
+di: il papà
+il papà!
+
+ottimo! di: il gatto
+il gatto!
+
+di: il pane
+il pane!
+
+bene! di: il pane
+il pane!
+
+mamma mamma. di: mamma
+mamma!
+
+bravo! di: il gatto
+il gatto!
+
+bravo! di: il cane
+il cane!
+
+perfetto! di: la luna
+la luna!
+
+bravo! di: il naso
+il naso!
+
+di: il cane
+il cane!
+
+ottimo! di ancora: la casa
+la casa!
+
+bravo! di: il pane
+il pane!
+
+benissimo! di: il latte
+il latte!
+
+il latte il latte. di: il latte
+il latte!
+
+perfetto! di: la casa
+la casa!
+
+di: il latte
+il latte!
+
+nonno nonno. di: nonno
+nonno!
+
+bravo! di: il sole
+il sole!
+
+benissimo! di: il papà
+il papà!
+
+di: bravo
+bravo!
+
+ottimo! di: la mamma
+la mamma!
+
+la casa la casa. di: la casa
+la casa!
+
+di: la casa
+la casa!
+
+benissimo! di: la nonna
+la nonna!
+
+di: nonna
+nonna!
+
+nonna nonna. di: nonna
+nonna!
+
+la mano la mano. di: la mano
+la mano!
+
+benissimo! di: il sole
+il sole!
+
+di: l occhio
+l occhio!
+
+ottimo! di: l acqua
+l acqua!
+
+benissimo! di: mamma
+mamma!
+
+papà papà. di: papà
+papà!
+
+bene! di: il sole
+il sole!
+
+ottimo! di: il cane
+il cane!
+
+bene! di: la casa
+la casa!
+
+ottimo! di: il papà
+il papà!
+
+perfetto! di: il sole
+il sole!
+
+bene! di: il latte
+il latte!
+
+di: la mamma
+la mamma!
+
+bravo! di: il latte
+il latte!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+il cane il cane. di: il cane
+il cane!
+
+di: papà
+papà!
+
+di: physisml
+physisml!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+bravo! di: ciao
+ciao!
+
+di: mamma
+mamma!
+
+bravo! di: la luna
+la luna!
+
+bene! di: il papà
+il papà!
+
+ottimo! di: la nonna
+la nonna!
+
+di: il sole
+il sole!
+
+perfetto! di: la mamma
+la mamma!
+
+di: ciao
+ciao!
+
+ottimo! di: la casa
+la casa!
+
+di: il gatto
+il gatto!
+
+il naso il naso. di: il naso
+il naso!
+
+perfetto! di: il gatto
+il gatto!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+di: no
+no!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+bene! di: la nonna
+la nonna!
+
+bravo! di: la casa
+la casa!
+
+ottimo! di: la luna
+la luna!
+
+ciao ciao. di: ciao
+ciao!
+
+il sole il sole. di: il sole
+il sole!
+
+di: buono
+buono!
+
+benissimo! di: la luna
+la luna!
+
+bene! di: la mamma
+la mamma!
+
+ottimo! di: il sole
+il sole!
+
+benissimo! di: il pane
+il pane!
+
+perfetto! di: il pane
+il pane!
+
+no no. di: no
+no!
+
+benissimo! di ancora: il cane
+il cane!
+
+bravo! di: la nonna
+la nonna!
+
+di: la nonna
+la nonna!
+
+bene! di: la luna
+la luna!
+
+perfetto! di: l acqua
+l acqua!
+
+il papà il papà. di: il papà
+il papà!
+
+bravo! di: la mamma
+la mamma!
+
+perfetto! di: il latte
+il latte!
+
+di: la mano
+la mano!
+
+di: sì
+sì!
+
+di: il piede
+il piede!
+
+di: il naso
+il naso!
+
+perfetto! di: il naso
+il naso!
+
+di: nonno
+nonno!
+
+il pane il pane. di: il pane
+il pane!
+
+benissimo! di: il sole
+il sole!
+
+bene! di: il papà
+il papà!
+
+di: il cane
+il cane!
+
+di: nonno
+nonno!
+
+bene! di: il cane
+il cane!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+bravo! di: ciao
+ciao!
+
+ottimo! di: il latte
+il latte!
+
+perfetto! di: il papà
+il papà!
+
+bravo! di: il gatto
+il gatto!
+
+ottimo! di: il cane
+il cane!
+
+perfetto! di: il cane
+il cane!
+
+di: la mano
+la mano!
+
+bravo! di: il cane
+il cane!
+
+ottimo! di: il pane
+il pane!
+
+bravo! di: la luna
+la luna!
+
+benissimo! di: la mamma
+la mamma!
+
+bravo! di: la nonna
+la nonna!
+
+di: il piede
+il piede!
+
+bene! di: il pane
+il pane!
+
+perfetto! di: il gatto
+il gatto!
+
+ottimo! di: la nonna
+la nonna!
+
+di: nonna
+nonna!
+
+sì sì. di: sì
+sì!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+bravo! di: il latte
+il latte!
+
+perfetto! di: la nonna
+la nonna!
+
+benissimo! di ancora: il cane
+il cane!
+
+ottimo! di: il papà
+il papà!
+
+la casa la casa. di: la casa
+la casa!
+
+bene! di: il sole
+il sole!
+
+di: l acqua
+l acqua!
+
+bene! di: la casa
+la casa!
+
+la luna la luna. di: la luna
+la luna!
+
+bene! di: il latte
+il latte!
+
+no no. di: no
+no!
+
+di: la casa
+la casa!
+
+di: il sole
+il sole!
+
+papà papà. di: papà
+papà!
+
+il sole il sole. di: il sole
+il sole!
+
+ottimo! di: la luna
+la luna!
+
+perfetto! di: il pane
+il pane!
+
+ottimo! di: l acqua
+l acqua!
+
+perfetto! di: la casa
+la casa!
+
+ciao ciao. di: ciao
+ciao!
+
+perfetto! di: la mamma
+la mamma!
+
+bene! di: la luna
+la luna!
+
+bravo! di: bello
+bello!
+
+bravo! di: la mano
+la mano!
+
+bravo! di: il pane
+il pane!
+
+di: ciao
+ciao!
+
+ottimo! di: nonna
+nonna!
+
+di: la nonna
+la nonna!
+
+di: il naso
+il naso!
+
+benissimo! di: il papà
+il papà!
+
+il naso il naso. di: il naso
+il naso!
+
+di: no
+no!
+
+benissimo! di: il gatto
+il gatto!
+
+bravo! di: mamma
+mamma!
+
+di: il latte
+il latte!
+
+bravo! di: la casa
+la casa!
+
+di: sì
+sì!
+
+benissimo! di: la casa
+la casa!
+
+ottimo! di: il sole
+il sole!
+
+ottimo! di: mamma
+mamma!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+bravo! di: il papà
+il papà!
+
+di: buono
+buono!
+
+bravo! di: il naso
+il naso!
+
+perfetto! di: il latte
+il latte!
+
+ottimo! di: il gatto
+il gatto!
+
+il papà il papà. di: il papà
+il papà!
+
+di: mamma
+mamma!
+
+benissimo! di: mamma
+mamma!
+
+bene! di: la mamma
+la mamma!
+
+di: l occhio
+l occhio!
+
+ottimo! di: la mamma
+la mamma!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+benissimo! di: la luna
+la luna!
+
+ottimo! di ancora: la casa
+la casa!
+
+benissimo! di: la nonna
+la nonna!
+
+di: il gatto
+il gatto!
+
+perfetto! di: la luna
+la luna!
+
+perfetto! di: il naso
+il naso!
+
+perfetto! di: l acqua
+l acqua!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+di: bravo
+bravo!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+la mano la mano. di: la mano
+la mano!
+
+benissimo! di: il pane
+il pane!
+
+nonno nonno. di: nonno
+nonno!
+
+di: il pane
+il pane!
+
+bene! di: la nonna
+la nonna!
+
+di: il papà
+il papà!
+
+ottimo! di: la casa
+la casa!
+
+di: papà
+papà!
+
+di: la mamma
+la mamma!
+
+bravo! di: il sole
+il sole!
+
+il latte il latte. di: il latte
+il latte!
+
+mamma mamma. di: mamma
+mamma!
+
+il pane il pane. di: il pane
+il pane!
+
+nonna nonna. di: nonna
+nonna!
+
+il cane il cane. di: il cane
+il cane!
+
+perfetto! di: il sole
+il sole!
+
+benissimo! di: il cane
+il cane!
+
+benissimo! di: il latte
+il latte!
+
+di: physisml
+physisml!
+
+di: la luna
+la luna!
+
+bravo! di: la mamma
+la mamma!
+
+di: mamma
+mamma!
+
+ottimo! di: la nonna
+la nonna!
+
+di: il gatto
+il gatto!
+
+di: buono
+buono!
+
+di: il pane
+il pane!
+
+di: il naso
+il naso!
+
+mamma mamma. di: mamma
+mamma!
+
+bravo! di: la mano
+la mano!
+
+di: il piede
+il piede!
+
+benissimo! di: il latte
+il latte!
+
+bravo! di: il sole
+il sole!
+
+bene! di: il pane
+il pane!
+
+perfetto! di: il latte
+il latte!
+
+il papà il papà. di: il papà
+il papà!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+di: la casa
+la casa!
+
+perfetto! di: la nonna
+la nonna!
+
+bene! di: la nonna
+la nonna!
+
+perfetto! di: il naso
+il naso!
+
+di: ciao
+ciao!
+
+di: l acqua
+l acqua!
+
+benissimo! di: il gatto
+il gatto!
+
+bravo! di: il naso
+il naso!
+
+di: no
+no!
+
+nonna nonna. di: nonna
+nonna!
+
+perfetto! di: il gatto
+il gatto!
+
+bravo! di: il cane
+il cane!
+
+bene! di: il papà
+il papà!
+
+il pane il pane. di: il pane
+il pane!
+
+ottimo! di: l acqua
+l acqua!
+
+ottimo! di ancora: la casa
+la casa!
+
+bravo! di: la nonna
+la nonna!
+
+il latte il latte. di: il latte
+il latte!
+
+benissimo! di: la casa
+la casa!
+
+ottimo! di: mamma
+mamma!
+
+ottimo! di: il gatto
+il gatto!
+
+di: il cane
+il cane!
+
+perfetto! di: il cane
+il cane!
+
+bene! di: il sole
+il sole!
+
+di: il papà
+il papà!
+
+di: la mano
+la mano!
+
+ciao ciao. di: ciao
+ciao!
+
+benissimo! di: il papà
+il papà!
+
+di: la nonna
+la nonna!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+di: nonna
+nonna!
+
+la luna la luna. di: la luna
+la luna!
+
+ottimo! di: la luna
+la luna!
+
+papà papà. di: papà
+papà!
+
+benissimo! di: mamma
+mamma!
+
+di: physisml
+physisml!
+
+bene! di: la mamma
+la mamma!
+
+bravo! di: mamma
+mamma!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+di: sì
+sì!
+
+perfetto! di: il papà
+il papà!
+
+benissimo! di: la nonna
+la nonna!
+
+bravo! di: il pane
+il pane!
+
+ottimo! di: la casa
+la casa!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+ottimo! di: il cane
+il cane!
+
+nonno nonno. di: nonno
+nonno!
+
+perfetto! di: la casa
+la casa!
+
+di: nonno
+nonno!
+
+ottimo! di: il latte
+il latte!
+
+di: il sole
+il sole!
+
+la casa la casa. di: la casa
+la casa!
+
+bene! di: la casa
+la casa!
+
+perfetto! di: il sole
+il sole!
+
+bene! di: il cane
+il cane!
+
+bravo! di: il papà
+il papà!
+
+bravo! di: bello
+bello!
+
+benissimo! di: il cane
+il cane!
+
+di: bravo
+bravo!
+
+benissimo! di: la mamma
+la mamma!
+
+ottimo! di: la mamma
+la mamma!
+
+perfetto! di: l acqua
+l acqua!
+
+bravo! di: la mamma
+la mamma!
+
+la mano la mano. di: la mano
+la mano!
+
+di: papà
+papà!
+
+bravo! di: la luna
+la luna!
+
+benissimo! di: il pane
+il pane!
+
+sì sì. di: sì
+sì!
+
+ottimo! di: il pane
+il pane!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+perfetto! di: la mamma
+la mamma!
+
+bravo! di: la casa
+la casa!
+
+perfetto! di: la luna
+la luna!
+
+bene! di: la luna
+la luna!
+
+bravo! di: ciao
+ciao!
+
+di: la mamma
+la mamma!
+
+di: l occhio
+l occhio!
+
+di: la luna
+la luna!
+
+bravo! di: il latte
+il latte!
+
+di: il latte
+il latte!
+
+perfetto! di: il pane
+il pane!
+
+no no. di: no
+no!
+
+bravo! di: il gatto
+il gatto!
+
+ottimo! di: il sole
+il sole!
+
+il naso il naso. di: il naso
+il naso!
+
+benissimo! di: il sole
+il sole!
+
+ottimo! di: nonna
+nonna!
+
+il sole il sole. di: il sole
+il sole!
+
+ottimo! di: il papà
+il papà!
+
+benissimo! di: la luna
+la luna!
+
+benissimo! di ancora: il cane
+il cane!
+
+il cane il cane. di: il cane
+il cane!
+
+bene! di: il latte
+il latte!
+
+bravo! di: il cane
+il cane!
+
+perfetto! di: il cane
+il cane!
+
+di: nonno
+nonno!
+
+di: il piede
+il piede!
+
+perfetto! di: la luna
+la luna!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+benissimo! di: la mamma
+la mamma!
+
+di: no
+no!
+
+nonna nonna. di: nonna
+nonna!
+
+di: ciao
+ciao!
+
+benissimo! di ancora: il cane
+il cane!
+
+di: il sole
+il sole!
+
+di: physisml
+physisml!
+
+ottimo! di ancora: la casa
+la casa!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+ottimo! di: il cane
+il cane!
+
+di: la nonna
+la nonna!
+
+benissimo! di: la casa
+la casa!
+
+la mano la mano. di: la mano
+la mano!
+
+bene! di: il sole
+il sole!
+
+il naso il naso. di: il naso
+il naso!
+
+bravo! di: mamma
+mamma!
+
+perfetto! di: la nonna
+la nonna!
+
+ottimo! di: il pane
+il pane!
+
+di: la luna
+la luna!
+
+bravo! di: il naso
+il naso!
+
+perfetto! di: il pane
+il pane!
+
+di: mamma
+mamma!
+
+di: papà
+papà!
+
+nonno nonno. di: nonno
+nonno!
+
+bravo! di: il gatto
+il gatto!
+
+di: il papà
+il papà!
+
+di: nonna
+nonna!
+
+ottimo! di: la luna
+la luna!
+
+benissimo! di: la nonna
+la nonna!
+
+bravo! di: la luna
+la luna!
+
+bravo! di: bello
+bello!
+
+bravo! di: ciao
+ciao!
+
+ottimo! di: il sole
+il sole!
+
+la luna la luna. di: la luna
+la luna!
+
+bene! di: la nonna
+la nonna!
+
+perfetto! di: la casa
+la casa!
+
+di: la casa
+la casa!
+
+di: sì
+sì!
+
+ottimo! di: l acqua
+l acqua!
+
+bravo! di: il pane
+il pane!
+
+benissimo! di: mamma
+mamma!
+
+di: la mamma
+la mamma!
+
+di: l occhio
+l occhio!
+
+ciao ciao. di: ciao
+ciao!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+ottimo! di: la nonna
+la nonna!
+
+bene! di: il papà
+il papà!
+
+bene! di: la casa
+la casa!
+
+benissimo! di: la luna
+la luna!
+
+benissimo! di: il pane
+il pane!
+
+ottimo! di: nonna
+nonna!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+perfetto! di: il sole
+il sole!
+
+bravo! di: la casa
+la casa!
+
+il papà il papà. di: il papà
+il papà!
+
+benissimo! di: il latte
+il latte!
+
+perfetto! di: il latte
+il latte!
+
+di: buono
+buono!
+
+di: la mano
+la mano!
+
+la casa la casa. di: la casa
+la casa!
+
+bene! di: la mamma
+la mamma!
+
+ottimo! di: il papà
+il papà!
+
+benissimo! di: il sole
+il sole!
+
+di: il cane
+il cane!
+
+ottimo! di: il latte
+il latte!
+
+ottimo! di: la casa
+la casa!
+
+benissimo! di: il cane
+il cane!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+il cane il cane. di: il cane
+il cane!
+
+di: il latte
+il latte!
+
+il latte il latte. di: il latte
+il latte!
+
+bravo! di: il sole
+il sole!
+
+bravo! di: il papà
+il papà!
+
+perfetto! di: il naso
+il naso!
+
+no no. di: no
+no!
+
+di: il gatto
+il gatto!
+
+papà papà. di: papà
+papà!
+
+bene! di: il latte
+il latte!
+
+il pane il pane. di: il pane
+il pane!
+
+ottimo! di: il gatto
+il gatto!
+
+benissimo! di: il gatto
+il gatto!
+
+bravo! di: la mano
+la mano!
+
+perfetto! di: il gatto
+il gatto!
+
+bravo! di: la nonna
+la nonna!
+
+di: il pane
+il pane!
+
+perfetto! di: la mamma
+la mamma!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+di: l acqua
+l acqua!
+
+bene! di: il cane
+il cane!
+
+perfetto! di: l acqua
+l acqua!
+
+bene! di: il pane
+il pane!
+
+il sole il sole. di: il sole
+il sole!
+
+perfetto! di: il papà
+il papà!
+
+sì sì. di: sì
+sì!
+
+di: il naso
+il naso!
+
+di: bravo
+bravo!
+
+bravo! di: il latte
+il latte!
+
+bene! di: la luna
+la luna!
+
+ottimo! di: mamma
+mamma!
+
+ottimo! di: la mamma
+la mamma!
+
+benissimo! di: il papà
+il papà!
+
+mamma mamma. di: mamma
+mamma!
+
+bravo! di: la mamma
+la mamma!
+
+di: mamma
+mamma!
+
+perfetto! di: il gatto
+il gatto!
+
+il naso il naso. di: il naso
+il naso!
+
+di: il latte
+il latte!
+
+bravo! di: il gatto
+il gatto!
+
+bravo! di: il sole
+il sole!
+
+il cane il cane. di: il cane
+il cane!
+
+bravo! di: il naso
+il naso!
+
+ottimo! di: la nonna
+la nonna!
+
+nonna nonna. di: nonna
+nonna!
+
+bravo! di: la nonna
+la nonna!
+
+di: la casa
+la casa!
+
+il latte il latte. di: il latte
+il latte!
+
+ottimo! di: il papà
+il papà!
+
+di: buono
+buono!
+
+benissimo! di: il cane
+il cane!
+
+perfetto! di: la casa
+la casa!
+
+bravo! di: ciao
+ciao!
+
+di: il cane
+il cane!
+
+la mano la mano. di: la mano
+la mano!
+
+perfetto! di: il pane
+il pane!
+
+di: l acqua
+l acqua!
+
+benissimo! di: la casa
+la casa!
+
+ottimo! di: la luna
+la luna!
+
+ottimo! di: l acqua
+l acqua!
+
+di: physisml
+physisml!
+
+benissimo! di ancora: il cane
+il cane!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+bravo! di: il cane
+il cane!
+
+perfetto! di: il cane
+il cane!
+
+di: la mamma
+la mamma!
+
+perfetto! di: l acqua
+l acqua!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+bravo! di: la luna
+la luna!
+
+mamma mamma. di: mamma
+mamma!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+benissimo! di: il gatto
+il gatto!
+
+bene! di: la nonna
+la nonna!
+
+bene! di: la luna
+la luna!
+
+di: la mano
+la mano!
+
+benissimo! di: la mamma
+la mamma!
+
+di: il piede
+il piede!
+
+bene! di: il latte
+il latte!
+
+ottimo! di: mamma
+mamma!
+
+benissimo! di: il latte
+il latte!
+
+di: il sole
+il sole!
+
+bravo! di: il pane
+il pane!
+
+la luna la luna. di: la luna
+la luna!
+
+di: sì
+sì!
+
+bene! di: il cane
+il cane!
+
+di: nonno
+nonno!
+
+papà papà. di: papà
+papà!
+
+ottimo! di: il gatto
+il gatto!
+
+di: il gatto
+il gatto!
+
+il papà il papà. di: il papà
+il papà!
+
+bene! di: il sole
+il sole!
+
+bravo! di: la mamma
+la mamma!
+
+bravo! di: la casa
+la casa!
+
+perfetto! di: il naso
+il naso!
+
+no no. di: no
+no!
+
+il pane il pane. di: il pane
+il pane!
+
+di: il papà
+il papà!
+
+il sole il sole. di: il sole
+il sole!
+
+ottimo! di: il sole
+il sole!
+
+di: l occhio
+l occhio!
+
+benissimo! di: il pane
+il pane!
+
+bravo! di: la mano
+la mano!
+
+perfetto! di: il papà
+il papà!
+
+benissimo! di: il sole
+il sole!
+
+ottimo! di: il pane
+il pane!
+
+bene! di: la casa
+la casa!
+
+di: la luna
+la luna!
+
+nonno nonno. di: nonno
+nonno!
+
+perfetto! di: la mamma
+la mamma!
+
+ciao ciao. di: ciao
+ciao!
+
+benissimo! di: la nonna
+la nonna!
+
+benissimo! di: mamma
+mamma!
+
+bravo! di: il latte
+il latte!
+
+bravo! di: bello
+bello!
+
+ottimo! di: il latte
+il latte!
+
+bravo! di: il papà
+il papà!
+
+ottimo! di: la mamma
+la mamma!
+
+perfetto! di: il sole
+il sole!
+
+sì sì. di: sì
+sì!
+
+perfetto! di: la luna
+la luna!
+
+perfetto! di: il latte
+il latte!
+
+bene! di: il papà
+il papà!
+
+bene! di: la mamma
+la mamma!
+
+di: papà
+papà!
+
+di: il pane
+il pane!
+
+di: nonna
+nonna!
+
+perfetto! di: la nonna
+la nonna!
+
+ottimo! di ancora: la casa
+la casa!
+
+benissimo! di: la luna
+la luna!
+
+bene! di: il pane
+il pane!
+
+ottimo! di: la casa
+la casa!
+
+bravo! di: mamma
+mamma!
+
+di: bravo
+bravo!
+
+di: no
+no!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+ottimo! di: nonna
+nonna!
+
+di: il naso
+il naso!
+
+di: la nonna
+la nonna!
+
+benissimo! di: il papà
+il papà!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+ottimo! di: il cane
+il cane!
+
+la casa la casa. di: la casa
+la casa!
+
+di: ciao
+ciao!
+
+di: il cane
+il cane!
+
+ottimo! di: il latte
+il latte!
+
+bravo! di: bello
+bello!
+
+papà papà. di: papà
+papà!
+
+bene! di: il latte
+il latte!
+
+ottimo! di: la luna
+la luna!
+
+bravo! di: il sole
+il sole!
+
+di: l acqua
+l acqua!
+
+ottimo! di: la mamma
+la mamma!
+
+di: mamma
+mamma!
+
+il latte il latte. di: il latte
+il latte!
+
+bravo! di: il naso
+il naso!
+
+perfetto! di: il gatto
+il gatto!
+
+la casa la casa. di: la casa
+la casa!
+
+bene! di: il sole
+il sole!
+
+bravo! di: la luna
+la luna!
+
+ottimo! di: la casa
+la casa!
+
+la luna la luna. di: la luna
+la luna!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+mamma mamma. di: mamma
+mamma!
+
+bene! di: la mamma
+la mamma!
+
+benissimo! di: il papà
+il papà!
+
+benissimo! di: mamma
+mamma!
+
+perfetto! di: il cane
+il cane!
+
+di: il papà
+il papà!
+
+ottimo! di: la nonna
+la nonna!
+
+perfetto! di: la nonna
+la nonna!
+
+di: physisml
+physisml!
+
+sì sì. di: sì
+sì!
+
+ottimo! di: il gatto
+il gatto!
+
+bravo! di: mamma
+mamma!
+
+bene! di: la nonna
+la nonna!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+no no. di: no
+no!
+
+nonno nonno. di: nonno
+nonno!
+
+benissimo! di: il cane
+il cane!
+
+perfetto! di: il sole
+il sole!
+
+bravo! di: il latte
+il latte!
+
+bravo! di: la nonna
+la nonna!
+
+di: il latte
+il latte!
+
+bene! di: il pane
+il pane!
+
+perfetto! di: la mamma
+la mamma!
+
+bravo! di: la casa
+la casa!
+
+bravo! di: il pane
+il pane!
+
+di: l occhio
+l occhio!
+
+benissimo! di: la casa
+la casa!
+
+nonna nonna. di: nonna
+nonna!
+
+di: la mano
+la mano!
+
+di: la nonna
+la nonna!
+
+bravo! di: ciao
+ciao!
+
+benissimo! di: la nonna
+la nonna!
+
+perfetto! di: la luna
+la luna!
+
+benissimo! di: il gatto
+il gatto!
+
+bravo! di: il papà
+il papà!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+di: buono
+buono!
+
+ottimo! di: il pane
+il pane!
+
+ottimo! di: nonna
+nonna!
+
+perfetto! di: il pane
+il pane!
+
+ottimo! di: il papà
+il papà!
+
+di: bravo
+bravo!
+
+benissimo! di: il latte
+il latte!
+
+perfetto! di: l acqua
+l acqua!
+
+bene! di: la casa
+la casa!
+
+bene! di: la luna
+la luna!
+
+il naso il naso. di: il naso
+il naso!
+
+di: ciao
+ciao!
+
+di: nonna
+nonna!
+
+il pane il pane. di: il pane
+il pane!
+
+di: nonno
+nonno!
+
+bravo! di: la mano
+la mano!
+
+di: il naso
+il naso!
+
+bravo! di: il cane
+il cane!
+
+ottimo! di: il cane
+il cane!
+
+di: la mamma
+la mamma!
+
+di: sì
+sì!
+
+bravo! di: il gatto
+il gatto!
+
+benissimo! di: il pane
+il pane!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+ottimo! di: l acqua
+l acqua!
+
+di: il sole
+il sole!
+
+di: la luna
+la luna!
+
+la mano la mano. di: la mano
+la mano!
+
+perfetto! di: la casa
+la casa!
+
+ciao ciao. di: ciao
+ciao!
+
+ottimo! di: mamma
+mamma!
+
+benissimo! di ancora: il cane
+il cane!
+
+di: il gatto
+il gatto!
+
+benissimo! di: la mamma
+la mamma!
+
+di: il pane
+il pane!
+
+il cane il cane. di: il cane
+il cane!
+
+perfetto! di: il naso
+il naso!
+
+di: il piede
+il piede!
+
+perfetto! di: il latte
+il latte!
+
+di: no
+no!
+
+benissimo! di: la luna
+la luna!
+
+il sole il sole. di: il sole
+il sole!
+
+ottimo! di: il sole
+il sole!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+di: la casa
+la casa!
+
+il papà il papà. di: il papà
+il papà!
+
+di: papà
+papà!
+
+bene! di: il papà
+il papà!
+
+bravo! di: la mamma
+la mamma!
+
+perfetto! di: il papà
+il papà!
+
+bene! di: il cane
+il cane!
+
+ottimo! di ancora: la casa
+la casa!
+
+benissimo! di: il sole
+il sole!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+bravo! di: la nonna
+la nonna!
+
+di: mamma
+mamma!
+
+ottimo! di: la mamma
+la mamma!
+
+di: sì
+sì!
+
+perfetto! di: il sole
+il sole!
+
+benissimo! di: il pane
+il pane!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+la casa la casa. di: la casa
+la casa!
+
+mamma mamma. di: mamma
+mamma!
+
+bravo! di: la mamma
+la mamma!
+
+benissimo! di: il papà
+il papà!
+
+benissimo! di: il gatto
+il gatto!
+
+ottimo! di: il papà
+il papà!
+
+bene! di: la luna
+la luna!
+
+di: physisml
+physisml!
+
+perfetto! di: il naso
+il naso!
+
+ottimo! di: la casa
+la casa!
+
+ottimo! di ancora: la casa
+la casa!
+
+di: no
+no!
+
+no no. di: no
+no!
+
+di: il naso
+il naso!
+
+la luna la luna. di: la luna
+la luna!
+
+ottimo! di: il latte
+il latte!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+ottimo! di: la nonna
+la nonna!
+
+perfetto! di: la casa
+la casa!
+
+di: la luna
+la luna!
+
+il pane il pane. di: il pane
+il pane!
+
+bene! di: la nonna
+la nonna!
+
+di: ciao
+ciao!
+
+ottimo! di: nonna
+nonna!
+
+perfetto! di: la mamma
+la mamma!
+
+il naso il naso. di: il naso
+il naso!
+
+di: buono
+buono!
+
+di: nonno
+nonno!
+
+il sole il sole. di: il sole
+il sole!
+
+di: la casa
+la casa!
+
+benissimo! di: mamma
+mamma!
+
+perfetto! di: il cane
+il cane!
+
+papà papà. di: papà
+papà!
+
+ottimo! di: il sole
+il sole!
+
+perfetto! di: l acqua
+l acqua!
+
+benissimo! di: la luna
+la luna!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+perfetto! di: la nonna
+la nonna!
+
+di: il gatto
+il gatto!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+bravo! di: il latte
+il latte!
+
+bravo! di: la luna
+la luna!
+
+benissimo! di: il cane
+il cane!
+
+nonna nonna. di: nonna
+nonna!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+il papà il papà. di: il papà
+il papà!
+
+di: l acqua
+l acqua!
+
+bravo! di: il pane
+il pane!
+
+bravo! di: il papà
+il papà!
+
+di: il sole
+il sole!
+
+benissimo! di: la mamma
+la mamma!
+
+bravo! di: il naso
+il naso!
+
+bene! di: il latte
+il latte!
+
+bravo! di: bello
+bello!
+
+perfetto! di: il pane
+il pane!
+
+perfetto! di: il gatto
+il gatto!
+
+ottimo! di: mamma
+mamma!
+
+ciao ciao. di: ciao
+ciao!
+
+bravo! di: il gatto
+il gatto!
+
+il cane il cane. di: il cane
+il cane!
+
+bravo! di: il sole
+il sole!
+
+benissimo! di: il sole
+il sole!
+
+perfetto! di: la luna
+la luna!
+
+ottimo! di: la luna
+la luna!
+
+ottimo! di: il gatto
+il gatto!
+
+ottimo! di: l acqua
+l acqua!
+
+benissimo! di: il latte
+il latte!
+
+di: la mamma
+la mamma!
+
+bene! di: il sole
+il sole!
+
+bravo! di: la mano
+la mano!
+
+di: l occhio
+l occhio!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+benissimo! di: la nonna
+la nonna!
+
+di: il latte
+il latte!
+
+il latte il latte. di: il latte
+il latte!
+
+di: papà
+papà!
+
+benissimo! di: la casa
+la casa!
+
+la mano la mano. di: la mano
+la mano!
+
+nonno nonno. di: nonno
+nonno!
+
+bravo! di: la casa
+la casa!
+
+di: il cane
+il cane!
+
+bene! di: la mamma
+la mamma!
+
+di: il papà
+il papà!
+
+sì sì. di: sì
+sì!
+
+di: nonna
+nonna!
+
+bene! di: il papà
+il papà!
+
+benissimo! di ancora: il cane
+il cane!
+
+di: il piede
+il piede!
+
+di: la mano
+la mano!
+
+di: il pane
+il pane!
+
+perfetto! di: il latte
+il latte!
+
+di: la nonna
+la nonna!
+
+perfetto! di: il papà
+il papà!
+
+ottimo! di: il pane
+il pane!
+
+bene! di: la casa
+la casa!
+
+ottimo! di: il cane
+il cane!
+
+bravo! di: il cane
+il cane!
+
+bravo! di: ciao
+ciao!
+
+bene! di: il pane
+il pane!
+
+di: bravo
+bravo!
+
+bene! di: il cane
+il cane!
+
+bravo! di: mamma
+mamma!
+
+ottimo! di: la casa
+la casa!
+
+ottimo! di: nonna
+nonna!
+
+perfetto! di: il cane
+il cane!
+
+bravo! di: il papà
+il papà!
+
+di: il naso
+il naso!
+
+di: ciao
+ciao!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+di: mamma
+mamma!
+
+ciao ciao. di: ciao
+ciao!
+
+perfetto! di: il gatto
+il gatto!
+
+di: no
+no!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+il cane il cane. di: il cane
+il cane!
+
+ottimo! di: il gatto
+il gatto!
+
+ottimo! di: il sole
+il sole!
+
+ottimo! di: il pane
+il pane!
+
+benissimo! di: il papà
+il papà!
+
+il papà il papà. di: il papà
+il papà!
+
+di: nonna
+nonna!
+
+bravo! di: il naso
+il naso!
+
+benissimo! di: il pane
+il pane!
+
+bene! di: il papà
+il papà!
+
+perfetto! di: il papà
+il papà!
+
+di: il cane
+il cane!
+
+bravo! di: il latte
+il latte!
+
+benissimo! di: mamma
+mamma!
+
+di: buono
+buono!
+
+bravo! di: il cane
+il cane!
+
+la luna la luna. di: la luna
+la luna!
+
+ottimo! di: mamma
+mamma!
+
+benissimo! di: la mamma
+la mamma!
+
+bene! di: la mamma
+la mamma!
+
+bene! di: il sole
+il sole!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+bravo! di: il gatto
+il gatto!
+
+di: bravo
+bravo!
+
+bene! di: la nonna
+la nonna!
+
+di: il sole
+il sole!
+
+di: sì
+sì!
+
+benissimo! di: il sole
+il sole!
+
+perfetto! di: la casa
+la casa!
+
+di: il latte
+il latte!
+
+il naso il naso. di: il naso
+il naso!
+
+bene! di: il cane
+il cane!
+
+nonno nonno. di: nonno
+nonno!
+
+perfetto! di: il pane
+il pane!
+
+ottimo! di: la nonna
+la nonna!
+
+bravo! di: il sole
+il sole!
+
+bravo! di: mamma
+mamma!
+
+di: la luna
+la luna!
+
+bravo! di: la mamma
+la mamma!
+
+nonna nonna. di: nonna
+nonna!
+
+benissimo! di: il cane
+il cane!
+
+bravo! di: il pane
+il pane!
+
+il pane il pane. di: il pane
+il pane!
+
+bravo! di: la mano
+la mano!
+
+bravo! di: la nonna
+la nonna!
+
+bravo! di: la casa
+la casa!
+
+benissimo! di: il gatto
+il gatto!
+
+perfetto! di: l acqua
+l acqua!
+
+bravo! di: bello
+bello!
+
+perfetto! di: la mamma
+la mamma!
+
+di: la nonna
+la nonna!
+
+di: nonno
+nonno!
+
+papà papà. di: papà
+papà!
+
+ottimo! di: il papà
+il papà!
+
+benissimo! di: il latte
+il latte!
+
+bene! di: la casa
+la casa!
+
+benissimo! di ancora: il cane
+il cane!
+
+perfetto! di: la nonna
+la nonna!
+
+perfetto! di: il latte
+il latte!
+
+di: il pane
+il pane!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+di: la mamma
+la mamma!
+
+di: il papà
+il papà!
+
+ottimo! di: il latte
+il latte!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+perfetto! di: il sole
+il sole!
+
+la mano la mano. di: la mano
+la mano!
+
+di: l occhio
+l occhio!
+
+di: l acqua
+l acqua!
+
+perfetto! di: il naso
+il naso!
+
+benissimo! di: la nonna
+la nonna!
+
+bene! di: il latte
+il latte!
+
+di: il gatto
+il gatto!
+
+il latte il latte. di: il latte
+il latte!
+
+di: physisml
+physisml!
+
+no no. di: no
+no!
+
+di: il piede
+il piede!
+
+il sole il sole. di: il sole
+il sole!
+
+ottimo! di: l acqua
+l acqua!
+
+perfetto! di: la luna
+la luna!
+
+di: la casa
+la casa!
+
+la casa la casa. di: la casa
+la casa!
+
+benissimo! di: la luna
+la luna!
+
+di: papà
+papà!
+
+bene! di: il pane
+il pane!
+
+di: la mano
+la mano!
+
+mamma mamma. di: mamma
+mamma!
+
+bravo! di: ciao
+ciao!
+
+ottimo! di: la mamma
+la mamma!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+ottimo! di: il cane
+il cane!
+
+bene! di: la luna
+la luna!
+
+ottimo! di ancora: la casa
+la casa!
+
+benissimo! di: la casa
+la casa!
+
+ottimo! di: la luna
+la luna!
+
+sì sì. di: sì
+sì!
+
+bravo! di: la luna
+la luna!
+
+benissimo! di: la luna
+la luna!
+
+bene! di: la luna
+la luna!
+
+ottimo! di: il latte
+il latte!
+
+perfetto! di: il papà
+il papà!
+
+il naso il naso. di: il naso
+il naso!
+
+di: il cane
+il cane!
+
+di: la mano
+la mano!
+
+la mano la mano. di: la mano
+la mano!
+
+bene! di: il pane
+il pane!
+
+di: no
+no!
+
+perfetto! di: il pane
+il pane!
+
+di: papà
+papà!
+
+bravo! di: il pane
+il pane!
+
+bene! di: il sole
+il sole!
+
+bravo! di: la casa
+la casa!
+
+di: l occhio
+l occhio!
+
+ottimo! di: il gatto
+il gatto!
+
+benissimo! di: il latte
+il latte!
+
+bene! di: il latte
+il latte!
+
+di: il latte
+il latte!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+perfetto! di: il sole
+il sole!
+
+benissimo! di: il gatto
+il gatto!
+
+la luna la luna. di: la luna
+la luna!
+
+benissimo! di: il cane
+il cane!
+
+mamma mamma. di: mamma
+mamma!
+
+di: il papà
+il papà!
+
+perfetto! di: il cane
+il cane!
+
+perfetto! di: la casa
+la casa!
+
+di: la luna
+la luna!
+
+ottimo! di: nonna
+nonna!
+
+di: buono
+buono!
+
+bravo! di: il naso
+il naso!
+
+il cane il cane. di: il cane
+il cane!
+
+bravo! di: il gatto
+il gatto!
+
+bravo! di: mamma
+mamma!
+
+di: il piede
+il piede!
+
+ottimo! di: il cane
+il cane!
+
+benissimo! di: il sole
+il sole!
+
+perfetto! di: il gatto
+il gatto!
+
+bravo! di: la mamma
+la mamma!
+
+bravo! di: la nonna
+la nonna!
+
+la casa la casa. di: la casa
+la casa!
+
+ottimo! di: la luna
+la luna!
+
+benissimo! di: la mamma
+la mamma!
+
+bene! di: la casa
+la casa!
+
+papà papà. di: papà
+papà!
+
+ottimo! di ancora: la casa
+la casa!
+
+bravo! di: il sole
+il sole!
+
+bene! di: il cane
+il cane!
+
+perfetto! di: il naso
+il naso!
+
+ottimo! di: la mamma
+la mamma!
+
+ottimo! di: la casa
+la casa!
+
+perfetto! di: la nonna
+la nonna!
+
+bene! di: la mamma
+la mamma!
+
+di: nonno
+nonno!
+
+di: il pane
+il pane!
+
+di: sì
+sì!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+bravo! di: il latte
+il latte!
+
+di: la casa
+la casa!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+di: nonna
+nonna!
+
+ottimo! di: il pane
+il pane!
+
+di: bravo
+bravo!
+
+no no. di: no
+no!
+
+il latte il latte. di: il latte
+il latte!
+
+benissimo! di: il pane
+il pane!
+
+bene! di: il papà
+il papà!
+
+perfetto! di: il latte
+il latte!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+ciao ciao. di: ciao
+ciao!
+
+perfetto! di: la mamma
+la mamma!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+ottimo! di: la nonna
+la nonna!
+
+perfetto! di: l acqua
+l acqua!
+
+nonna nonna. di: nonna
+nonna!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+di: la mamma
+la mamma!
+
+ottimo! di: il sole
+il sole!
+
+bravo! di: bello
+bello!
+
+perfetto! di: la luna
+la luna!
+
+di: physisml
+physisml!
+
+di: il gatto
+il gatto!
+
+bravo! di: la mano
+la mano!
+
+benissimo! di: mamma
+mamma!
+
+di: la nonna
+la nonna!
+
+nonno nonno. di: nonno
+nonno!
+
+bravo! di: ciao
+ciao!
+
+bravo! di: la luna
+la luna!
+
+ottimo! di: l acqua
+l acqua!
+
+il papà il papà. di: il papà
+il papà!
+
+di: ciao
+ciao!
+
+il pane il pane. di: il pane
+il pane!
+
+di: l acqua
+l acqua!
+
+bravo! di: il papà
+il papà!
+
+ottimo! di: mamma
+mamma!
+
+bene! di: la nonna
+la nonna!
+
+benissimo! di: la nonna
+la nonna!
+
+di: il naso
+il naso!
+
+ottimo! di: il papà
+il papà!
+
+di: il sole
+il sole!
+
+il sole il sole. di: il sole
+il sole!
+
+bravo! di: il cane
+il cane!
+
+di: mamma
+mamma!
+
+benissimo! di: il papà
+il papà!
+
+benissimo! di ancora: il cane
+il cane!
+
+benissimo! di: la casa
+la casa!
+
+sì sì. di: sì
+sì!
+
+benissimo! di: il papà
+il papà!
+
+il sole il sole. di: il sole
+il sole!
+
+di: il papà
+il papà!
+
+perfetto! di: il papà
+il papà!
+
+bravo! di: il gatto
+il gatto!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+bravo! di: il latte
+il latte!
+
+bene! di: il cane
+il cane!
+
+di: ciao
+ciao!
+
+perfetto! di: il gatto
+il gatto!
+
+perfetto! di: l acqua
+l acqua!
+
+perfetto! di: il sole
+il sole!
+
+bene! di: la luna
+la luna!
+
+ottimo! di: la mamma
+la mamma!
+
+di: la luna
+la luna!
+
+perfetto! di: il latte
+il latte!
+
+perfetto! di: il cane
+il cane!
+
+bravo! di: la luna
+la luna!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+di: il gatto
+il gatto!
+
+no no. di: no
+no!
+
+perfetto! di: la luna
+la luna!
+
+di: l acqua
+l acqua!
+
+di: nonna
+nonna!
+
+di: la mano
+la mano!
+
+bene! di: il latte
+il latte!
+
+ottimo! di ancora: la casa
+la casa!
+
+benissimo! di: il gatto
+il gatto!
+
+ottimo! di: la casa
+la casa!
+
+perfetto! di: il pane
+il pane!
+
+bravo! di: ciao
+ciao!
+
+ottimo! di: la luna
+la luna!
+
+di: bravo
+bravo!
+
+benissimo! di: il cane
+il cane!
+
+di: mamma
+mamma!
+
+nonno nonno. di: nonno
+nonno!
+
+di: la mamma
+la mamma!
+
+ottimo! di: l acqua
+l acqua!
+
+perfetto! di: la mamma
+la mamma!
+
+di: la nonna
+la nonna!
+
+bene! di: la casa
+la casa!
+
+di: papà
+papà!
+
+il papà il papà. di: il papà
+il papà!
+
+sì sì. di: sì
+sì!
+
+di: l occhio
+l occhio!
+
+perfetto! di: la nonna
+la nonna!
+
+benissimo! di ancora: il cane
+il cane!
+
+il pane il pane. di: il pane
+il pane!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+ottimo! di: il pane
+il pane!
+
+bravo! di: mamma
+mamma!
+
+di: physisml
+physisml!
+
+perfetto! di: il naso
+il naso!
+
+bravo! di: la mano
+la mano!
+
+ottimo! di: nonna
+nonna!
+
+di: no
+no!
+
+bene! di: il pane
+il pane!
+
+di: sì
+sì!
+
+bravo! di: la nonna
+la nonna!
+
+benissimo! di: la luna
+la luna!
+
+di: il cane
+il cane!
+
+bravo! di: il sole
+il sole!
+
+la mano la mano. di: la mano
+la mano!
+
+il latte il latte. di: il latte
+il latte!
+
+bravo! di: il pane
+il pane!
+
+bene! di: la nonna
+la nonna!
+
+bravo! di: il cane
+il cane!
+
+il cane il cane. di: il cane
+il cane!
+
+di: il latte
+il latte!
+
+il naso il naso. di: il naso
+il naso!
+
+benissimo! di: la nonna
+la nonna!
+
+ottimo! di: il latte
+il latte!
+
+bene! di: il papà
+il papà!
+
+la casa la casa. di: la casa
+la casa!
+
+di: buono
+buono!
+
+ciao ciao. di: ciao
+ciao!
+
+benissimo! di: il pane
+il pane!
+
+ottimo! di: il papà
+il papà!
+
+bravo! di: bello
+bello!
+
+di: il pane
+il pane!
+
+di: la casa
+la casa!
+
+di: nonno
+nonno!
+
+nonna nonna. di: nonna
+nonna!
+
+ottimo! di: il cane
+il cane!
+
+di: il sole
+il sole!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+ottimo! di: la nonna
+la nonna!
+
+di: il naso
+il naso!
+
+bene! di: il sole
+il sole!
+
+bravo! di: il papà
+il papà!
+
+papà papà. di: papà
+papà!
+
+benissimo! di: il latte
+il latte!
+
+bravo! di: il naso
+il naso!
+
+benissimo! di: il sole
+il sole!
+
+benissimo! di: la casa
+la casa!
+
+mamma mamma. di: mamma
+mamma!
+
+bene! di: la mamma
+la mamma!
+
+ottimo! di: il gatto
+il gatto!
+
+la luna la luna. di: la luna
+la luna!
+
+ottimo! di: mamma
+mamma!
+
+perfetto! di: la casa
+la casa!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+di: il piede
+il piede!
+
+bravo! di: la mamma
+la mamma!
+
+bravo! di: la casa
+la casa!
+
+ottimo! di: il sole
+il sole!
+
+benissimo! di: mamma
+mamma!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+benissimo! di: la mamma
+la mamma!
+
+benissimo! di: la mamma
+la mamma!
+
+il naso il naso. di: il naso
+il naso!
+
+di: il gatto
+il gatto!
+
+ottimo! di: il latte
+il latte!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+benissimo! di: il pane
+il pane!
+
+perfetto! di: il pane
+il pane!
+
+papà papà. di: papà
+papà!
+
+benissimo! di ancora: il cane
+il cane!
+
+di: buono
+buono!
+
+di: il sole
+il sole!
+
+di: ciao
+ciao!
+
+ciao ciao. di: ciao
+ciao!
+
+ottimo! di: la mamma
+la mamma!
+
+perfetto! di: la luna
+la luna!
+
+di: la nonna
+la nonna!
+
+la casa la casa. di: la casa
+la casa!
+
+bene! di: la mamma
+la mamma!
+
+il cane il cane. di: il cane
+il cane!
+
+bene! di: il latte
+il latte!
+
+ottimo! di: il gatto
+il gatto!
+
+perfetto! di: il papà
+il papà!
+
+ottimo! di: il cane
+il cane!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+di: la luna
+la luna!
+
+nonna nonna. di: nonna
+nonna!
+
+bene! di: la casa
+la casa!
+
+bravo! di: il sole
+il sole!
+
+di: no
+no!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+di: il cane
+il cane!
+
+bravo! di: la nonna
+la nonna!
+
+ottimo! di ancora: la casa
+la casa!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+di: la mamma
+la mamma!
+
+la mano la mano. di: la mano
+la mano!
+
+bravo! di: il papà
+il papà!
+
+bene! di: la luna
+la luna!
+
+benissimo! di: la nonna
+la nonna!
+
+il sole il sole. di: il sole
+il sole!
+
+no no. di: no
+no!
+
+ottimo! di: il sole
+il sole!
+
+benissimo! di: il sole
+il sole!
+
+benissimo! di: il cane
+il cane!
+
+bravo! di: il naso
+il naso!
+
+bravo! di: il cane
+il cane!
+
+perfetto! di: il cane
+il cane!
+
+di: physisml
+physisml!
+
+di: bravo
+bravo!
+
+bravo! di: la mamma
+la mamma!
+
+ottimo! di: il papà
+il papà!
+
+ottimo! di: il pane
+il pane!
+
+bene! di: il pane
+il pane!
+
+di: la mano
+la mano!
+
+benissimo! di: il latte
+il latte!
+
+benissimo! di: il papà
+il papà!
+
+perfetto! di: la nonna
+la nonna!
+
+sì sì. di: sì
+sì!
+
+mamma mamma. di: mamma
+mamma!
+
+ottimo! di: l acqua
+l acqua!
+
+il papà il papà. di: il papà
+il papà!
+
+perfetto! di: il naso
+il naso!
+
+benissimo! di: mamma
+mamma!
+
+di: sì
+sì!
+
+bene! di: il cane
+il cane!
+
+perfetto! di: il sole
+il sole!
+
+bravo! di: bello
+bello!
+
+di: l occhio
+l occhio!
+
+di: il piede
+il piede!
+
+ottimo! di: mamma
+mamma!
+
+ottimo! di: la luna
+la luna!
+
+bene! di: il papà
+il papà!
+
+di: papà
+papà!
+
+benissimo! di: il gatto
+il gatto!
+
+di: nonna
+nonna!
+
+perfetto! di: il gatto
+il gatto!
+
+bene! di: il sole
+il sole!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+bravo! di: mamma
+mamma!
+
+bravo! di: la casa
+la casa!
+
+bravo! di: la mano
+la mano!
+
+perfetto! di: la mamma
+la mamma!
+
+la luna la luna. di: la luna
+la luna!
+
+il pane il pane. di: il pane
+il pane!
+
+bravo! di: il pane
+il pane!
+
+di: il naso
+il naso!
+
+il latte il latte. di: il latte
+il latte!
+
+ottimo! di: nonna
+nonna!
+
+di: l acqua
+l acqua!
+
+di: mamma
+mamma!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+perfetto! di: la casa
+la casa!
+
+nonno nonno. di: nonno
+nonno!
+
+benissimo! di: la casa
+la casa!
+
+di: nonno
+nonno!
+
+bene! di: la nonna
+la nonna!
+
+bravo! di: ciao
+ciao!
+
+ottimo! di: la casa
+la casa!
+
+bravo! di: la luna
+la luna!
+
+bravo! di: il latte
+il latte!
+
+perfetto! di: l acqua
+l acqua!
+
+ottimo! di: la nonna
+la nonna!
+
+di: il pane
+il pane!
+
+di: il latte
+il latte!
+
+benissimo! di: la luna
+la luna!
+
+di: la casa
+la casa!
+
+bravo! di: il gatto
+il gatto!
+
+perfetto! di: il latte
+il latte!
+
+di: il papà
+il papà!
+
+di: no
+no!
+
+perfetto! di: il pane
+il pane!
+
+ottimo! di: il cane
+il cane!
+
+benissimo! di: la casa
+la casa!
+
+bravo! di: mamma
+mamma!
+
+ottimo! di: il gatto
+il gatto!
+
+benissimo! di: la mamma
+la mamma!
+
+benissimo! di ancora: il cane
+il cane!
+
+perfetto! di: la nonna
+la nonna!
+
+bravo! di: bello
+bello!
+
+bene! di: il pane
+il pane!
+
+il cane il cane. di: il cane
+il cane!
+
+perfetto! di: il papà
+il papà!
+
+no no. di: no
+no!
+
+di: il sole
+il sole!
+
+papà papà. di: papà
+papà!
+
+di: il latte
+il latte!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+il naso il naso. di: il naso
+il naso!
+
+di: physisml
+physisml!
+
+bene! di: la mamma
+la mamma!
+
+perfetto! di: la luna
+la luna!
+
+di: la nonna
+la nonna!
+
+ottimo! di: il papà
+il papà!
+
+bravo! di: il sole
+il sole!
+
+il papà il papà. di: il papà
+il papà!
+
+bene! di: il papà
+il papà!
+
+di: la mamma
+la mamma!
+
+di: mamma
+mamma!
+
+ottimo! di ancora: la casa
+la casa!
+
+bravo! di: la nonna
+la nonna!
+
+la mano la mano. di: la mano
+la mano!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+il sole il sole. di: il sole
+il sole!
+
+bene! di: il latte
+il latte!
+
+sì sì. di: sì
+sì!
+
+bravo! di: ciao
+ciao!
+
+il latte il latte. di: il latte
+il latte!
+
+la casa la casa. di: la casa
+la casa!
+
+di: l acqua
+l acqua!
+
+di: il gatto
+il gatto!
+
+bravo! di: la casa
+la casa!
+
+di: il cane
+il cane!
+
+perfetto! di: il sole
+il sole!
+
+di: bravo
+bravo!
+
+perfetto! di: il gatto
+il gatto!
+
+ottimo! di: la luna
+la luna!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+perfetto! di: il naso
+il naso!
+
+la luna la luna. di: la luna
+la luna!
+
+mamma mamma. di: mamma
+mamma!
+
+ottimo! di: l acqua
+l acqua!
+
+perfetto! di: il latte
+il latte!
+
+di: sì
+sì!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+ottimo! di: il pane
+il pane!
+
+di: nonno
+nonno!
+
+di: l occhio
+l occhio!
+
+bravo! di: il pane
+il pane!
+
+benissimo! di: il pane
+il pane!
+
+bravo! di: la luna
+la luna!
+
+di: la mano
+la mano!
+
+perfetto! di: il cane
+il cane!
+
+di: buono
+buono!
+
+bene! di: la luna
+la luna!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+benissimo! di: il cane
+il cane!
+
+di: il piede
+il piede!
+
+nonno nonno. di: nonno
+nonno!
+
+di: papà
+papà!
+
+ciao ciao. di: ciao
+ciao!
+
+di: il pane
+il pane!
+
+bene! di: il cane
+il cane!
+
+bravo! di: il gatto
+il gatto!
+
+bravo! di: il papà
+il papà!
+
+ottimo! di: la casa
+la casa!
+
+benissimo! di: il papà
+il papà!
+
+bravo! di: la mamma
+la mamma!
+
+bravo! di: il naso
+il naso!
+
+ottimo! di: nonna
+nonna!
+
+benissimo! di: il gatto
+il gatto!
+
+perfetto! di: la mamma
+la mamma!
+
+ottimo! di: la mamma
+la mamma!
+
+bravo! di: la mano
+la mano!
+
+benissimo! di: la nonna
+la nonna!
+
+bene! di: la nonna
+la nonna!
+
+ottimo! di: il latte
+il latte!
+
+benissimo! di: il latte
+il latte!
+
+il pane il pane. di: il pane
+il pane!
+
+bravo! di: il latte
+il latte!
+
+di: nonna
+nonna!
+
+benissimo! di: il sole
+il sole!
+
+di: la luna
+la luna!
+
+perfetto! di: la casa
+la casa!
+
+bene! di: il sole
+il sole!
+
+di: il naso
+il naso!
+
+perfetto! di: l acqua
+l acqua!
+
+di: il papà
+il papà!
+
+ottimo! di: la nonna
+la nonna!
+
+benissimo! di: mamma
+mamma!
+
+di: la casa
+la casa!
+
+di: ciao
+ciao!
+
+ottimo! di: il sole
+il sole!
+
+nonna nonna. di: nonna
+nonna!
+
+benissimo! di: la luna
+la luna!
+
+bravo! di: il cane
+il cane!
+
+bene! di: la casa
+la casa!
+
+ottimo! di: mamma
+mamma!
+
+di: la nonna
+la nonna!
+
+perfetto! di: il naso
+il naso!
+
+ottimo! di: la luna
+la luna!
+
+la luna la luna. di: la luna
+la luna!
+
+il latte il latte. di: il latte
+il latte!
+
+bene! di: la nonna
+la nonna!
+
+di: no
+no!
+
+benissimo! di: mamma
+mamma!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+benissimo! di: il cane
+il cane!
+
+di: il piede
+il piede!
+
+bene! di: il cane
+il cane!
+
+bravo! di: il gatto
+il gatto!
+
+benissimo! di: il pane
+il pane!
+
+benissimo! di: la casa
+la casa!
+
+bene! di: il latte
+il latte!
+
+ottimo! di: il papà
+il papà!
+
+ottimo! di: mamma
+mamma!
+
+bravo! di: il latte
+il latte!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+ottimo! di: la nonna
+la nonna!
+
+benissimo! di: il gatto
+il gatto!
+
+ottimo! di: l acqua
+l acqua!
+
+il papà il papà. di: il papà
+il papà!
+
+bravo! di: il pane
+il pane!
+
+perfetto! di: l acqua
+l acqua!
+
+bene! di: la casa
+la casa!
+
+di: il naso
+il naso!
+
+ottimo! di ancora: la casa
+la casa!
+
+sì sì. di: sì
+sì!
+
+di: la luna
+la luna!
+
+perfetto! di: il pane
+il pane!
+
+ottimo! di: il gatto
+il gatto!
+
+di: physisml
+physisml!
+
+di: la mamma
+la mamma!
+
+di: sì
+sì!
+
+bravo! di: il sole
+il sole!
+
+perfetto! di: il gatto
+il gatto!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+bravo! di: la mano
+la mano!
+
+bravo! di: il papà
+il papà!
+
+bravo! di: la mamma
+la mamma!
+
+perfetto! di: la casa
+la casa!
+
+perfetto! di: il cane
+il cane!
+
+di: bravo
+bravo!
+
+benissimo! di: la nonna
+la nonna!
+
+bravo! di: il naso
+il naso!
+
+benissimo! di: la mamma
+la mamma!
+
+di: il cane
+il cane!
+
+bravo! di: la casa
+la casa!
+
+bravo! di: il cane
+il cane!
+
+ottimo! di: il latte
+il latte!
+
+perfetto! di: la mamma
+la mamma!
+
+benissimo! di: il latte
+il latte!
+
+ottimo! di: la casa
+la casa!
+
+di: ciao
+ciao!
+
+di: il gatto
+il gatto!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+perfetto! di: la nonna
+la nonna!
+
+il pane il pane. di: il pane
+il pane!
+
+ottimo! di: il cane
+il cane!
+
+bravo! di: mamma
+mamma!
+
+di: l occhio
+l occhio!
+
+mamma mamma. di: mamma
+mamma!
+
+nonno nonno. di: nonno
+nonno!
+
+papà papà. di: papà
+papà!
+
+no no. di: no
+no!
+
+perfetto! di: la luna
+la luna!
+
+perfetto! di: il papà
+il papà!
+
+il sole il sole. di: il sole
+il sole!
+
+il cane il cane. di: il cane
+il cane!
+
+bene! di: la luna
+la luna!
+
+ciao ciao. di: ciao
+ciao!
+
+benissimo! di: il papà
+il papà!
+
+di: il pane
+il pane!
+
+ottimo! di: la mamma
+la mamma!
+
+di: il latte
+il latte!
+
+bravo! di: la nonna
+la nonna!
+
+di: il papà
+il papà!
+
+di: nonno
+nonno!
+
+perfetto! di: il latte
+il latte!
+
+il naso il naso. di: il naso
+il naso!
+
+perfetto! di: il sole
+il sole!
+
+di: l acqua
+l acqua!
+
+di: buono
+buono!
+
+bene! di: il pane
+il pane!
+
+bene! di: il sole
+il sole!
+
+ottimo! di: nonna
+nonna!
+
+nonna nonna. di: nonna
+nonna!
+
+di: la casa
+la casa!
+
+di: nonna
+nonna!
+
+di: mamma
+mamma!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+bravo! di: bello
+bello!
+
+di: papà
+papà!
+
+ottimo! di: il pane
+il pane!
+
+la casa la casa. di: la casa
+la casa!
+
+bene! di: la mamma
+la mamma!
+
+bravo! di: ciao
+ciao!
+
+benissimo! di: la luna
+la luna!
+
+di: il sole
+il sole!
+
+ottimo! di: il sole
+il sole!
+
+benissimo! di: il sole
+il sole!
+
+di: la mano
+la mano!
+
+la mano la mano. di: la mano
+la mano!
+
+benissimo! di ancora: il cane
+il cane!
+
+bravo! di: la luna
+la luna!
+
+bene! di: il papà
+il papà!
+
+bravo! di: il pane
+il pane!
+
+bravo! di: il gatto
+il gatto!
+
+perfetto! di: il sole
+il sole!
+
+benissimo! di: il latte
+il latte!
+
+benissimo! di: la mamma
+la mamma!
+
+bene! di: la mamma
+la mamma!
+
+di: mamma
+mamma!
+
+benissimo! di: il pane
+il pane!
+
+no no. di: no
+no!
+
+bravo! di: il sole
+il sole!
+
+benissimo! di: la nonna
+la nonna!
+
+ottimo! di: la luna
+la luna!
+
+la luna la luna. di: la luna
+la luna!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+ottimo! di: il sole
+il sole!
+
+bravo! di: la nonna
+la nonna!
+
+bravo! di: il naso
+il naso!
+
+di: nonna
+nonna!
+
+il pane il pane. di: il pane
+il pane!
+
+perfetto! di: il pane
+il pane!
+
+ciao ciao. di: ciao
+ciao!
+
+perfetto! di: il naso
+il naso!
+
+mamma mamma. di: mamma
+mamma!
+
+ottimo! di: la nonna
+la nonna!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+di: l acqua
+l acqua!
+
+perfetto! di: il papà
+il papà!
+
+il cane il cane. di: il cane
+il cane!
+
+il sole il sole. di: il sole
+il sole!
+
+di: il sole
+il sole!
+
+di: nonno
+nonno!
+
+perfetto! di: la luna
+la luna!
+
+bene! di: il pane
+il pane!
+
+benissimo! di: mamma
+mamma!
+
+bene! di: la casa
+la casa!
+
+benissimo! di: il gatto
+il gatto!
+
+di: bravo
+bravo!
+
+bravo! di: ciao
+ciao!
+
+di: il gatto
+il gatto!
+
+di: physisml
+physisml!
+
+perfetto! di: la mamma
+la mamma!
+
+ottimo! di: il pane
+il pane!
+
+la mano la mano. di: la mano
+la mano!
+
+ottimo! di: il latte
+il latte!
+
+ottimo! di: la mamma
+la mamma!
+
+il naso il naso. di: il naso
+il naso!
+
+perfetto! di: il latte
+il latte!
+
+di: ciao
+ciao!
+
+di: il piede
+il piede!
+
+bene! di: il sole
+il sole!
+
+perfetto! di: il cane
+il cane!
+
+bene! di: la nonna
+la nonna!
+
+bravo! di: bello
+bello!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+ottimo! di: il gatto
+il gatto!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+il papà il papà. di: il papà
+il papà!
+
+papà papà. di: papà
+papà!
+
+bravo! di: il cane
+il cane!
+
+di: no
+no!
+
+di: la mano
+la mano!
+
+di: papà
+papà!
+
+il latte il latte. di: il latte
+il latte!
+
+di: buono
+buono!
+
+di: il pane
+il pane!
+
+di: la luna
+la luna!
+
+benissimo! di ancora: il cane
+il cane!
+
+sì sì. di: sì
+sì!
+
+bravo! di: mamma
+mamma!
+
+ottimo! di: la casa
+la casa!
+
+bravo! di: il latte
+il latte!
+
+benissimo! di: il sole
+il sole!
+
+ottimo! di: mamma
+mamma!
+
+ottimo! di: il papà
+il papà!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+di: l occhio
+l occhio!
+
+la casa la casa. di: la casa
+la casa!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+ottimo! di: nonna
+nonna!
+
+ottimo! di: l acqua
+l acqua!
+
+ottimo! di: il cane
+il cane!
+
+benissimo! di: la casa
+la casa!
+
+bene! di: il latte
+il latte!
+
+bene! di: il papà
+il papà!
+
+di: il latte
+il latte!
+
+benissimo! di: il papà
+il papà!
+
+perfetto! di: il gatto
+il gatto!
+
+bravo! di: la mano
+la mano!
+
+nonno nonno. di: nonno
+nonno!
+
+ottimo! di ancora: la casa
+la casa!
+
+bravo! di: la mamma
+la mamma!
+
+di: la nonna
+la nonna!
+
+di: la mamma
+la mamma!
+
+bravo! di: il papà
+il papà!
+
+di: il papà
+il papà!
+
+di: il cane
+il cane!
+
+di: il naso
+il naso!
+
+bene! di: la luna
+la luna!
+
+bravo! di: la luna
+la luna!
+
+di: sì
+sì!
+
+perfetto! di: l acqua
+l acqua!
+
+bravo! di: la casa
+la casa!
+
+nonna nonna. di: nonna
+nonna!
+
+benissimo! di: la luna
+la luna!
+
+perfetto! di: la nonna
+la nonna!
+
+perfetto! di: la casa
+la casa!
+
+bene! di: il cane
+il cane!
+
+di: la casa
+la casa!
+
+benissimo! di: il cane
+il cane!
+
+di: physisml
+physisml!
+
+ciao ciao. di: ciao
+ciao!
+
+di: buono
+buono!
+
+bravo! di: il gatto
+il gatto!
+
+ottimo! di: la luna
+la luna!
+
+bravo! di: il latte
+il latte!
+
+bravo! di: il cane
+il cane!
+
+bene! di: il papà
+il papà!
+
+perfetto! di: il papà
+il papà!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+ottimo! di: il gatto
+il gatto!
+
+di: sì
+sì!
+
+bravo! di: bello
+bello!
+
+bene! di: il pane
+il pane!
+
+perfetto! di: la nonna
+la nonna!
+
+di: mamma
+mamma!
+
+di: l occhio
+l occhio!
+
+ottimo! di: nonna
+nonna!
+
+nonno nonno. di: nonno
+nonno!
+
+di: l acqua
+l acqua!
+
+di: nonno
+nonno!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+benissimo! di: il latte
+il latte!
+
+perfetto! di: il latte
+il latte!
+
+benissimo! di: il papà
+il papà!
+
+perfetto! di: il gatto
+il gatto!
+
+di: papà
+papà!
+
+perfetto! di: il pane
+il pane!
+
+di: il cane
+il cane!
+
+bravo! di: il pane
+il pane!
+
+benissimo! di: la mamma
+la mamma!
+
+bene! di: il sole
+il sole!
+
+la casa la casa. di: la casa
+la casa!
+
+benissimo! di: la casa
+la casa!
+
+bene! di: la nonna
+la nonna!
+
+benissimo! di: mamma
+mamma!
+
+bene! di: la mamma
+la mamma!
+
+il naso il naso. di: il naso
+il naso!
+
+ottimo! di: la nonna
+la nonna!
+
+perfetto! di: il naso
+il naso!
+
+mamma mamma. di: mamma
+mamma!
+
+di: bravo
+bravo!
+
+ottimo! di: il cane
+il cane!
+
+perfetto! di: la mamma
+la mamma!
+
+di: il gatto
+il gatto!
+
+ottimo! di: la casa
+la casa!
+
+benissimo! di: il cane
+il cane!
+
+perfetto! di: la casa
+la casa!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+bravo! di: ciao
+ciao!
+
+ottimo! di: mamma
+mamma!
+
+bravo! di: la nonna
+la nonna!
+
+benissimo! di: il pane
+il pane!
+
+di: no
+no!
+
+ottimo! di: il pane
+il pane!
+
+bravo! di: il papà
+il papà!
+
+bene! di: la casa
+la casa!
+
+ottimo! di: il papà
+il papà!
+
+benissimo! di: la luna
+la luna!
+
+di: il papà
+il papà!
+
+di: il naso
+il naso!
+
+di: la luna
+la luna!
+
+bravo! di: la mano
+la mano!
+
+la mano la mano. di: la mano
+la mano!
+
+il sole il sole. di: il sole
+il sole!
+
+perfetto! di: l acqua
+l acqua!
+
+la luna la luna. di: la luna
+la luna!
+
+di: il latte
+il latte!
+
+ottimo! di: l acqua
+l acqua!
+
+benissimo! di: il sole
+il sole!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+bene! di: la luna
+la luna!
+
+il latte il latte. di: il latte
+il latte!
+
+di: la mano
+la mano!
+
+perfetto! di: il cane
+il cane!
+
+bravo! di: il sole
+il sole!
+
+nonna nonna. di: nonna
+nonna!
+
+di: la casa
+la casa!
+
+di: il pane
+il pane!
+
+benissimo! di: il gatto
+il gatto!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+di: la nonna
+la nonna!
+
+il papà il papà. di: il papà
+il papà!
+
+no no. di: no
+no!
+
+il cane il cane. di: il cane
+il cane!
+
+bravo! di: la casa
+la casa!
+
+di: il sole
+il sole!
+
+bravo! di: mamma
+mamma!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+di: nonna
+nonna!
+
+il pane il pane. di: il pane
+il pane!
+
+perfetto! di: la luna
+la luna!
+
+papà papà. di: papà
+papà!
+
+di: la mamma
+la mamma!
+
+perfetto! di: il sole
+il sole!
+
+bravo! di: la mamma
+la mamma!
+
+di: ciao
+ciao!
+
+di: il piede
+il piede!
+
+ottimo! di ancora: la casa
+la casa!
+
+bene! di: il cane
+il cane!
+
+benissimo! di: la nonna
+la nonna!
+
+sì sì. di: sì
+sì!
+
+ottimo! di: il sole
+il sole!
+
+bene! di: il latte
+il latte!
+
+bravo! di: il naso
+il naso!
+
+ottimo! di: il latte
+il latte!
+
+benissimo! di ancora: il cane
+il cane!
+
+ottimo! di: la mamma
+la mamma!
+
+bravo! di: la luna
+la luna!
+
+di: nonna
+nonna!
+
+ottimo! di: il gatto
+il gatto!
+
+di: la casa
+la casa!
+
+di: mi chiamo physisml
+mi chiamo physisml!
+
+mamma mamma. di: mamma
+mamma!
+
+benissimo! di: mamma
+mamma!
+
+di: la luna
+la luna!
+
+perfetto! di: la mamma
+la mamma!
+
+bravo! di: bello
+bello!
+
+bravo! di: ciao
+ciao!
+
+nonno nonno. di: nonno
+nonno!
+
+bravo! di: il cane
+il cane!
+
+benissimo! di: la nonna
+la nonna!
+
+ottimo! di: la nonna
+la nonna!
+
+bravo! di: il pane
+il pane!
+
+il pane il pane. di: il pane
+il pane!
+
+bene! di: il sole
+il sole!
+
+perfetto! di: il pane
+il pane!
+
+nonna nonna. di: nonna
+nonna!
+
+di: la nonna
+la nonna!
+
+la nonna la nonna. di: la nonna
+la nonna!
+
+di: ciao
+ciao!
+
+papà papà. di: papà
+papà!
+
+ottimo! di ancora: la casa
+la casa!
+
+perfetto! di: il latte
+il latte!
+
+bravo! di: la luna
+la luna!
+
+perfetto! di: il cane
+il cane!
+
+di: la mamma
+la mamma!
+
+il sole il sole. di: il sole
+il sole!
+
+il latte il latte. di: il latte
+il latte!
+
+di: l acqua
+l acqua!
+
+perfetto! di: la nonna
+la nonna!
+
+bravo! di: la casa
+la casa!
+
+bravo! di: il sole
+il sole!
+
+di: il papà
+il papà!
+
+sì sì. di: sì
+sì!
+
+il naso il naso. di: il naso
+il naso!
+
+ottimo! di: nonna
+nonna!
+
+bene! di: la mamma
+la mamma!
+
+di: il latte
+il latte!
+
+di: sì
+sì!
+
+bene! di: il papà
+il papà!
+
+bene! di: la luna
+la luna!
+
+l acqua l acqua. di: l acqua
+l acqua!
+
+bene! di: il latte
+il latte!
+
+perfetto! di: il naso
+il naso!
+
+perfetto! di: il sole
+il sole!
+
+no no. di: no
+no!
+
+bravo! di: la mamma
+la mamma!
+
+bravo! di: la nonna
+la nonna!
+
+ottimo! di: il papà
+il papà!
+
+ciao ciao. di: ciao
+ciao!
+
+la luna la luna. di: la luna
+la luna!
+
+il papà il papà. di: il papà
+il papà!
+
+ottimo! di: l acqua
+l acqua!
+
+di: buono
+buono!
+
+benissimo! di: il cane
+il cane!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+il cane il cane. di: il cane
+il cane!
+
+bene! di: il cane
+il cane!
+
+ottimo! di: mamma
+mamma!
+
+di: nonno
+nonno!
+
+ottimo! di: la luna
+la luna!
+
+ottimo! di: il sole
+il sole!
+
+bene! di: la casa
+la casa!
+
+bravo! di: il latte
+il latte!
+
+benissimo! di: il gatto
+il gatto!
+
+bene! di: il pane
+il pane!
+
+benissimo! di: il papà
+il papà!
+
+di: bravo
+bravo!
+
+perfetto! di: il gatto
+il gatto!
+
+bravo! di: il papà
+il papà!
+
+ottimo! di: la mamma
+la mamma!
+
+di: il naso
+il naso!
+
+bene! di: la nonna
+la nonna!
+
+di: la mano
+la mano!
+
+di: il gatto
+il gatto!
+
+di: no
+no!
+
+ciao physisml di: mi chiamo physisml
+mi chiamo physisml!
+
+perfetto! di: la luna
+la luna!
+
+di: physisml
+physisml!
+
+benissimo! di: la luna
+la luna!
+
+di: mamma
+mamma!
+
+bravo! di: il naso
+il naso!
+
+di: l occhio
+l occhio!
+
+di: il cane
+il cane!
+
+benissimo! di: il latte
+il latte!
+
+perfetto! di: la casa
+la casa!
+
+bravo! di: la mano
+la mano!
+
+la casa la casa. di: la casa
+la casa!
+
+ottimo! di: il latte
+il latte!
+
+bravo! di: mamma
+mamma!
+
+benissimo! di: la casa
+la casa!
+
+benissimo! di: il pane
+il pane!
+
+di: il piede
+il piede!
+
+ottimo! di: il pane
+il pane!
+
+benissimo! di: la mamma
+la mamma!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+perfetto! di: l acqua
+l acqua!
+
+perfetto! di: il papà
+il papà!
+
+di: papà
+papà!
+
+bravo! di: il gatto
+il gatto!
+
+ottimo! di: la casa
+la casa!
+
+benissimo! di ancora: il cane
+il cane!
+
+di: il pane
+il pane!
+
+la mano la mano. di: la mano
+la mano!
+
+benissimo! di: il sole
+il sole!
+
+ottimo! di: il cane
+il cane!
+
+di: il sole
+il sole!
+

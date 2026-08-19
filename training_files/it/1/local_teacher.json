@@ -1,0 +1,199 @@
+{
+  "lang": "it",
+  "level": 1,
+  "description": "Bambino 1-2 anni — parole singole e articolo+sostantivo",
+  "quality_threshold": 0.4,
+  "quality_strong_min": 0.25,
+  "steps": {
+    "A": {
+      "description": "Articolo + sostantivo (ordine corretto obbligatorio)",
+      "targets": [
+        {
+          "prompt": "il cane",
+          "expected": "il cane!",
+          "article": "il",
+          "noun": "cane"
+        },
+        {
+          "prompt": "la casa",
+          "expected": "la casa!",
+          "article": "la",
+          "noun": "casa"
+        },
+        {
+          "prompt": "il pane",
+          "expected": "il pane!",
+          "article": "il",
+          "noun": "pane"
+        },
+        {
+          "prompt": "la mamma",
+          "expected": "la mamma!",
+          "article": "la",
+          "noun": "mamma"
+        },
+        {
+          "prompt": "il gatto",
+          "expected": "il gatto!",
+          "article": "il",
+          "noun": "gatto"
+        },
+        {
+          "prompt": "il latte",
+          "expected": "il latte!",
+          "article": "il",
+          "noun": "latte"
+        },
+        {
+          "prompt": "il sole",
+          "expected": "il sole!",
+          "article": "il",
+          "noun": "sole"
+        },
+        {
+          "prompt": "la luna",
+          "expected": "la luna!",
+          "article": "la",
+          "noun": "luna"
+        },
+        {
+          "prompt": "l acqua",
+          "expected": "l acqua!",
+          "article": "l",
+          "noun": "acqua"
+        },
+        {
+          "prompt": "la nonna",
+          "expected": "la nonna!",
+          "article": "la",
+          "noun": "nonna"
+        },
+        {
+          "prompt": "il papà",
+          "expected": "il papà!",
+          "article": "il",
+          "noun": "papà"
+        },
+        {
+          "prompt": "il naso",
+          "expected": "il naso!",
+          "article": "il",
+          "noun": "naso"
+        }
+      ],
+      "prompt_template": "di: {prompt}",
+      "max_response_words": 5,
+      "advance_after_successes": 1,
+      "retry_after_failures": 4,
+      "require_article": true
+    },
+    "B": {
+      "description": "Parole di famiglia senza articolo",
+      "targets": [
+        {
+          "prompt": "mamma",
+          "expected": "mamma!",
+          "noun": "mamma"
+        },
+        {
+          "prompt": "papà",
+          "expected": "papà!",
+          "noun": "papà"
+        },
+        {
+          "prompt": "nonno",
+          "expected": "nonno!",
+          "noun": "nonno"
+        },
+        {
+          "prompt": "nonna",
+          "expected": "nonna!",
+          "noun": "nonna"
+        }
+      ],
+      "prompt_template": "di: {prompt}",
+      "max_response_words": 3,
+      "advance_after_successes": 3,
+      "retry_after_failures": 4,
+      "require_article": false
+    },
+    "C": {
+      "description": "Saluti e risposte sì/no",
+      "targets": [
+        {
+          "prompt": "ciao",
+          "expected": "ciao!",
+          "noun": "ciao"
+        },
+        {
+          "prompt": "sì",
+          "expected": "sì!",
+          "noun": "sì"
+        },
+        {
+          "prompt": "no",
+          "expected": "no!",
+          "noun": "no"
+        },
+        {
+          "prompt": "bravo",
+          "expected": "bravo!",
+          "noun": "bravo"
+        }
+      ],
+      "prompt_template": "di: {prompt}",
+      "max_response_words": 3,
+      "advance_after_successes": 3,
+      "retry_after_failures": 4,
+      "require_article": false
+    },
+    "D": {
+      "description": "Identità — il modello conosce il proprio nome (parola singola)",
+      "targets": [
+        {
+          "prompt": "come ti chiami?",
+          "expected": "physisml!",
+          "noun": "physisml"
+        },
+        {
+          "prompt": "qual è il tuo nome?",
+          "expected": "physisml!",
+          "noun": "physisml"
+        },
+        {
+          "prompt": "di il tuo nome",
+          "expected": "physisml!",
+          "noun": "physisml"
+        },
+        {
+          "prompt": "chi sei?",
+          "expected": "physisml!",
+          "noun": "physisml"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 4,
+      "advance_after_successes": 3,
+      "retry_after_failures": 4,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    }
+  },
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "{noun} con articolo e terminatore. Perfetto!",
+    "comment_++": "{noun} presente, buona risposta.",
+    "comment_+": "{noun} trovato ma risposta migliorabile.",
+    "comment_=": "Qualcosa di italiano ma {noun} mancante.",
+    "comment_-": "Risposta non riconoscibile o troppo lunga."
+  },
+  "encouragement": [
+    "bravo!",
+    "bene!",
+    "ottimo!",
+    "perfetto!",
+    "benissimo!"
+  ],
+  "retry_prefix": "{prompt} {prompt}. "
+}

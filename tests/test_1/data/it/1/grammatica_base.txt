@@ -1,0 +1,827 @@
+### IL VERBO ESSERE ###
+
+io sono
+tu sei
+lui è
+lei è
+noi siamo
+voi siete
+loro sono
+
+io sono qui.
+tu sei lì.
+lui è grande.
+lei è piccola.
+noi siamo a casa.
+voi siete bravi.
+loro sono belli.
+
+io sono stanco.
+tu sei stanca.
+lui è felice.
+lei è felice.
+noi siamo felici.
+voi siete stanchi.
+loro sono tristi.
+
+sono io? sì, sono io.
+sei tu? sì, sono io.
+è lui? sì, è lui.
+è lei? sì, è lei.
+siamo noi? sì, siamo noi.
+siete voi? sì, siamo noi.
+sono loro? sì, sono loro.
+
+io non sono.
+tu non sei.
+lui non è.
+lei non è.
+noi non siamo.
+voi non siete.
+loro non sono.
+
+sono grande? no, non sono grande.
+sei piccolo? no, non sono piccolo.
+è buono? sì, è buono.
+è cattivo? no, non è cattivo.
+
+ero
+eri
+era
+eravamo
+eravate
+erano
+
+io ero qui.
+tu eri lì.
+lui era grande.
+lei era piccola.
+noi eravamo a casa.
+voi eravate stanchi.
+loro erano felici.
+
+
+### IL VERBO AVERE ###
+
+io ho
+tu hai
+lui ha
+lei ha
+noi abbiamo
+voi avete
+loro hanno
+
+io ho fame.
+tu hai sete.
+lui ha freddo.
+lei ha caldo.
+noi abbiamo fretta.
+voi avete paura.
+loro hanno sonno.
+
+ho un cane.
+hai un gatto.
+ha una casa.
+ha un giardino.
+abbiamo un libro.
+avete una palla.
+hanno un albero.
+
+io non ho.
+tu non hai.
+lui non ha.
+lei non ha.
+noi non abbiamo.
+voi non avete.
+loro non hanno.
+
+hai fame? sì, ho fame.
+hai sete? no, non ho sete.
+ha freddo? sì, ha freddo.
+ha caldo? no, non ha caldo.
+avete paura? sì, abbiamo paura.
+hanno sonno? sì, hanno sonno.
+
+avevo
+avevi
+aveva
+avevamo
+avevate
+avevano
+
+io avevo fame.
+tu avevi sete.
+lui aveva freddo.
+lei aveva caldo.
+noi avevamo fretta.
+voi avevate paura.
+loro avevano sonno.
+
+
+### IL VERBO FARE ###
+
+io faccio
+tu fai
+lui fa
+lei fa
+noi facciamo
+voi fate
+loro fanno
+
+io faccio colazione.
+tu fai i compiti.
+lui fa sport.
+lei fa una torta.
+noi facciamo una passeggiata.
+voi fate rumore.
+loro fanno festa.
+
+che fai? faccio i compiti.
+che fa? fa colazione.
+che fanno? fanno sport.
+
+non fare rumore!
+fai piano!
+fate attenzione!
+facciamo insieme!
+
+
+### IL VERBO ANDARE ###
+
+io vado
+tu vai
+lui va
+lei va
+noi andiamo
+voi andate
+loro vanno
+
+io vado a scuola.
+tu vai al parco.
+lui va in città.
+lei va a casa.
+noi andiamo al mare.
+voi andate in montagna.
+loro vanno a dormire.
+
+dove vai? vado a casa.
+dove va? va a scuola.
+dove andate? andiamo al parco.
+dove vanno? vanno in città.
+
+vado! vai! va! andiamo! andate! vanno!
+non andare! non vai! non andate!
+
+
+### IL VERBO VENIRE ###
+
+io vengo
+tu vieni
+lui viene
+lei viene
+noi veniamo
+voi venite
+loro vengono
+
+vengo anch'io!
+vieni con me?
+viene lui.
+viene lei.
+veniamo insieme.
+venite anche voi?
+vengono tutti.
+
+vieni? sì, vengo.
+viene? sì, viene.
+venite? sì, veniamo.
+
+
+### IL VERBO POTERE ###
+
+io posso
+tu puoi
+lui può
+lei può
+noi possiamo
+voi potete
+loro possono
+
+posso venire? sì, puoi venire.
+puoi aiutarmi? sì, posso aiutarti.
+può farlo? sì, può farlo.
+possiamo giocare? sì, potete giocare.
+potete venire? sì, possiamo venire.
+possono entrare? sì, possono entrare.
+
+non posso.
+non puoi.
+non può.
+non possiamo.
+non potete.
+non possono.
+
+
+### IL VERBO VOLERE ###
+
+io voglio
+tu vuoi
+lui vuole
+lei vuole
+noi vogliamo
+voi volete
+loro vogliono
+
+voglio mangiare.
+vuoi dormire?
+vuole giocare.
+vuole studiare.
+vogliamo andare al mare.
+volete venire?
+vogliono restare.
+
+cosa vuoi? voglio un gelato.
+cosa vuole? vuole una torta.
+cosa vogliono? vogliono giocare.
+
+non voglio!
+non vuoi?
+non vuole.
+non vogliamo.
+non volete?
+non vogliono.
+
+
+### IL VERBO DOVERE ###
+
+io devo
+tu devi
+lui deve
+lei deve
+noi dobbiamo
+voi dovete
+loro devono
+
+devo andare.
+devi studiare.
+deve lavorare.
+deve riposare.
+dobbiamo partire.
+dovete ascoltare.
+devono aspettare.
+
+devo? sì, devi.
+deve? sì, deve.
+dobbiamo? sì, dovete.
+
+
+### IL VERBO SAPERE ###
+
+io so
+tu sai
+lui sa
+lei sa
+noi sappiamo
+voi sapete
+loro sanno
+
+so leggere.
+sai nuotare?
+sa cucinare.
+sa disegnare.
+sappiamo cantare.
+sapete ballare?
+sanno parlare italiano.
+
+sai? no, non so.
+sa? sì, sa.
+sanno? no, non sanno.
+
+
+### IL VERBO STARE ###
+
+io sto
+tu stai
+lui sta
+lei sta
+noi stiamo
+voi state
+loro stanno
+
+come stai? sto bene.
+come sta? sta bene.
+come state? stiamo bene.
+come stanno? stanno bene.
+
+sto bene!
+stai bene?
+sta bene.
+stiamo bene.
+state bene?
+stanno bene.
+
+sto dormendo.
+stai mangiando.
+sta leggendo.
+stiamo giocando.
+state studiando.
+stanno lavorando.
+
+
+### IL VERBO DARE ###
+
+io do
+tu dai
+lui dà
+lei dà
+noi diamo
+voi date
+loro danno
+
+do un bacio.
+dai una mano?
+dà un bacio.
+dà un sorriso.
+diamo un aiuto.
+date una risposta.
+danno un esempio.
+
+dai? sì, do.
+dà? sì, dà.
+danno? sì, danno.
+
+dai! dai! dai!
+dammi! dagli! dalle!
+
+
+### IL VERBO DIRE ###
+
+io dico
+tu dici
+lui dice
+lei dice
+noi diciamo
+voi dite
+loro dicono
+
+dico la verità.
+dici sempre la verità?
+dice bugie.
+dice grazie.
+diciamo insieme.
+dite la verità?
+dicono bugie.
+
+cosa dici? dico la verità.
+cosa dice? dice grazie.
+cosa dicono? dicono bugie.
+
+dì la verità!
+non dire bugie!
+dite la verità!
+
+
+### IL VERBO VEDERE ###
+
+io vedo
+tu vedi
+lui vede
+lei vede
+noi vediamo
+voi vedete
+loro vedono
+
+vedo il sole.
+vedi la luna?
+vede un uccello.
+vede un fiore.
+vediamo il mare.
+vedete le montagne?
+vedono le stelle.
+
+vedi? sì, vedo.
+vede? sì, vede.
+vedono? sì, vedono.
+
+
+### IL VERBO SENTIRE ###
+
+io sento
+tu senti
+lui sente
+lei sente
+noi sentiamo
+voi sentite
+loro sentono
+
+sento un rumore.
+senti la musica?
+sente il freddo.
+sente caldo.
+sentiamo la pioggia.
+sentite il vento?
+sentono tutto.
+
+senti? sì, sento.
+sente? sì, sente.
+sento freddo. senti freddo? sente caldo.
+
+
+### NUMERI ###
+
+uno
+due
+tre
+quattro
+cinque
+sei
+sette
+otto
+nove
+dieci
+
+uno due tre quattro cinque.
+sei sette otto nove dieci.
+
+uno, due, tre!
+uno, due, tre, quattro!
+uno, due, tre, quattro, cinque!
+
+uno più uno fa due.
+due più due fa quattro.
+tre più tre fa sei.
+quattro più quattro fa otto.
+cinque più cinque fa dieci.
+
+dieci meno uno fa nove.
+nove meno uno fa otto.
+otto meno uno fa sette.
+sette meno uno fa sei.
+sei meno uno fa cinque.
+
+undici
+dodici
+tredici
+quattordici
+quindici
+sedici
+diciassette
+diciotto
+diciannove
+venti
+
+undici dodici tredici quattordici quindici.
+sedici diciassette diciotto diciannove venti.
+
+venti
+trenta
+quaranta
+cinquanta
+sessanta
+settanta
+ottanta
+novanta
+cento
+
+venti trenta quaranta cinquanta.
+sessanta settanta ottanta novanta cento.
+
+cento duecento trecento.
+quattrocento cinquecento.
+seicento settecento ottocento.
+novecento mille.
+
+ho uno.
+ho due.
+ho tre.
+ho quattro.
+ho cinque.
+
+uno è poco.
+due è meglio.
+tre è tanto.
+dieci è molto.
+cento è tantissimo.
+
+quanti? uno! quanti? due! quanti? tre!
+quanti cani? uno. quanti gatti? due.
+quanti libri? tre. quante case? quattro.
+quante stelle? mille!
+
+primo secondo terzo.
+quarto quinto sesto.
+settimo ottavo nono.
+decimo.
+
+il primo il secondo il terzo.
+la prima la seconda la terza.
+primo! secondo! terzo! bravo!
+
+
+### ARTICOLI ###
+
+il lo la l'
+i gli le
+
+il cane. il gatto. il sole. il pane.
+lo zaino. lo studente. lo specchio.
+la casa. la luna. la mamma. la stella.
+l'acqua. l'uomo. l'ora. l'alba.
+
+i cani. i gatti. i soli. i pani.
+gli zaini. gli studenti. gli specchi.
+le case. le lune. le mamme. le stelle.
+
+un uno una un'
+
+un cane. un gatto. un sole. un pane.
+uno zaino. uno studente. uno specchio.
+una casa. una luna. una mamma. una stella.
+un'acqua. un'ora. un'alba.
+
+
+### PREPOSIZIONI ###
+
+in a da di con su per tra fra
+
+sono in casa.
+vado a scuola.
+vengo da Roma.
+ho paura di niente.
+gioco con te.
+sono su questo.
+faccio questo per te.
+sto tra amici.
+sto fra i fiori.
+
+nel nella nell' nei nelle negli
+al alla all' ai alle agli
+dal dalla dall' dai dalle dagli
+del della dell' dei delle degli
+col colla coi colle
+
+nel giardino. nella casa. nell'acqua.
+al parco. alla scuola. all'alba.
+dal cane. dalla luna. dall'alba.
+del sole. della luna. dell'acqua.
+
+
+### AGGETTIVI PRINCIPALI ###
+
+bello bella belli belle
+brutto brutta brutti brutte
+buono buona buoni buone
+cattivo cattiva cattivi cattive
+grande grandi
+piccolo piccola piccoli piccole
+lungo lunga lunghi lunghe
+corto corta corti corte
+alto alta alti alte
+basso bassa bassi basse
+caldo calda caldi calde
+freddo fredda freddi fredde
+nuovo nuova nuovi nuove
+vecchio vecchia vecchi vecchie
+giovane giovani
+felice felici
+triste tristi
+stanco stanca stanchi stanche
+forte forti
+debole deboli
+veloce veloci
+lento lenta lenti lente
+
+il cane è bello.
+la casa è bella.
+i cani sono belli.
+le case sono belle.
+
+è buono? sì, è buono.
+è cattivo? no, è buono.
+è grande? no, è piccolo.
+è alto? no, è basso.
+è caldo? no, è freddo.
+
+molto bello! poco buono.
+troppo grande! abbastanza piccolo.
+molto felice! troppo triste.
+
+
+### DOMANDE BASE ###
+
+chi?
+cosa? che cosa? che?
+dove?
+quando?
+come?
+quanto? quanta? quanti? quante?
+perché?
+quale? quali?
+
+chi sei? sono Marco.
+chi è? è la mamma.
+chi sono? sono i bambini.
+
+cosa fai? faccio i compiti.
+che cos'è? è un cane.
+che cosa c'è? c'è il sole.
+
+dove sei? sono a casa.
+dove vai? vado a scuola.
+dove è? è in giardino.
+
+quando vieni? vengo domani.
+quando mangi? mangio adesso.
+quando dormi? dormo la notte.
+
+come stai? sto bene.
+come si chiama? si chiama Marco.
+com'è? è bello.
+
+quanto costa? costa poco.
+quanti anni hai? ho dieci anni.
+quante case ci sono? ci sono due case.
+
+perché piangi? perché ho paura.
+perché ridi? perché sono felice.
+perché vai? perché devo andare.
+
+quale vuoi? voglio questo.
+quali prendi? prendo questi.
+
+
+### C'È E CI SONO ###
+
+c'è
+ci sono
+
+c'è il sole. c'è la luna. c'è il cane.
+ci sono i bambini. ci sono le case.
+
+c'è? sì, c'è. no, non c'è.
+ci sono? sì, ci sono. no, non ci sono.
+
+c'è il pane? sì, c'è il pane.
+ci sono i biscotti? sì, ci sono i biscotti.
+c'è la mamma? no, non c'è.
+ci sono i bambini? no, non ci sono.
+
+
+### AVVERBI ###
+
+sì no
+qui lì là
+adesso ora subito dopo prima
+sempre mai spesso raramente
+molto poco troppo abbastanza
+bene male
+presto tardi
+insieme solo
+ancora già
+sopra sotto
+dentro fuori
+davanti dietro
+vicino lontano
+destra sinistra
+
+sì! no!
+sono qui. sei lì. è là.
+adesso! subito! dopo! prima!
+sempre bene. mai male.
+molto bello. poco buono. troppo grande.
+presto! tardi!
+insieme! da solo!
+ancora! già!
+sopra il tavolo. sotto la sedia.
+dentro la casa. fuori dalla casa.
+davanti alla scuola. dietro la casa.
+vicino a me. lontano da te.
+a destra! a sinistra!
+
+vieni subito! arriva presto!
+mangia bene! dormi bene!
+parla piano! cammina lento!
+corri veloce! fai presto!
+
+
+### FRASI CON STRUTTURA ###
+
+soggetto + verbo.
+io mangio.
+tu bevi.
+lui dorme.
+lei corre.
+noi giochiamo.
+voi studiate.
+loro lavorano.
+
+soggetto + verbo + oggetto.
+io mangio la mela.
+tu bevi il latte.
+lui legge il libro.
+lei cucina la pasta.
+noi guardiamo la televisione.
+voi ascoltate la musica.
+loro portano i bagagli.
+
+soggetto + verbo + dove.
+io vado a casa.
+tu vai a scuola.
+lui viene dal parco.
+lei torna dal lavoro.
+noi andiamo al mare.
+voi venite con noi?
+loro partono domani.
+
+soggetto + verbo essere + aggettivo.
+io sono stanco.
+tu sei allegro.
+lui è grande.
+lei è bella.
+noi siamo felici.
+voi siete bravi.
+loro sono lontani.
+
+domanda + risposta.
+hai fame? sì, ho fame.
+hai sete? no, non ho sete.
+sei stanco? sì, sono stanco.
+sei felice? sì, sono felice.
+vuoi venire? sì, voglio venire.
+puoi aiutarmi? sì, posso aiutarti.
+devi andare? sì, devo andare.
+sai nuotare? no, non so nuotare.
+
+dove + essere.
+dove sei? sono in casa.
+dove è il cane? è in giardino.
+dove sono i bambini? sono a scuola.
+dove è la mamma? è in cucina.
+dove è il pane? è sul tavolo.
+dove sono le scarpe? sono per terra.
+
+quando + verbo.
+quando mangi? mangio a mezzogiorno.
+quando dormi? dormo la notte.
+quando giochi? gioco il pomeriggio.
+quando studi? studio la mattina.
+quando vieni? vengo domani.
+quando parte? parte lunedì.
+
+come + essere.
+com'è il tempo? fa bello.
+com'è la casa? è grande.
+com'è il cane? è piccolo.
+com'è la torta? è buona.
+come stai? sto bene.
+come va? va bene.
+
+perché + verbo.
+perché piangi? piango perché sono triste.
+perché ridi? rido perché sono felice.
+perché corri? corro perché ho fretta.
+perché mangi? mangio perché ho fame.
+perché dormi? dormo perché sono stanco.
+perché studi? studio perché voglio imparare.
+
+
+### GIORNI E MESI ###
+
+lunedì martedì mercoledì giovedì venerdì sabato domenica.
+
+lunedì vado a scuola.
+martedì faccio sport.
+mercoledì vado in biblioteca.
+giovedì mangio con i nonni.
+venerdì gioco con gli amici.
+sabato sto a casa.
+domenica vado in chiesa.
+
+che giorno è oggi? oggi è lunedì.
+che giorno era ieri? ieri era domenica.
+che giorno è domani? domani è martedì.
+
+gennaio febbraio marzo aprile maggio giugno.
+luglio agosto settembre ottobre novembre dicembre.
+
+a gennaio fa freddo.
+a febbraio nevica.
+a marzo arriva la primavera.
+ad aprile piove.
+a maggio fioriscono i fiori.
+a giugno fa caldo.
+a luglio andiamo al mare.
+ad agosto è vacanza.
+a settembre si torna a scuola.
+a ottobre cadono le foglie.
+a novembre fa fresco.
+a dicembre è Natale.
+
+
+### COLORI CON VERBI ###
+
+il cielo è blu.
+il sole è giallo.
+l'erba è verde.
+il fuoco è rosso.
+la neve è bianca.
+la notte è nera

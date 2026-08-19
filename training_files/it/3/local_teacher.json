@@ -1,0 +1,249 @@
+{
+  "lang": "it",
+  "level": 3,
+  "description": "Bambino 3 anni — frasi S+V brevi, domande semplici, numeri e colori",
+  "quality_threshold": 0.35,
+  "quality_strong_min": 0.2,
+  "steps": {
+    "A": {
+      "description": "Bridge L2->L3: articolo + sostantivo (consolida formato L2)",
+      "targets": [
+        {
+          "prompt": "il cane",
+          "expected": "il cane!",
+          "article": "il",
+          "noun": "cane"
+        },
+        {
+          "prompt": "la mamma",
+          "expected": "la mamma!",
+          "article": "la",
+          "noun": "mamma"
+        },
+        {
+          "prompt": "il gatto",
+          "expected": "il gatto!",
+          "article": "il",
+          "noun": "gatto"
+        },
+        {
+          "prompt": "il sole",
+          "expected": "il sole!",
+          "article": "il",
+          "noun": "sole"
+        },
+        {
+          "prompt": "la casa",
+          "expected": "la casa!",
+          "article": "la",
+          "noun": "casa"
+        },
+        {
+          "prompt": "il pane",
+          "expected": "il pane!",
+          "article": "il",
+          "noun": "pane"
+        }
+      ],
+      "prompt_template": "di: {prompt}",
+      "max_response_words": 4,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": true,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "B": {
+      "description": "Identità — il modello sa il proprio nome (consolidamento da L2)",
+      "targets": [
+        {
+          "prompt": "come ti chiami?",
+          "expected": "physisml!",
+          "noun": "physisml"
+        },
+        {
+          "prompt": "qual è il tuo nome?",
+          "expected": "physisml!",
+          "noun": "physisml"
+        },
+        {
+          "prompt": "di il tuo nome",
+          "expected": "physisml!",
+          "noun": "physisml"
+        },
+        {
+          "prompt": "sei physisml?",
+          "expected": "physisml!",
+          "noun": "physisml"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 4,
+      "advance_after_successes": 3,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "C": {
+      "description": "Articolo + nome + verbo semplice (S+V)",
+      "targets": [
+        {
+          "prompt": "il cane dorme",
+          "expected": "il cane dorme!",
+          "article": "il",
+          "noun": "cane",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "la mamma mangia",
+          "expected": "la mamma mangia!",
+          "article": "la",
+          "noun": "mamma",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "il gatto dorme",
+          "expected": "il gatto dorme!",
+          "article": "il",
+          "noun": "gatto",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "il cane mangia",
+          "expected": "il cane mangia!",
+          "article": "il",
+          "noun": "cane",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "il sole brilla",
+          "expected": "il sole brilla!",
+          "article": "il",
+          "noun": "sole",
+          "verb": "brilla"
+        },
+        {
+          "prompt": "il bambino dorme",
+          "expected": "il bambino dorme!",
+          "article": "il",
+          "noun": "bambino",
+          "verb": "dorme"
+        }
+      ],
+      "prompt_template": "di: {prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 3,
+      "retry_after_failures": 5,
+      "require_article": true,
+      "require_verb": true,
+      "require_adjective": false
+    },
+    "D": {
+      "description": "Domande semplici: cosa fa? dove è?",
+      "targets": [
+        {
+          "prompt": "cosa fa il cane?",
+          "expected": "il cane dorme.",
+          "noun": "cane",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "cosa fa la mamma?",
+          "expected": "la mamma mangia.",
+          "noun": "mamma",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa fa il gatto?",
+          "expected": "il gatto dorme.",
+          "noun": "gatto",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "dove è il cane?",
+          "expected": "il cane è qui.",
+          "noun": "cane",
+          "verb": "è"
+        },
+        {
+          "prompt": "dove è la mamma?",
+          "expected": "la mamma è qui.",
+          "noun": "mamma",
+          "verb": "è"
+        },
+        {
+          "prompt": "cosa vuoi?",
+          "expected": "voglio il pane.",
+          "noun": "pane",
+          "verb": "voglio"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 3,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": true,
+      "require_adjective": false
+    },
+    "E": {
+      "description": "Numeri 1-5 e colori base",
+      "targets": [
+        {
+          "prompt": "di un numero: uno",
+          "expected": "uno!",
+          "noun": "uno"
+        },
+        {
+          "prompt": "di un numero: due",
+          "expected": "due!",
+          "noun": "due"
+        },
+        {
+          "prompt": "di un numero: tre",
+          "expected": "tre!",
+          "noun": "tre"
+        },
+        {
+          "prompt": "di un colore: rosso",
+          "expected": "rosso!",
+          "noun": "rosso"
+        },
+        {
+          "prompt": "di un colore: blu",
+          "expected": "blu!",
+          "noun": "blu"
+        },
+        {
+          "prompt": "di un colore: verde",
+          "expected": "verde!",
+          "noun": "verde"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 3,
+      "advance_after_successes": 3,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    }
+  },
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "{noun} con struttura e terminatore. Ottimo!",
+    "comment_++": "{noun} e verbo presenti.",
+    "comment_+": "{noun} trovato.",
+    "comment_=": "Parole italiane ma struttura mancante.",
+    "comment_-": "Risposta non riconoscibile o troppo lunga."
+  },
+  "encouragement": [
+    "bravo!",
+    "ottimo!",
+    "perfetto!",
+    "bene!",
+    "benissimo!"
+  ],
+  "retry_prefix": "{prompt} {prompt}. "
+}

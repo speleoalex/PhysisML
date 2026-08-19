@@ -1,0 +1,196 @@
+{
+  "lang": "it",
+  "level": 2,
+  "description": "Bambino 2 anni — articolo+nome+verbo, frasi brevi",
+  "quality_threshold": 0.4,
+  "quality_strong_min": 0.2,
+  "steps": {
+    "A": {
+      "description": "Consolidamento L1: articolo + sostantivo (con terminatore)",
+      "targets": [
+        {
+          "prompt": "il cane",
+          "expected": "il cane!",
+          "article": "il",
+          "noun": "cane"
+        },
+        {
+          "prompt": "la casa",
+          "expected": "la casa!",
+          "article": "la",
+          "noun": "casa"
+        },
+        {
+          "prompt": "il pane",
+          "expected": "il pane!",
+          "article": "il",
+          "noun": "pane"
+        },
+        {
+          "prompt": "la mamma",
+          "expected": "la mamma!",
+          "article": "la",
+          "noun": "mamma"
+        },
+        {
+          "prompt": "il gatto",
+          "expected": "il gatto!",
+          "article": "il",
+          "noun": "gatto"
+        },
+        {
+          "prompt": "il sole",
+          "expected": "il sole!",
+          "article": "il",
+          "noun": "sole"
+        }
+      ],
+      "prompt_template": "di: {prompt}",
+      "max_response_words": 5,
+      "advance_after_successes": 2,
+      "retry_after_failures": 4,
+      "require_article": true,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "B": {
+      "description": "Articolo + nome + verbo semplice",
+      "targets": [
+        {
+          "prompt": "il cane dorme",
+          "expected": "il cane dorme!",
+          "article": "il",
+          "noun": "cane",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "la mamma mangia",
+          "expected": "la mamma mangia!",
+          "article": "la",
+          "noun": "mamma",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "il gatto dorme",
+          "expected": "il gatto dorme!",
+          "article": "il",
+          "noun": "gatto",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "il cane mangia",
+          "expected": "il cane mangia!",
+          "article": "il",
+          "noun": "cane",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "la luna brilla",
+          "expected": "la luna brilla!",
+          "article": "la",
+          "noun": "luna",
+          "verb": "brilla"
+        }
+      ],
+      "prompt_template": "di: {prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 3,
+      "retry_after_failures": 4,
+      "require_article": true,
+      "require_verb": true,
+      "require_adjective": false
+    },
+    "C": {
+      "description": "Articolo + nome + aggettivo",
+      "targets": [
+        {
+          "prompt": "il cane grande",
+          "expected": "il cane grande!",
+          "article": "il",
+          "noun": "cane",
+          "adjective": "grande"
+        },
+        {
+          "prompt": "la casa bella",
+          "expected": "la casa bella!",
+          "article": "la",
+          "noun": "casa",
+          "adjective": "bella"
+        },
+        {
+          "prompt": "il sole bello",
+          "expected": "il sole bello!",
+          "article": "il",
+          "noun": "sole",
+          "adjective": "bello"
+        },
+        {
+          "prompt": "la mamma brava",
+          "expected": "la mamma brava!",
+          "article": "la",
+          "noun": "mamma",
+          "adjective": "brava"
+        }
+      ],
+      "prompt_template": "di: {prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 3,
+      "retry_after_failures": 4,
+      "require_article": true,
+      "require_verb": false,
+      "require_adjective": true
+    },
+    "D": {
+      "description": "Frase breve completa soggetto+verbo+oggetto",
+      "targets": [
+        {
+          "prompt": "il cane mangia il pane",
+          "expected": "il cane mangia il pane!",
+          "article": "il",
+          "noun": "cane",
+          "verb": "mangia",
+          "object": "pane"
+        },
+        {
+          "prompt": "la mamma fa il pane",
+          "expected": "la mamma fa il pane!",
+          "article": "la",
+          "noun": "mamma",
+          "verb": "fa",
+          "object": "pane"
+        },
+        {
+          "prompt": "il gatto beve il latte",
+          "expected": "il gatto beve il latte!",
+          "article": "il",
+          "noun": "gatto",
+          "verb": "beve",
+          "object": "latte"
+        }
+      ],
+      "prompt_template": "di: {prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 3,
+      "retry_after_failures": 4,
+      "require_article": true,
+      "require_verb": true,
+      "require_adjective": false
+    }
+  },
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "{noun} con struttura corretta e terminatore.",
+    "comment_++": "{noun} e articolo presenti.",
+    "comment_+": "{noun} trovato.",
+    "comment_=": "Parole italiane ma {noun} assente.",
+    "comment_-": "Risposta non riconoscibile o troppo lunga."
+  },
+  "encouragement": [
+    "bravo!",
+    "ottimo!",
+    "perfetto!",
+    "bene!",
+    "benissimo!"
+  ],
+  "retry_prefix": "{prompt} {prompt}. "
+}

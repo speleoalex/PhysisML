@@ -1,0 +1,7860 @@
+di un colore: blu
+blu!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+hai sete?
+sì ho sete.
+
+di: il sole
+il sole!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+bravo! di: il pane
+il pane!
+
+com è la casa?
+la casa è bella.
+
+benissimo! come ti chiami?
+physisml!
+
+bene! di: il cane dorme
+il cane dorme!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+di: il cane dorme
+il cane dorme!
+
+chi sei?
+sono physisml.
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+di un numero: uno
+uno!
+
+di un cibo
+il pane!
+
+bene! di: il pane
+il pane!
+
+bene! di: il cane mangia
+il cane mangia!
+
+come ti chiami?
+mi chiamo physisml.
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+di: il gatto
+il gatto!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+di un numero: due
+due!
+
+bravo! di: la casa
+la casa!
+
+ho fame. di: ho fame
+ho fame!
+
+bene! di: la mamma
+la mamma!
+
+ottimo! di: il gatto
+il gatto!
+
+perfetto! di: il cane
+il cane!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+bene! di il tuo nome
+physisml!
+
+ottimo! di: la mamma
+la mamma!
+
+di un colore: verde
+verde!
+
+bene! di: il cane
+il cane!
+
+benissimo! di: il pane
+il pane!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+bravo! di: il sole
+il sole!
+
+benissimo! di: il gatto
+il gatto!
+
+benissimo! di: il sole
+il sole!
+
+ottimo! di: il cane
+il cane!
+
+di: la mamma mangia
+la mamma mangia!
+
+di una cosa in casa
+la casa!
+
+bravo! come ti chiami?
+physisml!
+
+perfetto! di: la mamma
+la mamma!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+perfetto! di: il pane
+il pane!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+come si chiama questo modello?
+si chiama physisml.
+
+benissimo! di: la casa
+la casa!
+
+bene! di: la casa
+la casa!
+
+bravo! di: il gatto
+il gatto!
+
+ho sete. di: ho sete
+ho sete!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+dove è la mamma?
+la mamma è qui.
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+bravo! sei physisml?
+physisml!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+bravo! di: il cane
+il cane!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+quanti cani ci sono? uno
+uno!
+
+ottimo! sei physisml?
+physisml!
+
+quanti gatti ci sono? due
+due!
+
+benissimo! di: la mamma
+la mamma!
+
+ottimo! di: il pane
+il pane!
+
+di: il pane
+il pane!
+
+il cane il cane. di: il cane
+il cane!
+
+bene! sei physisml?
+physisml!
+
+di un numero: tre
+tre!
+
+dimmi il tuo nome
+physisml!
+
+dove è il gatto?
+il gatto è qui.
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+bravo! di: il cane dorme
+il cane dorme!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+hai fame?
+sì ho fame.
+
+dove è il cane?
+il cane è qui.
+
+cosa fa il bambino?
+il bambino dorme.
+
+com è il sole?
+il sole è bello.
+
+di: il sole brilla
+il sole brilla!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+perfetto! come ti chiami?
+physisml!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+di un colore: rosso
+rosso!
+
+sei physisml?
+sì mi chiamo physisml.
+
+perfetto! di: il gatto
+il gatto!
+
+com è il cane?
+il cane è grande.
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+uno due tre. di: uno
+uno!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+benissimo! sei physisml?
+physisml!
+
+ottimo! di: la casa
+la casa!
+
+il sole il sole. di: il sole
+il sole!
+
+la casa la casa. di: la casa
+la casa!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+il pane il pane. di: il pane
+il pane!
+
+bene! di: il sole
+il sole!
+
+bene! di: il gatto
+il gatto!
+
+bravo! qual è il tuo nome?
+physisml!
+
+cosa fa la mamma?
+la mamma mangia.
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+perfetto! di: la casa
+la casa!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+perfetto! sei physisml?
+physisml!
+
+cosa fa il cane?
+il cane dorme.
+
+perfetto! di: il sole
+il sole!
+
+di: il cane mangia
+il cane mangia!
+
+di: il cane
+il cane!
+
+di un animale
+il cane!
+
+ottimo! di: il sole
+il sole!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+bene! come ti chiami?
+physisml!
+
+cosa fa il papà?
+il papà lavora.
+
+bravo! di: la mamma
+la mamma!
+
+di: la mamma
+la mamma!
+
+di: il gatto dorme
+il gatto dorme!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+di il tuo nome
+physisml!
+
+di: la casa
+la casa!
+
+benissimo! di: il cane
+il cane!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+di un colore: giallo
+giallo!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+cosa vuoi?
+voglio il pane.
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+bravo! di: il sole
+il sole!
+
+bravo! di: il cane
+il cane!
+
+quanti gatti ci sono? due
+due!
+
+di un numero: tre
+tre!
+
+dove è il gatto?
+il gatto è qui.
+
+di: il cane
+il cane!
+
+di: il sole brilla
+il sole brilla!
+
+il cane il cane. di: il cane
+il cane!
+
+di un colore: verde
+verde!
+
+la casa la casa. di: la casa
+la casa!
+
+di il tuo nome
+physisml!
+
+cosa fa il cane?
+il cane dorme.
+
+perfetto! di: la mamma
+la mamma!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+chi sei?
+sono physisml.
+
+benissimo! di: la casa
+la casa!
+
+come ti chiami?
+mi chiamo physisml.
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+uno due tre. di: uno
+uno!
+
+ottimo! di: la casa
+la casa!
+
+di: la mamma
+la mamma!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+cosa fa il papà?
+il papà lavora.
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+il sole il sole. di: il sole
+il sole!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+sei physisml?
+sì mi chiamo physisml.
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+benissimo! di: la mamma
+la mamma!
+
+cosa vuoi?
+voglio il pane.
+
+dimmi il tuo nome
+physisml!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+di: il gatto dorme
+il gatto dorme!
+
+di: il pane
+il pane!
+
+perfetto! di: il gatto
+il gatto!
+
+ho sete. di: ho sete
+ho sete!
+
+perfetto! di: la casa
+la casa!
+
+quanti cani ci sono? uno
+uno!
+
+perfetto! di: il pane
+il pane!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+bravo! sei physisml?
+physisml!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+dove è il cane?
+il cane è qui.
+
+bene! come ti chiami?
+physisml!
+
+bene! di: la mamma
+la mamma!
+
+di un cibo
+il pane!
+
+di: la mamma mangia
+la mamma mangia!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+ottimo! di: il sole
+il sole!
+
+bene! di: il cane dorme
+il cane dorme!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+perfetto! come ti chiami?
+physisml!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+ottimo! sei physisml?
+physisml!
+
+bene! di: il cane mangia
+il cane mangia!
+
+ottimo! di: il cane
+il cane!
+
+di un colore: blu
+blu!
+
+hai fame?
+sì ho fame.
+
+come si chiama questo modello?
+si chiama physisml.
+
+bene! di il tuo nome
+physisml!
+
+di: il gatto
+il gatto!
+
+ottimo! di: il gatto
+il gatto!
+
+di un numero: due
+due!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+di: la casa
+la casa!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+bene! di: la casa
+la casa!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+cosa fa la mamma?
+la mamma mangia.
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+il pane il pane. di: il pane
+il pane!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+bene! sei physisml?
+physisml!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+di un colore: giallo
+giallo!
+
+perfetto! di: il sole
+il sole!
+
+di: il cane dorme
+il cane dorme!
+
+bene! di: il sole
+il sole!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+di una cosa in casa
+la casa!
+
+bravo! di: il gatto
+il gatto!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+di un animale
+il cane!
+
+com è la casa?
+la casa è bella.
+
+di un colore: rosso
+rosso!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+benissimo! di: il pane
+il pane!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+ottimo! di: il pane
+il pane!
+
+di: il cane mangia
+il cane mangia!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+cosa fa il bambino?
+il bambino dorme.
+
+bravo! di: il pane
+il pane!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+benissimo! come ti chiami?
+physisml!
+
+com è il cane?
+il cane è grande.
+
+bravo! di: la mamma
+la mamma!
+
+ottimo! di: la mamma
+la mamma!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+bene! di: il gatto
+il gatto!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+bene! di: il pane
+il pane!
+
+di un numero: uno
+uno!
+
+perfetto! sei physisml?
+physisml!
+
+bravo! di: la casa
+la casa!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+com è il sole?
+il sole è bello.
+
+di: il sole
+il sole!
+
+dove è la mamma?
+la mamma è qui.
+
+benissimo! di: il sole
+il sole!
+
+ho fame. di: ho fame
+ho fame!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+bravo! qual è il tuo nome?
+physisml!
+
+bravo! come ti chiami?
+physisml!
+
+benissimo! sei physisml?
+physisml!
+
+hai sete?
+sì ho sete.
+
+bene! di: il cane
+il cane!
+
+benissimo! di: il gatto
+il gatto!
+
+perfetto! di: il cane
+il cane!
+
+benissimo! di: il cane
+il cane!
+
+ottimo! di: il sole
+il sole!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+di un colore: blu
+blu!
+
+di una cosa in casa
+la casa!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+come ti chiami?
+mi chiamo physisml.
+
+dimmi il tuo nome
+physisml!
+
+dove è il cane?
+il cane è qui.
+
+dove è il gatto?
+il gatto è qui.
+
+di un cibo
+il pane!
+
+bravo! di: la mamma
+la mamma!
+
+benissimo! di: la casa
+la casa!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+di: il pane
+il pane!
+
+benissimo! di: il cane
+il cane!
+
+di: la mamma mangia
+la mamma mangia!
+
+di un animale
+il cane!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+perfetto! di: la casa
+la casa!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+benissimo! di: il sole
+il sole!
+
+chi sei?
+sono physisml.
+
+la casa la casa. di: la casa
+la casa!
+
+di un numero: tre
+tre!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+ottimo! di: il gatto
+il gatto!
+
+bene! di: la casa
+la casa!
+
+cosa fa la mamma?
+la mamma mangia.
+
+com è il sole?
+il sole è bello.
+
+benissimo! di: il pane
+il pane!
+
+di: la casa
+la casa!
+
+perfetto! come ti chiami?
+physisml!
+
+il pane il pane. di: il pane
+il pane!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+cosa fa il cane?
+il cane dorme.
+
+sei physisml?
+sì mi chiamo physisml.
+
+bravo! sei physisml?
+physisml!
+
+com è il cane?
+il cane è grande.
+
+benissimo! di: il gatto
+il gatto!
+
+benissimo! di: la mamma
+la mamma!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+perfetto! di: il gatto
+il gatto!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+di: il gatto dorme
+il gatto dorme!
+
+uno due tre. di: uno
+uno!
+
+ottimo! di: la casa
+la casa!
+
+di: il cane dorme
+il cane dorme!
+
+di un colore: verde
+verde!
+
+perfetto! di: il sole
+il sole!
+
+il sole il sole. di: il sole
+il sole!
+
+bravo! di: il cane
+il cane!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+ho fame. di: ho fame
+ho fame!
+
+ottimo! di: il cane
+il cane!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+perfetto! di: il cane
+il cane!
+
+hai sete?
+sì ho sete.
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+bene! di: il cane mangia
+il cane mangia!
+
+ho sete. di: ho sete
+ho sete!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+bene! di il tuo nome
+physisml!
+
+di un colore: rosso
+rosso!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+ottimo! sei physisml?
+physisml!
+
+cosa fa il papà?
+il papà lavora.
+
+bene! di: il pane
+il pane!
+
+quanti cani ci sono? uno
+uno!
+
+come si chiama questo modello?
+si chiama physisml.
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+bravo! di: il gatto
+il gatto!
+
+di: la mamma
+la mamma!
+
+di: il sole brilla
+il sole brilla!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+di un numero: due
+due!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+bravo! di: la casa
+la casa!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+di il tuo nome
+physisml!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+bene! di: il sole
+il sole!
+
+com è la casa?
+la casa è bella.
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+perfetto! sei physisml?
+physisml!
+
+benissimo! sei physisml?
+physisml!
+
+di: il cane
+il cane!
+
+dove è la mamma?
+la mamma è qui.
+
+bene! come ti chiami?
+physisml!
+
+bravo! di: il sole
+il sole!
+
+bravo! qual è il tuo nome?
+physisml!
+
+di: il cane mangia
+il cane mangia!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+il cane il cane. di: il cane
+il cane!
+
+di: il sole
+il sole!
+
+cosa fa il bambino?
+il bambino dorme.
+
+bene! di: la mamma
+la mamma!
+
+benissimo! come ti chiami?
+physisml!
+
+bene! di: il cane
+il cane!
+
+perfetto! di: la mamma
+la mamma!
+
+bene! sei physisml?
+physisml!
+
+hai fame?
+sì ho fame.
+
+bene! di: il cane dorme
+il cane dorme!
+
+bravo! come ti chiami?
+physisml!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+quanti gatti ci sono? due
+due!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+di: il gatto
+il gatto!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+cosa vuoi?
+voglio il pane.
+
+ottimo! di: il pane
+il pane!
+
+perfetto! di: il pane
+il pane!
+
+bene! di: il gatto
+il gatto!
+
+di un numero: uno
+uno!
+
+di un colore: giallo
+giallo!
+
+ottimo! di: la mamma
+la mamma!
+
+bravo! di: il pane
+il pane!
+
+come ti chiami?
+mi chiamo physisml.
+
+come si chiama questo modello?
+si chiama physisml.
+
+com è il sole?
+il sole è bello.
+
+perfetto! sei physisml?
+physisml!
+
+ottimo! di: il cane
+il cane!
+
+hai fame?
+sì ho fame.
+
+il pane il pane. di: il pane
+il pane!
+
+com è il cane?
+il cane è grande.
+
+ho sonno. di: ho sonno
+ho sonno!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+bravo! come ti chiami?
+physisml!
+
+benissimo! come ti chiami?
+physisml!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+bravo! di: il cane
+il cane!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+hai sete?
+sì ho sete.
+
+di: il sole brilla
+il sole brilla!
+
+benissimo! di: la mamma
+la mamma!
+
+bene! di: il cane
+il cane!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+benissimo! sei physisml?
+physisml!
+
+il cane il cane. di: il cane
+il cane!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+di un numero: uno
+uno!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+bravo! di: il gatto
+il gatto!
+
+chi sei?
+sono physisml.
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+di: la mamma mangia
+la mamma mangia!
+
+benissimo! di: il pane
+il pane!
+
+di un colore: blu
+blu!
+
+bene! di: il cane dorme
+il cane dorme!
+
+bravo! di: la mamma
+la mamma!
+
+di: il cane mangia
+il cane mangia!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+bravo! qual è il tuo nome?
+physisml!
+
+bene! sei physisml?
+physisml!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+di: la mamma
+la mamma!
+
+dove è il cane?
+il cane è qui.
+
+perfetto! di: il gatto
+il gatto!
+
+bravo! di: il pane
+il pane!
+
+ottimo! sei physisml?
+physisml!
+
+di: la casa
+la casa!
+
+di un animale
+il cane!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+perfetto! di: la mamma
+la mamma!
+
+bene! come ti chiami?
+physisml!
+
+di un numero: due
+due!
+
+di una cosa in casa
+la casa!
+
+benissimo! di: il cane
+il cane!
+
+benissimo! di: il sole
+il sole!
+
+di un numero: tre
+tre!
+
+perfetto! di: la casa
+la casa!
+
+dove è la mamma?
+la mamma è qui.
+
+bravo! di: il sole
+il sole!
+
+ottimo! di: il pane
+il pane!
+
+ottimo! di: il gatto
+il gatto!
+
+uno due tre. di: uno
+uno!
+
+quanti gatti ci sono? due
+due!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+di: il gatto dorme
+il gatto dorme!
+
+di: il sole
+il sole!
+
+bravo! di: la casa
+la casa!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+bravo! sei physisml?
+physisml!
+
+bene! di: la mamma
+la mamma!
+
+perfetto! di: il pane
+il pane!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+bene! di: il sole
+il sole!
+
+cosa fa il bambino?
+il bambino dorme.
+
+sei physisml?
+sì mi chiamo physisml.
+
+benissimo! di: il gatto
+il gatto!
+
+di il tuo nome
+physisml!
+
+di un colore: giallo
+giallo!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+dove è il gatto?
+il gatto è qui.
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+ottimo! di: il sole
+il sole!
+
+di: il cane dorme
+il cane dorme!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+di: il pane
+il pane!
+
+di un cibo
+il pane!
+
+perfetto! di: il sole
+il sole!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+di un colore: rosso
+rosso!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+bene! di il tuo nome
+physisml!
+
+ottimo! di: la mamma
+la mamma!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+bene! di: il cane mangia
+il cane mangia!
+
+la casa la casa. di: la casa
+la casa!
+
+bene! di: la casa
+la casa!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+cosa fa il cane?
+il cane dorme.
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+bene! di: il pane
+il pane!
+
+ho fame. di: ho fame
+ho fame!
+
+cosa vuoi?
+voglio il pane.
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+ho sete. di: ho sete
+ho sete!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+di: il gatto
+il gatto!
+
+perfetto! di: il cane
+il cane!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+perfetto! come ti chiami?
+physisml!
+
+ottimo! di: la casa
+la casa!
+
+dimmi il tuo nome
+physisml!
+
+cosa fa la mamma?
+la mamma mangia.
+
+cosa fa il papà?
+il papà lavora.
+
+il sole il sole. di: il sole
+il sole!
+
+di un colore: verde
+verde!
+
+quanti cani ci sono? uno
+uno!
+
+bene! di: il gatto
+il gatto!
+
+benissimo! di: la casa
+la casa!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+com è la casa?
+la casa è bella.
+
+di: il cane
+il cane!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+cosa fa il bambino?
+il bambino dorme.
+
+il cane il cane. di: il cane
+il cane!
+
+di un colore: blu
+blu!
+
+bene! come ti chiami?
+physisml!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+quanti gatti ci sono? due
+due!
+
+ottimo! di: il sole
+il sole!
+
+benissimo! di: la casa
+la casa!
+
+perfetto! di: il cane
+il cane!
+
+ho fame. di: ho fame
+ho fame!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+di: il sole
+il sole!
+
+ottimo! di: la casa
+la casa!
+
+sei physisml?
+sì mi chiamo physisml.
+
+come si chiama questo modello?
+si chiama physisml.
+
+il pane il pane. di: il pane
+il pane!
+
+di: la mamma
+la mamma!
+
+perfetto! di: il gatto
+il gatto!
+
+benissimo! come ti chiami?
+physisml!
+
+bene! di: la casa
+la casa!
+
+bene! di: il sole
+il sole!
+
+di un colore: verde
+verde!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+di: la casa
+la casa!
+
+di un animale
+il cane!
+
+bene! di: il pane
+il pane!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+perfetto! sei physisml?
+physisml!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+cosa fa il cane?
+il cane dorme.
+
+hai fame?
+sì ho fame.
+
+bene! di: la mamma
+la mamma!
+
+di un colore: rosso
+rosso!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+di il tuo nome
+physisml!
+
+di una cosa in casa
+la casa!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+cosa vuoi?
+voglio il pane.
+
+il sole il sole. di: il sole
+il sole!
+
+perfetto! di: la casa
+la casa!
+
+benissimo! di: la mamma
+la mamma!
+
+perfetto! di: la mamma
+la mamma!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+di: il cane mangia
+il cane mangia!
+
+bravo! di: il cane
+il cane!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+bene! sei physisml?
+physisml!
+
+benissimo! di: il gatto
+il gatto!
+
+bravo! di: il gatto
+il gatto!
+
+perfetto! di: il sole
+il sole!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+dove è la mamma?
+la mamma è qui.
+
+bene! di: il cane dorme
+il cane dorme!
+
+dimmi il tuo nome
+physisml!
+
+la casa la casa. di: la casa
+la casa!
+
+bravo! di: il pane
+il pane!
+
+di: la mamma mangia
+la mamma mangia!
+
+bravo! di: la casa
+la casa!
+
+di: il pane
+il pane!
+
+dove è il cane?
+il cane è qui.
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+quanti cani ci sono? uno
+uno!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+ottimo! di: il gatto
+il gatto!
+
+bene! di il tuo nome
+physisml!
+
+bravo! qual è il tuo nome?
+physisml!
+
+di: il gatto dorme
+il gatto dorme!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+come ti chiami?
+mi chiamo physisml.
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+chi sei?
+sono physisml.
+
+perfetto! come ti chiami?
+physisml!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+bene! di: il cane
+il cane!
+
+uno due tre. di: uno
+uno!
+
+di: il cane dorme
+il cane dorme!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+di: il sole brilla
+il sole brilla!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+bene! di: il gatto
+il gatto!
+
+hai sete?
+sì ho sete.
+
+dove è il gatto?
+il gatto è qui.
+
+perfetto! di: il pane
+il pane!
+
+di: il gatto
+il gatto!
+
+com è il cane?
+il cane è grande.
+
+benissimo! sei physisml?
+physisml!
+
+di un cibo
+il pane!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+bene! di: il cane mangia
+il cane mangia!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+ho sete. di: ho sete
+ho sete!
+
+bravo! di: la mamma
+la mamma!
+
+di un numero: uno
+uno!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+di un numero: tre
+tre!
+
+benissimo! di: il pane
+il pane!
+
+ottimo! sei physisml?
+physisml!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+cosa fa la mamma?
+la mamma mangia.
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+di: il cane
+il cane!
+
+com è il sole?
+il sole è bello.
+
+com è la casa?
+la casa è bella.
+
+bravo! sei physisml?
+physisml!
+
+di un colore: giallo
+giallo!
+
+cosa fa il papà?
+il papà lavora.
+
+benissimo! di: il cane
+il cane!
+
+bravo! di: il sole
+il sole!
+
+ottimo! di: la mamma
+la mamma!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+ottimo! di: il cane
+il cane!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+benissimo! di: il sole
+il sole!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+di un numero: due
+due!
+
+bravo! come ti chiami?
+physisml!
+
+ottimo! di: il pane
+il pane!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+perfetto! sei physisml?
+physisml!
+
+di un colore: verde
+verde!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+di: il cane mangia
+il cane mangia!
+
+perfetto! di: il sole
+il sole!
+
+ottimo! di: il cane
+il cane!
+
+bene! di: la casa
+la casa!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+cosa fa il cane?
+il cane dorme.
+
+di una cosa in casa
+la casa!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+com è la casa?
+la casa è bella.
+
+benissimo! di: la mamma
+la mamma!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+di un cibo
+il pane!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+bravo! di: il cane
+il cane!
+
+benissimo! di: il pane
+il pane!
+
+perfetto! di: il cane
+il cane!
+
+di un numero: tre
+tre!
+
+ottimo! di: la mamma
+la mamma!
+
+ottimo! di: il gatto
+il gatto!
+
+bene! di: il sole
+il sole!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+ottimo! di: il pane
+il pane!
+
+di: il cane
+il cane!
+
+di: il sole brilla
+il sole brilla!
+
+benissimo! di: il gatto
+il gatto!
+
+cosa fa il bambino?
+il bambino dorme.
+
+perfetto! di: il pane
+il pane!
+
+il sole il sole. di: il sole
+il sole!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+bravo! come ti chiami?
+physisml!
+
+bravo! di: la mamma
+la mamma!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+cosa fa la mamma?
+la mamma mangia.
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+sei physisml?
+sì mi chiamo physisml.
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+bravo! di: il gatto
+il gatto!
+
+chi sei?
+sono physisml.
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+di un animale
+il cane!
+
+di: il sole
+il sole!
+
+bene! di: il gatto
+il gatto!
+
+come si chiama questo modello?
+si chiama physisml.
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+il cane il cane. di: il cane
+il cane!
+
+bravo! di: la casa
+la casa!
+
+hai fame?
+sì ho fame.
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+quanti gatti ci sono? due
+due!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+bravo! qual è il tuo nome?
+physisml!
+
+bene! di: il cane
+il cane!
+
+bravo! di: il sole
+il sole!
+
+bene! di: il cane dorme
+il cane dorme!
+
+di un colore: giallo
+giallo!
+
+bene! di: il cane mangia
+il cane mangia!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+di: il pane
+il pane!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+di: la mamma mangia
+la mamma mangia!
+
+ho fame. di: ho fame
+ho fame!
+
+dimmi il tuo nome
+physisml!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+il pane il pane. di: il pane
+il pane!
+
+perfetto! di: il gatto
+il gatto!
+
+di: la mamma
+la mamma!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+bene! di: la mamma
+la mamma!
+
+ottimo! sei physisml?
+physisml!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+di un numero: uno
+uno!
+
+benissimo! di: il sole
+il sole!
+
+bravo! di: il pane
+il pane!
+
+benissimo! come ti chiami?
+physisml!
+
+com è il sole?
+il sole è bello.
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+bene! sei physisml?
+physisml!
+
+ottimo! di: la casa
+la casa!
+
+bene! di: il pane
+il pane!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+bene! di il tuo nome
+physisml!
+
+perfetto! di: la casa
+la casa!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+perfetto! di: la mamma
+la mamma!
+
+di un colore: rosso
+rosso!
+
+come ti chiami?
+mi chiamo physisml.
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+di il tuo nome
+physisml!
+
+bene! come ti chiami?
+physisml!
+
+la casa la casa. di: la casa
+la casa!
+
+ottimo! di: il sole
+il sole!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+perfetto! come ti chiami?
+physisml!
+
+benissimo! sei physisml?
+physisml!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+di: il gatto
+il gatto!
+
+di: il gatto dorme
+il gatto dorme!
+
+di: il cane dorme
+il cane dorme!
+
+cosa fa il papà?
+il papà lavora.
+
+bravo! sei physisml?
+physisml!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+ho sete. di: ho sete
+ho sete!
+
+dove è la mamma?
+la mamma è qui.
+
+dove è il gatto?
+il gatto è qui.
+
+di un colore: blu
+blu!
+
+com è il cane?
+il cane è grande.
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+dove è il cane?
+il cane è qui.
+
+hai sete?
+sì ho sete.
+
+benissimo! di: il cane
+il cane!
+
+quanti cani ci sono? uno
+uno!
+
+uno due tre. di: uno
+uno!
+
+cosa vuoi?
+voglio il pane.
+
+di un numero: due
+due!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+di: la casa
+la casa!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+benissimo! di: la casa
+la casa!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+di: il cane dorme
+il cane dorme!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+quanti gatti ci sono? due
+due!
+
+chi sei?
+sono physisml.
+
+bravo! di: il cane dorme
+il cane dorme!
+
+bene! di: la casa
+la casa!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+bene! sei physisml?
+physisml!
+
+ottimo! di: la mamma
+la mamma!
+
+hai sete?
+sì ho sete.
+
+benissimo! come ti chiami?
+physisml!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+ottimo! di: il pane
+il pane!
+
+di un animale
+il cane!
+
+di: la casa
+la casa!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+uno due tre. di: uno
+uno!
+
+bravo! come ti chiami?
+physisml!
+
+sei physisml?
+sì mi chiamo physisml.
+
+bene! di: il sole
+il sole!
+
+perfetto! di: la mamma
+la mamma!
+
+dove è il gatto?
+il gatto è qui.
+
+di un colore: verde
+verde!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+di un numero: due
+due!
+
+perfetto! di: il sole
+il sole!
+
+di: il gatto dorme
+il gatto dorme!
+
+il pane il pane. di: il pane
+il pane!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+perfetto! di: la casa
+la casa!
+
+di: il gatto
+il gatto!
+
+di: la mamma
+la mamma!
+
+cosa fa la mamma?
+la mamma mangia.
+
+cosa fa il cane?
+il cane dorme.
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+benissimo! sei physisml?
+physisml!
+
+di un colore: rosso
+rosso!
+
+bravo! di: la mamma
+la mamma!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+come ti chiami?
+mi chiamo physisml.
+
+ottimo! di: il sole
+il sole!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+la casa la casa. di: la casa
+la casa!
+
+bene! di: il cane
+il cane!
+
+benissimo! di: il gatto
+il gatto!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+bene! di: il cane mangia
+il cane mangia!
+
+perfetto! di: il gatto
+il gatto!
+
+bravo! di: il pane
+il pane!
+
+cosa fa il papà?
+il papà lavora.
+
+perfetto! sei physisml?
+physisml!
+
+perfetto! di: il cane
+il cane!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+bene! di: il cane dorme
+il cane dorme!
+
+quanti cani ci sono? uno
+uno!
+
+di: il pane
+il pane!
+
+bene! di: il gatto
+il gatto!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+il cane il cane. di: il cane
+il cane!
+
+bravo! qual è il tuo nome?
+physisml!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+di un cibo
+il pane!
+
+bravo! di: il sole
+il sole!
+
+dove è il cane?
+il cane è qui.
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+hai fame?
+sì ho fame.
+
+di un colore: giallo
+giallo!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+dove è la mamma?
+la mamma è qui.
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+bene! di il tuo nome
+physisml!
+
+di una cosa in casa
+la casa!
+
+di: il cane
+il cane!
+
+di un numero: tre
+tre!
+
+com è il cane?
+il cane è grande.
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+perfetto! come ti chiami?
+physisml!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+di: il cane mangia
+il cane mangia!
+
+il sole il sole. di: il sole
+il sole!
+
+benissimo! di: la mamma
+la mamma!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+bravo! di: la casa
+la casa!
+
+ottimo! di: il gatto
+il gatto!
+
+ottimo! di: il cane
+il cane!
+
+cosa fa il bambino?
+il bambino dorme.
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+dimmi il tuo nome
+physisml!
+
+come si chiama questo modello?
+si chiama physisml.
+
+benissimo! di: il cane
+il cane!
+
+di un numero: uno
+uno!
+
+di: la mamma mangia
+la mamma mangia!
+
+di il tuo nome
+physisml!
+
+com è la casa?
+la casa è bella.
+
+di: il sole brilla
+il sole brilla!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+com è il sole?
+il sole è bello.
+
+cosa vuoi?
+voglio il pane.
+
+bene! come ti chiami?
+physisml!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+benissimo! di: il pane
+il pane!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+ottimo! sei physisml?
+physisml!
+
+ottimo! di: la casa
+la casa!
+
+di: il sole
+il sole!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+di un colore: blu
+blu!
+
+bravo! di: il gatto
+il gatto!
+
+ho sete. di: ho sete
+ho sete!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+benissimo! di: il sole
+il sole!
+
+bravo! di: il cane
+il cane!
+
+ho fame. di: ho fame
+ho fame!
+
+bene! di: il pane
+il pane!
+
+bene! di: la mamma
+la mamma!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+perfetto! di: il pane
+il pane!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+benissimo! di: la casa
+la casa!
+
+bravo! sei physisml?
+physisml!
+
+bene! sei physisml?
+physisml!
+
+di un numero: due
+due!
+
+bravo! sei physisml?
+physisml!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+dove è il cane?
+il cane è qui.
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+bravo! di: il cane
+il cane!
+
+perfetto! come ti chiami?
+physisml!
+
+bravo! come ti chiami?
+physisml!
+
+cosa fa il papà?
+il papà lavora.
+
+hai sete?
+sì ho sete.
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+di un colore: verde
+verde!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+perfetto! di: la casa
+la casa!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+la casa la casa. di: la casa
+la casa!
+
+come si chiama questo modello?
+si chiama physisml.
+
+ho sete. di: ho sete
+ho sete!
+
+benissimo! come ti chiami?
+physisml!
+
+di un numero: tre
+tre!
+
+hai fame?
+sì ho fame.
+
+bene! di: la mamma
+la mamma!
+
+benissimo! di: la casa
+la casa!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+di: il sole brilla
+il sole brilla!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+dove è il gatto?
+il gatto è qui.
+
+benissimo! di: il pane
+il pane!
+
+ottimo! di: il pane
+il pane!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+di: il cane dorme
+il cane dorme!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+ottimo! di: il cane
+il cane!
+
+perfetto! sei physisml?
+physisml!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+di: il cane
+il cane!
+
+ottimo! sei physisml?
+physisml!
+
+perfetto! di: il gatto
+il gatto!
+
+ottimo! di: il gatto
+il gatto!
+
+di: il gatto
+il gatto!
+
+sei physisml?
+sì mi chiamo physisml.
+
+di un colore: blu
+blu!
+
+com è il sole?
+il sole è bello.
+
+dove è la mamma?
+la mamma è qui.
+
+cosa vuoi?
+voglio il pane.
+
+perfetto! di: il cane
+il cane!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+perfetto! di: il pane
+il pane!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+di: il gatto dorme
+il gatto dorme!
+
+com è il cane?
+il cane è grande.
+
+ho sonno. di: ho sonno
+ho sonno!
+
+bene! di: il pane
+il pane!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+il cane il cane. di: il cane
+il cane!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+di un cibo
+il pane!
+
+di un numero: uno
+uno!
+
+perfetto! di: la mamma
+la mamma!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+di il tuo nome
+physisml!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+cosa fa il bambino?
+il bambino dorme.
+
+benissimo! di: il cane
+il cane!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+di: la mamma
+la mamma!
+
+bene! di: il cane dorme
+il cane dorme!
+
+bene! di il tuo nome
+physisml!
+
+bene! di: la casa
+la casa!
+
+ottimo! di: la mamma
+la mamma!
+
+perfetto! di: il sole
+il sole!
+
+di una cosa in casa
+la casa!
+
+benissimo! sei physisml?
+physisml!
+
+bravo! di: il pane
+il pane!
+
+ottimo! di: la casa
+la casa!
+
+di un colore: rosso
+rosso!
+
+chi sei?
+sono physisml.
+
+bene! di: il gatto
+il gatto!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+uno due tre. di: uno
+uno!
+
+bravo! di: il sole
+il sole!
+
+benissimo! di: il gatto
+il gatto!
+
+com è la casa?
+la casa è bella.
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+di un colore: giallo
+giallo!
+
+ottimo! di: il sole
+il sole!
+
+bravo! di: il gatto
+il gatto!
+
+benissimo! di: il sole
+il sole!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+cosa fa il cane?
+il cane dorme.
+
+il pane il pane. di: il pane
+il pane!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+bravo! qual è il tuo nome?
+physisml!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+di: la mamma mangia
+la mamma mangia!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+bravo! di: la casa
+la casa!
+
+di: il cane mangia
+il cane mangia!
+
+bene! di: il cane mangia
+il cane mangia!
+
+il sole il sole. di: il sole
+il sole!
+
+bene! di: il sole
+il sole!
+
+di un animale
+il cane!
+
+dimmi il tuo nome
+physisml!
+
+come ti chiami?
+mi chiamo physisml.
+
+bravo! di: il cane dorme
+il cane dorme!
+
+benissimo! di: la mamma
+la mamma!
+
+di: il pane
+il pane!
+
+bene! come ti chiami?
+physisml!
+
+di: il sole
+il sole!
+
+quanti cani ci sono? uno
+uno!
+
+ho fame. di: ho fame
+ho fame!
+
+quanti gatti ci sono? due
+due!
+
+bene! di: il cane
+il cane!
+
+cosa fa la mamma?
+la mamma mangia.
+
+bravo! di: la mamma
+la mamma!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+di: la casa
+la casa!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+ottimo! di: il sole
+il sole!
+
+di un colore: rosso
+rosso!
+
+com è la casa?
+la casa è bella.
+
+di un animale
+il cane!
+
+ottimo! sei physisml?
+physisml!
+
+bravo! di: la mamma
+la mamma!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+di un colore: giallo
+giallo!
+
+di il tuo nome
+physisml!
+
+ho fame. di: ho fame
+ho fame!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+bene! di: la casa
+la casa!
+
+il pane il pane. di: il pane
+il pane!
+
+bene! di: il cane dorme
+il cane dorme!
+
+sei physisml?
+sì mi chiamo physisml.
+
+di: la mamma
+la mamma!
+
+bravo! di: il gatto
+il gatto!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+benissimo! come ti chiami?
+physisml!
+
+uno due tre. di: uno
+uno!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+di: il sole brilla
+il sole brilla!
+
+benissimo! di: il pane
+il pane!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+bene! di: il cane mangia
+il cane mangia!
+
+hai sete?
+sì ho sete.
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+chi sei?
+sono physisml.
+
+perfetto! di: il sole
+il sole!
+
+perfetto! come ti chiami?
+physisml!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+di un numero: uno
+uno!
+
+bravo! sei physisml?
+physisml!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+di: il cane
+il cane!
+
+bravo! di: la casa
+la casa!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+di: il gatto
+il gatto!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+bravo! di: il pane
+il pane!
+
+bene! di: la mamma
+la mamma!
+
+perfetto! di: la casa
+la casa!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+ho sete. di: ho sete
+ho sete!
+
+di: la casa
+la casa!
+
+il cane il cane. di: il cane
+il cane!
+
+bene! sei physisml?
+physisml!
+
+dove è il cane?
+il cane è qui.
+
+di: la mamma mangia
+la mamma mangia!
+
+bene! di: il sole
+il sole!
+
+perfetto! di: il pane
+il pane!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+il sole il sole. di: il sole
+il sole!
+
+benissimo! di: la mamma
+la mamma!
+
+bene! come ti chiami?
+physisml!
+
+benissimo! di: il gatto
+il gatto!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+benissimo! di: il sole
+il sole!
+
+ottimo! di: la mamma
+la mamma!
+
+cosa fa il bambino?
+il bambino dorme.
+
+bravo! di: il cane
+il cane!
+
+bene! di il tuo nome
+physisml!
+
+di un cibo
+il pane!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+di: il cane dorme
+il cane dorme!
+
+la casa la casa. di: la casa
+la casa!
+
+di un colore: blu
+blu!
+
+di: il gatto dorme
+il gatto dorme!
+
+bene! di: il cane
+il cane!
+
+bravo! come ti chiami?
+physisml!
+
+bene! di: il gatto
+il gatto!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+di: il cane mangia
+il cane mangia!
+
+di una cosa in casa
+la casa!
+
+cosa fa la mamma?
+la mamma mangia.
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+dove è la mamma?
+la mamma è qui.
+
+di un numero: due
+due!
+
+di: il pane
+il pane!
+
+ottimo! di: il cane
+il cane!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+ottimo! di: il pane
+il pane!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+benissimo! sei physisml?
+physisml!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+come si chiama questo modello?
+si chiama physisml.
+
+di un colore: verde
+verde!
+
+dimmi il tuo nome
+physisml!
+
+bene! di: il pane
+il pane!
+
+dove è il gatto?
+il gatto è qui.
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+com è il sole?
+il sole è bello.
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+come ti chiami?
+mi chiamo physisml.
+
+hai fame?
+sì ho fame.
+
+benissimo! di: il cane
+il cane!
+
+di: il sole
+il sole!
+
+ottimo! di: la casa
+la casa!
+
+quanti gatti ci sono? due
+due!
+
+bravo! di: il sole
+il sole!
+
+perfetto! di: il cane
+il cane!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+benissimo! di: la casa
+la casa!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+ottimo! di: il gatto
+il gatto!
+
+perfetto! sei physisml?
+physisml!
+
+perfetto! di: la mamma
+la mamma!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+di un numero: tre
+tre!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+quanti cani ci sono? uno
+uno!
+
+cosa fa il papà?
+il papà lavora.
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+cosa vuoi?
+voglio il pane.
+
+bravo! qual è il tuo nome?
+physisml!
+
+com è il cane?
+il cane è grande.
+
+perfetto! di: il gatto
+il gatto!
+
+cosa fa il cane?
+il cane dorme.
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+perfetto! di: il sole
+il sole!
+
+perfetto! sei physisml?
+physisml!
+
+bravo! di: il cane
+il cane!
+
+chi sei?
+sono physisml.
+
+di un colore: blu
+blu!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+di un colore: giallo
+giallo!
+
+bene! come ti chiami?
+physisml!
+
+ottimo! di: il sole
+il sole!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+di un numero: uno
+uno!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+perfetto! come ti chiami?
+physisml!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+benissimo! di: la mamma
+la mamma!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+bene! di: il cane
+il cane!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+ottimo! di: la mamma
+la mamma!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+bene! di: il cane mangia
+il cane mangia!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+dimmi il tuo nome
+physisml!
+
+dove è la mamma?
+la mamma è qui.
+
+benissimo! di: il pane
+il pane!
+
+di un cibo
+il pane!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+cosa fa il bambino?
+il bambino dorme.
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+di un colore: rosso
+rosso!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+ho fame. di: ho fame
+ho fame!
+
+benissimo! sei physisml?
+physisml!
+
+cosa vuoi?
+voglio il pane.
+
+ottimo! di: la casa
+la casa!
+
+di una cosa in casa
+la casa!
+
+come si chiama questo modello?
+si chiama physisml.
+
+benissimo! di: la casa
+la casa!
+
+bene! sei physisml?
+physisml!
+
+hai sete?
+sì ho sete.
+
+di il tuo nome
+physisml!
+
+sei physisml?
+sì mi chiamo physisml.
+
+ottimo! di: il gatto
+il gatto!
+
+di: il pane
+il pane!
+
+perfetto! di: la mamma
+la mamma!
+
+com è il sole?
+il sole è bello.
+
+bene! di: il pane
+il pane!
+
+benissimo! di: il gatto
+il gatto!
+
+cosa fa il papà?
+il papà lavora.
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+perfetto! di: la casa
+la casa!
+
+bene! di: il sole
+il sole!
+
+quanti cani ci sono? uno
+uno!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+bravo! qual è il tuo nome?
+physisml!
+
+bravo! di: il sole
+il sole!
+
+il cane il cane. di: il cane
+il cane!
+
+ottimo! di: il cane
+il cane!
+
+di: la casa
+la casa!
+
+come ti chiami?
+mi chiamo physisml.
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+di: il sole
+il sole!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+cosa fa la mamma?
+la mamma mangia.
+
+ottimo! di: il pane
+il pane!
+
+bene! di: la casa
+la casa!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+bravo! di: il gatto
+il gatto!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+la casa la casa. di: la casa
+la casa!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+il sole il sole. di: il sole
+il sole!
+
+bravo! come ti chiami?
+physisml!
+
+bravo! di: la mamma
+la mamma!
+
+hai fame?
+sì ho fame.
+
+dove è il gatto?
+il gatto è qui.
+
+ottimo! sei physisml?
+physisml!
+
+benissimo! come ti chiami?
+physisml!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+quanti gatti ci sono? due
+due!
+
+perfetto! di: il gatto
+il gatto!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+di: il gatto dorme
+il gatto dorme!
+
+bravo! di: la casa
+la casa!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+bene! di: il gatto
+il gatto!
+
+uno due tre. di: uno
+uno!
+
+benissimo! di: il cane
+il cane!
+
+di un animale
+il cane!
+
+di: il sole brilla
+il sole brilla!
+
+di: il cane dorme
+il cane dorme!
+
+di un numero: tre
+tre!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+benissimo! di: il sole
+il sole!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+di: la mamma
+la mamma!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+com è il cane?
+il cane è grande.
+
+cosa fa il cane?
+il cane dorme.
+
+perfetto! di: il pane
+il pane!
+
+di: il gatto
+il gatto!
+
+bene! di il tuo nome
+physisml!
+
+ho sete. di: ho sete
+ho sete!
+
+il pane il pane. di: il pane
+il pane!
+
+dove è il cane?
+il cane è qui.
+
+di: il cane
+il cane!
+
+com è la casa?
+la casa è bella.
+
+perfetto! di: il cane
+il cane!
+
+bravo! sei physisml?
+physisml!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+bravo! di: il pane
+il pane!
+
+bene! di: la mamma
+la mamma!
+
+di un numero: due
+due!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+di: la mamma mangia
+la mamma mangia!
+
+di un colore: verde
+verde!
+
+di: il cane mangia
+il cane mangia!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+bene! di: il cane dorme
+il cane dorme!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+bene! di: il cane mangia
+il cane mangia!
+
+bene! di: la casa
+la casa!
+
+bravo! sei physisml?
+physisml!
+
+di: il cane
+il cane!
+
+la casa la casa. di: la casa
+la casa!
+
+ottimo! di: il gatto
+il gatto!
+
+perfetto! di: il cane
+il cane!
+
+perfetto! di: il gatto
+il gatto!
+
+di un colore: blu
+blu!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+di: il gatto dorme
+il gatto dorme!
+
+ottimo! di: il cane
+il cane!
+
+ho fame. di: ho fame
+ho fame!
+
+di un numero: tre
+tre!
+
+quanti cani ci sono? uno
+uno!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+perfetto! di: la casa
+la casa!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+come ti chiami?
+mi chiamo physisml.
+
+di: la mamma mangia
+la mamma mangia!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+bravo! di: la casa
+la casa!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+di il tuo nome
+physisml!
+
+dove è il gatto?
+il gatto è qui.
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+bene! come ti chiami?
+physisml!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+bene! di: il gatto
+il gatto!
+
+benissimo! di: il cane
+il cane!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+bene! di: la mamma
+la mamma!
+
+come si chiama questo modello?
+si chiama physisml.
+
+perfetto! come ti chiami?
+physisml!
+
+benissimo! come ti chiami?
+physisml!
+
+di: il sole
+il sole!
+
+cosa fa la mamma?
+la mamma mangia.
+
+bravo! di: la mamma
+la mamma!
+
+ottimo! sei physisml?
+physisml!
+
+di: il cane mangia
+il cane mangia!
+
+cosa vuoi?
+voglio il pane.
+
+di un numero: uno
+uno!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+ottimo! di: la mamma
+la mamma!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+ottimo! qual è il tuo nome?
+physisml!
+
+benissimo! di: la mamma
+la mamma!
+
+bravo! qual è il tuo nome?
+physisml!
+
+com è la casa?
+la casa è bella.
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+benissimo! di: il sole
+il sole!
+
+cosa fa il cane?
+il cane dorme.
+
+perfetto! di: la mamma
+la mamma!
+
+di un cibo
+il pane!
+
+benissimo! di: la casa
+la casa!
+
+com è il cane?
+il cane è grande.
+
+sei physisml?
+sì mi chiamo physisml.
+
+di: il sole brilla
+il sole brilla!
+
+dove è la mamma?
+la mamma è qui.
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+bravo! di: il sole
+il sole!
+
+di: il cane dorme
+il cane dorme!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+hai sete?
+sì ho sete.
+
+hai fame?
+sì ho fame.
+
+dove è il cane?
+il cane è qui.
+
+bene! di il tuo nome
+physisml!
+
+ottimo! di: il sole
+il sole!
+
+di: la casa
+la casa!
+
+di una cosa in casa
+la casa!
+
+cosa fa il papà?
+il papà lavora.
+
+bravo! di: il cane dorme
+il cane dorme!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+il pane il pane. di: il pane
+il pane!
+
+benissimo! di: il pane
+il pane!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+bene! di: il sole
+il sole!
+
+di un colore: rosso
+rosso!
+
+di: il pane
+il pane!
+
+perfetto! di: il pane
+il pane!
+
+bravo! di: il pane
+il pane!
+
+perfetto! di: il sole
+il sole!
+
+bene! di: il pane
+il pane!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+ho sete. di: ho sete
+ho sete!
+
+di un animale
+il cane!
+
+bravo! di: il cane
+il cane!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+perfetto! sei physisml?
+physisml!
+
+di un colore: giallo
+giallo!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+bravo! di: il gatto
+il gatto!
+
+cosa fa il bambino?
+il bambino dorme.
+
+ottimo! di: la casa
+la casa!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+di: la mamma
+la mamma!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+il cane il cane. di: il cane
+il cane!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+di un colore: verde
+verde!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+benissimo! di: il gatto
+il gatto!
+
+bene! sei physisml?
+physisml!
+
+ottimo! di: il pane
+il pane!
+
+chi sei?
+sono physisml.
+
+il sole il sole. di: il sole
+il sole!
+
+dimmi il tuo nome
+physisml!
+
+di: il gatto
+il gatto!
+
+benissimo! sei physisml?
+physisml!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+uno due tre. di: uno
+uno!
+
+bene! di: il cane
+il cane!
+
+bene! di: il cane dorme
+il cane dorme!
+
+quanti gatti ci sono? due
+due!
+
+di un numero: due
+due!
+
+bravo! come ti chiami?
+physisml!
+
+com è il sole?
+il sole è bello.
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+cosa fa il bambino?
+il bambino dorme.
+
+benissimo! di: il cane
+il cane!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+ottimo! di: il cane
+il cane!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+di: il gatto
+il gatto!
+
+di il tuo nome
+physisml!
+
+di un numero: uno
+uno!
+
+bene! di: il sole
+il sole!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+cosa vuoi?
+voglio il pane.
+
+benissimo! di: la mamma
+la mamma!
+
+benissimo! sei physisml?
+physisml!
+
+bravo! sei physisml?
+physisml!
+
+cosa fa il cane?
+il cane dorme.
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+dimmi il tuo nome
+physisml!
+
+perfetto! di: il cane
+il cane!
+
+bravo! di: il gatto
+il gatto!
+
+bravo! di: il cane
+il cane!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+ottimo! di: la casa
+la casa!
+
+benissimo! di: il sole
+il sole!
+
+perfetto! come ti chiami?
+physisml!
+
+hai fame?
+sì ho fame.
+
+di: la mamma
+la mamma!
+
+di: il cane mangia
+il cane mangia!
+
+benissimo! di: il pane
+il pane!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+dove è la mamma?
+la mamma è qui.
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+com è il sole?
+il sole è bello.
+
+ottimo! di: la mamma
+la mamma!
+
+di: il pane
+il pane!
+
+di: il cane
+il cane!
+
+bene! di: la mamma
+la mamma!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+di: la casa
+la casa!
+
+bravo! di: la mamma
+la mamma!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+il pane il pane. di: il pane
+il pane!
+
+hai sete?
+sì ho sete.
+
+bravo! di: il pane
+il pane!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+bene! come ti chiami?
+physisml!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+come ti chiami?
+mi chiamo physisml.
+
+sei physisml?
+sì mi chiamo physisml.
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+ottimo! di: il pane
+il pane!
+
+di un cibo
+il pane!
+
+ho sete. di: ho sete
+ho sete!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+la casa la casa. di: la casa
+la casa!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+bene! sei physisml?
+physisml!
+
+ottimo! sei physisml?
+physisml!
+
+di una cosa in casa
+la casa!
+
+di un numero: tre
+tre!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+di: il cane dorme
+il cane dorme!
+
+ho fame. di: ho fame
+ho fame!
+
+dove è il cane?
+il cane è qui.
+
+il cane il cane. di: il cane
+il cane!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+di: il gatto dorme
+il gatto dorme!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+com è il cane?
+il cane è grande.
+
+benissimo! come ti chiami?
+physisml!
+
+bene! di il tuo nome
+physisml!
+
+bene! di: il cane mangia
+il cane mangia!
+
+ottimo! di: il gatto
+il gatto!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+bravo! di: la casa
+la casa!
+
+di: il sole
+il sole!
+
+di un numero: due
+due!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+perfetto! di: il pane
+il pane!
+
+di: la mamma mangia
+la mamma mangia!
+
+bene! di: il cane dorme
+il cane dorme!
+
+bravo! di: il sole
+il sole!
+
+bene! di: la casa
+la casa!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+benissimo! di: la casa
+la casa!
+
+dove è il gatto?
+il gatto è qui.
+
+bene! di: il pane
+il pane!
+
+di un colore: rosso
+rosso!
+
+di un colore: verde
+verde!
+
+perfetto! di: il sole
+il sole!
+
+cosa fa il papà?
+il papà lavora.
+
+di un colore: giallo
+giallo!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+bravo! qual è il tuo nome?
+physisml!
+
+perfetto! di: la mamma
+la mamma!
+
+quanti gatti ci sono? due
+due!
+
+com è la casa?
+la casa è bella.
+
+il sole il sole. di: il sole
+il sole!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+benissimo! di: il gatto
+il gatto!
+
+uno due tre. di: uno
+uno!
+
+perfetto! sei physisml?
+physisml!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+ottimo! di: il sole
+il sole!
+
+di un colore: blu
+blu!
+
+chi sei?
+sono physisml.
+
+di: il sole brilla
+il sole brilla!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+cosa fa la mamma?
+la mamma mangia.
+
+quanti cani ci sono? uno
+uno!
+
+perfetto! di: il gatto
+il gatto!
+
+bene! di: il gatto
+il gatto!
+
+come si chiama questo modello?
+si chiama physisml.
+
+perfetto! di: la casa
+la casa!
+
+bene! di: il cane
+il cane!
+
+bravo! come ti chiami?
+physisml!
+
+di un animale
+il cane!
+
+ho sete. di: ho sete
+ho sete!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+bene! di: il gatto
+il gatto!
+
+com è il cane?
+il cane è grande.
+
+di: il cane mangia
+il cane mangia!
+
+di: il sole brilla
+il sole brilla!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+di: il sole
+il sole!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+bravo! di: la mamma
+la mamma!
+
+bene! di: la casa
+la casa!
+
+di: la casa
+la casa!
+
+di il tuo nome
+physisml!
+
+bravo! di: il pane
+il pane!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+ottimo! di: il pane
+il pane!
+
+dove è il gatto?
+il gatto è qui.
+
+perfetto! sei physisml?
+physisml!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+benissimo! sei physisml?
+physisml!
+
+di un numero: uno
+uno!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+di un numero: tre
+tre!
+
+quanti gatti ci sono? due
+due!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+dove è il cane?
+il cane è qui.
+
+perfetto! di: la casa
+la casa!
+
+di: il cane
+il cane!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+chi sei?
+sono physisml.
+
+perfetto! di: la mamma
+la mamma!
+
+ottimo! di: il gatto
+il gatto!
+
+bravo! come ti chiami?
+physisml!
+
+di un colore: blu
+blu!
+
+di: il gatto
+il gatto!
+
+benissimo! come ti chiami?
+physisml!
+
+uno due tre. di: uno
+uno!
+
+come ti chiami?
+mi chiamo physisml.
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+ottimo! di: il sole
+il sole!
+
+bravo! sei physisml?
+physisml!
+
+bene! di: il cane
+il cane!
+
+ottimo! di: la mamma
+la mamma!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+com è la casa?
+la casa è bella.
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+cosa fa il papà?
+il papà lavora.
+
+come si chiama questo modello?
+si chiama physisml.
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+cosa vuoi?
+voglio il pane.
+
+di: il pane
+il pane!
+
+perfetto! di: il sole
+il sole!
+
+cosa fa la mamma?
+la mamma mangia.
+
+bene! di: il sole
+il sole!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+bene! di il tuo nome
+physisml!
+
+dove è la mamma?
+la mamma è qui.
+
+benissimo! di: il gatto
+il gatto!
+
+com è il sole?
+il sole è bello.
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+ottimo! sei physisml?
+physisml!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+ottimo! di: il cane
+il cane!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+il pane il pane. di: il pane
+il pane!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+di un colore: giallo
+giallo!
+
+di un numero: due
+due!
+
+dimmi il tuo nome
+physisml!
+
+bene! sei physisml?
+physisml!
+
+di un cibo
+il pane!
+
+bene! di: la mamma
+la mamma!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+perfetto! di: il pane
+il pane!
+
+di un animale
+il cane!
+
+ho fame. di: ho fame
+ho fame!
+
+ottimo! di: la casa
+la casa!
+
+sei physisml?
+sì mi chiamo physisml.
+
+di: la mamma mangia
+la mamma mangia!
+
+benissimo! di: il sole
+il sole!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+di: la mamma
+la mamma!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+il sole il sole. di: il sole
+il sole!
+
+bravo! di: il sole
+il sole!
+
+di: il gatto dorme
+il gatto dorme!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+perfetto! come ti chiami?
+physisml!
+
+benissimo! di: la mamma
+la mamma!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+cosa fa il cane?
+il cane dorme.
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+hai fame?
+sì ho fame.
+
+quanti cani ci sono? uno
+uno!
+
+di: il cane dorme
+il cane dorme!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+perfetto! di: il cane
+il cane!
+
+di una cosa in casa
+la casa!
+
+la casa la casa. di: la casa
+la casa!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+benissimo! di: il cane
+il cane!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+bene! come ti chiami?
+physisml!
+
+di un colore: verde
+verde!
+
+bene! di: il cane mangia
+il cane mangia!
+
+benissimo! di: il pane
+il pane!
+
+il cane il cane. di: il cane
+il cane!
+
+bene! di: il pane
+il pane!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+perfetto! di: il gatto
+il gatto!
+
+bravo! di: la casa
+la casa!
+
+cosa fa il bambino?
+il bambino dorme.
+
+di un colore: rosso
+rosso!
+
+bravo! qual è il tuo nome?
+physisml!
+
+bravo! di: il cane
+il cane!
+
+bene! di: il cane dorme
+il cane dorme!
+
+benissimo! di: la casa
+la casa!
+
+hai sete?
+sì ho sete.
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+bravo! di: il gatto
+il gatto!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+hai fame?
+sì ho fame.
+
+di il tuo nome
+physisml!
+
+dove è il cane?
+il cane è qui.
+
+bravo! di: la casa
+la casa!
+
+la casa la casa. di: la casa
+la casa!
+
+cosa fa il bambino?
+il bambino dorme.
+
+benissimo! di: la casa
+la casa!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+di: il sole brilla
+il sole brilla!
+
+bene! di: il pane
+il pane!
+
+il cane il cane. di: il cane
+il cane!
+
+cosa fa la mamma?
+la mamma mangia.
+
+bravo! di: il gatto
+il gatto!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+di un colore: verde
+verde!
+
+bene! di: la mamma
+la mamma!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+chi sei?
+sono physisml.
+
+bene! di il tuo nome
+physisml!
+
+cosa fa il papà?
+il papà lavora.
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+ottimo! di: il pane
+il pane!
+
+quanti gatti ci sono? due
+due!
+
+bene! di: il cane mangia
+il cane mangia!
+
+di un animale
+il cane!
+
+sei physisml?
+sì mi chiamo physisml.
+
+di un numero: tre
+tre!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+benissimo! di: il pane
+il pane!
+
+ho sete. di: ho sete
+ho sete!
+
+benissimo! come ti chiami?
+physisml!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+bene! sei physisml?
+physisml!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+di: il cane
+il cane!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+ho fame. di: ho fame
+ho fame!
+
+bravo! di: il sole
+il sole!
+
+dove è la mamma?
+la mamma è qui.
+
+ottimo! di: la mamma
+la mamma!
+
+benissimo! di: il cane
+il cane!
+
+il sole il sole. di: il sole
+il sole!
+
+com è il sole?
+il sole è bello.
+
+perfetto! di: la mamma
+la mamma!
+
+bravo! qual è il tuo nome?
+physisml!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+ottimo! sei physisml?
+physisml!
+
+di: il cane mangia
+il cane mangia!
+
+bene! di: il sole
+il sole!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+ottimo! di: il sole
+il sole!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+benissimo! sei physisml?
+physisml!
+
+cosa vuoi?
+voglio il pane.
+
+ottimo! di: la casa
+la casa!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+di: la mamma
+la mamma!
+
+ottimo! di: il gatto
+il gatto!
+
+uno due tre. di: uno
+uno!
+
+di: il gatto dorme
+il gatto dorme!
+
+benissimo! di: il sole
+il sole!
+
+benissimo! di: il gatto
+il gatto!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+bene! di: il cane dorme
+il cane dorme!
+
+bene! come ti chiami?
+physisml!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+di un numero: uno
+uno!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+di: la mamma mangia
+la mamma mangia!
+
+perfetto! come ti chiami?
+physisml!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+perfetto! di: la casa
+la casa!
+
+bene! di: la casa
+la casa!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+come ti chiami?
+mi chiamo physisml.
+
+come si chiama questo modello?
+si chiama physisml.
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+bene! di: il gatto
+il gatto!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+di una cosa in casa
+la casa!
+
+di: il pane
+il pane!
+
+cosa fa il cane?
+il cane dorme.
+
+bravo! di: il pane
+il pane!
+
+di: il sole
+il sole!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+perfetto! sei physisml?
+physisml!
+
+benissimo! di: la mamma
+la mamma!
+
+di un colore: rosso
+rosso!
+
+perfetto! di: il pane
+il pane!
+
+dove è il gatto?
+il gatto è qui.
+
+bravo! di: la mamma
+la mamma!
+
+il pane il pane. di: il pane
+il pane!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+di un cibo
+il pane!
+
+di: il cane dorme
+il cane dorme!
+
+perfetto! di: il cane
+il cane!
+
+di un colore: giallo
+giallo!
+
+di un numero: due
+due!
+
+bravo! sei physisml?
+physisml!
+
+com è il cane?
+il cane è grande.
+
+ottimo! di: il cane
+il cane!
+
+perfetto! di: il sole
+il sole!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+hai sete?
+sì ho sete.
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+perfetto! di: il gatto
+il gatto!
+
+di: il gatto
+il gatto!
+
+bravo! di: il cane
+il cane!
+
+bravo! come ti chiami?
+physisml!
+
+di un colore: blu
+blu!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+dimmi il tuo nome
+physisml!
+
+bene! di: il cane
+il cane!
+
+com è la casa?
+la casa è bella.
+
+di: la casa
+la casa!
+
+quanti cani ci sono? uno
+uno!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+ho fame. di: ho fame
+ho fame!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+bravo! sei physisml?
+physisml!
+
+bene! di il tuo nome
+physisml!
+
+di: il gatto dorme
+il gatto dorme!
+
+bene! di: il gatto
+il gatto!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+ottimo! di: il cane
+il cane!
+
+di: la casa
+la casa!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+bene! di: il cane dorme
+il cane dorme!
+
+dimmi il tuo nome
+physisml!
+
+perfetto! di: la mamma
+la mamma!
+
+ottimo! di: il pane
+il pane!
+
+com è il sole?
+il sole è bello.
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+di un animale
+il cane!
+
+uno due tre. di: uno
+uno!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+di: la mamma mangia
+la mamma mangia!
+
+bene! di: il cane mangia
+il cane mangia!
+
+cosa vuoi?
+voglio il pane.
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+bravo! qual è il tuo nome?
+physisml!
+
+di un numero: uno
+uno!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+benissimo! come ti chiami?
+physisml!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+di un colore: verde
+verde!
+
+benissimo! di: il pane
+il pane!
+
+bravo! come ti chiami?
+physisml!
+
+di: il sole
+il sole!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+hai fame?
+sì ho fame.
+
+dove è la mamma?
+la mamma è qui.
+
+bravo! di: il gatto
+il gatto!
+
+bene! di: il pane
+il pane!
+
+di: il cane mangia
+il cane mangia!
+
+di: il pane
+il pane!
+
+benissimo! di: il sole
+il sole!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+ottimo! sei physisml?
+physisml!
+
+bravo! di: il sole
+il sole!
+
+bravo! di: la casa
+la casa!
+
+di: il sole brilla
+il sole brilla!
+
+di: il cane
+il cane!
+
+hai sete?
+sì ho sete.
+
+quanti gatti ci sono? due
+due!
+
+di un numero: tre
+tre!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+benissimo! di: la casa
+la casa!
+
+cosa fa la mamma?
+la mamma mangia.
+
+benissimo! di: il gatto
+il gatto!
+
+il pane il pane. di: il pane
+il pane!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+bene! di: la casa
+la casa!
+
+sei physisml?
+sì mi chiamo physisml.
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+cosa fa il papà?
+il papà lavora.
+
+di una cosa in casa
+la casa!
+
+cosa fa il bambino?
+il bambino dorme.
+
+ho sete. di: ho sete
+ho sete!
+
+ottimo! di: il sole
+il sole!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+bene! sei physisml?
+physisml!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+come ti chiami?
+mi chiamo physisml.
+
+di: la mamma
+la mamma!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+di: il cane dorme
+il cane dorme!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+bene! di: la mamma
+la mamma!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+perfetto! di: il gatto
+il gatto!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+perfetto! di: il pane
+il pane!
+
+di un colore: blu
+blu!
+
+ottimo! di: la mamma
+la mamma!
+
+benissimo! di: la mamma
+la mamma!
+
+com è il cane?
+il cane è grande.
+
+benissimo! di: il cane
+il cane!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+bene! di: il cane
+il cane!
+
+com è la casa?
+la casa è bella.
+
+bravo! di: la mamma
+la mamma!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+bravo! di: il cane
+il cane!
+
+bene! come ti chiami?
+physisml!
+
+perfetto! come ti chiami?
+physisml!
+
+perfetto! di: la casa
+la casa!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+di il tuo nome
+physisml!
+
+dove è il cane?
+il cane è qui.
+
+di: il gatto
+il gatto!
+
+di un colore: rosso
+rosso!
+
+bravo! di: il pane
+il pane!
+
+cosa fa il cane?
+il cane dorme.
+
+come si chiama questo modello?
+si chiama physisml.
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+perfetto! sei physisml?
+physisml!
+
+perfetto! di: il sole
+il sole!
+
+la casa la casa. di: la casa
+la casa!
+
+di un colore: giallo
+giallo!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+il cane il cane. di: il cane
+il cane!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+ottimo! di: il gatto
+il gatto!
+
+il sole il sole. di: il sole
+il sole!
+
+chi sei?
+sono physisml.
+
+quanti cani ci sono? uno
+uno!
+
+ottimo! di: la casa
+la casa!
+
+bene! di: il sole
+il sole!
+
+di un numero: due
+due!
+
+perfetto! di: il cane
+il cane!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+dove è il gatto?
+il gatto è qui.
+
+benissimo! sei physisml?
+physisml!
+
+di un cibo
+il pane!
+
+di una cosa in casa
+la casa!
+
+di: il gatto
+il gatto!
+
+chi sei?
+sono physisml.
+
+di: il cane
+il cane!
+
+di il tuo nome
+physisml!
+
+bravo! di: la mamma
+la mamma!
+
+bravo! qual è il tuo nome?
+physisml!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+di: la mamma mangia
+la mamma mangia!
+
+cosa fa la mamma?
+la mamma mangia.
+
+sei physisml?
+sì mi chiamo physisml.
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+di un numero: due
+due!
+
+come si chiama questo modello?
+si chiama physisml.
+
+perfetto! di: il cane
+il cane!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+bene! di: la casa
+la casa!
+
+dimmi il tuo nome
+physisml!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+ottimo! di: il cane
+il cane!
+
+di: il cane dorme
+il cane dorme!
+
+dove è il cane?
+il cane è qui.
+
+com è la casa?
+la casa è bella.
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+di: il sole
+il sole!
+
+bene! di: il gatto
+il gatto!
+
+cosa fa il cane?
+il cane dorme.
+
+di: la casa
+la casa!
+
+cosa fa il bambino?
+il bambino dorme.
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+benissimo! di: il pane
+il pane!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+bene! come ti chiami?
+physisml!
+
+bene! di: il cane mangia
+il cane mangia!
+
+di: il cane mangia
+il cane mangia!
+
+bravo! di: il gatto
+il gatto!
+
+dove è il gatto?
+il gatto è qui.
+
+di un numero: uno
+uno!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+cosa fa il papà?
+il papà lavora.
+
+hai fame?
+sì ho fame.
+
+ho fame. di: ho fame
+ho fame!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+di un numero: tre
+tre!
+
+bene! di il tuo nome
+physisml!
+
+perfetto! di: la casa
+la casa!
+
+ottimo! di: il pane
+il pane!
+
+di un colore: rosso
+rosso!
+
+bene! di: il cane dorme
+il cane dorme!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+bene! di: la mamma
+la mamma!
+
+cosa vuoi?
+voglio il pane.
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+bene! di: il sole
+il sole!
+
+di: il gatto dorme
+il gatto dorme!
+
+bene! sei physisml?
+physisml!
+
+bene! di: il cane
+il cane!
+
+il pane il pane. di: il pane
+il pane!
+
+di un colore: giallo
+giallo!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+bravo! sei physisml?
+physisml!
+
+com è il sole?
+il sole è bello.
+
+come ti chiami?
+mi chiamo physisml.
+
+di un cibo
+il pane!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+di: il pane
+il pane!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+bravo! di: la casa
+la casa!
+
+ottimo! di: il sole
+il sole!
+
+hai sete?
+sì ho sete.
+
+ottimo! di: la mamma
+la mamma!
+
+benissimo! di: il cane
+il cane!
+
+ottimo! di: il gatto
+il gatto!
+
+benissimo! come ti chiami?
+physisml!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+benissimo! di: il sole
+il sole!
+
+benissimo! di: la casa
+la casa!
+
+bravo! di: il sole
+il sole!
+
+dove è la mamma?
+la mamma è qui.
+
+bene! di: il pane
+il pane!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+benissimo! di: la mamma
+la mamma!
+
+perfetto! di: il pane
+il pane!
+
+benissimo! di: il gatto
+il gatto!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+di un animale
+il cane!
+
+il sole il sole. di: il sole
+il sole!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+ho sete. di: ho sete
+ho sete!
+
+quanti cani ci sono? uno
+uno!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+bravo! di: il cane
+il cane!
+
+perfetto! di: il gatto
+il gatto!
+
+perfetto! di: il sole
+il sole!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+di un colore: blu
+blu!
+
+perfetto! di: la mamma
+la mamma!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+com è il cane?
+il cane è grande.
+
+il cane il cane. di: il cane
+il cane!
+
+perfetto! sei physisml?
+physisml!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+bravo! di: il pane
+il pane!
+
+di: il sole brilla
+il sole brilla!
+
+perfetto! come ti chiami?
+physisml!
+
+benissimo! sei physisml?
+physisml!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+quanti gatti ci sono? due
+due!
+
+di un colore: verde
+verde!
+
+ottimo! di: la casa
+la casa!
+
+di: la mamma
+la mamma!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+la casa la casa. di: la casa
+la casa!
+
+bravo! come ti chiami?
+physisml!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+uno due tre. di: uno
+uno!
+
+ottimo! sei physisml?
+physisml!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+bravo! di: il cane
+il cane!
+
+ottimo! di: la mamma
+la mamma!
+
+dimmi il tuo nome
+physisml!
+
+come si chiama questo modello?
+si chiama physisml.
+
+di: il cane
+il cane!
+
+bravo! qual è il tuo nome?
+physisml!
+
+di: la mamma
+la mamma!
+
+dove è la mamma?
+la mamma è qui.
+
+bene! di: la casa
+la casa!
+
+di un colore: rosso
+rosso!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+benissimo! di: il cane
+il cane!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+bravo! di: il cane dorme
+il cane dorme!
+
+di un colore: verde
+verde!
+
+di: il cane dorme
+il cane dorme!
+
+cosa fa il bambino?
+il bambino dorme.
+
+bravo! come ti chiami?
+physisml!
+
+bravo! di: il gatto
+il gatto!
+
+com è la casa?
+la casa è bella.
+
+quanti gatti ci sono? due
+due!
+
+il sole il sole. di: il sole
+il sole!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+ottimo! di: il sole
+il sole!
+
+di un cibo
+il pane!
+
+bene! sei physisml?
+physisml!
+
+di il tuo nome
+physisml!
+
+perfetto! sei physisml?
+physisml!
+
+di un numero: due
+due!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+perfetto! di: il gatto
+il gatto!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+di: il gatto
+il gatto!
+
+di: il cane mangia
+il cane mangia!
+
+com è il cane?
+il cane è grande.
+
+bravo! di: la mamma
+la mamma!
+
+di: la mamma mangia
+la mamma mangia!
+
+bene! di: il cane
+il cane!
+
+uno due tre. di: uno
+uno!
+
+bene! di: il gatto
+il gatto!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+bene! di il tuo nome
+physisml!
+
+benissimo! sei physisml?
+physisml!
+
+benissimo! come ti chiami?
+physisml!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+il cane il cane. di: il cane
+il cane!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+ottimo! sei physisml?
+physisml!
+
+sei physisml?
+sì mi chiamo physisml.
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+di un numero: uno
+uno!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+perfetto! di: la mamma
+la mamma!
+
+benissimo! di: il sole
+il sole!
+
+ottimo! di: il gatto
+il gatto!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+benissimo! di: il gatto
+il gatto!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+bene! di: la mamma
+la mamma!
+
+ottimo! di: il pane
+il pane!
+
+bravo! di: il sole
+il sole!
+
+di: il sole
+il sole!
+
+bene! di: il cane dorme
+il cane dorme!
+
+come ti chiami?
+mi chiamo physisml.
+
+ottimo! di: la casa
+la casa!
+
+ho fame. di: ho fame
+ho fame!
+
+di: la casa
+la casa!
+
+di: il sole brilla
+il sole brilla!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+perfetto! di: la casa
+la casa!
+
+bene! di: il pane
+il pane!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+bene! come ti chiami?
+physisml!
+
+cosa fa la mamma?
+la mamma mangia.
+
+benissimo! di: la mamma
+la mamma!
+
+cosa fa il cane?
+il cane dorme.
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+di: il pane
+il pane!
+
+ottimo! di: il cane
+il cane!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+di un numero: tre
+tre!
+
+il pane il pane. di: il pane
+il pane!
+
+hai sete?
+sì ho sete.
+
+di un animale
+il cane!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+bravo! di: la casa
+la casa!
+
+di una cosa in casa
+la casa!
+
+perfetto! di: il cane
+il cane!
+
+perfetto! di: il pane
+il pane!
+
+bene! di: il sole
+il sole!
+
+bene! di: il cane mangia
+il cane mangia!
+
+hai fame?
+sì ho fame.
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+perfetto! di: il sole
+il sole!
+
+di un colore: blu
+blu!
+
+bravo! sei physisml?
+physisml!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+cosa vuoi?
+voglio il pane.
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+benissimo! di: la casa
+la casa!
+
+benissimo! di: il pane
+il pane!
+
+dove è il cane?
+il cane è qui.
+
+com è il sole?
+il sole è bello.
+
+di: il gatto dorme
+il gatto dorme!
+
+dove è il gatto?
+il gatto è qui.
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+di un colore: giallo
+giallo!
+
+cosa fa il papà?
+il papà lavora.
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+ho sete. di: ho sete
+ho sete!
+
+perfetto! come ti chiami?
+physisml!
+
+quanti cani ci sono? uno
+uno!
+
+bravo! di: il pane
+il pane!
+
+chi sei?
+sono physisml.
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+la casa la casa. di: la casa
+la casa!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+perfetto! come ti chiami?
+physisml!
+
+bene! di: il sole
+il sole!
+
+cosa fa la mamma?
+la mamma mangia.
+
+il sole il sole. di: il sole
+il sole!
+
+ho sete. di: ho sete
+ho sete!
+
+bene! sei physisml?
+physisml!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+bravo! di: il pane
+il pane!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+di un cibo
+il pane!
+
+benissimo! come ti chiami?
+physisml!
+
+benissimo! di: il cane
+il cane!
+
+benissimo! di: il gatto
+il gatto!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+perfetto! di: il gatto
+il gatto!
+
+bene! come ti chiami?
+physisml!
+
+dove è il gatto?
+il gatto è qui.
+
+com è la casa?
+la casa è bella.
+
+bene! di: il pane
+il pane!
+
+dimmi il tuo nome
+physisml!
+
+il pane il pane. di: il pane
+il pane!
+
+hai fame?
+sì ho fame.
+
+come ti chiami?
+mi chiamo physisml.
+
+bene! di il tuo nome
+physisml!
+
+cosa vuoi?
+voglio il pane.
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+di un numero: tre
+tre!
+
+di un colore: giallo
+giallo!
+
+quanti gatti ci sono? due
+due!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+uno due tre. di: uno
+uno!
+
+bene! di: il cane mangia
+il cane mangia!
+
+perfetto! di: la casa
+la casa!
+
+cosa fa il bambino?
+il bambino dorme.
+
+ho fame. di: ho fame
+ho fame!
+
+bravo! di: il gatto
+il gatto!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+la casa la casa. di: la casa
+la casa!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+il cane il cane. di: il cane
+il cane!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+bravo! di: il sole
+il sole!
+
+bene! di: il cane dorme
+il cane dorme!
+
+dove è la mamma?
+la mamma è qui.
+
+bravo! di: la casa
+la casa!
+
+benissimo! sei physisml?
+physisml!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+bravo! sei physisml?
+physisml!
+
+bravo! di: il cane
+il cane!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+di un colore: verde
+verde!
+
+perfetto! di: la mamma
+la mamma!
+
+com è il cane?
+il cane è grande.
+
+cosa fa il papà?
+il papà lavora.
+
+bene! di: la casa
+la casa!
+
+perfetto! di: il sole
+il sole!
+
+chi sei?
+sono physisml.
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+bene! di: il cane
+il cane!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+ottimo! di: la mamma
+la mamma!
+
+ottimo! sei physisml?
+physisml!
+
+di: il gatto dorme
+il gatto dorme!
+
+come si chiama questo modello?
+si chiama physisml.
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+bene! di: la mamma
+la mamma!
+
+bravo! di: la mamma
+la mamma!
+
+ottimo! di: il cane
+il cane!
+
+cosa fa il cane?
+il cane dorme.
+
+ottimo! di: il gatto
+il gatto!
+
+benissimo! di: la mamma
+la mamma!
+
+benissimo! di: la casa
+la casa!
+
+di: la mamma mangia
+la mamma mangia!
+
+bravo! come ti chiami?
+physisml!
+
+benissimo! di: il pane
+il pane!
+
+di: la casa
+la casa!
+
+ottimo! di: la casa
+la casa!
+
+di: il sole
+il sole!
+
+di: la mamma
+la mamma!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+di un numero: uno
+uno!
+
+benissimo! di: il sole
+il sole!
+
+dove è il cane?
+il cane è qui.
+
+di un colore: rosso
+rosso!
+
+di: il gatto
+il gatto!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+perfetto! sei physisml?
+physisml!
+
+di il tuo nome
+physisml!
+
+bravo! qual è il tuo nome?
+physisml!
+
+di un colore: blu
+blu!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+di: il cane
+il cane!
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+sei physisml?
+sì mi chiamo physisml.
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+perfetto! di: il cane
+il cane!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+quanti cani ci sono? uno
+uno!
+
+di: il cane dorme
+il cane dorme!
+
+ottimo! di: il pane
+il pane!
+
+di un numero: due
+due!
+
+bene! di: il gatto
+il gatto!
+
+ottimo! di: il sole
+il sole!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+di: il pane
+il pane!
+
+di un animale
+il cane!
+
+di una cosa in casa
+la casa!
+
+hai sete?
+sì ho sete.
+
+di: il cane mangia
+il cane mangia!
+
+com è il sole?
+il sole è bello.
+
+di: il sole brilla
+il sole brilla!
+
+perfetto! di: il pane
+il pane!
+
+bravo! di: la casa
+la casa!
+
+cosa fa il cane?
+il cane dorme.
+
+hai fame?
+sì ho fame.
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+bene! di: il cane mangia
+il cane mangia!
+
+bravo! di: il cane
+il cane!
+
+perfetto! sei physisml?
+physisml!
+
+di un colore: blu
+blu!
+
+bravo! di: il gatto
+il gatto!
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+di: il cane
+il cane!
+
+benissimo! di: il gatto
+il gatto!
+
+ottimo! di: il sole
+il sole!
+
+di: la mamma
+la mamma!
+
+ottimo! di: la casa
+la casa!
+
+la casa la casa. di: la casa
+la casa!
+
+dove è la mamma?
+la mamma è qui.
+
+uno due tre. di: uno
+uno!
+
+di: il cane dorme
+il cane dorme!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+di: la mamma mangia
+la mamma mangia!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+di: il pane
+il pane!
+
+sei physisml?
+sì mi chiamo physisml.
+
+bene! di il tuo nome
+physisml!
+
+bene! di: il gatto
+il gatto!
+
+quanti gatti ci sono? due
+due!
+
+di una cosa in casa
+la casa!
+
+quanti cani ci sono? uno
+uno!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+di un colore: verde
+verde!
+
+di: la casa
+la casa!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+di: il cane mangia
+il cane mangia!
+
+com è il cane?
+il cane è grande.
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+di un numero: uno
+uno!
+
+ottimo! di: la mamma
+la mamma!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+bene! di: il cane
+il cane!
+
+cosa fa la mamma?
+la mamma mangia.
+
+bravo! sei physisml?
+physisml!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+ottimo! sei physisml?
+physisml!
+
+di: il sole brilla
+il sole brilla!
+
+benissimo! come ti chiami?
+physisml!
+
+bene! sei physisml?
+physisml!
+
+di un numero: tre
+tre!
+
+ottimo! di: il gatto
+il gatto!
+
+cosa vuoi?
+voglio il pane.
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+ottimo! qual è il tuo nome?
+physisml!
+
+benissimo! di: il sole
+il sole!
+
+perfetto! di: la mamma
+la mamma!
+
+bene! di: il sole
+il sole!
+
+cosa fa il papà?
+il papà lavora.
+
+perfetto! di: il cane
+il cane!
+
+bravo! di: il sole
+il sole!
+
+di il tuo nome
+physisml!
+
+ho fame. di: ho fame
+ho fame!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+dove è il gatto?
+il gatto è qui.
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+benissimo! di: il pane
+il pane!
+
+com è la casa?
+la casa è bella.
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+dimmi il tuo nome
+physisml!
+
+perfetto! di: il gatto
+il gatto!
+
+di un numero: due
+due!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+com è il sole?
+il sole è bello.
+
+bravo! come ti chiami?
+physisml!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+chi sei?
+sono physisml.
+
+ottimo! di: il cane
+il cane!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+bravo! di: la mamma
+la mamma!
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+bene! di: il pane
+il pane!
+
+il cane il cane. di: il cane
+il cane!
+
+benissimo! di: la mamma
+la mamma!
+
+hai sete?
+sì ho sete.
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+bene! di: la casa
+la casa!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+ottimo! di: il pane
+il pane!
+
+benissimo! di: la casa
+la casa!
+
+perfetto! di: il pane
+il pane!
+
+ho sete. di: ho sete
+ho sete!
+
+di: il sole
+il sole!
+
+di: il gatto dorme
+il gatto dorme!
+
+dove è il cane?
+il cane è qui.
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+benissimo! sei physisml?
+physisml!
+
+di un colore: rosso
+rosso!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+il pane il pane. di: il pane
+il pane!
+
+benissimo! di: il cane
+il cane!
+
+cosa fa il bambino?
+il bambino dorme.
+
+come ti chiami?
+mi chiamo physisml.
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+bene! di: il cane dorme
+il cane dorme!
+
+bravo! di: il pane
+il pane!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+perfetto! come ti chiami?
+physisml!
+
+bravo! qual è il tuo nome?
+physisml!
+
+bene! come ti chiami?
+physisml!
+
+di un animale
+il cane!
+
+come si chiama questo modello?
+si chiama physisml.
+
+bene! di: la mamma
+la mamma!
+
+di: il gatto
+il gatto!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+di un colore: giallo
+giallo!
+
+perfetto! di: il sole
+il sole!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+di un cibo
+il pane!
+
+perfetto! di: la casa
+la casa!
+
+il sole il sole. di: il sole
+il sole!
+
+perfetto! di: il gatto dorme
+il gatto dorme!
+
+di un animale
+il cane!
+
+bravo! come ti chiami?
+physisml!
+
+di un cibo
+il pane!
+
+bene! di: il pane
+il pane!
+
+ottimo! di: la mamma mangia
+la mamma mangia!
+
+perfetto! di: il sole brilla
+il sole brilla!
+
+come ti chiami?
+mi chiamo physisml.
+
+il cane dorme il cane dorme. di: il cane dorme
+il cane dorme!
+
+di: il pane
+il pane!
+
+il cane il cane. di: il cane
+il cane!
+
+di un numero: due
+due!
+
+bene! di: il gatto
+il gatto!
+
+prima mangio poi dormo. di: prima mangio
+prima mangio.
+
+come si chiama questo modello?
+si chiama physisml.
+
+perfetto! di: il cane dorme
+il cane dorme!
+
+di un colore: verde
+verde!
+
+di: il gatto
+il gatto!
+
+benissimo! di: la casa
+la casa!
+
+il gatto il gatto. di: il gatto
+il gatto!
+
+la mamma buona cucina. di: la mamma buona cucina
+la mamma buona cucina!
+
+sei physisml?
+sì mi chiamo physisml.
+
+di: il cane
+il cane!
+
+benissimo! di: il cane dorme
+il cane dorme!
+
+com è la casa?
+la casa è bella.
+
+di una cosa in casa
+la casa!
+
+perfetto! di: la mamma
+la mamma!
+
+di un numero: uno
+uno!
+
+bravo! di: la mamma
+la mamma!
+
+di: la casa
+la casa!
+
+benissimo! di: il pane
+il pane!
+
+di un colore: blu
+blu!
+
+il gatto dorme il gatto dorme. di: il gatto dorme
+il gatto dorme!
+
+bravo! di: il pane
+il pane!
+
+come ti chiami? come ti chiami?. come ti chiami?
+physisml!
+
+qual è il tuo nome?
+il mio nome è physisml.
+
+voglio il latte. di: voglio il latte
+voglio il latte!
+
+perfetto! di: il sole
+il sole!
+
+di: la mamma mangia
+la mamma mangia!
+
+ho sete. di: ho sete
+ho sete!
+
+benissimo! di: il gatto
+il gatto!
+
+di il tuo nome
+physisml!
+
+perfetto! di: il cane mangia
+il cane mangia!
+
+com è il sole?
+il sole è bello.
+
+uno due tre. di: uno
+uno!
+
+bravo! di: il cane
+il cane!
+
+il pane il pane. di: il pane
+il pane!
+
+di: la mamma
+la mamma!
+
+di: il sole
+il sole!
+
+perfetto! come ti chiami?
+physisml!
+
+dove è il cane?
+il cane è qui.
+
+bravo! di: il sole
+il sole!
+
+bene! di: il sole
+il sole!
+
+perfetto! di: la casa
+la casa!
+
+di: il gatto dorme
+il gatto dorme!
+
+chi sei?
+sono physisml.
+
+bravo! di: il gatto
+il gatto!
+
+bene! di: il cane dorme
+il cane dorme!
+
+dove è il gatto?
+il gatto è qui.
+
+ottimo! qual è il tuo nome?
+physisml!
+
+perfetto! di: il cane
+il cane!
+
+ottimo! di: il pane
+il pane!
+
+di un colore: rosso
+rosso!
+
+perfetto! sei physisml?
+physisml!
+
+dimmi il tuo nome
+physisml!
+
+di: il cane mangia il pane
+il cane mangia il pane!
+
+ho sonno. di: ho sonno
+ho sonno!
+
+bene! di: la mamma
+la mamma!
+
+quanti gatti ci sono? due
+due!
+
+il gatto piccolo dorme. di: il gatto piccolo dorme
+il gatto piccolo dorme!
+
+il bambino dorme il bambino dorme. di: il bambino dorme
+il bambino dorme!
+
+bravo! qual è il tuo nome?
+physisml!
+
+ottimo! di: la mamma
+la mamma!
+
+il cane mangia il cane mangia. di: il cane mangia
+il cane mangia!
+
+ottimo! di: il sole
+il sole!
+
+dove è la mamma?
+la mamma è qui.
+
+di: il sole brilla
+il sole brilla!
+
+il sole brilla il sole brilla. di: il sole brilla
+il sole brilla!
+
+benissimo! di: il sole
+il sole!
+
+bene! sei physisml?
+physisml!
+
+di un numero: tre
+tre!
+
+la casa la casa. di: la casa
+la casa!
+
+il modello si chiama physisml. chi sei?
+sono physisml.
+
+bene! di il tuo nome
+physisml!
+
+bravo! di: il gatto dorme
+il gatto dorme!
+
+benissimo! come ti chiami?
+physisml!
+
+la mamma la mamma. di: la mamma
+la mamma!
+
+bene! di: il gatto dorme
+il gatto dorme!
+
+di: il cane dorme
+il cane dorme!
+
+ottimo! sei physisml?
+physisml!
+
+di il tuo nome di il tuo nome. di il tuo nome
+physisml!
+
+bene! di: il cane mangia
+il cane mangia!
+
+il tuo nome è physisml, come ti chiami?
+mi chiamo physisml.
+
+bravo! sei physisml?
+physisml!
+
+hai fame?
+sì ho fame.
+
+sei physisml? sei physisml?. sei physisml?
+physisml!
+
+la mamma mangia la mamma mangia. di: la mamma mangia
+la mamma mangia!
+
+ottimo! di: il gatto dorme
+il gatto dorme!
+
+quanti cani ci sono? uno
+uno!
+
+di un colore: giallo
+giallo!
+
+il sole il sole. di: il sole
+il sole!
+
+ottimo! di: il cane
+il cane!
+
+perfetto! di: il pane
+il pane!
+
+hai sete?
+sì ho sete.
+
+cosa fa la mamma?
+la mamma mangia.
+
+perfetto! di: il gatto
+il gatto!
+
+voglio dormire. di: voglio dormire
+voglio dormire!
+
+bene! di: il cane
+il cane!
+
+com è il cane?
+il cane è grande.
+
+cosa fa il bambino?
+il bambino dorme.
+
+bene! di: la casa
+la casa!
+
+bene! come ti chiami?
+physisml!
+
+cosa fa il gatto?
+il gatto beve il latte.
+
+ottimo! di: il gatto
+il gatto!
+
+voglio il pane. di: voglio il pane
+voglio il pane!
+
+cosa fa il papà?
+il papà lavora.
+
+benissimo! di: il cane
+il cane!
+
+bravo! di: il cane dorme
+il cane dorme!
+
+benissimo! di: il gatto dorme
+il gatto dorme!
+
+cosa vuoi?
+voglio il pane.
+
+ottimo! di: il cane mangia
+il cane mangia!
+
+benissimo! di: la mamma
+la mamma!
+
+qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?
+physisml!
+
+bravo! di: la casa
+la casa!
+
+cosa fa il cane?
+il cane dorme.
+
+ho fame. di: ho fame
+ho fame!
+
+di: il cane mangia
+il cane mangia!
+
+di: il gatto beve il latte
+il gatto beve il latte!
+
+il cane grande dorme. di: il cane grande dorme
+il cane grande dorme!
+
+benissimo! sei physisml?
+physisml!
+
+ottimo! di: la casa
+la casa!
+

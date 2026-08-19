@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PhysisML Chat</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark border-bottom">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">
+      <i class="bi bi-cpu"></i> PhysisML Chat
+    </span>
+    <div class="d-flex align-items-center gap-2">
+      <span id="model-info" class="text-secondary small d-none d-md-inline"></span>
+      <button id="btn-backup"    class="btn btn-outline-light btn-sm d-none">
+        <i class="bi bi-cloud-download"></i> Backup
+      </button>
+      <button id="btn-train"     class="btn btn-outline-warning btn-sm d-none">
+        <i class="bi bi-lightning-charge"></i> Train now
+      </button>
+      <button id="btn-export"    class="btn btn-outline-light btn-sm d-none">
+        <i class="bi bi-filetype-json"></i> Export
+      </button>
+      <span id="user-label" class="text-light small"></span>
+      <button id="btn-login"     class="btn btn-primary btn-sm">
+        <i class="bi bi-person"></i> Login
+      </button>
+      <button id="btn-logout"    class="btn btn-outline-light btn-sm d-none">
+        <i class="bi bi-box-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="app-body">
+  <aside class="sidebar">
+    <div class="sidebar-header d-flex justify-content-between align-items-center">
+      <span class="fw-bold"><i class="bi bi-clock-history"></i> Cronologia</span>
+      <button id="btn-new-session" class="btn btn-sm btn-outline-secondary" title="Nuova sessione">
+        <i class="bi bi-plus-lg"></i>
+      </button>
+    </div>
+    <div id="history-list" class="list-group list-group-flush"></div>
+  </aside>
+
+  <main class="chat-main">
+    <div id="train-banner" class="alert alert-warning py-2 mb-0 d-none"></div>
+    <div id="chat-log" class="chat-log"></div>
+
+    <form id="chat-form" class="chat-input">
+      <textarea id="chat-prompt" class="form-control"
+                rows="2" placeholder="Scrivi un prompt..."
+                required></textarea>
+      <button type="submit" class="btn btn-primary" id="chat-send">
+        <i class="bi bi-send"></i>
+      </button>
+    </form>
+  </main>
+</div>
+
+<!-- Login modal -->
+<div class="modal fade" id="login-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <form class="modal-content" id="login-form">
+      <div class="modal-header">
+        <h5 class="modal-title">Login amministratore</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" id="login-email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" id="login-password" class="form-control" required>
+        </div>
+        <div id="login-error" class="alert alert-danger d-none"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Feedback modal -->
+<div class="modal fade" id="feedback-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <form class="modal-content" id="feedback-form">
+      <div class="modal-header">
+        <h5 class="modal-title">Feedback risposta #<span id="fb-msg-id"></span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Prompt</label>
+          <div id="fb-prompt" class="border rounded p-2 bg-light small"></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Risposta attuale</label>
+          <div id="fb-reply" class="border rounded p-2 bg-light small"></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Valutazione</label>
+          <div class="btn-group w-100" role="group" id="fb-rating-group">
+            <input type="radio" class="btn-check" name="fb-rating" id="r-ppp" value="+++" autocomplete="off">
+            <label class="btn btn-outline-success" for="r-ppp">+++ ottimo</label>
+            <input type="radio" class="btn-check" name="fb-rating" id="r-pp"  value="++"  autocomplete="off">
+            <label class="btn btn-outline-success" for="r-pp">++ buono</label>
+            <input type="radio" class="btn-check" name="fb-rating" id="r-p"   value="+"   autocomplete="off">
+            <label class="btn btn-outline-primary" for="r-p">+ ok</label>
+            <input type="radio" class="btn-check" name="fb-rating" id="r-eq"  value="="   autocomplete="off">
+            <label class="btn btn-outline-secondary" for="r-eq">= neutro</label>
+            <input type="radio" class="btn-check" name="fb-rating" id="r-neg" value="-"   autocomplete="off">
+            <label class="btn btn-outline-danger" for="r-neg">- errato</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Risposta corretta (opzionale, usata dal training)</label>
+          <textarea id="fb-corrected" class="form-control" rows="3"
+                    placeholder="Scrivi qui la risposta che il modello avrebbe dovuto dare..."></textarea>
+        </div>
+        <div id="feedback-error" class="alert alert-danger d-none"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+        <button type="submit" class="btn btn-primary">Salva feedback</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-container"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/pages/feedback.js"></script>
+<script src="js/pages/chat.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
