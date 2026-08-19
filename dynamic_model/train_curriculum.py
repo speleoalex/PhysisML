@@ -926,9 +926,45 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
             if len(recent_scores) > AUTO_WINDOW:
                 recent_scores.pop(0)
 
-        # ── SIGNAL 1: show-then-test — correct answer first ──────────────────
-        # Prime the model with the expected answer BEFORE asking it to respond.
-        # Analogy: teacher says "Repeat: il cane dorme... now you try."
+        # ── Model responds FIRST — evaluation before any priming ────────────
+        # The model used to answer AFTER Signal 1 had just trained it on
+        # (next_prompt -> expected): it was tested on the very question it had
+        # been given the answer to one step earlier, so the logged response —
+        # and therefore the teacher's grade and build.sh's quality gate —
+        # measured primed recall, not retained knowledge. Measured gap: 31%
+        # in-session exact at L3 vs 8% on the same targets offline.
+        # Testing first and showing after keeps the pedagogy (the gold answer
+        # is still trained every turn, and targets repeat many times) while
+        # making the metric honest.
+        # Generation budget scaled to the expected answer. The old fixed budget
+        # (max_tokens=20, hard [:30] char cap) made the correct answer
+        # physically impossible from L7 on — the majority of expected answers
+        # exceeded 30 chars, the teacher graded a mutilated string, and the
+        # truncated text was then fed back into training via SIGNAL 4.
+        _exp_ids_n  = len(tok.encode(expected)) if expected else 0
+        _gen_budget = int(max(24, min(2 * _exp_ids_n + 12, 120)))
+        # Two independent gates (see TrainerB.generate):
+        #  - _min_gen  : EOS floor — generous, it is what stops the model from
+        #                answering with a bare '<|EOS|>' (43.8% of L0 turns).
+        #  - _stop_aft : punctuation soft-stop floor — about (expected - 1), so
+        #                a 2-3 token target can close on its own '!' instead of
+        #                over-generating ('ma!' -> 'mamamama!').
+        _min_gen    = max(4, min(_exp_ids_n, 40)) if _exp_ids_n else 4
+        _stop_aft   = max(0, min(_exp_ids_n - 1, 40)) if _exp_ids_n else 2
+        _char_cap   = max(60, 2 * len(expected) + 20) if expected else 60
+        generated = trainer.generate(
+            next_prompt, max_tokens=_gen_budget,
+            base_temperature=0.7, top_k=20,
+            min_tokens=_min_gen, stop_after=_stop_aft,
+        )
+        # generate() already strips leading noise via _clean_response(),
+        # but re-strip here for safety and to apply the (generous) length cap.
+        model_response = generated[len(next_prompt):].strip()[:_char_cap]
+
+
+        # ── SIGNAL 1: test-then-show — correct answer AFTER the attempt ──────
+        # The model has already answered above; now the teacher shows the gold
+        # answer. Analogy: "you try... now listen: il cane dorme."
         # Always include EOS at the end of expected so the model learns to stop.
         #
         # Adaptive weights: higher levels need stronger content reinforcement
@@ -974,32 +1010,6 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
         # Teaches "prompt → content_word" association.
         if teaching_content:
             trainer.step(next_prompt, teaching_content, feedback=_sig3_fb)
-
-        # ── Model responds AFTER being primed with the correct answer ─────────
-        # Generation budget scaled to the expected answer. The old fixed budget
-        # (max_tokens=20, hard [:30] char cap) made the correct answer
-        # physically impossible from L7 on — the majority of expected answers
-        # exceeded 30 chars, the teacher graded a mutilated string, and the
-        # truncated text was then fed back into training via SIGNAL 4.
-        _exp_ids_n  = len(tok.encode(expected)) if expected else 0
-        _gen_budget = int(max(24, min(2 * _exp_ids_n + 12, 120)))
-        # Two independent gates (see TrainerB.generate):
-        #  - _min_gen  : EOS floor — generous, it is what stops the model from
-        #                answering with a bare '<|EOS|>' (43.8% of L0 turns).
-        #  - _stop_aft : punctuation soft-stop floor — about (expected - 1), so
-        #                a 2-3 token target can close on its own '!' instead of
-        #                over-generating ('ma!' -> 'mamamama!').
-        _min_gen    = max(4, min(_exp_ids_n, 40)) if _exp_ids_n else 4
-        _stop_aft   = max(0, min(_exp_ids_n - 1, 40)) if _exp_ids_n else 2
-        _char_cap   = max(60, 2 * len(expected) + 20) if expected else 60
-        generated = trainer.generate(
-            next_prompt, max_tokens=_gen_budget,
-            base_temperature=0.7, top_k=20,
-            min_tokens=_min_gen, stop_after=_stop_aft,
-        )
-        # generate() already strips leading noise via _clean_response(),
-        # but re-strip here for safety and to apply the (generous) length cap.
-        model_response = generated[len(next_prompt):].strip()[:_char_cap]
 
         # ── SIGNAL 4: imitation feedback ──────────────────────────────────────
         # Applied AFTER the model responds so we can compare response vs expected.
