@@ -183,3 +183,16 @@ Setup: [docs/it/setup/gpu_intel_arc.md](docs/it/setup/gpu_intel_arc.md).
 - `training_files/` is never touched by `./reset.sh`; backups go to `models/backups/<timestamp>/`.
 - Code, comments and file names are in English; Italian appears only in
   training data and Italian documentation.
+
+---
+
+## License
+
+The code in this repository is released under the [MIT License](LICENSE).
+
+The corpora under `training_files/` and `tests/test_1/data/` are third-party
+material included for reproducibility and are **not** covered by the MIT
+license. They keep the terms of their respective sources — public-domain
+literary texts (Project Gutenberg, Liber Liber) and subtitle corpora derived
+from OpenSubtitles via the OPUS project, whose terms restrict redistribution
+to non-commercial use. Check the source terms before reusing them.

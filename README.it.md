@@ -188,3 +188,17 @@ Setup: [docs/it/setup/gpu_intel_arc.md](docs/it/setup/gpu_intel_arc.md).
   `models/backups/<timestamp>/`.
 - Codice, commenti e nomi di file sono in inglese; l'italiano è usato solo nei
   dati di training e nella documentazione italiana.
+
+---
+
+## Licenza
+
+Il codice di questo repository è rilasciato sotto [licenza MIT](LICENSE).
+
+I corpora in `training_files/` e `tests/test_1/data/` sono materiale di terze
+parti, incluso per riproducibilità, e **non** sono coperti dalla licenza MIT.
+Mantengono i termini delle rispettive fonti: testi letterari di pubblico
+dominio (Project Gutenberg, Liber Liber) e corpora di sottotitoli derivati da
+OpenSubtitles tramite il progetto OPUS, i cui termini limitano la
+redistribuzione all'uso non commerciale. Verifica i termini della fonte prima
+di riutilizzarli.
