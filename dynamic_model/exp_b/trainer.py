@@ -215,6 +215,37 @@ class TrainerB:
     # Generation with affective modulation
     # ------------------------------------------------------------------
 
+    def _undecodable_mask(self):
+        """
+        Boolean mask over the model's output layer marking ids the tokenizer
+        cannot turn back into bytes.
+
+        The model's vocab_size is rounded up past the tokenizer's real size
+        (9000 against 8042 at L3), so several hundred output slots decode to
+        nothing. Sampling one of them used to raise KeyError in decode(); even
+        once decode tolerates it, the token is invisible in the output and
+        derails the rest of the answer. Suppressing the slots also stops
+        top_k from spending candidate places on them.
+
+        Returns None when every model id is representable. Cached, and
+        recomputed when the dynamic tokenizer grows.
+        """
+        vocab = getattr(self.tokenizer, "vocab", None)
+        if not vocab:
+            return None
+        key = (len(vocab), self.model.vocab_size)
+        if getattr(self, "_undecodable_key", None) != key:
+            missing = [i for i in range(self.model.vocab_size) if i not in vocab]
+            if missing:
+                mask = torch.zeros(self.model.vocab_size, dtype=torch.bool,
+                                   device=self.device)
+                mask[torch.tensor(missing, dtype=torch.long, device=self.device)] = True
+            else:
+                mask = None
+            self._undecodable_key  = key
+            self._undecodable_mask_cached = mask
+        return self._undecodable_mask_cached
+
     def generate(self, prompt: str, max_tokens: int = 100,
                  base_temperature: float = 0.8,
                  top_k: int = 40,
@@ -244,6 +275,7 @@ class TrainerB:
         eos_id    = self.tokenizer.get_special_id(self.tokenizer.EOS_TOKEN) \
                     if hasattr(self.tokenizer, 'get_special_id') else None
         prompt_len = len(ids)
+        undecodable = self._undecodable_mask()
 
         with torch.no_grad():
             for step in range(max_tokens):
@@ -269,6 +301,10 @@ class TrainerB:
                 if eos_id is not None and response_len < min_tokens \
                         and eos_id < modulated.shape[0]:
                     modulated[eos_id] = float('-inf')
+
+                # Never sample an id the tokenizer cannot decode.
+                if undecodable is not None:
+                    modulated[undecodable] = float('-inf')
 
                 # Sample
                 next_id = sample_top_k(modulated.cpu().numpy(), k=top_k,

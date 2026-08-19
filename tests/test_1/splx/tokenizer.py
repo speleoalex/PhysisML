@@ -261,8 +261,15 @@ class BPETokenizer:
         return result
 
     def decode(self, ids: List[int]) -> str:
-        """Convert token IDs back to a string, removing non-printable control chars."""
-        raw = b"".join(self.vocab[i] for i in ids).decode("utf-8", errors="replace")
+        """
+        Convert token IDs back to a string, removing non-printable control chars.
+
+        Unknown ids are skipped rather than raising. A model whose vocab_size
+        exceeds the tokenizer's (pruned slots, or a checkpoint paired with the
+        wrong tokenizer) can sample an id that was never assigned bytes, and
+        losing one token beats killing an interactive session with a KeyError.
+        """
+        raw = b"".join(self.vocab.get(i, b"") for i in ids).decode("utf-8", errors="replace")
         # Strip control chars (bytes 0–8, 11, 12, 14–31) and U+FFFD replacement char
         return "".join(c for c in raw if (c >= " " or c in "\t\n\r") and c != "\ufffd")
 

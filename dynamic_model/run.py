@@ -44,6 +44,10 @@ from dynamic_model.exp_b.trainer      import TrainerB
 
 torch.set_num_threads(12)
 
+# Fallback tokenizer, used only when no tokenizer is saved next to the
+# checkpoint and none is given on the command line.
+DEFAULT_TOKENIZER = "dynamic_model/data/tokenizer_base.json"
+
 # ---------------------------------------------------------------------------
 # Visualizzazione stato affettivo
 # ---------------------------------------------------------------------------
@@ -105,19 +109,38 @@ def setup(args, quiet: bool = False) -> TrainerB:
         # 3. fallback to base tokenizer
         ckpt_dir = os.path.dirname(os.path.realpath(args.checkpoint))
         candidates = [
-            os.path.join(os.path.dirname(args.checkpoint), "..", "active_tokenizer.json"),
+            # active_tokenizer.json sits ALONGSIDE active.pt, not one level up.
+            # The old first candidate had a spurious '..' and resolved to the
+            # repo root, so it never matched: every run silently fell back to
+            # the 503-token base tokenizer while the checkpoint expected the
+            # grown one, producing garbage output and a KeyError on the first
+            # sampled id above 503.
+            os.path.join(ckpt_dir, "active_tokenizer.json"),
             os.path.join(ckpt_dir, "tokenizer.json"),
             os.path.join(ckpt_dir, "..", "tokenizer.json"),
         ]
-        tok_path = next((p for p in candidates if os.path.exists(os.path.normpath(p))),
-                        args.tokenizer)
+        # An explicit --tokenizer wins over auto-detection: it used to be only
+        # the last-resort fallback, so the one flag someone would reach for to
+        # fix a mismatch was silently ignored whenever a candidate existed.
+        tok_path = args.tokenizer or next(
+            (p for p in candidates if os.path.exists(os.path.normpath(p))),
+            DEFAULT_TOKENIZER)
         tok_path = os.path.normpath(tok_path)
-        if tok_path != args.tokenizer:
-            log(f"Tokenizer: {tok_path}")
         tok.load(tok_path)
+        log(f"Tokenizer: {tok_path}  ({len(tok)} tokens)")
+        # A tokenizer far smaller than the model's vocabulary means they do not
+        # belong together. Say so: the failure is otherwise silent, and the
+        # model answers with plausible-looking noise.
+        if len(tok) < 0.5 * model.vocab_size:
+            log(f"  WARNING: tokenizer has {len(tok)} tokens but the model was "
+                f"trained for vocab={model.vocab_size}.")
+            log(f"  This checkpoint is paired with the wrong tokenizer — output "
+                f"will be meaningless.")
+            log(f"  Run ./set_model.sh <checkpoint.pt> to refresh "
+                f"models/active_tokenizer.json, or pass --tokenizer explicitly.")
         opt = TorchAdamOptimizer(model.parameters(), lr=1e-4)
     else:
-        tok.load(args.tokenizer)
+        tok.load(args.tokenizer or DEFAULT_TOKENIZER)
         log("Initialising new model...")
         model = TorchGPT(len(tok), 256, 4, 4, 1024, 129, 0.1)
         opt   = TorchAdamOptimizer(model.parameters(), lr=1e-3)
@@ -207,8 +230,10 @@ def main():
                              "non-interactively and exits")
     parser.add_argument("--checkpoint",
                         default="models/active.pt")
-    parser.add_argument("--tokenizer",
-                        default="dynamic_model/data/tokenizer_base.json")
+    parser.add_argument("--tokenizer", default=None,
+                        help="Tokenizer JSON. Overrides auto-detection; when "
+                             "omitted, the one saved next to the checkpoint is "
+                             "used, falling back to the base tokenizer.")
     parser.add_argument("--temperature", type=float, default=0.8)
     parser.add_argument("--top_k",       type=int,   default=40)
     parser.add_argument("--max_tokens",  type=int,   default=80)
