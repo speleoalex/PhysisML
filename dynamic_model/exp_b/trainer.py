@@ -282,8 +282,26 @@ class TrainerB:
                 # min_tokens before stopping: avoids cutting off the target word
                 # if the model starts with noise punctuation (e.g. ". ! cane!" would
                 # stop at the final "!" after "cane", not at the leading ".").
-                if step >= max(1, stop_after) and next_id in (33, 46, 63):
-                    break   # '!', '.', '?'
+                # Stop at sentence-ending punctuation (soft stop). Test the
+                # DECODED token, not just the bare '!'/'.'/'?' ids: the 8K
+                # vocabulary has multi-char tokens that already carry the
+                # terminator ('la!'=2815, 'ta!'=2017, 'no!'=2945). Matching ids
+                # only left those answers unterminated, so generation ran on
+                # and EVERY target whose gold answer ends in such a token
+                # scored 0% exact ('la!','ta!','da!','sa!','no!','lala!',
+                # 'tata!') while 'ma!','pa!','mama!' (bare '!' = id 33) passed.
+                if step >= stop_after:
+                    # Defensive: a tokenizer/model mismatch can yield an id the
+                    # tokenizer cannot decode — never crash generation for it.
+                    try:
+                        _tail = self.tokenizer.decode([next_id]).rstrip()
+                    except Exception:
+                        _tail = "!" if next_id in (33, 46, 63) else ""
+                    if _tail.endswith(('!', '.', '?')):
+                        # At the very first token only a content-bearing token
+                        # may terminate — a bare '!' there is leading noise.
+                        if step >= 1 or len(_tail) > 1:
+                            break
 
         full = self.tokenizer.decode(ids)
 

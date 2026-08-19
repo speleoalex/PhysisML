@@ -990,7 +990,7 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
         #                a 2-3 token target can close on its own '!' instead of
         #                over-generating ('ma!' -> 'mamamama!').
         _min_gen    = max(4, min(_exp_ids_n, 40)) if _exp_ids_n else 4
-        _stop_aft   = max(1, min(_exp_ids_n - 1, 40)) if _exp_ids_n else 2
+        _stop_aft   = max(0, min(_exp_ids_n - 1, 40)) if _exp_ids_n else 2
         _char_cap   = max(60, 2 * len(expected) + 20) if expected else 60
         generated = trainer.generate(
             next_prompt, max_tokens=_gen_budget,
