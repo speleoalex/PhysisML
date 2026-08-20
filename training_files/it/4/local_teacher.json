@@ -1,0 +1,237 @@
+{
+  "lang": "it",
+  "level": 4,
+  "description": "Bambino 4 anni — frasi soggetto+verbo+oggetto, sequenze prima/poi",
+  "quality_threshold": 0.32,
+  "quality_strong_min": 0.2,
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "{noun} con struttura completa e terminatore. Ottimo!",
+    "comment_++": "{noun} presente, struttura incompleta.",
+    "comment_+": "{noun} trovato.",
+    "comment_=": "Parole italiane ma non la risposta attesa.",
+    "comment_-": "Non riconoscibile o troppo lunga."
+  },
+  "encouragement": [
+    "bravo!",
+    "ottimo!",
+    "perfetto!",
+    "bene!",
+    "benissimo!"
+  ],
+  "retry_prefix": "ancora. ",
+  "steps": {
+    "A": {
+      "description": "Bridge L3->L4: soggetto + verbo + oggetto",
+      "targets": [
+        {
+          "prompt": "cosa mangia il cane?",
+          "expected": "il cane mangia il pane.",
+          "noun": "pane",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa mangia il gatto?",
+          "expected": "il gatto mangia il pesce.",
+          "noun": "pesce",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa beve il bambino?",
+          "expected": "il bambino beve il latte.",
+          "noun": "latte",
+          "article": "il",
+          "verb": "beve"
+        },
+        {
+          "prompt": "cosa beve la mamma?",
+          "expected": "la mamma beve l acqua.",
+          "noun": "acqua",
+          "verb": "beve",
+          "article": "l"
+        },
+        {
+          "prompt": "cosa legge il papà?",
+          "expected": "il papà legge il libro.",
+          "noun": "libro",
+          "article": "il",
+          "verb": "legge"
+        },
+        {
+          "prompt": "cosa apre la nonna?",
+          "expected": "la nonna apre la porta.",
+          "noun": "porta",
+          "article": "la",
+          "verb": "apre"
+        },
+        {
+          "prompt": "cosa guarda il bambino?",
+          "expected": "il bambino guarda la luna.",
+          "noun": "luna",
+          "article": "la",
+          "verb": "guarda"
+        },
+        {
+          "prompt": "cosa porta il papà?",
+          "expected": "il papà porta il pane.",
+          "noun": "pane",
+          "article": "il",
+          "verb": "porta"
+        }
+      ],
+      "prompt_template": "di: {prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": true,
+      "require_verb": true,
+      "require_adjective": false
+    },
+    "B": {
+      "description": "Chi compie l azione (discriminazione del soggetto)",
+      "targets": [
+        {
+          "prompt": "chi mangia il pane?",
+          "expected": "il cane mangia il pane.",
+          "noun": "cane",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "chi beve il latte?",
+          "expected": "il bambino beve il latte.",
+          "noun": "bambino",
+          "article": "il",
+          "verb": "beve"
+        },
+        {
+          "prompt": "chi legge il libro?",
+          "expected": "il papà legge il libro.",
+          "noun": "papà",
+          "article": "il",
+          "verb": "legge"
+        },
+        {
+          "prompt": "chi apre la porta?",
+          "expected": "la nonna apre la porta.",
+          "noun": "nonna",
+          "article": "la",
+          "verb": "apre"
+        },
+        {
+          "prompt": "chi guarda la luna?",
+          "expected": "il bambino guarda la luna.",
+          "noun": "bambino",
+          "article": "il",
+          "verb": "guarda"
+        },
+        {
+          "prompt": "chi dorme sul letto?",
+          "expected": "il gatto dorme sul letto.",
+          "noun": "gatto",
+          "article": "il",
+          "verb": "dorme"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": true,
+      "require_verb": true,
+      "require_adjective": false
+    },
+    "C": {
+      "description": "Dove e quando (complementi)",
+      "targets": [
+        {
+          "prompt": "dove dorme il cane?",
+          "expected": "il cane dorme in casa.",
+          "noun": "casa",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "dove è il pane?",
+          "expected": "il pane è sul tavolo.",
+          "noun": "tavolo",
+          "verb": "è"
+        },
+        {
+          "prompt": "dove va il bambino?",
+          "expected": "il bambino va a scuola.",
+          "noun": "scuola",
+          "verb": "va"
+        },
+        {
+          "prompt": "quando dorme il gatto?",
+          "expected": "il gatto dorme di notte.",
+          "noun": "notte",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "quando brilla il sole?",
+          "expected": "il sole brilla di giorno.",
+          "noun": "giorno",
+          "verb": "brilla"
+        },
+        {
+          "prompt": "dove nuota il pesce?",
+          "expected": "il pesce nuota nell acqua.",
+          "noun": "acqua",
+          "verb": "nuota"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": true,
+      "require_adjective": false
+    },
+    "D": {
+      "description": "Sequenze prima / poi",
+      "targets": [
+        {
+          "prompt": "cosa fai prima di mangiare?",
+          "expected": "prima lavo le mani.",
+          "noun": "mani",
+          "verb": "lavo"
+        },
+        {
+          "prompt": "cosa fai dopo mangiato?",
+          "expected": "poi bevo l acqua.",
+          "noun": "acqua",
+          "verb": "bevo"
+        },
+        {
+          "prompt": "cosa fai prima di dormire?",
+          "expected": "prima canto la canzone.",
+          "noun": "canto",
+          "verb": "canto"
+        },
+        {
+          "prompt": "cosa fai dopo la scuola?",
+          "expected": "poi corro in casa.",
+          "noun": "casa",
+          "verb": "corro"
+        },
+        {
+          "prompt": "cosa fa la nonna la mattina?",
+          "expected": "la nonna apre la porta.",
+          "noun": "porta",
+          "verb": "apre"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": true,
+      "require_adjective": false
+    }
+  }
+}

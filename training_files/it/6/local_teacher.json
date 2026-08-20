@@ -1,0 +1,184 @@
+{
+  "lang": "it",
+  "level": 6,
+  "description": "Bambino 6 anni — passato prossimo, cause, due frasi collegate",
+  "quality_threshold": 0.3,
+  "quality_strong_min": 0.2,
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "{noun} con struttura completa e terminatore. Ottimo!",
+    "comment_++": "{noun} presente, struttura incompleta.",
+    "comment_+": "{noun} trovato.",
+    "comment_=": "Parole italiane ma non la risposta attesa.",
+    "comment_-": "Non riconoscibile o troppo lunga."
+  },
+  "encouragement": [
+    "bravo!",
+    "ottimo!",
+    "perfetto!",
+    "bene!",
+    "benissimo!"
+  ],
+  "retry_prefix": "ancora. ",
+  "steps": {
+    "A": {
+      "description": "Bridge L5->L6: passato prossimo",
+      "targets": [
+        {
+          "prompt": "cosa ha mangiato il cane?",
+          "expected": "il cane ha mangiato il pane.",
+          "noun": "mangiato",
+          "verb": "ha"
+        },
+        {
+          "prompt": "cosa ha bevuto il bambino?",
+          "expected": "il bambino ha bevuto il latte.",
+          "noun": "bevuto",
+          "verb": "ha"
+        },
+        {
+          "prompt": "cosa ha letto il papà?",
+          "expected": "il papà ha letto il libro.",
+          "noun": "letto",
+          "verb": "ha"
+        },
+        {
+          "prompt": "cosa ha aperto la nonna?",
+          "expected": "la nonna ha aperto la porta.",
+          "noun": "aperto",
+          "verb": "ha"
+        },
+        {
+          "prompt": "cosa ha visto il gatto?",
+          "expected": "il gatto ha visto la luna.",
+          "noun": "visto",
+          "verb": "ha"
+        },
+        {
+          "prompt": "dove ha dormito il cane?",
+          "expected": "il cane ha dormito in casa.",
+          "noun": "dormito",
+          "verb": "ha"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": true,
+      "require_adjective": false
+    },
+    "B": {
+      "description": "Causa al passato",
+      "targets": [
+        {
+          "prompt": "perché il cane ha mangiato?",
+          "expected": "ha mangiato perché aveva fame.",
+          "noun": "fame"
+        },
+        {
+          "prompt": "perché il bambino ha bevuto?",
+          "expected": "ha bevuto perché aveva sete.",
+          "noun": "sete"
+        },
+        {
+          "prompt": "perché il gatto ha dormito?",
+          "expected": "ha dormito perché era stanco.",
+          "noun": "stanco"
+        },
+        {
+          "prompt": "perché la mamma ha riso?",
+          "expected": "ha riso perché era felice.",
+          "noun": "felice"
+        },
+        {
+          "prompt": "perché hai aperto la porta?",
+          "expected": "ho aperto perché era caldo.",
+          "noun": "caldo"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 10,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "C": {
+      "description": "Due frasi collegate",
+      "targets": [
+        {
+          "prompt": "racconta del cane",
+          "expected": "il cane ha fame e mangia il pane.",
+          "noun": "pane"
+        },
+        {
+          "prompt": "racconta del gatto",
+          "expected": "il gatto è stanco e dorme sul letto.",
+          "noun": "letto"
+        },
+        {
+          "prompt": "racconta del bambino",
+          "expected": "il bambino ha sete e beve il latte.",
+          "noun": "latte"
+        },
+        {
+          "prompt": "racconta della mamma",
+          "expected": "la mamma è felice e canta in casa.",
+          "noun": "casa"
+        },
+        {
+          "prompt": "racconta del sole",
+          "expected": "il sole è caldo e brilla di giorno.",
+          "noun": "giorno"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 12,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "D": {
+      "description": "Domande sul racconto",
+      "targets": [
+        {
+          "prompt": "chi ha fame?",
+          "expected": "il cane ha fame.",
+          "noun": "cane"
+        },
+        {
+          "prompt": "chi è stanco?",
+          "expected": "il gatto è stanco.",
+          "noun": "gatto"
+        },
+        {
+          "prompt": "chi ha sete?",
+          "expected": "il bambino ha sete.",
+          "noun": "bambino"
+        },
+        {
+          "prompt": "chi canta in casa?",
+          "expected": "la mamma canta in casa.",
+          "noun": "mamma"
+        },
+        {
+          "prompt": "cosa brilla di giorno?",
+          "expected": "il sole brilla di giorno.",
+          "noun": "sole"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    }
+  }
+}

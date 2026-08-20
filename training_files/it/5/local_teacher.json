@@ -1,0 +1,199 @@
+{
+  "lang": "it",
+  "level": 5,
+  "description": "Bambino 5 anni — connettivi e/ma/perché, descrizioni con aggettivi",
+  "quality_threshold": 0.3,
+  "quality_strong_min": 0.2,
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "{noun} con struttura completa e terminatore. Ottimo!",
+    "comment_++": "{noun} presente, struttura incompleta.",
+    "comment_+": "{noun} trovato.",
+    "comment_=": "Parole italiane ma non la risposta attesa.",
+    "comment_-": "Non riconoscibile o troppo lunga."
+  },
+  "encouragement": [
+    "bravo!",
+    "ottimo!",
+    "perfetto!",
+    "bene!",
+    "benissimo!"
+  ],
+  "retry_prefix": "ancora. ",
+  "steps": {
+    "A": {
+      "description": "Bridge L4->L5: aggettivo nella frase",
+      "targets": [
+        {
+          "prompt": "com è il cane?",
+          "expected": "il cane è grande.",
+          "noun": "grande",
+          "verb": "è",
+          "adjective": "grande"
+        },
+        {
+          "prompt": "com è la casa?",
+          "expected": "la casa è piccola.",
+          "noun": "piccola",
+          "verb": "è",
+          "adjective": "piccola"
+        },
+        {
+          "prompt": "com è il sole?",
+          "expected": "il sole è caldo.",
+          "noun": "caldo",
+          "verb": "è",
+          "adjective": "caldo"
+        },
+        {
+          "prompt": "com è l acqua?",
+          "expected": "l acqua è fredda.",
+          "noun": "fredda",
+          "verb": "è",
+          "adjective": "fredda"
+        },
+        {
+          "prompt": "com è il pane?",
+          "expected": "il pane è buono.",
+          "noun": "buono",
+          "verb": "è",
+          "adjective": "buono"
+        },
+        {
+          "prompt": "com è la luna?",
+          "expected": "la luna è bella.",
+          "noun": "bella",
+          "verb": "è",
+          "adjective": "bella"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": true,
+      "require_adjective": true
+    },
+    "B": {
+      "description": "Connettivo 'e' — due azioni",
+      "targets": [
+        {
+          "prompt": "cosa fa il cane?",
+          "expected": "il cane mangia e dorme.",
+          "noun": "dorme",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa fa il bambino?",
+          "expected": "il bambino corre e ride.",
+          "noun": "ride",
+          "verb": "corre"
+        },
+        {
+          "prompt": "cosa fa la mamma?",
+          "expected": "la mamma cucina e canta.",
+          "noun": "canta",
+          "verb": "cucina"
+        },
+        {
+          "prompt": "cosa fa il gatto?",
+          "expected": "il gatto salta e corre.",
+          "noun": "corre",
+          "verb": "salta"
+        },
+        {
+          "prompt": "cosa fa il papà?",
+          "expected": "il papà legge e beve.",
+          "noun": "beve",
+          "verb": "legge"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": true,
+      "require_adjective": false
+    },
+    "C": {
+      "description": "Connettivo 'perché' — causa semplice",
+      "targets": [
+        {
+          "prompt": "perché il cane mangia?",
+          "expected": "il cane mangia perché ha fame.",
+          "noun": "fame",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "perché il bambino beve?",
+          "expected": "il bambino beve perché ha sete.",
+          "noun": "sete",
+          "verb": "beve"
+        },
+        {
+          "prompt": "perché il gatto dorme?",
+          "expected": "il gatto dorme perché è stanco.",
+          "noun": "stanco",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "perché la mamma ride?",
+          "expected": "la mamma ride perché è felice.",
+          "noun": "felice",
+          "verb": "ride"
+        },
+        {
+          "prompt": "perché la nonna apre la porta?",
+          "expected": "la nonna apre perché è caldo.",
+          "noun": "caldo",
+          "verb": "apre"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 10,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": true,
+      "require_adjective": false
+    },
+    "D": {
+      "description": "Connettivo 'ma' — contrasto",
+      "targets": [
+        {
+          "prompt": "il cane è grande o piccolo?",
+          "expected": "il cane è grande ma buono.",
+          "noun": "buono",
+          "verb": "è"
+        },
+        {
+          "prompt": "l acqua è calda?",
+          "expected": "l acqua è fredda ma buona.",
+          "noun": "fredda",
+          "verb": "è"
+        },
+        {
+          "prompt": "il pane è dolce?",
+          "expected": "il pane è buono ma non dolce.",
+          "noun": "buono",
+          "verb": "è"
+        },
+        {
+          "prompt": "il gatto dorme sempre?",
+          "expected": "il gatto dorme ma poi corre.",
+          "noun": "corre",
+          "verb": "dorme"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 10,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": true,
+      "require_adjective": false
+    }
+  }
+}
