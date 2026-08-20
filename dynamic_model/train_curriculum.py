@@ -32,7 +32,7 @@ Start:
   python3 dynamic_model/train_curriculum.py --phase 1 \
       --checkpoint dynamic_model/checkpoints/level_0/final.pt
 """
-import sys, os, argparse, time, glob, json
+import sys, os, argparse, time, glob, json, random
 _ROOT  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _TEST1 = os.path.join(_ROOT, 'tests', 'test_1')
 for _p in [_ROOT, _TEST1]:
@@ -732,6 +732,51 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     # --- Rehearsal corpus: pre-tokenized blocks for anti-forgetting ─────────
     # Every REHEARSAL_EVERY teaching turns, 1 mini-batch from the text corpus
     # is injected to prevent catastrophic forgetting of the text distribution.
+    # ── Gold-pair bank for INTERLEAVED rehearsal ─────────────────────────────
+    # The teacher drills in blocks (N consecutive successes, then it moves on
+    # and never returns), and the only rehearsal was on CORPUS TEXT — nothing
+    # replayed the prompt->answer pairs already learned. Measured consequence
+    # at L1: 47% accuracy on a target re-asked within 5 turns but 8% when
+    # re-asked after 20+ turns, and 17% on a cold offline test; L0, whose
+    # targets keep recurring, showed no gap (45% vs 45%). Interleaving old
+    # gold pairs among the new ones is the standard remedy.
+    GOLD_REHEARSAL_EVERY = 5    # replay gold pairs every N teaching turns
+    GOLD_REHEARSAL_K     = 4    # pairs replayed each time
+    gold_bank = {}              # prompt -> expected, everything taught so far
+    _qa_seed = os.path.join("training_files", args.lang, str(level), "qa_pairs.jsonl")
+    if os.path.exists(_qa_seed):
+        with open(_qa_seed, encoding="utf-8") as _f:
+            for _line in _f:
+                _line = _line.strip()
+                if not _line:
+                    continue
+                try:
+                    _pair = json.loads(_line)
+                except json.JSONDecodeError:
+                    continue
+                _p = (_pair.get("prompt") or "").strip()
+                _r = (_pair.get("response") or "").strip()
+                if _p and _r:
+                    gold_bank[_p] = _r
+    print(f"  Gold bank per rehearsal: {len(gold_bank)} coppie")
+
+    def gold_rehearsal_step(exclude_prompt: str = "") -> int:
+        """Replay K random gold pairs already taught. Returns how many ran.
+
+        `exclude_prompt` keeps the CURRENT target out of the replay so the
+        rehearsal never primes the answer to the question about to be asked
+        (the leak that made the in-session metric dishonest).
+        """
+        pool = [(p, r) for p, r in gold_bank.items() if p != exclude_prompt]
+        if not pool:
+            return 0
+        _eos_s = tok.EOS_TOKEN if hasattr(tok, 'EOS_TOKEN') else ""
+        _eos_ok = (_eos_s and hasattr(tok, 'get_special_id')
+                   and tok.get_special_id(_eos_s) is not None)
+        for p, r in random.sample(pool, min(GOLD_REHEARSAL_K, len(pool))):
+            trainer.step(p, r + _eos_s if _eos_ok else r, feedback=0.6)
+        return min(GOLD_REHEARSAL_K, len(pool))
+
     REHEARSAL_EVERY = 10   # inject 1 text batch every N teaching turns
     REHEARSAL_BLOCK = 128
     REHEARSAL_BATCH = 4    # smaller than training batch to keep overhead low
@@ -1052,6 +1097,14 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
         if rehearsal_blocks and turn % REHEARSAL_EVERY == 0:
             r_loss = rehearsal_step()
             rehearsal_loss_str = f"  [R:{r_loss:.2f}]"
+        # Interleaved gold rehearsal: keeps earlier targets alive while the
+        # teacher drills new ones.
+        if expected and next_prompt:
+            gold_bank[next_prompt] = expected
+        if turn % GOLD_REHEARSAL_EVERY == 0:
+            _n_reh = gold_rehearsal_step(exclude_prompt=next_prompt)
+            if _n_reh:
+                rehearsal_loss_str += f"  [G:{_n_reh}]"
 
         # Log the exchange
         # NOTE: fb_disp is the feedback for current_response (previous turn's output),
@@ -1688,6 +1741,26 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
         else:
             print("  N2-B: no new tokens (threshold not reached)")
 
+    # ── N1: NREM slow wave — corpus replay, BEFORE the supervised phases ─────
+    # N1 used to run LAST "so it has the final word on the distribution". That
+    # word turned out to be destructive: measured on the L2 checkpoint, 30
+    # epochs of N2.5-style SFT took the level's gold pairs from 3/18 to 18/18,
+    # and running N1 straight after knocked them back to 10/18 — the dream
+    # undid 44% of its own supervised gains, every session. The broad text
+    # distribution is still anchored, it just no longer speaks last: the final
+    # word belongs to the gold supervision (N3 -> REM -> N2.5).
+    print(f"\n  [N1] NREM slow wave — corpus replay L0→{level} (max {N1_MAX_CHARS//1_000_000}MB)...")
+    if corpus_parts:
+        random.shuffle(corpus_parts)
+        nrem_text = "\n\n".join(corpus_parts)
+        print(f"  {len(nrem_text):,} chars  ({len(corpus_parts)} file)")
+        n1_losses = trainer.train_on_text(nrem_text, block_size=128,
+                                          batch_size=32, log_every=100)
+        n1_avg = float(np.mean(n1_losses[-20:])) if n1_losses else float("nan")
+        print(f"  N1 loss: {n1_avg:.4f}")
+    else:
+        print("  No corpus — skip N1.")
+
     # ── N2.5: Supervised Q&A pairs (SFT-style) ───────────────────────────────
     # Gold standard prompt→response pairs for this level.
     # Reinforces exact correlations before the emotional memory replay.
@@ -1748,12 +1821,22 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
             prompt   = entry["prompt"]
             expected = entry["expected"]
 
-            # Generate current model response (no weight update)
+            # Generate current model response (no weight update).
+            # Budget sized on the gold answer: the old fixed max_tokens=15 plus
+            # a [:30] char cut made long answers structurally unreachable, so
+            # the similarity gap below always read "to learn" regardless of
+            # what the model actually knew.
+            _n_exp = len(tok.encode(expected)) if expected else 0
             try:
                 generated = trainer.generate(
-                    prompt, max_tokens=15, base_temperature=0.5, top_k=10
+                    prompt,
+                    max_tokens=int(max(20, min(2 * _n_exp + 10, 120))),
+                    base_temperature=0.5, top_k=10,
+                    min_tokens=max(4, min(_n_exp, 40)) if _n_exp else 4,
+                    stop_after=max(0, min(_n_exp - 1, 40)) if _n_exp else 2,
                 )
-                response_now = generated[len(prompt):].strip()[:30]
+                _cap = max(60, 2 * len(expected) + 20) if expected else 60
+                response_now = generated[len(prompt):].strip()[:_cap]
             except Exception:
                 response_now = ""
 
@@ -1776,21 +1859,6 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
               f"(already knows: {close_count}, to learn: {gap_count})")
     else:
         print("  No entries with expected available — skip REM.")
-
-    # ── N1: NREM slow wave — runs LAST to anchor text distribution ────────────
-    # Running N1 after N3/REM ensures it has the final word on the distribution.
-    # N3/REM add dialogue drift; N1 corrects it back toward the text corpus.
-    print(f"\n  [N1] NREM slow wave — corpus replay L0→{level} (max {N1_MAX_CHARS//1_000_000}MB, last)...")
-    if corpus_parts:
-        random.shuffle(corpus_parts)
-        nrem_text = "\n\n".join(corpus_parts)
-        print(f"  {len(nrem_text):,} chars  ({len(corpus_parts)} file)")
-        n1_losses = trainer.train_on_text(nrem_text, block_size=128,
-                                          batch_size=32, log_every=100)
-        n1_avg = float(np.mean(n1_losses[-20:])) if n1_losses else float("nan")
-        print(f"  N1 loss: {n1_avg:.4f}")
-    else:
-        print("  No corpus — skip N1.")
 
     # ── QA pairs update from session logs ────────────────────────────────────
     # Extract unique (prompt, expected) from all sessions at this level and
