@@ -1,0 +1,153 @@
+{
+  "lang": "it",
+  "level": 9,
+  "description": "Bambino 9 anni — tesi con motivo e conclusione",
+  "quality_threshold": 0.28,
+  "quality_strong_min": 0.2,
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "{noun} con struttura completa e terminatore. Ottimo!",
+    "comment_++": "{noun} presente, struttura incompleta.",
+    "comment_+": "{noun} trovato.",
+    "comment_=": "Parole italiane ma non la risposta attesa.",
+    "comment_-": "Non riconoscibile o troppo lunga."
+  },
+  "encouragement": [
+    "bravo!",
+    "ottimo!",
+    "perfetto!",
+    "bene!",
+    "benissimo!"
+  ],
+  "retry_prefix": "ancora. ",
+  "steps": {
+    "A": {
+      "description": "Tesi e motivo",
+      "targets": [
+        {
+          "prompt": "il pane è buono?",
+          "expected": "secondo me il pane è buono perché è caldo.",
+          "noun": "caldo"
+        },
+        {
+          "prompt": "la luna è bella?",
+          "expected": "secondo me la luna è bella perché è bianca.",
+          "noun": "bianca"
+        },
+        {
+          "prompt": "il cane è fedele?",
+          "expected": "secondo me il cane è fedele perché aspetta.",
+          "noun": "aspetta"
+        },
+        {
+          "prompt": "il libro è utile?",
+          "expected": "secondo me il libro è utile perché insegna.",
+          "noun": "insegna"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 12,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "B": {
+      "description": "Due motivi con 'e'",
+      "targets": [
+        {
+          "prompt": "perché ti piace il sole?",
+          "expected": "il sole è caldo e giallo, perciò mi piace.",
+          "noun": "perciò"
+        },
+        {
+          "prompt": "perché ti piace il pane?",
+          "expected": "il pane è caldo e buono, perciò mi piace.",
+          "noun": "perciò"
+        },
+        {
+          "prompt": "perché ti piace la casa?",
+          "expected": "la casa è calda e bella, perciò mi piace.",
+          "noun": "perciò"
+        },
+        {
+          "prompt": "perché ti piace il gatto?",
+          "expected": "il gatto è piccolo e veloce, perciò mi piace.",
+          "noun": "perciò"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 12,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "C": {
+      "description": "Sinonimi (stessa idea, parola diversa)",
+      "targets": [
+        {
+          "prompt": "di un altro modo per dire bello",
+          "expected": "bello è come dire bellissimo.",
+          "noun": "bellissimo"
+        },
+        {
+          "prompt": "di un altro modo per dire grande",
+          "expected": "grande è come dire enorme.",
+          "noun": "enorme"
+        },
+        {
+          "prompt": "di un altro modo per dire piccolo",
+          "expected": "piccolo è come dire minuscolo.",
+          "noun": "minuscolo"
+        },
+        {
+          "prompt": "di un altro modo per dire caldo",
+          "expected": "caldo è come dire bollente.",
+          "noun": "bollente"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "D": {
+      "description": "Conclusione dopo il motivo",
+      "targets": [
+        {
+          "prompt": "il cane ha fame, cosa farà?",
+          "expected": "il cane ha fame, perciò mangerà il pane.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "il gatto è stanco, cosa farà?",
+          "expected": "il gatto è stanco, perciò dormirà in casa.",
+          "noun": "dormirà"
+        },
+        {
+          "prompt": "il bambino ha sete, cosa farà?",
+          "expected": "il bambino ha sete, perciò berrà il latte.",
+          "noun": "berrà"
+        },
+        {
+          "prompt": "è caldo, cosa farà la nonna?",
+          "expected": "è caldo, perciò la nonna aprirà la porta.",
+          "noun": "aprirà"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 12,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    }
+  }
+}

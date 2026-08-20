@@ -1,0 +1,153 @@
+{
+  "lang": "it",
+  "level": 10,
+  "description": "Bambino 10 anni — commento breve e giudizio motivato",
+  "quality_threshold": 0.28,
+  "quality_strong_min": 0.2,
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "{noun} con struttura completa e terminatore. Ottimo!",
+    "comment_++": "{noun} presente, struttura incompleta.",
+    "comment_+": "{noun} trovato.",
+    "comment_=": "Parole italiane ma non la risposta attesa.",
+    "comment_-": "Non riconoscibile o troppo lunga."
+  },
+  "encouragement": [
+    "bravo!",
+    "ottimo!",
+    "perfetto!",
+    "bene!",
+    "benissimo!"
+  ],
+  "retry_prefix": "ancora. ",
+  "steps": {
+    "A": {
+      "description": "Giudizio motivato su una qualità",
+      "targets": [
+        {
+          "prompt": "commenta il cane",
+          "expected": "il cane è fedele, e questo è bello.",
+          "noun": "fedele"
+        },
+        {
+          "prompt": "commenta il sole",
+          "expected": "il sole è caldo, e questo è utile.",
+          "noun": "utile"
+        },
+        {
+          "prompt": "commenta il libro",
+          "expected": "il libro insegna, e questo è importante.",
+          "noun": "importante"
+        },
+        {
+          "prompt": "commenta la luna",
+          "expected": "la luna è bianca, e questo è bello.",
+          "noun": "bianca"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 10,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "B": {
+      "description": "Confronto motivato",
+      "targets": [
+        {
+          "prompt": "meglio il pane o la porta?",
+          "expected": "meglio il pane, perché si mangia.",
+          "noun": "mangia"
+        },
+        {
+          "prompt": "meglio il libro o il letto?",
+          "expected": "meglio il libro, perché insegna.",
+          "noun": "insegna"
+        },
+        {
+          "prompt": "meglio il sole o la notte?",
+          "expected": "meglio il sole, perché è caldo.",
+          "noun": "caldo"
+        },
+        {
+          "prompt": "meglio il latte o l acqua?",
+          "expected": "meglio il latte, perché è buono.",
+          "noun": "buono"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 10,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "C": {
+      "description": "Citazione breve del testo",
+      "targets": [
+        {
+          "prompt": "cosa dice la storia del cane",
+          "expected": "la storia dice che il cane ha fame.",
+          "noun": "fame"
+        },
+        {
+          "prompt": "cosa dice la storia del gatto",
+          "expected": "la storia dice che il gatto dorme.",
+          "noun": "dorme"
+        },
+        {
+          "prompt": "cosa dice la storia del sole",
+          "expected": "la storia dice che il sole brilla.",
+          "noun": "brilla"
+        },
+        {
+          "prompt": "cosa dice la storia della mamma",
+          "expected": "la storia dice che la mamma canta.",
+          "noun": "canta"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 10,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "D": {
+      "description": "Commento con due frasi",
+      "targets": [
+        {
+          "prompt": "analizza il cane",
+          "expected": "il cane aspetta la mamma. è fedele e buono.",
+          "noun": "fedele"
+        },
+        {
+          "prompt": "analizza il gatto",
+          "expected": "il gatto dorme in casa. è piccolo e stanco.",
+          "noun": "stanco"
+        },
+        {
+          "prompt": "analizza il sole",
+          "expected": "il sole brilla di giorno. è caldo e giallo.",
+          "noun": "giallo"
+        },
+        {
+          "prompt": "analizza il pane",
+          "expected": "il pane è sul tavolo. è caldo e buono.",
+          "noun": "buono"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 12,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    }
+  }
+}

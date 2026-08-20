@@ -1,0 +1,168 @@
+{
+  "lang": "it",
+  "level": 7,
+  "description": "Bambino 7 anni — futuro e contrasto fra i tempi verbali",
+  "quality_threshold": 0.3,
+  "quality_strong_min": 0.2,
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "{noun} con struttura completa e terminatore. Ottimo!",
+    "comment_++": "{noun} presente, struttura incompleta.",
+    "comment_+": "{noun} trovato.",
+    "comment_=": "Parole italiane ma non la risposta attesa.",
+    "comment_-": "Non riconoscibile o troppo lunga."
+  },
+  "encouragement": [
+    "bravo!",
+    "ottimo!",
+    "perfetto!",
+    "bene!",
+    "benissimo!"
+  ],
+  "retry_prefix": "ancora. ",
+  "steps": {
+    "A": {
+      "description": "Futuro semplice",
+      "targets": [
+        {
+          "prompt": "cosa mangerà il cane domani?",
+          "expected": "domani il cane mangerà il pane.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa berrà il bambino domani?",
+          "expected": "domani il bambino berrà il latte.",
+          "noun": "berrà"
+        },
+        {
+          "prompt": "cosa leggerà il papà domani?",
+          "expected": "domani il papà leggerà il libro.",
+          "noun": "leggerà"
+        },
+        {
+          "prompt": "cosa aprirà la nonna domani?",
+          "expected": "domani la nonna aprirà la porta.",
+          "noun": "aprirà"
+        },
+        {
+          "prompt": "dove dormirà il gatto domani?",
+          "expected": "domani il gatto dormirà in casa.",
+          "noun": "dormirà"
+        },
+        {
+          "prompt": "cosa vedrà il bambino domani?",
+          "expected": "domani il bambino vedrà la luna.",
+          "noun": "vedrà"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "B": {
+      "description": "Ieri e domani (contrasto passato/futuro)",
+      "targets": [
+        {
+          "prompt": "il cane ha mangiato ieri, e domani?",
+          "expected": "domani il cane mangerà.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "il papà ha letto ieri, e domani?",
+          "expected": "domani il papà leggerà.",
+          "noun": "leggerà"
+        },
+        {
+          "prompt": "la nonna ha aperto ieri, e domani?",
+          "expected": "domani la nonna aprirà.",
+          "noun": "aprirà"
+        },
+        {
+          "prompt": "il gatto ha dormito ieri, e domani?",
+          "expected": "domani il gatto dormirà.",
+          "noun": "dormirà"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "C": {
+      "description": "Oggi, ieri, domani (tre tempi)",
+      "targets": [
+        {
+          "prompt": "racconta i tre giorni del cane",
+          "expected": "oggi mangia, ieri ha mangiato, domani mangerà.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "racconta i tre giorni del papà",
+          "expected": "oggi legge, ieri ha letto, domani leggerà.",
+          "noun": "leggerà"
+        },
+        {
+          "prompt": "racconta i tre giorni del gatto",
+          "expected": "oggi dorme, ieri ha dormito, domani dormirà.",
+          "noun": "dormirà"
+        },
+        {
+          "prompt": "racconta i tre giorni della nonna",
+          "expected": "oggi apre, ieri ha aperto, domani aprirà.",
+          "noun": "aprirà"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 10,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "D": {
+      "description": "Dialogo breve (domanda e risposta)",
+      "targets": [
+        {
+          "prompt": "il cane ha fame?",
+          "expected": "sì, il cane ha fame.",
+          "noun": "fame"
+        },
+        {
+          "prompt": "il gatto è stanco?",
+          "expected": "sì, il gatto è stanco.",
+          "noun": "stanco"
+        },
+        {
+          "prompt": "il sole brilla di notte?",
+          "expected": "no, il sole brilla di giorno.",
+          "noun": "giorno"
+        },
+        {
+          "prompt": "il pesce dorme in casa?",
+          "expected": "no, il pesce nuota nell acqua.",
+          "noun": "acqua"
+        },
+        {
+          "prompt": "la mamma è felice?",
+          "expected": "sì, la mamma è felice.",
+          "noun": "felice"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    }
+  }
+}

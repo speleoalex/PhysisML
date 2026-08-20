@@ -1,0 +1,168 @@
+{
+  "lang": "it",
+  "level": 8,
+  "description": "Bambino 8 anni — comparativi, preferenze e motivi",
+  "quality_threshold": 0.3,
+  "quality_strong_min": 0.2,
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "{noun} con struttura completa e terminatore. Ottimo!",
+    "comment_++": "{noun} presente, struttura incompleta.",
+    "comment_+": "{noun} trovato.",
+    "comment_=": "Parole italiane ma non la risposta attesa.",
+    "comment_-": "Non riconoscibile o troppo lunga."
+  },
+  "encouragement": [
+    "bravo!",
+    "ottimo!",
+    "perfetto!",
+    "bene!",
+    "benissimo!"
+  ],
+  "retry_prefix": "ancora. ",
+  "steps": {
+    "A": {
+      "description": "Comparativo 'più ... di'",
+      "targets": [
+        {
+          "prompt": "chi è più grande, il cane o il gatto?",
+          "expected": "il cane è più grande del gatto.",
+          "noun": "grande"
+        },
+        {
+          "prompt": "cosa è più caldo, il sole o la luna?",
+          "expected": "il sole è più caldo della luna.",
+          "noun": "caldo"
+        },
+        {
+          "prompt": "chi è più veloce, il gatto o il pesce?",
+          "expected": "il gatto è più veloce del pesce.",
+          "noun": "veloce"
+        },
+        {
+          "prompt": "cosa è più buono, il pane o la porta?",
+          "expected": "il pane è più buono della porta.",
+          "noun": "buono"
+        },
+        {
+          "prompt": "chi è più piccolo, il bambino o il papà?",
+          "expected": "il bambino è più piccolo del papà.",
+          "noun": "piccolo"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 10,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "B": {
+      "description": "Preferenze",
+      "targets": [
+        {
+          "prompt": "cosa ti piace mangiare?",
+          "expected": "mi piace il pane.",
+          "noun": "pane"
+        },
+        {
+          "prompt": "cosa ti piace bere?",
+          "expected": "mi piace il latte.",
+          "noun": "latte"
+        },
+        {
+          "prompt": "cosa ti piace leggere?",
+          "expected": "mi piace il libro.",
+          "noun": "libro"
+        },
+        {
+          "prompt": "cosa ti piace guardare?",
+          "expected": "mi piace la luna.",
+          "noun": "luna"
+        },
+        {
+          "prompt": "chi ti piace?",
+          "expected": "mi piace la mamma.",
+          "noun": "mamma"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "C": {
+      "description": "Preferenza con motivo",
+      "targets": [
+        {
+          "prompt": "perché ti piace il pane?",
+          "expected": "mi piace il pane perché è buono.",
+          "noun": "buono"
+        },
+        {
+          "prompt": "perché ti piace il latte?",
+          "expected": "mi piace il latte perché è caldo.",
+          "noun": "caldo"
+        },
+        {
+          "prompt": "perché ti piace la luna?",
+          "expected": "mi piace la luna perché è bella.",
+          "noun": "bella"
+        },
+        {
+          "prompt": "perché ti piace il libro?",
+          "expected": "mi piace il libro perché è nuovo.",
+          "noun": "nuovo"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 10,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    },
+    "D": {
+      "description": "Descrizione con due qualità",
+      "targets": [
+        {
+          "prompt": "descrivi il cane",
+          "expected": "il cane è grande e fedele.",
+          "noun": "fedele"
+        },
+        {
+          "prompt": "descrivi il sole",
+          "expected": "il sole è caldo e giallo.",
+          "noun": "giallo"
+        },
+        {
+          "prompt": "descrivi la casa",
+          "expected": "la casa è piccola e bella.",
+          "noun": "bella"
+        },
+        {
+          "prompt": "descrivi il pane",
+          "expected": "il pane è caldo e buono.",
+          "noun": "buono"
+        },
+        {
+          "prompt": "descrivi la luna",
+          "expected": "la luna è bianca e bella.",
+          "noun": "bianca"
+        }
+      ],
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false
+    }
+  }
+}
