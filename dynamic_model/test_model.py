@@ -71,13 +71,28 @@ def load_level_cases(lang: str, level: int) -> list:
         try:
             with open(path, encoding="utf-8") as f:
                 cfg = json.load(f)
+            # Mirror LocalTeacher._build_prompt: the runtime prompt is the
+            # step's prompt_template applied to the target, NOT the raw
+            # 'prompt' field. Most steps use 'di: {prompt}', so probing with
+            # the bare target asks a question the model never saw — L2 scored
+            # 0% that way while answering 'di: il cane' -> 'il cane!'
+            # correctly. Retry/encouragement prefixes are left out on purpose:
+            # the clean template is the canonical form.
             for step in cfg.get("steps", {}).values():
+                tmpl     = step.get("prompt_template", "di {target}")
+                tmpl_exp = step.get("expected_template", "{target}!")
                 for t in step.get("targets", []):
-                    if isinstance(t, dict) and t.get("prompt"):
-                        cases.append((t["prompt"], (t.get("expected") or "").strip()))
+                    if isinstance(t, dict):
+                        pv  = t.get("prompt") or t.get("noun") or ""
+                        exp = (t.get("expected") or (pv + "!")).strip()
                     elif isinstance(t, str):
-                        tmpl = step.get("prompt_template", "{target}")
-                        cases.append((tmpl.replace("{target}", t), f"{t}!"))
+                        pv  = t
+                        exp = tmpl_exp.format(target=t)
+                    else:
+                        continue
+                    if not pv:
+                        continue
+                    cases.append((tmpl.format(target=pv, prompt=pv), exp))
         except (json.JSONDecodeError, OSError):
             cases = []
     if not cases:
@@ -140,6 +155,12 @@ def main():
     parser.add_argument("--top-k",      type=int, default=20)
     parser.add_argument("--samples",    type=int, default=12,
                         help="Max test cases sampled from the curriculum (0 = all)")
+    parser.add_argument("--temperature", type=float, default=0.0,
+                        help="0 = greedy/deterministic (default). >0 samples, "
+                             "making results irreproducible run to run.")
+    parser.add_argument("--repeats",    type=int, default=1,
+                        help="Attempts per case when sampling; a case counts "
+                             "as correct if any attempt matches.")
     args = parser.parse_args()
 
     # Resolve checkpoint
@@ -197,7 +218,9 @@ def main():
     print(f"  TEST MODELLO — Livello {args.level}: {cfg['desc']}")
     print(f"  Checkpoint: {ckpt}")
     print(f"  Params: {model.num_params:,}   Vocab: {model.vocab_size}")
-    print(f"  Casi: {len(cases)} dal curriculum   Lessico: {len(lex)} parole")
+    _mode = "greedy (deterministico)" if args.temperature <= 0.0 else \
+            f"campionamento T={args.temperature} x{args.repeats}"
+    print(f"  Casi: {len(cases)} dal curriculum   Lessico: {len(lex)} parole   Decoding: {_mode}")
     print(f"{'─'*68}")
 
     scores, confidences, exacts = [], [], []
@@ -206,18 +229,30 @@ def main():
         # Generate. Budget sized on the gold answer, mirroring the teaching
         # loop — a fixed max_tokens truncates the longer answers of high levels.
         n_exp = len(tok.encode(expected)) if expected else 0
-        out = trainer.generate(
-            prompt,
-            max_tokens=int(max(args.max_tokens, min(2 * n_exp + 12, 120))),
-            base_temperature=0.8, top_k=args.top_k,
-            min_tokens=max(4, min(n_exp, 40)) if n_exp else 4,
-            stop_after=max(0, min(n_exp - 1, 40)) if n_exp else 2,
-        )
-        generated = out[len(prompt):].strip()
-        display   = clean_output(generated)
-
-        sc = score_output(generated, lex)
-        ok = is_exact(generated, expected) if expected else False
+        # Greedy by default: an evaluation metric must be reproducible. With
+        # temperature 0.8 and 12 cases the same checkpoint scored 92% and 75%
+        # on two consecutive runs — pure sampling noise.
+        greedy = args.temperature <= 0.0
+        attempts = 1 if greedy else max(1, args.repeats)
+        generated, sc, ok = "", 0.0, False
+        for _ in range(attempts):
+            out = trainer.generate(
+                prompt,
+                max_tokens=int(max(args.max_tokens, min(2 * n_exp + 12, 120))),
+                base_temperature=(1.0 if greedy else args.temperature),
+                top_k=(1 if greedy else args.top_k),
+                min_tokens=max(4, min(n_exp, 40)) if n_exp else 4,
+                stop_after=max(0, min(n_exp - 1, 40)) if n_exp else 2,
+            )
+            cand = out[len(prompt):].strip()
+            cand_ok = is_exact(cand, expected) if expected else False
+            if not generated or cand_ok:
+                generated = cand
+                sc = score_output(cand, lex)
+                ok = cand_ok
+            if cand_ok:
+                break
+        display = clean_output(generated)
         scores.append(sc); exacts.append(ok)
         confidences.append(affect.confidence)
 
