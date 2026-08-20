@@ -1,0 +1,5280 @@
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! com è il cane?
+il cane è grande.
+
+cosa fa il papà?
+il papà legge e beve.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. com è il sole?
+il sole è caldo.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! com è la luna?
+la luna è bella.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! com è il sole?
+il sole è caldo.
+
+com è il sole?
+il sole è caldo.
+
+bravo! com è il pane?
+il pane è buono.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+com è la luna?
+la luna è bella.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. com è la casa?
+la casa è piccola.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+com è il cane?
+il cane è grande.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+com è l acqua?
+l acqua è fredda.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ottimo! com è il cane?
+il cane è grande.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+com è la casa?
+la casa è piccola.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+com è il pane?
+il pane è buono.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. com è il cane?
+il cane è grande.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. com è il pane?
+il pane è buono.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+bene! com è il cane?
+il cane è grande.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+bravo! com è la luna?
+la luna è bella.
+
+ancora. com è la luna?
+la luna è bella.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bene! com è il pane?
+il pane è buono.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+bravo! com è il pane?
+il pane è buono.
+
+com è la casa?
+la casa è piccola.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+com è il pane?
+il pane è buono.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+com è la luna?
+la luna è bella.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+bene! com è il pane?
+il pane è buono.
+
+com è l acqua?
+l acqua è fredda.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+cosa fa il papà?
+il papà legge e beve.
+
+ottimo! com è la luna?
+la luna è bella.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+perfetto! com è il cane?
+il cane è grande.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. com è il cane?
+il cane è grande.
+
+com è il cane?
+il cane è grande.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. com è la casa?
+la casa è piccola.
+
+bravo! com è la luna?
+la luna è bella.
+
+ancora. com è la luna?
+la luna è bella.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. com è il pane?
+il pane è buono.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! com è il cane?
+il cane è grande.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+ancora. com è il sole?
+il sole è caldo.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bravo! com è il sole?
+il sole è caldo.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+com è il sole?
+il sole è caldo.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+bene! com è il cane?
+il cane è grande.
+
+ottimo! com è la luna?
+la luna è bella.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! com è il cane?
+il cane è grande.
+
+com è il sole?
+il sole è caldo.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+com è il cane?
+il cane è grande.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! com è il cane?
+il cane è grande.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+bene! com è il pane?
+il pane è buono.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+com è la luna?
+la luna è bella.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. com è il sole?
+il sole è caldo.
+
+com è il pane?
+il pane è buono.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+com è la casa?
+la casa è piccola.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! com è la luna?
+la luna è bella.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. com è il cane?
+il cane è grande.
+
+perfetto! com è il cane?
+il cane è grande.
+
+ancora. com è il pane?
+il pane è buono.
+
+cosa fa il papà?
+il papà legge e beve.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+bravo! com è il sole?
+il sole è caldo.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+com è l acqua?
+l acqua è fredda.
+
+ancora. com è la casa?
+la casa è piccola.
+
+bravo! com è il pane?
+il pane è buono.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. com è la luna?
+la luna è bella.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+ottimo! com è il cane?
+il cane è grande.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+cosa fa il papà?
+il papà legge e beve.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ottimo! com è la luna?
+la luna è bella.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! com è il cane?
+il cane è grande.
+
+bravo! com è la luna?
+la luna è bella.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+com è il cane?
+il cane è grande.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. com è la luna?
+la luna è bella.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. com è il cane?
+il cane è grande.
+
+ancora. com è il sole?
+il sole è caldo.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. com è la casa?
+la casa è piccola.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+com è la casa?
+la casa è piccola.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+com è il sole?
+il sole è caldo.
+
+bene! com è il pane?
+il pane è buono.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+com è la luna?
+la luna è bella.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. com è il pane?
+il pane è buono.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+bravo! com è il sole?
+il sole è caldo.
+
+perfetto! com è il cane?
+il cane è grande.
+
+com è l acqua?
+l acqua è fredda.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+com è il pane?
+il pane è buono.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! com è il pane?
+il pane è buono.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+perfetto! com è il cane?
+il cane è grande.
+
+cosa fa il papà?
+il papà legge e beve.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! com è il cane?
+il cane è grande.
+
+ancora. com è il cane?
+il cane è grande.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+com è il cane?
+il cane è grande.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+com è l acqua?
+l acqua è fredda.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+ottimo! com è il cane?
+il cane è grande.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+bravo! com è il sole?
+il sole è caldo.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! com è il pane?
+il pane è buono.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! com è la luna?
+la luna è bella.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+com è la casa?
+la casa è piccola.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+com è la luna?
+la luna è bella.
+
+bene! com è il pane?
+il pane è buono.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. com è il sole?
+il sole è caldo.
+
+ottimo! com è la luna?
+la luna è bella.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+com è il sole?
+il sole è caldo.
+
+com è il pane?
+il pane è buono.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. com è la luna?
+la luna è bella.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. com è la casa?
+la casa è piccola.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. com è il pane?
+il pane è buono.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+bene! com è il pane?
+il pane è buono.
+
+bene! com è il cane?
+il cane è grande.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! com è il cane?
+il cane è grande.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+cosa fa il papà?
+il papà legge e beve.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ottimo! com è la luna?
+la luna è bella.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+com è l acqua?
+l acqua è fredda.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+perfetto! com è il cane?
+il cane è grande.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. com è il pane?
+il pane è buono.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bravo! com è il pane?
+il pane è buono.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. com è la casa?
+la casa è piccola.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+com è la casa?
+la casa è piccola.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+com è il cane?
+il cane è grande.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+com è il pane?
+il pane è buono.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. com è il sole?
+il sole è caldo.
+
+ancora. com è la luna?
+la luna è bella.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! com è il sole?
+il sole è caldo.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! com è la luna?
+la luna è bella.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+com è la luna?
+la luna è bella.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+com è il sole?
+il sole è caldo.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. com è il cane?
+il cane è grande.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+com è l acqua?
+l acqua è fredda.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+com è il cane?
+il cane è grande.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! com è il cane?
+il cane è grande.
+
+cosa fa il papà?
+il papà legge e beve.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. com è la casa?
+la casa è piccola.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+com è il sole?
+il sole è caldo.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bene! com è il cane?
+il cane è grande.
+
+com è la casa?
+la casa è piccola.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bravo! com è il sole?
+il sole è caldo.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+bene! com è il pane?
+il pane è buono.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+ottimo! com è la luna?
+la luna è bella.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ottimo! com è il cane?
+il cane è grande.
+
+ancora. com è la luna?
+la luna è bella.
+
+bravo! com è il pane?
+il pane è buono.
+
+com è la luna?
+la luna è bella.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. com è il sole?
+il sole è caldo.
+
+ancora. com è il cane?
+il cane è grande.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bravo! com è la luna?
+la luna è bella.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. com è il pane?
+il pane è buono.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+com è il pane?
+il pane è buono.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+ancora. com è il pane?
+il pane è buono.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+com è il pane?
+il pane è buono.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+com è il sole?
+il sole è caldo.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+com è la luna?
+la luna è bella.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+bravo! com è la luna?
+la luna è bella.
+
+ottimo! com è la luna?
+la luna è bella.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! com è il cane?
+il cane è grande.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. com è il sole?
+il sole è caldo.
+
+ottimo! com è il cane?
+il cane è grande.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! com è il pane?
+il pane è buono.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+com è il cane?
+il cane è grande.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+com è la casa?
+la casa è piccola.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. com è il cane?
+il cane è grande.
+
+com è l acqua?
+l acqua è fredda.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! com è il pane?
+il pane è buono.
+
+ancora. com è la luna?
+la luna è bella.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! com è il cane?
+il cane è grande.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+cosa fa il papà?
+il papà legge e beve.
+
+bravo! com è il sole?
+il sole è caldo.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. com è la casa?
+la casa è piccola.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+perfetto! com è il cane?
+il cane è grande.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. com è il pane?
+il pane è buono.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. com è la casa?
+la casa è piccola.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+com è il cane?
+il cane è grande.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bravo! com è la luna?
+la luna è bella.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+com è l acqua?
+l acqua è fredda.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+ancora. com è il cane?
+il cane è grande.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+com è il sole?
+il sole è caldo.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+com è la luna?
+la luna è bella.
+
+bene! com è il pane?
+il pane è buono.
+
+com è la casa?
+la casa è piccola.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bravo! com è il pane?
+il pane è buono.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+com è il pane?
+il pane è buono.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+ottimo! com è il cane?
+il cane è grande.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+cosa fa il papà?
+il papà legge e beve.
+
+ottimo! com è la luna?
+la luna è bella.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! com è il sole?
+il sole è caldo.
+
+ancora. com è il sole?
+il sole è caldo.
+
+bene! com è il cane?
+il cane è grande.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. com è la luna?
+la luna è bella.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! com è il cane?
+il cane è grande.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+ottimo! com è la luna?
+la luna è bella.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! com è il pane?
+il pane è buono.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bravo! com è la luna?
+la luna è bella.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+ancora. com è il cane?
+il cane è grande.
+
+cosa fa il papà?
+il papà legge e beve.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! com è il cane?
+il cane è grande.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+ancora. com è la luna?
+la luna è bella.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+com è il sole?
+il sole è caldo.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+com è la luna?
+la luna è bella.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+com è la casa?
+la casa è piccola.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+com è l acqua?
+l acqua è fredda.
+
+ancora. com è il sole?
+il sole è caldo.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+com è il cane?
+il cane è grande.
+
+bravo! com è il sole?
+il sole è caldo.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. com è il pane?
+il pane è buono.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bravo! com è il pane?
+il pane è buono.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. com è la casa?
+la casa è piccola.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+com è il pane?
+il pane è buono.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! com è il cane?
+il cane è grande.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. com è la luna?
+la luna è bella.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+com è il pane?
+il pane è buono.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+com è la casa?
+la casa è piccola.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+bravo! com è il sole?
+il sole è caldo.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+com è il sole?
+il sole è caldo.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! com è la luna?
+la luna è bella.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! com è il pane?
+il pane è buono.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ottimo! com è il cane?
+il cane è grande.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! com è il cane?
+il cane è grande.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+com è la luna?
+la luna è bella.
+
+com è il cane?
+il cane è grande.
+
+ancora. com è il cane?
+il cane è grande.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bravo! com è la luna?
+la luna è bella.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+perfetto! com è il cane?
+il cane è grande.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. com è il pane?
+il pane è buono.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+cosa fa il papà?
+il papà legge e beve.
+
+bene! com è il pane?
+il pane è buono.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. com è la casa?
+la casa è piccola.
+
+ancora. com è il sole?
+il sole è caldo.
+
+com è l acqua?
+l acqua è fredda.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. com è il cane?
+il cane è grande.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+com è la casa?
+la casa è piccola.
+
+ancora. com è il pane?
+il pane è buono.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+com è il sole?
+il sole è caldo.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. com è la luna?
+la luna è bella.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bravo! com è il sole?
+il sole è caldo.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+com è il cane?
+il cane è grande.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+bravo! com è il pane?
+il pane è buono.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+com è l acqua?
+l acqua è fredda.
+
+bene! com è il pane?
+il pane è buono.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. com è la casa?
+la casa è piccola.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+bene! com è il cane?
+il cane è grande.
+
+cosa fa il papà?
+il papà legge e beve.
+
+ottimo! com è la luna?
+la luna è bella.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. com è il sole?
+il sole è caldo.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! com è il cane?
+il cane è grande.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+perfetto! com è il cane?
+il cane è grande.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+bravo! com è la luna?
+la luna è bella.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+com è il pane?
+il pane è buono.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+com è la luna?
+la luna è bella.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+com è la casa?
+la casa è piccola.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+com è la luna?
+la luna è bella.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ancora. com è la casa?
+la casa è piccola.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+com è l acqua?
+l acqua è fredda.
+
+com è il sole?
+il sole è caldo.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+perfetto! com è il cane?
+il cane è grande.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+com è il pane?
+il pane è buono.
+
+ancora. com è il sole?
+il sole è caldo.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+bravo! com è la luna?
+la luna è bella.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. com è il pane?
+il pane è buono.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! com è il cane?
+il cane è grande.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bene! com è il cane?
+il cane è grande.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+com è il cane?
+il cane è grande.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. com è il cane?
+il cane è grande.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+bene! com è il pane?
+il pane è buono.
+
+ottimo! com è la luna?
+la luna è bella.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bravo! com è il pane?
+il pane è buono.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bravo! com è il sole?
+il sole è caldo.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+cosa fa il papà?
+il papà legge e beve.
+
+ancora. com è la luna?
+la luna è bella.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! com è il sole?
+il sole è caldo.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! com è il pane?
+il pane è buono.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! com è il cane?
+il cane è grande.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ancora. com è il pane?
+il pane è buono.
+
+ancora. com è la casa?
+la casa è piccola.
+
+bene! com è il pane?
+il pane è buono.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. com è la luna?
+la luna è bella.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. com è il cane?
+il cane è grande.
+
+ancora. com è il sole?
+il sole è caldo.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+cosa fa il papà?
+il papà legge e beve.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+com è il sole?
+il sole è caldo.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+bene! com è il cane?
+il cane è grande.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+bravo! com è la luna?
+la luna è bella.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+com è la luna?
+la luna è bella.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+com è il pane?
+il pane è buono.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+com è la casa?
+la casa è piccola.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+com è l acqua?
+l acqua è fredda.
+
+ottimo! com è il cane?
+il cane è grande.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+ottimo! com è la luna?
+la luna è bella.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+com è il cane?
+il cane è grande.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! com è il pane?
+il pane è buono.
+
+com è la casa?
+la casa è piccola.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+bene! com è il cane?
+il cane è grande.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. com è il sole?
+il sole è caldo.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. com è il pane?
+il pane è buono.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. com è la casa?
+la casa è piccola.
+
+ancora. com è il cane?
+il cane è grande.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! com è il sole?
+il sole è caldo.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! com è la luna?
+la luna è bella.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+com è il cane?
+il cane è grande.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+com è la luna?
+la luna è bella.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+com è l acqua?
+l acqua è fredda.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+bene! com è il pane?
+il pane è buono.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+perfetto! com è il cane?
+il cane è grande.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+cosa fa il papà?
+il papà legge e beve.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+com è il pane?
+il pane è buono.
+
+com è il sole?
+il sole è caldo.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. com è la luna?
+la luna è bella.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+bravo! com è la luna?
+la luna è bella.
+
+ottimo! com è il cane?
+il cane è grande.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! com è la luna?
+la luna è bella.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+com è l acqua?
+l acqua è fredda.
+
+com è la casa?
+la casa è piccola.
+
+bene! com è il cane?
+il cane è grande.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+bravo! com è il sole?
+il sole è caldo.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! com è il cane?
+il cane è grande.
+
+perfetto! com è il cane?
+il cane è grande.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. com è il pane?
+il pane è buono.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+com è il sole?
+il sole è caldo.
+
+ottimo! com è la luna?
+la luna è bella.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+ancora. com è la casa?
+la casa è piccola.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. com è il sole?
+il sole è caldo.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+com è il cane?
+il cane è grande.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bravo! com è il pane?
+il pane è buono.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+cosa fa il papà?
+il papà legge e beve.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+com è il pane?
+il pane è buono.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+bene! com è il pane?
+il pane è buono.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. com è il cane?
+il cane è grande.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+com è la luna?
+la luna è bella.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. com è la luna?
+la luna è bella.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+com è il pane?
+il pane è buono.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+com è l acqua?
+l acqua è fredda.
+
+com è la luna?
+la luna è bella.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+bene! com è il cane?
+il cane è grande.
+
+ancora. com è il cane?
+il cane è grande.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. com è la luna?
+la luna è bella.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+bene! com è il pane?
+il pane è buono.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bravo! com è il pane?
+il pane è buono.
+
+ancora. com è il pane?
+il pane è buono.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! com è la luna?
+la luna è bella.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+perfetto! com è il cane?
+il cane è grande.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+ottimo! com è il cane?
+il cane è grande.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+bravo! com è il sole?
+il sole è caldo.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+com è la casa?
+la casa è piccola.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+com è il cane?
+il cane è grande.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! com è la luna?
+la luna è bella.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. com è il sole?
+il sole è caldo.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+cosa fa il papà?
+il papà legge e beve.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+ancora. com è la casa?
+la casa è piccola.
+
+com è il sole?
+il sole è caldo.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+com è il sole?
+il sole è caldo.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+com è la luna?
+la luna è bella.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. com è il cane?
+il cane è grande.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+bene! com è il cane?
+il cane è grande.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+com è la casa?
+la casa è piccola.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. com è il pane?
+il pane è buono.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+bene! com è il pane?
+il pane è buono.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+com è il cane?
+il cane è grande.
+
+ottimo! com è la luna?
+la luna è bella.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. com è la casa?
+la casa è piccola.
+
+ancora. com è il sole?
+il sole è caldo.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+com è il pane?
+il pane è buono.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! com è il cane?
+il cane è grande.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+cosa fa il papà?
+il papà legge e beve.
+
+ottimo! com è il cane?
+il cane è grande.
+
+ancora. com è la luna?
+la luna è bella.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+com è l acqua?
+l acqua è fredda.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! com è il sole?
+il sole è caldo.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+bravo! com è il pane?
+il pane è buono.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bravo! com è la luna?
+la luna è bella.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. com è la luna?
+la luna è bella.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. com è il sole?
+il sole è caldo.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. com è il cane?
+il cane è grande.
+
+com è l acqua?
+l acqua è fredda.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! com è la luna?
+la luna è bella.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+com è il pane?
+il pane è buono.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+ancora. com è la casa?
+la casa è piccola.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+com è la luna?
+la luna è bella.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+bravo! com è il sole?
+il sole è caldo.
+
+perfetto! com è il cane?
+il cane è grande.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! com è il cane?
+il cane è grande.
+
+bene! com è il pane?
+il pane è buono.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+com è la casa?
+la casa è piccola.
+
+bravo! com è il pane?
+il pane è buono.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! com è la luna?
+la luna è bella.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+cosa fa il papà?
+il papà legge e beve.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! com è il cane?
+il cane è grande.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. com è il pane?
+il pane è buono.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+com è il cane?
+il cane è grande.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+com è il sole?
+il sole è caldo.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perché il bambino beve?
+il bambino beve perché ha sete.
+
+ancora. cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+ottimo! com è l acqua?
+l acqua è fredda.
+
+ottimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+ottimo! com è il cane?
+il cane è grande.
+
+bene! com è il cane?
+il cane è grande.
+
+perfetto! l acqua è calda?
+l acqua è fredda ma buona.
+
+com è il cane?
+il cane è grande.
+
+perfetto! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! l acqua è calda?
+l acqua è fredda ma buona.
+
+perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+com è il pane?
+il pane è buono.
+
+il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+benissimo! com è l acqua?
+l acqua è fredda.
+
+ancora. com è il pane?
+il pane è buono.
+
+ancora. perché la mamma ride?
+la mamma ride perché è felice.
+
+ottimo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+bravo! perché il cane mangia?
+il cane mangia perché ha fame.
+
+ancora. cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. com è la luna?
+la luna è bella.
+
+bravo! cosa fa il cane?
+il cane mangia e dorme.
+
+ottimo! com è il sole?
+il sole è caldo.
+
+perfetto! cosa fa il cane?
+il cane mangia e dorme.
+
+cosa fa il bambino?
+il bambino corre e ride.
+
+bravo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+l acqua è calda?
+l acqua è fredda ma buona.
+
+bravo! com è il sole?
+il sole è caldo.
+
+cosa fa il papà?
+il papà legge e beve.
+
+cosa fa il gatto?
+il gatto salta e corre.
+
+ottimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. il cane è grande o piccolo?
+il cane è grande ma buono.
+
+ottimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+bene! perché il bambino beve?
+il bambino beve perché ha sete.
+
+ottimo! com è la luna?
+la luna è bella.
+
+perché il cane mangia?
+il cane mangia perché ha fame.
+
+bene! l acqua è calda?
+l acqua è fredda ma buona.
+
+bene! cosa fa la mamma?
+la mamma cucina e canta.
+
+bene! cosa fa il bambino?
+il bambino corre e ride.
+
+ancora. com è il sole?
+il sole è caldo.
+
+benissimo! cosa fa il cane?
+il cane mangia e dorme.
+
+il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+bravo! com è il pane?
+il pane è buono.
+
+bravo! cosa fa il papà?
+il papà legge e beve.
+
+benissimo! l acqua è calda?
+l acqua è fredda ma buona.
+
+ancora. com è la casa?
+la casa è piccola.
+
+ottimo! il pane è dolce?
+il pane è buono ma non dolce.
+
+benissimo! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+benissimo! perché la mamma ride?
+la mamma ride perché è felice.
+
+benissimo! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+bene! cosa fa il papà?
+il papà legge e beve.
+
+ancora. cosa fa il cane?
+il cane mangia e dorme.
+
+ancora. perché il bambino beve?
+il bambino beve perché ha sete.
+
+com è il sole?
+il sole è caldo.
+
+bravo! cosa fa il gatto?
+il gatto salta e corre.
+
+ancora. l acqua è calda?
+l acqua è fredda ma buona.
+
+perfetto! il pane è dolce?
+il pane è buono ma non dolce.
+
+bravo! com è la luna?
+la luna è bella.
+
+ancora. cosa fa il papà?
+il papà legge e beve.
+
+ancora. cosa fa la mamma?
+la mamma cucina e canta.
+
+ancora. com è il cane?
+il cane è grande.
+
+ancora. perché il cane mangia?
+il cane mangia perché ha fame.
+
+bene! il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perfetto! com è il cane?
+il cane è grande.
+
+bravo! cosa fa il bambino?
+il bambino corre e ride.
+
+bene! il pane è dolce?
+il pane è buono ma non dolce.
+
+bene! cosa fa il cane?
+il cane mangia e dorme.
+
+com è l acqua?
+l acqua è fredda.
+
+bravo! com è l acqua?
+l acqua è fredda.
+
+cosa fa il cane?
+il cane mangia e dorme.
+
+com è la luna?
+la luna è bella.
+
+bene! com è il pane?
+il pane è buono.
+
+ancora. com è l acqua?
+l acqua è fredda.
+
+ancora. il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+perfetto! perché il gatto dorme?
+il gatto dorme perché è stanco.
+
+perfetto! il gatto dorme sempre?
+il gatto dorme ma poi corre.
+
+ancora. il pane è dolce?
+il pane è buono ma non dolce.
+
+ottimo! cosa fa il cane?
+il cane mangia e dorme.
+
+com è la casa?
+la casa è piccola.
+
+perché la nonna apre la porta?
+la nonna apre perché è caldo.
+
+il cane è grande o piccolo?
+il cane è grande ma buono.
+
+perfetto! cosa fa il papà?
+il papà legge e beve.
+
