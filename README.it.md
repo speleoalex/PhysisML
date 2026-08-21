@@ -9,7 +9,7 @@ guidato da un tutor Claude che adatta il curriculum in tempo reale.
 - **Curriculum progressivo**: da fonemi a letteratura (italiano livelli 0–10, inglese 0–5)
 - **Sistema affettivo innato**: `confidence`, `pleasure`, `pain`, `fear` modulano i logits durante l'inference
 - **Segnale insegnante**: un tutor Claude (o un insegnante locale gratuito) genera esempi mirati sui deficit correnti del modello
-- **Dimensioni minime**: transformer GPT-2 style, ~3.7M parametri, si addestra su CPU
+- **Dimensioni minime**: transformer GPT-2 style, ~23.6M parametri, si addestra su CPU o GPU consumer
 
 **Documentazione**
 
@@ -21,6 +21,36 @@ guidato da un tutor Claude che adatta il curriculum in tempo reale.
 | Setup GPU Intel Arc | [docs/it/setup/gpu_intel_arc.md](docs/it/setup/gpu_intel_arc.md) | [docs/en/setup/gpu_intel_arc.md](docs/en/setup/gpu_intel_arc.md) |
 
 ---
+
+## Risultati
+
+Exact match sugli obiettivi del curriculum, checkpoint post-sogno, decoding
+greedy (`python3 dynamic_model/test_model.py --level N --samples 0`):
+
+| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7–L10 |
+|----|----|----|----|----|----|----|--------|
+| 100% | 96% | 100% | 82% | 100% | 95% | 100% | in ricostruzione |
+
+Per confronto, il build di maggio prima delle correzioni: L0 4.4%, L1 1.8%,
+L2 12.8%, L3 1.0%, **L4 e oltre 0.0%**.
+
+Esempi reali (greedy, checkpoint post-sogno):
+
+```
+di ma                      → ma!
+di: il cane                → il cane!
+di: il cane dorme          → il cane dorme!
+di: cosa mangia il cane?   → il cane mangia il pane.
+perché il cane mangia?     → il cane mangia perché ha fame.
+cosa ha mangiato il cane?  → il cane ha mangiato il pane.
+```
+
+Gli errori residui sono di una sola famiglia: obiettivi che condividono il
+prefisso del prompt collassano sulla stessa risposta (`di un numero: tre` e
+`di un colore: rosso` producono entrambi `due!`). Non è un limite di capacità —
+un SFT puro sugli obiettivi di un livello li porta al 100% in 30 epoche.
+
+Dettagli in [docs/it/modello_PhysisML.md](docs/it/modello_PhysisML.md).
 
 ## Requisiti
 
@@ -124,35 +154,45 @@ Per ogni livello ci sono due checkpoint: `final.pt` (solo training testuale) e
 | Lingua | Livello | Contenuto |
 |--------|---------|-----------|
 | it | 0 | Suoni e sillabe (scritto a mano) |
-| it | 1 | Filastrocche, canzoni, storie brevi, dialoghi semplici |
-| it | 2 | Frasi e grammatica base + Wikipedia (animali) |
-| it | 3 | Pinocchio + OpenSubtitles + Wikipedia |
-| it | 4 | Favole di Esopo + OpenSubtitles + Wikipedia (cultura) |
-| it | 5 | Canzoni + De Amicis + OpenSubtitles + Wikipedia |
-| it | 6 | Narrativa ottocentesca (Neera, Serao) |
-| it | 7 | Rodari + Wikipedia |
-| it | 8–9 | I Promessi Sposi (estratto, poi integrale) |
-| it | 10 | Divina Commedia |
+| it | 1 | Parole singole, famiglia, filastrocche |
+| it | 2 | Articolo + sostantivo, frasi base |
+| it | 3 | Frasi soggetto+verbo, identità, numeri e colori |
+| it | 4 | Soggetto+verbo+oggetto, sequenze prima/poi |
+| it | 5 | Connettivi (e / ma / perché), aggettivi |
+| it | 6 | Passato prossimo, cause, due frasi collegate |
+| it | 7 | Futuro, contrasto fra i tempi, dialogo breve |
+| it | 8 | Comparativi, preferenze motivate, descrizioni |
+| it | 9 | Tesi + motivo + conclusione, sinonimi |
+| it | 10 | Commento motivato, confronto, citazione |
 | en | 0–1 | Suoni e grammatica base (scritto a mano) |
 | en | 2 | Shakespeare |
 | en | 3 | Alice in Wonderland + Oliver Twist |
 | en | 4 | Jane Eyre + Pride & Prejudice |
 | en | 5 | Moby Dick |
 
-Ogni livello include anche un `qa_corpus.txt` (coppie prompt→risposta).
+Ogni livello ha un `local_teacher.json` (pool chiuso di obiettivi, deterministico),
+un testo curato coerente col livello e un `qa_corpus.txt` generato dalle sessioni
+(coppie prompt→risposta). I testi narrativi lunghi restano nel repository ma sono
+esclusi dall'addestramento dal livello 3 in su: prosa per adulti cancella le
+associazioni prompt→risposta appena costruite.
 
 ---
 
 ## Architettura
 
 - **Modello**: TorchGPT — transformer decoder-only GPT-2 style, Pre-LayerNorm,
-  testa LM con weight tying. Default: `d_model=256`, 4 layer, 4 head, ~3.7M parametri.
-- **Tokenizer**: BPE da 501 token addestrato solo sui testi di livello 0 (nessuna
-  contaminazione da testi avanzati).
+  testa LM con weight tying. Configurazione in uso: `d_model=512`, 6 layer,
+  8 head, `d_ff=2048`, contesto 128 token, **23.6M parametri**.
+- **Tokenizer**: BPE da 8.000 token, con slot dormienti fino a 9.000: il
+  vocabolario cresce durante la fase di sogno (8.002 → 8.079 token da L0 a L10).
 - **Sistema affettivo**: stato innato (`confidence`, `pleasure`, `pain`, `fear`)
   che modula la generazione e traccia lo stato di apprendimento.
-- **Anti-forgetting**: mini-batch di rehearsal durante l'insegnamento; didattica
-  show-then-test (il modello vede la risposta corretta prima di essere interrogato).
+- **Anti-forgetting**: rehearsal *interleaved* sulle coppie gold durante
+  l'insegnamento (4 coppie ogni 5 turni), più il replay del corpus nella fase
+  di sogno.
+- **Didattica test-then-show**: il modello risponde *prima* di vedere la
+  soluzione. L'ordine inverso (show-then-test) misurava il richiamo dopo
+  suggerimento invece della conoscenza ritenuta.
 
 L'implementazione originaria in pure NumPy (ogni layer con `forward()`/`backward()`
 scritti a mano) resta la base didattica del progetto.

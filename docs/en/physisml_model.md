@@ -51,24 +51,27 @@ The model still uses **backpropagation + the Adam optimizer** — this is not bi
 ```text
 TorchGPT — decoder-only, Pre-LayerNorm, GPT-2 style
 ─────────────────────────────────────────────────────
-Total parameters : 3.32M
-Vocabulary       : 501 tokens (BPE, trained on corpus it/0)
-d_model          : 256
-n_layers         : 4
-n_heads          : 4
-d_ff             : 1024
+Total parameters : 23.59M
+Vocabulary       : 9,000 allocated slots, 8,002 active at start
+                   → 8,079 after the L0→L10 curriculum
+d_model          : 512
+n_layers         : 6
+n_heads          : 8
+d_ff             : 2048
 max_seq_len      : 129 (128 context tokens + 1)
 dropout          : 0.1
 Positional enc.  : learnable embedding (not RoPE)
 FFN activation   : GELU
 Weight tying     : logits = x @ tok_emb.W^T
+Optimizer        : Adam, lr 1e-3 (text) / 2e-5 (teaching),
+                   weight_decay = 0
 ```
 
 ### Forward pass
 
 ```text
 Input ids (T,)
-  → TokenEmbedding(V=501, d=256) + PosEmbedding(128, d=256)
+  → TokenEmbedding(V=9000, d=512) + PosEmbedding(128, d=512)
   → Dropout(0.1)
   → 4 × TransformerBlock:
        h   = x + Attention(LayerNorm(x))    # pre-LN residual
@@ -80,9 +83,11 @@ Input ids (T,)
 
 ### Tokenizer
 
-BPE (Byte Pair Encoding) with 501 tokens, trained exclusively on the phonemic corpus `it/0` (Italian syllables and phonemes). The small vocabulary is an intentional choice for the experimental phase: it forces the model to learn sub-word relations before it has whole words.
+BPE (Byte Pair Encoding) with 8,000 tokens, plus dormant slots up to 9,000. Dormant tokens carry logit `-inf` and zero gradient; the dream phase activates them as new patterns consolidate, initialising each from its parent tokens at 30% of the mean norm of the already-trained rows. An absolute scale would give a fresh row a *larger* norm than the trained ones — a high prior with no semantics in the weight-tied softmax.
 
-**Known limit**: with 501 tokens, common Italian words fragment into 2–4 subtokens, which prevents semantic generalization. The target vocabulary for the next phase is 8,000 tokens.
+Across the L0→L10 curriculum the vocabulary grew from 8,002 to 8,079 tokens. Growth is deliberately conservative: merges are found and applied within word boundaries only (matching `encode`, otherwise the token is unreachable), degenerate repetitions and multi-word phrases are rejected, and the level's active drill targets are protected — tokenising what is currently being taught orphans the multi-token path the model has already learned.
+
+**Note on `weight_decay`**: it must stay at zero. With `torch.optim.Adam` the decay is coupled to the gradient, so a rarely-exercised parameter shrinks at every step regardless of its gradient. Over the hundreds of thousands of single-sample steps of the curriculum this kills the network: measured on the May checkpoints, the `ln_f` gain fell from 0.87 (L0) to 0.0079 (L10).
 
 ### Implementation backends
 
@@ -237,29 +242,125 @@ Each level has a `training_files/it/{N}/teacher_prompt.md` file with:
 
 ## 6. Experimental results
 
-### Perplexity trajectory (text: "il cane dorme sul tappeto. la mamma cucina il pane.")
+### Metric
 
-```text
-Checkpoint          PPL      Δ       Type    Status
-────────────────────────────────────────────────────────
-L0/final            53.7             [txt]   ✓ measured
-L0/final_learned    80.3    +26.6 ↑  [tch]  ✓ no rehearsal
-L1/final            29.0    -51.3 ↓  [txt]  ✓
-L1/final_learned    49.3    +20.3 ↑  [tch]  ✓ with rehearsal (-85% vs L0)
-L2/final            22.5    -26.8 ↓  [txt]  ✓
-L2/final_learned    27.7     +5.1 ↑  [tch]  ✓ spike almost zero
-L2/final_dreamed     —        —       [drm]  ✓ Dream phase applied
-L3/final            21.2     -6.5 ↓  [txt]  ☐ to be measured
-L3/final_learned    18.0     -3.2 ↓  [tch]  ☐ estimated
-L4/final            19.2     +1.2 ↑  [txt]  ☐ estimated
-L4/final_learned    19.5     +0.4 →  [tch]  ☐ estimated — plateau (~501 token limit)
-```
+**Exact match** against every curriculum target of the level: the model's
+normalised answer must equal the one the teacher expects. Decoding is **greedy**
+(`top_k=1`), so the figure is reproducible — at temperature 0.8 the same
+checkpoint scored 92% and 75% on consecutive runs. Questions are asked in the
+**exact** form used in training, i.e. with the step's `prompt_template` applied
+(`di: {prompt}` for most steps): probing with the bare target asks a question the
+model has never seen — `il cane` returns `mangia il pane!` while `di: il cane`
+returns `il cane!`.
 
-**Current status** (2026-04-13): real checkpoints available up to `L2/final_dreamed`. The L3–L4 values are estimates based on the observed trajectory.
+Command: `python3 dynamic_model/test_model.py --level N --samples 0`
 
-**Milestone reached** (L0–L2): rehearsal reduced the catastrophic-forgetting spike from +133% (L0, without rehearsal) to +5% (L2). The Dream phase is operational.
+### Per-level results
 
-**Known limit**: a plateau is expected at PPL≈18–20 from levels L3–L4 on. Cause: the 501-token vocabulary is saturated. Common words fragment into subtokens, preventing generalization.
+Post-dream checkpoints, exact match over all targets:
+
+| Level | Exact match | Targets | Sessions | Notes |
+|-------|------------|---------|----------|-------|
+| L0 | 100% | 21/21 | 3 | |
+| L1 | 96% | 23/24 | 3 | |
+| L2 | 100% | 18/18 | 3 | |
+| L3 | 82% | 23/28 | 2 | numbers and colours share a prompt prefix |
+| L4 | 100% | 25/25 | 10 | the level where the stall used to begin (0% in May) |
+| L5 | 95% | 19/20 | 6 | |
+| L6 | 100% | 21/21 | 6 | |
+| L7–L10 | — | — | — | rebuild in progress |
+
+Against the May build, before the fixes: L0 4.4%, L1 1.8%, L2 12.8%, L3 1.0%,
+**L4 and beyond 0.0%**.
+
+New levels start low and climb monotonically — L4 from 0.07 to 0.79 quality rate
+over ten sessions, L5 from 0.05 to 0.82, L6 from 0.08 to 0.94. That is the
+signature of consolidation: the deterministic regime learns slowly but
+accumulates, instead of oscillating.
+
+### Effect of the dream phase
+
+Exact-match delta between the pre-dream checkpoint (`final_learned.pt`) and the
+post-dream one (`final_dreamed.pt`): **+19, +13, +17, +7, +12 points** from L0 to L4.
+
+The dream used to hurt the higher levels as long as its deep-sleep replay (N3)
+stayed dominated by older material: the memory bank spans every level, and the
+current level's share fell to 5% at L7 and 7% at L10 against 41% at L4. N3 and
+REM are the last phases the dream trains, so that ratio decides what the model
+keeps. N3 now keeps every memory of the current level and samples the older ones
+up to an equal share.
+
+### Real question-and-answer examples
+
+Generated greedily from the post-dream checkpoints. Failures are included:
+
+**L0** — 21/21 correct
+
+| Question | Model answer | |
+|---|---|---|
+| `di ma` | `ma!` | ✓ |
+| `di pa` | `pa!` | ✓ |
+| `di ta` | `ta!` | ✓ |
+
+**L1** — 23/24 correct
+
+| Question | Model answer | |
+|---|---|---|
+| `di: la casa` | `la casa!` | ✓ |
+| `di: il pane` | `il pane!` | ✓ |
+| `di: la mamma` | `la mamma!` | ✓ |
+| `di: il cane` | `il pane!` | ✗ expected `il cane!` |
+
+**L2** — 18/18 correct
+
+| Question | Model answer | |
+|---|---|---|
+| `di: il cane` | `il cane!` | ✓ |
+| `di: la casa` | `la casa!` | ✓ |
+| `di: il pane` | `il pane!` | ✓ |
+
+**L3** — 23/28 correct
+
+| Question | Model answer | |
+|---|---|---|
+| `di: il cane` | `il cane!` | ✓ |
+| `di: la mamma` | `la mamma!` | ✓ |
+| `di: il gatto` | `il gatto!` | ✓ |
+| `di: il sole brilla` | `il sole il gatto il sole bello!` | ✗ expected `il sole brilla!` |
+| `di un numero: tre` | `due!` | ✗ expected `tre!` |
+
+**L4** — 25/25 correct
+
+| Question | Model answer | |
+|---|---|---|
+| `di: cosa mangia il cane?` | `il cane mangia il pane.` | ✓ |
+| `di: cosa mangia il gatto?` | `il gatto mangia il pesce.` | ✓ |
+| `di: cosa beve il bambino?` | `il bambino beve il latte.` | ✓ |
+
+**L5** — 19/20 correct
+
+| Question | Model answer | |
+|---|---|---|
+| `com è il cane?` | `il cane è grande.` | ✓ |
+| `com è la casa?` | `la casa è piccola.` | ✓ |
+| `com è il sole?` | `il sole è caldo.` | ✓ |
+| `com è il pane?` | `il cane è grande.` | ✗ expected `il pane è buono.` |
+
+**L6** — 21/21 correct
+
+| Question | Model answer | |
+|---|---|---|
+| `cosa ha mangiato il cane?` | `il cane ha mangiato il pane.` | ✓ |
+| `cosa ha bevuto il bambino?` | `il bambino ha bevuto il latte.` | ✓ |
+| `cosa ha letto il papà?` | `il papà ha letto il libro.` | ✓ |
+
+The remaining errors are all of one family: **the model does not discriminate the
+final word of the prompt when several targets share the same prefix**.
+`di un numero: tre` and `di un colore: rosso` differ only in the last token and
+both collapse onto `due!`. This is neither forgetting nor a capacity limit — pure
+SFT on a level's targets reaches 100% in 30 epochs — but collapse onto one answer
+per prompt family. The lever is more distinct targets per step and more varied
+question heads.
 
 ### Training efficiency
 
@@ -276,8 +377,8 @@ Compared with standard training on an equivalent corpus:
 
 | Dimension | PhysisML today | Standard small (GPT-2 117M) | TinyLlama 1.1B |
 |-----------|----------------|------------------------------|----------------|
-| Parameters | 3.32M | 117M | 1,100M |
-| Vocabulary | 501 | 50,257 | 32,000 |
+| Parameters | 23.6M | 117M | 1,100M |
+| Vocabulary | 8,079 | 50,257 | 32,000 |
 | Corpus | ~2M tokens | ~40B tokens | 3T tokens |
 | Italian PPL | ~18–20 | ~15 (if fine-tuned) | ~6–8 |
 | Coherent sentences | No | Partially | Yes |
@@ -300,24 +401,57 @@ Output     : simple but understandable Italian sentences
 
 ## 8. Roadmap
 
-### Current phase — Curriculum validation (in progress)
+### Current phase — Curriculum validated through L6
 
-- [x] Implement show-then-test (expected signal before generation)
-- [x] Anti-forgetting rehearsal (1 text batch every 10 teaching turns)
-- [x] Strict auto-stop (requires 20% strong feedback `++/+++`)
-- [x] Teacher prompt with strict feedback scale (Sonnet, no false positives)
-- [x] Dream Consolidation phase (`final_dreamed.pt`) integrated into the curriculum
-- [x] Novelty drive (dopamine) — decreasing bonus for new tokens
+- [x] Dream consolidation phase integrated into the curriculum
+- [x] Novelty drive (dopamine) — decaying bonus for new tokens
 - [x] `ignorance` as an autonomous affective variable (biological prior 0.9)
-- [ ] Complete curriculum L3→L10 with the 3.3M-param model (current: L2 ✓, L3 starting)
+- [x] **Test-then-show** teaching: the model answers before it sees the solution.
+      The reverse order tested it on the question it had just been given the
+      answer to, so the grade — and the build's quality gate with it — measured
+      primed recall rather than retained knowledge (31% in-session vs 8% offline
+      at L3).
+- [x] **Interleaved** rehearsal on gold pairs, alongside the text rehearsal
+- [x] Deterministic `local_teacher.json` for **all** 11 levels: a closed pool of
+      repeated targets. The LLM teacher produced a nearly-new prompt every turn
+      (0.94–0.99 distinct per turn against 0.03–0.10 with the local one), i.e.
+      one gradient step per target
+- [x] Dream reordered: the corpus replay no longer speaks last, and N3 is
+      weighted toward the current level
+- [x] `weight_decay = 0` — coupled decay under Adam was killing the network
+- [x] A real quality gate in `build.sh`: below threshold the build stops instead
+      of training later levels on absent foundations
+- [x] Curriculum L0→L6 validated (exact match 82–100%)
+- [ ] Finish validating L7→L10 (rebuild in progress)
+- [ ] More distinct targets per step: the remaining errors are collapses onto
+      prompts that share a prefix
 - [ ] Validate affective behaviour across all levels
+
+### The training regime to preserve
+
+Five elements, each necessary and experimentally verified. Removing any one
+brings the stall back:
+
+1. Deterministic teacher with a closed pool of repeated targets
+2. Test-then-show evaluation — never ask what you have just taught
+3. Interleaved rehearsal on gold pairs
+4. The dream ends with supervision, not with the corpus
+5. Every target verified reachable at `+++`
+   (`scripts/validate_teacher_configs.py`)
+
+**Cross-cutting rule.** Any phase that learns from the model's *output* instead
+of the gold target degenerates: it happened to the dream's pattern mining (which
+reinforced babble), to vocabulary growth (48-character mega-tokens), to
+imitation reinforcement, and to training on the teacher's prompt. Corollary: the
+phase that closes training decides what the model remembers, so it must be the
+most supervised one, not the most generic.
 
 ### Phase 2 — Vocabulary scale-up
 
 - [ ] Download the Italian Wikipedia corpus (~450MB dump)
 - [ ] Download Italian OpenSubtitles (~700MB, conversational L2–L5)
 - [ ] Retrain the BPE tokenizer on the full corpus → 8,000 tokens
-- [ ] Benchmark: PPL of the 3.3M model with vocab 501 vs 8,000
+- [x] Vocabulary scaled to 8,000 tokens with dormant slots (done: 8,079 active after L10)
 
 ### Phase 3 — Model scale-up
 

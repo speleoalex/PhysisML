@@ -51,24 +51,41 @@ Il modello usa ancora **backpropagation + ottimizzatore Adam** — non è appren
 ```text
 TorchGPT — decoder-only, Pre-LayerNorm, GPT-2 style
 ─────────────────────────────────────────────────────
-Parametri totali : 3.32M
-Vocabolario      : 501 token (BPE, addestrato su corpus it/0)
-d_model          : 256
-n_layers         : 4
-n_heads          : 4
-d_ff             : 1024
+Parametri totali : 23.59M
+Vocabolario      : 9.000 slot allocati, 8.002 attivi all'avvio
+                   → 8.079 dopo il curriculum L0→L10
+d_model          : 512
+n_layers         : 6
+n_heads          : 8
+d_ff             : 2048
 max_seq_len      : 129 (128 token di contesto + 1)
 dropout          : 0.1
 Positional enc.  : learnable embedding (non RoPE)
 Attivazione FFN  : GELU
 Weight tying     : logits = x @ tok_emb.W^T
+Optimizer        : Adam, lr 1e-3 (testo) / 2e-5 (insegnamento),
+                   weight_decay = 0
 ```
+
+**Nota su `weight_decay`.** Deve restare a zero. Con `torch.optim.Adam` il decay
+è accoppiato al gradiente, quindi un parametro poco sollecitato viene ridotto a
+ogni passo indipendentemente dal gradiente. Sui centinaia di migliaia di passi a
+campione singolo del curriculum questo spegne la rete: misurato sui checkpoint di
+maggio, il gain di `ln_f` passava da 0.87 (L0) a 0.0079 (L10). Se serve
+regolarizzazione, usare AdamW disaccoppiato escludendo LayerNorm ed embedding.
+
+**Slot dormienti.** `vocab_size` è la capacità allocata, `active_vocab_size`
+quanti token sono visibili. I token dormienti hanno logit `-inf` e gradiente
+zero; vengono attivati durante il sogno con inizializzazione dai token genitori,
+scalata al 30% della norma media delle righe già addestrate (una scala assoluta
+darebbe alle righe nuove una norma *maggiore* di quelle addestrate, cioè un prior
+alto senza semantica nel softmax weight-tied).
 
 ### Flusso forward
 
 ```text
 Input ids (T,)
-  → TokenEmbedding(V=501, d=256) + PosEmbedding(128, d=256)
+  → TokenEmbedding(V=9000, d=512) + PosEmbedding(128, d=512)
   → Dropout(0.1)
   → 4 × TransformerBlock:
        h   = x + Attention(LayerNorm(x))    # residual pre-LN
@@ -80,9 +97,9 @@ Input ids (T,)
 
 ### Tokenizer
 
-BPE (Byte Pair Encoding) con 501 token addestrato esclusivamente sul corpus fonemico `it/0` (sillabe e fonemi italiani). La scelta di un vocabolario piccolo è intenzionale per la fase sperimentale: forza il modello a imparare relazioni tra sub-parole prima di avere parole intere.
+BPE (Byte Pair Encoding) da 8.000 token, più slot dormienti fino a 9.000. I token dormienti hanno logit `-inf` e gradiente zero; la fase di sogno li attiva man mano che nuovi pattern si consolidano, inizializzandoli dai token genitori al 30% della norma media delle righe già addestrate.
 
-**Limite identificato**: con 501 token le parole comuni italiane si frammentano in 2–4 subtoken, impedendo la generalizzazione semantica. Il vocabolario target per la fase successiva è 8.000 token.
+Nel curriculum L0→L10 il vocabolario è cresciuto da 8.002 a 8.079 token. La crescita è deliberatamente prudente: i merge si cercano e si applicano **solo dentro i confini di parola** (come fa `encode`, altrimenti il token è irraggiungibile e occupa uno slot competendo nel softmax), si rifiutano ripetizioni degeneri e frasi multi-parola, e si proteggono gli obiettivi in corso di addestramento — tokenizzare ciò che si sta insegnando orfana il percorso multi-token già appreso.
 
 ### Backend di implementazione
 
@@ -180,7 +197,23 @@ Implementati in `dynamic_model/exp_b/axioms.py`. La protezione è proporzionale 
    (oppure: se fb="-" e expected noto → feedback=1.0)
 ```
 
-**Anti-forgetting (rehearsal)**: ogni 10 turni, 1 mini-batch (4×128 token) dal corpus testuale del livello. Riduce lo spike di perplexity da +133% (senza) a +5% (con).
+**Anti-forgetting**, due meccanismi distinti:
+
+- **Rehearsal testuale**: ogni 10 turni, 1 mini-batch (4×128 token) dal corpus
+  del livello. Riduce lo spike di perplexity da +133% (senza) a +5% (con).
+- **Rehearsal interleaved sulle coppie gold**: ogni 5 turni, 4 coppie
+  prompt→risposta già insegnate, escludendo l'obiettivo corrente. Il teacher
+  drilla a blocchi (N successi consecutivi, poi passa oltre e non torna), e il
+  solo rehearsal testuale non ripassava nulla di ciò che era stato appreso:
+  misurato a L1, l'accuratezza su un obiettivo ri-chiesto entro 5 turni era 47%
+  ma dopo 20 turni scendeva all'8%.
+
+**Didattica test-then-show**: il modello risponde *prima* che il segnale con la
+risposta corretta venga applicato. Nell'ordine inverso veniva interrogato sulla
+domanda di cui aveva appena ricevuto la risposta, quindi il voto del teacher — e
+con esso il cancello di qualità del build — misurava il richiamo dopo
+suggerimento e non la conoscenza ritenuta: divario misurato a L3, 31% in
+sessione contro 8% offline sugli stessi obiettivi.
 
 ### Auto-stop del teaching
 
@@ -209,21 +242,33 @@ models/checkpoints/{lang}/
 
 Il curriculum mappa 11 livelli (0–10) agli anni di sviluppo linguistico umano:
 
-| Livello | Età equivalente | Contenuto corpus | Risposta attesa |
-|---------|-----------------|------------------|-----------------|
-| L0 | Neonato | Fonemi, sillabe (`ma`, `pa`, `ta`) | Sillabe isolate |
-| L1 | 1 anno | Filastrocche, parole singole | Parole singole |
-| L2 | 2 anni | Frasi base, animali (Wikipedia) | 2–3 parole |
-| L3 | 3 anni | Pinocchio, Wikipedia semplice | Frasi 3–6 parole |
-| L4 | 4 anni | Favole Esopo, Wikipedia cultura | Frasi S+V+O |
-| L5 | 5 anni | De Amicis, canzoni, Wikipedia | Storie brevi 3–4 frasi |
-| L6 | 6 anni | Narrativa moderna (Neera, Serao) | Connettivi, descrizioni |
-| L7 | 7 anni | Rodari, Wikipedia | Storie brevi |
-| L8 | 8 anni | I Promessi Sposi (estratto) | Paragrafi |
-| L9 | 9 anni | I Promessi Sposi (integrale) | Testi complessi |
-| L10 | 10 anni | Divina Commedia, Wikipedia | Letteratura |
+| Livello | Età equiv. | Struttura insegnata | Esempio di obiettivo | Target |
+|---------|-----------|---------------------|----------------------|--------|
+| L0 | Neonato | Sillabe isolate e raddoppiate | `di ma` → `ma!` | 21 |
+| L1 | 1 anno | Articolo + sostantivo, famiglia | `di: il cane` → `il cane!` | 24 |
+| L2 | 2 anni | Frasi soggetto + verbo | `di: il cane dorme` → `il cane dorme!` | 18 |
+| L3 | 3 anni | Domande, identità, numeri e colori | `cosa fa il cane?` → `il cane dorme.` | 28 |
+| L4 | 4 anni | Soggetto + verbo + oggetto, sequenze | `cosa mangia il cane?` → `il cane mangia il pane.` | 25 |
+| L5 | 5 anni | Connettivi e / ma / perché, aggettivi | `perché il cane mangia?` → `il cane mangia perché ha fame.` | 20 |
+| L6 | 6 anni | Passato prossimo, cause | `cosa ha mangiato il cane?` → `il cane ha mangiato il pane.` | 21 |
+| L7 | 7 anni | Futuro, contrasto fra i tempi, dialogo | `cosa mangerà il cane domani?` → `domani il cane mangerà il pane.` | 19 |
+| L8 | 8 anni | Comparativi, preferenze motivate | `chi è più grande, il cane o il gatto?` → `il cane è più grande del gatto.` | 19 |
+| L9 | 9 anni | Tesi + motivo + conclusione, sinonimi | `il pane è buono?` → `secondo me il pane è buono perché è caldo.` | 16 |
+| L10 | 10 anni | Commento motivato, confronto | `meglio il pane o la porta?` → `meglio il pane, perché si mangia.` | 16 |
 
-**Principio chiave**: il corpus contiene testi *più complessi* di quelli che il modello produce. Come un bambino che ascolta conversazioni adulte ma risponde con parole semplici. Il teacher richiede risposte appropriate all'età, non al corpus.
+Ogni livello ha un `local_teacher.json` con un **pool chiuso** di obiettivi
+suddivisi in 3–5 step (A→E) e ripetuti finché non sono consolidati. Il numero di
+obiettivi distinti conta: pochi obiettivi ripetuti insegnano il *template* ma non
+la discriminazione, e il modello collassa su una risposta per famiglia di prompt.
+
+**Il corpus non è il target.** I testi contengono materiale *più complesso* di
+quello che il modello produce — come un bambino che ascolta conversazioni adulte
+e risponde con parole semplici. Ma la prosa per adulti va tenuta fuori
+dall'addestramento dal livello 3 in su: a L3 tre epoche su 20MB di narrativa
+cancellavano le associazioni prompt→risposta costruite a L2. Il filtro esclude i
+file oltre i 100KB; i testi enciclopedici sotto quella soglia sono stati
+archiviati a mano, perché la dimensione è solo un proxy imperfetto della
+complessità.
 
 ### Teacher prompt per livello
 
@@ -237,29 +282,126 @@ Ogni livello ha un file `training_files/it/{N}/teacher_prompt.md` con:
 
 ## 6. Risultati sperimentali
 
-### Traiettoria perplexity (testo: "il cane dorme sul tappeto. la mamma cucina il pane.")
+### Metrica
 
-```text
-Checkpoint          PPL      Δ       Tipo    Stato
-────────────────────────────────────────────────────────
-L0/final            53.7             [txt]   ✓ misurato
-L0/final_learned    80.3    +26.6 ↑  [tch]  ✓ no rehearsal
-L1/final            29.0    -51.3 ↓  [txt]  ✓
-L1/final_learned    49.3    +20.3 ↑  [tch]  ✓ con rehearsal (-85% vs L0)
-L2/final            22.5    -26.8 ↓  [txt]  ✓
-L2/final_learned    27.7     +5.1 ↑  [tch]  ✓ spike quasi nullo
-L2/final_dreamed     —        —       [drm]  ✓ Dream phase applicata
-L3/final            21.2     -6.5 ↓  [txt]  ☐ da misurare
-L3/final_learned    18.0     -3.2 ↓  [tch]  ☐ stimato
-L4/final            19.2     +1.2 ↑  [txt]  ☐ stimato
-L4/final_learned    19.5     +0.4 →  [tch]  ☐ stimato — plateau (~501 token limit)
-```
+**Exact match** su tutti gli obiettivi del curriculum di ogni livello:
+la risposta del modello, normalizzata, deve coincidere con quella attesa dal
+teacher. Decoding **greedy** (`top_k=1`), quindi il numero è riproducibile: a
+temperatura 0.8 lo stesso checkpoint aveva dato 92% e 75% in due esecuzioni
+consecutive. Le domande sono poste nella forma **esatta** usata in
+addestramento, cioè applicando il `prompt_template` dello step (`di: {prompt}`
+per la maggior parte): interrogare col target nudo misura una domanda che il
+modello non ha mai visto — `il cane` produce `mangia il pane!` mentre
+`di: il cane` produce `il cane!`.
 
-**Stato attuale** (2026-04-13): checkpoint reali disponibili fino a `L2/final_dreamed`. I valori L3–L4 sono stime basate sulla traiettoria osservata.
+Comando: `python3 dynamic_model/test_model.py --level N --samples 0`
 
-**Milestone raggiunta** (L0–L2): il rehearsal ha ridotto lo spike di catastrophic forgetting da +133% (L0, senza rehearsal) a +5% (L2). La Dream phase è operativa.
+### Risultati per livello
 
-**Limite identificato**: plateau atteso a PPL≈18–20 dai livelli L3–L4. Causa: il vocabolario da 501 token è saturato. Parole comuni si frammentano in subtoken, impedendo la generalizzazione.
+Checkpoint post-sogno, exact match su tutti gli obiettivi:
+
+| Livello | Exact match | Obiettivi | Sessioni | Note |
+|---------|------------|-----------|----------|------|
+| L0 | 100% | 21/21 | 3 | |
+| L1 | 96% | 23/24 | 3 | |
+| L2 | 100% | 18/18 | 3 | |
+| L3 | 82% | 23/28 | 2 | numeri e colori condividono il prefisso del prompt |
+| L4 | 100% | 25/25 | 10 | livello dove lo stallo iniziava (0% a maggio) |
+| L5 | 95% | 19/20 | 6 | |
+| L6 | 100% | 21/21 | 6 | |
+| L7–L10 | — | — | — | ricostruzione in corso |
+
+Confronto col build di maggio, prima delle correzioni: L0 4.4%, L1 1.8%,
+L2 12.8%, L3 1.0%, **L4 e oltre 0.0%**.
+
+I nuovi livelli partono bassi e salgono in modo monotono — L4 da 0.07 a 0.79 di
+tasso di qualità in dieci sessioni, L5 da 0.05 a 0.82, L6 da 0.08 a 0.94. È la
+firma del consolidamento: il regime deterministico impara lentamente ma
+accumula, invece di oscillare.
+
+### Effetto della fase di sogno
+
+Delta exact match fra checkpoint pre-sogno (`final_learned.pt`) e post-sogno
+(`final_dreamed.pt`): **+19, +13, +17, +7, +12 punti** da L0 a L4.
+
+Il sogno danneggiava i livelli alti finché il replay di deep-sleep (N3) restava
+dominato dal materiale vecchio: il memory bank copre tutti i livelli, e la quota
+dal livello corrente scendeva al 5% a L7 e al 7% a L10 contro il 41% a L4. N3 e
+REM sono le ultime fasi che il sogno addestra, quindi quella proporzione decide
+cosa il modello conserva. Ora N3 mantiene tutte le memorie del livello corrente
+e campiona le vecchie fino a pari numero.
+
+### Esempi reali di domanda e risposta
+
+Generati in greedy dai checkpoint post-sogno. Sono riportati anche gli errori:
+
+**L0** — 21/21 corrette
+
+| Domanda | Risposta del modello | |
+|---|---|---|
+| `di ma` | `ma!` | ✓ |
+| `di pa` | `pa!` | ✓ |
+| `di ta` | `ta!` | ✓ |
+
+**L1** — 23/24 corrette
+
+| Domanda | Risposta del modello | |
+|---|---|---|
+| `di: la casa` | `la casa!` | ✓ |
+| `di: il pane` | `il pane!` | ✓ |
+| `di: la mamma` | `la mamma!` | ✓ |
+| `di: il cane` | `il pane!` | ✗ atteso `il cane!` |
+
+**L2** — 18/18 corrette
+
+| Domanda | Risposta del modello | |
+|---|---|---|
+| `di: il cane` | `il cane!` | ✓ |
+| `di: la casa` | `la casa!` | ✓ |
+| `di: il pane` | `il pane!` | ✓ |
+
+**L3** — 23/28 corrette
+
+| Domanda | Risposta del modello | |
+|---|---|---|
+| `di: il cane` | `il cane!` | ✓ |
+| `di: la mamma` | `la mamma!` | ✓ |
+| `di: il gatto` | `il gatto!` | ✓ |
+| `di: il sole brilla` | `il sole il gatto il sole bello!` | ✗ atteso `il sole brilla!` |
+| `di un numero: tre` | `due!` | ✗ atteso `tre!` |
+
+**L4** — 25/25 corrette
+
+| Domanda | Risposta del modello | |
+|---|---|---|
+| `di: cosa mangia il cane?` | `il cane mangia il pane.` | ✓ |
+| `di: cosa mangia il gatto?` | `il gatto mangia il pesce.` | ✓ |
+| `di: cosa beve il bambino?` | `il bambino beve il latte.` | ✓ |
+
+**L5** — 19/20 corrette
+
+| Domanda | Risposta del modello | |
+|---|---|---|
+| `com è il cane?` | `il cane è grande.` | ✓ |
+| `com è la casa?` | `la casa è piccola.` | ✓ |
+| `com è il sole?` | `il sole è caldo.` | ✓ |
+| `com è il pane?` | `il cane è grande.` | ✗ atteso `il pane è buono.` |
+
+**L6** — 21/21 corrette
+
+| Domanda | Risposta del modello | |
+|---|---|---|
+| `cosa ha mangiato il cane?` | `il cane ha mangiato il pane.` | ✓ |
+| `cosa ha bevuto il bambino?` | `il bambino ha bevuto il latte.` | ✓ |
+| `cosa ha letto il papà?` | `il papà ha letto il libro.` | ✓ |
+
+Gli errori residui sono di una sola famiglia: **il modello non discrimina
+l'ultima parola del prompt quando più obiettivi condividono lo stesso
+prefisso**. `di un numero: tre` e `di un colore: rosso` differiscono solo nel
+finale e collassano entrambi su `due!`. Non è oblio né limite di capacità — un
+SFT puro sugli obiettivi di un livello li porta al 100% in 30 epoche — ma
+collasso su una risposta per famiglia di prompt. La leva è aumentare gli
+obiettivi distinti per step e variare la testa della domanda.
 
 ### Efficienza di training
 
@@ -276,8 +418,8 @@ Rispetto a training standard su corpus equivalente:
 
 | Dimensione | PhysisML attuale | Standard small (GPT-2 117M) | TinyLlama 1.1B |
 |------------|-------------------|------------------------------|----------------|
-| Parametri | 3.32M | 117M | 1,100M |
-| Vocabolario | 501 | 50,257 | 32,000 |
+| Parametri | 23.6M | 117M | 1,100M |
+| Vocabolario | 8,079 | 50,257 | 32,000 |
 | Corpus | ~2M token | ~40B token | 3T token |
 | PPL italiano | ~18–20 | ~15 (se fine-tuned) | ~6–8 |
 | Frasi coerenti | No | Parzialmente | Sì |
@@ -300,17 +442,47 @@ Output     : frasi italiane semplici ma comprensibili
 
 ## 8. Roadmap
 
-### Fase corrente — Validazione curriculum (in corso)
+### Fase corrente — Curriculum validato fino a L6
 
-- [x] Implementare show-then-test (segnale expected prima della generazione)
-- [x] Rehearsal anti-forgetting (1 batch testo ogni 10 turni teaching)
-- [x] Auto-stop rigoroso (richiede 20% strong feedback `++/+++`)
-- [x] Teacher prompt con scala feedback rigorosa (Sonnet, no falsi positivi)
-- [x] Dream Consolidation phase (`final_dreamed.pt`) integrata nel curriculum
+- [x] Dream Consolidation phase integrata nel curriculum
 - [x] Novelty drive (dopamina) — bonus decrescente per token nuovi
 - [x] `ignorance` come variabile affettiva autonoma (prior biologico 0.9)
-- [ ] Completare curriculum L3→L10 con modello 3.3M param (corrente: L2 ✓, L3 in avvio)
+- [x] Didattica **test-then-show** (il modello risponde prima di vedere la
+      soluzione) — l'ordine inverso gonfiava la metrica
+- [x] Rehearsal **interleaved** sulle coppie gold, oltre a quello testuale
+- [x] `local_teacher.json` deterministico per **tutti** gli 11 livelli: pool
+      chiuso di obiettivi ripetuti. Il teacher LLM generava prompt quasi sempre
+      nuovi (0.94–0.99 distinti per turno contro 0.03–0.10 con quello locale),
+      cioè un solo passo di gradiente per obiettivo
+- [x] Sogno riordinato: il replay del corpus non parla più per ultimo, e N3 è
+      pesato sul livello corrente
+- [x] `weight_decay = 0` — con Adam il decay accoppiato spegneva la rete
+- [x] Cancello di qualità reale in `build.sh`: sotto soglia il build si ferma
+      invece di addestrare i livelli successivi su fondamenta assenti
+- [x] Curriculum L0→L6 validato (exact match 82–100%)
+- [ ] Completare la validazione L7→L10 (ricostruzione in corso)
+- [ ] Aumentare gli obiettivi distinti per step: gli errori residui sono
+      collassi su prompt che condividono il prefisso
 - [ ] Validare comportamento affettivo su tutti i livelli
+
+### Regime di training da preservare
+
+Cinque elementi, tutti necessari e verificati sperimentalmente. Rimuoverne uno
+riporta lo stallo:
+
+1. Teacher deterministico con pool chiuso di obiettivi ripetuti
+2. Valutazione test-then-show — mai chiedere ciò che si è appena insegnato
+3. Rehearsal interleaved sulle coppie gold
+4. Il sogno chiude con la supervisione, non col corpus
+5. Ogni obiettivo verificato raggiungibile con `+++`
+   (`scripts/validate_teacher_configs.py`)
+
+**Regola trasversale.** Ogni fase che impara dall'*output* del modello invece
+che dal target gold degenera: è capitato al pattern mining del sogno (che
+rinforzava il babble), alla crescita del vocabolario (mega-token da 48
+caratteri), al rinforzo per imitazione e all'addestramento sul prompt del
+teacher. Corollario: la fase che chiude il training decide cosa il modello
+ricorda, quindi deve essere la più supervisionata, non la più generica.
 
 ### Fase 2 — Scala vocabolario
 

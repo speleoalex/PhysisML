@@ -9,7 +9,7 @@ guided by a Claude tutor that adapts the curriculum in real time.
 - **Progressive curriculum**: from phonemes to literature (Italian levels 0–10, English 0–5)
 - **Innate affective system**: `confidence`, `pleasure`, `pain`, `fear` modulate the logits during inference
 - **Teacher signal**: a Claude tutor (or a free local teacher) generates targeted examples on the model's current deficits
-- **Tiny footprint**: GPT-2 style transformer, ~3.7M parameters, trains on a CPU
+- **Tiny footprint**: GPT-2 style transformer, ~23.6M parameters, trains on a CPU or a consumer GPU
 
 **Documentation**
 
@@ -21,6 +21,36 @@ guided by a Claude tutor that adapts the curriculum in real time.
 | Intel Arc GPU setup | [docs/en/setup/gpu_intel_arc.md](docs/en/setup/gpu_intel_arc.md) | [docs/it/setup/gpu_intel_arc.md](docs/it/setup/gpu_intel_arc.md) |
 
 ---
+
+## Results
+
+Exact match over the curriculum targets, post-dream checkpoints, greedy
+decoding (`python3 dynamic_model/test_model.py --level N --samples 0`):
+
+| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7–L10 |
+|----|----|----|----|----|----|----|--------|
+| 100% | 96% | 100% | 82% | 100% | 95% | 100% | rebuilding |
+
+For comparison, the May build before the fixes: L0 4.4%, L1 1.8%,
+L2 12.8%, L3 1.0%, **L4 and beyond 0.0%**.
+
+Real examples (greedy, post-dream checkpoints):
+
+```
+di ma                      → ma!
+di: il cane                → il cane!
+di: il cane dorme          → il cane dorme!
+di: cosa mangia il cane?   → il cane mangia il pane.
+perché il cane mangia?     → il cane mangia perché ha fame.
+cosa ha mangiato il cane?  → il cane ha mangiato il pane.
+```
+
+The remaining errors are all of one family: targets sharing a prompt prefix
+collapse onto the same answer (`di un numero: tre` and `di un colore: rosso`
+both yield `due!`). It is not a capacity limit — pure SFT on a level's targets
+reaches 100% in 30 epochs.
+
+Details in [docs/en/physisml_model.md](docs/en/physisml_model.md).
 
 ## Requirements
 
@@ -142,8 +172,8 @@ Every level also ships a `qa_corpus.txt` (prompt→answer dialogue pairs).
 ## Architecture
 
 - **Model**: TorchGPT — GPT-2 style decoder-only transformer, Pre-LayerNorm,
-  weight-tied LM head. Default: `d_model=256`, 4 layers, 4 heads, ~3.7M parameters.
-- **Tokenizer**: 501-token BPE trained only on level-0 texts (no contamination
+  weight-tied LM head. In use: `d_model=512`, 6 layers, 8 heads, `d_ff=2048`, 128-token context, **23.6M parameters**.
+- **Tokenizer**: 8,000-token BPE with dormant slots up to 9,000, growing during the dream phase (no contamination
   from advanced texts).
 - **Affective system**: innate state (`confidence`, `pleasure`, `pain`, `fear`)
   that modulates generation and tracks learning progress.
