@@ -1824,6 +1824,24 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
         n3_entries = [e for e in bank if e["weight"] >= cfg['n3_min_weight']]
     else:
         n3_entries = [e for e in bank if abs(e["weight"]) >= cfg['n3_min_weight']]
+
+    # Recency bias: the memory bank spans every level, so at high levels the
+    # replay is swamped by older material — measured 5% of entries from the
+    # current level at L7 and 7% at L10, against 41% at L4. N3 and REM are the
+    # last things the dream trains, so that imbalance decided what the model
+    # kept: the dream helped at L0-L4 (+7 to +19 points offline) and hurt where
+    # the current level was a rounding error (L7 -26, L10 -12).
+    # Keep every memory of the current level, then sample the older ones up to
+    # an equal share: consolidation stays recency-weighted, and the older half
+    # still does its anti-forgetting job.
+    _own = [e for e in n3_entries if e.get("level") == level]
+    _old = [e for e in n3_entries if e.get("level") != level]
+    if _own and len(_old) > len(_own):
+        _old = random.sample(_old, len(_own))
+        n3_entries = _own + _old
+        random.shuffle(n3_entries)
+        print(f"  N3 ribilanciato: {len(_own)} memorie del livello {level} "
+              f"+ {len(_old)} dai livelli precedenti")
     if n3_entries:
         print(f"  {len(n3_entries)} entries with |weight| ≥ 0.5")
         n3_count = 0
