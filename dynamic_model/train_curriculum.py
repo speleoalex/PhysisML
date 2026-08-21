@@ -954,8 +954,37 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
                                                      _prompt_low)]
                 else:
                     _scored_kws = _kws
-                _hits = sum(1 for k in _scored_kws if _kw_present(k, _resp_low))
-                _graded_cov = (_hits / len(_scored_kws)) if _scored_kws else 0.0
+                if not _scored_kws:
+                    # Every content word of the expected answer already occurs
+                    # in the prompt — the normal case for confirmation
+                    # questions ('il cane ha fame?' -> 'sì, il cane ha fame.'),
+                    # where what distinguishes a real answer is precisely the
+                    # word the stop-list drops ('sì'). Declaring '=' here
+                    # punished perfect answers: 24% of L7 turns and 10% of L8,
+                    # 189 of them exact matches, were downgraded to feedback
+                    # 0.0 — i.e. no weight update at all for a correct reply.
+                    # Fall back to coverage over the WHOLE expected answer,
+                    # function words included: a genuine restatement scores
+                    # full marks, while a scrambled prompt echo stays below the
+                    # 0.99 gate that guards echo-training in SIGNAL 4.
+                    _exp_toks = [w for w in _re.findall(r"[\w'àèéìòùÀÈÉÌÒÙ]+",
+                                                       graded_expected.lower()) if w]
+                    if _exp_toks:
+                        _hits = sum(1 for w in _exp_toks if _kw_present(w, _resp_low))
+                        _graded_cov = _hits / len(_exp_toks)
+                    else:
+                        _hits, _graded_cov = 0, 0.0
+                    _scored_kws = _exp_toks
+                    # Counting function words is what makes this fallback work
+                    # for confirmations, but it must not let grammar-only
+                    # garbage collect credit: 'il di che non la' overlaps the
+                    # 'il' of the gold answer. Require at least one real
+                    # content word, the rule this whole check exists to hold.
+                    if not any(_kw_present(k, _resp_low) for k in _kws):
+                        _hits, _graded_cov = 0, 0.0
+                else:
+                    _hits = sum(1 for k in _scored_kws if _kw_present(k, _resp_low))
+                    _graded_cov = _hits / len(_scored_kws)
                 # Downgrade to the highest grade the coverage supports:
                 # +++ = full coverage, ++ = at least half, + = at least one hit.
                 if not _scored_kws:
