@@ -322,6 +322,20 @@ def teaching_turn(client: anthropic.Anthropic,
 # Vocab/model synchronisation
 # ---------------------------------------------------------------------------
 
+def _tokenizer_candidates(ckpt_base: str, level: int) -> list:
+    """Level tokenizers to try, nearest level first.
+
+    Walking back only one level was not enough: phase_2 used to save
+    level_N/tokenizer.json ONLY when the dream added tokens, so a level whose
+    dream grew nothing left no snapshot. At L7 both level_7 and level_6 were
+    missing for exactly that reason while level_5 held the matching 8079-token
+    vocabulary, and the fail-fast below aborted a build that had everything it
+    needed on disk.
+    """
+    return [os.path.join(ckpt_base, f"level_{l}", "tokenizer.json")
+            for l in range(level, -1, -1)]
+
+
 def _sync_vocab_rows(model: "TorchGPT", tok: "BPETokenizer",
                      label: str = "") -> int:
     """
@@ -655,10 +669,7 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     tok = BPETokenizer()
     tok.load(TOKENIZER)  # load base/8K first to get correct vocab size
 
-    for tok_candidate in [
-        os.path.join(ckpt_dir, "tokenizer.json"),
-        os.path.join(ckpt_base, f"level_{level-1}", "tokenizer.json") if level > 0 else None,
-    ]:
+    for tok_candidate in _tokenizer_candidates(ckpt_base, level):
         if tok_candidate and os.path.exists(tok_candidate):
             _tok_test = BPETokenizer(); _tok_test.load(tok_candidate)
             # Only use this tokenizer if compatible (vocab >= model active tokens)
@@ -1532,10 +1543,7 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
     model = TorchGPT.load(start_checkpoint)
     model_active = model.active_vocab_size
 
-    for tok_candidate in [
-        os.path.join(ckpt_dir, "tokenizer.json"),
-        os.path.join(ckpt_base, f"level_{level-1}", "tokenizer.json") if level > 0 else None,
-    ]:
+    for tok_candidate in _tokenizer_candidates(ckpt_base, level):
         if tok_candidate and os.path.exists(tok_candidate):
             _t = BPETokenizer(); _t.load(tok_candidate)
             if len(_t) >= model_active:
@@ -1870,11 +1878,13 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
     # Save the tokenizer BEFORE the checkpoint: a crash between the two writes
     # must never leave a new final_dreamed.pt paired with an old tokenizer
     # (the checkpoint loader tolerates a tokenizer that is newer, not older).
-    if n_new_tokens > 0:
-        tok_path = os.path.join(ckpt_dir, "tokenizer.json")
-        tok.save(tok_path)
-        print(f"  Updated tokenizer saved: {tok_path}  "
-              f"(vocab size: {len(tok)})")
+    # Always snapshot the tokenizer for this level, even when the dream added
+    # nothing: the next level looks for it, and a missing snapshot used to send
+    # the search back to the base 8K vocabulary — smaller than the model.
+    tok_path = os.path.join(ckpt_dir, "tokenizer.json")
+    tok.save(tok_path)
+    print(f"  Tokenizer saved: {tok_path}  (vocab size: {len(tok)}"
+          f"{', +%d new' % n_new_tokens if n_new_tokens else ', unchanged'})")
 
     dreamed_path = os.path.join(ckpt_dir, "final_dreamed.pt")
     model.save(dreamed_path)
