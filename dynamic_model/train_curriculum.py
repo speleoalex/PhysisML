@@ -1250,18 +1250,28 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
 # Phase 2 — Dream consolidation
 # ---------------------------------------------------------------------------
 
-def _load_memory_bank(ckpt_base: str, level: int) -> list:
+def _load_memory_bank(ckpt_base: str, level: int,
+                       current_level_sessions: int = None) -> list:
     """
     Build a memory bank from all session logs up to `level`.
     Each entry: {"prompt", "expected", "response", "feedback", "weight", "level"}
     Weight = affective salience: +++ = 1.0, ++ = 0.8, + = 0.5, = = 0.0, - = -0.8
     Sorted by |weight| descending — most emotionally salient first.
+
+    current_level_sessions: keep only the first N session logs of `level`
+      (None = all, the training default). Used by the retrospective analysis
+      to reconstruct the bank as it stood at a past dream: the vocab-growing
+      'standard' dream runs after session 1, so later sessions of that level
+      did not exist yet.
     """
     FEEDBACK_WEIGHT = {"+++": 1.0, "++": 0.8, "+": 0.5, "=": 0.0, "-": -0.8}
     bank = []
     for lvl in range(level + 1):
         lvl_dir = os.path.join(ckpt_base, f"level_{lvl}")
-        for log_path in sorted(glob.glob(os.path.join(lvl_dir, "session_*.jsonl"))):
+        logs = sorted(glob.glob(os.path.join(lvl_dir, "session_*.jsonl")))
+        if lvl == level and current_level_sessions is not None:
+            logs = logs[:current_level_sessions]
+        for log_path in logs:
             records = []
             with open(log_path, encoding="utf-8") as f:
                 for line in f:
@@ -1464,6 +1474,60 @@ def _is_periodic_text(s: str) -> bool:
     return False
 
 
+_PRAISE_RE = _re.compile(
+    r"^(bravo|brava|bene|benissimo|ottimo|perfetto|giusto|esatto|sì|si|no)"
+    r"[!.,:\s]+", _re.IGNORECASE)
+
+
+def strip_praise(text: str) -> str:
+    """Remove leading praise from a teacher prompt ('bravo! di baba' -> 'di
+    baba'). Praise can stack ('bravo! benissimo! di baba'), hence the loop."""
+    p = (text or "").strip()
+    for _ in range(3):
+        p2 = _PRAISE_RE.sub("", p)
+        if p2 == p:
+            break
+        p = p2.strip()
+    return p
+
+
+def build_growth_text(bank: list, patterns: list,
+                       sources: str = "both") -> str:
+    """
+    Assemble the text N2-B grows the vocabulary from, out of three sources:
+
+      1. GOLD expected answers of positively-graded exchanges — the lexicon
+         the model is being taught. NOT the raw model responses: growing from
+         the model's own babble turned repetition loops into mega-tokens
+         ('babababa…' × 48 chars) and re-encoded the very targets being
+         drilled, resetting mastered token paths mid-level (measured at L0:
+         'lala!' 8/59 → 0/21 after becoming a cold single token).
+      2. Teacher prompts with leading praise stripped ('bravo!', 'ottimo!'
+         were becoming tokens). Biological: children consolidate words they
+         hear before they can say them.
+      3. Found patterns — frequent n-grams mined from the same gold answers,
+         so they belong to the 'gold' side.
+
+    sources selects which sides contribute — 'both' (the build default),
+    'gold' (1+3) or 'prompt' (2) — separating vocabulary ACQUISITION (what
+    the model was taught to say) from vocabulary EXPOSURE (what it was asked).
+    """
+    gold_answers = [e["expected"] for e in bank
+                    if e["weight"] >= 0.8 and e.get("expected")]
+    mined        = [p for p, _ in patterns[:100]]
+    prompt_parts = [p for p in (strip_praise(e.get("prompt")) for e in bank) if p]
+
+    if sources == "gold":
+        parts = gold_answers + mined
+    elif sources == "prompt":
+        parts = prompt_parts
+    else:
+        # Order matters only for tie-breaking between equally frequent pairs;
+        # keep the historical gold → prompts → patterns layout.
+        parts = gold_answers + prompt_parts + mined
+    return " ".join(parts)
+
+
 def _extract_patterns(bank: list, tok: "BPETokenizer",
                        min_freq: int = 3, max_ngram: int = 4) -> list:
     """
@@ -1549,7 +1613,8 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
     level = args.level
     print("\n" + "="*60)
     print(f"  PHASE 2 — Dream / Consolidation  (level {level}, mode={dream_mode})")
-    print(f"  N1={cfg['n1_mb']}MB  N2-B={'on' if cfg['n2b'] else 'off'}  "
+    _n2b_on = cfg['n2b'] and getattr(args, 'vocab_growth', 'both') != 'off'
+    print(f"  N1={cfg['n1_mb']}MB  N2-B={'on' if _n2b_on else 'off'}  "
           f"N3≥{cfg['n3_min_weight']}  REM={cfg['rem_cap']}")
     print("="*60)
 
@@ -1668,37 +1733,21 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
         print("  No frequent patterns found — skip N2-A.")
 
     # ── N2-B: vocab growth ────────────────────────────────────────────────────
-    # Build growth text from three sources:
-    #   1. GOLD expected answers of positively-graded exchanges — the lexicon
-    #      the model is being taught. NOT the raw model responses: growing from
-    #      the model's own babble turned repetition loops into mega-tokens
-    #      ('babababa…' × 48 chars) and re-encoded the very targets being
-    #      drilled, resetting mastered token paths mid-level (measured at L0:
-    #      'lala!' 8/59 → 0/21 after becoming a cold single token).
-    #   2. Teacher prompts with leading praise stripped ('bravo!', 'ottimo!'
-    #      were becoming tokens). Biological: children consolidate words they
-    #      hear before they can say them.
-    #   3. Found patterns — frequent n-grams from analysis
+    # The growth text (gold answers + teacher prompts + mined patterns, never
+    # the model's own responses) is assembled by build_growth_text().
     MAX_NEW_PER_DREAM = 200   # cap new tokens per dream session
-    import re as _re_g
-    _PRAISE_RE = _re_g.compile(
-        r"^(bravo|brava|bene|benissimo|ottimo|perfetto|giusto|esatto|sì|si|no)"
-        r"[!.,:\s]+", _re_g.IGNORECASE)
-    growth_parts  = [e["expected"] for e in bank
-                     if e["weight"] >= 0.8 and e.get("expected")]
-    _seen_prompts = []
-    for e in bank:
-        p = (e.get("prompt") or "").strip()
-        for _ in range(3):   # praise can stack: 'bravo! benissimo! di baba'
-            p2 = _PRAISE_RE.sub("", p)
-            if p2 == p:
-                break
-            p = p2.strip()
-        if p:
-            _seen_prompts.append(p)
-    growth_parts += _seen_prompts
-    growth_parts += [p for p, _ in patterns[:100]]
-    growth_text = " ".join(growth_parts)
+    growth_source = getattr(args, 'vocab_growth', 'both') or 'both'
+    growth_init   = getattr(args, 'growth_init', 'parent') or 'parent'
+    protect_scope = getattr(args, 'protect_scope', 'level') or 'level'
+    growth_min_rel = getattr(args, 'growth_min_rel', None) or 0.002
+    growth_text   = ("" if growth_source == "off"
+                     else build_growth_text(bank, patterns, sources=growth_source))
+    growth_stats  = []
+
+    if growth_source == "off":
+        print("  N2-B: off (--vocab-growth off) — tokenizer statico")
+    elif not cfg['n2b']:
+        print(f"  N2-B: off (dream-mode {dream_mode})")
 
     if growth_text.strip() and cfg['n2b']:
         # Convert to DynamicBPETokenizer (superset of BPETokenizer)
@@ -1739,23 +1788,36 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
             # Protect the CURRENT level's drill targets from tokenisation:
             # merging what is being actively taught orphans the learned
             # multi-token path and regresses mastered targets (see grow()).
+            # (protect_scope='none' lifts the protection — an experiment arm,
+            # not a setting to build with.)
             _protect = set()
-            for e in bank:
-                if e.get("level") != level:
-                    continue
-                exp = (e.get("expected") or "").strip()
-                if exp and len(exp) <= 30:
-                    _protect.add(exp)
-                    _protect.add(exp.strip("!.?,: "))
-            new_ids = dyn_tok.grow(growth_text, n_merges=MAX_NEW_PER_DREAM,
-                                   max_words=_max_words, protect=_protect)
+            if protect_scope != 'none':
+                for e in bank:
+                    if e.get("level") != level:
+                        continue
+                    exp = (e.get("expected") or "").strip()
+                    if exp and len(exp) <= 30:
+                        _protect.add(exp)
+                        _protect.add(exp.strip("!.?,: "))
+            new_ids, growth_stats = dyn_tok.grow(
+                growth_text, n_merges=MAX_NEW_PER_DREAM,
+                max_words=_max_words, protect=_protect,
+                min_rel=growth_min_rel, return_stats=True)
 
         if new_ids:
             # Initialize embeddings for new tokens using parent vectors
+            # ('random' is the ablation arm: same magnitude, no inheritance —
+            #  it isolates what the compositional init actually contributes.)
             W_np = model.tok_emb.weight.data.cpu().numpy()  # (V, d)
             init_vecs = []
             for nid in new_ids:
                 v = dyn_tok.get_parent_embedding(nid, W_np)
+                if growth_init == 'random':
+                    # Random DIRECTION at the same norm the parent init would
+                    # have had: the arm must isolate the inherited semantics,
+                    # not confound it with a smaller starting magnitude.
+                    r = np.random.randn(W_np.shape[1])
+                    v = r * (np.linalg.norm(v) / (np.linalg.norm(r) + 1e-12))
                 init_vecs.append(v)
 
             init_tensor = torch.from_numpy(np.stack(init_vecs)).float()
@@ -1777,6 +1839,33 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
             print(f"  New tokens (first 10): {new_words}")
         else:
             print("  N2-B: no new tokens (threshold not reached)")
+
+        # Growth event log: which token was born from which pair, at what
+        # frequency, against which threshold. Until this existed the record
+        # lived on stdout only, so a finished build could not say why a level
+        # grew 26 tokens and the next one none.
+        if growth_stats:
+            _ev_path = os.path.join(ckpt_dir, "growth_events.jsonl")
+            _stamp   = time.strftime("%Y-%m-%dT%H:%M:%S")
+            try:
+                with open(_ev_path, "a", encoding="utf-8") as _f:
+                    for _st in growth_stats:
+                        _f.write(json.dumps({
+                            **_st,
+                            "level":         level,
+                            "dream_mode":    dream_mode,
+                            "growth_source": growth_source,
+                            "growth_init":   growth_init,
+                            "protect_scope": protect_scope,
+                            "min_rel":       growth_min_rel,
+                            "n_protected":   len(_protect),
+                            "bank_size":     len(bank),
+                            "seed":          getattr(args, 'seed', None),
+                            "timestamp":     _stamp,
+                        }, ensure_ascii=False) + "\n")
+                print(f"  N2-B: eventi in {_ev_path}")
+            except OSError as _e:
+                print(f"  N2-B: growth log non scritto ({_e})")
 
     # ── N1: NREM slow wave — corpus replay, BEFORE the supervised phases ─────
     # N1 used to run LAST "so it has the final word on the distribution". That
@@ -2006,7 +2095,41 @@ def main():
                         help="Override checkpoint base directory "
                              "(default: models/checkpoints/{lang}). "
                              "Useful for parallel experiments.")
+    parser.add_argument("--seed", type=int, default=None,
+                        help="Seed torch/numpy/random. Without it two runs of "
+                             "the same configuration differ, and no A/B "
+                             "comparison between arms is meaningful.")
+    # ── Vocabulary-growth experiment arms ───────────────────────────────────
+    # Defaults reproduce the validated build exactly; the other values exist
+    # for scripts/experiment_vocab_growth.sh.
+    parser.add_argument("--vocab-growth", default="both",
+                        choices=["both", "gold", "prompt", "off"],
+                        help="N2-B growth sources: both (default), gold answers "
+                             "only, teacher prompts only, or off (static "
+                             "tokenizer — the control arm)")
+    parser.add_argument("--growth-init", default="parent",
+                        choices=["parent", "random"],
+                        help="Embedding init for new tokens: inherited from the "
+                             "parent pair (default) or a random direction at "
+                             "the same norm")
+    parser.add_argument("--protect-scope", default="level",
+                        choices=["level", "none"],
+                        help="Which drill targets grow() must not tokenise: the "
+                             "current level's (default) or none")
+    parser.add_argument("--growth-min-rel", type=float, default=0.002,
+                        help="Relative term of the adaptive growth threshold "
+                             "(default 0.002 = 0.2%% of the growth buffer)")
     args = parser.parse_args()
+
+    if args.seed is not None:
+        random.seed(args.seed)
+        np.random.seed(args.seed)
+        torch.manual_seed(args.seed)
+        if hasattr(torch, "xpu") and torch.xpu.is_available():
+            torch.xpu.manual_seed_all(args.seed)
+        elif torch.cuda.is_available():
+            torch.cuda.manual_seed_all(args.seed)
+        print(f"  Seed: {args.seed}")
 
     # Normalise --interactions: 'auto' → -1, else int
     if str(args.interactions).lower() == "auto":

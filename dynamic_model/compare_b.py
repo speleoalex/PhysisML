@@ -69,6 +69,44 @@ def compute_perplexity(model: TorchGPT, tok: BPETokenizer, text: str) -> float:
     return float(np.exp(total_loss / n_batches))
 
 
+def bits_per_char(model: TorchGPT, tok: BPETokenizer, text: str) -> float:
+    """
+    Cross-entropy of `text` in bits per CHARACTER.
+
+    Per-token perplexity is only comparable between models that share a
+    tokenizer: a coarser vocabulary spends fewer, harder predictions on the
+    same string, so growing the vocabulary lowers token count and raises
+    per-token loss without the model being any worse. Normalising by
+    characters removes the vocabulary from the metric, which is what any
+    comparison between a static and a dynamic tokenizer needs.
+    """
+    ids_all = np.array(tok.encode(text), dtype=np.int32)
+    if len(ids_all) < 2:
+        return float("nan")
+
+    total_nats, n_pred, n_chars = 0.0, 0, 0
+    model.eval()
+    with torch.no_grad():
+        for start in range(0, len(ids_all) - 1, BLOCK_SIZE):
+            chunk = ids_all[start:start + BLOCK_SIZE + 1]
+            if len(chunk) < 2:
+                continue
+            ids    = torch.from_numpy(chunk).long()
+            logits = model.forward(ids)
+            loss   = model.loss(logits, ids)          # mean over the chunk
+            n_tok  = len(chunk) - 1                   # predicted positions
+            total_nats += loss.item() * n_tok
+            n_pred     += n_tok
+            # Characters covered by the predicted tokens (the first token of
+            # the chunk is context, never a target).
+            n_chars += sum(len(tok.vocab[int(i)].decode("utf-8", errors="replace"))
+                           for i in chunk[1:] if int(i) in tok.vocab)
+
+    if not n_pred or not n_chars:
+        return float("nan")
+    return total_nats / n_chars / np.log(2.0)
+
+
 def generate(model: TorchGPT, tok: BPETokenizer,
              prompt: str, max_tokens: int = 60,
              temperature: float = 0.8, top_k: int = 40) -> str:

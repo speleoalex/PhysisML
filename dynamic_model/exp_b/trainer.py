@@ -250,7 +250,8 @@ class TrainerB:
                  base_temperature: float = 0.8,
                  top_k: int = 40,
                  min_tokens: int = 4,
-                 stop_after: Optional[int] = None) -> str:
+                 stop_after: Optional[int] = None,
+                 banned_ids: Optional[set] = None) -> str:
         """
         Generate text with affective modulation applied to each token's
         logits (inference only, does not touch weights).
@@ -258,6 +259,10 @@ class TrainerB:
         min_tokens: EOS is suppressed (and its boost withheld) before this
           many response tokens. Keep it generous — it is what prevents an
           empty answer.
+        banned_ids: token ids suppressed at every step (logit = -inf), forcing
+          the answer through whatever other path the model has. Used by the
+          vocabulary ablation to measure how much a trained model actually
+          relies on a token it was given; None (the default) changes nothing.
         stop_after: punctuation soft-stop floor; defaults to min_tokens.
           Must be set to about (expected length - 1) so a short answer can
           close on its own final '!' instead of over-generating
@@ -305,6 +310,12 @@ class TrainerB:
                 # Never sample an id the tokenizer cannot decode.
                 if undecodable is not None:
                     modulated[undecodable] = float('-inf')
+
+                # Ablation: suppress the tokens under test.
+                if banned_ids:
+                    for _bid in banned_ids:
+                        if _bid < modulated.shape[0]:
+                            modulated[_bid] = float('-inf')
 
                 # Sample
                 next_id = sample_top_k(modulated.cpu().numpy(), k=top_k,

@@ -42,7 +42,9 @@ class DynamicBPETokenizer(BPETokenizer):
 
     def grow(self, new_text: str, n_merges: int = 10,
              max_words: int = 0,
-             protect: Optional[set] = None) -> List[int]:
+             protect: Optional[set] = None,
+             min_abs: int = 5, min_rel: float = 0.002,
+             return_stats: bool = False):
         """
         Analyse new_text with the current vocabulary, identify the most
         frequent uncovered pairs, create up to n_merges new tokens.
@@ -76,15 +78,25 @@ class DynamicBPETokenizer(BPETokenizer):
           to 0/21 correct the session after it became a cold single token.
           Targets are freed once the level moves on.
 
+        min_abs / min_rel: the two terms of the adaptive threshold, exposed so
+          an experiment can sweep it. The defaults are the build's values —
+          the threshold rises with the size of the growth buffer, which is why
+          growth thins out at high levels (measured: 5 at L1, 44 at L10).
+
+        return_stats: also return one record per created token (pair count,
+          threshold, buffer size) for the dream's growth_events.jsonl. Off by
+          default so the two exp_a call sites keep the old return type.
+
         Returns: lista di nuovi token_id creati
+                 (o la coppia (new_ids, stats) se return_stats=True)
         """
         if not self._trained:
             raise RuntimeError("Tokenizer non addestrato. Chiama train() prima.")
 
         import re as _re
 
-        MIN_ABS = 5
-        MIN_REL = 0.002
+        MIN_ABS = min_abs
+        MIN_REL = min_rel
 
         # Strip special-token literals: grow() must never learn merges
         # from marker text.
@@ -117,6 +129,7 @@ class DynamicBPETokenizer(BPETokenizer):
 
         threshold = max(MIN_ABS, int(n_tokens_total * MIN_REL))
         new_ids: List[int] = []
+        stats: List[dict] = []
         blacklist: set = set()   # pairs rejected by the filters below
 
         MAX_TOKEN_CHARS = 20   # longest reasonable Italian word; kills
@@ -191,8 +204,17 @@ class DynamicBPETokenizer(BPETokenizer):
 
             segments = [_apply_merge_list(s, a, b, next_id) for s in segments]
             new_ids.append(next_id)
+            if return_stats:
+                stats.append({
+                    "token_id":       next_id,
+                    "string":         s,
+                    "parents":        [a, b],
+                    "pair_count":     pair_counts[best_pair],
+                    "threshold":      threshold,
+                    "n_tokens_total": n_tokens_total,
+                })
 
-        return new_ids
+        return (new_ids, stats) if return_stats else new_ids
 
     # ------------------------------------------------------------------
     # Inizializzazione embedding per nuovo token
