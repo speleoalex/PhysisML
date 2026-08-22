@@ -33,6 +33,12 @@ import os, sys, re, gzip, json, math, argparse, subprocess, glob, shutil
 from collections import defaultdict
 
 CORPUS_BASE   = "training_files/it"
+# Bulk corpora are written to <level>/_reference/, not <level>/ itself.
+# They are kept for reproducibility but never trained on: every loader
+# globs "<level>/*.txt" non-recursively, so a subdirectory is invisible
+# by construction. Writing them into the level directory would put
+# adult narrative prose back on the training path, where it erases the
+# prompt->answer associations the curriculum has just built.
 DOWNLOAD_DIR  = "corpus_raw"          # temporary download area
 WIKI_DUMP_URL = "https://dumps.wikimedia.org/itwiki/latest/itwiki-latest-pages-articles.xml.bz2"
 OPUS_SUBS_URL = "https://object.pouta.csc.fi/OPUS-OpenSubtitles/v2018/mono/it.txt.gz"
@@ -268,7 +274,7 @@ def _flush_level_buffers(buffers: dict, source_name: str):
     for level, articles in buffers.items():
         if level < 2 or level > 10:
             continue
-        dest_dir  = os.path.join(CORPUS_BASE, str(level))
+        dest_dir  = os.path.join(CORPUS_BASE, str(level), "_reference")
         dest_file = os.path.join(dest_dir, f"{source_name}_L{level}.txt")
         os.makedirs(dest_dir, exist_ok=True)
         with open(dest_file, "w", encoding="utf-8") as f:
@@ -319,7 +325,7 @@ def process_opensubtitles():
     for level, lines in level_buffers.items():
         if not lines:
             continue
-        dest_dir  = os.path.join(CORPUS_BASE, str(level))
+        dest_dir  = os.path.join(CORPUS_BASE, str(level), "_reference")
         dest_file = os.path.join(dest_dir, f"opensubtitles_L{level}.txt")
         os.makedirs(dest_dir, exist_ok=True)
         with open(dest_file, "w", encoding="utf-8") as f:
@@ -358,7 +364,7 @@ def process_europarl():
                 batch = []
 
     for level, lines in level_buffers.items():
-        dest_dir  = os.path.join(CORPUS_BASE, str(level))
+        dest_dir  = os.path.join(CORPUS_BASE, str(level), "_reference")
         dest_file = os.path.join(dest_dir, f"europarl_L{level}.txt")
         os.makedirs(dest_dir, exist_ok=True)
         with open(dest_file, "w", encoding="utf-8") as f:

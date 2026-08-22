@@ -175,6 +175,15 @@ PhysisML/
 
 Every level also ships a `qa_corpus.txt` (prompt→answer dialogue pairs).
 
+Long narrative texts stay in the repository, under
+`training_files/it/N/_reference/`, but take part in **no** phase: not text
+training, not teaching, not dream replay, not tokenizer construction. Adult
+prose erases the prompt→answer associations the curriculum has just built, and
+archaic Italian is not the language of the curriculum. The mechanism is
+location, not a list: every loader globs `<level>/*.txt` non-recursively, so a
+subdirectory is invisible by construction. See
+[training_files/it/_reference_README.md](training_files/it/_reference_README.md).
+
 ---
 
 ## Architecture

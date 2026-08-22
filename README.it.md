@@ -181,9 +181,14 @@ Per ogni livello ci sono due checkpoint: `final.pt` (solo training testuale) e
 
 Ogni livello ha un `local_teacher.json` (pool chiuso di obiettivi, deterministico),
 un testo curato coerente col livello e un `qa_corpus.txt` generato dalle sessioni
-(coppie prompt→risposta). I testi narrativi lunghi restano nel repository ma sono
-esclusi dall'addestramento dal livello 3 in su: prosa per adulti cancella le
-associazioni prompt→risposta appena costruite.
+(coppie prompt→risposta). I testi narrativi lunghi restano nel repository, in
+`training_files/it/N/_reference/`, ma **non entrano in nessuna fase**: né
+training testuale, né insegnamento, né replay del sogno, né costruzione del
+tokenizer. Prosa per adulti cancella le associazioni prompt→risposta appena
+costruite, e l'italiano arcaico non è la lingua del curriculum. Il meccanismo
+è la posizione: tutti i caricatori usano un glob `*.txt` non ricorsivo sulla
+cartella del livello. Dettagli in
+[training_files/it/_reference_README.md](training_files/it/_reference_README.md).
 
 ---
 
