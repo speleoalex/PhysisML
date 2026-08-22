@@ -55,14 +55,22 @@ not permanent. Six extra dreams on the finished L10 checkpoint — no new
 teaching, only reconsolidation of what the session logs already hold
 (`./scripts/experiment_extra_dreams.sh --confirm`):
 
-| dreams | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
-|--------|---|---|---|---|---|---|---|
-| exact across all levels | 20% | 24% | 27% | 31% | 36% | 37% | **43%** |
-| answers with repetition | 37% | 19% | 25% | 21% | 19% | 19% | **17%** |
+| dreams | 0 | 2 | 4 | 6 | 8 | 10 | 12 |
+|--------|---|---|---|---|---|----|----|
+| exact across all levels | 20% | 27% | 36% | 43% | 44% | 48% | **48%** |
+| answers with repetition | 37% | 25% | 19% | 17% | 18% | 15% | **18%** |
 
-Every level improves, L10 stays at 100%, and at six dreams there is **still no
-plateau** — the largest single gain is the last one (+6 points). L4's ten
-dreams were not excessive.
+Every level improves and L10 stays at 100%. The curve **saturates between the
+sixth and tenth dream**: +3.6 points per dream from 1 to 6, +1.0 from 7 to 12
+— and that second slope is below the measured noise between two identical runs
+(2.2 points), so it is indistinguishable from zero. The first six dreams do the
+work.
+
+But the ceiling is **48%, not 96%**: consolidation recovers about half the gap.
+Per level, after twelve dreams, the rest is still 43 to 74 points below the
+diagonal. That second half is not recoverable by dreaming — rehearsal during
+teaching draws only on the current level's gold pairs, and changing that needs
+a rebuild.
 
 Real examples (greedy, post-dream checkpoints):
 

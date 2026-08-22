@@ -55,14 +55,21 @@ La ritenzione è quindi proporzionale ai cicli di consolidamento, e il danno non
 insegnamento nuovo, solo riconsolidamento di ciò che è già nei log di sessione
 (`./scripts/experiment_extra_dreams.sh --confirm`):
 
-| sogni | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
-|-------|---|---|---|---|---|---|---|
-| exact su tutti i livelli | 20% | 24% | 27% | 31% | 36% | 37% | **43%** |
-| risposte con ripetizione | 37% | 19% | 25% | 21% | 19% | 19% | **17%** |
+| sogni | 0 | 2 | 4 | 6 | 8 | 10 | 12 |
+|-------|---|---|---|---|---|----|----|
+| exact su tutti i livelli | 20% | 27% | 36% | 43% | 44% | 48% | **48%** |
+| risposte con ripetizione | 37% | 25% | 19% | 17% | 18% | 15% | **18%** |
 
-Ogni livello migliora, L10 resta al 100%, e a sei sogni **non c'è ancora
-plateau** — il guadagno più grande è quello dell'ultimo (+6 punti). I dieci
-sogni di L4 non erano sovrabbondanti.
+Ogni livello migliora e L10 resta al 100%. La curva **satura fra il sesto e il
+decimo sogno**: +3.6 punti per sogno da 1 a 6, +1.0 da 7 a 12 — e quest'ultima
+pendenza è sotto il rumore misurato fra due run identici (2.2 punti), quindi
+indistinguibile da zero. I primi sei sogni fanno il lavoro.
+
+Ma il tetto è **48%, non 96%**: il consolidamento recupera circa metà del
+divario. Per livello, dopo dodici sogni, il resto è ancora fra −43 e −74 punti
+sotto la diagonale. La seconda metà non si recupera sognando — il rehearsal
+durante l'insegnamento pesca solo dalle coppie gold del livello corrente, e
+quello richiede un rebuild per essere cambiato.
 
 Esempi reali (greedy, checkpoint post-sogno):
 
