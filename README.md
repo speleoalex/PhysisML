@@ -37,6 +37,33 @@ decoding (`python3 dynamic_model/test_model.py --level N --samples 0`):
 For comparison, the May build before the fixes: L0 4.4%, L1 1.8%,
 L2 12.8%, L3 1.0%, **L4 and beyond 0.0%**.
 
+### What the 96% measures
+
+Each level is scored on its **own** checkpoint: eleven snapshots, not a
+cumulative capability. The final L10 checkpoint, asked about *every* level's
+targets, scores **20%** — it can do L10 and L0, and the rest is buried.
+
+The retention matrix makes the difference visible
+(`python3 scripts/retention_matrix.py --levels 0-10`): the 96% is its
+diagonal. The one row that retains earlier levels is L4 (100/83/100/71% on
+L0-L3), and L4 is the only level that needed ten teaching sessions — every
+session ends in a dream, and the dream's N1 replays *every* level's
+`qa_corpus`. The other levels ran one to three.
+
+Retention is therefore a function of consolidation cycles, and the damage is
+not permanent. Six extra dreams on the finished L10 checkpoint — no new
+teaching, only reconsolidation of what the session logs already hold
+(`./scripts/experiment_extra_dreams.sh --confirm`):
+
+| dreams | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+|--------|---|---|---|---|---|---|---|
+| exact across all levels | 20% | 24% | 27% | 31% | 36% | 37% | **43%** |
+| answers with repetition | 37% | 19% | 25% | 21% | 19% | 19% | **17%** |
+
+Every level improves, L10 stays at 100%, and at six dreams there is **still no
+plateau** — the largest single gain is the last one (+6 points). L4's ten
+dreams were not excessive.
+
 Real examples (greedy, post-dream checkpoints):
 
 ```
@@ -197,7 +224,9 @@ subdirectory is invisible by construction. See
 - **Affective system**: innate state (`confidence`, `pleasure`, `pain`, `fear`)
   that modulates generation and tracks learning progress.
 - **Anti-forgetting**: *interleaved* rehearsal on the gold pairs during teaching
-  (4 pairs every 5 turns), plus corpus replay in the dream phase.
+  (4 pairs every 5 turns), plus corpus replay in the dream phase. Both are
+  weighted toward the current level, and measurement shows this holds *within*
+  a level but not *across* levels — see [What the 96% measures](#what-the-96-measures).
 - **Test-then-show didactics**: the model answers *before* seeing the solution.
   The reverse order (show-then-test) measured recall after a hint rather than
   retained knowledge.

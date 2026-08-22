@@ -111,7 +111,9 @@ if ! mkdir "$LOCK" 2>/dev/null; then
     exit 1
 fi
 echo "$$" > "$LOCK/pid"
-trap 'rm -rf "$LOCK"' EXIT
+# EXIT alone does not fire when bash is killed by a signal (a
+# `timeout` firing leaves the lock behind), so trap the signals too.
+trap 'rm -rf "$LOCK"' EXIT INT TERM
 
 if [ "$RESUME" != "1" ]; then
     rm -rf "$CKPT_BASE"
@@ -132,10 +134,31 @@ mkdir -p models/analysis
 PREV="$CKPT_BASE/level_$LEVEL/final_dreamed.pt"
 LOG="$EXP/dreams_L${LEVEL}.log"
 
+# With RESUME=1, skip the dreams already measured instead of redoing them and
+# overwriting their results. Each dream feeds on the previous one's output, so
+# the checkpoint on disk is already at DONE dreams.
+START=1
+if [ "$RESUME" = "1" ]; then
+    DONE=0
+    for f in "$EXP"/retention_after_[0-9]*.json; do
+        [ -f "$f" ] || continue
+        b=$(basename "$f" .json); n=${b##*_}
+        case "$n" in (*[!0-9]*) continue ;; esac
+        [ "$n" -gt "$DONE" ] && DONE="$n"
+    done
+    START=$((DONE + 1))
+    if [ "$START" -gt "$N_DREAMS" ]; then
+        echo "  Already at $DONE dreams (>= N_DREAMS=$N_DREAMS). Nothing to do."
+        echo "  Raise N_DREAMS to continue."
+        exit 0
+    fi
+    echo "  Resuming: $DONE dreams done, running $START..$N_DREAMS"
+fi
+
 echo "" | tee -a "$LOG"
 echo "=== exp_f  L$LEVEL  ${N_DREAMS} dreams  seed $SEED ===" | tee -a "$LOG"
 
-for i in $(seq 1 "$N_DREAMS"); do
+for i in $(seq "$START" "$N_DREAMS"); do
     echo "" | tee -a "$LOG"
     echo "--- dream $i/$N_DREAMS ---" | tee -a "$LOG"
     # phase 2 overwrites level_N/final_dreamed.pt in CKPT_BASE, so each dream

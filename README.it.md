@@ -37,6 +37,33 @@ su undici (+53 punti a L7, +38 a L9 e L10).
 Per confronto, il build di maggio prima delle correzioni: L0 4.4%, L1 1.8%,
 L2 12.8%, L3 1.0%, **L4 e oltre 0.0%**.
 
+### Il 96% misura una cosa precisa
+
+Ogni livello è valutato sul **proprio** checkpoint: sono undici fotografie, non
+una capacità cumulativa. Il checkpoint finale L10, interrogato sugli obiettivi
+di *tutti* i livelli, fa **20%** — sa fare L10 e L0, il resto è sepolto.
+
+La distinzione si vede nella matrice di ritenzione
+(`python3 scripts/retention_matrix.py --levels 0-10`): il 96% è la sua
+diagonale. L'unica riga che ritiene i livelli precedenti è L4 (100/83/100/71%
+su L0–L3), e L4 è l'unico livello che ha richiesto dieci sessioni di
+insegnamento — ogni sessione finisce con un sogno, e N1 nel sogno rigioca il
+`qa_corpus` di *tutti* i livelli. Gli altri livelli ne hanno avute da una a tre.
+
+La ritenzione è quindi proporzionale ai cicli di consolidamento, e il danno non
+è permanente. Sei sogni aggiuntivi sul checkpoint L10 finito — nessun
+insegnamento nuovo, solo riconsolidamento di ciò che è già nei log di sessione
+(`./scripts/experiment_extra_dreams.sh --confirm`):
+
+| sogni | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+|-------|---|---|---|---|---|---|---|
+| exact su tutti i livelli | 20% | 24% | 27% | 31% | 36% | 37% | **43%** |
+| risposte con ripetizione | 37% | 19% | 25% | 21% | 19% | 19% | **17%** |
+
+Ogni livello migliora, L10 resta al 100%, e a sei sogni **non c'è ancora
+plateau** — il guadagno più grande è quello dell'ultimo (+6 punti). I dieci
+sogni di L4 non erano sovrabbondanti.
+
 Esempi reali (greedy, checkpoint post-sogno):
 
 ```
@@ -205,7 +232,9 @@ cartella del livello. Dettagli in
   che modula la generazione e traccia lo stato di apprendimento.
 - **Anti-forgetting**: rehearsal *interleaved* sulle coppie gold durante
   l'insegnamento (4 coppie ogni 5 turni), più il replay del corpus nella fase
-  di sogno.
+  di sogno. Entrambi sono pesati sul livello corrente, e la misura mostra che
+  tengono *dentro* un livello ma non *fra* livelli — vedi
+  [Il 96% misura una cosa precisa](#il-96-misura-una-cosa-precisa).
 - **Didattica test-then-show**: il modello risponde *prima* di vedere la
   soluzione. L'ordine inverso (show-then-test) misurava il richiamo dopo
   suggerimento invece della conoscenza ritenuta.
