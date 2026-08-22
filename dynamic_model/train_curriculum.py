@@ -1677,11 +1677,19 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
           f"({pos_count} positive, {neg_count} negative, "
           f"{len(bank)-pos_count-neg_count} neutral)")
 
-    # ── N1: Corpus replay ────────────────────────────────────────────────────
+    # ── N1: Corpus replay — corpus COLLECTION only ───────────────────────────
     # Cap at N1_MAX_CHARS to keep dream phase fast (~5 min).
-    # N1 runs LAST (after N2/N3/REM) so it has the final word on the distribution.
+    # N1 used to run last, "so it has the final word on the distribution".
+    # That word was destructive (it undid 44% of N2.5's SFT gains), so the
+    # training pass now happens further down, BEFORE N2.5/N3/REM. Only the
+    # corpus is assembled here.
+    #
+    # Note this loops over range(level + 1): every dream replays EVERY level's
+    # qa_corpus, which is the build's main cross-level anti-forgetting channel.
+    # Measured consequence: the L4 checkpoint, the only one with 10 sessions
+    # and therefore 10 dreams, is also the only one that retains earlier
+    # levels (100/83/100/71% on L0-L3 against 20% for the L10 checkpoint).
     N1_MAX_CHARS = cfg['n1_mb'] * 1_000_000
-    # Collect corpus for N1 (executed last, after N3/REM)
     # Same narrative filter as phase_0/phase_1: without it, N1 re-injected up
     # to 30-50MB of unfiltered adult narrative as the LAST training act of
     # every session ("final word on the distribution"), undoing the very
