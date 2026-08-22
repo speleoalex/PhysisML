@@ -35,7 +35,8 @@ FEEDBACK_MAP = {
 
 class LocalTeacher:
 
-    def __init__(self, lang: str, level: int):
+    def __init__(self, lang: str, level: int,
+                 retry_prefix: Optional[str] = None):
         self.lang  = lang
         self.level = level
 
@@ -50,6 +51,15 @@ class LocalTeacher:
             )
         with open(config_path, encoding="utf-8") as f:
             self.cfg = json.load(f)
+
+        # retry_prefix override: the config value is what the validated build
+        # used, but at L0-L3 it doubles the text ('{prompt} {prompt}. '), and
+        # at those levels the prompt IS the answer ('di: il cane' -> 'il
+        # cane!'). That puts 'il cane il cane' in the corpus as a valid
+        # sequence. Exposed so an arm can replace it without editing the
+        # shared config. Pass '' to disable the prefix entirely.
+        if retry_prefix is not None:
+            self.cfg["retry_prefix"] = retry_prefix
 
         self.steps     = self.cfg["steps"]
         self.step_keys = list(self.steps.keys())   # ["A", "B", "C", ...]

@@ -566,10 +566,13 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     USE_LOCAL = False
     local_teacher = None
 
+    _retry_pfx = getattr(args, 'retry_prefix', None)
+
     if args.tutor_model == "local":
         USE_LOCAL = True
         from dynamic_model.local_teacher import LocalTeacher
-        local_teacher = LocalTeacher(lang=args.lang, level=level)
+        local_teacher = LocalTeacher(lang=args.lang, level=level,
+                                     retry_prefix=_retry_pfx)
 
     elif args.tutor_model in ("hybrid", "local-llm") or \
          (args.tutor_model == "auto" and _has_local_config):
@@ -577,10 +580,12 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
         USE_LOCAL = True
         try:
             from dynamic_model.hybrid_teacher import HybridTeacher
-            local_teacher = HybridTeacher(lang=args.lang, level=level)
+            local_teacher = HybridTeacher(lang=args.lang, level=level,
+                                          retry_prefix=_retry_pfx)
         except Exception:
             from dynamic_model.local_teacher import LocalTeacher
-            local_teacher = LocalTeacher(lang=args.lang, level=level)
+            local_teacher = LocalTeacher(lang=args.lang, level=level,
+                                         retry_prefix=_retry_pfx)
 
     if USE_LOCAL:
         claude = None
@@ -2095,6 +2100,14 @@ def main():
                         help="Override checkpoint base directory "
                              "(default: models/checkpoints/{lang}). "
                              "Useful for parallel experiments.")
+    parser.add_argument("--retry-prefix", default=None,
+                        help="Override the teacher's retry_prefix. The config "
+                             "value at L0-L3 doubles the text ('{prompt} "
+                             "{prompt}. '), and at those levels the prompt IS "
+                             "the answer, so 'il cane il cane' enters the "
+                             "corpus as a valid sequence. Pass 'ancora. ' (the "
+                             "L4+ form) to test whether that is what makes the "
+                             "model repeat itself. '' disables the prefix.")
     parser.add_argument("--seed", type=int, default=None,
                         help="Seed torch/numpy/random. Without it two runs of "
                              "the same configuration differ, and no A/B "

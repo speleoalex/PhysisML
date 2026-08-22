@@ -220,12 +220,13 @@ class HybridTeacher:
     """
 
     def __init__(self, lang: str, level: int,
-                 ollama_model: str = None):
+                 ollama_model: str = None,
+                 retry_prefix: str = None):
         self.lang    = lang
         self.level   = level
 
         # Rule-based prompt generator
-        self.local   = LocalTeacher(lang, level)
+        self.local   = LocalTeacher(lang, level, retry_prefix=retry_prefix)
 
         # LLM evaluator
         model = ollama_model or LEVEL_TO_MODEL.get(level, DEFAULT_MODEL)
