@@ -181,12 +181,15 @@ Every level also ships a `qa_corpus.txt` (prompt→answer dialogue pairs).
 
 - **Model**: TorchGPT — GPT-2 style decoder-only transformer, Pre-LayerNorm,
   weight-tied LM head. In use: `d_model=512`, 6 layers, 8 heads, `d_ff=2048`, 128-token context, **23.6M parameters**.
-- **Tokenizer**: 8,000-token BPE with dormant slots up to 9,000, growing during the dream phase (no contamination
-  from advanced texts).
+- **Tokenizer**: 8,000-token BPE with dormant slots up to 9,000: the vocabulary
+  grows during the dream phase (8,002 → 8,083 tokens from L0 to L10).
 - **Affective system**: innate state (`confidence`, `pleasure`, `pain`, `fear`)
   that modulates generation and tracks learning progress.
-- **Anti-forgetting**: rehearsal mini-batches during teaching; show-then-test
-  didactics (the model sees the correct answer before being asked).
+- **Anti-forgetting**: *interleaved* rehearsal on the gold pairs during teaching
+  (4 pairs every 5 turns), plus corpus replay in the dream phase.
+- **Test-then-show didactics**: the model answers *before* seeing the solution.
+  The reverse order (show-then-test) measured recall after a hint rather than
+  retained knowledge.
 
 A pure-NumPy educational implementation (every layer with handwritten
 `forward()`/`backward()`) is the historical base of the project.

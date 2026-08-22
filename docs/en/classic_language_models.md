@@ -56,7 +56,7 @@ The result is a **vocabulary** (a `token_id → string` dictionary) and a **toke
 "il cane mangia" →  [241, 4821, 9202]
 ```
 
-Modern models use vocabularies of 32,000–100,000 tokens. PhysisML uses 8,000 tokens with dormant slots (8,079 active after the curriculum).
+Modern models use vocabularies of 32,000–100,000 tokens. PhysisML uses 8,000 tokens with dormant slots (8,083 active after the curriculum).
 
 ### Why subwords and not whole words?
 

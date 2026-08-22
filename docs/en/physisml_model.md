@@ -53,7 +53,7 @@ TorchGPT — decoder-only, Pre-LayerNorm, GPT-2 style
 ─────────────────────────────────────────────────────
 Total parameters : 23.59M
 Vocabulary       : 9,000 allocated slots, 8,002 active at start
-                   → 8,079 after the L0→L10 curriculum
+                   → 8,083 after the L0→L10 curriculum
 d_model          : 512
 n_layers         : 6
 n_heads          : 8
@@ -85,7 +85,7 @@ Input ids (T,)
 
 BPE (Byte Pair Encoding) with 8,000 tokens, plus dormant slots up to 9,000. Dormant tokens carry logit `-inf` and zero gradient; the dream phase activates them as new patterns consolidate, initialising each from its parent tokens at 30% of the mean norm of the already-trained rows. An absolute scale would give a fresh row a *larger* norm than the trained ones — a high prior with no semantics in the weight-tied softmax.
 
-Across the L0→L10 curriculum the vocabulary grew from 8,002 to 8,079 tokens. Growth is deliberately conservative: merges are found and applied within word boundaries only (matching `encode`, otherwise the token is unreachable), degenerate repetitions and multi-word phrases are rejected, and the level's active drill targets are protected — tokenising what is currently being taught orphans the multi-token path the model has already learned.
+Across the L0→L10 curriculum the vocabulary grew from 8,002 to 8,083 tokens. Growth is deliberately conservative: merges are found and applied within word boundaries only (matching `encode`, otherwise the token is unreachable), degenerate repetitions and multi-word phrases are rejected, and the level's active drill targets are protected — tokenising what is currently being taught orphans the multi-token path the model has already learned.
 
 **Note on `weight_decay`**: it must stay at zero. With `torch.optim.Adam` the decay is coupled to the gradient, so a rarely-exercised parameter shrinks at every step regardless of its gradient. Over the hundreds of thousands of single-sample steps of the curriculum this kills the network: measured on the May checkpoints, the `ln_f` gain fell from 0.87 (L0) to 0.0079 (L10).
 
@@ -421,7 +421,7 @@ Compared with standard training on an equivalent corpus:
 | Dimension | PhysisML today | Standard small (GPT-2 117M) | TinyLlama 1.1B |
 |-----------|----------------|------------------------------|----------------|
 | Parameters | 23.6M | 117M | 1,100M |
-| Vocabulary | 8,079 | 50,257 | 32,000 |
+| Vocabulary | 8,083 | 50,257 | 32,000 |
 | Corpus | ~2M tokens | ~40B tokens | 3T tokens |
 | Italian PPL | ~18–20 | ~15 (if fine-tuned) | ~6–8 |
 | Coherent sentences | No | Partially | Yes |
@@ -494,7 +494,7 @@ most supervised one, not the most generic.
 - [ ] Download the Italian Wikipedia corpus (~450MB dump)
 - [ ] Download Italian OpenSubtitles (~700MB, conversational L2–L5)
 - [ ] Retrain the BPE tokenizer on the full corpus → 8,000 tokens
-- [x] Vocabulary scaled to 8,000 tokens with dormant slots (done: 8,079 active after L10)
+- [x] Vocabulary scaled to 8,000 tokens with dormant slots (done: 8,083 active after L10)
 
 ### Phase 3 — Model scale-up
 

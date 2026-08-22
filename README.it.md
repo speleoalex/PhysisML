@@ -193,7 +193,7 @@ associazioni prompt→risposta appena costruite.
   testa LM con weight tying. Configurazione in uso: `d_model=512`, 6 layer,
   8 head, `d_ff=2048`, contesto 128 token, **23.6M parametri**.
 - **Tokenizer**: BPE da 8.000 token, con slot dormienti fino a 9.000: il
-  vocabolario cresce durante la fase di sogno (8.002 → 8.079 token da L0 a L10).
+  vocabolario cresce durante la fase di sogno (8.002 → 8.083 token da L0 a L10).
 - **Sistema affettivo**: stato innato (`confidence`, `pleasure`, `pain`, `fear`)
   che modula la generazione e traccia lo stato di apprendimento.
 - **Anti-forgetting**: rehearsal *interleaved* sulle coppie gold durante

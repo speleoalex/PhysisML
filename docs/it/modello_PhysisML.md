@@ -53,7 +53,7 @@ TorchGPT — decoder-only, Pre-LayerNorm, GPT-2 style
 ─────────────────────────────────────────────────────
 Parametri totali : 23.59M
 Vocabolario      : 9.000 slot allocati, 8.002 attivi all'avvio
-                   → 8.079 dopo il curriculum L0→L10
+                   → 8.083 dopo il curriculum L0→L10
 d_model          : 512
 n_layers         : 6
 n_heads          : 8
@@ -99,7 +99,7 @@ Input ids (T,)
 
 BPE (Byte Pair Encoding) da 8.000 token, più slot dormienti fino a 9.000. I token dormienti hanno logit `-inf` e gradiente zero; la fase di sogno li attiva man mano che nuovi pattern si consolidano, inizializzandoli dai token genitori al 30% della norma media delle righe già addestrate.
 
-Nel curriculum L0→L10 il vocabolario è cresciuto da 8.002 a 8.079 token. La crescita è deliberatamente prudente: i merge si cercano e si applicano **solo dentro i confini di parola** (come fa `encode`, altrimenti il token è irraggiungibile e occupa uno slot competendo nel softmax), si rifiutano ripetizioni degeneri e frasi multi-parola, e si proteggono gli obiettivi in corso di addestramento — tokenizzare ciò che si sta insegnando orfana il percorso multi-token già appreso.
+Nel curriculum L0→L10 il vocabolario è cresciuto da 8.002 a 8.083 token. La crescita è deliberatamente prudente: i merge si cercano e si applicano **solo dentro i confini di parola** (come fa `encode`, altrimenti il token è irraggiungibile e occupa uno slot competendo nel softmax), si rifiutano ripetizioni degeneri e frasi multi-parola, e si proteggono gli obiettivi in corso di addestramento — tokenizzare ciò che si sta insegnando orfana il percorso multi-token già appreso.
 
 ### Backend di implementazione
 
@@ -464,7 +464,7 @@ Rispetto a training standard su corpus equivalente:
 | Dimensione | PhysisML attuale | Standard small (GPT-2 117M) | TinyLlama 1.1B |
 |------------|-------------------|------------------------------|----------------|
 | Parametri | 23.6M | 117M | 1,100M |
-| Vocabolario | 8,079 | 50,257 | 32,000 |
+| Vocabolario | 8,083 | 50,257 | 32,000 |
 | Corpus | ~2M token | ~40B token | 3T token |
 | PPL italiano | ~18–20 | ~15 (se fine-tuned) | ~6–8 |
 | Frasi coerenti | No | Parzialmente | Sì |
