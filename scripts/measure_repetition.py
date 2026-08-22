@@ -82,7 +82,12 @@ def resolve(ckpt_base: str, level: int) -> tuple:
     return ckpt, tok
 
 
-def evaluate(ckpt: str, tok_path: str, lang: str, level: int) -> dict:
+def load_pair(ckpt: str, tok_path: str):
+    """Load a checkpoint with its tokenizer, refusing a mismatched pair.
+
+    Separate from evaluate_level so a caller sweeping many target levels
+    against one checkpoint loads the 94MB of weights once.
+    """
     model = TorchGPT.load(ckpt)
     tok = DynamicBPETokenizer()
     tok.load(tok_path)
@@ -95,7 +100,11 @@ def evaluate(ckpt: str, tok_path: str, lang: str, level: int) -> dict:
     af = AffectState()
     tr = TrainerB(model, tok, TorchAdamOptimizer(model.parameters(), lr=1e-5),
                   af, AffectModulator(af), AxiomRegistry())
+    return tr, tok
 
+
+def evaluate_level(tr, tok, lang: str, level: int) -> dict:
+    """Score an already-loaded model on one level's curriculum targets."""
     cases = [(p, e) for p, e in load_level_cases(lang, level) if e]
     exact = rep = 0
     examples = []
@@ -118,6 +127,12 @@ def evaluate(ckpt: str, tok_path: str, lang: str, level: int) -> dict:
             "exact": exact, "exact_rate": exact / n,
             "repetition": rep, "repetition_rate": rep / n,
             "examples": examples}
+
+
+def evaluate(ckpt: str, tok_path: str, lang: str, level: int) -> dict:
+    """Convenience wrapper: load a pair and score it on one level."""
+    tr, tok = load_pair(ckpt, tok_path)
+    return evaluate_level(tr, tok, lang, level)
 
 
 def main():

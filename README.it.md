@@ -120,6 +120,8 @@ Ogni livello parte dal `final_learned.pt` del livello precedente.
 | `./reset.sh [--dry-run]` | Backup + reset del modello |
 | `python3 dynamic_model/train_curriculum.py` | Training testuale e/o insegnamento (vedi `--help`) |
 | `python3 dynamic_model/test_model.py --level N` | Statistiche di qualità del modello corrente |
+| `python3 scripts/measure_repetition.py --ckpt-base models/checkpoints/it --levels 0-10` | Exact match **e** tasso di ripetizione, in greedy |
+| `python3 scripts/retention_matrix.py --levels 0-10` | Matrice di ritenzione: ogni checkpoint su ogni livello |
 | `python3 dynamic_model/run.py` | Sessione interattiva |
 | `python3 scripts/download_wikipedia.py --level N` | Scarica articoli Wikipedia per il training |
 | `python3 scripts/generate_qa_corpus.py --levels 0 1 2` | Genera corpus dialogico dalle coppie QA |
