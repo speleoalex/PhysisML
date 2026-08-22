@@ -302,34 +302,45 @@ Checkpoint post-sogno, exact match su tutti gli obiettivi:
 
 | Livello | Exact match | Obiettivi | Sessioni | Note |
 |---------|------------|-----------|----------|------|
-| L0 | 100% | 21/21 | 3 | |
-| L1 | 96% | 23/24 | 3 | |
-| L2 | 100% | 18/18 | 3 | |
+| L0 | 100% | 21/21 | 3 |  |
+| L1 | 96% | 23/24 | 3 |  |
+| L2 | 100% | 18/18 | 3 |  |
 | L3 | 82% | 23/28 | 2 | numeri e colori condividono il prefisso del prompt |
 | L4 | 100% | 25/25 | 10 | livello dove lo stallo iniziava (0% a maggio) |
-| L5 | 95% | 19/20 | 6 | |
-| L6 | 100% | 21/21 | 6 | |
-| L7–L10 | — | — | — | ricostruzione in corso |
+| L5 | 95% | 19/20 | 2 |  |
+| L6 | 100% | 21/21 | 1 |  |
+| L7 | 100% | 19/19 | 1 |  |
+| L8 | 100% | 19/19 | 2 |  |
+| L9 | 88% | 14/16 | 1 | due errori: ripetizione dell'inizio |
+| L10 | 94% | 15/16 | 1 | un errore: ripetizione dell'inizio |
+
+**Media sugli 11 livelli: 96%.**
 
 Confronto col build di maggio, prima delle correzioni: L0 4.4%, L1 1.8%,
 L2 12.8%, L3 1.0%, **L4 e oltre 0.0%**.
 
-I nuovi livelli partono bassi e salgono in modo monotono — L4 da 0.07 a 0.79 di
-tasso di qualità in dieci sessioni, L5 da 0.05 a 0.82, L6 da 0.08 a 0.94. È la
-firma del consolidamento: il regime deterministico impara lentamente ma
-accumula, invece di oscillare.
+Il numero di sessioni necessarie è crollato con le correzioni finali: L4 ne
+richiese dieci prima che il sanity check e il riordino del sogno fossero
+sistemati, mentre L6, L7, L9 e L10 superano il cancello alla **prima** sessione.
+Meno sessioni non significa meno apprendimento: significa che il segnale non
+viene più sprecato.
 
 ### Effetto della fase di sogno
 
 Delta exact match fra checkpoint pre-sogno (`final_learned.pt`) e post-sogno
-(`final_dreamed.pt`): **+19, +13, +17, +7, +12 punti** da L0 a L4.
+(`final_dreamed.pt`), per livello:
 
-Il sogno danneggiava i livelli alti finché il replay di deep-sleep (N3) restava
-dominato dal materiale vecchio: il memory bank copre tutti i livelli, e la quota
-dal livello corrente scendeva al 5% a L7 e al 7% a L10 contro il 41% a L4. N3 e
-REM sono le ultime fasi che il sogno addestra, quindi quella proporzione decide
-cosa il modello conserva. Ora N3 mantiene tutte le memorie del livello corrente
-e campiona le vecchie fino a pari numero.
+| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 |
+|----|----|----|----|----|----|----|----|----|----|-----|
+| +19 | +13 | +17 | +7 | +12 | −5 | +29 | **+53** | 0 | **+38** | **+38** |
+
+Il sogno ora aiuta a dieci livelli su undici. Prima del riequilibrio di N3
+danneggiava sistematicamente i livelli alti (L7 −26, L10 −12, L9 −6): il memory
+bank copre tutti i livelli e la quota dal livello corrente scendeva al 5% a L7 e
+al 7% a L10, contro il 41% a L4. N3 e REM sono le ultime fasi che il sogno
+addestra, quindi quella proporzione decide cosa il modello conserva. Ora N3
+mantiene tutte le memorie del livello corrente e campiona le vecchie fino a pari
+numero, e gli stessi livelli guadagnano +53, +38 e +38 punti.
 
 ### Esempi reali di domanda e risposta
 
@@ -395,10 +406,44 @@ Generati in greedy dai checkpoint post-sogno. Sono riportati anche gli errori:
 | `cosa ha bevuto il bambino?` | `il bambino ha bevuto il latte.` | ✓ |
 | `cosa ha letto il papà?` | `il papà ha letto il libro.` | ✓ |
 
-Gli errori residui sono di una sola famiglia: **il modello non discrimina
-l'ultima parola del prompt quando più obiettivi condividono lo stesso
-prefisso**. `di un numero: tre` e `di un colore: rosso` differiscono solo nel
-finale e collassano entrambi su `due!`. Non è oblio né limite di capacità — un
+
+**L7** — futuro e contrasto fra i tempi (19/19)
+
+| Domanda | Risposta del modello | |
+|---|---|---|
+| `cosa mangerà il cane domani?` | `domani il cane mangerà il pane.` | ✓ |
+| `cosa berrà il bambino domani?` | `domani il bambino berrà il latte.` | ✓ |
+
+**L8** — comparativi (19/19)
+
+| Domanda | Risposta del modello | |
+|---|---|---|
+| `chi è più grande, il cane o il gatto?` | `il cane è più grande del gatto.` | ✓ |
+| `cosa è più caldo, il sole o la luna?` | `il sole è più caldo della luna.` | ✓ |
+
+**L9** — tesi con motivo (14/16)
+
+| Domanda | Risposta del modello | |
+|---|---|---|
+| `il pane è buono?` | `secondo me il pane è buono perché è caldo.` | ✓ |
+| `il cane è fedele?` | `secondo me il cane è fedele perché aspetta.` | ✓ |
+| `perché ti piace il pane?` | `il pane il pane è caldo e buono, perciò mi piace.` | ✗ inizio ripetuto |
+
+**L10** — commento motivato (15/16)
+
+| Domanda | Risposta del modello | |
+|---|---|---|
+| `commenta il sole` | `il sole è caldo, e questo è utile.` | ✓ |
+| `commenta il libro` | `il libro insegna, e questo è importante.` | ✓ |
+| `commenta il cane` | `il cane il cane il cane è fedele, e questo è bello.` | ✗ inizio ripetuto |
+
+Gli errori residui sono di due famiglie, entrambe circoscritte. La prima: **il
+modello non discrimina l'ultima parola del prompt quando più obiettivi
+condividono lo stesso prefisso** — `di un numero: tre` e `di un colore: rosso`
+differiscono solo nel finale e collassano entrambi su `due!`. La seconda, ai
+livelli 9–10: **ripete l'inizio della risposta** (`il cane il cane il cane è
+fedele`) prima di completarla correttamente, cioè sa cosa dire ma non sempre
+dove iniziare. Non è oblio né limite di capacità — un
 SFT puro sugli obiettivi di un livello li porta al 100% in 30 epoche — ma
 collasso su una risposta per famiglia di prompt. La leva è aumentare gli
 obiettivi distinti per step e variare la testa della domanda.

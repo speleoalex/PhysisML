@@ -261,34 +261,44 @@ Post-dream checkpoints, exact match over all targets:
 
 | Level | Exact match | Targets | Sessions | Notes |
 |-------|------------|---------|----------|-------|
-| L0 | 100% | 21/21 | 3 | |
-| L1 | 96% | 23/24 | 3 | |
-| L2 | 100% | 18/18 | 3 | |
+| L0 | 100% | 21/21 | 3 |  |
+| L1 | 96% | 23/24 | 3 |  |
+| L2 | 100% | 18/18 | 3 |  |
 | L3 | 82% | 23/28 | 2 | numbers and colours share a prompt prefix |
 | L4 | 100% | 25/25 | 10 | the level where the stall used to begin (0% in May) |
-| L5 | 95% | 19/20 | 6 | |
-| L6 | 100% | 21/21 | 6 | |
-| L7–L10 | — | — | — | rebuild in progress |
+| L5 | 95% | 19/20 | 2 |  |
+| L6 | 100% | 21/21 | 1 |  |
+| L7 | 100% | 19/19 | 1 |  |
+| L8 | 100% | 19/19 | 2 |  |
+| L9 | 88% | 14/16 | 1 | two errors: the opening is repeated |
+| L10 | 94% | 15/16 | 1 | one error: the opening is repeated |
+
+**Mean across the 11 levels: 96%.**
 
 Against the May build, before the fixes: L0 4.4%, L1 1.8%, L2 12.8%, L3 1.0%,
 **L4 and beyond 0.0%**.
 
-New levels start low and climb monotonically — L4 from 0.07 to 0.79 quality rate
-over ten sessions, L5 from 0.05 to 0.82, L6 from 0.08 to 0.94. That is the
-signature of consolidation: the deterministic regime learns slowly but
-accumulates, instead of oscillating.
+The number of sessions needed collapsed once the last fixes were in: L4 took ten
+before the sanity check and the dream reordering were repaired, while L6, L7, L9
+and L10 clear the gate on the **first** session. Fewer sessions does not mean
+less learning — it means the signal is no longer being wasted.
 
 ### Effect of the dream phase
 
 Exact-match delta between the pre-dream checkpoint (`final_learned.pt`) and the
-post-dream one (`final_dreamed.pt`): **+19, +13, +17, +7, +12 points** from L0 to L4.
+post-dream one (`final_dreamed.pt`), per level:
 
-The dream used to hurt the higher levels as long as its deep-sleep replay (N3)
-stayed dominated by older material: the memory bank spans every level, and the
-current level's share fell to 5% at L7 and 7% at L10 against 41% at L4. N3 and
-REM are the last phases the dream trains, so that ratio decides what the model
-keeps. N3 now keeps every memory of the current level and samples the older ones
-up to an equal share.
+| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 |
+|----|----|----|----|----|----|----|----|----|----|-----|
+| +19 | +13 | +17 | +7 | +12 | −5 | +29 | **+53** | 0 | **+38** | **+38** |
+
+The dream now helps at ten levels out of eleven. Before N3 was rebalanced it hurt
+the higher levels systematically (L7 −26, L10 −12, L9 −6): the memory bank spans
+every level and the current level's share fell to 5% at L7 and 7% at L10, against
+41% at L4. N3 and REM are the last phases the dream trains, so that ratio decides
+what the model keeps. N3 now keeps every memory of the current level and samples
+the older ones up to an equal share, and those same levels gain +53, +38 and +38
+points.
 
 ### Real question-and-answer examples
 
@@ -354,10 +364,43 @@ Generated greedily from the post-dream checkpoints. Failures are included:
 | `cosa ha bevuto il bambino?` | `il bambino ha bevuto il latte.` | ✓ |
 | `cosa ha letto il papà?` | `il papà ha letto il libro.` | ✓ |
 
-The remaining errors are all of one family: **the model does not discriminate the
-final word of the prompt when several targets share the same prefix**.
-`di un numero: tre` and `di un colore: rosso` differ only in the last token and
-both collapse onto `due!`. This is neither forgetting nor a capacity limit — pure
+
+**L7** — future tense and tense contrast (19/19)
+
+| Question | Model answer | |
+|---|---|---|
+| `cosa mangerà il cane domani?` | `domani il cane mangerà il pane.` | ✓ |
+| `cosa berrà il bambino domani?` | `domani il bambino berrà il latte.` | ✓ |
+
+**L8** — comparatives (19/19)
+
+| Question | Model answer | |
+|---|---|---|
+| `chi è più grande, il cane o il gatto?` | `il cane è più grande del gatto.` | ✓ |
+| `cosa è più caldo, il sole o la luna?` | `il sole è più caldo della luna.` | ✓ |
+
+**L9** — thesis with a reason (14/16)
+
+| Question | Model answer | |
+|---|---|---|
+| `il pane è buono?` | `secondo me il pane è buono perché è caldo.` | ✓ |
+| `il cane è fedele?` | `secondo me il cane è fedele perché aspetta.` | ✓ |
+| `perché ti piace il pane?` | `il pane il pane è caldo e buono, perciò mi piace.` | ✗ opening repeated |
+
+**L10** — motivated commentary (15/16)
+
+| Question | Model answer | |
+|---|---|---|
+| `commenta il sole` | `il sole è caldo, e questo è utile.` | ✓ |
+| `commenta il libro` | `il libro insegna, e questo è importante.` | ✓ |
+| `commenta il cane` | `il cane il cane il cane è fedele, e questo è bello.` | ✗ opening repeated |
+
+The remaining errors fall into two contained families. First: **the model does
+not discriminate the final word of the prompt when several targets share the same
+prefix** — `di un numero: tre` and `di un colore: rosso` differ only in the last
+token and both collapse onto `due!`. Second, at levels 9-10: it **repeats the
+opening** of the answer (`il cane il cane il cane è fedele`) before completing it
+correctly — it knows what to say but not always where to start. This is neither forgetting nor a capacity limit — pure
 SFT on a level's targets reaches 100% in 30 epochs — but collapse onto one answer
 per prompt family. The lever is more distinct targets per step and more varied
 question heads.

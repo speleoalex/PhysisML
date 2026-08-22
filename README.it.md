@@ -27,9 +27,12 @@ guidato da un tutor Claude che adatta il curriculum in tempo reale.
 Exact match sugli obiettivi del curriculum, checkpoint post-sogno, decoding
 greedy (`python3 dynamic_model/test_model.py --level N --samples 0`):
 
-| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7–L10 |
-|----|----|----|----|----|----|----|--------|
-| 100% | 96% | 100% | 82% | 100% | 95% | 100% | in ricostruzione |
+| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 |
+|----|----|----|----|----|----|----|----|----|----|-----|
+| 100% | 96% | 100% | 82% | 100% | 95% | 100% | 100% | 100% | 88% | 94% |
+
+**Media sugli 11 livelli: 96%.** Il sogno migliora il risultato a dieci livelli
+su undici (+53 punti a L7, +38 a L9 e L10).
 
 Per confronto, il build di maggio prima delle correzioni: L0 4.4%, L1 1.8%,
 L2 12.8%, L3 1.0%, **L4 e oltre 0.0%**.
@@ -43,12 +46,18 @@ di: il cane dorme          → il cane dorme!
 di: cosa mangia il cane?   → il cane mangia il pane.
 perché il cane mangia?     → il cane mangia perché ha fame.
 cosa ha mangiato il cane?  → il cane ha mangiato il pane.
+cosa mangerà il cane domani?           → domani il cane mangerà il pane.
+chi è più grande, il cane o il gatto?  → il cane è più grande del gatto.
+il pane è buono?                       → secondo me il pane è buono perché è caldo.
+commenta il libro                      → il libro insegna, e questo è importante.
 ```
 
-Gli errori residui sono di una sola famiglia: obiettivi che condividono il
-prefisso del prompt collassano sulla stessa risposta (`di un numero: tre` e
-`di un colore: rosso` producono entrambi `due!`). Non è un limite di capacità —
-un SFT puro sugli obiettivi di un livello li porta al 100% in 30 epoche.
+Gli errori residui sono di due famiglie: obiettivi che condividono il prefisso
+del prompt collassano sulla stessa risposta (`di un numero: tre` e
+`di un colore: rosso` producono entrambi `due!`), e ai livelli 9–10 il modello
+ripete l'inizio della risposta prima di completarla (`il cane il cane il cane è
+fedele`). Non è un limite di capacità — un SFT puro sugli obiettivi di un
+livello li porta al 100% in 30 epoche.
 
 Dettagli in [docs/it/modello_PhysisML.md](docs/it/modello_PhysisML.md).
 

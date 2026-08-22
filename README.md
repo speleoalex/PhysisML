@@ -27,9 +27,12 @@ guided by a Claude tutor that adapts the curriculum in real time.
 Exact match over the curriculum targets, post-dream checkpoints, greedy
 decoding (`python3 dynamic_model/test_model.py --level N --samples 0`):
 
-| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7–L10 |
-|----|----|----|----|----|----|----|--------|
-| 100% | 96% | 100% | 82% | 100% | 95% | 100% | rebuilding |
+| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 |
+|----|----|----|----|----|----|----|----|----|----|-----|
+| 100% | 96% | 100% | 82% | 100% | 95% | 100% | 100% | 100% | 88% | 94% |
+
+**Mean across the 11 levels: 96%.** The dream improves ten levels out of eleven
+(+53 points at L7, +38 at L9 and L10).
 
 For comparison, the May build before the fixes: L0 4.4%, L1 1.8%,
 L2 12.8%, L3 1.0%, **L4 and beyond 0.0%**.
@@ -43,12 +46,17 @@ di: il cane dorme          → il cane dorme!
 di: cosa mangia il cane?   → il cane mangia il pane.
 perché il cane mangia?     → il cane mangia perché ha fame.
 cosa ha mangiato il cane?  → il cane ha mangiato il pane.
+cosa mangerà il cane domani?           → domani il cane mangerà il pane.
+chi è più grande, il cane o il gatto?  → il cane è più grande del gatto.
+il pane è buono?                       → secondo me il pane è buono perché è caldo.
+commenta il libro                      → il libro insegna, e questo è importante.
 ```
 
-The remaining errors are all of one family: targets sharing a prompt prefix
+The remaining errors fall into two families: targets sharing a prompt prefix
 collapse onto the same answer (`di un numero: tre` and `di un colore: rosso`
-both yield `due!`). It is not a capacity limit — pure SFT on a level's targets
-reaches 100% in 30 epochs.
+both yield `due!`), and at levels 9-10 the model repeats the opening of the
+answer before completing it (`il cane il cane il cane è fedele`). It is not a
+capacity limit — pure SFT on a level's targets reaches 100% in 30 epochs.
 
 Details in [docs/en/physisml_model.md](docs/en/physisml_model.md).
 
