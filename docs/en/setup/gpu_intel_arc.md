@@ -10,6 +10,31 @@ System: KDE Neon 24.04 (Ubuntu-based), kernel 6.17.x
 
 ---
 
+## Check this first: which torch actually gets imported
+
+**Measured 23 August 2026:** `build.sh` reports `Device: cpu (conda
+physisml_gpu)` — the conda env's python imports torch from
+`~/.local/lib/python3.12/site-packages`, version `2.12.1+cu130` (a CUDA build),
+whose `torch.xpu.is_available()` is False. The whole L0->L10 curriculum was
+trained on CPU.
+
+The cause is that `~/.local/lib/python3.12/site-packages` is on `sys.path` for
+any python 3.12, conda envs included, and it **wins** over the env's own
+packages. A `pip install torch` run without the env active therefore shadows
+the XPU installation silently.
+
+Check:
+
+```bash
+$HOME/miniforge3/envs/physisml_gpu/bin/python -c \
+  "import torch; print(torch.__file__, torch.__version__, torch.xpu.is_available())"
+```
+
+If the printed path contains `.local`, the env is not the one running. Fix with
+`PYTHONNOUSERSITE=1`, or by removing the torch in `~/.local`.
+
+---
+
 ## Installation status (2026-04-14)
 
 | Component | Version | Status |
