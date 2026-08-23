@@ -758,23 +758,55 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     # gold pairs among the new ones is the standard remedy.
     GOLD_REHEARSAL_EVERY = 5    # replay gold pairs every N teaching turns
     GOLD_REHEARSAL_K     = 4    # pairs replayed each time
-    gold_bank = {}              # prompt -> expected, everything taught so far
-    _qa_seed = os.path.join("training_files", args.lang, str(level), "qa_pairs.jsonl")
-    if os.path.exists(_qa_seed):
-        with open(_qa_seed, encoding="utf-8") as _f:
-            for _line in _f:
-                _line = _line.strip()
-                if not _line:
+
+    # Which levels the rehearsal bank draws on.
+    #   'level'    — only this level's pairs (the validated build's behaviour)
+    #   'all'      — the union of every level up to this one
+    #   'balanced' — the union, but half of each replay reserved for this level
+    # Why it is a question at all: the retention matrix shows the final L10
+    # checkpoint at 20% across all levels against a 96% diagonal, and extra
+    # dream cycles recover only half of that gap (to 48%, saturating). The
+    # dream replays the corpus and the memory bank of every level, but this
+    # rehearsal — the channel that actually built the prompt->answer
+    # associations — has only ever seen the current level.
+    _reh_scope = getattr(args, 'rehearsal_scope', 'level') or 'level'
+    _reh_levels = [level] if _reh_scope == 'level' else list(range(level + 1))
+
+    def _load_gold(lvl: int) -> dict:
+        out = {}
+        path = os.path.join("training_files", args.lang, str(lvl),
+                            "qa_pairs.jsonl")
+        if not os.path.exists(path):
+            return out
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
                     continue
                 try:
-                    _pair = json.loads(_line)
+                    pair = json.loads(line)
                 except json.JSONDecodeError:
                     continue
-                _p = (_pair.get("prompt") or "").strip()
-                _r = (_pair.get("response") or "").strip()
-                if _p and _r:
-                    gold_bank[_p] = _r
-    print(f"  Gold bank per rehearsal: {len(gold_bank)} coppie")
+                p = (pair.get("prompt") or "").strip()
+                r = (pair.get("response") or "").strip()
+                if p and r:
+                    out[p] = r
+        return out
+
+    gold_own   = _load_gold(level)
+    gold_prev  = {}
+    for _lvl in _reh_levels:
+        if _lvl == level:
+            continue
+        for _p, _r in _load_gold(_lvl).items():
+            # A prompt taught at two levels keeps the current level's answer:
+            # the later gold is the one being drilled now.
+            if _p not in gold_own:
+                gold_prev[_p] = _r
+    gold_bank = {**gold_prev, **gold_own}   # prompt -> expected
+    print(f"  Gold bank per rehearsal: {len(gold_bank)} coppie "
+          f"(scope={_reh_scope}: {len(gold_own)} livello {level}"
+          f"{', %d precedenti' % len(gold_prev) if gold_prev else ''})")
 
     def gold_rehearsal_step(exclude_prompt: str = "") -> int:
         """Replay K random gold pairs already taught. Returns how many ran.
@@ -783,15 +815,31 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
         rehearsal never primes the answer to the question about to be asked
         (the leak that made the in-session metric dishonest).
         """
-        pool = [(p, r) for p, r in gold_bank.items() if p != exclude_prompt]
-        if not pool:
-            return 0
         _eos_s = tok.EOS_TOKEN if hasattr(tok, 'EOS_TOKEN') else ""
         _eos_ok = (_eos_s and hasattr(tok, 'get_special_id')
                    and tok.get_special_id(_eos_s) is not None)
-        for p, r in random.sample(pool, min(GOLD_REHEARSAL_K, len(pool))):
+
+        if _reh_scope == 'balanced' and gold_prev:
+            # Half the replay reserved for the current level, half for the
+            # earlier ones. A plain union starves the current level as the
+            # curriculum grows (at L10 its share would be under a tenth), and
+            # the same dilution is what made N3 replay stop helping the level
+            # being taught.
+            half     = max(1, GOLD_REHEARSAL_K // 2)
+            own_pool = [(p, r) for p, r in gold_own.items() if p != exclude_prompt]
+            prv_pool = [(p, r) for p, r in gold_prev.items() if p != exclude_prompt]
+            picks    = (random.sample(own_pool, min(half, len(own_pool)))
+                        + random.sample(prv_pool,
+                                        min(GOLD_REHEARSAL_K - half, len(prv_pool))))
+        else:
+            pool  = [(p, r) for p, r in gold_bank.items() if p != exclude_prompt]
+            picks = random.sample(pool, min(GOLD_REHEARSAL_K, len(pool)))
+
+        if not picks:
+            return 0
+        for p, r in picks:
             trainer.step(p, r + _eos_s if _eos_ok else r, feedback=0.6)
-        return min(GOLD_REHEARSAL_K, len(pool))
+        return len(picks)
 
     REHEARSAL_EVERY = 10   # inject 1 text batch every N teaching turns
     REHEARSAL_BLOCK = 128
@@ -2108,6 +2156,13 @@ def main():
                         help="Override checkpoint base directory "
                              "(default: models/checkpoints/{lang}). "
                              "Useful for parallel experiments.")
+    parser.add_argument("--rehearsal-scope", default="level",
+                        choices=["level", "all", "balanced"],
+                        help="Levels the interleaved gold rehearsal draws on: "
+                             "the current one (default, the validated build), "
+                             "the union of all levels so far, or the union with "
+                             "half of each replay reserved for the current "
+                             "level")
     parser.add_argument("--retry-prefix", default=None,
                         help="Override the teacher's retry_prefix. The config "
                              "value at L0-L3 doubles the text ('{prompt} "
