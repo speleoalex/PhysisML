@@ -43,6 +43,16 @@ MAX_TEACH_TURNS=200   # per-session hard cap on teaching turns
 MAX_SESSIONS=4        # max sessions for fixed-session levels (L0-L1)
 MAX_SESSIONS_DYNAMIC=12  # safety cap for dynamic-session levels
 RETRAIN_EPOCHS=2      # text retrain epochs between sessions (short re-anchor)
+
+# Minimum dream cycles per level, topped up after the level clears its gate.
+# Sessions are driven by the quality gate, which measures the CURRENT level, so
+# an easy level runs one session and gets one dream. But retention of EARLIER
+# levels tracks the number of dreams, and the two are unrelated: measured on
+# the finished L10 checkpoint, exact match across all levels goes 20% (1 dream)
+# -> 43% (6) -> 48% (10), saturating there. 6 is the knee of that curve; the
+# cost is ~30 min per extra dream and no API calls, since nothing is taught.
+# Set to 0 to restore the old behaviour (one dream per session, nothing more).
+MIN_DREAMS=${MIN_DREAMS:-6}
 BETWEEN_SESSIONS="dream-only"  # what happens between sessions:
                                #   dream-only  : only dream, no retrain (recommended by experiment)
                                #   standard    : dream + retrain (classic, but retrain hurts)
@@ -236,6 +246,7 @@ for LEVEL in $(seq $START_LEVEL $TARGET_LEVEL); do
   SESSION_RATES=()      # positive rates per session (for plateau/regression detection)
   BEST_SESSION_RATE=0   # best rate seen so far at this level
   BEST_SESSION=0        # session number with best rate
+  DREAMS_DONE=0         # dreams run at this level (topped up to MIN_DREAMS below)
   while true; do
     SESSION=$((SESSION + 1))
     echo ""
@@ -297,6 +308,7 @@ for LEVEL in $(seq $START_LEVEL $TARGET_LEVEL); do
       echo "Error in phase 2, level $LEVEL. Aborting."
       exit 1
     fi
+    DREAMS_DONE=$((DREAMS_DONE + 1))
 
     # ── Quality check ────────────────────────────────────────────────
     LAST_POS=$(python3 -c "
@@ -490,8 +502,52 @@ print(1 if recent_peak <= prior_peak + min_delta else 0)
     esac
   done
 
-  # Update active.pt — prefer dreamed checkpoint if available
+  # ── Dream top-up ──────────────────────────────────────────────────────────
+  # Retention is a function of consolidation cycles, not of when the quality
+  # gate happens to pass. Measured on the finished L10 checkpoint, extra dreams
+  # move exact match across ALL levels from 20% to 43% at six and 48% at ten,
+  # saturating there: +3.6 points per dream from 1 to 6, +1.0 from 7 to 12, and
+  # that second slope is under the 2.2-point noise between identical runs.
+  #
+  # Without this, a level that clears the gate on its first session gets one
+  # dream and keeps ~20% of the earlier levels. In the reference build the only
+  # level that retained them was L4 — the one that struggled and therefore ran
+  # ten sessions, hence ten dreams. That was luck, not design.
+  #
+  # No new teaching happens here: the dream only reconsolidates what the
+  # session logs already hold, and it costs the current level nothing (L10 went
+  # 94% -> 100% while the earlier levels recovered).
   DREAMED="models/checkpoints/$LANG/level_${LEVEL}/final_dreamed.pt"
+  if [ "$MIN_DREAMS" -gt 0 ] && [ "$DREAMS_DONE" -lt "$MIN_DREAMS" ] \
+     && [ ! -f GATE_FAILED ] && [ -f "$DREAMED" ]; then
+    TOPUP=$((MIN_DREAMS - DREAMS_DONE))
+    echo ""
+    echo "  ── Dream top-up: $DREAMS_DONE done, $TOPUP more to reach $MIN_DREAMS ──"
+    for i in $(seq 1 "$TOPUP"); do
+      echo ""
+      echo "  [phase 2] Top-up dream $i/$TOPUP (standard)..."
+      # --checkpoint is REQUIRED here: without it phase 2 falls back to
+      # final_learned.pt (pre-dream), which would repeat the first dream
+      # instead of accumulating on the previous one's output.
+      $PYTHON -u dynamic_model/train_curriculum.py \
+        --phase      2 \
+        --level      "$LEVEL" \
+        --lang       "$LANG" \
+        --dream-mode standard \
+        --checkpoint "$DREAMED"
+      if [ $? -ne 0 ]; then
+        # A failed top-up is not fatal: the level already passed its gate, and
+        # the checkpoint on disk is the last dream that did succeed.
+        echo "  ⚠ Top-up dream $i failed — keeping the $((DREAMS_DONE + i - 1)) dreams already done."
+        break
+      fi
+      DREAMS_DONE=$((DREAMS_DONE + 1))
+    done
+    echo ""
+    echo "  ✓ Level $LEVEL consolidated with $DREAMS_DONE dreams."
+  fi
+
+  # Update active.pt — prefer dreamed checkpoint if available
   LEARNED="models/checkpoints/$LANG/level_${LEVEL}/final_learned.pt"
   if [ -f "$DREAMED" ]; then
     ./set_model.sh "$DREAMED" > /dev/null 2>&1

@@ -149,6 +149,7 @@ Each level starts from the previous level's `final_learned.pt`.
 | Command | Purpose |
 |---------|---------|
 | `./build.sh N [model] [auto] [--resume]` | Auto-train levels 0→N |
+| `MIN_DREAMS=6 ./build.sh N` | Same, with a minimum of N dream cycles per level (default 6, `0` disables) |
 | `./teach.sh [turns\|auto] [model] [lang] [level]` | Claude teaching session |
 | `./set_model.sh <checkpoint>` | Set the active model (`models/active.pt`) |
 | `./reset.sh [--dry-run]` | Backup + reset the model |
