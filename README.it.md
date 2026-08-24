@@ -82,9 +82,12 @@ solo flag di distanza su L0→L3 (`./scripts/experiment_rehearsal.sh --confirm`)
 default. `all` perde perché diluisce: a L3 l'unione è 535 coppie contro 188 del
 livello stesso, e il livello più penalizzato è L0, il più vecchio e piccolo.
 
-I due interventi compongono: la riga L3 passa da `48/54/78/82` nel build di
-riferimento a `62/58/78/93` col solo rabbocco dei sogni, a `71/79/89/100` con
-entrambi. Un seed e L0→L3 — dettagli e cautele in
+**Il risultato non è ancora dimostrato.** Rieseguendo il solo braccio di
+controllo con un secondo seed, la riga finale passa da 74% a 89%: uno swing di
++15 punti a flag invariato, più grande del +12 attribuito al trattamento. Il
+confronto è appaiato (i bracci condividono il seed), quindi conta il segno della
+differenza dentro ogni seed, ma una coppia sola non ne limita l'ampiezza.
+Dettagli e cautele in
 [docs/it/modello_PhysisML.md](docs/it/modello_PhysisML.md#6-risultati-sperimentali).
 
 Esempi reali (greedy, checkpoint post-sogno):

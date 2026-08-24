@@ -387,10 +387,34 @@ replay stop helping the level being taught.
 The reference build's L3 row was `48/54/78/82`. The dream top-up alone takes the
 control arm to `62/58/78/93`, and `balanced` takes it to `71/79/89/100`.
 
-**Caveat:** one seed, and L0→L3. The +12 is well clear of the 2.2-point noise
-and every-cell dominance is a stronger signal than the aggregate, but
-confirmation on a second seed and the full L0→L10 matrix under the new default
-are still to come.
+#### Caveat: between-seed variance exceeds the effect
+
+The first run used a single seed. Re-running the **control arm alone** with seed
+2 moves the final row from 74% to **89%** — a +15 point swing with the flag
+unchanged, larger than the +12 attributed to the treatment. Per cell:
+
+```
+final row (ckpt L3), arm `level`     seed 1   seed 2
+target L0                              62%      57%
+target L1                              58%      96%
+target L2                              78%     100%
+target L3                              93%     100%
+```
+
+The 2.2-point noise quoted above measures something else: the reproducibility of
+the **same** dream re-run, not the variance between seeds. Those are two
+different quantities, and conflating them made the +12 look more convincing than
+it was.
+
+The comparison is still **paired** — both arms share the seed — so between-seed
+variance does not by itself inflate the effect estimate; what matters is the
+sign of the within-seed difference. But one pair cannot bound the magnitude, and
+the seed-2 control on its own reaches values (L1 96%, L2 100%) that only
+`balanced` reached at seed 1: the margin may be far smaller than 12 points, or
+zero.
+
+The seed-2 `balanced` arm is still running. Until that lands, `balanced` as the
+default is an **unproven choice**, not a result.
 
 ### Real question-and-answer examples
 

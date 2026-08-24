@@ -84,9 +84,11 @@ default. `all` loses because it dilutes: at L3 the union is 535 pairs against
 188 for the level itself, and the level hurt most is L0, the oldest and
 smallest.
 
-The two interventions compose: the L3 row goes from `48/54/78/82` in the
-reference build to `62/58/78/93` with the dream top-up alone, and to
-`71/79/89/100` with both. One seed and L0→L3 — details and caveats in
+**This result is not yet established.** Re-running the control arm alone with a
+second seed moves the final row from 74% to 89%: a +15 point swing with the flag
+unchanged, larger than the +12 attributed to the treatment. The comparison is
+paired (both arms share the seed), so what matters is the sign of the within-seed
+difference, but one pair cannot bound its magnitude. Details and caveats in
 [docs/en/physisml_model.md](docs/en/physisml_model.md#6-experimental-results).
 
 Real examples (greedy, post-dream checkpoints):

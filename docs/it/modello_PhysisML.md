@@ -430,10 +430,33 @@ La riga L3 del build di riferimento era `48/54/78/82`. Il solo rabbocco dei
 sogni porta il braccio di controllo a `62/58/78/93`, e `balanced` a
 `71/79/89/100`.
 
-**Cautela:** un seed, e L0→L3. Il +12 è ben oltre il rumore di 2.2 punti e la
-dominanza cella per cella è un segnale più forte dell'aggregato, ma la conferma
-su un secondo seed e la matrice completa L0→L10 col nuovo default restano da
-fare.
+#### Cautela: la varianza fra seed è più grande dell'effetto
+
+Il primo run era a un seed solo. Rieseguendo il **solo braccio di controllo**
+con seed 2, la riga finale passa da 74% a **89%** — uno swing di +15 punti a
+flag invariato, più grande del +12 attribuito al trattamento. Per cella:
+
+```
+riga finale (ckpt L3), braccio `level`   seed 1   seed 2
+target L0                                  62%      57%
+target L1                                  58%      96%
+target L2                                  78%     100%
+target L3                                  93%     100%
+```
+
+Il rumore di 2.2 punti citato sopra misura una cosa diversa: la riproducibilità
+dello **stesso** sogno rieseguito, non la varianza fra seed. Sono due grandezze
+distinte e averle confuse ha reso il +12 più convincente di quanto fosse.
+
+Il confronto resta **appaiato** — i due bracci condividono il seed — quindi la
+varianza fra seed non gonfia di per sé la stima dell'effetto: conta il segno
+della differenza dentro ogni seed. Ma con una coppia sola non si può limitare
+l'ampiezza, e il controllo a seed 2 raggiunge da solo valori (L1 96%, L2 100%)
+che a seed 1 solo `balanced` otteneva: il margine potrebbe essere molto minore
+di 12 punti, o nullo.
+
+Il braccio `balanced` a seed 2 è in corso. Fino a quel dato, `balanced` come
+default è una scelta **non ancora dimostrata**, non un risultato.
 
 ### Esempi reali di domanda e risposta
 
