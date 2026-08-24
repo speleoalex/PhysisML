@@ -67,10 +67,27 @@ sixth and tenth dream**: +3.6 points per dream from 1 to 6, +1.0 from 7 to 12
 work.
 
 But the ceiling is **48%, not 96%**: consolidation recovers about half the gap.
-Per level, after twelve dreams, the rest is still 43 to 74 points below the
-diagonal. That second half is not recoverable by dreaming — rehearsal during
-teaching draws only on the current level's gold pairs, and changing that needs
-a rebuild.
+The second half is not recoverable by dreaming, because rehearsal during
+teaching drew only on the current level's gold pairs.
+
+Extending it to earlier levels recovers much of the rest. Three arms one flag
+apart over L0→L3 (`./scripts/experiment_rehearsal.sh --confirm`):
+
+| `--rehearsal-scope` | diagonal | final row |
+|---------------------|----------|-----------|
+| `level` (current only) | 97% | 74% |
+| `all` (plain union) | 97% | 79% |
+| **`balanced`** (union, half to current) | **98%** | **86%** |
+
+`balanced` is best or tied in every cell and its diagonal is no worse; it is the
+default. `all` loses because it dilutes: at L3 the union is 535 pairs against
+188 for the level itself, and the level hurt most is L0, the oldest and
+smallest.
+
+The two interventions compose: the L3 row goes from `48/54/78/82` in the
+reference build to `62/58/78/93` with the dream top-up alone, and to
+`71/79/89/100` with both. One seed and L0→L3 — details and caveats in
+[docs/en/physisml_model.md](docs/en/physisml_model.md#6-experimental-results).
 
 Real examples (greedy, post-dream checkpoints):
 

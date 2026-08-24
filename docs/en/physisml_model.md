@@ -300,6 +300,98 @@ what the model keeps. N3 now keeps every memory of the current level and samples
 the older ones up to an equal share, and those same levels gain +53, +38 and +38
 points.
 
+### Retention: the diagonal is not the capability
+
+The numbers above are the **diagonal** of a matrix: each level scored on its own
+checkpoint. They answer "did the level train?", not "does the model still know
+it?". Those are two questions with very different answers.
+
+`scripts/retention_matrix.py` scores every checkpoint against every level. On
+the reference build:
+
+```
+        target →
+ckpt ↓    L0    L1    L2    L3    L4    L5    L6    L7    L8    L9   L10
+L0      100%
+L1       10%   96%
+L2       14%   50%  100%
+L3       48%   54%   78%   82%
+L4      100%   83%  100%   71%  100%          <- the only row that retains
+L5      100%   42%   22%   18%   16%   95%
+L10     100%   21%    0%   11%    4%    0%    0%    0%    0%    0%   94%
+```
+
+Diagonal 96%, **final row 20%**. The L10 checkpoint can do L10 and L0; the rest
+is buried. The diagonal is always 82-100%, so the problem is not learning, it
+is retention.
+
+The one row that retains is L4, and L4 is the only level that needed ten
+teaching sessions. Every session ends in a dream, and the dream's N1 replays
+*every* level's `qa_corpus`. The other levels ran one to three. This was not a
+property of the architecture; it was luck.
+
+#### Intervention 1 — consolidation cycles (`MIN_DREAMS`)
+
+Extra dreams on the finished L10 checkpoint, with no new teaching at all
+(`./scripts/experiment_extra_dreams.sh --confirm`):
+
+| dreams | 0 | 2 | 4 | 6 | 8 | 10 | 12 |
+|--------|---|---|---|---|---|----|----|
+| exact across all levels | 20% | 27% | 36% | 43% | 44% | 48% | **48%** |
+| answers with repetition | 37% | 25% | 19% | 17% | 18% | 15% | **18%** |
+
++3.6 points per dream from 1 to 6, +1.0 from 7 to 12 — that second slope is
+below the noise measured between two identical runs (2.2 points), so it
+saturates between the sixth and the tenth. `build.sh` now tops every level up
+to `MIN_DREAMS=6` regardless of when the gate passes.
+
+But the ceiling is **48%, not 96%**: consolidation recovers half the gap.
+
+#### Intervention 2 — rehearsal scope (`--rehearsal-scope`)
+
+The second half is not recoverable by dreaming. The dream replays the corpus
+(N1) and the memory bank (N3) of every level, but the **interleaved rehearsal**
+— the channel that actually built the prompt→answer associations — loaded only
+the current level's `qa_pairs.jsonl`.
+
+Three arms one flag apart, L0→L3, same seed, same session and dream budget
+(`./scripts/experiment_rehearsal.sh --confirm`):
+
+| arm | bank | diagonal | final row | retention loss |
+|-----|------|----------|-----------|----------------|
+| `level` | current level only | 97% | 74% | 24% |
+| `all` | plain union | 97% | 79% | 19% |
+| **`balanced`** | union, half to current | **98%** | **86%** | **13%** |
+
+```
+final row (ckpt L3)      level  balanced   all
+target L0                 62%      71%     48%
+target L1                 58%      79%     75%
+target L2                 78%      89%     89%
+target L3                 93%     100%    100%
+```
+
+`balanced` is best or tied in **every cell**, and its diagonal is no worse — so
+this is not the trade between the two metrics that the N3 rebalance fell into.
+
+`all` losing to `balanced` is the **dilution**: at L3 the union is 535 pairs
+against 188 for the level itself, and the current level's share would keep
+falling. `all` is indeed the worst of the three on L0, the oldest and smallest
+level, the one a plain union starves first. It is the same dynamic that made N3
+replay stop helping the level being taught.
+
+`balanced` has been the default since 24 August 2026.
+
+#### The two interventions compose
+
+The reference build's L3 row was `48/54/78/82`. The dream top-up alone takes the
+control arm to `62/58/78/93`, and `balanced` takes it to `71/79/89/100`.
+
+**Caveat:** one seed, and L0→L3. The +12 is well clear of the 2.2-point noise
+and every-cell dominance is a stronger signal than the aggregate, but
+confirmation on a second seed and the full L0→L10 matrix under the new default
+are still to come.
+
 ### Real question-and-answer examples
 
 Generated greedily from the post-dream checkpoints. Failures are included:

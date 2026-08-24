@@ -342,6 +342,99 @@ addestra, quindi quella proporzione decide cosa il modello conserva. Ora N3
 mantiene tutte le memorie del livello corrente e campiona le vecchie fino a pari
 numero, e gli stessi livelli guadagnano +53, +38 e +38 punti.
 
+### Ritenzione: la diagonale non è la capacità
+
+I numeri sopra sono la **diagonale** di una matrice: ogni livello valutato sul
+proprio checkpoint. Rispondono a "il livello si è addestrato?", non a "il
+modello sa ancora farlo?". Sono due domande con risposte molto diverse.
+
+`scripts/retention_matrix.py` valuta ogni checkpoint su ogni livello. Sul build
+di riferimento:
+
+```
+        target →
+ckpt ↓    L0    L1    L2    L3    L4    L5    L6    L7    L8    L9   L10
+L0      100%
+L1       10%   96%
+L2       14%   50%  100%
+L3       48%   54%   78%   82%
+L4      100%   83%  100%   71%  100%          ← l'unica riga che ritiene
+L5      100%   42%   22%   18%   16%   95%
+L10     100%   21%    0%   11%    4%    0%    0%    0%    0%    0%   94%
+```
+
+Diagonale 96%, **riga finale 20%**. Il checkpoint L10 sa fare L10 e L0, il
+resto è sepolto. La diagonale è sempre 82–100%: il problema non è
+l'apprendimento, è la ritenzione.
+
+L'unica riga che ritiene è L4, e L4 è l'unico livello che ha richiesto dieci
+sessioni di insegnamento. Ogni sessione finisce con un sogno, e N1 nel sogno
+rigioca il `qa_corpus` di *tutti* i livelli. Gli altri livelli ne hanno avute da
+una a tre. Non era una proprietà dell'architettura: era un caso.
+
+#### Intervento 1 — cicli di consolidamento (`MIN_DREAMS`)
+
+Sogni aggiuntivi sul checkpoint L10 finito, senza alcun insegnamento nuovo
+(`./scripts/experiment_extra_dreams.sh --confirm`):
+
+| sogni | 0 | 2 | 4 | 6 | 8 | 10 | 12 |
+|-------|---|---|---|---|---|----|----|
+| exact su tutti i livelli | 20% | 27% | 36% | 43% | 44% | 48% | **48%** |
+| risposte con ripetizione | 37% | 25% | 19% | 17% | 18% | 15% | **18%** |
+
++3.6 punti per sogno da 1 a 6, +1.0 da 7 a 12 — quest'ultima pendenza è sotto
+il rumore misurato fra due run identici (2.2 punti), quindi satura fra il sesto
+e il decimo. `build.sh` rabbocca ora ogni livello a `MIN_DREAMS=6`
+indipendentemente da quando il gate passa.
+
+Ma il tetto è **48%, non 96%**: il consolidamento recupera metà del divario.
+
+#### Intervento 2 — ambito del rehearsal (`--rehearsal-scope`)
+
+La seconda metà non si recupera sognando. Il sogno rigioca il corpus (N1) e il
+memory bank (N3) di tutti i livelli, ma il **rehearsal interleaved** — il canale
+che ha davvero costruito le associazioni prompt→risposta — caricava solo
+`qa_pairs.jsonl` del livello corrente.
+
+Tre bracci a un solo flag di distanza, L0→L3, stesso seed, stesso budget di
+sessioni e sogni (`./scripts/experiment_rehearsal.sh --confirm`):
+
+| braccio | bank | diagonale | riga finale | perdita di ritenzione |
+|---------|------|-----------|-------------|------------------------|
+| `level` | solo livello corrente | 97% | 74% | 24% |
+| `all` | unione semplice | 97% | 79% | 19% |
+| **`balanced`** | unione, metà al corrente | **98%** | **86%** | **13%** |
+
+```
+riga finale (ckpt L3)    level  balanced   all
+target L0                 62%      71%     48%
+target L1                 58%      79%     75%
+target L2                 78%      89%     89%
+target L3                 93%     100%    100%
+```
+
+`balanced` è migliore o pari **in ogni cella**, e la diagonale non peggiora —
+non è il baratto fra le due metriche in cui era caduto il riequilibrio di N3.
+
+`all` che perde contro `balanced` è la **diluizione**: a L3 l'unione è 535
+coppie contro 188 del livello stesso, e la quota del corrente continuerebbe a
+scendere. `all` è infatti il peggiore dei tre su L0, il livello più vecchio e
+più piccolo, quello che un'unione semplice affama per primo. È la stessa
+dinamica che aveva reso inutile il replay N3 per il livello in corso.
+
+`balanced` è il default dal 24 agosto 2026.
+
+#### I due interventi compongono
+
+La riga L3 del build di riferimento era `48/54/78/82`. Il solo rabbocco dei
+sogni porta il braccio di controllo a `62/58/78/93`, e `balanced` a
+`71/79/89/100`.
+
+**Cautela:** un seed, e L0→L3. Il +12 è ben oltre il rumore di 2.2 punti e la
+dominanza cella per cella è un segnale più forte dell'aggregato, ma la conferma
+su un secondo seed e la matrice completa L0→L10 col nuovo default restano da
+fare.
+
 ### Esempi reali di domanda e risposta
 
 Generati in greedy dai checkpoint post-sogno. Sono riportati anche gli errori:

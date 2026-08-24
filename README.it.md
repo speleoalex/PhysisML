@@ -66,10 +66,26 @@ pendenza è sotto il rumore misurato fra due run identici (2.2 punti), quindi
 indistinguibile da zero. I primi sei sogni fanno il lavoro.
 
 Ma il tetto è **48%, non 96%**: il consolidamento recupera circa metà del
-divario. Per livello, dopo dodici sogni, il resto è ancora fra −43 e −74 punti
-sotto la diagonale. La seconda metà non si recupera sognando — il rehearsal
-durante l'insegnamento pesca solo dalle coppie gold del livello corrente, e
-quello richiede un rebuild per essere cambiato.
+divario. La seconda metà non si recupera sognando, perché il rehearsal durante
+l'insegnamento pescava solo dalle coppie gold del livello corrente.
+
+Estenderlo ai livelli precedenti recupera buona parte del resto. Tre bracci a un
+solo flag di distanza su L0→L3 (`./scripts/experiment_rehearsal.sh --confirm`):
+
+| `--rehearsal-scope` | diagonale | riga finale |
+|---------------------|-----------|-------------|
+| `level` (solo il corrente) | 97% | 74% |
+| `all` (unione semplice) | 97% | 79% |
+| **`balanced`** (unione, metà al corrente) | **98%** | **86%** |
+
+`balanced` è migliore o pari in ogni cella e la diagonale non peggiora; è il
+default. `all` perde perché diluisce: a L3 l'unione è 535 coppie contro 188 del
+livello stesso, e il livello più penalizzato è L0, il più vecchio e piccolo.
+
+I due interventi compongono: la riga L3 passa da `48/54/78/82` nel build di
+riferimento a `62/58/78/93` col solo rabbocco dei sogni, a `71/79/89/100` con
+entrambi. Un seed e L0→L3 — dettagli e cautele in
+[docs/it/modello_PhysisML.md](docs/it/modello_PhysisML.md#6-risultati-sperimentali).
 
 Esempi reali (greedy, checkpoint post-sogno):
 
