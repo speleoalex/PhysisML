@@ -94,8 +94,13 @@ restore_inputs() {
 for ARM in $ARMS; do
     BASE="$EXP/${ARM}_s${SEED}"
     LOG="$EXP/${ARM}_s${SEED}.log"
-    if [ "$SKIP_DONE" = "1" ] && \
-       [ -f "$BASE/level_${TARGET_LEVEL}/final_dreamed.pt" ]; then
+    # Completion sentinel, written only after the arm's last dream. The
+    # obvious test — level_<target>/final_dreamed.pt exists — is wrong: that
+    # file appears as soon as the target level's FIRST dream runs, so an arm
+    # interrupted midway through its last level looks finished and gets
+    # skipped, and the retention matrix then measures a half-trained arm
+    # without saying so.
+    if [ "$SKIP_DONE" = "1" ] && [ -f "$BASE/.arm_complete" ]; then
         echo "  [skip] $ARM already complete"
         continue
     fi
@@ -155,6 +160,7 @@ for ARM in $ARMS; do
       done
       echo ""; echo "=== arm $ARM complete ==="
     } 2>&1 | tee "$LOG"
+    date -Is > "$BASE/.arm_complete"
 
     echo ""
     echo "  --- retention matrix, arm $ARM ---"
