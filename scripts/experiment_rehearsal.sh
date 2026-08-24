@@ -79,7 +79,24 @@ fi
 echo "$$" > "$LOCK/pid"
 trap 'rm -rf "$LOCK"' EXIT INT TERM
 
+# Pre-flight: qa_corpus.txt is derived from qa_pairs.jsonl and both are
+# committed. Starting an eight-hour run on a corpus that does not match its
+# source means the arms train on something no one can reproduce, and the drift
+# is invisible until someone thinks to look.
+if ! $PY scripts/generate_qa_corpus.py --check --lang "$LNG" \
+        --levels $(seq 0 "$TARGET_LEVEL") > /dev/null 2>&1; then
+    echo ""
+    echo "  ERROR: a qa_corpus.txt does not match its qa_pairs.jsonl."
+    $PY scripts/generate_qa_corpus.py --check --lang "$LNG" \
+        --levels $(seq 0 "$TARGET_LEVEL") 2>&1 | sed 's/^/    /'
+    exit 1
+fi
+echo "  Corpora in step with their qa_pairs.jsonl"
+
 # Snapshot the shared input once; restore it before every arm.
+# NOTE: the snapshot pins the corpus for the whole run. A snapshot left over
+# from before a corpus change will silently restore the OLD data — rename or
+# remove it rather than reusing an old EXP directory across such a change.
 SNAP="$EXP/training_files_snapshot"
 if [ ! -d "$SNAP/$LNG" ]; then
     mkdir -p "$SNAP"
