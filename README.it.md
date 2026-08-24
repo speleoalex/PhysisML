@@ -179,6 +179,7 @@ Ogni livello parte dal `final_learned.pt` del livello precedente.
 | `python3 dynamic_model/run.py` | Sessione interattiva |
 | `python3 scripts/download_wikipedia.py --level N` | Scarica articoli Wikipedia per il training |
 | `python3 scripts/generate_qa_corpus.py --levels 0 1 2` | Genera corpus dialogico dalle coppie QA |
+| `python3 scripts/generate_qa_corpus.py --check --levels 0 1 2` | Verifica che ogni `qa_corpus.txt` corrisponda al suo `qa_pairs.jsonl` (esce 1 se stantio) |
 | `python3 scripts/export_gguf.py` | Esporta un checkpoint in GGUF (llama.cpp / ollama) |
 
 Flag principali di `train_curriculum.py`: `--phase 0|1`, `--level N`, `--lang it|en`,
@@ -234,6 +235,14 @@ Per ogni livello ci sono due checkpoint: `final.pt` (solo training testuale) e
 | en | 3 | Alice in Wonderland + Oliver Twist |
 | en | 4 | Jane Eyre + Pride & Prejudice |
 | en | 5 | Moby Dick |
+
+**Riproducibilità del corpus.** `qa_pairs.jsonl` è la fonte (coppie
+prompt→risposta estratte dalle sessioni) ed è tracciato; `qa_corpus.txt` è
+derivato — le coppie ripetute 20 volte in ordine mescolato — ed è tracciato
+anch'esso perché un clone deve poter addestrare senza passaggi intermedi. La
+generazione usa un RNG dedicato con seed fisso, quindi lo stesso
+`qa_pairs.jsonl` produce sempre lo stesso corpus su qualunque macchina.
+`--check` verifica che i due siano allineati.
 
 Ogni livello ha un `local_teacher.json` (pool chiuso di obiettivi, deterministico),
 un testo curato coerente col livello e un `qa_corpus.txt` generato dalle sessioni

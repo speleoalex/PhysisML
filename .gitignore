@@ -27,6 +27,12 @@ dynamic_model/exp_b/checkpoints/
 
 # Session logs (generated during training)
 *.jsonl
+# ...but qa_pairs.jsonl is SOURCE, not a log: qa_corpus.txt is generated from
+# it and is committed. Ignoring the source while tracking the derived file let
+# the two drift — measured 2026-08-24: L1 and L2 corpora had been generated
+# from an older pair set, so a fresh clone trained on different data than the
+# machine that produced the results, with neither version declared canonical.
+!training_files/**/qa_pairs.jsonl
 
 # Raw corpus downloads (multi-GB)
 corpus_raw/

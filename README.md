@@ -179,6 +179,7 @@ Each level starts from the previous level's `final_learned.pt`.
 | `python3 dynamic_model/run.py` | Interactive session |
 | `python3 scripts/download_wikipedia.py --level N` | Download Wikipedia articles for training |
 | `python3 scripts/generate_qa_corpus.py --levels 0 1 2` | Build dialogue corpus from QA pairs |
+| `python3 scripts/generate_qa_corpus.py --check --levels 0 1 2` | Verify each `qa_corpus.txt` matches its `qa_pairs.jsonl` (exits 1 if stale) |
 | `python3 scripts/export_gguf.py` | Export a checkpoint to GGUF (llama.cpp / ollama) |
 
 Key `train_curriculum.py` flags: `--phase 0|1`, `--level N`, `--lang it|en`,

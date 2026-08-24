@@ -1,0 +1,197 @@
+{"prompt": "di: il cane", "response": "il cane!"}
+{"prompt": "il cane il cane. di: il cane", "response": "il cane!"}
+{"prompt": "bravo! di: il cane", "response": "il cane!"}
+{"prompt": "ottimo! di: il cane", "response": "il cane!"}
+{"prompt": "benissimo! di ancora: il cane", "response": "il cane!"}
+{"prompt": "di: la casa", "response": "la casa!"}
+{"prompt": "la casa la casa. di: la casa", "response": "la casa!"}
+{"prompt": "bravo! di: la casa", "response": "la casa!"}
+{"prompt": "ottimo! di ancora: la casa", "response": "la casa!"}
+{"prompt": "di: il pane", "response": "il pane!"}
+{"prompt": "il pane il pane. di: il pane", "response": "il pane!"}
+{"prompt": "bravo! di: il pane", "response": "il pane!"}
+{"prompt": "ottimo! di: il pane", "response": "il pane!"}
+{"prompt": "di: la mamma", "response": "la mamma!"}
+{"prompt": "la mamma la mamma. di: la mamma", "response": "la mamma!"}
+{"prompt": "bravo! di: la mamma", "response": "la mamma!"}
+{"prompt": "benissimo! di: la mamma", "response": "la mamma!"}
+{"prompt": "di: il gatto", "response": "il gatto!"}
+{"prompt": "il gatto il gatto. di: il gatto", "response": "il gatto!"}
+{"prompt": "bravo! di: il gatto", "response": "il gatto!"}
+{"prompt": "di: il latte", "response": "il latte!"}
+{"prompt": "il latte il latte. di: il latte", "response": "il latte!"}
+{"prompt": "ottimo! di: il latte", "response": "il latte!"}
+{"prompt": "di: il sole", "response": "il sole!"}
+{"prompt": "il sole il sole. di: il sole", "response": "il sole!"}
+{"prompt": "di: la luna", "response": "la luna!"}
+{"prompt": "la luna la luna. di: la luna", "response": "la luna!"}
+{"prompt": "di: l acqua", "response": "l acqua!"}
+{"prompt": "di: la nonna", "response": "la nonna!"}
+{"prompt": "la nonna la nonna. di: la nonna", "response": "la nonna!"}
+{"prompt": "di: il papà", "response": "il papà!"}
+{"prompt": "il papà il papà. di: il papà", "response": "il papà!"}
+{"prompt": "di: il naso", "response": "il naso!"}
+{"prompt": "di: la mano", "response": "la mano!"}
+{"prompt": "di: l occhio", "response": "l occhio!"}
+{"prompt": "di: il piede", "response": "il piede!"}
+{"prompt": "di: mamma", "response": "mamma!"}
+{"prompt": "mamma mamma. di: mamma", "response": "mamma!"}
+{"prompt": "bravo! di: mamma", "response": "mamma!"}
+{"prompt": "di: papà", "response": "papà!"}
+{"prompt": "papà papà. di: papà", "response": "papà!"}
+{"prompt": "di: nonno", "response": "nonno!"}
+{"prompt": "di: nonna", "response": "nonna!"}
+{"prompt": "di: ciao", "response": "ciao!"}
+{"prompt": "ciao ciao. di: ciao", "response": "ciao!"}
+{"prompt": "bravo! di: ciao", "response": "ciao!"}
+{"prompt": "di: sì", "response": "sì!"}
+{"prompt": "sì sì. di: sì", "response": "sì!"}
+{"prompt": "di: no", "response": "no!"}
+{"prompt": "no no. di: no", "response": "no!"}
+{"prompt": "di: bravo", "response": "bravo!"}
+{"prompt": "bravo! di: bello", "response": "bello!"}
+{"prompt": "di: buono", "response": "buono!"}
+{"prompt": "di: physisml", "response": "physisml!"}
+{"prompt": "di: mi chiamo physisml", "response": "mi chiamo physisml!"}
+{"prompt": "ciao physisml di: mi chiamo physisml", "response": "mi chiamo physisml!"}
+
+{"prompt": "l acqua l acqua. di: l acqua", "response": "l acqua!"}
+{"prompt": "il naso il naso. di: il naso", "response": "il naso!"}
+{"prompt": "perfetto! di: il pane", "response": "il pane!"}
+{"prompt": "bene! di: il pane", "response": "il pane!"}
+{"prompt": "benissimo! di: la luna", "response": "la luna!"}
+{"prompt": "ottimo! di: il papà", "response": "il papà!"}
+{"prompt": "benissimo! di: il cane", "response": "il cane!"}
+{"prompt": "benissimo! di: il sole", "response": "il sole!"}
+{"prompt": "benissimo! di: il latte", "response": "il latte!"}
+{"prompt": "bene! di: il papà", "response": "il papà!"}
+{"prompt": "ottimo! di: la mamma", "response": "la mamma!"}
+{"prompt": "perfetto! di: la mamma", "response": "la mamma!"}
+{"prompt": "bene! di: il sole", "response": "il sole!"}
+{"prompt": "perfetto! di: la casa", "response": "la casa!"}
+{"prompt": "benissimo! di: il pane", "response": "il pane!"}
+{"prompt": "perfetto! di: la luna", "response": "la luna!"}
+{"prompt": "bravo! di: il naso", "response": "il naso!"}
+{"prompt": "ottimo! di: la luna", "response": "la luna!"}
+{"prompt": "bravo! di: il sole", "response": "il sole!"}
+{"prompt": "perfetto! di: il cane", "response": "il cane!"}
+{"prompt": "bravo! di: il papà", "response": "il papà!"}
+{"prompt": "bene! di: il cane", "response": "il cane!"}
+{"prompt": "perfetto! di: il papà", "response": "il papà!"}
+{"prompt": "bene! di: il latte", "response": "il latte!"}
+{"prompt": "perfetto! di: il sole", "response": "il sole!"}
+{"prompt": "bravo! di: la nonna", "response": "la nonna!"}
+{"prompt": "perfetto! di: il latte", "response": "il latte!"}
+{"prompt": "benissimo! di: la casa", "response": "la casa!"}
+{"prompt": "bene! di: la nonna", "response": "la nonna!"}
+{"prompt": "benissimo! di: la nonna", "response": "la nonna!"}
+{"prompt": "ottimo! di: la nonna", "response": "la nonna!"}
+{"prompt": "bene! di: la casa", "response": "la casa!"}
+{"prompt": "bene! di: la mamma", "response": "la mamma!"}
+{"prompt": "ottimo! di: la casa", "response": "la casa!"}
+{"prompt": "ottimo! di: il gatto", "response": "il gatto!"}
+{"prompt": "bravo! di: la luna", "response": "la luna!"}
+{"prompt": "benissimo! di: il papà", "response": "il papà!"}
+{"prompt": "bravo! di: il latte", "response": "il latte!"}
+{"prompt": "perfetto! di: il gatto", "response": "il gatto!"}
+{"prompt": "ottimo! di: il sole", "response": "il sole!"}
+{"prompt": "la mamma la mamma. di: la mamma", "response": "la mamma!"}
+{"prompt": "benissimo! di: la mamma", "response": "la mamma!"}
+{"prompt": "perfetto! di: la mamma", "response": "la mamma!"}
+{"prompt": "di: la casa", "response": "la casa!"}
+{"prompt": "la casa la casa. di: la casa", "response": "la casa!"}
+{"prompt": "bravo! di: la casa", "response": "la casa!"}
+{"prompt": "ottimo! di: la casa", "response": "la casa!"}
+{"prompt": "di: la luna", "response": "la luna!"}
+{"prompt": "la luna la luna. di: la luna", "response": "la luna!"}
+{"prompt": "benissimo! di: la luna", "response": "la luna!"}
+{"prompt": "perfetto! di: la luna", "response": "la luna!"}
+{"prompt": "di: la nonna", "response": "la nonna!"}
+{"prompt": "la nonna la nonna. di: la nonna", "response": "la nonna!"}
+{"prompt": "bravo! di: la nonna", "response": "la nonna!"}
+{"prompt": "ottimo! di: la nonna", "response": "la nonna!"}
+{"prompt": "di: la mano", "response": "la mano!"}
+{"prompt": "la mano la mano. di: la mano", "response": "la mano!"}
+{"prompt": "bravo! di: la mano", "response": "la mano!"}
+{"prompt": "perfetto! di: la nonna", "response": "la nonna!"}
+{"prompt": "benissimo! di: il gatto", "response": "il gatto!"}
+{"prompt": "ottimo! di: l acqua", "response": "l acqua!"}
+{"prompt": "benissimo! di: mamma", "response": "mamma!"}
+{"prompt": "ottimo! di: mamma", "response": "mamma!"}
+{"prompt": "ottimo! di: nonna", "response": "nonna!"}
+{"prompt": "nonno nonno. di: nonno", "response": "nonno!"}
+{"prompt": "nonna nonna. di: nonna", "response": "nonna!"}
+{"prompt": "perfetto! di: il naso", "response": "il naso!"}
+{"prompt": "perfetto! di: l acqua", "response": "l acqua!"}
+{"prompt": "bene! di: la luna", "response": "la luna!"}
+{"prompt": "perfetto! di: papà", "response": "papà!"}
+{"prompt": "benissimo! di: papà", "response": "papà!"}
+{"prompt": "bravo! di: papà", "response": "papà!"}
+{"prompt": "bene! di: papà", "response": "papà!"}
+{"prompt": "bene! di: il naso", "response": "il naso!"}
+{"prompt": "perfetto! di: mamma", "response": "mamma!"}
+{"prompt": "bravo! di: no", "response": "no!"}
+{"prompt": "bravo! di: l acqua", "response": "l acqua!"}
+{"prompt": "benissimo! di: nonna", "response": "nonna!"}
+{"prompt": "benissimo! di: sì", "response": "sì!"}
+{"prompt": "ottimo! di: no", "response": "no!"}
+{"prompt": "bene! di: no", "response": "no!"}
+{"prompt": "benissimo! di: nonno", "response": "nonno!"}
+{"prompt": "benissimo! di: ciao", "response": "ciao!"}
+{"prompt": "bene! di: ciao", "response": "ciao!"}
+{"prompt": "perfetto! di: sì", "response": "sì!"}
+{"prompt": "bravo! di: sì", "response": "sì!"}
+{"prompt": "bravo bravo. di: bravo", "response": "bravo!"}
+{"prompt": "ottimo! di: nonno", "response": "nonno!"}
+{"prompt": "perfetto! di: bravo", "response": "bravo!"}
+{"prompt": "qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "benissimo! qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "chi sei? chi sei?. chi sei?", "response": "physisml!"}
+{"prompt": "chi sei?", "response": "physisml!"}
+{"prompt": "bene! di: nonno", "response": "nonno!"}
+{"prompt": "perfetto! di: nonna", "response": "nonna!"}
+{"prompt": "perfetto! di: ciao", "response": "ciao!"}
+{"prompt": "benissimo! di: bravo", "response": "bravo!"}
+{"prompt": "ottimo! di: bravo", "response": "bravo!"}
+{"prompt": "bene! di: sì", "response": "sì!"}
+{"prompt": "ottimo! come ti chiami?", "response": "physisml!"}
+{"prompt": "come ti chiami? come ti chiami?. come ti chiami?", "response": "physisml!"}
+{"prompt": "perfetto! qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "bravo! di il tuo nome", "response": "physisml!"}
+{"prompt": "di il tuo nome di il tuo nome. di il tuo nome", "response": "physisml!"}
+{"prompt": "ottimo! chi sei?", "response": "physisml!"}
+{"prompt": "bene! di: mamma", "response": "mamma!"}
+{"prompt": "bene! di: bravo", "response": "bravo!"}
+{"prompt": "come ti chiami?", "response": "physisml!"}
+{"prompt": "bene! come ti chiami?", "response": "physisml!"}
+{"prompt": "di il tuo nome", "response": "physisml!"}
+{"prompt": "ottimo! di il tuo nome", "response": "physisml!"}
+{"prompt": "perfetto! chi sei?", "response": "physisml!"}
+{"prompt": "bene! qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "bravo! chi sei?", "response": "physisml!"}
+{"prompt": "bene! chi sei?", "response": "physisml!"}
+{"prompt": "bravo! qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "perfetto! come ti chiami?", "response": "physisml!"}
+{"prompt": "perfetto! di il tuo nome", "response": "physisml!"}
+{"prompt": "benissimo! di: no", "response": "no!"}
+{"prompt": "bravo! di: bravo", "response": "bravo!"}
+{"prompt": "benissimo! come ti chiami?", "response": "physisml!"}
+{"prompt": "bravo! come ti chiami?", "response": "physisml!"}
+{"prompt": "bene! di: l acqua", "response": "l acqua!"}
+{"prompt": "ottimo! di: sì", "response": "sì!"}
+{"prompt": "perfetto! di: no", "response": "no!"}
+{"prompt": "bravo! di: nonna", "response": "nonna!"}
+{"prompt": "benissimo! chi sei?", "response": "physisml!"}
+{"prompt": "ottimo! qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "bene! di: il gatto", "response": "il gatto!"}
+{"prompt": "bravo! di: nonno", "response": "nonno!"}
+{"prompt": "ottimo! di: papà", "response": "papà!"}
+{"prompt": "ottimo! di: ciao", "response": "ciao!"}
+{"prompt": "ottimo! di: il naso", "response": "il naso!"}
+{"prompt": "bene! di: nonna", "response": "nonna!"}
+{"prompt": "benissimo! di il tuo nome", "response": "physisml!"}
+{"prompt": "benissimo! di: l acqua", "response": "l acqua!"}
+{"prompt": "perfetto! di: nonno", "response": "nonno!"}
+{"prompt": "benissimo! di: il naso", "response": "il naso!"}
+{"prompt": "bene! di il tuo nome", "response": "physisml!"}

@@ -1,0 +1,188 @@
+{"prompt": "di: il cane dorme", "response": "il cane dorme!"}
+{"prompt": "di: la mamma mangia", "response": "la mamma mangia!"}
+{"prompt": "di: il gatto dorme", "response": "il gatto dorme!"}
+{"prompt": "di: il cane mangia il pane", "response": "il cane mangia il pane!"}
+{"prompt": "di: il gatto beve il latte", "response": "il gatto beve il latte!"}
+{"prompt": "cosa fa il cane?", "response": "il cane dorme."}
+{"prompt": "cosa fa la mamma?", "response": "la mamma mangia."}
+{"prompt": "cosa fa il gatto?", "response": "il gatto beve il latte."}
+{"prompt": "cosa fa il bambino?", "response": "il bambino dorme."}
+{"prompt": "cosa fa il papà?", "response": "il papà lavora."}
+{"prompt": "dove è il cane?", "response": "il cane è qui."}
+{"prompt": "dove è la mamma?", "response": "la mamma è qui."}
+{"prompt": "dove è il gatto?", "response": "il gatto è qui."}
+{"prompt": "com è il cane?", "response": "il cane è grande."}
+{"prompt": "com è la casa?", "response": "la casa è bella."}
+{"prompt": "com è il sole?", "response": "il sole è bello."}
+{"prompt": "di un numero: uno", "response": "uno!"}
+{"prompt": "di un numero: due", "response": "due!"}
+{"prompt": "di un numero: tre", "response": "tre!"}
+{"prompt": "uno due tre. di: uno", "response": "uno!"}
+{"prompt": "di un colore: rosso", "response": "rosso!"}
+{"prompt": "di un colore: blu", "response": "blu!"}
+{"prompt": "di un colore: verde", "response": "verde!"}
+{"prompt": "di un colore: giallo", "response": "giallo!"}
+{"prompt": "voglio il pane. di: voglio il pane", "response": "voglio il pane!"}
+{"prompt": "voglio il latte. di: voglio il latte", "response": "voglio il latte!"}
+{"prompt": "voglio dormire. di: voglio dormire", "response": "voglio dormire!"}
+{"prompt": "ho fame. di: ho fame", "response": "ho fame!"}
+{"prompt": "ho sete. di: ho sete", "response": "ho sete!"}
+{"prompt": "ho sonno. di: ho sonno", "response": "ho sonno!"}
+{"prompt": "il cane grande dorme. di: il cane grande dorme", "response": "il cane grande dorme!"}
+{"prompt": "la mamma buona cucina. di: la mamma buona cucina", "response": "la mamma buona cucina!"}
+{"prompt": "il gatto piccolo dorme. di: il gatto piccolo dorme", "response": "il gatto piccolo dorme!"}
+{"prompt": "prima mangio poi dormo. di: prima mangio", "response": "prima mangio."}
+{"prompt": "cosa vuoi?", "response": "voglio il pane."}
+{"prompt": "hai fame?", "response": "sì ho fame."}
+{"prompt": "hai sete?", "response": "sì ho sete."}
+{"prompt": "quanti cani ci sono? uno", "response": "uno!"}
+{"prompt": "quanti gatti ci sono? due", "response": "due!"}
+{"prompt": "di un animale", "response": "il cane!"}
+{"prompt": "di un cibo", "response": "il pane!"}
+{"prompt": "di una cosa in casa", "response": "la casa!"}
+{"prompt": "come ti chiami?", "response": "mi chiamo physisml."}
+{"prompt": "qual è il tuo nome?", "response": "il mio nome è physisml."}
+{"prompt": "chi sei?", "response": "sono physisml."}
+{"prompt": "il tuo nome è physisml, come ti chiami?", "response": "mi chiamo physisml."}
+{"prompt": "sei physisml?", "response": "sì mi chiamo physisml."}
+{"prompt": "come si chiama questo modello?", "response": "si chiama physisml."}
+{"prompt": "il modello si chiama physisml. chi sei?", "response": "sono physisml."}
+{"prompt": "dimmi il tuo nome", "response": "physisml!"}
+{"prompt": "di: il cane", "response": "il cane!"}
+{"prompt": "il cane il cane. di: il cane", "response": "il cane!"}
+{"prompt": "la mamma la mamma. di: la mamma", "response": "la mamma!"}
+{"prompt": "il gatto il gatto. di: il gatto", "response": "il gatto!"}
+{"prompt": "il sole il sole. di: il sole", "response": "il sole!"}
+{"prompt": "la casa la casa. di: la casa", "response": "la casa!"}
+{"prompt": "il pane il pane. di: il pane", "response": "il pane!"}
+{"prompt": "di: la casa", "response": "la casa!"}
+{"prompt": "benissimo! di: la mamma", "response": "la mamma!"}
+{"prompt": "di: la mamma", "response": "la mamma!"}
+{"prompt": "di: il pane", "response": "il pane!"}
+{"prompt": "di: il gatto", "response": "il gatto!"}
+{"prompt": "bravo! di: il cane", "response": "il cane!"}
+{"prompt": "bravo! di: la mamma", "response": "la mamma!"}
+{"prompt": "bene! di: il sole", "response": "il sole!"}
+{"prompt": "bene! di: la casa", "response": "la casa!"}
+{"prompt": "benissimo! di: il cane", "response": "il cane!"}
+{"prompt": "di: il sole", "response": "il sole!"}
+{"prompt": "ottimo! di: la mamma", "response": "la mamma!"}
+{"prompt": "bene! di: il cane", "response": "il cane!"}
+{"prompt": "perfetto! di: il cane", "response": "il cane!"}
+{"prompt": "benissimo! di: il sole", "response": "il sole!"}
+{"prompt": "benissimo! di: la casa", "response": "la casa!"}
+{"prompt": "benissimo! di: il pane", "response": "il pane!"}
+{"prompt": "perfetto! di: la mamma", "response": "la mamma!"}
+{"prompt": "ottimo! di: la casa", "response": "la casa!"}
+{"prompt": "bravo! qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "benissimo! sei physisml?", "response": "physisml!"}
+{"prompt": "bravo! sei physisml?", "response": "physisml!"}
+{"prompt": "bene! sei physisml?", "response": "physisml!"}
+{"prompt": "benissimo! come ti chiami?", "response": "physisml!"}
+{"prompt": "bene! come ti chiami?", "response": "physisml!"}
+{"prompt": "come ti chiami? come ti chiami?. come ti chiami?", "response": "physisml!"}
+{"prompt": "qual è il tuo nome? qual è il tuo nome?. qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "di il tuo nome di il tuo nome. di il tuo nome", "response": "physisml!"}
+{"prompt": "sei physisml? sei physisml?. sei physisml?", "response": "physisml!"}
+{"prompt": "bravo! di: la casa", "response": "la casa!"}
+{"prompt": "ottimo! di: il cane", "response": "il cane!"}
+{"prompt": "benissimo! di: il gatto", "response": "il gatto!"}
+{"prompt": "bene! di: il pane", "response": "il pane!"}
+{"prompt": "bravo! di: il gatto", "response": "il gatto!"}
+{"prompt": "bene! di: la mamma", "response": "la mamma!"}
+{"prompt": "perfetto! di: la casa", "response": "la casa!"}
+{"prompt": "ottimo! di: il sole", "response": "il sole!"}
+{"prompt": "perfetto! di: il gatto", "response": "il gatto!"}
+{"prompt": "bene! di: il gatto", "response": "il gatto!"}
+{"prompt": "bravo! di: il pane", "response": "il pane!"}
+{"prompt": "perfetto! come ti chiami?", "response": "physisml!"}
+{"prompt": "ottimo! di: il pane", "response": "il pane!"}
+{"prompt": "bravo! di: il sole", "response": "il sole!"}
+{"prompt": "perfetto! di: il sole", "response": "il sole!"}
+{"prompt": "ottimo! di: il gatto", "response": "il gatto!"}
+{"prompt": "perfetto! di: il pane", "response": "il pane!"}
+{"prompt": "ottimo! sei physisml?", "response": "physisml!"}
+{"prompt": "bene! di il tuo nome", "response": "physisml!"}
+{"prompt": "di il tuo nome", "response": "physisml!"}
+{"prompt": "bravo! di: il cane dorme", "response": "il cane dorme!"}
+{"prompt": "bene! di: il cane dorme", "response": "il cane dorme!"}
+{"prompt": "perfetto! di: il cane dorme", "response": "il cane dorme!"}
+{"prompt": "bene! di: il gatto dorme", "response": "il gatto dorme!"}
+{"prompt": "benissimo! di: il gatto dorme", "response": "il gatto dorme!"}
+{"prompt": "ottimo! di: il gatto dorme", "response": "il gatto dorme!"}
+{"prompt": "bravo! di: il gatto dorme", "response": "il gatto dorme!"}
+{"prompt": "perfetto! di: il gatto dorme", "response": "il gatto dorme!"}
+{"prompt": "bene! di: il cane mangia", "response": "il cane mangia!"}
+{"prompt": "di: il cane mangia", "response": "il cane mangia!"}
+{"prompt": "ottimo! di: il cane mangia", "response": "il cane mangia!"}
+{"prompt": "perfetto! di: il cane mangia", "response": "il cane mangia!"}
+{"prompt": "di: il sole brilla", "response": "il sole brilla!"}
+{"prompt": "il cane dorme il cane dorme. di: il cane dorme", "response": "il cane dorme!"}
+{"prompt": "la mamma mangia la mamma mangia. di: la mamma mangia", "response": "la mamma mangia!"}
+{"prompt": "il gatto dorme il gatto dorme. di: il gatto dorme", "response": "il gatto dorme!"}
+{"prompt": "il cane mangia il cane mangia. di: il cane mangia", "response": "il cane mangia!"}
+{"prompt": "il sole brilla il sole brilla. di: il sole brilla", "response": "il sole brilla!"}
+{"prompt": "il bambino dorme il bambino dorme. di: il bambino dorme", "response": "il bambino dorme!"}
+{"prompt": "perfetto! sei physisml?", "response": "physisml!"}
+{"prompt": "bravo! come ti chiami?", "response": "physisml!"}
+{"prompt": "ottimo! qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "benissimo! di: il cane dorme", "response": "il cane dorme!"}
+{"prompt": "ottimo! di: la mamma mangia", "response": "la mamma mangia!"}
+{"prompt": "perfetto! di: il sole brilla", "response": "il sole brilla!"}
+{"prompt": "bravo! di il tuo nome", "response": "physisml!"}
+{"prompt": "ottimo! di: il cane dorme", "response": "il cane dorme!"}
+{"prompt": "bene! di: la mamma mangia", "response": "la mamma mangia!"}
+{"prompt": "ottimo! come ti chiami?", "response": "physisml!"}
+{"prompt": "perfetto! di il tuo nome", "response": "physisml!"}
+{"prompt": "benissimo! di il tuo nome", "response": "physisml!"}
+{"prompt": "benissimo! di: il cane mangia", "response": "il cane mangia!"}
+{"prompt": "di: il bambino dorme", "response": "il bambino dorme!"}
+{"prompt": "cosa fa il cane? cosa fa il cane?. cosa fa il cane?", "response": "il cane dorme."}
+{"prompt": "cosa fa la mamma? cosa fa la mamma?. cosa fa la mamma?", "response": "la mamma mangia."}
+{"prompt": "cosa fa il gatto? cosa fa il gatto?. cosa fa il gatto?", "response": "il gatto dorme."}
+{"prompt": "perfetto! cosa fa il gatto?", "response": "il gatto dorme."}
+{"prompt": "bene! di: il bambino dorme", "response": "il bambino dorme!"}
+{"prompt": "bravo! di: il bambino dorme", "response": "il bambino dorme!"}
+{"prompt": "ottimo! cosa fa il cane?", "response": "il cane dorme."}
+{"prompt": "bene! cosa fa il cane?", "response": "il cane dorme."}
+{"prompt": "bene! cosa fa il gatto?", "response": "il gatto dorme."}
+{"prompt": "ottimo! cosa fa il gatto?", "response": "il gatto dorme."}
+{"prompt": "bravo! cosa fa il gatto?", "response": "il gatto dorme."}
+{"prompt": "perfetto! dove è il cane?", "response": "il cane è qui."}
+{"prompt": "dove è il cane? dove è il cane?. dove è il cane?", "response": "il cane è qui."}
+{"prompt": "bene! qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "ottimo! di il tuo nome", "response": "physisml!"}
+{"prompt": "bravo! di: la mamma mangia", "response": "la mamma mangia!"}
+{"prompt": "benissimo! di: la mamma mangia", "response": "la mamma mangia!"}
+{"prompt": "perfetto! qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "benissimo! qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "perfetto! di: la mamma mangia", "response": "la mamma mangia!"}
+{"prompt": "benissimo! cosa fa il gatto?", "response": "il gatto dorme."}
+{"prompt": "bravo! dove è il cane?", "response": "il cane è qui."}
+{"prompt": "dove è la mamma? dove è la mamma?. dove è la mamma?", "response": "la mamma è qui."}
+{"prompt": "bene! dove è la mamma?", "response": "la mamma è qui."}
+{"prompt": "ottimo! di: il bambino dorme", "response": "il bambino dorme!"}
+{"prompt": "benissimo! dove è la mamma?", "response": "la mamma è qui."}
+{"prompt": "ottimo! dove è la mamma?", "response": "la mamma è qui."}
+{"prompt": "bene! cosa vuoi?", "response": "voglio il pane."}
+{"prompt": "cosa vuoi? cosa vuoi?. cosa vuoi?", "response": "voglio il pane."}
+{"prompt": "bravo! cosa fa la mamma?", "response": "la mamma mangia."}
+{"prompt": "ottimo! dove è il cane?", "response": "il cane è qui."}
+{"prompt": "di un numero: uno di un numero: uno. di un numero: uno", "response": "uno!"}
+{"prompt": "ottimo! di un numero: uno", "response": "uno!"}
+{"prompt": "bene! di un numero: uno", "response": "uno!"}
+{"prompt": "bene! cosa fa la mamma?", "response": "la mamma mangia."}
+{"prompt": "benissimo! dove è il cane?", "response": "il cane è qui."}
+{"prompt": "perfetto! di un numero: uno", "response": "uno!"}
+{"prompt": "bene! di un numero: due", "response": "due!"}
+{"prompt": "di un numero: due di un numero: due. di un numero: due", "response": "due!"}
+{"prompt": "di un numero: tre di un numero: tre. di un numero: tre", "response": "tre!"}
+{"prompt": "bravo! di: il cane mangia", "response": "il cane mangia!"}
+{"prompt": "ottimo! di: il sole brilla", "response": "il sole brilla!"}
+{"prompt": "bene! di: il sole brilla", "response": "il sole brilla!"}
+{"prompt": "perfetto! cosa fa la mamma?", "response": "la mamma mangia."}
+{"prompt": "perfetto! di un numero: due", "response": "due!"}
+{"prompt": "perfetto! di: il bambino dorme", "response": "il bambino dorme!"}
+{"prompt": "benissimo! cosa vuoi?", "response": "voglio il pane."}
+{"prompt": "bravo! di un numero: due", "response": "due!"}
+{"prompt": "ottimo! di un numero: tre", "response": "tre!"}

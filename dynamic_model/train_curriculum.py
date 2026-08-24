@@ -1413,9 +1413,17 @@ def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
         corpus_path = os.path.join("training_files", lang, str(level),
                                    "qa_corpus.txt")
         reps = 20
+        # A DEDICATED RNG with a fixed seed, not the global one. Two reasons:
+        # the file is committed, so a shuffle that depends on how much of the
+        # global stream was consumed earlier makes it differ between machines
+        # and between runs for no reason; and shuffling the global stream here
+        # would perturb every later use of `random` in the same process, which
+        # makes a run's behaviour depend on how many QA pairs a level happens
+        # to have.
+        _rng = _rnd.Random(_CORPUS_SHUFFLE_SEED + level)
         lines = []
         for _ in range(reps):
-            _rnd.shuffle(pairs)
+            _rng.shuffle(pairs)
             for pair in pairs:
                 pp = _strip_demo(pair.get("prompt", ""))
                 rr = (pair.get("response") or "").strip()
@@ -1524,6 +1532,12 @@ _DEMO_RE = _re.compile(r'^(?:(\S+)\s+)(?:\1\s+)*\1[.!?]?\s+')
 def _strip_demo(text: str) -> str:
     out = _DEMO_RE.sub("", text or "").strip()
     return out or (text or "").strip()
+
+
+# Fixed seed for the qa_corpus.txt shuffle. The file is committed, so its
+# contents must depend only on qa_pairs.jsonl and the level — never on the
+# state of the global RNG.
+_CORPUS_SHUFFLE_SEED = 20260824
 
 
 def _is_periodic_text(s: str) -> bool:
