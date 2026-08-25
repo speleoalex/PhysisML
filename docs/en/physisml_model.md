@@ -347,74 +347,48 @@ to `MIN_DREAMS=6` regardless of when the gate passes.
 
 But the ceiling is **48%, not 96%**: consolidation recovers half the gap.
 
-#### Intervention 2 — rehearsal scope (`--rehearsal-scope`)
+#### Intervention 2 — rehearsal scope: an attempt that did not hold
 
 The second half is not recoverable by dreaming. The dream replays the corpus
 (N1) and the memory bank (N3) of every level, but the **interleaved rehearsal**
-— the channel that actually built the prompt→answer associations — loaded only
-the current level's `qa_pairs.jsonl`.
+— the channel that actually built the prompt→answer associations — loads only
+the current level's `qa_pairs.jsonl`. Extending it looked like the natural
+candidate.
 
-Three arms one flag apart, L0→L3, same seed, same session and dream budget
-(`./scripts/experiment_rehearsal.sh --confirm`):
+`--rehearsal-scope {level,all,balanced}`, where `balanced` is the union of all
+levels with half of each replay reserved for the current one. Three arms one
+flag apart, L0→L3, session and dream budget held constant
+(`./scripts/experiment_rehearsal.sh --confirm`).
 
-| arm | bank | diagonal | final row | retention loss |
-|-----|------|----------|-----------|----------------|
-| `level` | current level only | 97% | 74% | 24% |
-| `all` | plain union | 97% | 79% | 19% |
-| **`balanced`** | union, half to current | **98%** | **86%** | **13%** |
+**The result does not hold across seeds.** Final row, `balanced` minus `level`:
 
-```
-final row (ckpt L3)      level  balanced   all
-target L0                 62%      71%     48%
-target L1                 58%      79%     75%
-target L2                 78%      89%     89%
-target L3                 93%     100%    100%
-```
+| target | seed 1 | seed 2 |
+|--------|-------:|-------:|
+| L0 | +10 | **−19** |
+| L1 | +21 | **−4** |
+| L2 | +11 | +17 |
+| L3 | +7 | +4 |
+| **aggregate** | **+12** | **−1** |
 
-`balanced` is best or tied in **every cell**, and its diagonal is no worse — so
-this is not the trade between the two metrics that the N3 rebalance fell into.
+At the first seed `balanced` won in every cell; at the second it loses on the
+oldest levels — precisely the ones the intervention was meant to protect. **The
+effect it was built for does not reproduce**, and the default is back to
+`level`.
 
-`all` losing to `balanced` is the **dilution**: at L3 the union is 535 pairs
-against 188 for the level itself, and the current level's share would keep
-falling. `all` is indeed the worst of the three on L0, the oldest and smallest
-level, the one a plain union starves first. It is the same dynamic that made N3
-replay stop helping the level being taught.
+The first seed read as confirmation because +12 cleared the "2.2-point noise
+floor" — but that figure measures the reproducibility of the **same** dream
+re-run, not the variance between seeds, which on this metric is around 15
+points. Two different quantities, and conflating them made a null result look
+convincing for a day.
 
-`balanced` has been the default since 24 August 2026.
+**One thing does reproduce**, and it is not the one being looked for:
+`balanced` raises the **diagonal** at L2 (94% → 100%) and L3 (93/96% → 100%) in
+both seeds. That is the current level improving, not earlier ones being
+retained. It is a post-hoc observation: it deserves its own experiment rather
+than being used to rescue this one.
 
-#### The two interventions compose
-
-The reference build's L3 row was `48/54/78/82`. The dream top-up alone takes the
-control arm to `62/58/78/93`, and `balanced` takes it to `71/79/89/100`.
-
-#### Caveat: between-seed variance exceeds the effect
-
-The first run used a single seed. Re-running the **control arm alone** with seed
-2 moves the final row from 74% to **89%** — a +15 point swing with the flag
-unchanged, larger than the +12 attributed to the treatment. Per cell:
-
-```
-final row (ckpt L3), arm `level`     seed 1   seed 2
-target L0                              62%      57%
-target L1                              58%      96%
-target L2                              78%     100%
-target L3                              93%     100%
-```
-
-The 2.2-point noise quoted above measures something else: the reproducibility of
-the **same** dream re-run, not the variance between seeds. Those are two
-different quantities, and conflating them made the +12 look more convincing than
-it was.
-
-The comparison is still **paired** — both arms share the seed — so between-seed
-variance does not by itself inflate the effect estimate; what matters is the
-sign of the within-seed difference. But one pair cannot bound the magnitude, and
-the seed-2 control on its own reaches values (L1 96%, L2 100%) that only
-`balanced` reached at seed 1: the margin may be far smaller than 12 points, or
-zero.
-
-The seed-2 `balanced` arm is still running. Until that lands, `balanced` as the
-default is an **unproven choice**, not a result.
+`all` remains the worst of the three at the first seed, consistent with
+dilution: at L3 the union is 535 pairs against 188 for the level itself.
 
 ### Real question-and-answer examples
 

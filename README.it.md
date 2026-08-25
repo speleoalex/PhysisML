@@ -69,25 +69,11 @@ Ma il tetto è **48%, non 96%**: il consolidamento recupera circa metà del
 divario. La seconda metà non si recupera sognando, perché il rehearsal durante
 l'insegnamento pescava solo dalle coppie gold del livello corrente.
 
-Estenderlo ai livelli precedenti recupera buona parte del resto. Tre bracci a un
-solo flag di distanza su L0→L3 (`./scripts/experiment_rehearsal.sh --confirm`):
-
-| `--rehearsal-scope` | diagonale | riga finale |
-|---------------------|-----------|-------------|
-| `level` (solo il corrente) | 97% | 74% |
-| `all` (unione semplice) | 97% | 79% |
-| **`balanced`** (unione, metà al corrente) | **98%** | **86%** |
-
-`balanced` è migliore o pari in ogni cella e la diagonale non peggiora; è il
-default. `all` perde perché diluisce: a L3 l'unione è 535 coppie contro 188 del
-livello stesso, e il livello più penalizzato è L0, il più vecchio e piccolo.
-
-**Il risultato non è ancora dimostrato.** Rieseguendo il solo braccio di
-controllo con un secondo seed, la riga finale passa da 74% a 89%: uno swing di
-+15 punti a flag invariato, più grande del +12 attribuito al trattamento. Il
-confronto è appaiato (i bracci condividono il seed), quindi conta il segno della
-differenza dentro ogni seed, ma una coppia sola non ne limita l'ampiezza.
-Dettagli e cautele in
+Estenderlo ai livelli precedenti sembrava il passo naturale, ma **non ha
+funzionato**: `--rehearsal-scope balanced` batteva il controllo di +12 punti a
+un seed e perdeva di 1 a un secondo, invertendo il segno proprio sui livelli
+più vecchi che doveva proteggere. Il default è rimasto `level`. La seconda metà
+del divario resta aperta — dettagli in
 [docs/it/modello_PhysisML.md](docs/it/modello_PhysisML.md#6-risultati-sperimentali).
 
 Esempi reali (greedy, checkpoint post-sogno):

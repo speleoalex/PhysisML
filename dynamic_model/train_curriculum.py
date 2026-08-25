@@ -760,24 +760,29 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     GOLD_REHEARSAL_K     = 4    # pairs replayed each time
 
     # Which levels the rehearsal bank draws on.
-    #   'balanced' — the union, but half of each replay reserved for this level
-    #                (the default since 2026-08-24)
-    #   'level'    — only this level's pairs (what the 96%-diagonal build used)
+    #   'level'    — only this level's pairs (the default, and what the
+    #                96%-diagonal build used)
     #   'all'      — the union of every level up to this one
+    #   'balanced' — the union, but half of each replay reserved for this level
     #
-    # Measured over L0->L3, three arms one flag apart, same seed, same session
-    # and dream budget: the final row is 86% for balanced, 74% for level and
-    # 79% for all, and balanced is best or tied in EVERY cell of that row while
-    # its diagonal is no worse (98% vs 97%). 'all' losing to 'balanced' is the
-    # dilution showing up: it is worst of the three on L0, the oldest and
-    # smallest level, the one a plain union starves first.
+    # NOT ESTABLISHED. Over L0->L3 with the session and dream budget held
+    # constant, 'balanced' beat 'level' on the final row by +12 points at one
+    # seed and lost by 1 at a second, so the effect it was built for — holding
+    # on to EARLIER levels — does not reproduce. Per target the second seed
+    # even reverses sign on the oldest levels (L0 -19, L1 -4 against +10, +21).
+    #
+    # What DOES reproduce is a smaller, different effect: 'balanced' raises the
+    # DIAGONAL at L2 (94% -> 100%) and L3 (93/96% -> 100%) in both seeds. That
+    # is the current level improving, not earlier ones being retained, and it
+    # was found after the fact — worth its own experiment, not worth rescuing
+    # this one with.
     # Why it is a question at all: the retention matrix shows the final L10
     # checkpoint at 20% across all levels against a 96% diagonal, and extra
     # dream cycles recover only half of that gap (to 48%, saturating). The
     # dream replays the corpus and the memory bank of every level, but this
     # rehearsal — the channel that actually built the prompt->answer
     # associations — has only ever seen the current level.
-    _reh_scope = getattr(args, 'rehearsal_scope', 'balanced') or 'balanced'
+    _reh_scope = getattr(args, 'rehearsal_scope', 'level') or 'level'
     _reh_levels = [level] if _reh_scope == 'level' else list(range(level + 1))
 
     def _load_gold(lvl: int) -> dict:
@@ -2178,16 +2183,16 @@ def main():
                         help="Override checkpoint base directory "
                              "(default: models/checkpoints/{lang}). "
                              "Useful for parallel experiments.")
-    parser.add_argument("--rehearsal-scope", default="balanced",
+    parser.add_argument("--rehearsal-scope", default="level",
                         choices=["level", "all", "balanced"],
                         help="Levels the interleaved gold rehearsal draws on: "
-                             "the union with half of each replay reserved for "
-                             "the current level (default), only the current "
-                             "level (the pre-2026-08-24 behaviour), or the "
-                             "plain union. Measured over L0-L3, three arms one "
-                             "flag apart: balanced puts the final row at 86%% "
-                             "against 74%% for level and 79%% for all, and its "
-                             "diagonal is no worse (98%% vs 97%%)")
+                             "only the current one (default), the plain union "
+                             "of all levels so far, or the union with half of "
+                             "each replay reserved for the current level. "
+                             "'balanced' looked worth +12 points of retention "
+                             "at one seed and came out at -1 at a second, so "
+                             "the default stays where the validated build had "
+                             "it")
     parser.add_argument("--retry-prefix", default=None,
                         help="Override the teacher's retry_prefix. The config "
                              "value at L0-L3 doubles the text ('{prompt} "

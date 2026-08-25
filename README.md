@@ -70,25 +70,11 @@ But the ceiling is **48%, not 96%**: consolidation recovers about half the gap.
 The second half is not recoverable by dreaming, because rehearsal during
 teaching drew only on the current level's gold pairs.
 
-Extending it to earlier levels recovers much of the rest. Three arms one flag
-apart over L0→L3 (`./scripts/experiment_rehearsal.sh --confirm`):
-
-| `--rehearsal-scope` | diagonal | final row |
-|---------------------|----------|-----------|
-| `level` (current only) | 97% | 74% |
-| `all` (plain union) | 97% | 79% |
-| **`balanced`** (union, half to current) | **98%** | **86%** |
-
-`balanced` is best or tied in every cell and its diagonal is no worse; it is the
-default. `all` loses because it dilutes: at L3 the union is 535 pairs against
-188 for the level itself, and the level hurt most is L0, the oldest and
-smallest.
-
-**This result is not yet established.** Re-running the control arm alone with a
-second seed moves the final row from 74% to 89%: a +15 point swing with the flag
-unchanged, larger than the +12 attributed to the treatment. The comparison is
-paired (both arms share the seed), so what matters is the sign of the within-seed
-difference, but one pair cannot bound its magnitude. Details and caveats in
+Extending it to earlier levels looked like the natural next step, but it **did
+not work**: `--rehearsal-scope balanced` beat the control by +12 points at one
+seed and lost by 1 at a second, reversing sign on exactly the older levels it
+was meant to protect. The default stayed `level`. The second half of the gap is
+still open — details in
 [docs/en/physisml_model.md](docs/en/physisml_model.md#6-experimental-results).
 
 Real examples (greedy, post-dream checkpoints):

@@ -389,74 +389,48 @@ indipendentemente da quando il gate passa.
 
 Ma il tetto è **48%, non 96%**: il consolidamento recupera metà del divario.
 
-#### Intervento 2 — ambito del rehearsal (`--rehearsal-scope`)
+#### Intervento 2 — ambito del rehearsal: tentativo non riuscito
 
 La seconda metà non si recupera sognando. Il sogno rigioca il corpus (N1) e il
 memory bank (N3) di tutti i livelli, ma il **rehearsal interleaved** — il canale
-che ha davvero costruito le associazioni prompt→risposta — caricava solo
-`qa_pairs.jsonl` del livello corrente.
+che ha davvero costruito le associazioni prompt→risposta — carica solo
+`qa_pairs.jsonl` del livello corrente. Estenderlo sembrava il candidato
+naturale.
 
-Tre bracci a un solo flag di distanza, L0→L3, stesso seed, stesso budget di
-sessioni e sogni (`./scripts/experiment_rehearsal.sh --confirm`):
+`--rehearsal-scope {level,all,balanced}` con `balanced` = unione dei livelli ma
+metà di ogni replay riservata al corrente. Tre bracci a un solo flag di
+distanza, L0→L3, budget di sessioni e sogni tenuto costante
+(`./scripts/experiment_rehearsal.sh --confirm`).
 
-| braccio | bank | diagonale | riga finale | perdita di ritenzione |
-|---------|------|-----------|-------------|------------------------|
-| `level` | solo livello corrente | 97% | 74% | 24% |
-| `all` | unione semplice | 97% | 79% | 19% |
-| **`balanced`** | unione, metà al corrente | **98%** | **86%** | **13%** |
+**Il risultato non regge fra i seed.** Riga finale, `balanced` meno `level`:
 
-```
-riga finale (ckpt L3)    level  balanced   all
-target L0                 62%      71%     48%
-target L1                 58%      79%     75%
-target L2                 78%      89%     89%
-target L3                 93%     100%    100%
-```
+| target | seed 1 | seed 2 |
+|--------|-------:|-------:|
+| L0 | +10 | **−19** |
+| L1 | +21 | **−4** |
+| L2 | +11 | +17 |
+| L3 | +7 | +4 |
+| **aggregato** | **+12** | **−1** |
 
-`balanced` è migliore o pari **in ogni cella**, e la diagonale non peggiora —
-non è il baratto fra le due metriche in cui era caduto il riequilibrio di N3.
+Al primo seed `balanced` vinceva in ogni cella; al secondo perde sui livelli
+più vecchi, che sono proprio quelli che l'intervento doveva proteggere.
+**L'effetto per cui era stato costruito non si riproduce**, e il default è
+tornato a `level`.
 
-`all` che perde contro `balanced` è la **diluizione**: a L3 l'unione è 535
-coppie contro 188 del livello stesso, e la quota del corrente continuerebbe a
-scendere. `all` è infatti il peggiore dei tre su L0, il livello più vecchio e
-più piccolo, quello che un'unione semplice affama per primo. È la stessa
-dinamica che aveva reso inutile il replay N3 per il livello in corso.
+Il primo seed era stato letto come conferma perché il +12 superava il "rumore
+di 2.2 punti" — ma quel numero misura la riproducibilità dello **stesso** sogno
+rieseguito, non la varianza fra seed, che su questa metrica è dell'ordine di
+15 punti. Due grandezze diverse, e confonderle ha reso un risultato nullo
+convincente per un giorno.
 
-`balanced` è il default dal 24 agosto 2026.
+**Una cosa però si riproduce**, e non è quella cercata: `balanced` alza la
+**diagonale** a L2 (94% → 100%) e L3 (93/96% → 100%) in entrambi i seed. È il
+livello corrente che migliora, non i precedenti che vengono ritenuti. È
+un'osservazione post-hoc: merita un esperimento suo, non serve a salvare
+questo.
 
-#### I due interventi compongono
-
-La riga L3 del build di riferimento era `48/54/78/82`. Il solo rabbocco dei
-sogni porta il braccio di controllo a `62/58/78/93`, e `balanced` a
-`71/79/89/100`.
-
-#### Cautela: la varianza fra seed è più grande dell'effetto
-
-Il primo run era a un seed solo. Rieseguendo il **solo braccio di controllo**
-con seed 2, la riga finale passa da 74% a **89%** — uno swing di +15 punti a
-flag invariato, più grande del +12 attribuito al trattamento. Per cella:
-
-```
-riga finale (ckpt L3), braccio `level`   seed 1   seed 2
-target L0                                  62%      57%
-target L1                                  58%      96%
-target L2                                  78%     100%
-target L3                                  93%     100%
-```
-
-Il rumore di 2.2 punti citato sopra misura una cosa diversa: la riproducibilità
-dello **stesso** sogno rieseguito, non la varianza fra seed. Sono due grandezze
-distinte e averle confuse ha reso il +12 più convincente di quanto fosse.
-
-Il confronto resta **appaiato** — i due bracci condividono il seed — quindi la
-varianza fra seed non gonfia di per sé la stima dell'effetto: conta il segno
-della differenza dentro ogni seed. Ma con una coppia sola non si può limitare
-l'ampiezza, e il controllo a seed 2 raggiunge da solo valori (L1 96%, L2 100%)
-che a seed 1 solo `balanced` otteneva: il margine potrebbe essere molto minore
-di 12 punti, o nullo.
-
-Il braccio `balanced` a seed 2 è in corso. Fino a quel dato, `balanced` come
-default è una scelta **non ancora dimostrata**, non un risultato.
+`all` resta il peggiore dei tre al primo seed, coerente con la diluizione: a L3
+l'unione è 535 coppie contro 188 del livello stesso.
 
 ### Esempi reali di domanda e risposta
 
