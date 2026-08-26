@@ -72,7 +72,10 @@ TOKENIZER = _TOK_8K if os.path.exists(_TOK_8K) else _TOK_BASE
 # Maximum vocabulary capacity: pre-allocates this many embedding slots.
 # Slots above the active count are dormant (logit=-inf, grad=0).
 # Grows toward MAX_VOCAB as the model learns new token patterns.
-MAX_VOCAB    = 9000   # 8001 used (8K BPE + EOS@8000), 999 slots for future growth
+MAX_VOCAB    = 9000   # 2547 used after the 2026-08-25 tokenizer retrain
+                      # (punctuation no longer glued to words), 6453 dormant
+                      # slots for growth. Dormant rows are masked to -inf and
+                      # take zero gradient: they cost 18MB, not capacity.
 DATA_IT0     = "training_files/it/0"
 DATA_IT1     = "training_files/it/1"
 

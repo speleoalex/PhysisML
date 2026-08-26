@@ -103,6 +103,22 @@ class BPETokenizer:
     # Training
     # ------------------------------------------------------------------
 
+    # Punctuation that must stay its own token, never fused to a word.
+    _PUNCT = set(b"?!.,;:\"'()[]{}<>")
+
+    @classmethod
+    def _merge_allowed(cls, tok: bytes) -> bool:
+        """Reject a merge that mixes punctuation with anything else.
+
+        Pure-punctuation runs ('...', '?!') stay allowed: they are a single
+        pre-token for every tokenizer and cost one slot, not one per word.
+        """
+        has_p = any(c in cls._PUNCT for c in tok)
+        if not has_p:
+            return True
+        return all(c in cls._PUNCT for c in tok)
+
+
     def train(self, text: str, vocab_size: int = 2000) -> None:
         """
         Learn BPE merge rules from raw text.
@@ -167,6 +183,23 @@ class BPETokenizer:
 
             # Skip if this byte sequence is already a special token
             if new_token_bytes in self.token_to_id:
+                pair_counts.pop(best_pair, None)
+                pair_to_words.pop(best_pair, None)
+                continue
+
+            # Never glue punctuation onto a word.
+            #
+            # Measured on the 8K base vocabulary: 625 words carried several
+            # punctuated variants ('cane', 'cane!', 'cane.', 'cane?'; 'casa'
+            # also 'casa,') for 1,783 slots — 14% of the vocabulary spent
+            # representing the same word four times, with each variant
+            # competing in the softmax and receiving a fraction of the
+            # statistics. It also makes the vocabulary unexportable: every
+            # GPT-2-style pre-tokenizer, including the one llama.cpp and
+            # ollama use, splits punctuation off words, so 'chiami?' is
+            # re-segmented into 'chiami' + '?' and the prompt reaches the
+            # model in a form it never saw.
+            if not self._merge_allowed(new_token_bytes):
                 pair_counts.pop(best_pair, None)
                 pair_to_words.pop(best_pair, None)
                 continue

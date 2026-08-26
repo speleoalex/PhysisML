@@ -143,6 +143,10 @@ class DynamicBPETokenizer(BPETokenizer):
         stats: List[dict] = []
         blacklist: set = set()   # pairs rejected by the filters below
 
+        # Growth must obey the same rule as the base vocabulary: no punctuation
+        # glued to a word. Otherwise the dream re-introduces exactly what the
+        # base tokenizer was retrained to avoid — 70 such tokens appeared this
+        # way in the reference build ('chiami?', 'cane.', 'domani?').
         MAX_TOKEN_CHARS = 20   # longest reasonable Italian word; kills
                                # degenerate babble mega-tokens ('babababa…')
 
@@ -179,6 +183,14 @@ class DynamicBPETokenizer(BPETokenizer):
 
             # Skip if the merge already exists
             if new_token_bytes in self.token_to_id:
+                blacklist.add(best_pair)
+                continue
+
+            # Same rule as the base vocabulary: never glue punctuation onto a
+            # word. Without it the dream re-introduces what train() was
+            # changed to avoid — 70 such tokens appeared this way in the
+            # reference build ('chiami?', 'cane.', 'domani?').
+            if not self._merge_allowed(new_token_bytes):
                 blacklist.add(best_pair)
                 continue
 

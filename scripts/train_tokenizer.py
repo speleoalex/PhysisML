@@ -7,7 +7,7 @@ Usage:
     python3 scripts/train_tokenizer.py --sample 50        # use 50MB of corpus
     python3 scripts/train_tokenizer.py --stats            # show corpus used
 """
-import sys, os, glob, random, argparse, time
+import sys, os, glob, json, random, argparse, time
 _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _TEST1 = os.path.join(_ROOT, "tests", "test_1")
 for _p in [_ROOT, _TEST1]:
@@ -18,6 +18,33 @@ from splx.tokenizer import BPETokenizer
 
 CORPUS_BASE = "training_files/it"
 OUTPUT_BASE = "dynamic_model/data"
+
+
+def collect_targets(reps: int = 20) -> str:
+    """The teacher's target pools, which ARE the curriculum.
+
+    They live in local_teacher.json, not in .txt, so the corpus scan never saw
+    them — and the vocabulary ended up not covering the words the model is
+    actually taught: 49 of the 143 lexicon words came out split ('or'+'so',
+    'ca'+'p'+'pe'+'llo'). Repeated a few times so they clear the merge
+    threshold against a corpus hundreds of times their size.
+    """
+    parts = []
+    for level in range(11):
+        path = os.path.join(CORPUS_BASE, str(level), "local_teacher.json")
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as f:
+            cfg = json.load(f)
+        for step in cfg.get("steps", {}).values():
+            for t in step.get("targets", []):
+                if isinstance(t, str):
+                    parts.append(t)
+                else:
+                    parts.append(t.get("prompt", ""))
+                    parts.append(t.get("expected", ""))
+    text = "\n".join(p for p in parts if p)
+    return "\n".join([text] * reps)
 
 
 def collect_corpus(sample_mb: int = 50) -> str:
@@ -81,6 +108,8 @@ def collect_corpus(sample_mb: int = 50) -> str:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--vocab-size", type=int, default=8000)
+    parser.add_argument("--no-targets", action="store_true",
+                        help="Do not add the teacher target pools to the corpus")
     parser.add_argument("--sample",     type=int, default=50,
                         help="Max MB of corpus to use for training (default: 50)")
     parser.add_argument("--output",     default=None,
@@ -105,6 +134,10 @@ def main():
 
     print(f"\n  Raccolta corpus...")
     text = collect_corpus(args.sample)
+    if not args.no_targets:
+        tgt = collect_targets()
+        print(f"  + pool di obiettivi dei teacher: {len(tgt):,} char")
+        text = text + "\n" + tgt
     print(f"  Corpus pronto: {len(text):,} caratteri")
 
     print(f"\n  Addestramento BPE ({args.vocab_size} token)...")
