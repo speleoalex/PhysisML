@@ -59,6 +59,120 @@
           "expected": "il cane ha dormito in casa.",
           "noun": "dormito",
           "verb": "ha"
+        },
+        {
+          "prompt": "cosa ha mangiato il pesce?",
+          "expected": "il pesce ha mangiato il gelato.",
+          "noun": "mangiato",
+          "verb": "mangiato"
+        },
+        {
+          "prompt": "cosa ha mangiato il bambino?",
+          "expected": "il bambino ha mangiato il gelato.",
+          "noun": "mangiato",
+          "verb": "mangiato"
+        },
+        {
+          "prompt": "cosa ha guardato la mamma?",
+          "expected": "la mamma ha guardato il disegno.",
+          "noun": "guardato",
+          "verb": "guardato"
+        },
+        {
+          "prompt": "cosa ha letto la nonna?",
+          "expected": "la nonna ha letto il quaderno.",
+          "noun": "letto",
+          "verb": "letto"
+        },
+        {
+          "prompt": "cosa ha mangiato la sorella?",
+          "expected": "la sorella ha mangiato la torta.",
+          "noun": "mangiato",
+          "verb": "mangiato"
+        },
+        {
+          "prompt": "cosa ha aperto la bambina?",
+          "expected": "la bambina ha aperto la porta.",
+          "noun": "aperto",
+          "verb": "aperto"
+        },
+        {
+          "prompt": "cosa ha mangiato l uccello?",
+          "expected": "l uccello ha mangiato il gelato.",
+          "noun": "mangiato",
+          "verb": "mangiato"
+        },
+        {
+          "prompt": "cosa ha mangiato l amico?",
+          "expected": "l amico ha mangiato il formaggio.",
+          "noun": "mangiato",
+          "verb": "mangiato"
+        },
+        {
+          "prompt": "cosa ha mangiato il gatto?",
+          "expected": "il gatto ha mangiato il gelato.",
+          "noun": "mangiato",
+          "verb": "mangiato"
+        },
+        {
+          "prompt": "cosa ha aperto il papà?",
+          "expected": "il papà ha aperto la finestra.",
+          "noun": "aperto",
+          "verb": "aperto"
+        },
+        {
+          "prompt": "cosa ha mangiato l orso?",
+          "expected": "l orso ha mangiato il formaggio.",
+          "noun": "mangiato",
+          "verb": "mangiato"
+        },
+        {
+          "prompt": "cosa ha letto il nonno?",
+          "expected": "il nonno ha letto il libro.",
+          "noun": "letto",
+          "verb": "letto"
+        },
+        {
+          "prompt": "cosa ha mangiato la mucca?",
+          "expected": "la mucca ha mangiato il formaggio.",
+          "noun": "mangiato",
+          "verb": "mangiato"
+        },
+        {
+          "prompt": "cosa ha mangiato il lupo?",
+          "expected": "il lupo ha mangiato la mela.",
+          "noun": "mangiato",
+          "verb": "mangiato"
+        },
+        {
+          "prompt": "cosa ha mangiato il cavallo?",
+          "expected": "il cavallo ha mangiato il gelato.",
+          "noun": "mangiato",
+          "verb": "mangiato"
+        },
+        {
+          "prompt": "cosa ha bevuto il fratello?",
+          "expected": "il fratello ha bevuto il latte.",
+          "noun": "bevuto",
+          "verb": "bevuto"
+        },
+        {
+          "prompt": "cosa ha mangiato il topo?",
+          "expected": "il topo ha mangiato la minestra.",
+          "noun": "mangiato",
+          "verb": "mangiato"
+        },
+        {
+          "prompt": "cosa ha mangiato il maestro?",
+          "expected": "il maestro ha mangiato la torta.",
+          "noun": "mangiato",
+          "verb": "mangiato"
+        },
+        {
+          "prompt": "cosa ha mangiato la gallina?",
+          "expected": "la gallina ha mangiato il formaggio.",
+          "noun": "mangiato",
+          "verb": "mangiato"
         }
       ],
       "prompt_template": "{prompt}",

@@ -48,6 +48,91 @@
           "prompt": "chi è più piccolo, il bambino o il papà?",
           "expected": "il bambino è più piccolo del papà.",
           "noun": "piccolo"
+        },
+        {
+          "prompt": "chi è più freddo, il mare o la luna?",
+          "expected": "il mare è più freddo della luna.",
+          "noun": "freddo"
+        },
+        {
+          "prompt": "chi è più tranquilla, la nonna o la sorella?",
+          "expected": "la nonna è più tranquilla della sorella.",
+          "noun": "tranquilla"
+        },
+        {
+          "prompt": "chi è più tranquillo, l orso o il gatto?",
+          "expected": "l orso è più tranquillo del gatto.",
+          "noun": "tranquillo"
+        },
+        {
+          "prompt": "chi è più buono, il cane o l orso?",
+          "expected": "il cane è più buono dell orso.",
+          "noun": "buono"
+        },
+        {
+          "prompt": "chi è più bassa, la porta o il libro?",
+          "expected": "la porta è più bassa del libro.",
+          "noun": "bassa"
+        },
+        {
+          "prompt": "chi è più grande, l albero o il fiore?",
+          "expected": "l albero è più grande del fiore.",
+          "noun": "grande"
+        },
+        {
+          "prompt": "chi è più grande, il fratello o il nonno?",
+          "expected": "il fratello è più grande del nonno.",
+          "noun": "grande"
+        },
+        {
+          "prompt": "chi è più alto, il cappello o il tavolo?",
+          "expected": "il cappello è più alto del tavolo.",
+          "noun": "alto"
+        },
+        {
+          "prompt": "chi è più alta, la gallina o il cane?",
+          "expected": "la gallina è più alta del cane.",
+          "noun": "alta"
+        },
+        {
+          "prompt": "chi è più tranquillo, l uccello o la mucca?",
+          "expected": "l uccello è più tranquillo della mucca.",
+          "noun": "tranquillo"
+        },
+        {
+          "prompt": "chi è più vecchia, la finestra o il libro?",
+          "expected": "la finestra è più vecchia del libro.",
+          "noun": "vecchia"
+        },
+        {
+          "prompt": "chi è più bianca, la finestra o la porta?",
+          "expected": "la finestra è più bianca della porta.",
+          "noun": "bianca"
+        },
+        {
+          "prompt": "chi è più lento, l amico o il nonno?",
+          "expected": "l amico è più lento del nonno.",
+          "noun": "lento"
+        },
+        {
+          "prompt": "chi è più grande, il papà o l amico?",
+          "expected": "il papà è più grande dell amico.",
+          "noun": "grande"
+        },
+        {
+          "prompt": "chi è più piccola, la luna o il vento?",
+          "expected": "la luna è più piccola del vento.",
+          "noun": "piccola"
+        },
+        {
+          "prompt": "chi è più alto, il maestro o la bambina?",
+          "expected": "il maestro è più alto della bambina.",
+          "noun": "alto"
+        },
+        {
+          "prompt": "chi è più rossa, la stella o la luna?",
+          "expected": "la stella è più rossa della luna.",
+          "noun": "rossa"
         }
       ],
       "prompt_template": "{prompt}",
@@ -85,6 +170,26 @@
           "prompt": "chi ti piace?",
           "expected": "mi piace la mamma.",
           "noun": "mamma"
+        },
+        {
+          "prompt": "ti piace il latte?",
+          "expected": "mi piace il latte.",
+          "noun": "latte"
+        },
+        {
+          "prompt": "ti piace l acqua?",
+          "expected": "mi piace l acqua.",
+          "noun": "acqua"
+        },
+        {
+          "prompt": "ti piace la torta?",
+          "expected": "mi piace la torta.",
+          "noun": "torta"
+        },
+        {
+          "prompt": "ti piace il pane?",
+          "expected": "mi piace il pane.",
+          "noun": "pane"
         }
       ],
       "prompt_template": "{prompt}",
@@ -117,6 +222,111 @@
           "prompt": "perché ti piace il libro?",
           "expected": "mi piace il libro perché è nuovo.",
           "noun": "nuovo"
+        },
+        {
+          "prompt": "perché ti piace il gatto?",
+          "expected": "mi piace il gatto perché è veloce.",
+          "noun": "veloce"
+        },
+        {
+          "prompt": "perché ti piace la torta?",
+          "expected": "mi piace la torta perché è buona.",
+          "noun": "buona"
+        },
+        {
+          "prompt": "perché ti piace il gelato?",
+          "expected": "mi piace il gelato perché è dolce.",
+          "noun": "dolce"
+        },
+        {
+          "prompt": "perché ti piace la mucca?",
+          "expected": "mi piace la mucca perché è felice.",
+          "noun": "felice"
+        },
+        {
+          "prompt": "perché ti piace il pallone?",
+          "expected": "mi piace il pallone perché è utile.",
+          "noun": "utile"
+        },
+        {
+          "prompt": "perché ti piace il tavolo?",
+          "expected": "mi piace il tavolo perché è bello.",
+          "noun": "bello"
+        },
+        {
+          "prompt": "perché ti piace l uccello?",
+          "expected": "mi piace l uccello perché è tranquillo.",
+          "noun": "tranquillo"
+        },
+        {
+          "prompt": "perché ti piace la mela?",
+          "expected": "mi piace la mela perché è dolce.",
+          "noun": "dolce"
+        },
+        {
+          "prompt": "perché ti piace la gallina?",
+          "expected": "mi piace la gallina perché è bella.",
+          "noun": "bella"
+        },
+        {
+          "prompt": "perché ti piace la minestra?",
+          "expected": "mi piace la minestra perché è buona.",
+          "noun": "buona"
+        },
+        {
+          "prompt": "perché ti piace il formaggio?",
+          "expected": "mi piace il formaggio perché è buono.",
+          "noun": "buono"
+        },
+        {
+          "prompt": "perché ti piace il cane?",
+          "expected": "mi piace il cane perché è felice.",
+          "noun": "felice"
+        },
+        {
+          "prompt": "perché ti piace la porta?",
+          "expected": "mi piace la porta perché è bella.",
+          "noun": "bella"
+        },
+        {
+          "prompt": "perché ti piace il cappello?",
+          "expected": "mi piace il cappello perché è nuovo.",
+          "noun": "nuovo"
+        },
+        {
+          "prompt": "perché ti piace il letto?",
+          "expected": "mi piace il letto perché è pulito.",
+          "noun": "pulito"
+        },
+        {
+          "prompt": "perché ti piace la sedia?",
+          "expected": "mi piace la sedia perché è bella.",
+          "noun": "bella"
+        },
+        {
+          "prompt": "perché ti piace il quaderno?",
+          "expected": "mi piace il quaderno perché è bello.",
+          "noun": "bello"
+        },
+        {
+          "prompt": "perché ti piace l orso?",
+          "expected": "mi piace l orso perché è tranquillo.",
+          "noun": "tranquillo"
+        },
+        {
+          "prompt": "perché ti piace il pesce?",
+          "expected": "mi piace il pesce perché è felice.",
+          "noun": "felice"
+        },
+        {
+          "prompt": "perché ti piace il cavallo?",
+          "expected": "mi piace il cavallo perché è buono.",
+          "noun": "buono"
+        },
+        {
+          "prompt": "perché ti piace la finestra?",
+          "expected": "mi piace la finestra perché è bella.",
+          "noun": "bella"
         }
       ],
       "prompt_template": "{prompt}",
@@ -154,6 +364,111 @@
           "prompt": "descrivi la luna",
           "expected": "la luna è bianca e bella.",
           "noun": "bianca"
+        },
+        {
+          "prompt": "descrivi il pesce",
+          "expected": "il pesce è basso e stanco.",
+          "noun": "stanco"
+        },
+        {
+          "prompt": "descrivi l albero",
+          "expected": "l albero è grande e bianco.",
+          "noun": "bianco"
+        },
+        {
+          "prompt": "descrivi il maestro",
+          "expected": "il maestro è vecchio e basso.",
+          "noun": "basso"
+        },
+        {
+          "prompt": "descrivi il lupo",
+          "expected": "il lupo è bello e veloce.",
+          "noun": "veloce"
+        },
+        {
+          "prompt": "descrivi il fiore",
+          "expected": "il fiore è giallo e piccolo.",
+          "noun": "piccolo"
+        },
+        {
+          "prompt": "descrivi il gatto",
+          "expected": "il gatto è alto e veloce.",
+          "noun": "veloce"
+        },
+        {
+          "prompt": "descrivi l uccello",
+          "expected": "l uccello è alto e stanco.",
+          "noun": "stanco"
+        },
+        {
+          "prompt": "descrivi il nonno",
+          "expected": "il nonno è buono e vecchio.",
+          "noun": "vecchio"
+        },
+        {
+          "prompt": "descrivi la sorella",
+          "expected": "la sorella è fedele e veloce.",
+          "noun": "veloce"
+        },
+        {
+          "prompt": "descrivi il cappello",
+          "expected": "il cappello è grande e utile.",
+          "noun": "utile"
+        },
+        {
+          "prompt": "descrivi il disegno",
+          "expected": "il disegno è basso e pulito.",
+          "noun": "pulito"
+        },
+        {
+          "prompt": "descrivi il fratello",
+          "expected": "il fratello è stanco e buono.",
+          "noun": "buono"
+        },
+        {
+          "prompt": "descrivi la nonna",
+          "expected": "la nonna è piccola e stanca.",
+          "noun": "stanca"
+        },
+        {
+          "prompt": "descrivi la bambina",
+          "expected": "la bambina è buona e piccola.",
+          "noun": "piccola"
+        },
+        {
+          "prompt": "descrivi il quaderno",
+          "expected": "il quaderno è rosso e utile.",
+          "noun": "utile"
+        },
+        {
+          "prompt": "descrivi l orso",
+          "expected": "l orso è piccolo e fedele.",
+          "noun": "fedele"
+        },
+        {
+          "prompt": "descrivi la mamma",
+          "expected": "la mamma è felice e fedele.",
+          "noun": "fedele"
+        },
+        {
+          "prompt": "descrivi il vento",
+          "expected": "il vento è caldo e lungo.",
+          "noun": "lungo"
+        },
+        {
+          "prompt": "descrivi il libro",
+          "expected": "il libro è verde e lungo.",
+          "noun": "lungo"
+        },
+        {
+          "prompt": "descrivi la stella",
+          "expected": "la stella è bianca e calda.",
+          "noun": "calda"
+        },
+        {
+          "prompt": "descrivi l ape",
+          "expected": "l ape è bassa e bella.",
+          "noun": "bella"
         }
       ],
       "prompt_template": "{prompt}",

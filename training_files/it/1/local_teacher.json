@@ -79,6 +79,126 @@
           "expected": "il naso!",
           "article": "il",
           "noun": "naso"
+        },
+        {
+          "prompt": "il quaderno",
+          "expected": "il quaderno!",
+          "article": "il",
+          "noun": "quaderno"
+        },
+        {
+          "prompt": "l ape",
+          "expected": "l ape!",
+          "article": "l",
+          "noun": "ape"
+        },
+        {
+          "prompt": "il cappello",
+          "expected": "il cappello!",
+          "article": "il",
+          "noun": "cappello"
+        },
+        {
+          "prompt": "la minestra",
+          "expected": "la minestra!",
+          "article": "la",
+          "noun": "minestra"
+        },
+        {
+          "prompt": "il lupo",
+          "expected": "il lupo!",
+          "article": "il",
+          "noun": "lupo"
+        },
+        {
+          "prompt": "la sorella",
+          "expected": "la sorella!",
+          "article": "la",
+          "noun": "sorella"
+        },
+        {
+          "prompt": "il pesce",
+          "expected": "il pesce!",
+          "article": "il",
+          "noun": "pesce"
+        },
+        {
+          "prompt": "il formaggio",
+          "expected": "il formaggio!",
+          "article": "il",
+          "noun": "formaggio"
+        },
+        {
+          "prompt": "il letto",
+          "expected": "il letto!",
+          "article": "il",
+          "noun": "letto"
+        },
+        {
+          "prompt": "il pallone",
+          "expected": "il pallone!",
+          "article": "il",
+          "noun": "pallone"
+        },
+        {
+          "prompt": "l orso",
+          "expected": "l orso!",
+          "article": "l",
+          "noun": "orso"
+        },
+        {
+          "prompt": "il cavallo",
+          "expected": "il cavallo!",
+          "article": "il",
+          "noun": "cavallo"
+        },
+        {
+          "prompt": "l uccello",
+          "expected": "l uccello!",
+          "article": "l",
+          "noun": "uccello"
+        },
+        {
+          "prompt": "il disegno",
+          "expected": "il disegno!",
+          "article": "il",
+          "noun": "disegno"
+        },
+        {
+          "prompt": "la sedia",
+          "expected": "la sedia!",
+          "article": "la",
+          "noun": "sedia"
+        },
+        {
+          "prompt": "il vento",
+          "expected": "il vento!",
+          "article": "il",
+          "noun": "vento"
+        },
+        {
+          "prompt": "la finestra",
+          "expected": "la finestra!",
+          "article": "la",
+          "noun": "finestra"
+        },
+        {
+          "prompt": "la scuola",
+          "expected": "la scuola!",
+          "article": "la",
+          "noun": "scuola"
+        },
+        {
+          "prompt": "la torta",
+          "expected": "la torta!",
+          "article": "la",
+          "noun": "torta"
+        },
+        {
+          "prompt": "il gelato",
+          "expected": "il gelato!",
+          "article": "il",
+          "noun": "gelato"
         }
       ],
       "prompt_template": "di: {prompt}",
@@ -109,6 +229,116 @@
           "prompt": "nonna",
           "expected": "nonna!",
           "noun": "nonna"
+        },
+        {
+          "prompt": "maestro",
+          "expected": "maestro!",
+          "noun": "maestro"
+        },
+        {
+          "prompt": "latte",
+          "expected": "latte!",
+          "noun": "latte"
+        },
+        {
+          "prompt": "sorella",
+          "expected": "sorella!",
+          "noun": "sorella"
+        },
+        {
+          "prompt": "minestra",
+          "expected": "minestra!",
+          "noun": "minestra"
+        },
+        {
+          "prompt": "topo",
+          "expected": "topo!",
+          "noun": "topo"
+        },
+        {
+          "prompt": "torta",
+          "expected": "torta!",
+          "noun": "torta"
+        },
+        {
+          "prompt": "cavallo",
+          "expected": "cavallo!",
+          "noun": "cavallo"
+        },
+        {
+          "prompt": "gatto",
+          "expected": "gatto!",
+          "noun": "gatto"
+        },
+        {
+          "prompt": "mela",
+          "expected": "mela!",
+          "noun": "mela"
+        },
+        {
+          "prompt": "bambino",
+          "expected": "bambino!",
+          "noun": "bambino"
+        },
+        {
+          "prompt": "formaggio",
+          "expected": "formaggio!",
+          "noun": "formaggio"
+        },
+        {
+          "prompt": "gallina",
+          "expected": "gallina!",
+          "noun": "gallina"
+        },
+        {
+          "prompt": "uccello",
+          "expected": "uccello!",
+          "noun": "uccello"
+        },
+        {
+          "prompt": "fratello",
+          "expected": "fratello!",
+          "noun": "fratello"
+        },
+        {
+          "prompt": "bambina",
+          "expected": "bambina!",
+          "noun": "bambina"
+        },
+        {
+          "prompt": "gelato",
+          "expected": "gelato!",
+          "noun": "gelato"
+        },
+        {
+          "prompt": "acqua",
+          "expected": "acqua!",
+          "noun": "acqua"
+        },
+        {
+          "prompt": "cane",
+          "expected": "cane!",
+          "noun": "cane"
+        },
+        {
+          "prompt": "pesce",
+          "expected": "pesce!",
+          "noun": "pesce"
+        },
+        {
+          "prompt": "mucca",
+          "expected": "mucca!",
+          "noun": "mucca"
+        },
+        {
+          "prompt": "orso",
+          "expected": "orso!",
+          "noun": "orso"
+        },
+        {
+          "prompt": "amico",
+          "expected": "amico!",
+          "noun": "amico"
         }
       ],
       "prompt_template": "di: {prompt}",

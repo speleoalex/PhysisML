@@ -43,6 +43,126 @@
           "expected": "il sole!",
           "article": "il",
           "noun": "sole"
+        },
+        {
+          "prompt": "la scuola",
+          "expected": "la scuola!",
+          "article": "la",
+          "noun": "scuola"
+        },
+        {
+          "prompt": "il bambino",
+          "expected": "il bambino!",
+          "article": "il",
+          "noun": "bambino"
+        },
+        {
+          "prompt": "la mela",
+          "expected": "la mela!",
+          "article": "la",
+          "noun": "mela"
+        },
+        {
+          "prompt": "la mucca",
+          "expected": "la mucca!",
+          "article": "la",
+          "noun": "mucca"
+        },
+        {
+          "prompt": "il cappello",
+          "expected": "il cappello!",
+          "article": "il",
+          "noun": "cappello"
+        },
+        {
+          "prompt": "l acqua",
+          "expected": "l acqua!",
+          "article": "l",
+          "noun": "acqua"
+        },
+        {
+          "prompt": "la sedia",
+          "expected": "la sedia!",
+          "article": "la",
+          "noun": "sedia"
+        },
+        {
+          "prompt": "la finestra",
+          "expected": "la finestra!",
+          "article": "la",
+          "noun": "finestra"
+        },
+        {
+          "prompt": "il formaggio",
+          "expected": "il formaggio!",
+          "article": "il",
+          "noun": "formaggio"
+        },
+        {
+          "prompt": "il mare",
+          "expected": "il mare!",
+          "article": "il",
+          "noun": "mare"
+        },
+        {
+          "prompt": "l uccello",
+          "expected": "l uccello!",
+          "article": "l",
+          "noun": "uccello"
+        },
+        {
+          "prompt": "il pesce",
+          "expected": "il pesce!",
+          "article": "il",
+          "noun": "pesce"
+        },
+        {
+          "prompt": "l amico",
+          "expected": "l amico!",
+          "article": "l",
+          "noun": "amico"
+        },
+        {
+          "prompt": "il libro",
+          "expected": "il libro!",
+          "article": "il",
+          "noun": "libro"
+        },
+        {
+          "prompt": "il latte",
+          "expected": "il latte!",
+          "article": "il",
+          "noun": "latte"
+        },
+        {
+          "prompt": "il lupo",
+          "expected": "il lupo!",
+          "article": "il",
+          "noun": "lupo"
+        },
+        {
+          "prompt": "il nonno",
+          "expected": "il nonno!",
+          "article": "il",
+          "noun": "nonno"
+        },
+        {
+          "prompt": "l albero",
+          "expected": "l albero!",
+          "article": "l",
+          "noun": "albero"
+        },
+        {
+          "prompt": "il pallone",
+          "expected": "il pallone!",
+          "article": "il",
+          "noun": "pallone"
+        },
+        {
+          "prompt": "il fiore",
+          "expected": "il fiore!",
+          "article": "il",
+          "noun": "fiore"
         }
       ],
       "prompt_template": "di: {prompt}",
@@ -90,6 +210,139 @@
           "article": "la",
           "noun": "luna",
           "verb": "brilla"
+        },
+        {
+          "prompt": "la mucca dorme",
+          "expected": "la mucca dorme!",
+          "article": "la",
+          "noun": "mucca",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "l uccello vola",
+          "expected": "l uccello vola!",
+          "article": "l",
+          "noun": "uccello",
+          "verb": "vola"
+        },
+        {
+          "prompt": "la neve cade",
+          "expected": "la neve cade!",
+          "article": "la",
+          "noun": "neve",
+          "verb": "cade"
+        },
+        {
+          "prompt": "l amico salta",
+          "expected": "l amico salta!",
+          "article": "l",
+          "noun": "amico",
+          "verb": "salta"
+        },
+        {
+          "prompt": "il lupo corre",
+          "expected": "il lupo corre!",
+          "article": "il",
+          "noun": "lupo",
+          "verb": "corre"
+        },
+        {
+          "prompt": "il maestro nuota",
+          "expected": "il maestro nuota!",
+          "article": "il",
+          "noun": "maestro",
+          "verb": "nuota"
+        },
+        {
+          "prompt": "il pesce nuota",
+          "expected": "il pesce nuota!",
+          "article": "il",
+          "noun": "pesce",
+          "verb": "nuota"
+        },
+        {
+          "prompt": "la stella brilla",
+          "expected": "la stella brilla!",
+          "article": "la",
+          "noun": "stella",
+          "verb": "brilla"
+        },
+        {
+          "prompt": "il papà salta",
+          "expected": "il papà salta!",
+          "article": "il",
+          "noun": "papà",
+          "verb": "salta"
+        },
+        {
+          "prompt": "la bambina dorme",
+          "expected": "la bambina dorme!",
+          "article": "la",
+          "noun": "bambina",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "il nonno corre",
+          "expected": "il nonno corre!",
+          "article": "il",
+          "noun": "nonno",
+          "verb": "corre"
+        },
+        {
+          "prompt": "la gallina canta",
+          "expected": "la gallina canta!",
+          "article": "la",
+          "noun": "gallina",
+          "verb": "canta"
+        },
+        {
+          "prompt": "il cavallo dorme",
+          "expected": "il cavallo dorme!",
+          "article": "il",
+          "noun": "cavallo",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "l albero cresce",
+          "expected": "l albero cresce!",
+          "article": "l",
+          "noun": "albero",
+          "verb": "cresce"
+        },
+        {
+          "prompt": "l orso dorme",
+          "expected": "l orso dorme!",
+          "article": "l",
+          "noun": "orso",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "la nonna cammina",
+          "expected": "la nonna cammina!",
+          "article": "la",
+          "noun": "nonna",
+          "verb": "cammina"
+        },
+        {
+          "prompt": "il sole brilla",
+          "expected": "il sole brilla!",
+          "article": "il",
+          "noun": "sole",
+          "verb": "brilla"
+        },
+        {
+          "prompt": "la sorella dorme",
+          "expected": "la sorella dorme!",
+          "article": "la",
+          "noun": "sorella",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "il bambino canta",
+          "expected": "il bambino canta!",
+          "article": "il",
+          "noun": "bambino",
+          "verb": "canta"
         }
       ],
       "prompt_template": "di: {prompt}",
@@ -130,6 +383,167 @@
           "article": "la",
           "noun": "mamma",
           "adjective": "brava"
+        },
+        {
+          "prompt": "l uccello alto",
+          "expected": "l uccello alto!",
+          "article": "l",
+          "noun": "uccello",
+          "adjective": "alto"
+        },
+        {
+          "prompt": "il letto basso",
+          "expected": "il letto basso!",
+          "article": "il",
+          "noun": "letto",
+          "adjective": "basso"
+        },
+        {
+          "prompt": "il vento piccolo",
+          "expected": "il vento piccolo!",
+          "article": "il",
+          "noun": "vento",
+          "adjective": "piccolo"
+        },
+        {
+          "prompt": "la bambina bella",
+          "expected": "la bambina bella!",
+          "article": "la",
+          "noun": "bambina",
+          "adjective": "bella"
+        },
+        {
+          "prompt": "la penna alta",
+          "expected": "la penna alta!",
+          "article": "la",
+          "noun": "penna",
+          "adjective": "alta"
+        },
+        {
+          "prompt": "il latte dolce",
+          "expected": "il latte dolce!",
+          "article": "il",
+          "noun": "latte",
+          "adjective": "dolce"
+        },
+        {
+          "prompt": "la stella rossa",
+          "expected": "la stella rossa!",
+          "article": "la",
+          "noun": "stella",
+          "adjective": "rossa"
+        },
+        {
+          "prompt": "la porta bella",
+          "expected": "la porta bella!",
+          "article": "la",
+          "noun": "porta",
+          "adjective": "bella"
+        },
+        {
+          "prompt": "il formaggio dolce",
+          "expected": "il formaggio dolce!",
+          "article": "il",
+          "noun": "formaggio",
+          "adjective": "dolce"
+        },
+        {
+          "prompt": "l amico bello",
+          "expected": "l amico bello!",
+          "article": "l",
+          "noun": "amico",
+          "adjective": "bello"
+        },
+        {
+          "prompt": "la gallina felice",
+          "expected": "la gallina felice!",
+          "article": "la",
+          "noun": "gallina",
+          "adjective": "felice"
+        },
+        {
+          "prompt": "il libro nuovo",
+          "expected": "il libro nuovo!",
+          "article": "il",
+          "noun": "libro",
+          "adjective": "nuovo"
+        },
+        {
+          "prompt": "il prato vecchio",
+          "expected": "il prato vecchio!",
+          "article": "il",
+          "noun": "prato",
+          "adjective": "vecchio"
+        },
+        {
+          "prompt": "il maestro piccolo",
+          "expected": "il maestro piccolo!",
+          "article": "il",
+          "noun": "maestro",
+          "adjective": "piccolo"
+        },
+        {
+          "prompt": "la mucca tranquilla",
+          "expected": "la mucca tranquilla!",
+          "article": "la",
+          "noun": "mucca",
+          "adjective": "tranquilla"
+        },
+        {
+          "prompt": "il pane freddo",
+          "expected": "il pane freddo!",
+          "article": "il",
+          "noun": "pane",
+          "adjective": "freddo"
+        },
+        {
+          "prompt": "la luna fredda",
+          "expected": "la luna fredda!",
+          "article": "la",
+          "noun": "luna",
+          "adjective": "fredda"
+        },
+        {
+          "prompt": "la casa fredda",
+          "expected": "la casa fredda!",
+          "article": "la",
+          "noun": "casa",
+          "adjective": "fredda"
+        },
+        {
+          "prompt": "il bambino grande",
+          "expected": "il bambino grande!",
+          "article": "il",
+          "noun": "bambino",
+          "adjective": "grande"
+        },
+        {
+          "prompt": "il gelato buono",
+          "expected": "il gelato buono!",
+          "article": "il",
+          "noun": "gelato",
+          "adjective": "buono"
+        },
+        {
+          "prompt": "la nonna stanca",
+          "expected": "la nonna stanca!",
+          "article": "la",
+          "noun": "nonna",
+          "adjective": "stanca"
+        },
+        {
+          "prompt": "l albero giallo",
+          "expected": "l albero giallo!",
+          "article": "l",
+          "noun": "albero",
+          "adjective": "giallo"
+        },
+        {
+          "prompt": "il pesce fedele",
+          "expected": "il pesce fedele!",
+          "article": "il",
+          "noun": "pesce",
+          "adjective": "fedele"
         }
       ],
       "prompt_template": "di: {prompt}",
@@ -166,6 +580,166 @@
           "noun": "gatto",
           "verb": "beve",
           "object": "latte"
+        },
+        {
+          "prompt": "la nonna apre la finestra",
+          "expected": "la nonna apre la finestra!",
+          "article": "la",
+          "noun": "nonna",
+          "verb": "apre",
+          "object": "finestra"
+        },
+        {
+          "prompt": "la bambina legge il quaderno",
+          "expected": "la bambina legge il quaderno!",
+          "article": "la",
+          "noun": "bambina",
+          "verb": "legge",
+          "object": "quaderno"
+        },
+        {
+          "prompt": "la mamma legge il libro",
+          "expected": "la mamma legge il libro!",
+          "article": "la",
+          "noun": "mamma",
+          "verb": "legge",
+          "object": "libro"
+        },
+        {
+          "prompt": "il fratello beve il latte",
+          "expected": "il fratello beve il latte!",
+          "article": "il",
+          "noun": "fratello",
+          "verb": "beve",
+          "object": "latte"
+        },
+        {
+          "prompt": "la sorella apre il quaderno",
+          "expected": "la sorella apre il quaderno!",
+          "article": "la",
+          "noun": "sorella",
+          "verb": "apre",
+          "object": "quaderno"
+        },
+        {
+          "prompt": "il bambino beve il latte",
+          "expected": "il bambino beve il latte!",
+          "article": "il",
+          "noun": "bambino",
+          "verb": "beve",
+          "object": "latte"
+        },
+        {
+          "prompt": "la gallina mangia la torta",
+          "expected": "la gallina mangia la torta!",
+          "article": "la",
+          "noun": "gallina",
+          "verb": "mangia",
+          "object": "torta"
+        },
+        {
+          "prompt": "il pesce mangia il formaggio",
+          "expected": "il pesce mangia il formaggio!",
+          "article": "il",
+          "noun": "pesce",
+          "verb": "mangia",
+          "object": "formaggio"
+        },
+        {
+          "prompt": "la mucca mangia la minestra",
+          "expected": "la mucca mangia la minestra!",
+          "article": "la",
+          "noun": "mucca",
+          "verb": "mangia",
+          "object": "minestra"
+        },
+        {
+          "prompt": "l orso mangia il formaggio",
+          "expected": "l orso mangia il formaggio!",
+          "article": "l",
+          "noun": "orso",
+          "verb": "mangia",
+          "object": "formaggio"
+        },
+        {
+          "prompt": "il cavallo mangia la mela",
+          "expected": "il cavallo mangia la mela!",
+          "article": "il",
+          "noun": "cavallo",
+          "verb": "mangia",
+          "object": "mela"
+        },
+        {
+          "prompt": "il cane mangia il formaggio",
+          "expected": "il cane mangia il formaggio!",
+          "article": "il",
+          "noun": "cane",
+          "verb": "mangia",
+          "object": "formaggio"
+        },
+        {
+          "prompt": "l uccello mangia il formaggio",
+          "expected": "l uccello mangia il formaggio!",
+          "article": "l",
+          "noun": "uccello",
+          "verb": "mangia",
+          "object": "formaggio"
+        },
+        {
+          "prompt": "il gatto mangia il formaggio",
+          "expected": "il gatto mangia il formaggio!",
+          "article": "il",
+          "noun": "gatto",
+          "verb": "mangia",
+          "object": "formaggio"
+        },
+        {
+          "prompt": "il topo mangia il pane",
+          "expected": "il topo mangia il pane!",
+          "article": "il",
+          "noun": "topo",
+          "verb": "mangia",
+          "object": "pane"
+        },
+        {
+          "prompt": "il lupo mangia la torta",
+          "expected": "il lupo mangia la torta!",
+          "article": "il",
+          "noun": "lupo",
+          "verb": "mangia",
+          "object": "torta"
+        },
+        {
+          "prompt": "il nonno legge il libro",
+          "expected": "il nonno legge il libro!",
+          "article": "il",
+          "noun": "nonno",
+          "verb": "legge",
+          "object": "libro"
+        },
+        {
+          "prompt": "il maestro legge il libro",
+          "expected": "il maestro legge il libro!",
+          "article": "il",
+          "noun": "maestro",
+          "verb": "legge",
+          "object": "libro"
+        },
+        {
+          "prompt": "il papà beve l acqua",
+          "expected": "il papà beve l acqua!",
+          "article": "il",
+          "noun": "papà",
+          "verb": "beve",
+          "object": "acqua"
+        },
+        {
+          "prompt": "l amico mangia il formaggio",
+          "expected": "l amico mangia il formaggio!",
+          "article": "l",
+          "noun": "amico",
+          "verb": "mangia",
+          "object": "formaggio"
         }
       ],
       "prompt_template": "di: {prompt}",

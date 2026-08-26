@@ -37,9 +37,15 @@ LANG="it"
 EPOCHS_0=3    # good balance: enough signal, not wasteful for small corpora (L0-L2)
               # for large corpora (L3+, 20MB+) consider --epochs-0 2 to save time
 TUTOR_MODEL="haiku"
-TEACH_TURNS=100   # number of turns per level, or 'auto'
+# Turns per session. This must cover at least one full pass through the level's
+# target pool, or the teacher — which advances through targets in order — never
+# reaches the tail of the pool and those targets are never taught. One pass
+# costs sum(targets x advance_after_successes): after the 2026-08-25 pool
+# expansion that is 274 turns at L2 and 243 at L3, against the 100 this used to
+# be. The check below warns when the budget falls short again.
+TEACH_TURNS=300   # number of turns per level, or 'auto'
 RESUME=0
-MAX_TEACH_TURNS=200   # per-session hard cap on teaching turns
+MAX_TEACH_TURNS=600   # per-session hard cap on teaching turns
 MAX_SESSIONS=4        # max sessions for fixed-session levels (L0-L1)
 MAX_SESSIONS_DYNAMIC=12  # safety cap for dynamic-session levels
 RETRAIN_EPOCHS=2      # text retrain epochs between sessions (short re-anchor)
@@ -273,6 +279,21 @@ for LEVEL in $(seq $START_LEVEL $TARGET_LEVEL); do
       else
         EFFECTIVE_TUTOR="local"
       fi
+    fi
+
+    # Does the budget cover one pass through the pool? The teacher walks the
+    # targets in order, so a short budget silently leaves the tail untaught.
+    POOL_TURNS=$($PYTHON -c "
+import json,sys
+try:
+    c=json.load(open('training_files/$LANG/$LEVEL/local_teacher.json'))
+    print(sum(len(s['targets'])*s.get('advance_after_successes',2) for s in c['steps'].values()))
+except Exception: print(0)" 2>/dev/null || echo 0)
+    if [ "${POOL_TURNS:-0}" -gt 0 ] && [ "$EFFECTIVE_TURNS" != "auto" ] \
+       && [ "$EFFECTIVE_TURNS" -lt "$POOL_TURNS" ] 2>/dev/null; then
+      echo "  ⚠ ${EFFECTIVE_TURNS} turns < ${POOL_TURNS} needed for one pass over the L$LEVEL pool."
+      echo "    The teacher advances in order, so the tail of the pool stays untaught."
+      echo "    Raise TEACH_TURNS (or pass a larger number to build.sh)."
     fi
 
     SESSION_START=$(date +%s)

@@ -1,0 +1,1311 @@
+{
+  "_note": [
+    "Lessico da cui scripts/expand_teacher_pools.py genera i pool di obiettivi.",
+    "Gli apostrofi si scrivono come spazi ('l acqua'), come nel resto del corpus.",
+    "'kind' vincola quali verbi e aggettivi hanno senso con quel nome: senza",
+    "questo vincolo si generano frasi come 'il pane dorme', che insegnano rumore.",
+    "'art' e' esplicito per nome, cosi' non serve alcuna regola di elisione.",
+    "Omografi rimossi di proposito: 'riso' (participio di ridere) e 'cucina' (verbo) restano verbi, non nomi; 'porta' resta nome, non verbo. Un modello di questa taglia non distingue i due sensi e li mescola.",
+    "'puo' elenca i verbi sensati per quel nome, 'luoghi_verbo' i luoghi per verbo, 'dim'/'pol' la dimensione semantica e la polarita' di ogni aggettivo. Senza questi vincoli il generatore produce 'il lupo vola', 'la mamma apre il tavolo' e 'il gelato e' rosso perche' e' bianco'."
+  ],
+  "nouns": [
+    {
+      "w": "cane",
+      "art": "il",
+      "g": "m",
+      "kind": "animale",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia",
+        "cerca"
+      ]
+    },
+    {
+      "w": "gatto",
+      "art": "il",
+      "g": "m",
+      "kind": "animale",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia",
+        "cerca"
+      ]
+    },
+    {
+      "w": "pesce",
+      "art": "il",
+      "g": "m",
+      "kind": "animale",
+      "puo": [
+        "nuota",
+        "mangia"
+      ]
+    },
+    {
+      "w": "cavallo",
+      "art": "il",
+      "g": "m",
+      "kind": "animale",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia"
+      ]
+    },
+    {
+      "w": "topo",
+      "art": "il",
+      "g": "m",
+      "kind": "animale",
+      "puo": [
+        "corre",
+        "mangia",
+        "cerca"
+      ]
+    },
+    {
+      "w": "lupo",
+      "art": "il",
+      "g": "m",
+      "kind": "animale",
+      "puo": [
+        "corre",
+        "mangia",
+        "cerca"
+      ]
+    },
+    {
+      "w": "orso",
+      "art": "l",
+      "g": "m",
+      "kind": "animale",
+      "puo": [
+        "dorme",
+        "mangia",
+        "cerca"
+      ]
+    },
+    {
+      "w": "uccello",
+      "art": "l",
+      "g": "m",
+      "kind": "animale",
+      "puo": [
+        "vola",
+        "canta",
+        "mangia"
+      ]
+    },
+    {
+      "w": "gallina",
+      "art": "la",
+      "g": "f",
+      "kind": "animale",
+      "puo": [
+        "mangia",
+        "canta"
+      ]
+    },
+    {
+      "w": "mucca",
+      "art": "la",
+      "g": "f",
+      "kind": "animale",
+      "puo": [
+        "mangia",
+        "dorme"
+      ]
+    },
+    {
+      "w": "ape",
+      "art": "l",
+      "g": "f",
+      "kind": "animale",
+      "puo": [
+        "vola",
+        "cerca"
+      ]
+    },
+    {
+      "w": "bambino",
+      "art": "il",
+      "g": "m",
+      "kind": "persona",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia",
+        "beve",
+        "legge",
+        "apre",
+        "cerca",
+        "canta",
+        "cucina",
+        "disegna",
+        "guarda",
+        "cammina",
+        "aspetta",
+        "trova",
+        "chiude",
+        "salta",
+        "ride",
+        "nuota"
+      ]
+    },
+    {
+      "w": "nonno",
+      "art": "il",
+      "g": "m",
+      "kind": "persona",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia",
+        "beve",
+        "legge",
+        "apre",
+        "cerca",
+        "canta",
+        "cucina",
+        "disegna",
+        "guarda",
+        "cammina",
+        "aspetta",
+        "trova",
+        "chiude",
+        "salta",
+        "ride",
+        "nuota"
+      ]
+    },
+    {
+      "w": "papà",
+      "art": "il",
+      "g": "m",
+      "kind": "persona",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia",
+        "beve",
+        "legge",
+        "apre",
+        "cerca",
+        "canta",
+        "cucina",
+        "disegna",
+        "guarda",
+        "cammina",
+        "aspetta",
+        "trova",
+        "chiude",
+        "salta",
+        "ride",
+        "nuota"
+      ]
+    },
+    {
+      "w": "fratello",
+      "art": "il",
+      "g": "m",
+      "kind": "persona",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia",
+        "beve",
+        "legge",
+        "apre",
+        "cerca",
+        "canta",
+        "cucina",
+        "disegna",
+        "guarda",
+        "cammina",
+        "aspetta",
+        "trova",
+        "chiude",
+        "salta",
+        "ride",
+        "nuota"
+      ]
+    },
+    {
+      "w": "maestro",
+      "art": "il",
+      "g": "m",
+      "kind": "persona",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia",
+        "beve",
+        "legge",
+        "apre",
+        "cerca",
+        "canta",
+        "cucina",
+        "disegna",
+        "guarda",
+        "cammina",
+        "aspetta",
+        "trova",
+        "chiude",
+        "salta",
+        "ride",
+        "nuota"
+      ]
+    },
+    {
+      "w": "amico",
+      "art": "l",
+      "g": "m",
+      "kind": "persona",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia",
+        "beve",
+        "legge",
+        "apre",
+        "cerca",
+        "canta",
+        "cucina",
+        "disegna",
+        "guarda",
+        "cammina",
+        "aspetta",
+        "trova",
+        "chiude",
+        "salta",
+        "ride",
+        "nuota"
+      ]
+    },
+    {
+      "w": "mamma",
+      "art": "la",
+      "g": "f",
+      "kind": "persona",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia",
+        "beve",
+        "legge",
+        "apre",
+        "cerca",
+        "canta",
+        "cucina",
+        "disegna",
+        "guarda",
+        "cammina",
+        "aspetta",
+        "trova",
+        "chiude",
+        "salta",
+        "ride",
+        "nuota"
+      ]
+    },
+    {
+      "w": "nonna",
+      "art": "la",
+      "g": "f",
+      "kind": "persona",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia",
+        "beve",
+        "legge",
+        "apre",
+        "cerca",
+        "canta",
+        "cucina",
+        "disegna",
+        "guarda",
+        "cammina",
+        "aspetta",
+        "trova",
+        "chiude",
+        "salta",
+        "ride",
+        "nuota"
+      ]
+    },
+    {
+      "w": "bambina",
+      "art": "la",
+      "g": "f",
+      "kind": "persona",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia",
+        "beve",
+        "legge",
+        "apre",
+        "cerca",
+        "canta",
+        "cucina",
+        "disegna",
+        "guarda",
+        "cammina",
+        "aspetta",
+        "trova",
+        "chiude",
+        "salta",
+        "ride",
+        "nuota"
+      ]
+    },
+    {
+      "w": "sorella",
+      "art": "la",
+      "g": "f",
+      "kind": "persona",
+      "puo": [
+        "corre",
+        "dorme",
+        "mangia",
+        "beve",
+        "legge",
+        "apre",
+        "cerca",
+        "canta",
+        "cucina",
+        "disegna",
+        "guarda",
+        "cammina",
+        "aspetta",
+        "trova",
+        "chiude",
+        "salta",
+        "ride",
+        "nuota"
+      ]
+    },
+    {
+      "w": "pane",
+      "art": "il",
+      "g": "m",
+      "kind": "cibo",
+      "puo": [
+        "mangia"
+      ]
+    },
+    {
+      "w": "latte",
+      "art": "il",
+      "g": "m",
+      "kind": "cibo",
+      "puo": [
+        "beve"
+      ]
+    },
+    {
+      "w": "formaggio",
+      "art": "il",
+      "g": "m",
+      "kind": "cibo",
+      "puo": [
+        "mangia"
+      ]
+    },
+    {
+      "w": "gelato",
+      "art": "il",
+      "g": "m",
+      "kind": "cibo",
+      "puo": [
+        "mangia"
+      ]
+    },
+    {
+      "w": "acqua",
+      "art": "l",
+      "g": "f",
+      "kind": "cibo",
+      "puo": [
+        "beve"
+      ]
+    },
+    {
+      "w": "mela",
+      "art": "la",
+      "g": "f",
+      "kind": "cibo",
+      "puo": [
+        "mangia"
+      ]
+    },
+    {
+      "w": "torta",
+      "art": "la",
+      "g": "f",
+      "kind": "cibo",
+      "puo": [
+        "mangia"
+      ]
+    },
+    {
+      "w": "minestra",
+      "art": "la",
+      "g": "f",
+      "kind": "cibo",
+      "puo": [
+        "mangia"
+      ]
+    },
+    {
+      "w": "libro",
+      "art": "il",
+      "g": "m",
+      "kind": "oggetto",
+      "puo": [
+        "legge",
+        "apre",
+        "porta"
+      ]
+    },
+    {
+      "w": "letto",
+      "art": "il",
+      "g": "m",
+      "kind": "oggetto",
+      "puo": []
+    },
+    {
+      "w": "tavolo",
+      "art": "il",
+      "g": "m",
+      "kind": "oggetto",
+      "puo": []
+    },
+    {
+      "w": "quaderno",
+      "art": "il",
+      "g": "m",
+      "kind": "oggetto",
+      "puo": [
+        "legge",
+        "apre",
+        "porta"
+      ]
+    },
+    {
+      "w": "cappello",
+      "art": "il",
+      "g": "m",
+      "kind": "oggetto",
+      "puo": [
+        "porta"
+      ]
+    },
+    {
+      "w": "pallone",
+      "art": "il",
+      "g": "m",
+      "kind": "oggetto",
+      "puo": [
+        "porta"
+      ]
+    },
+    {
+      "w": "disegno",
+      "art": "il",
+      "g": "m",
+      "kind": "oggetto",
+      "puo": [
+        "guarda"
+      ]
+    },
+    {
+      "w": "porta",
+      "art": "la",
+      "g": "f",
+      "kind": "oggetto",
+      "puo": [
+        "apre"
+      ]
+    },
+    {
+      "w": "sedia",
+      "art": "la",
+      "g": "f",
+      "kind": "oggetto",
+      "puo": []
+    },
+    {
+      "w": "penna",
+      "art": "la",
+      "g": "f",
+      "kind": "oggetto",
+      "puo": [
+        "porta"
+      ]
+    },
+    {
+      "w": "finestra",
+      "art": "la",
+      "g": "f",
+      "kind": "oggetto",
+      "puo": [
+        "apre"
+      ]
+    },
+    {
+      "w": "sole",
+      "art": "il",
+      "g": "m",
+      "kind": "natura",
+      "puo": [
+        "brilla"
+      ]
+    },
+    {
+      "w": "mare",
+      "art": "il",
+      "g": "m",
+      "kind": "natura",
+      "puo": []
+    },
+    {
+      "w": "vento",
+      "art": "il",
+      "g": "m",
+      "kind": "natura",
+      "puo": []
+    },
+    {
+      "w": "fiore",
+      "art": "il",
+      "g": "m",
+      "kind": "natura",
+      "puo": [
+        "cresce",
+        "guarda"
+      ]
+    },
+    {
+      "w": "albero",
+      "art": "l",
+      "g": "m",
+      "kind": "natura",
+      "puo": [
+        "cresce"
+      ]
+    },
+    {
+      "w": "luna",
+      "art": "la",
+      "g": "f",
+      "kind": "natura",
+      "puo": [
+        "brilla"
+      ]
+    },
+    {
+      "w": "stella",
+      "art": "la",
+      "g": "f",
+      "kind": "natura",
+      "puo": [
+        "brilla"
+      ]
+    },
+    {
+      "w": "neve",
+      "art": "la",
+      "g": "f",
+      "kind": "natura",
+      "puo": [
+        "cade"
+      ]
+    },
+    {
+      "w": "casa",
+      "art": "la",
+      "g": "f",
+      "kind": "luogo",
+      "puo": []
+    },
+    {
+      "w": "scuola",
+      "art": "la",
+      "g": "f",
+      "kind": "luogo",
+      "puo": []
+    },
+    {
+      "w": "giardino",
+      "art": "il",
+      "g": "m",
+      "kind": "luogo",
+      "puo": []
+    },
+    {
+      "w": "prato",
+      "art": "il",
+      "g": "m",
+      "kind": "luogo",
+      "puo": []
+    },
+    {
+      "w": "bosco",
+      "art": "il",
+      "g": "m",
+      "kind": "luogo",
+      "puo": []
+    }
+  ],
+  "verbs": [
+    {
+      "pres": "dorme",
+      "past": "dormito",
+      "fut": "dormirà",
+      "soggetti": [
+        "animale",
+        "persona"
+      ],
+      "trans": false
+    },
+    {
+      "pres": "corre",
+      "past": "corso",
+      "fut": "correrà",
+      "soggetti": [
+        "animale",
+        "persona"
+      ],
+      "trans": false
+    },
+    {
+      "pres": "salta",
+      "past": "saltato",
+      "fut": "salterà",
+      "soggetti": [
+        "animale",
+        "persona"
+      ],
+      "trans": false
+    },
+    {
+      "pres": "ride",
+      "past": "riso",
+      "fut": "riderà",
+      "soggetti": [
+        "persona"
+      ],
+      "trans": false
+    },
+    {
+      "pres": "canta",
+      "past": "cantato",
+      "fut": "canterà",
+      "soggetti": [
+        "persona",
+        "animale"
+      ],
+      "trans": false
+    },
+    {
+      "pres": "nuota",
+      "past": "nuotato",
+      "fut": "nuoterà",
+      "soggetti": [
+        "animale",
+        "persona"
+      ],
+      "trans": false
+    },
+    {
+      "pres": "vola",
+      "past": "volato",
+      "fut": "volerà",
+      "soggetti": [
+        "animale"
+      ],
+      "trans": false
+    },
+    {
+      "pres": "cammina",
+      "past": "camminato",
+      "fut": "camminerà",
+      "soggetti": [
+        "animale",
+        "persona"
+      ],
+      "trans": false
+    },
+    {
+      "pres": "aspetta",
+      "past": "aspettato",
+      "fut": "aspetterà",
+      "soggetti": [
+        "animale",
+        "persona"
+      ],
+      "trans": true
+    },
+    {
+      "pres": "mangia",
+      "past": "mangiato",
+      "fut": "mangerà",
+      "soggetti": [
+        "animale",
+        "persona"
+      ],
+      "trans": true,
+      "oggetti": [
+        "cibo"
+      ]
+    },
+    {
+      "pres": "beve",
+      "past": "bevuto",
+      "fut": "berrà",
+      "soggetti": [
+        "animale",
+        "persona"
+      ],
+      "trans": true,
+      "oggetti": [
+        "cibo"
+      ]
+    },
+    {
+      "pres": "legge",
+      "past": "letto",
+      "fut": "leggerà",
+      "soggetti": [
+        "persona"
+      ],
+      "trans": true,
+      "oggetti": [
+        "oggetto"
+      ]
+    },
+    {
+      "pres": "guarda",
+      "past": "guardato",
+      "fut": "guarderà",
+      "soggetti": [
+        "persona",
+        "animale"
+      ],
+      "trans": true,
+      "oggetti": [
+        "oggetto",
+        "natura"
+      ]
+    },
+    {
+      "pres": "apre",
+      "past": "aperto",
+      "fut": "aprirà",
+      "soggetti": [
+        "persona"
+      ],
+      "trans": true,
+      "oggetti": [
+        "oggetto"
+      ]
+    },
+    {
+      "pres": "chiude",
+      "past": "chiuso",
+      "fut": "chiuderà",
+      "soggetti": [
+        "persona"
+      ],
+      "trans": true,
+      "oggetti": [
+        "oggetto"
+      ]
+    },
+    {
+      "pres": "cerca",
+      "past": "cercato",
+      "fut": "cercherà",
+      "soggetti": [
+        "persona",
+        "animale"
+      ],
+      "trans": true,
+      "oggetti": [
+        "oggetto",
+        "cibo"
+      ]
+    },
+    {
+      "pres": "trova",
+      "past": "trovato",
+      "fut": "troverà",
+      "soggetti": [
+        "persona",
+        "animale"
+      ],
+      "trans": true,
+      "oggetti": [
+        "oggetto",
+        "cibo"
+      ]
+    },
+    {
+      "pres": "cucina",
+      "past": "cucinato",
+      "fut": "cucinerà",
+      "soggetti": [
+        "persona"
+      ],
+      "trans": true,
+      "oggetti": [
+        "cibo"
+      ]
+    },
+    {
+      "pres": "disegna",
+      "past": "disegnato",
+      "fut": "disegnerà",
+      "soggetti": [
+        "persona"
+      ],
+      "trans": true,
+      "oggetti": [
+        "oggetto",
+        "natura"
+      ]
+    },
+    {
+      "pres": "brilla",
+      "past": "brillato",
+      "fut": "brillerà",
+      "soggetti": [
+        "natura"
+      ],
+      "trans": false
+    },
+    {
+      "pres": "cade",
+      "past": "caduto",
+      "fut": "cadrà",
+      "soggetti": [
+        "natura"
+      ],
+      "trans": false
+    },
+    {
+      "pres": "cresce",
+      "past": "cresciuto",
+      "fut": "crescerà",
+      "soggetti": [
+        "natura"
+      ],
+      "trans": false
+    }
+  ],
+  "adjectives": [
+    {
+      "m": "grande",
+      "f": "grande",
+      "kind": [
+        "animale",
+        "persona",
+        "oggetto",
+        "natura",
+        "luogo"
+      ],
+      "dim": "taglia",
+      "pol": "n"
+    },
+    {
+      "m": "piccolo",
+      "f": "piccola",
+      "kind": [
+        "animale",
+        "persona",
+        "oggetto",
+        "natura",
+        "luogo"
+      ],
+      "dim": "taglia",
+      "pol": "n"
+    },
+    {
+      "m": "bello",
+      "f": "bella",
+      "kind": [
+        "animale",
+        "persona",
+        "oggetto",
+        "natura",
+        "luogo"
+      ],
+      "dim": "giudizio",
+      "pol": "+"
+    },
+    {
+      "m": "nuovo",
+      "f": "nuova",
+      "kind": [
+        "oggetto",
+        "luogo"
+      ],
+      "dim": "eta",
+      "pol": "+"
+    },
+    {
+      "m": "vecchio",
+      "f": "vecchia",
+      "kind": [
+        "oggetto",
+        "luogo",
+        "persona"
+      ],
+      "dim": "eta",
+      "pol": "-"
+    },
+    {
+      "m": "veloce",
+      "f": "veloce",
+      "kind": [
+        "animale",
+        "persona"
+      ],
+      "dim": "moto",
+      "pol": "+"
+    },
+    {
+      "m": "lento",
+      "f": "lenta",
+      "kind": [
+        "animale",
+        "persona"
+      ],
+      "dim": "moto",
+      "pol": "-"
+    },
+    {
+      "m": "stanco",
+      "f": "stanca",
+      "kind": [
+        "animale",
+        "persona"
+      ],
+      "dim": "stato",
+      "pol": "-"
+    },
+    {
+      "m": "felice",
+      "f": "felice",
+      "kind": [
+        "animale",
+        "persona"
+      ],
+      "dim": "stato",
+      "pol": "+"
+    },
+    {
+      "m": "buono",
+      "f": "buona",
+      "kind": [
+        "cibo",
+        "animale",
+        "persona"
+      ],
+      "dim": "giudizio",
+      "pol": "+"
+    },
+    {
+      "m": "caldo",
+      "f": "calda",
+      "kind": [
+        "cibo",
+        "natura",
+        "luogo"
+      ],
+      "dim": "temp",
+      "pol": "n"
+    },
+    {
+      "m": "freddo",
+      "f": "fredda",
+      "kind": [
+        "cibo",
+        "natura",
+        "luogo"
+      ],
+      "dim": "temp",
+      "pol": "n"
+    },
+    {
+      "m": "dolce",
+      "f": "dolce",
+      "kind": [
+        "cibo"
+      ],
+      "dim": "gusto",
+      "pol": "+"
+    },
+    {
+      "m": "alto",
+      "f": "alta",
+      "kind": [
+        "animale",
+        "persona",
+        "natura",
+        "oggetto"
+      ],
+      "dim": "taglia",
+      "pol": "n"
+    },
+    {
+      "m": "basso",
+      "f": "bassa",
+      "kind": [
+        "animale",
+        "persona",
+        "natura",
+        "oggetto"
+      ],
+      "dim": "taglia",
+      "pol": "n"
+    },
+    {
+      "m": "lungo",
+      "f": "lunga",
+      "kind": [
+        "oggetto",
+        "natura"
+      ],
+      "dim": "taglia",
+      "pol": "n"
+    },
+    {
+      "m": "pulito",
+      "f": "pulita",
+      "kind": [
+        "oggetto",
+        "luogo"
+      ],
+      "dim": "stato",
+      "pol": "+"
+    },
+    {
+      "m": "giallo",
+      "f": "gialla",
+      "kind": [
+        "oggetto",
+        "natura",
+        "cibo"
+      ],
+      "dim": "colore",
+      "pol": "n",
+      "solo": [
+        "albero",
+        "bosco",
+        "cappello",
+        "disegno",
+        "finestra",
+        "fiore",
+        "gelato",
+        "letto",
+        "libro",
+        "luna",
+        "mare",
+        "mela",
+        "neve",
+        "pallone",
+        "penna",
+        "porta",
+        "prato",
+        "quaderno",
+        "sedia",
+        "sole",
+        "stella",
+        "tavolo",
+        "torta"
+      ]
+    },
+    {
+      "m": "rosso",
+      "f": "rossa",
+      "kind": [
+        "oggetto",
+        "natura",
+        "cibo"
+      ],
+      "dim": "colore",
+      "pol": "n",
+      "solo": [
+        "albero",
+        "bosco",
+        "cappello",
+        "disegno",
+        "finestra",
+        "fiore",
+        "gelato",
+        "letto",
+        "libro",
+        "luna",
+        "mare",
+        "mela",
+        "neve",
+        "pallone",
+        "penna",
+        "porta",
+        "prato",
+        "quaderno",
+        "sedia",
+        "sole",
+        "stella",
+        "tavolo",
+        "torta"
+      ]
+    },
+    {
+      "m": "verde",
+      "f": "verde",
+      "kind": [
+        "oggetto",
+        "natura"
+      ],
+      "dim": "colore",
+      "pol": "n",
+      "solo": [
+        "albero",
+        "bosco",
+        "cappello",
+        "disegno",
+        "finestra",
+        "fiore",
+        "gelato",
+        "letto",
+        "libro",
+        "luna",
+        "mare",
+        "mela",
+        "neve",
+        "pallone",
+        "penna",
+        "porta",
+        "prato",
+        "quaderno",
+        "sedia",
+        "sole",
+        "stella",
+        "tavolo",
+        "torta"
+      ]
+    },
+    {
+      "m": "bianco",
+      "f": "bianca",
+      "kind": [
+        "oggetto",
+        "natura",
+        "cibo"
+      ],
+      "dim": "colore",
+      "pol": "n",
+      "solo": [
+        "albero",
+        "bosco",
+        "cappello",
+        "disegno",
+        "finestra",
+        "fiore",
+        "gelato",
+        "letto",
+        "libro",
+        "luna",
+        "mare",
+        "mela",
+        "neve",
+        "pallone",
+        "penna",
+        "porta",
+        "prato",
+        "quaderno",
+        "sedia",
+        "sole",
+        "stella",
+        "tavolo",
+        "torta"
+      ]
+    },
+    {
+      "m": "fedele",
+      "f": "fedele",
+      "kind": [
+        "animale",
+        "persona"
+      ],
+      "dim": "giudizio",
+      "pol": "+"
+    },
+    {
+      "m": "utile",
+      "f": "utile",
+      "kind": [
+        "oggetto"
+      ],
+      "dim": "giudizio",
+      "pol": "+"
+    },
+    {
+      "m": "tranquillo",
+      "f": "tranquilla",
+      "kind": [
+        "animale",
+        "persona",
+        "luogo"
+      ],
+      "dim": "stato",
+      "pol": "+"
+    }
+  ],
+  "luoghi_verbo": {
+    "dorme": [
+      "casa"
+    ],
+    "nuota": [
+      "mare"
+    ],
+    "vola": [
+      "giardino",
+      "bosco"
+    ],
+    "corre": [
+      "prato",
+      "giardino",
+      "bosco"
+    ],
+    "cammina": [
+      "prato",
+      "bosco",
+      "giardino"
+    ],
+    "salta": [
+      "prato",
+      "giardino"
+    ],
+    "canta": [
+      "casa",
+      "giardino"
+    ],
+    "cresce": [
+      "prato",
+      "giardino",
+      "bosco"
+    ],
+    "gioca": [
+      "giardino",
+      "prato"
+    ]
+  }
+}

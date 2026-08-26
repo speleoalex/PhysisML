@@ -79,6 +79,125 @@
           "noun": "pane",
           "article": "il",
           "verb": "porta"
+        },
+        {
+          "prompt": "cosa mangia la mucca?",
+          "expected": "la mucca mangia il gelato.",
+          "noun": "gelato",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa apre il papà?",
+          "expected": "il papà apre il libro.",
+          "noun": "libro",
+          "article": "il",
+          "verb": "apre"
+        },
+        {
+          "prompt": "cosa mangia la nonna?",
+          "expected": "la nonna mangia la mela.",
+          "noun": "mela",
+          "article": "la",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa mangia il cavallo?",
+          "expected": "il cavallo mangia il pane.",
+          "noun": "pane",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa guarda la bambina?",
+          "expected": "la bambina guarda il disegno.",
+          "noun": "disegno",
+          "article": "il",
+          "verb": "guarda"
+        },
+        {
+          "prompt": "cosa mangia l amico?",
+          "expected": "l amico mangia la mela.",
+          "noun": "mela",
+          "article": "la",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa legge la mamma?",
+          "expected": "la mamma legge il libro.",
+          "noun": "libro",
+          "article": "il",
+          "verb": "legge"
+        },
+        {
+          "prompt": "cosa mangia la sorella?",
+          "expected": "la sorella mangia la minestra.",
+          "noun": "minestra",
+          "article": "la",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa mangia l uccello?",
+          "expected": "l uccello mangia la mela.",
+          "noun": "mela",
+          "article": "la",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa mangia il pesce?",
+          "expected": "il pesce mangia il gelato.",
+          "noun": "gelato",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa legge il maestro?",
+          "expected": "il maestro legge il quaderno.",
+          "noun": "quaderno",
+          "article": "il",
+          "verb": "legge"
+        },
+        {
+          "prompt": "cosa mangia il topo?",
+          "expected": "il topo mangia il pane.",
+          "noun": "pane",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa mangia la gallina?",
+          "expected": "la gallina mangia la torta.",
+          "noun": "torta",
+          "article": "la",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa mangia l orso?",
+          "expected": "l orso mangia la minestra.",
+          "noun": "minestra",
+          "article": "la",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa guarda il nonno?",
+          "expected": "il nonno guarda il fiore.",
+          "noun": "fiore",
+          "article": "il",
+          "verb": "guarda"
+        },
+        {
+          "prompt": "cosa mangia il lupo?",
+          "expected": "il lupo mangia il pane.",
+          "noun": "pane",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa beve il fratello?",
+          "expected": "il fratello beve il latte.",
+          "noun": "latte",
+          "article": "il",
+          "verb": "beve"
         }
       ],
       "prompt_template": "di: {prompt}",
@@ -133,6 +252,111 @@
           "noun": "gatto",
           "article": "il",
           "verb": "dorme"
+        },
+        {
+          "prompt": "chi mangia il formaggio?",
+          "expected": "il lupo mangia il formaggio.",
+          "noun": "lupo",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "chi guarda il disegno?",
+          "expected": "il maestro guarda il disegno.",
+          "noun": "maestro",
+          "article": "il",
+          "verb": "guarda"
+        },
+        {
+          "prompt": "chi guarda il fiore?",
+          "expected": "il fratello guarda il fiore.",
+          "noun": "fratello",
+          "article": "il",
+          "verb": "guarda"
+        },
+        {
+          "prompt": "chi mangia la torta?",
+          "expected": "l orso mangia la torta.",
+          "noun": "orso",
+          "article": "l",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "chi mangia la mela?",
+          "expected": "l amico mangia la mela.",
+          "noun": "amico",
+          "article": "l",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "chi mangia la minestra?",
+          "expected": "la mucca mangia la minestra.",
+          "noun": "mucca",
+          "article": "la",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "chi mangia la torta?",
+          "expected": "il cane mangia la torta.",
+          "noun": "cane",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "chi guarda il disegno?",
+          "expected": "la nonna guarda il disegno.",
+          "noun": "nonna",
+          "article": "la",
+          "verb": "guarda"
+        },
+        {
+          "prompt": "chi mangia il gelato?",
+          "expected": "il cavallo mangia il gelato.",
+          "noun": "cavallo",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "chi mangia la torta?",
+          "expected": "il topo mangia la torta.",
+          "noun": "topo",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "chi mangia la torta?",
+          "expected": "la gallina mangia la torta.",
+          "noun": "gallina",
+          "article": "la",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "chi mangia il gelato?",
+          "expected": "il gatto mangia il gelato.",
+          "noun": "gatto",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "chi apre il libro?",
+          "expected": "la bambina apre il libro.",
+          "noun": "bambina",
+          "article": "la",
+          "verb": "apre"
+        },
+        {
+          "prompt": "chi mangia la mela?",
+          "expected": "il pesce mangia la mela.",
+          "noun": "pesce",
+          "article": "il",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "chi mangia il formaggio?",
+          "expected": "il papà mangia il formaggio.",
+          "noun": "papà",
+          "article": "il",
+          "verb": "mangia"
         }
       ],
       "prompt_template": "{prompt}",
@@ -181,6 +405,120 @@
           "expected": "il pesce nuota nell acqua.",
           "noun": "acqua",
           "verb": "nuota"
+        },
+        {
+          "prompt": "dove nuota la mamma?",
+          "expected": "la mamma nuota in mare.",
+          "noun": "mare",
+          "verb": "nuota"
+        },
+        {
+          "prompt": "dove dorme il fratello?",
+          "expected": "il fratello dorme in casa.",
+          "noun": "casa",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "dove vola l ape?",
+          "expected": "l ape vola in giardino.",
+          "noun": "giardino",
+          "verb": "vola"
+        },
+        {
+          "prompt": "dove canta l uccello?",
+          "expected": "l uccello canta in casa.",
+          "noun": "casa",
+          "verb": "canta"
+        },
+        {
+          "prompt": "dove corre il cane?",
+          "expected": "il cane corre in giardino.",
+          "noun": "giardino",
+          "verb": "corre"
+        },
+        {
+          "prompt": "dove nuota la bambina?",
+          "expected": "la bambina nuota in mare.",
+          "noun": "mare",
+          "verb": "nuota"
+        },
+        {
+          "prompt": "dove dorme il nonno?",
+          "expected": "il nonno dorme in casa.",
+          "noun": "casa",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "dove nuota il maestro?",
+          "expected": "il maestro nuota in mare.",
+          "noun": "mare",
+          "verb": "nuota"
+        },
+        {
+          "prompt": "dove corre il cavallo?",
+          "expected": "il cavallo corre in prato.",
+          "noun": "prato",
+          "verb": "corre"
+        },
+        {
+          "prompt": "dove cammina la nonna?",
+          "expected": "la nonna cammina in prato.",
+          "noun": "prato",
+          "verb": "cammina"
+        },
+        {
+          "prompt": "dove salta il bambino?",
+          "expected": "il bambino salta in giardino.",
+          "noun": "giardino",
+          "verb": "salta"
+        },
+        {
+          "prompt": "dove dorme la mucca?",
+          "expected": "la mucca dorme in casa.",
+          "noun": "casa",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "dove corre il topo?",
+          "expected": "il topo corre in bosco.",
+          "noun": "bosco",
+          "verb": "corre"
+        },
+        {
+          "prompt": "dove cammina l amico?",
+          "expected": "l amico cammina in giardino.",
+          "noun": "giardino",
+          "verb": "cammina"
+        },
+        {
+          "prompt": "dove canta la gallina?",
+          "expected": "la gallina canta in casa.",
+          "noun": "casa",
+          "verb": "canta"
+        },
+        {
+          "prompt": "dove cammina il papà?",
+          "expected": "il papà cammina in prato.",
+          "noun": "prato",
+          "verb": "cammina"
+        },
+        {
+          "prompt": "dove corre il gatto?",
+          "expected": "il gatto corre in bosco.",
+          "noun": "bosco",
+          "verb": "corre"
+        },
+        {
+          "prompt": "dove corre il lupo?",
+          "expected": "il lupo corre in prato.",
+          "noun": "prato",
+          "verb": "corre"
+        },
+        {
+          "prompt": "dove dorme l orso?",
+          "expected": "l orso dorme in casa.",
+          "noun": "casa",
+          "verb": "dorme"
         }
       ],
       "prompt_template": "{prompt}",

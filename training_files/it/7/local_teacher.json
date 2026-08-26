@@ -53,6 +53,101 @@
           "prompt": "cosa vedrà il bambino domani?",
           "expected": "domani il bambino vedrà la luna.",
           "noun": "vedrà"
+        },
+        {
+          "prompt": "cosa mangerà l uccello domani?",
+          "expected": "domani l uccello mangerà il gelato.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa mangerà il cavallo domani?",
+          "expected": "domani il cavallo mangerà la minestra.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa aprirà il bambino domani?",
+          "expected": "domani il bambino aprirà la porta.",
+          "noun": "aprirà"
+        },
+        {
+          "prompt": "cosa mangerà l amico domani?",
+          "expected": "domani l amico mangerà il pane.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa mangerà il gatto domani?",
+          "expected": "domani il gatto mangerà la minestra.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa mangerà il fratello domani?",
+          "expected": "domani il fratello mangerà la mela.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa berrà la nonna domani?",
+          "expected": "domani la nonna berrà il latte.",
+          "noun": "berrà"
+        },
+        {
+          "prompt": "cosa berrà la mamma domani?",
+          "expected": "domani la mamma berrà il latte.",
+          "noun": "berrà"
+        },
+        {
+          "prompt": "cosa guarderà il maestro domani?",
+          "expected": "domani il maestro guarderà il disegno.",
+          "noun": "guarderà"
+        },
+        {
+          "prompt": "cosa berrà la sorella domani?",
+          "expected": "domani la sorella berrà l acqua.",
+          "noun": "berrà"
+        },
+        {
+          "prompt": "cosa mangerà il lupo domani?",
+          "expected": "domani il lupo mangerà il gelato.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa mangerà il pesce domani?",
+          "expected": "domani il pesce mangerà il gelato.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa mangerà la mucca domani?",
+          "expected": "domani la mucca mangerà il gelato.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa mangerà il papà domani?",
+          "expected": "domani il papà mangerà il formaggio.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa mangerà l orso domani?",
+          "expected": "domani l orso mangerà il gelato.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa mangerà il topo domani?",
+          "expected": "domani il topo mangerà il formaggio.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa mangerà la gallina domani?",
+          "expected": "domani la gallina mangerà la torta.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa mangerà il nonno domani?",
+          "expected": "domani il nonno mangerà il formaggio.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "cosa aprirà la bambina domani?",
+          "expected": "domani la bambina aprirà il libro.",
+          "noun": "aprirà"
         }
       ],
       "prompt_template": "{prompt}",
@@ -117,6 +212,86 @@
           "prompt": "racconta i tre giorni della nonna",
           "expected": "oggi apre, ieri ha aperto, domani aprirà.",
           "noun": "aprirà"
+        },
+        {
+          "prompt": "racconta i tre giorni del maestro",
+          "expected": "oggi mangia, ieri ha mangiato, domani mangerà.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "racconta i tre giorni del pesce",
+          "expected": "oggi mangia, ieri ha mangiato, domani mangerà.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "racconta i tre giorni dell orso",
+          "expected": "oggi mangia, ieri ha mangiato, domani mangerà.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "racconta i tre giorni della bambina",
+          "expected": "oggi mangia, ieri ha mangiato, domani mangerà.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "racconta i tre giorni della mucca",
+          "expected": "oggi mangia, ieri ha mangiato, domani mangerà.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "racconta i tre giorni del cavallo",
+          "expected": "oggi mangia, ieri ha mangiato, domani mangerà.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "racconta i tre giorni dell amico",
+          "expected": "oggi guarda, ieri ha guardato, domani guarderà.",
+          "noun": "guarderà"
+        },
+        {
+          "prompt": "racconta i tre giorni della mamma",
+          "expected": "oggi apre, ieri ha aperto, domani aprirà.",
+          "noun": "aprirà"
+        },
+        {
+          "prompt": "racconta i tre giorni del bambino",
+          "expected": "oggi apre, ieri ha aperto, domani aprirà.",
+          "noun": "aprirà"
+        },
+        {
+          "prompt": "racconta i tre giorni del fratello",
+          "expected": "oggi apre, ieri ha aperto, domani aprirà.",
+          "noun": "aprirà"
+        },
+        {
+          "prompt": "racconta i tre giorni del topo",
+          "expected": "oggi mangia, ieri ha mangiato, domani mangerà.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "racconta i tre giorni del nonno",
+          "expected": "oggi beve, ieri ha bevuto, domani berrà.",
+          "noun": "berrà"
+        },
+        {
+          "prompt": "racconta i tre giorni della gallina",
+          "expected": "oggi mangia, ieri ha mangiato, domani mangerà.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "racconta i tre giorni della sorella",
+          "expected": "oggi beve, ieri ha bevuto, domani berrà.",
+          "noun": "berrà"
+        },
+        {
+          "prompt": "racconta i tre giorni del lupo",
+          "expected": "oggi mangia, ieri ha mangiato, domani mangerà.",
+          "noun": "mangerà"
+        },
+        {
+          "prompt": "racconta i tre giorni dell uccello",
+          "expected": "oggi mangia, ieri ha mangiato, domani mangerà.",
+          "noun": "mangerà"
         }
       ],
       "prompt_template": "{prompt}",

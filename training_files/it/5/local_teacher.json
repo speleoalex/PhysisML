@@ -65,6 +65,153 @@
           "noun": "bella",
           "verb": "è",
           "adjective": "bella"
+        },
+        {
+          "prompt": "com è la stella?",
+          "expected": "la stella è verde.",
+          "noun": "verde",
+          "verb": "è",
+          "adjective": "verde"
+        },
+        {
+          "prompt": "com è l ape?",
+          "expected": "l ape è tranquilla.",
+          "noun": "tranquilla",
+          "verb": "è",
+          "adjective": "tranquilla"
+        },
+        {
+          "prompt": "com è il lupo?",
+          "expected": "il lupo è stanco.",
+          "noun": "stanco",
+          "verb": "è",
+          "adjective": "stanco"
+        },
+        {
+          "prompt": "com è la minestra?",
+          "expected": "la minestra è fredda.",
+          "noun": "fredda",
+          "verb": "è",
+          "adjective": "fredda"
+        },
+        {
+          "prompt": "com è il mare?",
+          "expected": "il mare è grande.",
+          "noun": "grande",
+          "verb": "è",
+          "adjective": "grande"
+        },
+        {
+          "prompt": "com è il gelato?",
+          "expected": "il gelato è giallo.",
+          "noun": "giallo",
+          "verb": "è",
+          "adjective": "giallo"
+        },
+        {
+          "prompt": "com è il cappello?",
+          "expected": "il cappello è pulito.",
+          "noun": "pulito",
+          "verb": "è",
+          "adjective": "pulito"
+        },
+        {
+          "prompt": "com è la scuola?",
+          "expected": "la scuola è tranquilla.",
+          "noun": "tranquilla",
+          "verb": "è",
+          "adjective": "tranquilla"
+        },
+        {
+          "prompt": "com è il cavallo?",
+          "expected": "il cavallo è stanco.",
+          "noun": "stanco",
+          "verb": "è",
+          "adjective": "stanco"
+        },
+        {
+          "prompt": "com è la neve?",
+          "expected": "la neve è grande.",
+          "noun": "grande",
+          "verb": "è",
+          "adjective": "grande"
+        },
+        {
+          "prompt": "com è il papà?",
+          "expected": "il papà è tranquillo.",
+          "noun": "tranquillo",
+          "verb": "è",
+          "adjective": "tranquillo"
+        },
+        {
+          "prompt": "com è la mela?",
+          "expected": "la mela è dolce.",
+          "noun": "dolce",
+          "verb": "è",
+          "adjective": "dolce"
+        },
+        {
+          "prompt": "com è la penna?",
+          "expected": "la penna è grande.",
+          "noun": "grande",
+          "verb": "è",
+          "adjective": "grande"
+        },
+        {
+          "prompt": "com è la mamma?",
+          "expected": "la mamma è buona.",
+          "noun": "buona",
+          "verb": "è",
+          "adjective": "buona"
+        },
+        {
+          "prompt": "com è il topo?",
+          "expected": "il topo è felice.",
+          "noun": "felice",
+          "verb": "è",
+          "adjective": "felice"
+        },
+        {
+          "prompt": "com è il maestro?",
+          "expected": "il maestro è basso.",
+          "noun": "basso",
+          "verb": "è",
+          "adjective": "basso"
+        },
+        {
+          "prompt": "com è il fratello?",
+          "expected": "il fratello è felice.",
+          "noun": "felice",
+          "verb": "è",
+          "adjective": "felice"
+        },
+        {
+          "prompt": "com è il libro?",
+          "expected": "il libro è rosso.",
+          "noun": "rosso",
+          "verb": "è",
+          "adjective": "rosso"
+        },
+        {
+          "prompt": "com è la sorella?",
+          "expected": "la sorella è buona.",
+          "noun": "buona",
+          "verb": "è",
+          "adjective": "buona"
+        },
+        {
+          "prompt": "com è il gatto?",
+          "expected": "il gatto è lento.",
+          "noun": "lento",
+          "verb": "è",
+          "adjective": "lento"
+        },
+        {
+          "prompt": "com è la porta?",
+          "expected": "la porta è alta.",
+          "noun": "alta",
+          "verb": "è",
+          "adjective": "alta"
         }
       ],
       "prompt_template": "{prompt}",
@@ -107,6 +254,60 @@
           "expected": "il papà legge e beve.",
           "noun": "beve",
           "verb": "legge"
+        },
+        {
+          "prompt": "cosa fa la nonna?",
+          "expected": "la nonna ride e salta.",
+          "noun": "salta",
+          "verb": "ride"
+        },
+        {
+          "prompt": "cosa fa il fratello?",
+          "expected": "il fratello corre e ride.",
+          "noun": "ride",
+          "verb": "corre"
+        },
+        {
+          "prompt": "cosa fa l amico?",
+          "expected": "l amico nuota e cammina.",
+          "noun": "cammina",
+          "verb": "nuota"
+        },
+        {
+          "prompt": "cosa fa il cavallo?",
+          "expected": "il cavallo dorme e corre.",
+          "noun": "corre",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "cosa fa l uccello?",
+          "expected": "l uccello canta e vola.",
+          "noun": "vola",
+          "verb": "canta"
+        },
+        {
+          "prompt": "cosa fa la bambina?",
+          "expected": "la bambina nuota e salta.",
+          "noun": "salta",
+          "verb": "nuota"
+        },
+        {
+          "prompt": "cosa fa il maestro?",
+          "expected": "il maestro salta e corre.",
+          "noun": "corre",
+          "verb": "salta"
+        },
+        {
+          "prompt": "cosa fa la sorella?",
+          "expected": "la sorella ride e nuota.",
+          "noun": "nuota",
+          "verb": "ride"
+        },
+        {
+          "prompt": "cosa fa il nonno?",
+          "expected": "il nonno salta e nuota.",
+          "noun": "nuota",
+          "verb": "salta"
         }
       ],
       "prompt_template": "{prompt}",
@@ -149,6 +350,132 @@
           "expected": "la nonna apre perché è caldo.",
           "noun": "caldo",
           "verb": "apre"
+        },
+        {
+          "prompt": "perché l uccello canta?",
+          "expected": "l uccello canta perché è felice.",
+          "noun": "felice",
+          "verb": "canta"
+        },
+        {
+          "prompt": "perché il papà cerca?",
+          "expected": "il papà cerca perché ha fame.",
+          "noun": "fame",
+          "verb": "cerca"
+        },
+        {
+          "prompt": "perché il fratello mangia?",
+          "expected": "il fratello mangia perché ha fame.",
+          "noun": "fame",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "perché la nonna canta?",
+          "expected": "la nonna canta perché è felice.",
+          "noun": "felice",
+          "verb": "canta"
+        },
+        {
+          "prompt": "perché il nonno cerca?",
+          "expected": "il nonno cerca perché ha fame.",
+          "noun": "fame",
+          "verb": "cerca"
+        },
+        {
+          "prompt": "perché il maestro corre?",
+          "expected": "il maestro corre perché è veloce.",
+          "noun": "veloce",
+          "verb": "corre"
+        },
+        {
+          "prompt": "perché la sorella beve?",
+          "expected": "la sorella beve perché ha sete.",
+          "noun": "sete",
+          "verb": "beve"
+        },
+        {
+          "prompt": "perché il topo mangia?",
+          "expected": "il topo mangia perché ha fame.",
+          "noun": "fame",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "perché la bambina dorme?",
+          "expected": "la bambina dorme perché è stanco.",
+          "noun": "stanco",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "perché il gatto mangia?",
+          "expected": "il gatto mangia perché ha fame.",
+          "noun": "fame",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "perché il pesce mangia?",
+          "expected": "il pesce mangia perché ha fame.",
+          "noun": "fame",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "perché l orso mangia?",
+          "expected": "l orso mangia perché ha fame.",
+          "noun": "fame",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "perché l ape cerca?",
+          "expected": "l ape cerca perché ha fame.",
+          "noun": "fame",
+          "verb": "cerca"
+        },
+        {
+          "prompt": "perché il bambino mangia?",
+          "expected": "il bambino mangia perché ha fame.",
+          "noun": "fame",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "perché la mamma beve?",
+          "expected": "la mamma beve perché ha sete.",
+          "noun": "sete",
+          "verb": "beve"
+        },
+        {
+          "prompt": "perché il lupo corre?",
+          "expected": "il lupo corre perché è veloce.",
+          "noun": "veloce",
+          "verb": "corre"
+        },
+        {
+          "prompt": "perché la mucca mangia?",
+          "expected": "la mucca mangia perché ha fame.",
+          "noun": "fame",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "perché il cavallo dorme?",
+          "expected": "il cavallo dorme perché è stanco.",
+          "noun": "stanco",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "perché l amico cerca?",
+          "expected": "l amico cerca perché ha fame.",
+          "noun": "fame",
+          "verb": "cerca"
+        },
+        {
+          "prompt": "perché il cane corre?",
+          "expected": "il cane corre perché è veloce.",
+          "noun": "veloce",
+          "verb": "corre"
+        },
+        {
+          "prompt": "perché la gallina mangia?",
+          "expected": "la gallina mangia perché ha fame.",
+          "noun": "fame",
+          "verb": "mangia"
         }
       ],
       "prompt_template": "{prompt}",

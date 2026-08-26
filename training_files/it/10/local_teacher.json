@@ -43,6 +43,111 @@
           "prompt": "commenta la luna",
           "expected": "la luna è bianca, e questo è bello.",
           "noun": "bianca"
+        },
+        {
+          "prompt": "commenta il cappello",
+          "expected": "il cappello è rosso, e questo è utile.",
+          "noun": "rosso"
+        },
+        {
+          "prompt": "commenta l albero",
+          "expected": "l albero è giallo, e questo è bello.",
+          "noun": "giallo"
+        },
+        {
+          "prompt": "commenta il disegno",
+          "expected": "il disegno è bianco, e questo è utile.",
+          "noun": "bianco"
+        },
+        {
+          "prompt": "commenta la stella",
+          "expected": "la stella è bassa, e questo è bella.",
+          "noun": "bassa"
+        },
+        {
+          "prompt": "commenta la neve",
+          "expected": "la neve è fredda, e questo è bella.",
+          "noun": "fredda"
+        },
+        {
+          "prompt": "commenta il quaderno",
+          "expected": "il quaderno è piccolo, e questo è utile.",
+          "noun": "piccolo"
+        },
+        {
+          "prompt": "commenta la finestra",
+          "expected": "la finestra è bianca, e questo è utile.",
+          "noun": "bianca"
+        },
+        {
+          "prompt": "commenta il pallone",
+          "expected": "il pallone è lungo, e questo è bello.",
+          "noun": "lungo"
+        },
+        {
+          "prompt": "commenta la gallina",
+          "expected": "la gallina è tranquilla, e questo è buona.",
+          "noun": "tranquilla"
+        },
+        {
+          "prompt": "commenta il papà",
+          "expected": "il papà è basso, e questo è fedele.",
+          "noun": "basso"
+        },
+        {
+          "prompt": "commenta il pesce",
+          "expected": "il pesce è piccolo, e questo è bello.",
+          "noun": "piccolo"
+        },
+        {
+          "prompt": "commenta il maestro",
+          "expected": "il maestro è alto, e questo è buono.",
+          "noun": "alto"
+        },
+        {
+          "prompt": "commenta l amico",
+          "expected": "l amico è tranquillo, e questo è buono.",
+          "noun": "tranquillo"
+        },
+        {
+          "prompt": "commenta la penna",
+          "expected": "la penna è rossa, e questo è utile.",
+          "noun": "rossa"
+        },
+        {
+          "prompt": "commenta il fratello",
+          "expected": "il fratello è veloce, e questo è bello.",
+          "noun": "veloce"
+        },
+        {
+          "prompt": "commenta il lupo",
+          "expected": "il lupo è stanco, e questo è buono.",
+          "noun": "stanco"
+        },
+        {
+          "prompt": "commenta la porta",
+          "expected": "la porta è bianca, e questo è bella.",
+          "noun": "bianca"
+        },
+        {
+          "prompt": "commenta la sorella",
+          "expected": "la sorella è piccola, e questo è buona.",
+          "noun": "piccola"
+        },
+        {
+          "prompt": "commenta il fiore",
+          "expected": "il fiore è piccolo, e questo è bello.",
+          "noun": "piccolo"
+        },
+        {
+          "prompt": "commenta il mare",
+          "expected": "il mare è alto, e questo è bello.",
+          "noun": "alto"
+        },
+        {
+          "prompt": "commenta il bambino",
+          "expected": "il bambino è alto, e questo è buono.",
+          "noun": "alto"
         }
       ],
       "prompt_template": "{prompt}",
@@ -107,6 +212,96 @@
           "prompt": "cosa dice la storia della mamma",
           "expected": "la storia dice che la mamma canta.",
           "noun": "canta"
+        },
+        {
+          "prompt": "cosa dice la storia dell amico",
+          "expected": "la storia dice che l amico nuota.",
+          "noun": "nuota"
+        },
+        {
+          "prompt": "cosa dice la storia del bambino",
+          "expected": "la storia dice che il bambino corre.",
+          "noun": "corre"
+        },
+        {
+          "prompt": "cosa dice la storia della mucca",
+          "expected": "la storia dice che la mucca dorme.",
+          "noun": "dorme"
+        },
+        {
+          "prompt": "cosa dice la storia dell ape",
+          "expected": "la storia dice che l ape vola.",
+          "noun": "vola"
+        },
+        {
+          "prompt": "cosa dice la storia del cavallo",
+          "expected": "la storia dice che il cavallo dorme.",
+          "noun": "dorme"
+        },
+        {
+          "prompt": "cosa dice la storia del maestro",
+          "expected": "la storia dice che il maestro dorme.",
+          "noun": "dorme"
+        },
+        {
+          "prompt": "cosa dice la storia del pesce",
+          "expected": "la storia dice che il pesce nuota.",
+          "noun": "nuota"
+        },
+        {
+          "prompt": "cosa dice la storia del fratello",
+          "expected": "la storia dice che il fratello canta.",
+          "noun": "canta"
+        },
+        {
+          "prompt": "cosa dice la storia della sorella",
+          "expected": "la storia dice che la sorella ride.",
+          "noun": "ride"
+        },
+        {
+          "prompt": "cosa dice la storia dell orso",
+          "expected": "la storia dice che l orso dorme.",
+          "noun": "dorme"
+        },
+        {
+          "prompt": "cosa dice la storia del papà",
+          "expected": "la storia dice che il papà salta.",
+          "noun": "salta"
+        },
+        {
+          "prompt": "cosa dice la storia della nonna",
+          "expected": "la storia dice che la nonna cammina.",
+          "noun": "cammina"
+        },
+        {
+          "prompt": "cosa dice la storia della gallina",
+          "expected": "la storia dice che la gallina canta.",
+          "noun": "canta"
+        },
+        {
+          "prompt": "cosa dice la storia del nonno",
+          "expected": "la storia dice che il nonno corre.",
+          "noun": "corre"
+        },
+        {
+          "prompt": "cosa dice la storia della bambina",
+          "expected": "la storia dice che la bambina nuota.",
+          "noun": "nuota"
+        },
+        {
+          "prompt": "cosa dice la storia del lupo",
+          "expected": "la storia dice che il lupo corre.",
+          "noun": "corre"
+        },
+        {
+          "prompt": "cosa dice la storia dell uccello",
+          "expected": "la storia dice che l uccello canta.",
+          "noun": "canta"
+        },
+        {
+          "prompt": "cosa dice la storia del topo",
+          "expected": "la storia dice che il topo corre.",
+          "noun": "corre"
         }
       ],
       "prompt_template": "{prompt}",
@@ -139,6 +334,106 @@
           "prompt": "analizza il pane",
           "expected": "il pane è sul tavolo. è caldo e buono.",
           "noun": "buono"
+        },
+        {
+          "prompt": "analizza l amico",
+          "expected": "l amico canta. è bello e veloce.",
+          "noun": "bello"
+        },
+        {
+          "prompt": "analizza il lupo",
+          "expected": "il lupo corre. è piccolo e bello.",
+          "noun": "piccolo"
+        },
+        {
+          "prompt": "analizza la stella",
+          "expected": "la stella brilla. è piccola e bianca.",
+          "noun": "piccola"
+        },
+        {
+          "prompt": "analizza il bambino",
+          "expected": "il bambino corre. è tranquillo e buono.",
+          "noun": "tranquillo"
+        },
+        {
+          "prompt": "analizza il fratello",
+          "expected": "il fratello cammina. è fedele e veloce.",
+          "noun": "fedele"
+        },
+        {
+          "prompt": "analizza l ape",
+          "expected": "l ape vola. è fedele e tranquilla.",
+          "noun": "fedele"
+        },
+        {
+          "prompt": "analizza il cavallo",
+          "expected": "il cavallo corre. è buono e alto.",
+          "noun": "buono"
+        },
+        {
+          "prompt": "analizza l albero",
+          "expected": "l albero cresce. è alto e caldo.",
+          "noun": "alto"
+        },
+        {
+          "prompt": "analizza l orso",
+          "expected": "l orso dorme. è alto e felice.",
+          "noun": "alto"
+        },
+        {
+          "prompt": "analizza il nonno",
+          "expected": "il nonno cammina. è fedele e basso.",
+          "noun": "fedele"
+        },
+        {
+          "prompt": "analizza il topo",
+          "expected": "il topo corre. è felice e bello.",
+          "noun": "felice"
+        },
+        {
+          "prompt": "analizza la mamma",
+          "expected": "la mamma dorme. è piccola e tranquilla.",
+          "noun": "piccola"
+        },
+        {
+          "prompt": "analizza la nonna",
+          "expected": "la nonna dorme. è bassa e felice.",
+          "noun": "bassa"
+        },
+        {
+          "prompt": "analizza il papà",
+          "expected": "il papà canta. è buono e veloce.",
+          "noun": "buono"
+        },
+        {
+          "prompt": "analizza la mucca",
+          "expected": "la mucca dorme. è piccola e fedele.",
+          "noun": "piccola"
+        },
+        {
+          "prompt": "analizza la sorella",
+          "expected": "la sorella canta. è alta e bella.",
+          "noun": "alta"
+        },
+        {
+          "prompt": "analizza la luna",
+          "expected": "la luna brilla. è bella e lunga.",
+          "noun": "bella"
+        },
+        {
+          "prompt": "analizza il maestro",
+          "expected": "il maestro dorme. è tranquillo e grande.",
+          "noun": "tranquillo"
+        },
+        {
+          "prompt": "analizza la bambina",
+          "expected": "la bambina canta. è bella e alta.",
+          "noun": "bella"
+        },
+        {
+          "prompt": "analizza la neve",
+          "expected": "la neve cade. è fredda e gialla.",
+          "noun": "fredda"
         }
       ],
       "prompt_template": "{prompt}",
