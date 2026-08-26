@@ -44,6 +44,7 @@ class DynamicBPETokenizer(BPETokenizer):
              max_words: int = 0,
              protect: Optional[set] = None,
              min_abs: int = 5, min_rel: float = 0.002,
+             threshold_tokens: Optional[int] = None,
              return_stats: bool = False):
         """
         Analyse new_text with the current vocabulary, identify the most
@@ -79,9 +80,18 @@ class DynamicBPETokenizer(BPETokenizer):
           Targets are freed once the level moves on.
 
         min_abs / min_rel: the two terms of the adaptive threshold, exposed so
-          an experiment can sweep it. The defaults are the build's values —
-          the threshold rises with the size of the growth buffer, which is why
-          growth thins out at high levels (measured: 5 at L1, 44 at L10).
+          an experiment can sweep it.
+
+        threshold_tokens: size the relative term against THIS many tokens
+          instead of the whole growth text. The growth buffer is the memory
+          bank of every level so far, so it grows monotonically (2K -> 22K
+          tokens) while the new material per level stays one session. Scaling
+          the threshold with the buffer raised it from 5 at L1 to 44 at L10,
+          and from L5 the current level could no longer clear it on its own —
+          growth stopped because the bar rose, not because the vocabulary had
+          converged. Pass the current level's token count to keep the bar tied
+          to what is actually new. Pair frequencies are still counted over the
+          whole text, so a merge must still be genuinely frequent.
 
         return_stats: also return one record per created token (pair count,
           threshold, buffer size) for the dream's growth_events.jsonl. Off by
@@ -127,7 +137,8 @@ class DynamicBPETokenizer(BPETokenizer):
             for t in seg_toks:
                 self.token_freq[t] += 1
 
-        threshold = max(MIN_ABS, int(n_tokens_total * MIN_REL))
+        _ref = n_tokens_total if threshold_tokens is None else threshold_tokens
+        threshold = max(MIN_ABS, int(_ref * MIN_REL))
         new_ids: List[int] = []
         stats: List[dict] = []
         blacklist: set = set()   # pairs rejected by the filters below

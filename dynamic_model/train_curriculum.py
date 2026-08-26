@@ -1887,10 +1887,22 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
                     if exp and len(exp) <= 30:
                         _protect.add(exp)
                         _protect.add(exp.strip("!.?,: "))
+            # Size the relative threshold against THIS level's material, not
+            # the whole cumulative buffer. Otherwise the bar rises with the
+            # memory bank (5 at L1, 44 at L10) while the new material per
+            # level stays one session, and from L5 the current level can no
+            # longer clear it — growth stopped because the bar rose, not
+            # because the vocabulary had converged.
+            _cur_bank = [e for e in bank if e.get("level") == level]
+            _cur_text = build_growth_text(_cur_bank, patterns,
+                                          sources=growth_source)
+            _thr_tokens = len(dyn_tok.encode(_cur_text)) if _cur_text.strip() \
+                          else None
             new_ids, growth_stats = dyn_tok.grow(
                 growth_text, n_merges=MAX_NEW_PER_DREAM,
                 max_words=_max_words, protect=_protect,
-                min_rel=growth_min_rel, return_stats=True)
+                min_rel=growth_min_rel, threshold_tokens=_thr_tokens,
+                return_stats=True)
 
         if new_ids:
             # Initialize embeddings for new tokens using parent vectors
