@@ -79,17 +79,31 @@ BETWEEN_SESSIONS="dream-only"  # dream-only | standard | none
 TUTOR_MODEL="haiku"     # haiku | sonnet | opus (default for Claude)
 ```
 
-The local teacher (L0-L2) is selected automatically if
-`training_files/{lang}/{level}/local_teacher.json` exists.
+The local teacher is selected automatically whenever
+`training_files/{lang}/{level}/local_teacher.json` exists: `local` for L0-L1,
+`hybrid` from L2 up if ollama answers on `$OLLAMA_BASE`
+(default `http://localhost:11434`). `TUTOR_MODEL` only decides which Claude
+model to use for the levels that have no local teacher config.
 
 ---
 
-## Claude API Key
+## Claude API Key (optional)
 
-Required for the levels using Sonnet/Haiku (L3+).
-Save it in `.env` (already in `.gitignore`):
+Not required for the Italian curriculum: levels 0-12 all ship a
+`local_teacher.json`, so `./build.sh` runs offline with the local/hybrid tutor.
+
+It is required only for a level with no `local_teacher.json` — currently the
+English curriculum (`training_files/en/`). Save it in `.env` (already in
+`.gitignore`):
 ```
 ANTHROPIC_API_KEY=sk-ant-...
+```
+and install the optional SDK: `pip install anthropic python-dotenv`.
+
+Hybrid-tutor overrides, to use a local LLM on another host:
+```
+OLLAMA_BASE=http://gpu-box:11434       # default http://localhost:11434
+PHYSISML_OLLAMA_MODEL=qwen3:8b         # force one grader for every level
 ```
 
 ---

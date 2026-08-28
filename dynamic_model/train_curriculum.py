@@ -1,5 +1,5 @@
 """
-Curriculum training 0→1 with Claude as tutor agent.
+Curriculum training with a tutor agent.
 
 Training is split into two phases:
 
@@ -7,10 +7,19 @@ Training is split into two phases:
     The model learns the phonetic structure of Italian without feedback.
     Pure self-supervised learning on a text corpus.
 
-  PHASE 1 — Claude-guided (it/1: basic grammar)
-    A Claude agent evaluates each model response and provides feedback
+  PHASE 1 — Tutor-guided (it/1+: grammar and dialogue)
+    A tutor evaluates each model response and provides feedback
     +1 (approval) / 0 (neutral) / -1 (disapproval).
     The model updates its weights based on the feedback.
+
+Three tutors, in increasing cost order (--tutor-model):
+  local   rule-based, deterministic, no network. Needs local_teacher.json.
+  hybrid  local prompts + a local LLM (ollama) for the grading. Free.
+  claude-*  Anthropic API. Optional: needed only where no local_teacher.json
+          exists, or when a level's grammar outgrows the local grader.
+
+The Anthropic SDK and API key are therefore OPTIONAL dependencies. The whole
+Italian curriculum (levels 0-12) ships local_teacher.json and trains offline.
 
 Checkpoints saved in:
   dynamic_model/checkpoints/level_0/   ← after phase 0
@@ -19,16 +28,18 @@ Checkpoints saved in:
 Start:
   python3 dynamic_model/train_curriculum.py
 
-  # Con chiave API esplicita:
-  ANTHROPIC_API_KEY=sk-ant-... python3 dynamic_model/train_curriculum.py
+  # Free tutors, no API key:
+  python3 dynamic_model/train_curriculum.py --tutor-model local
+  python3 dynamic_model/train_curriculum.py --tutor-model hybrid
 
-  # Cambia modello tutor (default: claude-haiku-4-5 per economia):
-  python3 dynamic_model/train_curriculum.py --tutor-model claude-opus-4-6
+  # Claude tutor, with an explicit API key:
+  ANTHROPIC_API_KEY=sk-ant-... python3 dynamic_model/train_curriculum.py \
+      --tutor-model claude-haiku-4-5
 
-  # Solo fase 0 (senza interazione Claude):
+  # Phase 0 only (no tutor at all):
   python3 dynamic_model/train_curriculum.py --phase 0
 
-  # Solo fase 1 partendo da checkpoint:
+  # Phase 1 only, resuming from a checkpoint:
   python3 dynamic_model/train_curriculum.py --phase 1 \
       --checkpoint dynamic_model/checkpoints/level_0/final.pt
 """
@@ -50,7 +61,17 @@ from typing import Optional
 
 import numpy as np
 import torch
-import anthropic
+
+# The Anthropic SDK is an OPTIONAL dependency: it is needed only when the
+# tutor is a Claude model. The local and hybrid teachers cover the whole
+# Italian curriculum without it.
+try:
+    import anthropic
+except ImportError:
+    anthropic = None
+
+# Model used when --tutor-model auto has no local teacher to fall back on.
+DEFAULT_CLAUDE_MODEL = "claude-haiku-4-5"
 
 from splx.torch_model import TorchGPT, TorchAdamOptimizer
 from splx.tokenizer   import BPETokenizer
@@ -378,7 +399,7 @@ FEEDBACK_MAP = {"-": -1.0, "=": 0.0, "+": 0.3, "++": 0.6, "+++": 1.0}
 # turns to 100% after turn 80 at L8). A small window bounds the contamination.
 MAX_HISTORY = 8   # keep last N messages to avoid context drift/degeneration
 
-def teaching_turn(client: anthropic.Anthropic,
+def teaching_turn(client: "anthropic.Anthropic",
                   conversation: list,
                   last_prompt: str,
                   last_response: str,
@@ -803,10 +824,24 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
         print(f"PHASE 1 — Claude Teaching  (level {level})")
         print("="*55)
 
+        # 'auto' had no local_teacher.json to fall back on, so it lands on the
+        # Claude tutor: resolve it to a concrete model id before the API call.
+        if args.tutor_model == "auto":
+            args.tutor_model = DEFAULT_CLAUDE_MODEL
+            print(f"  No local_teacher.json for {args.lang}/{level} — "
+                  f"falling back to {DEFAULT_CLAUDE_MODEL}.")
+
+        if anthropic is None:
+            print("\n⚠️  The 'anthropic' package is not installed.")
+            print("   Either install it:      pip install anthropic")
+            print("   or teach without an API: --tutor-model local | hybrid")
+            sys.exit(1)
+
         if not os.environ.get("ANTHROPIC_API_KEY"):
             print("\n⚠️  ANTHROPIC_API_KEY not found.")
             print("   Set the environment variable and restart:")
             print("   export ANTHROPIC_API_KEY=sk-ant-...")
+            print("   or teach without an API: --tutor-model local | hybrid")
             sys.exit(1)
 
         claude = anthropic.Anthropic()
@@ -2390,10 +2425,13 @@ def main():
                         help="Interactions with Claude in phase 1 (default: 60). "
                              "Use 'auto' to continue until quality is good "
                              "(Ctrl-C to stop while keeping progress)")
-    parser.add_argument("--tutor-model", default="claude-haiku-4-5",
-                        help="Tutor model: claude-haiku-4-5 | claude-sonnet-4-6 | "
-                             "local (rule-based, no API) | "
-                             "auto (local if local_teacher.json exists, else haiku)")
+    parser.add_argument("--tutor-model", default="auto",
+                        help="Tutor: auto (default — hybrid/local when the level "
+                             "has local_teacher.json, else Claude) | "
+                             "local (rule-based, offline) | "
+                             "hybrid (local prompts + ollama grading, offline) | "
+                             "claude-haiku-4-5 | claude-sonnet-4-6 "
+                             "(needs the optional anthropic package + API key)")
     parser.add_argument("--age", type=float, default=1.0,
                         help=(
                             "Virtual age of the model — adapts teaching style:\n"

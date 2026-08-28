@@ -13,6 +13,10 @@ Recommended models per level:
   L5-L6: llama3.2:latest            (2GB, ~300ms/evaluation)
   L7+:   qwen3:8b                   (5GB, ~500ms/evaluation)
 
+Environment overrides:
+  OLLAMA_BASE            ollama host (default http://localhost:11434)
+  PHYSISML_OLLAMA_MODEL  force one model for every level
+
 Usage:
   teacher = HybridTeacher(lang='it', level=3)
   result = teacher.turn(last_prompt='di: il cane', last_response='cane la', turn=2)
@@ -39,7 +43,13 @@ LEVEL_TO_MODEL = {
 }
 DEFAULT_MODEL = "llama3.2:latest"
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
+# Endpoint and model are overridable from the environment so the grader can run
+# on another machine (or any ollama-compatible service) instead of localhost:
+#   OLLAMA_BASE=http://gpu-box:11434  PHYSISML_OLLAMA_MODEL=qwen3:8b
+OLLAMA_BASE      = os.environ.get("OLLAMA_BASE", "http://localhost:11434").rstrip("/")
+OLLAMA_URL       = f"{OLLAMA_BASE}/api/generate"
+OLLAMA_TAGS_URL  = f"{OLLAMA_BASE}/api/tags"
+ENV_MODEL        = os.environ.get("PHYSISML_OLLAMA_MODEL") or None
 
 FEEDBACK_MAP = {
     "+++": 1.0, "++": 0.8, "+": 0.5, "=": 0.0, "-": -0.8,
@@ -124,7 +134,7 @@ class OllamaEvaluator:
         if self._online is not None:
             return self._online
         try:
-            req = urllib.request.Request("http://localhost:11434/api/tags")
+            req = urllib.request.Request(OLLAMA_TAGS_URL)
             with urllib.request.urlopen(req, timeout=3) as resp:
                 data = json.loads(resp.read())
                 models = [m["name"] for m in data.get("models", [])]
@@ -229,7 +239,8 @@ class HybridTeacher:
         self.local   = LocalTeacher(lang, level, retry_prefix=retry_prefix)
 
         # LLM evaluator
-        model = ollama_model or LEVEL_TO_MODEL.get(level, DEFAULT_MODEL)
+        model = (ollama_model or ENV_MODEL
+                 or LEVEL_TO_MODEL.get(level, DEFAULT_MODEL))
         self.evaluator = OllamaEvaluator(model)
 
         self._use_llm = self.evaluator.is_available()

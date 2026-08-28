@@ -4,11 +4,11 @@
 
 Un piccolo LLM costruito da zero, ispirato all'apprendimento biologico.
 Il modello impara come un bambino — prima i suoni, poi le parole, poi le frasi —
-guidato da un tutor Claude che adatta il curriculum in tempo reale.
+guidato da un tutor che adatta il curriculum in tempo reale.
 
 - **Curriculum progressivo**: da fonemi a letteratura (italiano livelli 0–10, inglese 0–5)
 - **Sistema affettivo innato**: `confidence`, `pleasure`, `pain`, `fear` modulano i logits durante l'inference
-- **Segnale insegnante**: un tutor Claude (o un insegnante locale gratuito) genera esempi mirati sui deficit correnti del modello
+- **Segnale insegnante**: un insegnante locale gratuito (o, opzionalmente, un tutor Claude) genera esempi mirati sui deficit correnti del modello
 - **Dimensioni minime**: transformer GPT-2 style, ~23.6M parametri, si addestra su CPU o GPU consumer
 
 **Documentazione**
@@ -104,12 +104,35 @@ Dettagli in [docs/it/modello_PhysisML.md](docs/it/modello_PhysisML.md).
 
 ```bash
 pip install torch --index-url https://download.pytorch.org/whl/cpu
-pip install anthropic python-dotenv
 ```
 
-La chiave API Anthropic serve solo per l'insegnamento con il tutor Claude:
+È l'unica dipendenza obbligatoria. **Per addestrare il curriculum italiano non
+serve nessuna chiave API**: tutti i livelli 0-12 hanno il loro
+`local_teacher.json`, quindi `./build.sh` insegna con il tutor offline.
+
+### Tutor disponibili
+
+| `--tutor-model` | Chi valuta le risposte | Richiede |
+|---|---|---|
+| `local` | regole deterministiche | niente |
+| `hybrid` | prompt locali + un LLM locale piccolo | [ollama](https://ollama.com) attivo |
+| `claude-haiku-4-5`, `claude-sonnet-4-6` | API Claude | `pip install anthropic` + chiave API |
+| `auto` *(default)* | `hybrid` → `local` se il livello ha `local_teacher.json`, altrimenti Claude | — |
+
+`build.sh` usa `local` per L0-L1 e `hybrid` da L2 in su quando ollama risponde,
+quindi un run italiano completo non costa nulla. Il valutatore ibrido può stare
+anche su un'altra macchina:
 
 ```bash
+OLLAMA_BASE=http://gpu-box:11434 PHYSISML_OLLAMA_MODEL=qwen3:8b ./build.sh 4
+```
+
+Il tutor Claude resta l'insegnante migliore ai livelli alti, ed è l'unico
+disponibile per il curriculum inglese (`training_files/en/` non ha ancora un
+`local_teacher.json`). È opzionale e si abilita così:
+
+```bash
+pip install anthropic python-dotenv
 echo "ANTHROPIC_API_KEY=sk-ant-..." > .env
 ```
 
@@ -121,7 +144,7 @@ echo "ANTHROPIC_API_KEY=sk-ant-..." > .env
 ## Avvio rapido
 
 ```bash
-# Addestra i livelli 0→1 in automatico (fase testuale + insegnamento Claude per livello)
+# Addestra i livelli 0→1 in automatico (fase testuale + insegnamento, senza chiave API)
 ./build.sh 1
 
 # Parla col modello
@@ -135,7 +158,7 @@ python3 dynamic_model/run.py "testo" 2>/dev/null   # risposta singola
 # Phase 0: training testuale su training_files/it/0/
 python3 dynamic_model/train_curriculum.py --phase 0 --level 0 --epochs-0 10 --lang it
 
-# Phase 1: insegnamento Claude (ripetibile)
+# Phase 1: insegnamento col tutor (ripetibile)
 ./teach.sh 100        # 100 turni fissi
 ./teach.sh auto       # continua finché la qualità è raggiunta (Ctrl-C sicuro)
 
@@ -155,7 +178,7 @@ Ogni livello parte dal `final_learned.pt` del livello precedente.
 |---------|-------|
 | `./build.sh N [modello] [auto] [--resume]` | Addestramento automatico livelli 0→N |
 | `MIN_DREAMS=6 ./build.sh N` | Idem, con N cicli di sogno minimi per livello (default 6, `0` disattiva) |
-| `./teach.sh [turni\|auto] [modello] [lingua] [livello]` | Sessione di insegnamento Claude |
+| `./teach.sh [turni\|auto] [local\|hybrid\|haiku\|…] [lingua] [livello]` | Sessione di insegnamento |
 | `./set_model.sh <checkpoint>` | Imposta il modello attivo (`models/active.pt`) |
 | `./reset.sh [--dry-run]` | Backup + reset del modello |
 | `python3 dynamic_model/train_curriculum.py` | Training testuale e/o insegnamento (vedi `--help`) |
@@ -170,11 +193,11 @@ Ogni livello parte dal `final_learned.pt` del livello precedente.
 
 Flag principali di `train_curriculum.py`: `--phase 0|1`, `--level N`, `--lang it|en`,
 `--epochs-0 N`, `--interactions N|auto`, `--age 0-7+` (età virtuale → stile di
-insegnamento), `--tutor-model haiku|sonnet|opus`.
+insegnamento), `--tutor-model auto|local|hybrid|haiku|sonnet`.
 
-**Insegnanti disponibili**: tutor Claude via API (default), `local_teacher.py`
-(deterministico, gratuito), `hybrid_teacher.py` (prompt locali + valutazione
-Ollama, gratuito e con GPU).
+**Insegnanti disponibili**: `local_teacher.py` (deterministico, gratuito,
+offline), `hybrid_teacher.py` (prompt locali + valutazione ollama, gratuito e
+con GPU), tutor Claude via API (opzionale — vedi [Tutor disponibili](#tutor-disponibili)).
 
 ---
 

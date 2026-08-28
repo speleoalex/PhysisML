@@ -117,10 +117,16 @@ if [ -z "$ANTHROPIC_API_KEY" ] && [ -f ".env" ]; then
   export $(grep -v '^#' .env | xargs)
 fi
 
+# The Claude tutor is OPTIONAL: a level that ships local_teacher.json is taught
+# by the local or hybrid teacher, no API involved. Do not fail here — only when
+# a level actually has no local teacher to fall back on (checked in the loop).
 if [ -z "$ANTHROPIC_API_KEY" ]; then
-  echo "Error: ANTHROPIC_API_KEY not set. Add it to .env"
-  exit 1
+  echo "Note: ANTHROPIC_API_KEY not set — teaching with the local/hybrid tutor."
+  echo "      Levels without training_files/$LANG/N/local_teacher.json will stop."
 fi
+
+# ollama endpoint for the hybrid tutor (override for a remote GPU box)
+OLLAMA_BASE="${OLLAMA_BASE:-http://localhost:11434}"
 
 # ── Level completion, as the quality gate defines it ────────────────────────
 # A level is complete when its LAST session cleared the threshold — not when a
@@ -325,19 +331,27 @@ for LEVEL in $(seq $START_LEVEL $TARGET_LEVEL); do
 
     # Teacher selection per level:
     #   L0-L1: local (pure regex, instant — sufficient for phonemes/words)
-    #   L2-L5: hybrid (LocalTeacher prompts + Ollama evaluation)
-    #   L6+:   Claude API (high grammatical complexity)
-    # Requires local_teacher.json for local/hybrid.
+    #   L2+:   hybrid (LocalTeacher prompts + ollama evaluation), or local
+    #          again when ollama is not reachable.
+    # Both need local_teacher.json; the Claude tutor is used only for levels
+    # that do not have one (currently: the English curriculum).
     HYBRID_MIN_LEVEL=2   # from this level up use hybrid instead of local
     EFFECTIVE_TUTOR="$TUTOR"
     if [ -f "training_files/$LANG/$LEVEL/local_teacher.json" ]; then
       if [ "$LEVEL" -lt "$HYBRID_MIN_LEVEL" ]; then
         EFFECTIVE_TUTOR="local"
-      elif curl -s --max-time 2 http://localhost:11434/api/tags > /dev/null 2>&1; then
+      elif curl -s --max-time 2 "$OLLAMA_BASE/api/tags" > /dev/null 2>&1; then
         EFFECTIVE_TUTOR="hybrid"
       else
         EFFECTIVE_TUTOR="local"
       fi
+    elif [ -z "$ANTHROPIC_API_KEY" ]; then
+      # No local teacher for this level and no API key: the Claude tutor is the
+      # only option left and it is unavailable.
+      echo "Error: level $LEVEL has no training_files/$LANG/$LEVEL/local_teacher.json"
+      echo "       and ANTHROPIC_API_KEY is not set, so no tutor can run."
+      echo "       Add the key to .env, or generate a local teacher config for it."
+      exit 1
     fi
 
     # Does the budget cover one pass through the pool? The teacher walks the
