@@ -190,6 +190,7 @@ Ogni livello parte dal `final_learned.pt` del livello precedente.
 | `python3 scripts/generate_qa_corpus.py --levels 0 1 2` | Genera corpus dialogico dalle coppie QA |
 | `python3 scripts/generate_qa_corpus.py --check --levels 0 1 2` | Verifica che ogni `qa_corpus.txt` corrisponda al suo `qa_pairs.jsonl` (esce 1 se stantio) |
 | `python3 scripts/export_gguf.py` | Esporta un checkpoint in GGUF (llama.cpp / ollama) |
+| `python3 scripts/export_hf.py --out hf_upload --levels 0-9` | Prepara la cartella per Hugging Face (safetensors + model card + codice di inferenza) |
 
 Flag principali di `train_curriculum.py`: `--phase 0|1`, `--level N`, `--lang it|en`,
 `--epochs-0 N`, `--interactions N|auto`, `--age 0-7+` (età virtuale → stile di

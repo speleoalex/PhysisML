@@ -190,6 +190,7 @@ Each level starts from the previous level's `final_learned.pt`.
 | `python3 scripts/generate_qa_corpus.py --levels 0 1 2` | Build dialogue corpus from QA pairs |
 | `python3 scripts/generate_qa_corpus.py --check --levels 0 1 2` | Verify each `qa_corpus.txt` matches its `qa_pairs.jsonl` (exits 1 if stale) |
 | `python3 scripts/export_gguf.py` | Export a checkpoint to GGUF (llama.cpp / ollama) |
+| `python3 scripts/export_hf.py --out hf_upload --levels 0-9` | Build a Hugging Face upload folder (safetensors + card + inference code) |
 
 Key `train_curriculum.py` flags: `--phase 0|1`, `--level N`, `--lang it|en`,
 `--epochs-0 N`, `--interactions N|auto`, `--age 0-7+` (virtual age → teaching style),
