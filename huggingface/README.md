@@ -136,7 +136,7 @@ so the model loads through the small package shipped in this repo.
 
 ```bash
 pip install torch safetensors numpy
-huggingface-cli download <user>/<repo> --local-dir physisml-model
+hf download speleoalex/physisml-it-preview --local-dir physisml-model
 cd physisml-model
 
 python3 generate.py "di: cosa mangia il cane?"   # one answer, greedy

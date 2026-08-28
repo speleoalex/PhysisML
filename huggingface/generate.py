@@ -46,7 +46,7 @@ try:
 except ImportError:
     print("Error: the 'physisml' package is missing next to this script.\n"
           "       Download the whole model repo, not just generate.py:\n"
-          "       huggingface-cli download <user>/<repo> --local-dir physisml-model",
+          "       hf download speleoalex/physisml-it-preview --local-dir physisml-model",
           file=sys.stderr)
     sys.exit(1)
 
