@@ -139,7 +139,13 @@ class TrainerB:
         with torch.no_grad():
             logits_eval = self.model.forward(ids)
             self.affect.update_from_logits(logits_eval[-1], self.model.vocab_size)
-            self.affect.update_from_weights(self.model.tok_emb.weight)
+            # Active rows only: the dormant slots are zeroed by
+            # construction, so counting them made ignorance a constant
+            # (measured 0.717 with 2547 of 9000 slots in use).
+            self.affect.update_from_weights(
+                self.model.tok_emb.weight,
+                active_vocab_size=getattr(self.model,
+                                          'active_vocab_size', None))
 
         loss_val = None
 
@@ -197,6 +203,21 @@ class TrainerB:
             # Use only the response tokens (after the prompt, sep included)
             response_ids = ids_np[n_prompt:].tolist()
             self.affect.update_from_novelty(response_ids, feedback)
+            # Curiosity memory, in word forms. Note this registers the TARGET
+            # of the step, which at SIGNAL 1 is the teacher's gold: a word
+            # counts as taught from the moment it is shown. Separate channel
+            # from the novelty counters above — see AffectState.word_ignorance
+            # for why words and not token ids.
+            try:
+                _txt = self.tokenizer.decode(response_ids)
+                # Strip special-token literals first: '<|EOS|>' otherwise
+                # enters the memory as the word 'eos', because the word regex
+                # sees letters and knows nothing about markup.
+                for _name in getattr(self.tokenizer, "special_tokens", {}):
+                    _txt = _txt.replace(_name, " ")
+                self.affect.register_rewarded_words(_txt, feedback)
+            except Exception:
+                pass
 
         # ---- Register tokens in the modulator ----
         if len(ids_np) > 0:
@@ -282,6 +303,14 @@ class TrainerB:
         prompt_len = len(ids)
         undecodable = self._undecodable_mask()
 
+        # Per-prompt drive to ask, computed on the prompt TEXT. The state's
+        # global `curiosity` cannot tell 'questo è un ragno' from 'questo è un
+        # gatto', which is the whole distinction the gate exists to make.
+        # Skipped entirely when the gate is off, which is the default.
+        curiosity = None
+        if getattr(self.mod, "ask_gate", False):
+            curiosity = self.affect.ask_drive(prompt)
+
         with torch.no_grad():
             for step in range(max_tokens):
                 ctx = torch.tensor(ids[-128:], dtype=torch.long, device=self.device)
@@ -295,7 +324,8 @@ class TrainerB:
                 response_len = len(ids) - prompt_len
                 modulated = self.mod.modulate(last, base_temperature,
                                               response_len=response_len,
-                                              eos_min_len=min_tokens + 1)
+                                              eos_min_len=min_tokens + 1,
+                                              curiosity=curiosity)
 
                 # Hard-suppress EOS before min_tokens. Gating only the EOS
                 # *boost* still allowed the model to SAMPLE EOS as its very

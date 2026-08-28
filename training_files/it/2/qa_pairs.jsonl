@@ -35,7 +35,6 @@
 {"prompt": "cosa fa il cane?", "response": "il cane dorme."}
 {"prompt": "cosa fa la mamma?", "response": "la mamma mangia."}
 {"prompt": "cosa fa il gatto?", "response": "il gatto dorme."}
-{"prompt": "com è la casa?", "response": "la casa è bella."}
 {"prompt": "com è il cane?", "response": "il cane è grande."}
 {"prompt": "come ti chiami?", "response": "physisml!"}
 {"prompt": "il tuo nome è physisml. come ti chiami?", "response": "physisml!"}
@@ -45,10 +44,8 @@
 {"prompt": "qual è il tuo nome?", "response": "physisml!"}
 {"prompt": "come ti chiami? di: physisml", "response": "physisml!"}
 {"prompt": "chi sei?", "response": "physisml!"}
-{"prompt": "sei physisml?", "response": "sì physisml!"}
 {"prompt": "ciao", "response": "ciao, sono physisml!"}
 {"prompt": "ciao ciao", "response": "ciao ciao!"}
-
 {"prompt": "la casa la casa. di: la casa", "response": "la casa!"}
 {"prompt": "il pane il pane. di: il pane", "response": "il pane!"}
 {"prompt": "la mamma la mamma. di: la mamma", "response": "la mamma!"}
@@ -184,3 +181,135 @@
 {"prompt": "benissimo! di: la mamma brava", "response": "la mamma brava!"}
 {"prompt": "bene! di: il sole bello", "response": "il sole bello!"}
 {"prompt": "ottimo! di: il cane grande", "response": "il cane grande!"}
+{"prompt": "il latte il latte. di: il latte", "response": "il latte!"}
+{"prompt": "bravo! di: il latte", "response": "il latte!"}
+{"prompt": "il formaggio il formaggio. di: il formaggio", "response": "il formaggio!"}
+{"prompt": "ottimo! di: il formaggio", "response": "il formaggio!"}
+{"prompt": "il pesce il pesce. di: il pesce", "response": "il pesce!"}
+{"prompt": "benissimo! di: il pesce", "response": "il pesce!"}
+{"prompt": "perfetto! di: il latte", "response": "il latte!"}
+{"prompt": "il lupo il lupo. di: il lupo", "response": "il lupo!"}
+{"prompt": "bravo! di: il lupo", "response": "il lupo!"}
+{"prompt": "la scuola la scuola. di: la scuola", "response": "la scuola!"}
+{"prompt": "benissimo! di: la scuola", "response": "la scuola!"}
+{"prompt": "il bambino il bambino. di: il bambino", "response": "il bambino!"}
+{"prompt": "bene! di: il bambino", "response": "il bambino!"}
+{"prompt": "la sedia la sedia. di: la sedia", "response": "la sedia!"}
+{"prompt": "di: la scuola", "response": "la scuola!"}
+{"prompt": "la mela la mela. di: la mela", "response": "la mela!"}
+{"prompt": "la mucca la mucca. di: la mucca", "response": "la mucca!"}
+{"prompt": "il cappello il cappello. di: il cappello", "response": "il cappello!"}
+{"prompt": "l acqua l acqua. di: l acqua", "response": "l acqua!"}
+{"prompt": "la finestra la finestra. di: la finestra", "response": "la finestra!"}
+{"prompt": "il mare il mare. di: il mare", "response": "il mare!"}
+{"prompt": "l uccello l uccello. di: l uccello", "response": "l uccello!"}
+{"prompt": "l amico l amico. di: l amico", "response": "l amico!"}
+{"prompt": "il libro il libro. di: il libro", "response": "il libro!"}
+{"prompt": "benissimo! di: il latte", "response": "il latte!"}
+{"prompt": "di: il lupo", "response": "il lupo!"}
+{"prompt": "il nonno il nonno. di: il nonno", "response": "il nonno!"}
+{"prompt": "l albero l albero. di: l albero", "response": "l albero!"}
+{"prompt": "il pallone il pallone. di: il pallone", "response": "il pallone!"}
+{"prompt": "il fiore il fiore. di: il fiore", "response": "il fiore!"}
+{"prompt": "di: il formaggio", "response": "il formaggio!"}
+{"prompt": "di: il mare", "response": "il mare!"}
+{"prompt": "bene! di: la scuola", "response": "la scuola!"}
+{"prompt": "di: il bambino", "response": "il bambino!"}
+{"prompt": "di: la sedia", "response": "la sedia!"}
+{"prompt": "di: l uccello", "response": "l uccello!"}
+{"prompt": "di: il pesce", "response": "il pesce!"}
+{"prompt": "di: il latte", "response": "il latte!"}
+{"prompt": "ottimo! di: la scuola", "response": "la scuola!"}
+{"prompt": "di: la mucca", "response": "la mucca!"}
+{"prompt": "di: il cappello", "response": "il cappello!"}
+{"prompt": "di: l acqua", "response": "l acqua!"}
+{"prompt": "bene! di: il pesce", "response": "il pesce!"}
+{"prompt": "di: il nonno", "response": "il nonno!"}
+{"prompt": "di: il pallone", "response": "il pallone!"}
+{"prompt": "benissimo! di: l acqua", "response": "l acqua!"}
+{"prompt": "bene! di: il latte", "response": "il latte!"}
+{"prompt": "bravo! di: l albero", "response": "l albero!"}
+{"prompt": "di: la mela", "response": "la mela!"}
+{"prompt": "di: la finestra", "response": "la finestra!"}
+{"prompt": "perfetto! di: il mare", "response": "il mare!"}
+{"prompt": "bravo! di: il pesce", "response": "il pesce!"}
+{"prompt": "benissimo! di: l amico", "response": "l amico!"}
+{"prompt": "perfetto! di: il cappello", "response": "il cappello!"}
+{"prompt": "bene! di: l acqua", "response": "l acqua!"}
+{"prompt": "bravo! di: la sedia", "response": "la sedia!"}
+{"prompt": "di: l amico", "response": "l amico!"}
+{"prompt": "ottimo! di: il latte", "response": "il latte!"}
+{"prompt": "bene! di: l albero", "response": "l albero!"}
+{"prompt": "bravo! di: il fiore", "response": "il fiore!"}
+{"prompt": "ottimo! di: la mela", "response": "la mela!"}
+{"prompt": "ottimo! di: la mucca", "response": "la mucca!"}
+{"prompt": "ottimo! di: l acqua", "response": "l acqua!"}
+{"prompt": "perfetto! di: la sedia", "response": "la sedia!"}
+{"prompt": "perfetto! di: il bambino", "response": "il bambino!"}
+{"prompt": "perfetto! di: la finestra", "response": "la finestra!"}
+{"prompt": "ottimo! di: l uccello", "response": "l uccello!"}
+{"prompt": "di: l albero", "response": "l albero!"}
+{"prompt": "bravo! di: la scuola", "response": "la scuola!"}
+{"prompt": "perfetto! di: la mucca", "response": "la mucca!"}
+{"prompt": "ottimo! di: il cappello", "response": "il cappello!"}
+{"prompt": "benissimo! di: il formaggio", "response": "il formaggio!"}
+{"prompt": "ottimo! di: il pesce", "response": "il pesce!"}
+{"prompt": "di: il libro", "response": "il libro!"}
+{"prompt": "benissimo! di: il fiore", "response": "il fiore!"}
+{"prompt": "l uccello vola l uccello vola. di: l uccello vola", "response": "l uccello vola!"}
+{"prompt": "perfetto! di: l uccello vola", "response": "l uccello vola!"}
+{"prompt": "di: l uccello vola", "response": "l uccello vola!"}
+{"prompt": "bravo! di: l uccello vola", "response": "l uccello vola!"}
+{"prompt": "l amico salta l amico salta. di: l amico salta", "response": "l amico salta!"}
+{"prompt": "di: l amico salta", "response": "l amico salta!"}
+{"prompt": "il lupo corre il lupo corre. di: il lupo corre", "response": "il lupo corre!"}
+{"prompt": "bravo! di: il lupo corre", "response": "il lupo corre!"}
+{"prompt": "benissimo! di: il lupo corre", "response": "il lupo corre!"}
+{"prompt": "il pesce nuota il pesce nuota. di: il pesce nuota", "response": "il pesce nuota!"}
+{"prompt": "di: il pesce nuota", "response": "il pesce nuota!"}
+{"prompt": "l albero cresce l albero cresce. di: l albero cresce", "response": "l albero cresce!"}
+{"prompt": "bene! di: l albero cresce", "response": "l albero cresce!"}
+{"prompt": "di: l albero cresce", "response": "l albero cresce!"}
+{"prompt": "benissimo! di: il cappello", "response": "il cappello!"}
+{"prompt": "bene! di: la finestra", "response": "la finestra!"}
+{"prompt": "bene! di: il mare", "response": "il mare!"}
+{"prompt": "perfetto! di: l uccello", "response": "l uccello!"}
+{"prompt": "perfetto! di: l amico", "response": "l amico!"}
+{"prompt": "ottimo! di: l albero", "response": "l albero!"}
+{"prompt": "bene! di: il pallone", "response": "il pallone!"}
+{"prompt": "bravo! di: il pallone", "response": "il pallone!"}
+{"prompt": "di: il fiore", "response": "il fiore!"}
+{"prompt": "bene! di: il fiore", "response": "il fiore!"}
+{"prompt": "bravo! di: la mela", "response": "la mela!"}
+{"prompt": "bene! di: la sedia", "response": "la sedia!"}
+{"prompt": "benissimo! di: il bambino", "response": "il bambino!"}
+{"prompt": "benissimo! di: la mela", "response": "la mela!"}
+{"prompt": "benissimo! di: la sedia", "response": "la sedia!"}
+{"prompt": "bravo! di: il mare", "response": "il mare!"}
+{"prompt": "perfetto! di: il pesce", "response": "il pesce!"}
+{"prompt": "benissimo! di: il libro", "response": "il libro!"}
+{"prompt": "ottimo! di: il lupo", "response": "il lupo!"}
+{"prompt": "bravo! di: la mucca dorme", "response": "la mucca dorme!"}
+{"prompt": "di: la mucca dorme", "response": "la mucca dorme!"}
+{"prompt": "ottimo! di: la mucca dorme", "response": "la mucca dorme!"}
+{"prompt": "ottimo! di: l uccello vola", "response": "l uccello vola!"}
+{"prompt": "bravo! di: l amico salta", "response": "l amico salta!"}
+{"prompt": "ottimo! di: l amico salta", "response": "l amico salta!"}
+{"prompt": "perfetto! di: l amico salta", "response": "l amico salta!"}
+{"prompt": "di: il lupo corre", "response": "il lupo corre!"}
+{"prompt": "perfetto! di: il pesce nuota", "response": "il pesce nuota!"}
+{"prompt": "il cavallo dorme il cavallo dorme. di: il cavallo dorme", "response": "il cavallo dorme!"}
+{"prompt": "di: il cavallo dorme", "response": "il cavallo dorme!"}
+{"prompt": "benissimo! di: l albero cresce", "response": "l albero cresce!"}
+{"prompt": "il sole brilla il sole brilla. di: il sole brilla", "response": "il sole brilla!"}
+{"prompt": "benissimo! di: il sole brilla", "response": "il sole brilla!"}
+{"prompt": "il bambino canta il bambino canta. di: il bambino canta", "response": "il bambino canta!"}
+{"prompt": "di: il bambino canta", "response": "il bambino canta!"}
+{"prompt": "perfetto! di: il bambino canta", "response": "il bambino canta!"}
+{"prompt": "l uccello alto l uccello alto. di: l uccello alto", "response": "l uccello alto!"}
+{"prompt": "di: l uccello alto", "response": "l uccello alto!"}
+{"prompt": "bene! di: l uccello alto", "response": "l uccello alto!"}
+{"prompt": "il formaggio dolce il formaggio dolce. di: il formaggio dolce", "response": "il formaggio dolce!"}
+{"prompt": "di: il formaggio dolce", "response": "il formaggio dolce!"}
+{"prompt": "bravo! di: l uccello", "response": "l uccello!"}
+{"prompt": "perfetto! di: il fiore", "response": "il fiore!"}

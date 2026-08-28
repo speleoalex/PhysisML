@@ -6,7 +6,10 @@
     "questo vincolo si generano frasi come 'il pane dorme', che insegnano rumore.",
     "'art' e' esplicito per nome, cosi' non serve alcuna regola di elisione.",
     "Omografi rimossi di proposito: 'riso' (participio di ridere) e 'cucina' (verbo) restano verbi, non nomi; 'porta' resta nome, non verbo. Un modello di questa taglia non distingue i due sensi e li mescola.",
-    "'puo' elenca i verbi sensati per quel nome, 'luoghi_verbo' i luoghi per verbo, 'dim'/'pol' la dimensione semantica e la polarita' di ogni aggettivo. Senza questi vincoli il generatore produce 'il lupo vola', 'la mamma apre il tavolo' e 'il gelato e' rosso perche' e' bianco'."
+    "'puo' elenca i verbi sensati per quel nome, 'luoghi_verbo' i luoghi per verbo, 'dim'/'pol' la dimensione semantica e la polarita' di ogni aggettivo. Senza questi vincoli il generatore produce 'il lupo vola', 'la mamma apre il tavolo' e 'il gelato e' rosso perche' e' bianco'.",
+    "'ontology' porta la relazione is-a insegnata a L11; 'unknown_nouns' i nomi tenuti fuori da L0-L11 su cui si misura la curiosita' a L12 (meta' marcati 'probe' restano fuori anche da L12: sono il set di misura).",
+    "'mass' marca i nomi massa: non prendono l'articolo indeterminativo, quindi si presentano come 'questa e acqua', non 'questa e un acqua'.",
+    "'uniq' marca i referenti unici: si presentano con l'articolo determinativo ('questo e il sole'), perche' 'questo e un sole' non si dice."
   ],
   "nouns": [
     {
@@ -404,7 +407,8 @@
       "kind": "cibo",
       "puo": [
         "beve"
-      ]
+      ],
+      "mass": true
     },
     {
       "w": "formaggio",
@@ -431,7 +435,8 @@
       "kind": "cibo",
       "puo": [
         "beve"
-      ]
+      ],
+      "mass": true
     },
     {
       "w": "mela",
@@ -564,21 +569,26 @@
       "kind": "natura",
       "puo": [
         "brilla"
-      ]
+      ],
+      "cls": "una luce",
+      "uniq": true
     },
     {
       "w": "mare",
       "art": "il",
       "g": "m",
       "kind": "natura",
-      "puo": []
+      "puo": [],
+      "cls": "un luogo",
+      "uniq": true
     },
     {
       "w": "vento",
       "art": "il",
       "g": "m",
       "kind": "natura",
-      "puo": []
+      "puo": [],
+      "mass": true
     },
     {
       "w": "fiore",
@@ -588,7 +598,8 @@
       "puo": [
         "cresce",
         "guarda"
-      ]
+      ],
+      "cls": "una pianta"
     },
     {
       "w": "albero",
@@ -597,7 +608,8 @@
       "kind": "natura",
       "puo": [
         "cresce"
-      ]
+      ],
+      "cls": "una pianta"
     },
     {
       "w": "luna",
@@ -606,7 +618,9 @@
       "kind": "natura",
       "puo": [
         "brilla"
-      ]
+      ],
+      "cls": "una luce",
+      "uniq": true
     },
     {
       "w": "stella",
@@ -615,7 +629,8 @@
       "kind": "natura",
       "puo": [
         "brilla"
-      ]
+      ],
+      "cls": "una luce"
     },
     {
       "w": "neve",
@@ -624,7 +639,9 @@
       "kind": "natura",
       "puo": [
         "cade"
-      ]
+      ],
+      "cls": "acqua",
+      "mass": true
     },
     {
       "w": "casa",
@@ -1307,5 +1324,131 @@
       "giardino",
       "prato"
     ]
-  }
+  },
+  "ontology": {
+    "_note": [
+      "'kind' e' un vincolo del GENERATORE (quali verbi e aggettivi hanno senso",
+      "con quel nome): non e' un'ontologia. 'natura' non e' un nome usabile nella",
+      "copula — 'il sole e' una natura' e' italiano sbagliato — quindi la classe",
+      "che il modello impara a dire sta qui, separata.",
+      "'kind_class' da' la classe di default per ogni kind; il campo 'cls' sul",
+      "singolo nome vince sul default (sole/luna/stella -> una luce, albero/fiore",
+      "-> una pianta, mare -> un luogo, neve -> acqua).",
+      "'classes' e' la catena di iperonimi: classe -> iperonimo, null = radice.",
+      "Solo due livelli di proposito: una catena piu' profonda chiede al modello",
+      "un ragionamento transitivo che a questa taglia non ha.",
+      "'negative_pool' elenca le classi usabili come risposta SBAGLIATA nello step",
+      "dei negativi. Gli iperonimi ne sono esclusi: 'il cane e' una cosa?' non ha",
+      "un no pulito, mentre 'il cane e' una persona?' si'."
+    ],
+    "kind_class": {
+      "animale": "un animale",
+      "persona": "una persona",
+      "cibo": "un cibo",
+      "oggetto": "un oggetto",
+      "luogo": "un luogo",
+      "natura": "una cosa"
+    },
+    "classes": {
+      "un animale": "un essere vivente",
+      "una persona": "un essere vivente",
+      "una pianta": "un essere vivente",
+      "un cibo": "una cosa",
+      "un oggetto": "una cosa",
+      "una luce": "una cosa",
+      "acqua": "una cosa",
+      "un luogo": null,
+      "una cosa": null,
+      "un essere vivente": null
+    },
+    "negative_pool": [
+      "un animale",
+      "una persona",
+      "un cibo",
+      "un oggetto",
+      "un luogo",
+      "una luce",
+      "una pianta"
+    ]
+  },
+  "unknown_nouns": [
+    {
+      "w": "ragno",
+      "art": "il",
+      "g": "m",
+      "cls": "un animale"
+    },
+    {
+      "w": "riccio",
+      "art": "il",
+      "g": "m",
+      "cls": "un animale"
+    },
+    {
+      "w": "bottone",
+      "art": "il",
+      "g": "m",
+      "cls": "un oggetto"
+    },
+    {
+      "w": "tamburo",
+      "art": "il",
+      "g": "m",
+      "cls": "un oggetto"
+    },
+    {
+      "w": "zucca",
+      "art": "la",
+      "g": "f",
+      "cls": "un cibo"
+    },
+    {
+      "w": "faro",
+      "art": "il",
+      "g": "m",
+      "cls": "un luogo"
+    },
+    {
+      "w": "lumaca",
+      "art": "la",
+      "g": "f",
+      "cls": "un animale",
+      "probe": true
+    },
+    {
+      "w": "aquila",
+      "art": "l",
+      "g": "f",
+      "cls": "un animale",
+      "probe": true
+    },
+    {
+      "w": "spazzola",
+      "art": "la",
+      "g": "f",
+      "cls": "un oggetto",
+      "probe": true
+    },
+    {
+      "w": "pettine",
+      "art": "il",
+      "g": "m",
+      "cls": "un oggetto",
+      "probe": true
+    },
+    {
+      "w": "noce",
+      "art": "la",
+      "g": "f",
+      "cls": "un cibo",
+      "probe": true
+    },
+    {
+      "w": "collina",
+      "art": "la",
+      "g": "f",
+      "cls": "un luogo",
+      "probe": true
+    }
+  ]
 }

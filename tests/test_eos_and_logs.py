@@ -1,0 +1,281 @@
+"""
+Tests for the EOS registration and for the session-log pairing.
+
+Both fixes exist because something was silently wrong for a long time:
+
+  - the tokenizer retrained on 2026-08-25 dropped <|EOS|>, so every piece of
+    EOS machinery downstream (generator stop, gold suffix, GGUF metadata) was
+    inert and the model had no way to end an answer outside Python;
+  - the session record carried a feedback symbol with no indication that it
+    grades the PREVIOUS turn, so every per-prompt reading of the log paired
+    grades with the wrong question.
+
+Neither failure raised an error, which is exactly why they need tests.
+
+Run with:  python3 -m pytest tests/test_eos_and_logs.py -v
+"""
+import glob
+import importlib.util
+import json
+import os
+import random
+import sys
+
+import pytest
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+for _p in (ROOT, os.path.join(ROOT, "scripts"),
+           os.path.join(ROOT, "tests", "test_1")):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
+
+os.chdir(ROOT)
+
+from splx.tokenizer import BPETokenizer                            # noqa: E402
+import analyze_log as AL                                           # noqa: E402
+
+REFERENCE = "models/active_tokenizer.json"
+# What a build started from scratch seeds itself with.
+SEED = "dynamic_model/data/tokenizer_8k.json"
+
+
+def _load_tc():
+    """train_curriculum.py is a script, not a module: load it by path."""
+    spec = importlib.util.spec_from_file_location(
+        "tc_for_tests", "dynamic_model/train_curriculum.py")
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules["tc_for_tests"] = mod
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def _snapshots():
+    return [REFERENCE, "standalone/tokenizer.json"] + \
+        sorted(glob.glob("models/checkpoints/*/level_*/tokenizer.json"))
+
+
+# ---------------------------------------------------------------------------
+# EOS registration
+# ---------------------------------------------------------------------------
+
+class TestEosRegistration:
+
+    def test_the_active_tokenizer_has_an_eos(self):
+        """The single fact whose absence made all the EOS code dead."""
+        tok = BPETokenizer()
+        tok.load(REFERENCE)
+        assert tok.get_special_id(tok.EOS_TOKEN) is not None, \
+            "no EOS in the active tokenizer: run scripts/register_eos.py"
+
+    def test_eos_is_the_last_id_so_no_row_is_left_without_a_token(self):
+        """EOS must sit immediately after the last real token, with no gap.
+
+        _sync_vocab_rows() activates every embedding row up to
+        max(vocab)+1. An EOS placed any higher leaves activated rows with no
+        token behind them: the sampler can emit one and decode() raises
+        KeyError. This is the constraint that makes 'just use a reserved slot
+        like 256' wrong for this tokenizer.
+        """
+        tok = BPETokenizer()
+        tok.load(REFERENCE)
+        eos = tok.get_special_id(tok.EOS_TOKEN)
+        # NOT max(vocab): register_special_token() writes the special token into
+        # vocab, so it becomes the maximum itself and the check would be
+        # tautological — a mutation putting EOS at 2600 passed that version.
+        last_real = max(i for i in tok.vocab if not tok.is_special(i))
+        assert eos == last_real + 1, \
+            f"EOS at {eos} but the last real token is {last_real}: " \
+            f"{eos - last_real - 1} activated rows would have no token"
+
+    def test_every_snapshot_that_can_hold_eos_agrees_on_the_id(self):
+        """Same weights get loaded with different snapshots across a build.
+
+        A snapshot with a different EOS id would silently reinterpret the row
+        the model trained as 'end of answer'. Snapshots whose vocabulary is
+        SHORTER cannot hold the id without leaving a hole and are skipped by
+        register_eos.py — they must simply have no EOS at all, never a
+        different one.
+        """
+        ref = BPETokenizer(); ref.load(REFERENCE)
+        eos_id = ref.get_special_id(ref.EOS_TOKEN)
+        for path in _snapshots():
+            tok = BPETokenizer(); tok.load(path)
+            have = tok.get_special_id(tok.EOS_TOKEN)
+            if have is None:
+                assert max(tok.vocab.keys()) + 1 != eos_id, \
+                    f"{path} could hold EOS at {eos_id} but has none"
+            else:
+                assert have == eos_id, f"{path} has EOS at {have}, not {eos_id}"
+
+    def test_eos_survives_save_and_load(self, tmp_path):
+        tok = BPETokenizer(); tok.load(REFERENCE)
+        out = str(tmp_path / "t.json")
+        tok.save(out)
+        again = BPETokenizer(); again.load(out)
+        assert again.get_special_id(again.EOS_TOKEN) == \
+            tok.get_special_id(tok.EOS_TOKEN)
+        assert again.is_special(again.get_special_id(again.EOS_TOKEN))
+
+    def test_eos_encodes_to_exactly_one_token(self):
+        tok = BPETokenizer(); tok.load(REFERENCE)
+        eos = tok.get_special_id(tok.EOS_TOKEN)
+        assert tok.encode(tok.EOS_TOKEN) == [eos]
+        assert tok.encode("il cane dorme." + tok.EOS_TOKEN) == \
+            tok.encode("il cane dorme.") + [eos]
+        assert tok.decode([eos]) == tok.EOS_TOKEN
+
+    def test_registering_eos_does_not_change_ordinary_text(self):
+        """Registering a special token switches encode() to a slower path that
+        splits on the special literal. Ordinary text must come out identical,
+        otherwise every corpus encoding — and every trained id — shifts.
+        """
+        with_eos = BPETokenizer(); with_eos.load(REFERENCE)
+        without  = BPETokenizer(); without.load(REFERENCE)
+        without.special_tokens = {}
+        without.special_ids    = {}
+        assert with_eos.special_tokens, "reference has no special token to test"
+
+        lines = []
+        for f in sorted(glob.glob("training_files/it/*/qa_corpus.txt")):
+            with open(f, encoding="utf-8", errors="replace") as fh:
+                lines += [l.strip() for l in fh if l.strip()]
+        assert lines, "no corpus to sample"
+        random.seed(11)
+        for s in random.sample(lines, min(400, len(lines))):
+            assert with_eos.encode(s) == without.encode(s), \
+                f"encoding changed for {s!r}"
+
+    def test_the_seed_a_from_zero_build_uses_has_an_eos(self):
+        """A build with no checkpoints does not read models/active_tokenizer.json.
+
+        train_curriculum picks TOKENIZER = dynamic_model/data/tokenizer_8k.json
+        (falling back to tokenizer_base.json), so that file — not the active one
+        — is what a from-scratch run seeds itself with. The first version of
+        register_eos.py covered the checkpoint snapshots and missed exactly this
+        one.
+        """
+        tok = BPETokenizer()
+        tok.load(SEED)
+        eos = tok.get_special_id(tok.EOS_TOKEN)
+        assert eos is not None, f"no EOS in {SEED}"
+        last_real = max(i for i in tok.vocab if not tok.is_special(i))
+        assert eos == last_real + 1
+
+    def test_the_exporter_would_declare_the_eos(self):
+        """export_gguf derives the GGUF eos_token_id from the tokenizer, so
+        registration is all that stands between ollama and a native stop.
+        """
+        tok = BPETokenizer(); tok.load(REFERENCE)
+        eos_id = -1
+        if tok.EOS_TOKEN in tok.special_tokens:
+            eos_id = tok.special_tokens[tok.EOS_TOKEN]
+        assert eos_id >= 0
+
+
+class TestEosDoesNotLeakIntoTheCuriosityMemory:
+
+    def test_the_eos_literal_is_not_remembered_as_a_word(self):
+        """SIGNAL 1 trains on 'expected + <|EOS|>', and the curiosity memory is
+        filled from the decoded target. The word regex sees letters and knows
+        nothing about markup, so without stripping the literal the memory grows
+        a word 'eos' — harmless in itself, but it means the memory records
+        whatever markup happens to pass through it.
+        """
+        import numpy as np
+        import torch
+        from dynamic_model.exp_b.affect_state import AffectState
+        from dynamic_model.exp_b.modulator import AffectModulator
+        from dynamic_model.exp_b.axioms import AxiomRegistry
+        from dynamic_model.exp_b.trainer import TrainerB
+        from splx.torch_model import TorchGPT, TorchAdamOptimizer
+
+        tok = BPETokenizer(); tok.load(SEED)
+        # Must cover the EOS id: a smaller vocabulary indexes out of range.
+        n = max(tok.vocab.keys()) + 1
+        model = TorchGPT(n, 32, 2, 1, 64, 65, 0.0, active_vocab_size=n)
+        af = AffectState()
+        tr = TrainerB(model, tok, TorchAdamOptimizer(model.parameters(), lr=1e-4),
+                      af, AffectModulator(af), AxiomRegistry())
+        tr.step("ma", "ma" + tok.EOS_TOKEN, feedback=0.8)
+        assert "eos" not in af.words_rewarded, sorted(af.words_rewarded)
+
+
+# ---------------------------------------------------------------------------
+# Session-log pairing
+# ---------------------------------------------------------------------------
+
+class TestTurnRecord:
+
+    def test_the_graded_triple_is_the_previous_exchange(self):
+        tc = _load_tc()
+        r = tc.turn_record(
+            turn=9, step="A",
+            prompt="il gelato è dolce?",
+            expected="secondo me il gelato è dolce perché è giallo.",
+            response="secondo me il gelato è dolce perché è caldo.",
+            feedback="+++", comment="insegna con struttura completa",
+            graded_prompt="il libro è utile?",
+            graded_expected="secondo me il libro è utile perché insegna.",
+            graded_response="secondo me il libro è utile perché insegna.",
+            content="", affect={}, stats={})
+        # the grade belongs to the previous exchange, and now says so
+        assert r["graded_response"] == r["graded_expected"]
+        assert r["feedback"] == "+++"
+        # ...while the row's own answer is the wrong one, unlabelled by the grade
+        assert r["response"] != r["expected"]
+
+    def test_feedback_keeps_its_name_and_place_for_the_quality_gate(self):
+        """build.sh reads r['feedback'] and nothing else. Renaming or moving it
+        would silently zero every quality gate in the build.
+        """
+        tc = _load_tc()
+        r = tc.turn_record(turn=2, step="A", prompt="p", expected="e",
+                           response="r", feedback="++", comment="c",
+                           graded_prompt="gp", graded_expected="ge",
+                           graded_response="gr", content="", affect={},
+                           stats={})
+        assert r["feedback"] == "++"
+        score = (1.0 if r.get("feedback") in ("+++", "++")
+                 else 0.5 if r.get("feedback") == "+" else 0.0)
+        assert score == 1.0
+
+    def test_first_turn_has_nothing_graded(self):
+        tc = _load_tc()
+        r = tc.turn_record(turn=1, step="A", prompt="p", expected="e",
+                           response="r", feedback=None, comment="",
+                           graded_prompt=None, graded_expected=None,
+                           graded_response=None, content="", affect={},
+                           stats={})
+        assert r["feedback"] is None
+        assert r["graded_prompt"] is None
+
+
+class TestAnalyzeLogPairing:
+
+    def test_graded_fields_win_when_present(self):
+        rec = {"prompt": "nuovo", "response": "nuova risposta",
+               "graded_prompt": "vecchio", "graded_response": "vecchia"}
+        assert AL.graded(rec) == ("vecchio", "vecchia")
+        assert AL.is_aligned([rec])
+        assert AL.alignment_note([rec]) == ""
+
+    def test_legacy_logs_fall_back_and_are_flagged(self):
+        """The 37 sessions already on disk have no graded_* fields. Reading them
+        is still useful, but the off-by-one must be stated, not hidden.
+        """
+        rec = {"prompt": "nuovo", "response": "nuova risposta",
+               "feedback": "+++"}
+        assert AL.graded(rec) == ("nuovo", "nuova risposta")
+        assert not AL.is_aligned([rec])
+        assert "sfasati" in AL.alignment_note([rec])
+
+    def test_a_real_session_file_still_parses(self):
+        logs = sorted(glob.glob("models/checkpoints/it/level_*/session_*.jsonl"))
+        if not logs:
+            pytest.skip("no session logs on disk")
+        recs = [json.loads(l) for l in open(logs[-1], encoding="utf-8")
+                if l.strip()]
+        assert recs
+        for r in recs[:50]:
+            p, resp = AL.graded(r)
+            assert isinstance(p, str) and isinstance(resp, str)

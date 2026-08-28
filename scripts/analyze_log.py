@@ -91,8 +91,11 @@ def analyze(records: list, path: str) -> None:
         print(f"  Last step reached: {steps[-1]}")
 
     # Best and worst turns
-    rated = [(r["turn"], r.get("feedback"), r.get("prompt",""), r.get("response",""))
+    rated = [(r["turn"], r.get("feedback"), *graded(r))
              for r in records if r.get("feedback") in ("+++", "-")]
+    note = alignment_note(records)
+    if note:
+        print(f"\n{note}")
     best  = [(t,f,p,r) for t,f,p,r in rated if f == "+++"]
     worst = [(t,f,p,r) for t,f,p,r in rated if f == "-"]
 
@@ -108,12 +111,44 @@ def analyze(records: list, path: str) -> None:
     print(f"{'─'*65}")
 
 
+def graded(r: dict) -> tuple:
+    """The (prompt, response) that this record's feedback actually refers to.
+
+    The teacher grades a response on the turn AFTER it was produced, so a
+    record's 'feedback' belongs to the previous exchange, not to the prompt on
+    the same line. train_curriculum.turn_record() writes the graded triple
+    explicitly for exactly this reason; without it a '+++' gets printed next to
+    a visibly wrong answer.
+
+    Sessions logged before that change have no graded_* fields. For those the
+    old pairing is all there is, and it is off by one turn — is_aligned() below
+    lets the caller say so instead of printing a silent lie.
+    """
+    if r.get("graded_prompt") is not None or r.get("graded_response") is not None:
+        return r.get("graded_prompt", ""), r.get("graded_response", "")
+    return r.get("prompt", ""), r.get("response", "")
+
+
+def is_aligned(records: list) -> bool:
+    """True when the log carries the graded triple, i.e. grades pair correctly."""
+    return any(r.get("graded_prompt") is not None for r in records)
+
+
+def alignment_note(records: list) -> str:
+    return "" if is_aligned(records) else \
+        "  ⚠ log senza i campi graded_*: i voti sono sfasati di un turno " \
+        "rispetto al prompt mostrato"
+
+
 def show_prompts(records: list, path: str, fb_filter: str = None) -> None:
     """Print a readable transcript of teacher prompts and model responses."""
     print(f"\n{'─'*70}")
     print(f"  DIALOGUE — {os.path.basename(path)}  ({len(records)} turns)")
     if fb_filter:
         print(f"  Filtro feedback: {fb_filter}")
+    note = alignment_note(records)
+    if note:
+        print(note)
     print(f"{'─'*70}")
 
     FB_ICON = {"+++": "✓✓✓", "++": "✓✓ ", "+": "✓  ", "=": "=  ", "-": "✗  ", None: "   "}
@@ -132,9 +167,9 @@ def show_prompts(records: list, path: str, fb_filter: str = None) -> None:
             elif fb_filter == "=" and fb != "=":
                 continue
 
-        icon    = FB_ICON.get(fb, "   ")
-        prompt  = r.get("prompt", "")
-        resp    = r.get("response", "")[:35]
+        icon         = FB_ICON.get(fb, "   ")
+        prompt, resp = graded(r)
+        resp         = resp[:35]
         comment = r.get("comment", "")[:35]
         affect  = r.get("affect", {})
         conf    = affect.get("confidence", 0)

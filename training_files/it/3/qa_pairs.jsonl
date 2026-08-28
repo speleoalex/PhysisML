@@ -5,15 +5,10 @@
 {"prompt": "di: il gatto beve il latte", "response": "il gatto beve il latte!"}
 {"prompt": "cosa fa il cane?", "response": "il cane dorme."}
 {"prompt": "cosa fa la mamma?", "response": "la mamma mangia."}
-{"prompt": "cosa fa il gatto?", "response": "il gatto beve il latte."}
-{"prompt": "cosa fa il bambino?", "response": "il bambino dorme."}
-{"prompt": "cosa fa il papà?", "response": "il papà lavora."}
 {"prompt": "dove è il cane?", "response": "il cane è qui."}
 {"prompt": "dove è la mamma?", "response": "la mamma è qui."}
 {"prompt": "dove è il gatto?", "response": "il gatto è qui."}
 {"prompt": "com è il cane?", "response": "il cane è grande."}
-{"prompt": "com è la casa?", "response": "la casa è bella."}
-{"prompt": "com è il sole?", "response": "il sole è bello."}
 {"prompt": "di un numero: uno", "response": "uno!"}
 {"prompt": "di un numero: due", "response": "due!"}
 {"prompt": "di un numero: tre", "response": "tre!"}
@@ -40,11 +35,7 @@
 {"prompt": "di un animale", "response": "il cane!"}
 {"prompt": "di un cibo", "response": "il pane!"}
 {"prompt": "di una cosa in casa", "response": "la casa!"}
-{"prompt": "come ti chiami?", "response": "mi chiamo physisml."}
-{"prompt": "qual è il tuo nome?", "response": "il mio nome è physisml."}
-{"prompt": "chi sei?", "response": "sono physisml."}
 {"prompt": "il tuo nome è physisml, come ti chiami?", "response": "mi chiamo physisml."}
-{"prompt": "sei physisml?", "response": "sì mi chiamo physisml."}
 {"prompt": "come si chiama questo modello?", "response": "si chiama physisml."}
 {"prompt": "il modello si chiama physisml. chi sei?", "response": "sono physisml."}
 {"prompt": "dimmi il tuo nome", "response": "physisml!"}
@@ -186,3 +177,124 @@
 {"prompt": "benissimo! cosa vuoi?", "response": "voglio il pane."}
 {"prompt": "bravo! di un numero: due", "response": "due!"}
 {"prompt": "ottimo! di un numero: tre", "response": "tre!"}
+{"prompt": "il papà il papà. di: il papà", "response": "il papà!"}
+{"prompt": "di: il papà", "response": "il papà!"}
+{"prompt": "il lupo il lupo. di: il lupo", "response": "il lupo!"}
+{"prompt": "di: il lupo", "response": "il lupo!"}
+{"prompt": "il letto il letto. di: il letto", "response": "il letto!"}
+{"prompt": "di: il letto", "response": "il letto!"}
+{"prompt": "il latte il latte. di: il latte", "response": "il latte!"}
+{"prompt": "di: il latte", "response": "il latte!"}
+{"prompt": "perfetto! di: il bambino", "response": "il bambino!"}
+{"prompt": "di: il bambino", "response": "il bambino!"}
+{"prompt": "il maestro il maestro. di: il maestro", "response": "il maestro!"}
+{"prompt": "di: il maestro", "response": "il maestro!"}
+{"prompt": "il libro il libro. di: il libro", "response": "il libro!"}
+{"prompt": "bravo! di: il libro", "response": "il libro!"}
+{"prompt": "la finestra la finestra. di: la finestra", "response": "la finestra!"}
+{"prompt": "benissimo! di: la finestra", "response": "la finestra!"}
+{"prompt": "il disegno il disegno. di: il disegno", "response": "il disegno!"}
+{"prompt": "bene! di: il disegno", "response": "il disegno!"}
+{"prompt": "bene! di: il papà", "response": "il papà!"}
+{"prompt": "la stella la stella. di: la stella", "response": "la stella!"}
+{"prompt": "di: la stella", "response": "la stella!"}
+{"prompt": "la scuola la scuola. di: la scuola", "response": "la scuola!"}
+{"prompt": "di: la scuola", "response": "la scuola!"}
+{"prompt": "il vento il vento. di: il vento", "response": "il vento!"}
+{"prompt": "di: il vento", "response": "il vento!"}
+{"prompt": "benissimo! di: il bambino", "response": "il bambino!"}
+{"prompt": "l amico l amico. di: l amico", "response": "l amico!"}
+{"prompt": "perfetto! di: l amico", "response": "l amico!"}
+{"prompt": "benissimo! di: il libro", "response": "il libro!"}
+{"prompt": "il pesce il pesce. di: il pesce", "response": "il pesce!"}
+{"prompt": "di: il pesce", "response": "il pesce!"}
+{"prompt": "bene! di: la penna", "response": "la penna!"}
+{"prompt": "perfetto! di: la finestra", "response": "la finestra!"}
+{"prompt": "benissimo! di: il giardino", "response": "il giardino!"}
+{"prompt": "il giardino il giardino. di: il giardino", "response": "il giardino!"}
+{"prompt": "la penna la penna. di: la penna", "response": "la penna!"}
+{"prompt": "ottimo! di: il libro", "response": "il libro!"}
+{"prompt": "ottimo! di: il pesce", "response": "il pesce!"}
+{"prompt": "ottimo! di: la penna", "response": "la penna!"}
+{"prompt": "bravo! di: la finestra", "response": "la finestra!"}
+{"prompt": "benissimo! di: il disegno", "response": "il disegno!"}
+{"prompt": "bravo! di: il disegno", "response": "il disegno!"}
+{"prompt": "il quaderno il quaderno. di: il quaderno", "response": "il quaderno!"}
+{"prompt": "di: il quaderno", "response": "il quaderno!"}
+{"prompt": "la sorella la sorella. di: la sorella", "response": "la sorella!"}
+{"prompt": "di: la sorella", "response": "la sorella!"}
+{"prompt": "bravo! di: il bambino", "response": "il bambino!"}
+{"prompt": "bravo! di: l amico", "response": "l amico!"}
+{"prompt": "di: l amico", "response": "l amico!"}
+{"prompt": "il gelato il gelato. di: il gelato", "response": "il gelato!"}
+{"prompt": "ottimo! di: il gelato", "response": "il gelato!"}
+{"prompt": "benissimo! di: il bambino dorme", "response": "il bambino dorme!"}
+{"prompt": "la luna brilla la luna brilla. di: la luna brilla", "response": "la luna brilla!"}
+{"prompt": "ottimo! di: la luna brilla", "response": "la luna brilla!"}
+{"prompt": "l amico cammina l amico cammina. di: l amico cammina", "response": "l amico cammina!"}
+{"prompt": "di: l amico cammina", "response": "l amico cammina!"}
+{"prompt": "la mucca dorme la mucca dorme. di: la mucca dorme", "response": "la mucca dorme!"}
+{"prompt": "di: la mucca dorme", "response": "la mucca dorme!"}
+{"prompt": "bravo! di: la mucca dorme", "response": "la mucca dorme!"}
+{"prompt": "la gallina canta la gallina canta. di: la gallina canta", "response": "la gallina canta!"}
+{"prompt": "perfetto! di: la gallina canta", "response": "la gallina canta!"}
+{"prompt": "di: la gallina canta", "response": "la gallina canta!"}
+{"prompt": "la stella brilla la stella brilla. di: la stella brilla", "response": "la stella brilla!"}
+{"prompt": "ottimo! di: la stella brilla", "response": "la stella brilla!"}
+{"prompt": "di: la stella brilla", "response": "la stella brilla!"}
+{"prompt": "bravo! di: la stella brilla", "response": "la stella brilla!"}
+{"prompt": "la nonna dorme la nonna dorme. di: la nonna dorme", "response": "la nonna dorme!"}
+{"prompt": "di: la nonna dorme", "response": "la nonna dorme!"}
+{"prompt": "benissimo! di: il pesce nuota", "response": "il pesce nuota!"}
+{"prompt": "ottimo! di: il pesce nuota", "response": "il pesce nuota!"}
+{"prompt": "di: il pesce nuota", "response": "il pesce nuota!"}
+{"prompt": "la mamma nuota la mamma nuota. di: la mamma nuota", "response": "la mamma nuota!"}
+{"prompt": "bene! di: la mamma nuota", "response": "la mamma nuota!"}
+{"prompt": "benissimo! di: la mamma nuota", "response": "la mamma nuota!"}
+{"prompt": "di: il papà cammina", "response": "il papà cammina!"}
+{"prompt": "ottimo! di: il papà cammina", "response": "il papà cammina!"}
+{"prompt": "bene! di: il giardino", "response": "il giardino!"}
+{"prompt": "di: il libro", "response": "il libro!"}
+{"prompt": "bene! di: il libro", "response": "il libro!"}
+{"prompt": "perfetto! di: il pesce", "response": "il pesce!"}
+{"prompt": "di: la penna", "response": "la penna!"}
+{"prompt": "di: la finestra", "response": "la finestra!"}
+{"prompt": "ottimo! di: il quaderno", "response": "il quaderno!"}
+{"prompt": "bene! di: il lupo", "response": "il lupo!"}
+{"prompt": "bravo! di: la stella", "response": "la stella!"}
+{"prompt": "bene! di: la stella", "response": "la stella!"}
+{"prompt": "bene! di: la scuola", "response": "la scuola!"}
+{"prompt": "bene! di: la sorella", "response": "la sorella!"}
+{"prompt": "perfetto! di: il vento", "response": "il vento!"}
+{"prompt": "la neve la neve. di: la neve", "response": "la neve!"}
+{"prompt": "di: la neve", "response": "la neve!"}
+{"prompt": "ottimo! di: l amico", "response": "l amico!"}
+{"prompt": "bene! di: l amico", "response": "l amico!"}
+{"prompt": "perfetto! di: il maestro", "response": "il maestro!"}
+{"prompt": "di: il gelato", "response": "il gelato!"}
+{"prompt": "benissimo! di: il sole brilla", "response": "il sole brilla!"}
+{"prompt": "bene! di: la luna brilla", "response": "la luna brilla!"}
+{"prompt": "di: la luna brilla", "response": "la luna brilla!"}
+{"prompt": "il cavallo dorme il cavallo dorme. di: il cavallo dorme", "response": "il cavallo dorme!"}
+{"prompt": "di: il cavallo dorme", "response": "il cavallo dorme!"}
+{"prompt": "benissimo! di: il cavallo dorme", "response": "il cavallo dorme!"}
+{"prompt": "bravo! di: l amico cammina", "response": "l amico cammina!"}
+{"prompt": "bene! di: la mucca dorme", "response": "la mucca dorme!"}
+{"prompt": "di: la sorella salta", "response": "la sorella salta!"}
+{"prompt": "la sorella salta la sorella salta. di: la sorella salta", "response": "la sorella salta!"}
+{"prompt": "perfetto! di: la sorella salta", "response": "la sorella salta!"}
+{"prompt": "benissimo! di: la sorella salta", "response": "la sorella salta!"}
+{"prompt": "la neve cade la neve cade. di: la neve cade", "response": "la neve cade!"}
+{"prompt": "di: la neve cade", "response": "la neve cade!"}
+{"prompt": "bravo! di: la neve cade", "response": "la neve cade!"}
+{"prompt": "il nonno nuota il nonno nuota. di: il nonno nuota", "response": "il nonno nuota!"}
+{"prompt": "bravo! di: il nonno nuota", "response": "il nonno nuota!"}
+{"prompt": "bravo! di: la penna", "response": "la penna!"}
+{"prompt": "di: il disegno", "response": "il disegno!"}
+{"prompt": "perfetto! di: il lupo", "response": "il lupo!"}
+{"prompt": "ottimo! di: la stella", "response": "la stella!"}
+{"prompt": "come ti chiami?", "response": "physisml!"}
+{"prompt": "qual è il tuo nome?", "response": "physisml!"}
+{"prompt": "sei physisml?", "response": "physisml!"}
+{"prompt": "perfetto! di: il cavallo dorme", "response": "il cavallo dorme!"}
+{"prompt": "bravo! di: il cavallo dorme", "response": "il cavallo dorme!"}

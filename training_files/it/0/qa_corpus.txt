@@ -1,194 +1,197 @@
-bene! di na
+di oh
+oh!
+
+ottimo! di lala
+lala!
+
+bene! di fa
+fa!
+
+di mama
+mama!
+
+di na
 na!
 
-bene! di da
-da!
+di nana
+nana!
+
+di nana
+nana!
 
 benissimo! di ta
 ta!
 
-bene! di ra
-ra!
-
-di ga
-ga!
-
-na na na. di na
+bravo! di na
 na!
+
+bravo! di ah
+ah!
+
+ottimo! di oh
+oh!
+
+bene! di sa
+sa!
+
+di sa
+sa!
 
 bravo! di mama
 mama!
 
-benissimo! di sa
-sa!
+di na
+na!
 
-benissimo! di lala
-lala!
+di da
+da!
 
-di eh
-eh!
+di ga
+ga!
 
 di fa
 fa!
 
-nana nana. di nana
-nana!
+di baba
+baba!
+
+di ta
+ta!
+
+di ma pa
+ma pa!
+
+di sì
+sì!
+
+di ta la
+ta la!
+
+bravo! di sì
+sì!
+
+benissimo! di sì
+sì!
+
+di ah
+ah!
+
+di ba
+ba!
+
+bene! di papa
+papa!
+
+benissimo! di no
+no!
 
 di no
 no!
 
-bravo! di sa
-sa!
+di physisml
+physisml!
 
-da da da. di da
-da!
+bravo! di nana
+nana!
 
-ta ta ta. di ta
+bravo! di papa
+papa!
+
+di pa
+pa!
+
+bene! di ra
+ra!
+
+di eh
+eh!
+
+bravo! di ba
+ba!
+
+di fa
+fa!
+
+benissimo! di eh
+eh!
+
+bravo! di ta
 ta!
 
 benissimo! di oh
 oh!
 
-benissimo! di tata
-tata!
+ottimo! di la
+la!
 
-benissimo! di papa
-papa!
-
-bravo! di baba
-baba!
-
-bene! di tata
-tata!
-
-ba ba ba. di ba
-ba!
-
-sì sì. di sì
-sì!
-
-bene! di fa
-fa!
+di ma
+ma!
 
 di pa
 pa!
 
-ottimo! di lala
-lala!
-
-ottimo! di da
-da!
-
-bravo! di nana
-nana!
-
-bravo! di sì
-sì!
-
-bravo! di papa
-papa!
-
-benissimo! di na
-na!
-
-di ta la
-ta la!
-
-bravo! di ta
-ta!
-
-ottimo! di ah
-ah!
-
-na na. di na
-na!
-
-ma ma ma. di ma
-ma!
-
-pa pa pa. di pa
-pa!
-
-ca ca ca. di ca
+di ca
 ca!
 
 benissimo! di ma
 ma!
 
-bene! di baba
-baba!
-
-di physisml
-physisml!
-
-bene! di sa
-sa!
-
-baba baba. di baba
-baba!
-
-di ma pa
-ma pa!
-
-benissimo! di da
+bene! di da
 da!
 
-benissimo! di mama
-mama!
+benissimo! di tata
+tata!
 
-sa sa. di sa
-sa!
-
-ottimo! di eh
-eh!
-
-bene! di no
-no!
-
-fa fa. di fa
-fa!
-
-bravo! di da
-da!
-
-benissimo! di ah
-ah!
-
-lala lala. di lala
-lala!
-
-benissimo! di pa
-pa!
-
-benissimo! di nana
-nana!
-
-bene! di ah
-ah!
-
-bravo! di na
+ottimo! di na
 na!
 
-di ah
-ah!
+benissimo! di baba
+baba!
 
-di mama
-mama!
+bene! di pa
+pa!
 
-di nana
-nana!
+bene! di na
+na!
+
+ottimo! di tata
+tata!
 
 bene! di la
 la!
 
+bene! di baba
+baba!
+
+bene! di nana
+nana!
+
 bravo! di fa
 fa!
 
-di oh
-oh!
+ottimo! di da
+da!
 
-ottimo! di la
-la!
+ottimo! di ah
+ah!
+
+ottimo! di baba
+baba!
+
+benissimo! di pa
+pa!
+
+bravo! di da
+da!
+
+bene! di eh
+eh!
+
+benissimo! di lala
+lala!
+
+benissimo! di na
+na!
 
 bravo! di ma
 ma!
@@ -196,11 +199,11 @@ ma!
 di ca
 ca!
 
-bene! di nana
-nana!
-
 ottimo! di nana
 nana!
+
+benissimo! di papa
+papa!
 
 di ba
 ba!
@@ -211,14 +214,14 @@ ta!
 di na ba
 na ba!
 
-physisml physisml. di physisml
+di physisml
 physisml!
 
 di sa
 sa!
 
-bene! di pa
-pa!
+benissimo! di da
+da!
 
 di na
 na!
@@ -226,56 +229,56 @@ na!
 di la
 la!
 
-no no no. di no
+di no
 no!
 
-da da. di da
+di da
 da!
 
-bravo! di oh
-oh!
+ottimo! di eh
+eh!
+
+di eh
+eh!
 
 ottimo! di sa
 sa!
 
-benissimo! di baba
-baba!
-
 ottimo! di ta
 ta!
 
-eh eh. di eh
-eh!
+di lala
+lala!
 
 di va
 va!
 
-bene! di papa
-papa!
+bene! di tata
+tata!
 
-ma ma. di ma
+di ma
 ma!
 
 bravo! di no
 no!
 
-bravo! di ba
-ba!
+bravo! di baba
+baba!
 
-ottimo! di na
-na!
+bravo! di sa
+sa!
 
-benissimo! di no
-no!
+bene! di sì
+sì!
 
-sì sì sì. di sì
+di sì
 sì!
 
 ottimo! di ma
 ma!
 
-ottimo! di baba
-baba!
+benissimo! di sa
+sa!
 
 di ma
 ma!
@@ -289,22 +292,22 @@ la!
 bravo! di ra
 ra!
 
-ottimo! di tata
-tata!
-
-bene! di sì
-sì!
+benissimo! di fa
+fa!
 
 ottimo! di no
 no!
 
-ra ra ra. di ra
+di tata
+tata!
+
+di ra
 ra!
 
 ottimo! di mama
 mama!
 
-ta ta. di ta
+di ta
 ta!
 
 di sì
@@ -313,8 +316,8 @@ sì!
 ottimo! di ba
 ba!
 
-ottimo! di papa
-papa!
+bene! di no
+no!
 
 di pa ma
 pa ma!
@@ -325,17 +328,17 @@ baba!
 di tata
 tata!
 
-benissimo! di sì
-sì!
+bene! di oh
+oh!
 
 benissimo! di ba
 ba!
 
-oh oh. di oh
+di oh
 oh!
 
-benissimo! di fa
-fa!
+benissimo! di nana
+nana!
 
 ottimo! di fa
 fa!
@@ -346,19 +349,19 @@ lala!
 di papa
 papa!
 
-la la. di la
+di la
 la!
 
-no no. di no
+di no
 no!
 
-oh oh oh. di oh
+di oh
 oh!
 
 bene! di ma
 ma!
 
-sa sa sa. di sa
+di sa
 sa!
 
 di ra
@@ -367,37 +370,37 @@ ra!
 sono physisml. di physisml
 physisml!
 
-bene! di eh
-eh!
+bravo! di oh
+oh!
 
 di ta
 ta!
 
-ra ra. di ra
+di ra
 ra!
 
-tata tata. di tata
-tata!
+benissimo! di mama
+mama!
 
 di da
 da!
 
-pa pa. di pa
+di pa
 pa!
 
-ottimo! di oh
-oh!
+benissimo! di ah
+ah!
 
-ba ba. di ba
+di ba
 ba!
 
-papa papa. di papa
+di papa
 papa!
 
-bene! di oh
-oh!
+ottimo! di papa
+papa!
 
-bravo! di ah
+bene! di ah
 ah!
 
 bravo! di tata
@@ -406,19 +409,19 @@ tata!
 benissimo! di la
 la!
 
-la la la. di la
+di la
 la!
 
 di lala
 lala!
 
-benissimo! di eh
+bravo! di eh
 eh!
 
-ah ah. di ah
+di ah
 ah!
 
-mama mama. di mama
+di mama
 mama!
 
 bravo! di pa
@@ -430,7 +433,7 @@ lala!
 ottimo! di sì
 sì!
 
-fa fa fa. di fa
+di fa
 fa!
 
 bene! di mama
@@ -445,3089 +448,65 @@ ba!
 ottimo! di ra
 ra!
 
-ottimo! di na
-na!
+bravo! di ta
+ta!
 
-benissimo! di da
-da!
+benissimo! di mama
+mama!
 
-di la
-la!
+di baba
+baba!
 
-bravo! di na
-na!
+di oh
+oh!
+
+di ah
+ah!
+
+bravo! di papa
+papa!
+
+di baba
+baba!
+
+ottimo! di ma
+ma!
+
+di pa ma
+pa ma!
+
+bene! di ma
+ma!
+
+benissimo! di pa
+pa!
 
 di ta
 ta!
 
-bene! di no
-no!
-
-oh oh. di oh
-oh!
-
-di ra
-ra!
-
-bravo! di baba
-baba!
-
-no no no. di no
-no!
-
-ottimo! di oh
-oh!
-
-papa papa. di papa
-papa!
-
-benissimo! di papa
-papa!
-
-ottimo! di lala
-lala!
-
-ottimo! di ba
-ba!
-
-bravo! di la
-la!
-
-benissimo! di baba
-baba!
-
-bravo! di nana
-nana!
-
-di da
-da!
-
-di no
-no!
-
-ottimo! di da
-da!
-
-di na
-na!
-
-bravo! di ah
-ah!
-
-bravo! di ta
-ta!
-
-bene! di la
-la!
-
-benissimo! di mama
-mama!
+di sa
+sa!
 
 di sì
 sì!
 
-di lala
-lala!
-
-fa fa fa. di fa
-fa!
-
-ba ba ba. di ba
-ba!
-
-la la la. di la
-la!
-
-lala lala. di lala
-lala!
-
-bravo! di no
-no!
-
-bravo! di papa
-papa!
-
-ottimo! di ma
-ma!
-
-bene! di da
-da!
-
-bene! di nana
-nana!
-
-di nana
-nana!
-
-ra ra. di ra
-ra!
-
-fa fa. di fa
-fa!
-
-na na. di na
-na!
-
-ta ta ta. di ta
-ta!
+bravo! di tata
+tata!
 
 di ma
 ma!
 
-sa sa. di sa
-sa!
-
-sì sì. di sì
-sì!
-
-ottimo! di la
-la!
-
-ca ca ca. di ca
-ca!
-
-benissimo! di la
-la!
-
-bene! di fa
-fa!
-
-di ma pa
-ma pa!
-
-di ga
-ga!
-
-bene! di tata
-tata!
-
-bene! di sa
-sa!
-
-bene! di ba
-ba!
-
-bravo! di oh
-oh!
-
-ottimo! di baba
-baba!
-
-sì sì sì. di sì
-sì!
-
-di sa
-sa!
-
-bravo! di da
-da!
-
-bravo! di sa
-sa!
-
-bene! di ma
-ma!
-
-pa pa. di pa
-pa!
-
-bene! di baba
-baba!
-
-eh eh. di eh
-eh!
-
-ah ah. di ah
-ah!
-
-benissimo! di ba
-ba!
-
-la la. di la
-la!
-
-physisml physisml. di physisml
-physisml!
-
-di pa
-pa!
-
-ottimo! di mama
-mama!
-
-benissimo! di oh
-oh!
-
-ma ma ma. di ma
-ma!
-
-benissimo! di tata
-tata!
-
-ta ta. di ta
-ta!
-
-di tata
-tata!
-
-ottimo! di sa
-sa!
-
-bene! di pa
-pa!
-
-bene! di ah
-ah!
-
-benissimo! di ah
-ah!
-
-ottimo! di ta
-ta!
-
-ottimo! di ra
-ra!
-
-ottimo! di nana
-nana!
-
-di mama
-mama!
-
-benissimo! di pa
-pa!
-
-ba ba. di ba
-ba!
-
-di fa
-fa!
-
-bene! di sì
-sì!
-
-ra ra ra. di ra
-ra!
-
-bene! di papa
-papa!
-
-bravo! di tata
-tata!
-
-bravo! di ra
-ra!
-
-di na ba
-na ba!
-
-di ah
-ah!
-
-sa sa sa. di sa
-sa!
-
-benissimo! di eh
-eh!
-
-benissimo! di na
-na!
-
-ottimo! di papa
-papa!
-
-benissimo! di fa
-fa!
+benissimo! di lala
+lala!
 
 bene! di oh
 oh!
 
-bravo! di mama
-mama!
-
-benissimo! di sì
-sì!
-
-benissimo! di ra
-ra!
-
-di baba
-baba!
-
-bene! di mama
-mama!
-
-bene! di na
-na!
-
-bravo! di ma
-ma!
-
-no no. di no
-no!
-
 ottimo! di tata
-tata!
-
-di oh
-oh!
-
-ottimo! di eh
-eh!
-
-bene! di ta
-ta!
-
-di ca
-ca!
-
-na na na. di na
-na!
-
-ottimo! di no
-no!
-
-sono physisml. di physisml
-physisml!
-
-bene! di eh
-eh!
-
-ma ma. di ma
-ma!
-
-tata tata. di tata
-tata!
-
-da da. di da
-da!
-
-di va
-va!
-
-ottimo! di sì
-sì!
-
-di papa
-papa!
-
-ottimo! di ah
-ah!
-
-benissimo! di no
-no!
-
-mama mama. di mama
-mama!
-
-baba baba. di baba
-baba!
-
-nana nana. di nana
-nana!
-
-oh oh oh. di oh
-oh!
-
-di ba
-ba!
-
-bravo! di pa
-pa!
-
-pa pa pa. di pa
-pa!
-
-benissimo! di ta
-ta!
-
-benissimo! di nana
-nana!
-
-benissimo! di lala
-lala!
-
-bene! di ra
-ra!
-
-da da da. di da
-da!
-
-di ta la
-ta la!
-
-bravo! di lala
-lala!
-
-bene! di lala
-lala!
-
-di eh
-eh!
-
-di pa ma
-pa ma!
-
-bravo! di ba
-ba!
-
-di physisml
-physisml!
-
-bravo! di fa
-fa!
-
-benissimo! di sa
-sa!
-
-ottimo! di fa
-fa!
-
-ottimo! di pa
-pa!
-
-benissimo! di ma
-ma!
-
-bravo! di sì
-sì!
-
-nana nana. di nana
-nana!
-
-pa pa pa. di pa
-pa!
-
-bravo! di sì
-sì!
-
-ottimo! di ma
-ma!
-
-bravo! di nana
-nana!
-
-oh oh oh. di oh
-oh!
-
-benissimo! di lala
-lala!
-
-bravo! di tata
-tata!
-
-ottimo! di no
-no!
-
-mama mama. di mama
-mama!
-
-di pa
-pa!
-
-bravo! di mama
-mama!
-
-la la la. di la
-la!
-
-la la. di la
-la!
-
-ottimo! di ta
-ta!
-
-ottimo! di ah
-ah!
-
-bene! di la
-la!
-
-ottimo! di ra
-ra!
-
-benissimo! di eh
-eh!
-
-ba ba ba. di ba
-ba!
-
-benissimo! di sa
-sa!
-
-ca ca ca. di ca
-ca!
-
-di oh
-oh!
-
-bravo! di ah
-ah!
-
-sa sa sa. di sa
-sa!
-
-sono physisml. di physisml
-physisml!
-
-bene! di sa
-sa!
-
-benissimo! di da
-da!
-
-ottimo! di sa
-sa!
-
-sì sì. di sì
-sì!
-
-pa pa. di pa
-pa!
-
-bravo! di ma
-ma!
-
-bravo! di fa
-fa!
-
-bravo! di oh
-oh!
-
-benissimo! di na
-na!
-
-ottimo! di mama
-mama!
-
-di no
-no!
-
-bravo! di da
-da!
-
-di na ba
-na ba!
-
-ottimo! di la
-la!
-
-bravo! di sa
-sa!
-
-sì sì sì. di sì
-sì!
-
-bene! di no
-no!
-
-baba baba. di baba
-baba!
-
-di lala
-lala!
-
-di ma
-ma!
-
-benissimo! di tata
-tata!
-
-ottimo! di baba
-baba!
-
-di ah
-ah!
-
-di ma pa
-ma pa!
-
-bravo! di na
-na!
-
-bene! di papa
-papa!
-
-di ta la
-ta la!
-
-bene! di ma
-ma!
-
-no no. di no
-no!
-
-ottimo! di pa
-pa!
-
-ma ma. di ma
-ma!
-
-ta ta. di ta
-ta!
-
-di baba
-baba!
-
-bene! di ba
-ba!
-
-di physisml
-physisml!
-
-benissimo! di no
-no!
-
-di fa
-fa!
-
-eh eh. di eh
-eh!
-
-ba ba. di ba
-ba!
-
-bravo! di la
-la!
-
-bene! di sì
-sì!
-
-benissimo! di oh
-oh!
-
-ra ra. di ra
-ra!
-
-bene! di fa
-fa!
-
-ma ma ma. di ma
-ma!
-
-ottimo! di ba
-ba!
-
-bravo! di ra
-ra!
-
-da da. di da
-da!
-
-ta ta ta. di ta
-ta!
-
-benissimo! di mama
-mama!
-
-no no no. di no
-no!
-
-bene! di ta
-ta!
-
-bene! di na
-na!
-
-bene! di da
-da!
-
-bravo! di ta
-ta!
-
-bene! di ah
-ah!
-
-di mama
-mama!
-
-benissimo! di la
-la!
-
-ottimo! di oh
-oh!
-
-ottimo! di eh
-eh!
-
-benissimo! di ra
-ra!
-
-fa fa fa. di fa
-fa!
-
-ottimo! di papa
-papa!
-
-benissimo! di fa
-fa!
-
-bene! di nana
-nana!
-
-bravo! di no
-no!
-
-ottimo! di tata
-tata!
-
-bene! di tata
-tata!
-
-di ra
-ra!
-
-benissimo! di baba
-baba!
-
-na na na. di na
-na!
-
-benissimo! di ma
-ma!
-
-bene! di pa
-pa!
-
-ottimo! di sì
-sì!
-
-bravo! di ba
-ba!
-
-ottimo! di fa
-fa!
-
-di ga
-ga!
-
-benissimo! di ta
-ta!
-
-di va
-va!
-
-bene! di oh
-oh!
-
-di sì
-sì!
-
-da da da. di da
-da!
-
-benissimo! di papa
-papa!
-
-ottimo! di da
-da!
-
-tata tata. di tata
-tata!
-
-di ba
-ba!
-
-bene! di ra
-ra!
-
-ra ra ra. di ra
-ra!
-
-ah ah. di ah
-ah!
-
-ottimo! di nana
-nana!
-
-sa sa. di sa
-sa!
-
-di sa
-sa!
-
-ottimo! di lala
-lala!
-
-di la
-la!
-
-papa papa. di papa
-papa!
-
-bravo! di papa
-papa!
-
-bene! di lala
-lala!
-
-di pa ma
-pa ma!
-
-di nana
-nana!
-
-di tata
-tata!
-
-di da
-da!
-
-bene! di mama
-mama!
-
-di na
-na!
-
-benissimo! di ah
-ah!
-
-lala lala. di lala
-lala!
-
-di eh
-eh!
-
-benissimo! di pa
-pa!
-
-benissimo! di nana
-nana!
-
-di papa
-papa!
-
-di ca
-ca!
-
-fa fa. di fa
-fa!
-
-oh oh. di oh
-oh!
-
-di ta
-ta!
-
-bravo! di pa
-pa!
-
-bravo! di lala
-lala!
-
-ottimo! di na
-na!
-
-benissimo! di sì
-sì!
-
-benissimo! di ba
-ba!
-
-physisml physisml. di physisml
-physisml!
-
-bene! di baba
-baba!
-
-na na. di na
-na!
-
-bene! di eh
-eh!
-
-bravo! di baba
-baba!
-
-di nana
-nana!
-
-no no no. di no
-no!
-
-di ah
-ah!
-
-ottimo! di ba
-ba!
-
-ottimo! di baba
-baba!
-
-pa pa pa. di pa
-pa!
-
-bene! di ra
-ra!
-
-ma ma. di ma
-ma!
-
-di ma pa
-ma pa!
-
-fa fa. di fa
-fa!
-
-ottimo! di oh
-oh!
-
-ra ra ra. di ra
-ra!
-
-bene! di ba
-ba!
-
-bene! di no
-no!
-
-di ma
-ma!
-
-bene! di eh
-eh!
-
-mama mama. di mama
-mama!
-
-bene! di baba
-baba!
-
-di sa
-sa!
-
-bravo! di tata
-tata!
-
-benissimo! di la
-la!
-
-oh oh oh. di oh
-oh!
-
-bene! di sì
-sì!
-
-benissimo! di mama
-mama!
-
-benissimo! di no
-no!
-
-ottimo! di fa
-fa!
-
-bravo! di ra
-ra!
-
-di no
-no!
-
-bravo! di nana
-nana!
-
-sa sa sa. di sa
-sa!
-
-benissimo! di fa
-fa!
-
-ottimo! di ta
-ta!
-
-di ba
-ba!
-
-bravo! di na
-na!
-
-no no. di no
-no!
-
-di da
-da!
-
-physisml physisml. di physisml
-physisml!
-
-bravo! di la
-la!
-
-bene! di na
-na!
-
-bravo! di ma
-ma!
-
-bene! di ma
-ma!
-
-di ca
-ca!
-
-di pa ma
-pa ma!
-
-pa pa. di pa
-pa!
-
-benissimo! di ma
-ma!
-
-ottimo! di no
-no!
-
-di lala
-lala!
-
-ottimo! di tata
-tata!
-
-ottimo! di papa
-papa!
-
-di baba
-baba!
-
-bene! di la
-la!
-
-ra ra. di ra
-ra!
-
-ottimo! di pa
-pa!
-
-ma ma ma. di ma
-ma!
-
-ottimo! di lala
-lala!
-
-di ta la
-ta la!
-
-ta ta. di ta
-ta!
-
-sono physisml. di physisml
-physisml!
-
-benissimo! di tata
-tata!
-
-benissimo! di ba
-ba!
-
-di physisml
-physisml!
-
-benissimo! di baba
-baba!
-
-ca ca ca. di ca
-ca!
-
-benissimo! di oh
-oh!
-
-ottimo! di sì
-sì!
-
-di la
-la!
-
-di fa
-fa!
-
-bene! di ah
-ah!
-
-bene! di tata
-tata!
-
-bravo! di baba
-baba!
-
-di eh
-eh!
-
-bene! di mama
-mama!
-
-benissimo! di eh
-eh!
-
-benissimo! di da
-da!
-
-di pa
-pa!
-
-ottimo! di la
-la!
-
-ottimo! di eh
-eh!
-
-ottimo! di ma
-ma!
-
-papa papa. di papa
-papa!
-
-ottimo! di sa
-sa!
-
-di na
-na!
-
-ottimo! di nana
-nana!
-
-bravo! di no
-no!
-
-benissimo! di ta
-ta!
-
-benissimo! di papa
-papa!
-
-la la la. di la
-la!
-
-bravo! di da
-da!
-
-di mama
-mama!
-
-da da. di da
-da!
-
-eh eh. di eh
-eh!
-
-bravo! di mama
-mama!
-
-bravo! di papa
-papa!
-
-sì sì sì. di sì
-sì!
-
-benissimo! di pa
-pa!
-
-bravo! di sì
-sì!
-
-di papa
-papa!
-
-ta ta ta. di ta
-ta!
-
-la la. di la
-la!
-
-benissimo! di lala
-lala!
-
-ottimo! di ra
-ra!
-
-benissimo! di sa
-sa!
-
-di va
-va!
-
-ah ah. di ah
-ah!
-
-sa sa. di sa
-sa!
-
-nana nana. di nana
-nana!
-
-benissimo! di sì
-sì!
-
-bravo! di sa
-sa!
-
-bravo! di ah
-ah!
-
-bene! di papa
-papa!
-
-bene! di sa
-sa!
-
-di ra
-ra!
-
-bene! di da
-da!
-
-bravo! di fa
-fa!
-
-bene! di oh
-oh!
-
-oh oh. di oh
-oh!
-
-fa fa fa. di fa
-fa!
-
-ba ba ba. di ba
-ba!
-
-bravo! di lala
-lala!
-
-bravo! di ta
-ta!
-
-bene! di nana
-nana!
-
-ba ba. di ba
-ba!
-
-na na. di na
-na!
-
-lala lala. di lala
-lala!
-
-ottimo! di na
-na!
-
-sì sì. di sì
-sì!
-
-di na ba
-na ba!
-
-benissimo! di ah
-ah!
-
-da da da. di da
-da!
-
-ottimo! di mama
-mama!
-
-di ta
-ta!
-
-na na na. di na
-na!
-
-bravo! di oh
-oh!
-
-benissimo! di na
-na!
-
-benissimo! di nana
-nana!
-
-di tata
-tata!
-
-ottimo! di ah
-ah!
-
-bravo! di ba
-ba!
-
-bene! di ta
-ta!
-
-di oh
-oh!
-
-di ga
-ga!
-
-di sì
-sì!
-
-baba baba. di baba
-baba!
-
-bene! di lala
-lala!
-
-bene! di fa
-fa!
-
-bravo! di pa
-pa!
-
-ottimo! di da
-da!
-
-bene! di pa
-pa!
-
-tata tata. di tata
-tata!
-
-benissimo! di ra
-ra!
-
-bravo! di papa
-papa!
-
-la la. di la
-la!
-
-fa fa fa. di fa
-fa!
-
-di ma pa
-ma pa!
-
-di na ba
-na ba!
-
-sì sì sì. di sì
-sì!
-
-benissimo! di sa
-sa!
-
-ottimo! di nana
-nana!
-
-oh oh oh. di oh
-oh!
-
-ta ta. di ta
-ta!
-
-na na. di na
-na!
-
-ba ba. di ba
-ba!
-
-di oh
-oh!
-
-bravo! di ba
-ba!
-
-ottimo! di fa
-fa!
-
-bravo! di baba
-baba!
-
-bravo! di sì
-sì!
-
-bravo! di la
-la!
-
-bravo! di fa
-fa!
-
-di nana
-nana!
-
-benissimo! di papa
-papa!
-
-pa pa pa. di pa
-pa!
-
-ah ah. di ah
-ah!
-
-ottimo! di eh
-eh!
-
-bravo! di lala
-lala!
-
-ma ma. di ma
-ma!
-
-ra ra. di ra
-ra!
-
-ottimo! di la
-la!
-
-ottimo! di ah
-ah!
-
-di mama
-mama!
-
-di fa
-fa!
-
-bene! di ra
-ra!
-
-mama mama. di mama
-mama!
-
-ottimo! di papa
-papa!
-
-benissimo! di da
-da!
-
-ottimo! di no
-no!
-
-di ca
-ca!
-
-di no
-no!
-
-benissimo! di la
-la!
-
-di sa
-sa!
-
-benissimo! di sì
-sì!
-
-oh oh. di oh
-oh!
-
-bene! di da
-da!
-
-baba baba. di baba
-baba!
-
-benissimo! di nana
-nana!
-
-sa sa. di sa
-sa!
-
-bene! di ma
-ma!
-
-di ma
-ma!
-
-bene! di sì
-sì!
-
-bene! di fa
-fa!
-
-benissimo! di ra
-ra!
-
-benissimo! di lala
-lala!
-
-di baba
-baba!
-
-bene! di no
-no!
-
-no no. di no
-no!
-
-benissimo! di ma
-ma!
-
-di papa
-papa!
-
-bravo! di da
-da!
-
-benissimo! di no
-no!
-
-benissimo! di na
-na!
-
-di da
-da!
-
-bene! di eh
-eh!
-
-ottimo! di ba
-ba!
-
-sì sì. di sì
-sì!
-
-ta ta ta. di ta
-ta!
-
-ottimo! di pa
-pa!
-
-di na
-na!
-
-ottimo! di lala
-lala!
-
-di ta
-ta!
-
-di ta la
-ta la!
-
-benissimo! di eh
-eh!
-
-di pa ma
-pa ma!
-
-bravo! di ra
-ra!
-
-bravo! di ta
-ta!
-
-di ba
-ba!
-
-bravo! di mama
-mama!
-
-benissimo! di ah
-ah!
-
-bravo! di no
-no!
-
-da da. di da
-da!
-
-di va
-va!
-
-nana nana. di nana
-nana!
-
-di ga
-ga!
-
-ma ma ma. di ma
-ma!
-
-bene! di lala
-lala!
-
-di ah
-ah!
-
-bene! di papa
-papa!
-
-papa papa. di papa
-papa!
-
-bravo! di pa
-pa!
-
-fa fa. di fa
-fa!
-
-benissimo! di baba
-baba!
-
-bene! di nana
-nana!
-
-benissimo! di ta
-ta!
-
-ottimo! di ta
-ta!
-
-ba ba ba. di ba
-ba!
-
-bene! di baba
-baba!
-
-ottimo! di oh
-oh!
-
-ottimo! di ma
-ma!
-
-bravo! di nana
-nana!
-
-ra ra ra. di ra
-ra!
-
-ca ca ca. di ca
-ca!
-
-tata tata. di tata
-tata!
-
-ottimo! di mama
-mama!
-
-ottimo! di na
-na!
-
-bene! di mama
-mama!
-
-da da da. di da
-da!
-
-bravo! di ah
-ah!
-
-sa sa sa. di sa
-sa!
-
-bravo! di sa
-sa!
-
-bene! di ba
-ba!
-
-bravo! di na
-na!
-
-physisml physisml. di physisml
-physisml!
-
-bene! di pa
-pa!
-
-di la
-la!
-
-no no no. di no
-no!
-
-eh eh. di eh
-eh!
-
-di sì
-sì!
-
-benissimo! di mama
-mama!
-
-benissimo! di oh
-oh!
-
-benissimo! di pa
-pa!
-
-ottimo! di sa
-sa!
-
-di pa
-pa!
-
-bene! di la
-la!
-
-ottimo! di da
-da!
-
-bene! di na
-na!
-
-di eh
-eh!
-
-ottimo! di baba
-baba!
-
-bene! di sa
-sa!
-
-di tata
-tata!
-
-lala lala. di lala
-lala!
-
-la la la. di la
-la!
-
-bene! di oh
-oh!
-
-bene! di ah
-ah!
-
-benissimo! di fa
-fa!
-
-di physisml
-physisml!
-
-di lala
-lala!
-
-bene! di ta
-ta!
-
-sono physisml. di physisml
-physisml!
-
-ottimo! di tata
-tata!
-
-pa pa. di pa
-pa!
-
-di ra
-ra!
-
-benissimo! di ba
-ba!
-
-bravo! di oh
-oh!
-
-na na na. di na
-na!
-
-benissimo! di tata
-tata!
-
-ottimo! di sì
-sì!
-
-bravo! di ma
-ma!
-
-bravo! di tata
 tata!
 
 ottimo! di ra
 ra!
-
-bene! di tata
-tata!
-
-di ca
-ca!
-
-di oh
-oh!
-
-ottimo! di ba
-ba!
-
-bravo! di na
-na!
-
-ba ba ba. di ba
-ba!
-
-benissimo! di ba
-ba!
-
-baba baba. di baba
-baba!
-
-di no
-no!
-
-ottimo! di pa
-pa!
-
-benissimo! di sì
-sì!
-
-na na na. di na
-na!
-
-ottimo! di la
-la!
-
-ottimo! di mama
-mama!
-
-benissimo! di na
-na!
-
-benissimo! di pa
-pa!
-
-bravo! di sa
-sa!
-
-bene! di fa
-fa!
-
-benissimo! di fa
-fa!
-
-bravo! di pa
-pa!
-
-bene! di eh
-eh!
-
-ottimo! di da
-da!
-
-benissimo! di lala
-lala!
-
-papa papa. di papa
-papa!
-
-pa pa. di pa
-pa!
-
-di ba
-ba!
-
-bene! di sa
-sa!
-
-bene! di pa
-pa!
-
-bravo! di fa
-fa!
-
-di ga
-ga!
-
-benissimo! di da
-da!
-
-no no. di no
-no!
-
-da da. di da
-da!
-
-physisml physisml. di physisml
-physisml!
-
-ma ma ma. di ma
-ma!
-
-benissimo! di mama
-mama!
-
-ta ta ta. di ta
-ta!
-
-la la la. di la
-la!
-
-ottimo! di fa
-fa!
-
-di ah
-ah!
-
-bene! di ba
-ba!
-
-bravo! di la
-la!
-
-ottimo! di ta
-ta!
-
-bene! di ma
-ma!
-
-bene! di mama
-mama!
-
-benissimo! di oh
-oh!
-
-oh oh. di oh
-oh!
-
-ah ah. di ah
-ah!
-
-di ma
-ma!
-
-ottimo! di papa
-papa!
-
-eh eh. di eh
-eh!
-
-benissimo! di no
-no!
-
-di ta
-ta!
-
-bravo! di ba
-ba!
-
-bene! di baba
-baba!
-
-benissimo! di ah
-ah!
-
-fa fa fa. di fa
-fa!
-
-ta ta. di ta
-ta!
-
-oh oh oh. di oh
-oh!
-
-di na
-na!
-
-bravo! di sì
-sì!
-
-bravo! di papa
-papa!
-
-di physisml
-physisml!
-
-ca ca ca. di ca
-ca!
-
-na na. di na
-na!
-
-ottimo! di baba
-baba!
-
-di va
-va!
-
-bravo! di baba
-baba!
-
-ba ba. di ba
-ba!
-
-sì sì. di sì
-sì!
-
-pa pa pa. di pa
-pa!
-
-sa sa. di sa
-sa!
-
-benissimo! di nana
-nana!
-
-bravo! di tata
-tata!
-
-di ta la
-ta la!
-
-bene! di da
-da!
-
-lala lala. di lala
-lala!
-
-mama mama. di mama
-mama!
-
-ra ra ra. di ra
-ra!
-
-bene! di oh
-oh!
-
-ottimo! di ma
-ma!
-
-bravo! di nana
-nana!
-
-ottimo! di sì
-sì!
-
-bravo! di mama
-mama!
-
-bene! di nana
-nana!
-
-bene! di la
-la!
-
-bene! di sì
-sì!
-
-ottimo! di eh
-eh!
-
-benissimo! di sa
-sa!
-
-di la
-la!
-
-benissimo! di baba
-baba!
-
-da da da. di da
-da!
-
-di pa ma
-pa ma!
-
-bene! di na
-na!
-
-ottimo! di no
-no!
-
-di da
-da!
-
-di pa
-pa!
-
-di ra
-ra!
-
-di sì
-sì!
-
-nana nana. di nana
-nana!
-
-di mama
-mama!
-
-ottimo! di na
-na!
-
-bravo! di no
-no!
-
-ottimo! di lala
-lala!
-
-no no no. di no
-no!
-
-ottimo! di ra
-ra!
-
-la la. di la
-la!
-
-bene! di tata
-tata!
-
-di na ba
-na ba!
-
-di nana
-nana!
-
-ma ma. di ma
-ma!
-
-tata tata. di tata
-tata!
-
-ottimo! di ah
-ah!
-
-fa fa. di fa
-fa!
-
-ottimo! di tata
-tata!
-
-di baba
-baba!
-
-di sa
-sa!
-
-benissimo! di la
-la!
-
-benissimo! di ra
-ra!
-
-bravo! di ra
-ra!
-
-di eh
-eh!
-
-benissimo! di ta
-ta!
-
-sono physisml. di physisml
-physisml!
-
-di fa
-fa!
-
-bravo! di ah
-ah!
-
-ottimo! di nana
-nana!
-
-di tata
-tata!
-
-di lala
-lala!
-
-bene! di papa
-papa!
-
-benissimo! di ma
-ma!
-
-bravo! di da
-da!
-
-bravo! di lala
-lala!
-
-bene! di no
-no!
-
-bravo! di ta
-ta!
-
-bravo! di oh
-oh!
-
-sì sì sì. di sì
-sì!
-
-bravo! di ma
-ma!
-
-bene! di ah
-ah!
-
-bene! di ra
-ra!
-
-sa sa sa. di sa
-sa!
-
-benissimo! di tata
-tata!
-
-bene! di ta
-ta!
-
-ottimo! di sa
-sa!
-
-di ma pa
-ma pa!
-
-ottimo! di oh
-oh!
-
-benissimo! di eh
-eh!
-
-benissimo! di papa
-papa!
-
-ra ra. di ra
-ra!
-
-bene! di lala
-lala!
-
-di papa
-papa!
-
-bene! di ra
-ra!
-
-bene! di sa
-sa!
-
-di no
-no!
-
-di nana
-nana!
-
-di oh
-oh!
-
-benissimo! di mama
-mama!
-
-sa sa sa. di sa
-sa!
-
-bravo! di na
-na!
-
-bene! di eh
-eh!
-
-bene! di la
-la!
-
-sì sì sì. di sì
-sì!
-
-ottimo! di nana
-nana!
-
-ottimo! di no
-no!
-
-ottimo! di da
-da!
-
-tata tata. di tata
-tata!
-
-eh eh. di eh
-eh!
-
-ottimo! di tata
-tata!
-
-benissimo! di ta
-ta!
-
-bravo! di mama
-mama!
-
-baba baba. di baba
-baba!
-
-ottimo! di ah
-ah!
-
-bene! di ta
-ta!
-
-bene! di sì
-sì!
-
-nana nana. di nana
-nana!
-
-papa papa. di papa
-papa!
-
-bene! di ma
-ma!
-
-sono physisml. di physisml
-physisml!
-
-di ta
-ta!
-
-ra ra ra. di ra
-ra!
-
-di na
-na!
-
-di physisml
-physisml!
-
-di papa
-papa!
-
-benissimo! di eh
-eh!
-
-bravo! di sì
-sì!
-
-di pa
-pa!
-
-ottimo! di papa
-papa!
-
-benissimo! di pa
-pa!
-
-benissimo! di ah
-ah!
-
-di ca
-ca!
-
-di ba
-ba!
-
-ottimo! di la
-la!
-
-benissimo! di sa
-sa!
-
-bravo! di ba
-ba!
-
-di ga
-ga!
-
-bravo! di nana
-nana!
-
-bene! di tata
-tata!
-
-di la
-la!
-
-bene! di nana
-nana!
-
-lala lala. di lala
-lala!
-
-na na na. di na
-na!
-
-la la. di la
-la!
-
-ah ah. di ah
-ah!
-
-ta ta ta. di ta
-ta!
-
-bene! di lala
-lala!
-
-benissimo! di da
-da!
-
-di da
-da!
-
-ta ta. di ta
-ta!
-
-fa fa fa. di fa
-fa!
-
-benissimo! di no
-no!
-
-bene! di fa
-fa!
-
-di ah
-ah!
-
-bravo! di pa
-pa!
-
-bravo! di oh
-oh!
-
-ottimo! di baba
-baba!
-
-di baba
-baba!
-
-bene! di oh
-oh!
-
-bene! di papa
-papa!
-
-ba ba. di ba
-ba!
-
-physisml physisml. di physisml
-physisml!
-
-di ra
-ra!
-
-bravo! di ma
-ma!
-
-bravo! di la
-la!
-
-no no no. di no
-no!
-
-benissimo! di ba
-ba!
-
-di pa ma
-pa ma!
-
-ra ra. di ra
-ra!
-
-di mama
-mama!
-
-di eh
-eh!
-
-bene! di ah
-ah!
-
-ma ma. di ma
-ma!
-
-di fa
-fa!
-
-bene! di mama
-mama!
-
-bravo! di no
-no!
-
-bravo! di lala
-lala!
-
-mama mama. di mama
-mama!
-
-bene! di pa
-pa!
-
-da da da. di da
-da!
-
-di va
-va!
-
-benissimo! di papa
-papa!
-
-benissimo! di lala
-lala!
-
-benissimo! di oh
-oh!
-
-bravo! di fa
-fa!
-
-bene! di no
-no!
-
-benissimo! di ra
-ra!
-
-benissimo! di tata
-tata!
-
-di lala
-lala!
-
-bene! di ba
-ba!
-
-di ma
-ma!
-
-benissimo! di ma
-ma!
-
-benissimo! di baba
-baba!
-
-bravo! di ta
-ta!
-
-bravo! di ra
-ra!
-
-no no. di no
-no!
-
-benissimo! di la
-la!
-
-bravo! di papa
-papa!
-
-bravo! di baba
-baba!
-
-bravo! di ah
-ah!
-
-ottimo! di eh
-eh!
-
-ottimo! di sì
-sì!
-
-ottimo! di ra
-ra!
-
-ottimo! di na
-na!
-
-bravo! di tata
-tata!
-
-ottimo! di ba
-ba!
-
-di ta la
-ta la!
-
-oh oh. di oh
-oh!
-
-ottimo! di fa
-fa!
-
-bene! di na
-na!
-
-da da. di da
-da!
-
-benissimo! di nana
-nana!
-
-pa pa. di pa
-pa!
-
-bene! di baba
-baba!
-
-ottimo! di mama
-mama!
-
-sì sì. di sì
-sì!
-
-pa pa pa. di pa
-pa!
-
-fa fa. di fa
-fa!
-
-ba ba ba. di ba
-ba!
-
-na na. di na
-na!
-
-ottimo! di ma
-ma!
-
-ottimo! di ta
-ta!
-
-bene! di da
-da!
-
-di na ba
-na ba!
-
-bravo! di da
-da!
-
-la la la. di la
-la!
-
-benissimo! di na
-na!
-
-ottimo! di sa
-sa!
-
-di sa
-sa!
-
-di ma pa
-ma pa!
-
-oh oh oh. di oh
-oh!
-
-sa sa. di sa
-sa!
-
-benissimo! di fa
-fa!
-
-bravo! di sa
-sa!
-
-benissimo! di sì
-sì!
-
-ottimo! di lala
-lala!
-
-ma ma ma. di ma
-ma!
-
-di tata
-tata!
-
-ottimo! di oh
-oh!
-
-di sì
-sì!
-
-ottimo! di pa
-pa!
-
-ca ca ca. di ca
-ca!
-
-benissimo! di fa
-fa!
-
-ottimo! di lala
-lala!
-
-bene! di baba
-baba!
-
-eh eh. di eh
-eh!
-
-benissimo! di ma
-ma!
-
-physisml physisml. di physisml
-physisml!
-
-di baba
-baba!
-
-ottimo! di ba
-ba!
-
-ottimo! di no
-no!
-
-di na
-na!
-
-bene! di lala
-lala!
-
-benissimo! di ra
-ra!
-
-nana nana. di nana
-nana!
-
-ottimo! di na
-na!
-
-sa sa. di sa
-sa!
-
-benissimo! di baba
-baba!
-
-ta ta ta. di ta
-ta!
-
-bravo! di pa
-pa!
-
-bene! di ba
-ba!
-
-da da. di da
-da!
-
-bene! di no
-no!
-
-da da da. di da
-da!
-
-sono physisml. di physisml
-physisml!
-
-bravo! di baba
-baba!
-
-bene! di mama
-mama!
-
-benissimo! di mama
-mama!
-
-benissimo! di ba
-ba!
-
-ah ah. di ah
-ah!
-
-ottimo! di da
-da!
-
-lala lala. di lala
-lala!
-
-pa pa pa. di pa
-pa!
-
-ba ba ba. di ba
-ba!
-
-ottimo! di eh
-eh!
-
-bravo! di fa
-fa!
-
-oh oh. di oh
-oh!
-
-bene! di sì
-sì!
-
-bene! di eh
-eh!
-
-di lala
-lala!
-
-di ga
-ga!
-
-benissimo! di da
-da!
-
-di la
-la!
-
-ca ca ca. di ca
-ca!
-
-bravo! di sa
-sa!
-
-bravo! di na
-na!
-
-bene! di sa
-sa!
-
-di physisml
-physisml!
-
-di pa
-pa!
-
-tata tata. di tata
-tata!
-
-la la la. di la
-la!
-
-di nana
-nana!
-
-benissimo! di ta
-ta!
-
-bravo! di papa
-papa!
-
-ottimo! di ah
-ah!
-
-na na. di na
-na!
-
-bene! di ta
-ta!
-
-bene! di ma
-ma!
-
-no no. di no
-no!
-
-benissimo! di papa
-papa!
-
-bene! di ra
-ra!
-
-di ra
-ra!
-
-bene! di nana
-nana!
-
-di sì
-sì!
-
-di eh
-eh!
-
-di ma pa
-ma pa!
-
-di da
-da!
-
-ta ta. di ta
-ta!
-
-bene! di pa
-pa!
-
-ma ma. di ma
-ma!
-
-di oh
-oh!
-
-oh oh oh. di oh
-oh!
-
-di sa
-sa!
-
-bravo! di da
-da!
-
-di pa ma
-pa ma!
-
-benissimo! di no
-no!
-
-di ca
-ca!
-
-bene! di tata
-tata!
-
-la la. di la
-la!
-
-bravo! di tata
-tata!
-
-di va
-va!
-
-bravo! di la
-la!
-
-ottimo! di papa
-papa!
-
-di ta la
-ta la!
-
-di mama
-mama!
-
-ra ra. di ra
-ra!
-
-ma ma ma. di ma
-ma!
-
-pa pa. di pa
-pa!
-
-ottimo! di nana
-nana!
-
-benissimo! di oh
-oh!
-
-bene! di na
-na!
-
-bene! di ah
-ah!
-
-bravo! di ma
-ma!
-
-di ah
-ah!
-
-di tata
-tata!
-
-fa fa. di fa
-fa!
-
-ottimo! di tata
-tata!
-
-ottimo! di ma
-ma!
-
-bene! di la
-la!
-
-bene! di da
-da!
-
-di no
-no!
-
-baba baba. di baba
-baba!
-
-di fa
-fa!
-
-ottimo! di fa
-fa!
-
-bravo! di ba
-ba!
-
-bene! di fa
-fa!
-
-benissimo! di la
-la!
-
-di papa
-papa!
-
-mama mama. di mama
-mama!
-
-benissimo! di pa
-pa!
-
-ottimo! di sì
-sì!
-
-di ma
-ma!
-
-bene! di papa
-papa!
-
-no no no. di no
-no!
-
-sì sì. di sì
-sì!
-
-benissimo! di nana
-nana!
-
-bravo! di ta
-ta!
-
-ottimo! di oh
-oh!
-
-benissimo! di lala
-lala!
-
-bravo! di ah
-ah!
-
-benissimo! di sa
-sa!
-
-benissimo! di sì
-sì!
-
-benissimo! di ah
-ah!
-
-bene! di oh
-oh!
-
-papa papa. di papa
-papa!
-
-bravo! di sì
-sì!
-
-benissimo! di eh
-eh!
-
-ottimo! di pa
-pa!
-
-bravo! di mama
-mama!
-
-ottimo! di la
-la!
-
-ottimo! di ta
-ta!
-
-na na na. di na
-na!
-
-sa sa sa. di sa
-sa!
-
-di na ba
-na ba!
-
-bravo! di no
-no!
-
-fa fa fa. di fa
-fa!
 
 di ba
 ba!
@@ -3535,464 +514,116 @@ ba!
 ottimo! di baba
 baba!
 
-ra ra ra. di ra
-ra!
-
-ottimo! di mama
-mama!
-
-bravo! di ra
-ra!
-
-benissimo! di tata
-tata!
-
-ottimo! di ra
-ra!
-
-ba ba. di ba
-ba!
-
-bravo! di oh
-oh!
-
-benissimo! di na
-na!
-
-sì sì sì. di sì
-sì!
-
-bravo! di lala
-lala!
-
-di ta
-ta!
-
-ottimo! di sa
-sa!
-
-bravo! di nana
-nana!
-
-ottimo! di sa
-sa!
-
-bravo! di papa
-papa!
-
-di physisml
-physisml!
-
-di ga
-ga!
-
-ra ra. di ra
-ra!
-
-di ba
-ba!
-
-ottimo! di no
-no!
-
-sa sa sa. di sa
-sa!
-
-ottimo! di oh
-oh!
-
-ottimo! di fa
-fa!
-
-bene! di fa
-fa!
-
-sono physisml. di physisml
-physisml!
-
-di ta
-ta!
-
-ottimo! di mama
-mama!
-
-di lala
-lala!
-
-mama mama. di mama
-mama!
-
-di ah
-ah!
-
-ah ah. di ah
-ah!
-
-bravo! di da
+di da
 da!
 
-di ta la
-ta la!
-
-bene! di pa
-pa!
-
-bravo! di ma
-ma!
-
-bravo! di tata
-tata!
+di ta
+ta!
 
 di sa
 sa!
 
-di baba
-baba!
+ottimo! di ba
+ba!
 
-bravo! di baba
-baba!
+di ah
+ah!
 
-di sì
-sì!
+di la
+la!
 
-di oh
-oh!
+ottimo! di sa
+sa!
 
-benissimo! di pa
-pa!
+bravo! di fa
+fa!
 
 ottimo! di na
 na!
 
-bravo! di ra
-ra!
-
-ottimo! di ma
-ma!
-
-bene! di mama
-mama!
-
-bravo! di la
-la!
-
-benissimo! di sì
-sì!
-
-ottimo! di sì
-sì!
-
-ottimo! di ba
-ba!
-
-benissimo! di nana
-nana!
-
-benissimo! di ma
-ma!
-
-bravo! di ta
-ta!
-
-benissimo! di sa
-sa!
-
-benissimo! di eh
-eh!
-
-bene! di sa
-sa!
-
-bravo! di ba
-ba!
-
-di eh
-eh!
-
-bravo! di mama
-mama!
-
-ottimo! di papa
+di papa
 papa!
 
-bravo! di nana
-nana!
+di da
+da!
 
-benissimo! di la
-la!
+di tata
+tata!
 
-bene! di ra
-ra!
+di ca
+ca!
 
-bravo! di sa
-sa!
+di sì
+sì!
 
-bene! di eh
-eh!
+di no
+no!
 
-di na
-na!
-
-ma ma. di ma
-ma!
-
-di va
-va!
-
-physisml physisml. di physisml
-physisml!
+benissimo! di da
+da!
 
 ottimo! di lala
 lala!
 
-di nana
-nana!
-
-papa papa. di papa
+di papa
 papa!
 
-bene! di ma
+bravo! di mama
+mama!
+
+benissimo! di ma
 ma!
 
 bene! di da
 da!
 
-di ca
-ca!
-
-benissimo! di ta
-ta!
-
-di tata
-tata!
-
-bene! di papa
-papa!
-
-di ra
+bene! di ra
 ra!
-
-pa pa pa. di pa
-pa!
-
-ottimo! di ah
-ah!
-
-ottimo! di nana
-nana!
-
-bravo! di sì
-sì!
-
-di mama
-mama!
-
-sa sa. di sa
-sa!
-
-di pa
-pa!
-
-ba ba ba. di ba
-ba!
-
-bene! di nana
-nana!
-
-di na ba
-na ba!
-
-bravo! di no
-no!
-
-ottimo! di pa
-pa!
-
-sì sì sì. di sì
-sì!
-
-benissimo! di ra
-ra!
-
-no no no. di no
-no!
-
-lala lala. di lala
-lala!
-
-ma ma ma. di ma
-ma!
-
-la la. di la
-la!
-
-ottimo! di tata
-tata!
-
-ottimo! di baba
-baba!
-
-benissimo! di lala
-lala!
-
-benissimo! di na
-na!
-
-na na na. di na
-na!
 
 di da
 da!
 
-bene! di ah
-ah!
+di na ba
+na ba!
 
-benissimo! di tata
-tata!
+benissimo! di ra
+ra!
 
-di no
-no!
-
-tata tata. di tata
-tata!
-
-benissimo! di da
-da!
-
-di papa
-papa!
-
-bene! di la
-la!
+di ta la
+ta la!
 
 ottimo! di ta
 ta!
 
-ra ra ra. di ra
-ra!
-
-benissimo! di baba
-baba!
-
-da da da. di da
-da!
-
-bravo! di lala
-lala!
-
-baba baba. di baba
-baba!
-
-da da. di da
-da!
-
-ottimo! di la
-la!
-
-fa fa. di fa
-fa!
-
-oh oh oh. di oh
-oh!
-
-bravo! di oh
-oh!
-
-oh oh. di oh
-oh!
-
-bene! di ta
-ta!
-
-fa fa fa. di fa
-fa!
-
-di ma
-ma!
-
-benissimo! di papa
-papa!
-
-no no. di no
-no!
-
-bravo! di ah
-ah!
-
-bene! di oh
-oh!
-
-bravo! di fa
-fa!
-
-sì sì. di sì
-sì!
-
 di fa
 fa!
 
-bene! di ba
-ba!
+bravo! di eh
+eh!
 
 benissimo! di ah
 ah!
 
-pa pa. di pa
+di pa
 pa!
 
-bene! di tata
-tata!
-
-nana nana. di nana
-nana!
-
-ottimo! di ra
-ra!
-
-di pa ma
-pa ma!
-
-bene! di no
-no!
-
-ba ba. di ba
-ba!
-
-bravo! di na
+di na
 na!
 
-ottimo! di da
-da!
+di ma pa
+ma pa!
 
-benissimo! di ba
-ba!
-
-bravo! di pa
-pa!
-
-ca ca ca. di ca
-ca!
-
-bene! di lala
-lala!
-
-bene! di baba
+bravo! di baba
 baba!
 
-di la
+ottimo! di la
 la!
 
-ta ta. di ta
-ta!
+benissimo! di eh
+eh!
 
-la la la. di la
-la!
-
-ta ta ta. di ta
-ta!
-
-bene! di sì
-sì!
+di ra
+ra!
 
 benissimo! di fa
 fa!
@@ -4000,1276 +631,133 @@ fa!
 ottimo! di eh
 eh!
 
-na na. di na
-na!
-
-benissimo! di mama
-mama!
-
-eh eh. di eh
-eh!
-
-bene! di na
-na!
-
-di ma pa
-ma pa!
-
-benissimo! di no
-no!
-
-benissimo! di oh
-oh!
-
-di physisml
-physisml!
-
-bene! di ta
-ta!
-
-no no. di no
-no!
-
-la la. di la
-la!
-
-bravo! di papa
-papa!
-
-na na na. di na
-na!
-
-di fa
-fa!
-
-di oh
-oh!
-
-benissimo! di na
-na!
-
-bravo! di pa
-pa!
-
-bene! di nana
-nana!
-
-ottimo! di mama
-mama!
-
-pa pa pa. di pa
-pa!
-
-physisml physisml. di physisml
-physisml!
-
-ottimo! di sa
-sa!
-
-la la la. di la
-la!
-
-bene! di lala
-lala!
-
-bene! di sa
-sa!
-
-ottimo! di tata
-tata!
-
-di no
-no!
-
-bene! di no
-no!
-
 di eh
 eh!
 
-di ma
-ma!
-
-bravo! di la
-la!
-
-ottimo! di oh
-oh!
-
-ottimo! di eh
-eh!
-
-bene! di tata
-tata!
-
-di sa
-sa!
-
-da da da. di da
-da!
-
-ottimo! di ah
-ah!
-
-benissimo! di ra
-ra!
-
-ba ba. di ba
-ba!
-
-benissimo! di sì
-sì!
-
-ottimo! di sì
-sì!
-
-sa sa sa. di sa
-sa!
-
-ottimo! di pa
+bene! di pa
 pa!
 
-ottimo! di la
-la!
-
-ottimo! di no
-no!
-
-baba baba. di baba
-baba!
-
-di ta
-ta!
-
-benissimo! di ah
-ah!
-
-ca ca ca. di ca
-ca!
-
-ottimo! di baba
-baba!
-
-ottimo! di ta
-ta!
-
-bene! di da
-da!
+bene! di papa
+papa!
 
 benissimo! di baba
 baba!
 
-ba ba ba. di ba
-ba!
-
-benissimo! di oh
-oh!
-
-di na ba
-na ba!
-
-benissimo! di fa
-fa!
-
-benissimo! di ta
-ta!
-
 ottimo! di papa
 papa!
-
-benissimo! di la
-la!
-
-ottimo! di da
-da!
-
-oh oh oh. di oh
-oh!
-
-ah ah. di ah
-ah!
-
-benissimo! di lala
-lala!
-
-benissimo! di sa
-sa!
-
-di lala
-lala!
-
-bravo! di tata
-tata!
-
-bravo! di sì
-sì!
 
 di la
 la!
 
-di ma pa
-ma pa!
-
-fa fa fa. di fa
-fa!
-
-ottimo! di ma
-ma!
-
-bene! di mama
-mama!
-
-benissimo! di eh
-eh!
-
-di ba
-ba!
-
-di ga
-ga!
-
-benissimo! di ba
-ba!
-
-di na
-na!
-
-ra ra ra. di ra
-ra!
-
-sono physisml. di physisml
-physisml!
-
-di pa
-pa!
-
-bravo! di ra
-ra!
-
-bravo! di ba
-ba!
-
-ottimo! di ra
-ra!
-
-bene! di papa
-papa!
-
-di nana
-nana!
-
-benissimo! di no
-no!
-
-bene! di eh
-eh!
-
-bene! di baba
-baba!
-
-bravo! di nana
-nana!
-
-bravo! di ma
-ma!
-
-bravo! di da
-da!
-
-bene! di ah
-ah!
-
-di va
-va!
-
-bene! di pa
-pa!
-
-bravo! di sa
-sa!
-
-ta ta ta. di ta
-ta!
-
-benissimo! di mama
-mama!
-
-bravo! di mama
-mama!
-
-sa sa. di sa
-sa!
-
-ottimo! di nana
-nana!
-
-nana nana. di nana
-nana!
-
-lala lala. di lala
-lala!
-
-di sì
-sì!
-
-benissimo! di nana
-nana!
-
-bravo! di lala
-lala!
-
-bene! di oh
-oh!
-
-bravo! di baba
-baba!
-
-eh eh. di eh
-eh!
-
-bene! di fa
-fa!
-
-sì sì sì. di sì
-sì!
-
-oh oh. di oh
-oh!
-
-bravo! di ta
-ta!
-
-di baba
-baba!
-
-di ra
-ra!
-
-bravo! di na
-na!
-
-mama mama. di mama
-mama!
-
-ottimo! di ba
-ba!
-
-no no no. di no
-no!
-
-di tata
-tata!
-
-di ah
-ah!
-
-tata tata. di tata
-tata!
-
-fa fa. di fa
-fa!
-
-di da
-da!
-
-di pa ma
-pa ma!
-
-benissimo! di tata
-tata!
-
-di mama
-mama!
-
-ma ma ma. di ma
-ma!
-
-ottimo! di fa
-fa!
-
-bravo! di no
-no!
-
-sì sì. di sì
-sì!
-
-benissimo! di papa
-papa!
-
-bravo! di ah
-ah!
-
-bene! di sì
-sì!
-
-benissimo! di da
-da!
-
-na na. di na
-na!
-
-bene! di ma
-ma!
-
-ottimo! di lala
-lala!
-
-da da. di da
-da!
-
-di ca
-ca!
-
-bravo! di oh
-oh!
-
-ra ra. di ra
-ra!
-
-di ta la
-ta la!
-
-benissimo! di pa
-pa!
-
-di papa
-papa!
-
-ma ma. di ma
-ma!
-
-papa papa. di papa
-papa!
-
-bene! di ra
-ra!
-
-benissimo! di ma
-ma!
-
-bene! di la
-la!
-
-ottimo! di na
-na!
-
-bene! di ba
-ba!
-
-pa pa. di pa
-pa!
-
-bene! di na
-na!
-
-ta ta. di ta
-ta!
-
-bravo! di fa
-fa!
-
-bene! di nana
-nana!
-
-ottimo! di ma
-ma!
-
-mama mama. di mama
-mama!
-
-bene! di pa
-pa!
-
-tata tata. di tata
-tata!
-
-oh oh. di oh
-oh!
-
-di eh
-eh!
-
-bravo! di da
-da!
-
-bene! di papa
-papa!
-
-benissimo! di na
-na!
-
-benissimo! di ma
-ma!
-
-bravo! di la
-la!
-
-benissimo! di da
-da!
-
-di na
-na!
-
-bravo! di fa
-fa!
-
-di oh
-oh!
-
-no no. di no
-no!
-
-la la. di la
-la!
-
-bravo! di pa
-pa!
-
-baba baba. di baba
-baba!
-
-di baba
-baba!
-
-benissimo! di sì
-sì!
-
-benissimo! di ba
-ba!
-
-ottimo! di ba
-ba!
-
-bene! di ra
-ra!
-
-di lala
-lala!
-
-ottimo! di fa
-fa!
-
-di ca
-ca!
-
-ottimo! di tata
-tata!
-
-fa fa fa. di fa
-fa!
-
-na na na. di na
-na!
-
-di ta la
-ta la!
-
-ottimo! di mama
-mama!
-
-ra ra. di ra
-ra!
-
-da da da. di da
-da!
-
-ah ah. di ah
-ah!
-
-bene! di ba
-ba!
-
-di ba
-ba!
-
-bene! di ta
-ta!
-
-di da
-da!
-
-bravo! di mama
-mama!
-
-bene! di da
-da!
-
-ottimo! di da
-da!
-
-benissimo! di no
-no!
-
-di nana
-nana!
-
-di no
-no!
-
-di ma pa
-ma pa!
-
-ottimo! di lala
-lala!
-
-bravo! di sa
-sa!
-
-ottimo! di la
-la!
-
-nana nana. di nana
-nana!
-
-bene! di ah
-ah!
-
-bravo! di sì
+ottimo! di sì
 sì!
 
 di physisml
 physisml!
 
-bravo! di ma
-ma!
-
-ottimo! di sa
-sa!
-
-ottimo! di oh
-oh!
-
 bene! di sì
 sì!
 
-bene! di ma
-ma!
+di na
+na!
 
-lala lala. di lala
-lala!
-
-sì sì sì. di sì
+benissimo! di sì
 sì!
 
-bravo! di papa
-papa!
+di sì
+sì!
 
-pa pa. di pa
+bravo! di la
+la!
+
+di ga
+ga!
+
+di eh
+eh!
+
+di fa
+fa!
+
+ottimo! di mama
+mama!
+
+bravo! di pa
 pa!
 
-benissimo! di oh
-oh!
+benissimo! di sa
+sa!
 
-bene! di no
-no!
+di la
+la!
 
-bravo! di nana
+di sa
+sa!
+
+bene! di nana
 nana!
 
 bene! di na
 na!
 
-ottimo! di papa
-papa!
-
-ottimo! di eh
-eh!
-
-benissimo! di papa
-papa!
-
-bene! di baba
-baba!
-
-benissimo! di la
-la!
-
-benissimo! di mama
-mama!
-
-di mama
-mama!
-
-di la
-la!
-
-di ra
-ra!
-
-ma ma. di ma
+di ma
 ma!
 
-na na. di na
-na!
-
-ottimo! di sì
-sì!
-
-sa sa sa. di sa
-sa!
-
-ma ma ma. di ma
-ma!
-
-bravo! di ba
-ba!
-
-di ah
-ah!
-
-bravo! di ah
-ah!
-
-ta ta ta. di ta
-ta!
-
-ottimo! di no
+benissimo! di no
 no!
+
+ottimo! di nana
+nana!
 
 ottimo! di ah
 ah!
 
-bravo! di no
-no!
+bene! di la
+la!
 
-sono physisml. di physisml
-physisml!
+bene! di ah
+ah!
 
-di ma
-ma!
-
-benissimo! di ra
-ra!
-
-di ga
-ga!
-
-eh eh. di eh
-eh!
-
-bravo! di lala
-lala!
-
-ottimo! di ta
-ta!
-
-benissimo! di lala
-lala!
-
-bravo! di tata
-tata!
-
-bravo! di ra
-ra!
-
-physisml physisml. di physisml
-physisml!
-
-ba ba. di ba
-ba!
-
-bene! di mama
-mama!
-
-benissimo! di sa
-sa!
-
-pa pa pa. di pa
-pa!
-
-di sì
-sì!
-
-ta ta. di ta
-ta!
-
-ottimo! di na
-na!
-
-benissimo! di tata
-tata!
-
-oh oh oh. di oh
+ottimo! di oh
 oh!
 
-sì sì. di sì
-sì!
+di ta
+ta!
 
-di sa
-sa!
-
-bravo! di na
-na!
-
-ra ra ra. di ra
-ra!
-
-bene! di fa
+di fa
 fa!
 
 di pa
 pa!
 
-la la la. di la
-la!
-
-bene! di eh
-eh!
-
-da da. di da
-da!
-
-benissimo! di baba
-baba!
-
-no no no. di no
-no!
-
-benissimo! di ah
-ah!
-
-benissimo! di pa
-pa!
-
-bene! di tata
-tata!
-
-bravo! di oh
-oh!
-
-bene! di sa
-sa!
-
-di na ba
-na ba!
-
-fa fa. di fa
-fa!
-
-ottimo! di ra
-ra!
-
-benissimo! di nana
-nana!
-
-benissimo! di eh
-eh!
-
-ba ba ba. di ba
-ba!
-
-di va
-va!
-
-di tata
-tata!
-
-bene! di la
-la!
-
-benissimo! di fa
-fa!
-
-ca ca ca. di ca
-ca!
-
-bravo! di ta
-ta!
-
-ottimo! di nana
-nana!
-
-di pa ma
-pa ma!
-
-di fa
-fa!
-
-bene! di lala
+di lala
 lala!
-
-papa papa. di papa
-papa!
-
-ottimo! di baba
-baba!
-
-ottimo! di pa
-pa!
-
-bene! di oh
-oh!
-
-bravo! di baba
-baba!
-
-sa sa. di sa
-sa!
-
-di papa
-papa!
-
-di ta
-ta!
-
-benissimo! di ta
-ta!
-
-ottimo! di no
-no!
-
-bravo! di na
-na!
-
-ottimo! di sa
-sa!
-
-pa pa pa. di pa
-pa!
-
-di ga
-ga!
-
-sì sì. di sì
-sì!
-
-bene! di ra
-ra!
-
-benissimo! di papa
-papa!
-
-di ba
-ba!
-
-physisml physisml. di physisml
-physisml!
-
-di ah
-ah!
-
-bene! di ba
-ba!
-
-di ta la
-ta la!
-
-ottimo! di mama
-mama!
-
-bene! di papa
-papa!
-
-di ma
-ma!
-
-bravo! di ta
-ta!
-
-bravo! di no
-no!
-
-ba ba. di ba
-ba!
-
-benissimo! di ba
-ba!
-
-la la la. di la
-la!
-
-ottimo! di oh
-oh!
-
-no no. di no
-no!
-
-ottimo! di nana
-nana!
-
-lala lala. di lala
-lala!
-
-ottimo! di na
-na!
-
-bravo! di ra
-ra!
-
-benissimo! di nana
-nana!
-
-bene! di na
-na!
-
-benissimo! di lala
-lala!
-
-di mama
-mama!
-
-bravo! di ah
-ah!
-
-benissimo! di no
-no!
-
-benissimo! di mama
-mama!
-
-benissimo! di ta
-ta!
-
-bravo! di ba
-ba!
-
-ah ah. di ah
-ah!
-
-eh eh. di eh
-eh!
-
-na na. di na
-na!
-
-bravo! di baba
-baba!
-
-la la. di la
-la!
 
 di ra
 ra!
 
-di ca
-ca!
-
-bravo! di sì
-sì!
-
-di sì
-sì!
-
-bene! di mama
-mama!
-
-ca ca ca. di ca
-ca!
-
-bene! di sì
-sì!
-
-tata tata. di tata
-tata!
-
-di no
-no!
-
-ma ma. di ma
-ma!
-
-di fa
-fa!
+bene! di ta
+ta!
 
 ottimo! di da
 da!
 
-oh oh. di oh
-oh!
-
-da da da. di da
-da!
-
-bravo! di fa
-fa!
-
-benissimo! di tata
-tata!
-
-nana nana. di nana
-nana!
-
-bravo! di sa
-sa!
-
-bene! di pa
-pa!
-
-bene! di la
-la!
-
-bravo! di nana
-nana!
-
-di ta
-ta!
-
-di sa
-sa!
-
-benissimo! di sa
-sa!
-
-benissimo! di sì
-sì!
-
-di baba
-baba!
-
-ma ma ma. di ma
-ma!
-
-ra ra. di ra
-ra!
-
-di va
-va!
-
-bene! di ma
-ma!
-
-bene! di ah
-ah!
-
-ba ba ba. di ba
+bene! di ba
 ba!
 
-bene! di nana
-nana!
-
-bravo! di ma
-ma!
-
-na na na. di na
-na!
-
-ottimo! di la
-la!
-
-ottimo! di sì
-sì!
-
-benissimo! di eh
-eh!
-
-bravo! di oh
-oh!
-
-ottimo! di eh
-eh!
-
-pa pa. di pa
-pa!
-
-sono physisml. di physisml
-physisml!
-
-bravo! di pa
-pa!
-
-bravo! di tata
-tata!
-
-benissimo! di ah
-ah!
-
-sa sa. di sa
-sa!
-
-bene! di da
-da!
-
-benissimo! di pa
-pa!
-
-di ma pa
-ma pa!
-
-benissimo! di na
-na!
-
-benissimo! di fa
-fa!
-
-ta ta. di ta
-ta!
-
-di pa ma
-pa ma!
-
-benissimo! di ma
-ma!
-
-ottimo! di tata
-tata!
-
-benissimo! di ra
-ra!
-
-bene! di tata
-tata!
-
-sa sa sa. di sa
-sa!
-
-baba baba. di baba
-baba!
-
-ottimo! di ma
-ma!
-
-ottimo! di pa
-pa!
-
-bravo! di mama
-mama!
-
-bravo! di la
-la!
-
-ottimo! di ba
-ba!
-
-bravo! di papa
-papa!
-
-ottimo! di papa
-papa!
-
-di eh
-eh!
-
-sì sì sì. di sì
-sì!
-
-ottimo! di ta
-ta!
-
-bene! di eh
-eh!
-
-di papa
-papa!
-
-bene! di oh
-oh!
-
-di lala
+bene! di lala
 lala!
 
-bene! di sa
-sa!
+di physisml
+physisml!
 
-di da
-da!
+benissimo! di ba
+ba!
 
-di na
-na!
+di ba
+ba!
 
-benissimo! di baba
-baba!
-
-di la
+benissimo! di la
 la!
 
 di tata
@@ -5281,344 +769,23 @@ nana!
 bravo! di lala
 lala!
 
-ottimo! di baba
-baba!
-
-di na ba
-na ba!
-
-bene! di lala
-lala!
-
-di pa
-pa!
-
-benissimo! di la
-la!
-
-mama mama. di mama
-mama!
-
-ottimo! di fa
-fa!
-
-fa fa. di fa
-fa!
-
-ra ra ra. di ra
-ra!
-
-no no no. di no
-no!
-
-di oh
-oh!
-
-bene! di baba
-baba!
-
-ta ta ta. di ta
-ta!
-
-oh oh oh. di oh
-oh!
-
-ottimo! di ah
-ah!
-
-papa papa. di papa
-papa!
-
-benissimo! di oh
-oh!
-
-bene! di ta
-ta!
-
-bravo! di da
-da!
-
-da da. di da
-da!
-
-fa fa fa. di fa
-fa!
-
-ottimo! di ra
-ra!
-
-bene! di no
-no!
-
-bene! di fa
-fa!
-
-ottimo! di lala
-lala!
-
-benissimo! di da
-da!
-
-di physisml
-physisml!
-
-ottimo! di da
-da!
-
-tata tata. di tata
-tata!
-
-bravo! di ba
-ba!
-
-sa sa. di sa
-sa!
-
-benissimo! di la
-la!
-
-di ah
-ah!
-
-eh eh. di eh
-eh!
-
-di physisml
-physisml!
-
-di nana
-nana!
-
-ottimo! di sa
-sa!
-
-la la. di la
-la!
-
-bravo! di tata
-tata!
-
-di oh
-oh!
-
-benissimo! di ta
-ta!
-
-ottimo! di eh
-eh!
-
-bravo! di da
-da!
-
-di na ba
-na ba!
-
-benissimo! di ma
+di ma
 ma!
-
-di ra
-ra!
-
-benissimo! di ba
-ba!
-
-ca ca ca. di ca
-ca!
-
-bravo! di ma
-ma!
-
-bravo! di oh
-oh!
-
-benissimo! di da
-da!
-
-sono physisml. di physisml
-physisml!
-
-la la la. di la
-la!
-
-bene! di oh
-oh!
-
-ma ma. di ma
-ma!
-
-oh oh oh. di oh
-oh!
-
-fa fa. di fa
-fa!
-
-bene! di lala
-lala!
-
-pa pa. di pa
-pa!
-
-bravo! di la
-la!
-
-na na na. di na
-na!
-
-benissimo! di sa
-sa!
-
-bene! di mama
-mama!
-
-di sa
-sa!
-
-ba ba. di ba
-ba!
 
 benissimo! di nana
 nana!
 
-physisml physisml. di physisml
-physisml!
+di oh
+oh!
 
-bene! di no
-no!
-
-bene! di pa
-pa!
-
-bene! di sa
-sa!
-
-ottimo! di ta
-ta!
-
-bene! di ra
-ra!
-
-di na
-na!
-
-bravo! di mama
-mama!
-
-nana nana. di nana
-nana!
-
-di pa
-pa!
-
-ottimo! di tata
-tata!
-
-ma ma ma. di ma
-ma!
-
-di ta
-ta!
-
-benissimo! di ah
-ah!
-
-benissimo! di baba
-baba!
-
-ta ta. di ta
-ta!
-
-di da
-da!
-
-ra ra ra. di ra
-ra!
-
-di ta la
-ta la!
-
-no no. di no
-no!
-
-bene! di sì
-sì!
-
-di ga
-ga!
-
-ottimo! di no
-no!
+di oh
+oh!
 
 benissimo! di na
 na!
 
-baba baba. di baba
-baba!
-
-bravo! di baba
-baba!
-
-benissimo! di sì
-sì!
-
-bravo! di nana
-nana!
-
-di ca
-ca!
-
-benissimo! di tata
-tata!
-
-sa sa sa. di sa
-sa!
-
-no no no. di no
-no!
-
-ottimo! di oh
+bravo! di oh
 oh!
-
-bene! di tata
-tata!
-
-sì sì. di sì
-sì!
-
-bravo! di pa
-pa!
-
-di papa
-papa!
-
-benissimo! di eh
-eh!
-
-di lala
-lala!
-
-bravo! di fa
-fa!
-
-bene! di nana
-nana!
-
-di ba
-ba!
-
-bravo! di ta
-ta!
-
-bene! di ta
-ta!
-
-bravo! di papa
-papa!
-
-di ma
-ma!
-
-ottimo! di ah
-ah!
 
 bravo! di ra
 ra!
@@ -5626,227 +793,356 @@ ra!
 bene! di eh
 eh!
 
-ottimo! di nana
+benissimo! di tata
+tata!
+
+di ba
+ba!
+
+bravo! di ma
+ma!
+
+di nana
 nana!
 
-bene! di papa
-papa!
-
-mama mama. di mama
-mama!
-
-bene! di ba
-ba!
-
-oh oh. di oh
-oh!
-
-pa pa pa. di pa
-pa!
-
-ottimo! di ba
-ba!
-
-ba ba ba. di ba
-ba!
-
-ottimo! di lala
-lala!
-
-sì sì sì. di sì
-sì!
-
-di eh
-eh!
-
-di baba
-baba!
-
-di sì
-sì!
-
-bene! di na
-na!
-
-ottimo! di na
-na!
-
-di la
-la!
-
-ottimo! di ra
-ra!
-
-benissimo! di papa
-papa!
-
-bravo! di lala
-lala!
-
-benissimo! di no
+ottimo! di no
 no!
 
-ra ra. di ra
+di pa
+pa!
+
+bravo! di sa
+sa!
+
+di ra
 ra!
 
-da da. di da
-da!
+bene! di tata
+tata!
 
-bene! di fa
-fa!
+bene! di sa
+sa!
 
-ottimo! di pa
-pa!
+di no
+no!
 
-benissimo! di pa
-pa!
+di lala
+lala!
 
-ottimo! di ma
-ma!
+sono physisml. di physisml
+physisml!
+
+di ca
+ca!
 
 di va
 va!
 
+bravo! di sì
+sì!
+
 di no
+no!
+
+benissimo! di papa
+papa!
+
+bene! di mama
+mama!
+
+bravo! di ba
+ba!
+
+bene! di fa
+fa!
+
+bene! di baba
+baba!
+
+bravo! di na
+na!
+
+di mama
+mama!
+
+di na
+na!
+
+bravo! di nana
+nana!
+
+ottimo! di fa
+fa!
+
+di mama
+mama!
+
+ottimo! di pa
+pa!
+
+bravo! di ah
+ah!
+
+bene! di no
+no!
+
+bravo! di no
 no!
 
 benissimo! di oh
 oh!
 
-na na. di na
-na!
+bravo! di da
+da!
 
-bene! di baba
-baba!
-
-di pa ma
-pa ma!
-
-bene! di ma
-ma!
-
-ottimo! di mama
-mama!
-
-ottimo! di baba
-baba!
-
-bene! di ah
-ah!
-
-ta ta ta. di ta
+benissimo! di ta
 ta!
 
-benissimo! di lala
-lala!
-
-fa fa fa. di fa
-fa!
-
-di fa
-fa!
-
-papa papa. di papa
-papa!
-
-benissimo! di mama
-mama!
-
-bravo! di na
-na!
-
-di tata
-tata!
-
-ah ah. di ah
-ah!
-
-di ma pa
-ma pa!
-
-bravo! di sì
-sì!
-
-da da da. di da
-da!
-
-bravo! di ah
-ah!
-
-bene! di da
-da!
-
-bene! di la
-la!
-
-ottimo! di la
-la!
-
-di mama
-mama!
-
-ottimo! di fa
-fa!
-
-benissimo! di fa
-fa!
-
-ottimo! di papa
-papa!
-
-benissimo! di ra
-ra!
-
-ottimo! di sì
-sì!
-
-lala lala. di lala
-lala!
-
-bravo! di no
-no!
-
-bravo! di sa
+di sa
 sa!
 
 ottimo! di eh
 eh!
 
-ottimo! di sì
-sì!
-
-bravo! di la
-la!
-
 di pa ma
 pa ma!
 
-bene! di da
-da!
-
-bene! di la
-la!
-
-bravo! di sì
-sì!
-
-na na na. di na
-na!
-
-benissimo! di oh
+bene! di oh
 oh!
 
-lala lala. di lala
+ottimo! di tata
+tata!
+
+di la
+la!
+
+benissimo! di ra
+ra!
+
+bene! di fa
+fa!
+
+di ca
+ca!
+
+bene! di sì
+sì!
+
+di pa
+pa!
+
+di ba
+ba!
+
+bravo! di no
+no!
+
+benissimo! di no
+no!
+
+di ba
+ba!
+
+di no
+no!
+
+di ta
+ta!
+
+bravo! di fa
+fa!
+
+di ma
+ma!
+
+benissimo! di nana
+nana!
+
+bene! di ah
+ah!
+
+di physisml
+physisml!
+
+benissimo! di da
+da!
+
+di mama
+mama!
+
+di da
+da!
+
+ottimo! di na
+na!
+
+bene! di no
+no!
+
+di na
+na!
+
+benissimo! di mama
+mama!
+
+bravo! di ba
+ba!
+
+di na ba
+na ba!
+
+di ra
+ra!
+
+bravo! di lala
 lala!
 
-di fa
+di la
+la!
+
+bravo! di baba
+baba!
+
+ottimo! di da
+da!
+
+benissimo! di fa
 fa!
 
 ottimo! di ra
 ra!
 
+di ra
+ra!
+
+di pa
+pa!
+
+benissimo! di sa
+sa!
+
+di ma pa
+ma pa!
+
+di da
+da!
+
+bravo! di papa
+papa!
+
+bravo! di ma
+ma!
+
+di la
+la!
+
+bene! di da
+da!
+
+bravo! di la
+la!
+
 ottimo! di la
 la!
+
+di lala
+lala!
+
+di fa
+fa!
+
+di oh
+oh!
+
+ottimo! di oh
+oh!
+
+di mama
+mama!
+
+di eh
+eh!
+
+di oh
+oh!
+
+bravo! di da
+da!
+
+ottimo! di no
+no!
+
+sono physisml. di physisml
+physisml!
+
+di nana
+nana!
+
+di na
+na!
+
+bene! di mama
+mama!
+
+di lala
+lala!
+
+benissimo! di ba
+ba!
+
+bene! di papa
+papa!
+
+ottimo! di nana
+nana!
+
+di ma
+ma!
+
+bene! di la
+la!
+
+benissimo! di sì
+sì!
+
+ottimo! di lala
+lala!
+
+ottimo! di ta
+ta!
+
+di sì
+sì!
+
+bravo! di tata
+tata!
+
+di fa
+fa!
+
+bene! di baba
+baba!
+
+di ga
+ga!
+
+benissimo! di ma
+ma!
+
+ottimo! di ba
+ba!
+
+bene! di ma
+ma!
+
+bravo! di ra
+ra!
+
+di ma
+ma!
+
+di sì
+sì!
 
 di ta
 ta!
@@ -5854,895 +1150,424 @@ ta!
 ottimo! di mama
 mama!
 
-bene! di ra
-ra!
-
-bravo! di papa
-papa!
-
-di no
-no!
-
-ottimo! di baba
-baba!
-
-ra ra. di ra
-ra!
-
-bene! di fa
-fa!
-
-tata tata. di tata
-tata!
-
-bravo! di ra
-ra!
-
-di na
-na!
-
-di ma pa
-ma pa!
-
-ba ba ba. di ba
-ba!
-
-bravo! di nana
+bene! di nana
 nana!
-
-di na ba
-na ba!
-
-bravo! di ba
-ba!
-
-bravo! di ah
-ah!
-
-di la
-la!
-
-ottimo! di fa
-fa!
-
-bene! di pa
-pa!
-
-ah ah. di ah
-ah!
-
-da da. di da
-da!
-
-di ga
-ga!
-
-ottimo! di lala
-lala!
-
-bravo! di mama
-mama!
-
-bravo! di baba
-baba!
-
-di pa
-pa!
-
-nana nana. di nana
-nana!
-
-ba ba. di ba
-ba!
-
-benissimo! di na
-na!
-
-benissimo! di lala
-lala!
-
-bravo! di da
-da!
-
-di ba
-ba!
-
-di ca
-ca!
 
 di ta la
 ta la!
 
-benissimo! di sa
-sa!
+benissimo! di pa
+pa!
+
+bravo! di oh
+oh!
+
+di tata
+tata!
 
 ottimo! di sa
 sa!
 
-ta ta. di ta
-ta!
+bene! di lala
+lala!
 
-di mama
-mama!
+bravo! di ah
+ah!
 
-bravo! di ma
-ma!
+di ca
+ca!
 
-mama mama. di mama
-mama!
+di da
+da!
 
-ta ta ta. di ta
-ta!
-
-ottimo! di oh
+di oh
 oh!
 
 benissimo! di ah
 ah!
 
-sa sa. di sa
-sa!
-
-benissimo! di ma
-ma!
-
-ca ca ca. di ca
-ca!
-
-di papa
-papa!
-
-sì sì. di sì
-sì!
-
-la la. di la
-la!
-
-bene! di sì
-sì!
-
-ottimo! di no
-no!
-
-baba baba. di baba
-baba!
-
-bene! di baba
-baba!
-
-bravo! di sa
-sa!
-
-fa fa fa. di fa
-fa!
-
-di ah
-ah!
-
-la la la. di la
-la!
-
-benissimo! di ba
-ba!
-
-benissimo! di sì
-sì!
-
-benissimo! di tata
-tata!
-
-benissimo! di nana
-nana!
-
 ottimo! di ma
 ma!
-
-ottimo! di papa
-papa!
-
-bene! di ta
-ta!
-
-bene! di sa
-sa!
-
-na na. di na
-na!
-
-bene! di oh
-oh!
-
-benissimo! di ra
-ra!
-
-oh oh oh. di oh
-oh!
-
-da da da. di da
-da!
-
-benissimo! di mama
-mama!
-
-ottimo! di ta
-ta!
-
-benissimo! di papa
-papa!
-
-di physisml
-physisml!
-
-bene! di na
-na!
-
-sì sì sì. di sì
-sì!
-
-benissimo! di baba
-baba!
-
-di va
-va!
-
-bene! di ba
-ba!
-
-bene! di mama
-mama!
-
-bravo! di pa
-pa!
-
-benissimo! di eh
-eh!
-
-bravo! di tata
-tata!
-
-benissimo! di no
-no!
-
-bene! di ah
-ah!
-
-bravo! di lala
-lala!
-
-pa pa. di pa
-pa!
-
-benissimo! di la
-la!
-
-ottimo! di ba
-ba!
-
-fa fa. di fa
-fa!
-
-bravo! di fa
-fa!
-
-benissimo! di da
-da!
-
-benissimo! di ta
-ta!
-
-di oh
-oh!
-
-di baba
-baba!
-
-bravo! di no
-no!
-
-di ra
-ra!
-
-di tata
-tata!
-
-ottimo! di na
-na!
-
-ottimo! di tata
-tata!
-
-di sì
-sì!
-
-oh oh. di oh
-oh!
-
-ottimo! di da
-da!
-
-bene! di tata
-tata!
-
-no no no. di no
-no!
-
-ottimo! di pa
-pa!
-
-sono physisml. di physisml
-physisml!
-
-bene! di nana
-nana!
-
-bene! di ma
-ma!
-
-benissimo! di fa
-fa!
-
-bravo! di ta
-ta!
-
-di eh
-eh!
-
-no no. di no
-no!
-
-ma ma. di ma
-ma!
-
-di lala
-lala!
-
-di ma
-ma!
-
-ra ra ra. di ra
-ra!
-
-bravo! di oh
-oh!
-
-di da
-da!
-
-ma ma ma. di ma
-ma!
-
-di nana
-nana!
-
-bene! di lala
-lala!
-
-ottimo! di nana
-nana!
-
-sa sa sa. di sa
-sa!
-
-bene! di eh
-eh!
-
-di sa
-sa!
-
-bene! di papa
-papa!
-
-physisml physisml. di physisml
-physisml!
-
-papa papa. di papa
-papa!
-
-eh eh. di eh
-eh!
-
-bravo! di na
-na!
-
-ottimo! di ah
-ah!
-
-pa pa pa. di pa
-pa!
-
-bene! di no
-no!
-
-benissimo! di pa
-pa!
-
-bravo! di fa
-fa!
-
-no no no. di no
-no!
-
-di tata
-tata!
 
 benissimo! di lala
 lala!
 
-bene! di no
-no!
+bene! di ta
+ta!
 
-da da da. di da
-da!
+benissimo! di ta
+ta!
 
-mama mama. di mama
-mama!
-
-ottimo! di pa
-pa!
-
-benissimo! di pa
-pa!
-
-sì sì sì. di sì
-sì!
-
-di ga
-ga!
-
-ottimo! di nana
+di nana
 nana!
-
-ca ca ca. di ca
-ca!
-
-di eh
-eh!
 
 di fa
 fa!
 
-tata tata. di tata
-tata!
-
-bene! di da
-da!
-
-benissimo! di eh
-eh!
-
-ottimo! di tata
-tata!
-
-ottimo! di na
-na!
-
-benissimo! di fa
-fa!
-
-bene! di na
-na!
-
-bravo! di na
-na!
-
-benissimo! di no
-no!
-
-bene! di fa
-fa!
-
-papa papa. di papa
-papa!
-
-di da
-da!
-
-bravo! di mama
-mama!
-
-di mama
-mama!
-
-ottimo! di fa
-fa!
-
-bravo! di ba
-ba!
-
-di ca
-ca!
-
-bravo! di papa
-papa!
-
-bene! di pa
-pa!
-
-ba ba ba. di ba
-ba!
-
-benissimo! di na
-na!
-
-di pa
-pa!
-
-ottimo! di mama
-mama!
-
-bene! di ah
-ah!
-
-di papa
-papa!
-
-ottimo! di eh
-eh!
-
-ottimo! di da
-da!
-
-bravo! di oh
-oh!
-
-di la
-la!
-
-la la. di la
-la!
-
-ottimo! di ba
-ba!
-
-bravo! di la
-la!
-
-bene! di ma
-ma!
-
-benissimo! di nana
-nana!
-
-bravo! di ra
-ra!
-
-da da. di da
-da!
-
-sì sì. di sì
-sì!
-
-ottimo! di la
-la!
-
-fa fa. di fa
-fa!
-
-pa pa pa. di pa
-pa!
-
-benissimo! di tata
-tata!
-
-bravo! di sì
-sì!
-
-di ma
-ma!
-
-bravo! di ma
-ma!
-
-benissimo! di ba
-ba!
-
-ottimo! di ma
-ma!
-
-bravo! di sa
-sa!
-
-di na
-na!
-
-ta ta. di ta
-ta!
-
-ottimo! di ta
-ta!
-
-bene! di nana
-nana!
-
-ottimo! di no
-no!
-
-ma ma. di ma
-ma!
-
-benissimo! di baba
-baba!
-
-ottimo! di sa
-sa!
-
-di oh
-oh!
-
-bravo! di ta
-ta!
-
-sa sa sa. di sa
-sa!
-
-di physisml
-physisml!
-
-baba baba. di baba
-baba!
-
-bene! di sa
-sa!
-
-ta ta ta. di ta
-ta!
-
-pa pa. di pa
-pa!
-
-ma ma ma. di ma
-ma!
-
-bravo! di no
-no!
-
-di pa ma
-pa ma!
-
-sono physisml. di physisml
-physisml!
-
 bene! di tata
 tata!
 
-oh oh oh. di oh
-oh!
-
-oh oh. di oh
-oh!
-
-bene! di mama
-mama!
-
-di ra
-ra!
-
-eh eh. di eh
-eh!
-
-fa fa fa. di fa
-fa!
-
-ottimo! di sì
-sì!
-
-physisml physisml. di physisml
-physisml!
-
-bene! di eh
-eh!
-
-bene! di ra
-ra!
-
-benissimo! di ta
-ta!
-
-bravo! di baba
-baba!
-
-ottimo! di ra
-ra!
+ottimo! di pa
+pa!
 
 benissimo! di oh
 oh!
 
-na na na. di na
-na!
-
-ottimo! di papa
-papa!
-
-ah ah. di ah
-ah!
+bravo! di eh
+eh!
 
 di no
 no!
 
-sa sa. di sa
-sa!
-
-bravo! di tata
-tata!
-
-bene! di lala
-lala!
-
-bene! di papa
-papa!
-
-di ta
-ta!
-
-ottimo! di lala
-lala!
-
-di lala
-lala!
-
-benissimo! di mama
-mama!
-
-benissimo! di ra
+di ra
 ra!
-
-ba ba. di ba
-ba!
-
-di baba
-baba!
-
-no no. di no
-no!
-
-di nana
-nana!
-
-benissimo! di papa
-papa!
-
-benissimo! di ma
-ma!
-
-lala lala. di lala
-lala!
 
 bene! di ba
 ba!
 
-di na ba
-na ba!
+di ah
+ah!
 
-nana nana. di nana
-nana!
+bene! di eh
+eh!
 
-bravo! di pa
-pa!
-
-bene! di la
-la!
-
-ottimo! di oh
-oh!
-
-di ta la
-ta la!
-
-di sì
-sì!
-
-la la la. di la
-la!
+di sa
+sa!
 
 di ba
 ba!
 
-benissimo! di ah
-ah!
+di pa
+pa!
 
-benissimo! di sa
+bravo! di sì
+sì!
+
+bene! di sa
 sa!
 
-benissimo! di da
-da!
-
-di ah
+ottimo! di ah
 ah!
 
-bene! di oh
-oh!
-
-ra ra. di ra
-ra!
-
-bene! di baba
-baba!
-
-bravo! di lala
-lala!
-
-ottimo! di baba
+benissimo! di baba
 baba!
 
 di sa
 sa!
 
-bravo! di ah
-ah!
+bene! di ra
+ra!
+
+benissimo! di eh
+eh!
+
+di sì
+sì!
+
+di baba
+baba!
+
+di ta
+ta!
+
+di tata
+tata!
 
 bravo! di nana
 nana!
 
-na na. di na
+di na
 na!
 
-di va
-va!
+di eh
+eh!
 
-bene! di ta
-ta!
-
-benissimo! di sì
-sì!
+di no
+no!
 
 benissimo! di la
 la!
 
-bravo! di da
-da!
-
-ra ra ra. di ra
-ra!
-
-di ma pa
-ma pa!
-
-bene! di sì
-sì!
-
-ottimo! di ah
-ah!
-
-da da da. di da
-da!
+ottimo! di baba
+baba!
 
 bravo! di pa
 pa!
 
-physisml physisml. di physisml
+di papa
+papa!
+
+ottimo! di fa
+fa!
+
+bene! di na
+na!
+
+benissimo! di papa
+papa!
+
+bravo! di sa
+sa!
+
+benissimo! di na
+na!
+
+di papa
+papa!
+
+di baba
+baba!
+
+di ah
+ah!
+
+di va
+va!
+
+bravo! di na
+na!
+
+bravo! di ta
+ta!
+
+di physisml
 physisml!
+
+ottimo! di papa
+papa!
+
+ottimo! di sì
+sì!
+
+bene! di pa
+pa!
+
+bravo! di mama
+mama!
+
+benissimo! di tata
+tata!
+
+benissimo! di papa
+papa!
+
+ottimo! di pa
+pa!
 
 ottimo! di la
 la!
 
-bene! di lala
+bravo! di tata
+tata!
+
+bravo! di la
+la!
+
+ottimo! di eh
+eh!
+
+di pa
+pa!
+
+bravo! di da
+da!
+
+di lala
 lala!
 
-mama mama. di mama
+di fa
+fa!
+
+di ta la
+ta la!
+
+di ga
+ga!
+
+bene! di mama
 mama!
 
-di ca
-ca!
+di da
+da!
 
-di ra
-ra!
+di eh
+eh!
 
-bene! di ah
+benissimo! di ah
 ah!
+
+bene! di sì
+sì!
+
+bravo! di mama
+mama!
+
+di no
+no!
+
+bene! di fa
+fa!
+
+bene! di nana
+nana!
+
+di la
+la!
+
+di physisml
+physisml!
+
+benissimo! di ma
+ma!
+
+bene! di la
+la!
+
+di ah
+ah!
+
+ottimo! di sa
+sa!
+
+benissimo! di fa
+fa!
+
+ottimo! di tata
+tata!
+
+di da
+da!
 
 di ba
 ba!
 
-bene! di baba
+di ba
+ba!
+
+bene! di ra
+ra!
+
+di fa
+fa!
+
+di eh
+eh!
+
+ottimo! di baba
 baba!
 
-papa papa. di papa
+bene! di ma
+ma!
+
+di ma
+ma!
+
+ottimo! di nana
+nana!
+
+di ra
+ra!
+
+di mama
+mama!
+
+bravo! di sa
+sa!
+
+benissimo! di eh
+eh!
+
+di na ba
+na ba!
+
+bravo! di ta
+ta!
+
+di ca
+ca!
+
+bravo! di ma
+ma!
+
+di da
+da!
+
+benissimo! di lala
+lala!
+
+sono physisml. di physisml
+physisml!
+
+di ta
+ta!
+
+di physisml
+physisml!
+
+di oh
+oh!
+
+di sì
+sì!
+
+di sì
+sì!
+
+ottimo! di oh
+oh!
+
+ottimo! di no
+no!
+
+ottimo! di na
+na!
+
+bene! di da
+da!
+
+di nana
+nana!
+
+ottimo! di ta
+ta!
+
+di na
+na!
+
+di sa
+sa!
+
+di tata
+tata!
+
+benissimo! di sì
+sì!
+
+benissimo! di na
+na!
+
+bravo! di ah
+ah!
+
+di lala
+lala!
+
+di tata
+tata!
+
+di sa
+sa!
+
+ottimo! di ah
+ah!
+
+di papa
 papa!
 
-benissimo! di baba
-baba!
+bene! di ba
+ba!
 
-ottimo! di ma
+di ma
 ma!
 
 di na
@@ -6751,563 +1576,593 @@ na!
 di pa
 pa!
 
-ottimo! di nana
-nana!
-
-di eh
-eh!
-
-fa fa fa. di fa
-fa!
-
-bravo! di sa
-sa!
-
-di ah
-ah!
-
-bravo! di ta
-ta!
-
-benissimo! di na
-na!
-
-ottimo! di ta
-ta!
-
-benissimo! di no
-no!
-
-ottimo! di no
-no!
-
-ottimo! di pa
+di pa
 pa!
 
-sa sa sa. di sa
-sa!
-
-bene! di tata
+benissimo! di tata
 tata!
 
-bravo! di ra
-ra!
-
-benissimo! di sì
-sì!
-
-di la
-la!
-
-benissimo! di sa
-sa!
-
-di papa
-papa!
+bene! di oh
+oh!
 
 di sì
 sì!
 
-sì sì. di sì
+benissimo! di mama
+mama!
+
+benissimo! di la
+la!
+
+ottimo! di mama
+mama!
+
+di ca
+ca!
+
+benissimo! di oh
+oh!
+
+ottimo! di sì
 sì!
 
-bravo! di fa
-fa!
+bravo! di no
+no!
 
-pa pa pa. di pa
-pa!
-
-bene! di nana
-nana!
-
-bene! di ra
+ottimo! di ra
 ra!
 
 di ta
 ta!
 
-lala lala. di lala
-lala!
-
-ottimo! di ba
-ba!
-
-ottimo! di sa
-sa!
-
-bene! di na
-na!
-
-ba ba. di ba
-ba!
-
-benissimo! di ra
-ra!
-
-di nana
-nana!
-
-bene! di no
-no!
-
-ma ma ma. di ma
-ma!
-
-bravo! di da
-da!
-
-bravo! di no
-no!
-
-bravo! di mama
-mama!
-
-no no. di no
-no!
-
-no no no. di no
-no!
-
-sì sì sì. di sì
-sì!
-
-ra ra. di ra
-ra!
-
-benissimo! di mama
-mama!
-
-bravo! di oh
-oh!
-
-ra ra ra. di ra
-ra!
-
-baba baba. di baba
-baba!
-
-bene! di ba
-ba!
-
-bravo! di la
-la!
-
-di no
-no!
-
-bene! di fa
-fa!
-
-di ga
-ga!
-
-bene! di sì
-sì!
-
-ottimo! di ah
-ah!
-
-di mama
-mama!
-
-benissimo! di ah
-ah!
-
-di sa
-sa!
-
-di lala
-lala!
-
-ta ta ta. di ta
-ta!
-
-benissimo! di ma
-ma!
-
-benissimo! di tata
-tata!
-
-ottimo! di tata
-tata!
-
-di oh
-oh!
-
-eh eh. di eh
-eh!
-
-bravo! di na
-na!
-
-benissimo! di fa
-fa!
-
-bene! di papa
-papa!
-
-benissimo! di nana
-nana!
-
-bene! di mama
-mama!
-
-bravo! di ma
-ma!
-
-di ma
-ma!
-
-benissimo! di papa
-papa!
-
-bene! di sa
-sa!
-
-bravo! di sì
-sì!
-
-ottimo! di oh
-oh!
-
-ottimo! di sì
-sì!
-
-la la. di la
-la!
-
-fa fa. di fa
-fa!
-
-bravo! di ah
-ah!
-
-bravo! di papa
-papa!
-
-di tata
-tata!
-
-sono physisml. di physisml
-physisml!
-
-tata tata. di tata
-tata!
-
-benissimo! di da
-da!
-
-ottimo! di ra
-ra!
-
-ottimo! di na
-na!
-
-na na. di na
-na!
-
-di na ba
-na ba!
-
-di physisml
-physisml!
-
-benissimo! di eh
-eh!
-
-da da. di da
-da!
-
-pa pa. di pa
-pa!
-
-di baba
-baba!
-
-bravo! di baba
-baba!
-
-bene! di la
-la!
-
 di fa
 fa!
-
-ottimo! di baba
-baba!
-
-ottimo! di eh
-eh!
 
 benissimo! di ba
 ba!
 
-ta ta. di ta
+di ba
+ba!
+
+benissimo! di ta
 ta!
-
-ottimo! di mama
-mama!
-
-di va
-va!
-
-di da
-da!
-
-bene! di da
-da!
-
-benissimo! di oh
-oh!
-
-ottimo! di da
-da!
 
 di ma pa
 ma pa!
 
-ottimo! di papa
+bene! di na
+na!
+
+di pa ma
+pa ma!
+
+di na
+na!
+
+bene! di baba
+baba!
+
+benissimo! di no
+no!
+
+benissimo! di ra
+ra!
+
+bravo! di fa
+fa!
+
+bene! di ah
+ah!
+
+bravo! di sì
+sì!
+
+bene! di sa
+sa!
+
+benissimo! di baba
+baba!
+
+di sa
+sa!
+
+di ta
+ta!
+
+benissimo! di sa
+sa!
+
+di mama
+mama!
+
+di oh
+oh!
+
+bene! di no
+no!
+
+di oh
+oh!
+
+bravo! di ra
+ra!
+
+bravo! di lala
+lala!
+
+bravo! di eh
+eh!
+
+di papa
+papa!
+
+bravo! di oh
+oh!
+
+benissimo! di nana
+nana!
+
+di va
+va!
+
+di ma
+ma!
+
+bene! di lala
+lala!
+
+bene! di papa
 papa!
 
 bene! di pa
 pa!
 
-ca ca ca. di ca
-ca!
-
-bene! di ma
-ma!
-
-benissimo! di ta
-ta!
-
-benissimo! di lala
-lala!
-
-ah ah. di ah
-ah!
-
-di pa ma
-pa ma!
-
-na na na. di na
-na!
-
-sa sa. di sa
-sa!
-
-benissimo! di la
-la!
-
-bene! di eh
-eh!
-
-bravo! di nana
-nana!
-
-di ta la
-ta la!
-
-la la la. di la
-la!
-
-ba ba ba. di ba
-ba!
-
-oh oh. di oh
-oh!
-
-ma ma. di ma
-ma!
-
-benissimo! di pa
+bravo! di pa
 pa!
 
-bene! di oh
-oh!
-
-ottimo! di fa
-fa!
-
-bene! di ta
-ta!
-
-oh oh oh. di oh
-oh!
-
-bravo! di tata
-tata!
+bravo! di na
+na!
 
 bravo! di ba
 ba!
 
-ottimo! di lala
-lala!
-
-bravo! di lala
-lala!
-
-nana nana. di nana
-nana!
-
-bravo! di la
-la!
-
-di lala
-lala!
-
-ottimo! di sì
-sì!
-
-di sa
-sa!
-
-ta ta. di ta
-ta!
-
-di mama
-mama!
-
-bene! di la
-la!
-
-ottimo! di no
-no!
-
-di da
-da!
-
-bene! di baba
-baba!
-
-bravo! di ba
-ba!
-
-ottimo! di ra
+di ra
 ra!
 
 di la
 la!
 
-no no. di no
-no!
+di ra
+ra!
 
-ottimo! di ah
-ah!
-
-di pa
-pa!
-
-bene! di pa
-pa!
-
-ottimo! di lala
-lala!
-
-ottimo! di ba
-ba!
-
-physisml physisml. di physisml
-physisml!
-
-di pa ma
-pa ma!
-
-bravo! di tata
-tata!
-
-benissimo! di da
+ottimo! di da
 da!
 
-ottimo! di tata
-tata!
+ottimo! di papa
+papa!
 
-no no no. di no
-no!
+ottimo! di ma
+ma!
 
-benissimo! di pa
-pa!
+di la
+la!
 
-benissimo! di na
-na!
+bravo! di baba
+baba!
+
+ottimo! di fa
+fa!
 
 bravo! di nana
 nana!
 
-benissimo! di ma
-ma!
+di no
+no!
 
-nana nana. di nana
+di nana
 nana!
 
-sa sa sa. di sa
-sa!
+ottimo! di ba
+ba!
 
-eh eh. di eh
-eh!
+benissimo! di da
+da!
 
-ottimo! di ta
-ta!
-
-benissimo! di lala
-lala!
-
-la la. di la
-la!
-
-benissimo! di tata
+bene! di tata
 tata!
-
-benissimo! di sì
-sì!
-
-sa sa. di sa
-sa!
-
-bene! di nana
-nana!
-
-benissimo! di oh
-oh!
-
-bene! di sa
-sa!
 
 di no
 no!
 
-di tata
-tata!
+bravo! di papa
+papa!
 
-ottimo! di pa
-pa!
+di baba
+baba!
 
-di ba
-ba!
+ottimo! di lala
+lala!
 
-benissimo! di no
-no!
+di baba
+baba!
 
-di eh
+di ah
+ah!
+
+bene! di ta
+ta!
+
+bene! di eh
 eh!
 
-ca ca ca. di ca
-ca!
+benissimo! di pa
+pa!
 
-benissimo! di la
+benissimo! di oh
+oh!
+
+bravo! di sì
+sì!
+
+ottimo! di fa
+fa!
+
+di la
 la!
 
-ma ma. di ma
-ma!
+bravo! di la
+la!
 
-bravo! di ma
-ma!
+bene! di na
+na!
+
+bravo! di tata
+tata!
 
 ottimo! di mama
 mama!
 
-pa pa pa. di pa
+di la
+la!
+
+di nana
+nana!
+
+di physisml
+physisml!
+
+di pa
 pa!
+
+ottimo! di no
+no!
+
+ottimo! di lala
+lala!
+
+di ah
+ah!
+
+di ca
+ca!
+
+di na
+na!
+
+di ma
+ma!
+
+bravo! di pa
+pa!
+
+benissimo! di papa
+papa!
+
+di baba
+baba!
+
+ottimo! di eh
+eh!
+
+benissimo! di baba
+baba!
+
+benissimo! di no
+no!
+
+bravo! di oh
+oh!
+
+di ma
+ma!
+
+bravo! di ah
+ah!
+
+di no
+no!
+
+benissimo! di lala
+lala!
+
+benissimo! di pa
+pa!
+
+bravo! di sa
+sa!
+
+di pa
+pa!
+
+bene! di sì
+sì!
+
+bravo! di eh
+eh!
+
+ottimo! di da
+da!
+
+benissimo! di da
+da!
+
+di la
+la!
+
+benissimo! di fa
+fa!
+
+bene! di nana
+nana!
+
+di pa
+pa!
+
+di no
+no!
+
+benissimo! di sa
+sa!
+
+bene! di ah
+ah!
+
+bravo! di papa
+papa!
+
+di ra
+ra!
+
+di ba
+ba!
+
+bene! di ba
+ba!
+
+di mama
+mama!
+
+di eh
+eh!
+
+di physisml
+physisml!
+
+benissimo! di nana
+nana!
+
+di sa
+sa!
+
+bravo! di fa
+fa!
+
+sono physisml. di physisml
+physisml!
+
+di da
+da!
+
+di eh
+eh!
+
+bravo! di ta
+ta!
+
+bene! di baba
+baba!
+
+benissimo! di ta
+ta!
+
+bene! di la
+la!
+
+bravo! di baba
+baba!
+
+ottimo! di baba
+baba!
+
+benissimo! di ah
+ah!
+
+bravo! di da
+da!
+
+di sa
+sa!
+
+di ta
+ta!
+
+di oh
+oh!
+
+benissimo! di la
+la!
+
+di sì
+sì!
+
+bravo! di no
+no!
+
+ottimo! di oh
+oh!
+
+di ma
+ma!
+
+benissimo! di eh
+eh!
+
+ottimo! di sa
+sa!
+
+di pa ma
+pa ma!
+
+bene! di ra
+ra!
+
+benissimo! di mama
+mama!
+
+di oh
+oh!
+
+bene! di lala
+lala!
+
+benissimo! di ba
+ba!
+
+bene! di sa
+sa!
+
+di oh
+oh!
+
+bravo! di ra
+ra!
+
+di sì
+sì!
+
+di papa
+papa!
+
+ottimo! di la
+la!
+
+bene! di tata
+tata!
+
+bene! di oh
+oh!
+
+ottimo! di ra
+ra!
+
+di baba
+baba!
+
+di fa
+fa!
+
+di na
+na!
+
+bene! di papa
+papa!
+
+di ca
+ca!
+
+di ba
+ba!
+
+di va
+va!
+
+bravo! di mama
+mama!
+
+di ta la
+ta la!
+
+benissimo! di tata
+tata!
+
+ottimo! di tata
+tata!
+
+di ga
+ga!
+
+di sa
+sa!
+
+bene! di eh
+eh!
+
+bravo! di na
+na!
+
+bravo! di ba
+ba!
+
+di papa
+papa!
+
+di ra
+ra!
+
+di mama
+mama!
+
+di da
+da!
+
+di ta
+ta!
+
+bene! di mama
+mama!
+
+di fa
+fa!
+
+bene! di ma
+ma!
+
+bene! di ta
+ta!
+
+benissimo! di na
+na!
+
+ottimo! di pa
+pa!
+
+di fa
+fa!
+
+di no
+no!
+
+benissimo! di ma
+ma!
+
+di tata
+tata!
+
+di ma pa
+ma pa!
+
+di sì
+sì!
 
 di na
 na!
@@ -7315,476 +2170,767 @@ na!
 di ta
 ta!
 
-da da da. di da
-da!
-
-sì sì sì. di sì
-sì!
-
-ottimo! di la
-la!
-
-benissimo! di ta
-ta!
-
-bene! di ah
-ah!
-
-pa pa. di pa
-pa!
-
-sì sì. di sì
-sì!
-
-ah ah. di ah
-ah!
-
-mama mama. di mama
-mama!
-
-bravo! di sa
-sa!
-
-ba ba. di ba
-ba!
-
-oh oh. di oh
-oh!
-
-fa fa. di fa
-fa!
-
-di ma pa
-ma pa!
-
-bene! di na
-na!
-
-benissimo! di ba
-ba!
-
-benissimo! di nana
-nana!
-
-ottimo! di na
-na!
-
-ta ta ta. di ta
-ta!
-
-na na na. di na
-na!
-
-di sì
-sì!
-
-ottimo! di baba
-baba!
-
-di ca
-ca!
-
-bravo! di na
-na!
-
-bene! di lala
-lala!
-
-bravo! di mama
-mama!
-
-ra ra ra. di ra
-ra!
-
-bravo! di ra
-ra!
-
-lala lala. di lala
-lala!
-
-di ta la
-ta la!
-
-bene! di sì
-sì!
-
-oh oh oh. di oh
-oh!
-
-tata tata. di tata
-tata!
-
-benissimo! di sa
-sa!
-
-bravo! di no
-no!
-
-bravo! di sì
-sì!
-
-ottimo! di papa
-papa!
-
 di ah
 ah!
-
-benissimo! di baba
-baba!
-
-benissimo! di papa
-papa!
-
-bene! di papa
-papa!
-
-bene! di ma
-ma!
-
-benissimo! di ra
-ra!
-
-ottimo! di oh
-oh!
-
-benissimo! di fa
-fa!
-
-bravo! di ta
-ta!
-
-la la la. di la
-la!
-
-bravo! di pa
-pa!
-
-bene! di mama
-mama!
-
-di ga
-ga!
-
-bravo! di da
-da!
-
-bravo! di lala
-lala!
 
 ottimo! di nana
 nana!
 
-di physisml
-physisml!
-
-di fa
-fa!
-
-ottimo! di sa
-sa!
-
-ra ra. di ra
-ra!
-
-bravo! di ah
+ottimo! di ah
 ah!
 
-bravo! di oh
-oh!
+di lala
+lala!
 
-di papa
-papa!
-
-benissimo! di eh
-eh!
-
-ottimo! di da
-da!
-
-bene! di fa
-fa!
-
-di oh
-oh!
-
-bravo! di papa
-papa!
-
-ottimo! di ma
-ma!
-
-fa fa fa. di fa
-fa!
-
-bravo! di fa
-fa!
-
-benissimo! di mama
-mama!
-
-na na. di na
-na!
-
-bene! di eh
-eh!
-
-di ma
-ma!
-
-baba baba. di baba
-baba!
-
-bene! di ta
-ta!
-
-ma ma ma. di ma
-ma!
-
-bene! di no
-no!
-
-bene! di ba
-ba!
-
-ottimo! di fa
-fa!
-
-da da. di da
-da!
-
-bene! di da
-da!
-
-di ra
-ra!
-
-bravo! di baba
-baba!
-
-bene! di ra
-ra!
-
-di va
-va!
-
-papa papa. di papa
-papa!
-
-di nana
+bravo! di nana
 nana!
 
-di na ba
-na ba!
-
-bene! di tata
-tata!
-
-di baba
-baba!
-
-sono physisml. di physisml
-physisml!
-
-ottimo! di eh
-eh!
-
-ba ba ba. di ba
-ba!
-
-bene! di oh
-oh!
-
-benissimo! di ah
-ah!
-
-nana nana. di nana
-nana!
-
-bene! di tata
-tata!
-
-bene! di sa
-sa!
-
-ma ma. di ma
-ma!
-
-benissimo! di sì
-sì!
-
-sì sì. di sì
-sì!
-
-benissimo! di baba
-baba!
-
-benissimo! di oh
-oh!
-
-benissimo! di pa
+bene! di pa
 pa!
 
-bravo! di ma
-ma!
+ottimo! di sì
+sì!
 
-bene! di no
-no!
+bravo! di lala
+lala!
+
+di lala
+lala!
 
 di ba
 ba!
 
-bene! di eh
-eh!
+ottimo! di ta
+ta!
 
-benissimo! di da
-da!
-
-bene! di ma
+bravo! di ma
 ma!
-
-bravo! di pa
-pa!
-
-bravo! di fa
-fa!
-
-benissimo! di tata
-tata!
-
-ba ba. di ba
-ba!
-
-ottimo! di tata
-tata!
-
-di pa
-pa!
 
 ottimo! di ba
 ba!
 
-di no
-no!
+ottimo! di na
+na!
 
-bene! di oh
-oh!
-
-ra ra ra. di ra
-ra!
-
-benissimo! di eh
-eh!
-
-papa papa. di papa
-papa!
-
-ottimo! di ah
-ah!
-
-di tata
-tata!
+di da
+da!
 
 di na ba
 na ba!
 
+bene! di no
+no!
+
+di nana
+nana!
+
+ottimo! di ma
+ma!
+
+ottimo! di papa
+papa!
+
 bene! di da
 da!
+
+benissimo! di sì
+sì!
+
+di ra
+ra!
+
+bene! di fa
+fa!
+
+benissimo! di ra
+ra!
+
+di tata
+tata!
+
+bene! di oh
+oh!
+
+di no
+no!
+
+di ta
+ta!
+
+di ba
+ba!
+
+ottimo! di da
+da!
+
+ottimo! di no
+no!
+
+bene! di ma
+ma!
+
+di no
+no!
+
+benissimo! di fa
+fa!
+
+di ta la
+ta la!
+
+bravo! di ra
+ra!
+
+ottimo! di tata
+tata!
+
+di no
+no!
+
+ottimo! di ba
+ba!
+
+bene! di ba
+ba!
+
+ottimo! di papa
+papa!
+
+di da
+da!
+
+benissimo! di ma
+ma!
+
+bene! di mama
+mama!
+
+di fa
+fa!
+
+benissimo! di ah
+ah!
+
+di la
+la!
+
+ottimo! di pa
+pa!
+
+benissimo! di mama
+mama!
+
+ottimo! di sì
+sì!
+
+di oh
+oh!
+
+di nana
+nana!
+
+di fa
+fa!
+
+bravo! di pa
+pa!
+
+di papa
+papa!
+
+di ba
+ba!
+
+bravo! di papa
+papa!
 
 benissimo! di ba
 ba!
 
-bravo! di lala
+di sì
+sì!
+
+di mama
+mama!
+
+bene! di lala
 lala!
 
 di physisml
 physisml!
 
-benissimo! di mama
-mama!
+benissimo! di ta
+ta!
 
-bravo! di sì
-sì!
+di ah
+ah!
 
-pa pa pa. di pa
-pa!
-
-da da da. di da
+di da
 da!
 
-benissimo! di na
+di ta
+ta!
+
+di ma
+ma!
+
+di ca
+ca!
+
+di ta
+ta!
+
+bravo! di ba
+ba!
+
+di sa
+sa!
+
+benissimo! di sa
+sa!
+
+benissimo! di baba
+baba!
+
+di mama
+mama!
+
+bravo! di eh
+eh!
+
+ottimo! di ah
+ah!
+
+di pa ma
+pa ma!
+
+di sa
+sa!
+
+ottimo! di lala
+lala!
+
+ottimo! di baba
+baba!
+
+bene! di eh
+eh!
+
+ottimo! di fa
+fa!
+
+di nana
+nana!
+
+di la
+la!
+
+di sa
+sa!
+
+di na
+na!
+
+benissimo! di oh
+oh!
+
+di ma pa
+ma pa!
+
+bene! di la
+la!
+
+di physisml
+physisml!
+
+bene! di tata
+tata!
+
+ottimo! di ta
+ta!
+
+di ca
+ca!
+
+di lala
+lala!
+
+bravo! di da
+da!
+
+ottimo! di eh
+eh!
+
+di ba
+ba!
+
+di ra
+ra!
+
+bene! di fa
+fa!
+
+bravo! di no
+no!
+
+bene! di ah
+ah!
+
+bene! di pa
+pa!
+
+bene! di sì
+sì!
+
+di oh
+oh!
+
+ottimo! di na
+na!
+
+bene! di papa
+papa!
+
+benissimo! di tata
+tata!
+
+benissimo! di sì
+sì!
+
+bene! di ra
+ra!
+
+bravo! di mama
+mama!
+
+di na
 na!
 
 di eh
 eh!
 
-di ta
-ta!
+benissimo! di no
+no!
 
-benissimo! di ra
-ra!
-
-bravo! di baba
-baba!
-
-ottimo! di ra
-ra!
-
-benissimo! di ah
-ah!
-
-la la. di la
-la!
+bravo! di tata
+tata!
 
 bene! di ta
 ta!
 
-bravo! di ah
+di baba
+baba!
+
+di ah
 ah!
 
-physisml physisml. di physisml
+di ma
+ma!
+
+di na ba
+na ba!
+
+benissimo! di da
+da!
+
+bravo! di baba
+baba!
+
+di sì
+sì!
+
+bene! di no
+no!
+
+di fa
+fa!
+
+bene! di sa
+sa!
+
+benissimo! di pa
+pa!
+
+bravo! di na
+na!
+
+di oh
+oh!
+
+benissimo! di la
+la!
+
+benissimo! di na
+na!
+
+benissimo! di ra
+ra!
+
+bravo! di sì
+sì!
+
+di tata
+tata!
+
+bravo! di la
+la!
+
+benissimo! di papa
+papa!
+
+di ma
+ma!
+
+di ga
+ga!
+
+benissimo! di lala
+lala!
+
+ottimo! di ra
+ra!
+
+di da
+da!
+
+bravo! di fa
+fa!
+
+di pa
+pa!
+
+bene! di nana
+nana!
+
+benissimo! di nana
+nana!
+
+benissimo! di eh
+eh!
+
+ottimo! di nana
+nana!
+
+di na
+na!
+
+di lala
+lala!
+
+bravo! di sa
+sa!
+
+di papa
+papa!
+
+ottimo! di mama
+mama!
+
+bravo! di nana
+nana!
+
+di pa
+pa!
+
+ottimo! di la
+la!
+
+di eh
+eh!
+
+bene! di baba
+baba!
+
+bravo! di oh
+oh!
+
+sono physisml. di physisml
 physisml!
+
+ottimo! di sa
+sa!
+
+ottimo! di ma
+ma!
 
 bene! di na
 na!
 
-eh eh. di eh
-eh!
+di ra
+ra!
 
-bene! di sì
-sì!
+bravo! di lala
+lala!
 
-ta ta ta. di ta
-ta!
+di pa
+pa!
 
-benissimo! di ma
+di ra
+ra!
+
+bene! di da
+da!
+
+bravo! di ma
 ma!
+
+di tata
+tata!
+
+di la
+la!
 
 di va
 va!
 
-ottimo! di ta
+ottimo! di oh
+oh!
+
+di baba
+baba!
+
+bravo! di ah
+ah!
+
+di sì
+sì!
+
+bravo! di ta
 ta!
 
-benissimo! di no
-no!
+di pa
+pa!
 
-oh oh. di oh
+di oh
 oh!
+
+di no
+no!
 
 di mama
 mama!
 
-ca ca ca. di ca
-ca!
+di no
+no!
+
+di mama
+mama!
 
 di pa ma
 pa ma!
 
-la la la. di la
+di ba
+ba!
+
+di fa
+fa!
+
+bene! di sì
+sì!
+
+bene! di na
+na!
+
+ottimo! di ra
+ra!
+
+benissimo! di da
+da!
+
+benissimo! di ah
+ah!
+
+bravo! di na
+na!
+
+di sa
+sa!
+
+di na ba
+na ba!
+
+ottimo! di baba
+baba!
+
+bene! di sa
+sa!
+
+bene! di ma
+ma!
+
+di da
+da!
+
+bravo! di ma
+ma!
+
+di sì
+sì!
+
+di ca
+ca!
+
+ottimo! di pa
+pa!
+
+benissimo! di sì
+sì!
+
+di lala
+lala!
+
+bravo! di eh
+eh!
+
+di oh
+oh!
+
+di sa
+sa!
+
+bravo! di ta
+ta!
+
+ottimo! di ma
+ma!
+
+bravo! di nana
+nana!
+
+benissimo! di papa
+papa!
+
+ottimo! di oh
+oh!
+
+di physisml
+physisml!
+
+bene! di ba
+ba!
+
+bene! di ra
+ra!
+
+di la
 la!
 
-di nana
-nana!
+bene! di oh
+oh!
+
+ottimo! di sì
+sì!
+
+ottimo! di tata
+tata!
+
+bravo! di sì
+sì!
+
+di na
+na!
+
+bravo! di pa
+pa!
+
+bravo! di oh
+oh!
+
+di ra
+ra!
+
+di ga
+ga!
+
+bravo! di mama
+mama!
+
+di na
+na!
+
+bravo! di ra
+ra!
+
+benissimo! di oh
+oh!
+
+benissimo! di sa
+sa!
+
+bene! di lala
+lala!
+
+di sì
+sì!
+
+di papa
+papa!
+
+bravo! di baba
+baba!
+
+ottimo! di fa
+fa!
+
+bene! di eh
+eh!
+
+ottimo! di ah
+ah!
+
+di da
+da!
+
+di ah
+ah!
+
+bene! di mama
+mama!
+
+bravo! di la
+la!
+
+bravo! di tata
+tata!
+
+di ra
+ra!
+
+ottimo! di la
+la!
+
+bene! di papa
+papa!
+
+di ca
+ca!
+
+benissimo! di ba
+ba!
+
+bravo! di ah
+ah!
+
+di pa
+pa!
+
+di ta
+ta!
+
+bene! di ah
+ah!
+
+ottimo! di no
+no!
+
+di ma
+ma!
+
+di fa
+fa!
+
+di baba
+baba!
 
 ottimo! di nana
 nana!
@@ -7792,419 +2938,611 @@ nana!
 benissimo! di la
 la!
 
-ottimo! di papa
-papa!
-
-bene! di ba
-ba!
-
-benissimo! di ta
-ta!
-
-bravo! di la
-la!
-
-ra ra. di ra
+benissimo! di ra
 ra!
-
-ottimo! di pa
-pa!
-
-bravo! di tata
-tata!
-
-bene! di fa
-fa!
-
-bravo! di no
-no!
-
-ottimo! di baba
-baba!
-
-no no no. di no
-no!
-
-ottimo! di fa
-fa!
-
-fa fa fa. di fa
-fa!
-
-bravo! di papa
-papa!
-
-benissimo! di papa
-papa!
-
-di sì
-sì!
-
-oh oh oh. di oh
-oh!
 
 bravo! di sa
 sa!
 
-sa sa sa. di sa
-sa!
-
-ottimo! di na
-na!
-
-bene! di papa
-papa!
-
-bravo! di da
-da!
-
-bravo! di nana
-nana!
-
-di ta la
-ta la!
-
-di da
-da!
-
-tata tata. di tata
-tata!
-
-ma ma ma. di ma
-ma!
-
-bene! di ra
-ra!
-
-mama mama. di mama
-mama!
-
-na na na. di na
-na!
-
-di la
-la!
-
-di fa
-fa!
-
-bravo! di ta
+di ta
 ta!
 
-bene! di la
-la!
+bravo! di lala
+lala!
 
-bene! di ah
-ah!
+benissimo! di no
+no!
 
-ottimo! di mama
-mama!
+bene! di pa
+pa!
 
-fa fa. di fa
-fa!
-
-bene! di mama
-mama!
+di nana
+nana!
 
 di ah
 ah!
 
+bene! di tata
+tata!
+
+di va
+va!
+
+di la
+la!
+
+bravo! di ba
+ba!
+
+di fa
+fa!
+
 bene! di baba
 baba!
 
-ah ah. di ah
-ah!
+benissimo! di nana
+nana!
 
-di baba
+bene! di da
+da!
+
+bene! di la
+la!
+
+di da
+da!
+
+benissimo! di baba
 baba!
 
-lala lala. di lala
-lala!
+sono physisml. di physisml
+physisml!
 
-di lala
-lala!
-
-di na
-na!
+bene! di ta
+ta!
 
 ottimo! di sa
 sa!
 
-bravo! di ba
+benissimo! di eh
+eh!
+
+di ba
 ba!
 
 bene! di nana
 nana!
 
-benissimo! di fa
-fa!
-
-bene! di pa
-pa!
-
-da da. di da
-da!
-
-di ma pa
-ma pa!
-
-ottimo! di lala
-lala!
-
-na na. di na
+di na
 na!
 
-di sa
-sa!
-
-benissimo! di nana
-nana!
-
-sa sa. di sa
-sa!
-
-di oh
-oh!
-
-ottimo! di la
-la!
-
-sono physisml. di physisml
-physisml!
-
-baba baba. di baba
-baba!
+ottimo! di ta
+ta!
 
 di papa
 papa!
 
-bravo! di na
-na!
-
-ottimo! di oh
-oh!
-
-ottimo! di eh
+di eh
 eh!
 
-ottimo! di sì
-sì!
+benissimo! di tata
+tata!
 
-bene! di lala
-lala!
+benissimo! di na
+na!
 
-no no. di no
-no!
+benissimo! di pa
+pa!
 
 di ra
 ra!
 
-di ga
-ga!
+di ta
+ta!
 
-ba ba ba. di ba
-ba!
+bene! di fa
+fa!
 
-bravo! di oh
-oh!
+di sa
+sa!
 
-di ca
-ca!
-
-ottimo! di ma
-ma!
+benissimo! di ta
+ta!
 
 di ma
 ma!
 
-ottimo! di no
+bravo! di papa
+papa!
+
+di ba
+ba!
+
+benissimo! di mama
+mama!
+
+ottimo! di lala
+lala!
+
+di no
 no!
 
-bravo! di mama
-mama!
+di lala
+lala!
+
+bravo! di da
+da!
 
 benissimo! di lala
 lala!
 
-bravo! di ra
-ra!
-
-ta ta. di ta
-ta!
-
 ottimo! di da
 da!
 
-benissimo! di sa
-sa!
-
-pa pa. di pa
+di pa
 pa!
 
-sì sì sì. di sì
-sì!
+ottimo! di na
+na!
 
-baba baba. di baba
-baba!
+di ma
+ma!
 
-ba ba. di ba
+bravo! di no
+no!
+
+di tata
+tata!
+
+di eh
+eh!
+
+di physisml
+physisml!
+
+ottimo! di ba
 ba!
 
-di ra
-ra!
+di tata
+tata!
 
-bravo! di papa
-papa!
-
-di fa
+bravo! di fa
 fa!
 
-benissimo! di ra
-ra!
-
-ra ra. di ra
-ra!
+di baba
+baba!
 
 di nana
 nana!
 
-ottimo! di nana
-nana!
+ottimo! di eh
+eh!
 
-bene! di oh
-oh!
+benissimo! di ma
+ma!
 
-na na na. di na
-na!
-
-bene! di papa
+ottimo! di papa
 papa!
 
-bene! di mama
+di ta la
+ta la!
+
+di oh
+oh!
+
+di sì
+sì!
+
+ottimo! di mama
 mama!
 
 di la
 la!
 
-benissimo! di la
-la!
-
-di oh
-oh!
-
-mama mama. di mama
-mama!
+bene! di no
+no!
 
 benissimo! di fa
-fa!
-
-bene! di baba
-baba!
-
-fa fa. di fa
-fa!
-
-ottimo! di da
-da!
-
-ta ta. di ta
-ta!
-
-benissimo! di da
-da!
-
-bene! di pa
-pa!
-
-di lala
-lala!
-
-di baba
-baba!
-
-bravo! di ba
-ba!
-
-tata tata. di tata
-tata!
-
-di ah
-ah!
-
-di eh
-eh!
-
-la la la. di la
-la!
-
-bravo! di fa
 fa!
 
 di ma pa
 ma pa!
 
-sì sì. di sì
-sì!
+benissimo! di ma
+ma!
 
-benissimo! di papa
-papa!
+di oh
+oh!
 
-ca ca ca. di ca
-ca!
+benissimo! di mama
+mama!
+
+di sa
+sa!
 
 benissimo! di baba
 baba!
 
+di ca
+ca!
+
 bravo! di tata
+tata!
+
+di ra
+ra!
+
+benissimo! di da
+da!
+
+di sa
+sa!
+
+bene! di lala
+lala!
+
+bene! di baba
+baba!
+
+di ca
+ca!
+
+benissimo! di na
+na!
+
+di nana
+nana!
+
+sono physisml. di physisml
+physisml!
+
+benissimo! di sa
+sa!
+
+di ah
+ah!
+
+bene! di la
+la!
+
+di ma
+ma!
+
+di fa
+fa!
+
+di nana
+nana!
+
+di lala
+lala!
+
+di na
+na!
+
+bravo! di sa
+sa!
+
+di mama
+mama!
+
+bene! di ah
+ah!
+
+benissimo! di oh
+oh!
+
+benissimo! di ah
+ah!
+
+bravo! di mama
+mama!
+
+di lala
+lala!
+
+benissimo! di lala
+lala!
+
+di papa
+papa!
+
+bravo! di ba
+ba!
+
+bene! di fa
+fa!
+
+di sì
+sì!
+
+di fa
+fa!
+
+bene! di da
+da!
+
+di na
+na!
+
+di sì
+sì!
+
+di ra
+ra!
+
+di ma pa
+ma pa!
+
+ottimo! di papa
+papa!
+
+di ba
+ba!
+
+di oh
+oh!
+
+bravo! di ta
+ta!
+
+ottimo! di oh
+oh!
+
+bravo! di na
+na!
+
+di eh
+eh!
+
+di mama
+mama!
+
+ottimo! di baba
+baba!
+
+bene! di nana
+nana!
+
+di da
+da!
+
+ottimo! di da
+da!
+
+bravo! di ma
+ma!
+
+benissimo! di sì
+sì!
+
+benissimo! di eh
+eh!
+
+bene! di tata
+tata!
+
+di pa
+pa!
+
+benissimo! di ba
+ba!
+
+di ga
+ga!
+
+bene! di no
+no!
+
+di baba
+baba!
+
+bravo! di fa
+fa!
+
+di papa
+papa!
+
+bravo! di baba
+baba!
+
+bene! di pa
+pa!
+
+benissimo! di la
+la!
+
+di no
+no!
+
+di baba
+baba!
+
+di tata
 tata!
 
 di tata
 tata!
 
-di na
-na!
-
-di va
-va!
-
-bene! di tata
-tata!
-
-di no
+ottimo! di no
 no!
-
-ottimo! di lala
-lala!
-
-ottimo! di na
-na!
-
-da da da. di da
-da!
-
-ottimo! di ma
-ma!
-
-di sa
-sa!
-
-oh oh oh. di oh
-oh!
 
 bene! di eh
 eh!
 
-bravo! di ta
+di la
+la!
+
+bravo! di oh
+oh!
+
+bravo! di ra
+ra!
+
+benissimo! di pa
+pa!
+
+di ah
+ah!
+
+di pa
+pa!
+
+di physisml
+physisml!
+
+di ta
+ta!
+
+di fa
+fa!
+
+di ma
+ma!
+
+di sì
+sì!
+
+di ba
+ba!
+
+ottimo! di ra
+ra!
+
+di la
+la!
+
+benissimo! di ta
+ta!
+
+ottimo! di nana
+nana!
+
+bravo! di ah
+ah!
+
+di da
+da!
+
+ottimo! di mama
+mama!
+
+bravo! di da
+da!
+
+di na ba
+na ba!
+
+di pa
+pa!
+
+bene! di sì
+sì!
+
+di ma
+ma!
+
+di no
+no!
+
+bene! di ma
+ma!
+
+benissimo! di ra
+ra!
+
+di sa
+sa!
+
+bravo! di sì
+sì!
+
+ottimo! di ah
+ah!
+
+di ba
+ba!
+
+ottimo! di ma
+ma!
+
+benissimo! di no
+no!
+
+bene! di ba
+ba!
+
+di eh
+eh!
+
+di da
+da!
+
+ottimo! di la
+la!
+
+di ta
+ta!
+
+di no
+no!
+
+bravo! di papa
+papa!
+
+bene! di ta
+ta!
+
+di la
+la!
+
+di va
+va!
+
+ottimo! di ta
 ta!
 
 ottimo! di tata
 tata!
 
+di ta la
+ta la!
+
+bene! di ra
+ra!
+
+di ra
+ra!
+
+ottimo! di pa
+pa!
+
+benissimo! di papa
+papa!
+
+bravo! di nana
+nana!
+
+benissimo! di fa
+fa!
+
 bene! di sa
 sa!
 
-bravo! di pa
-pa!
+ottimo! di sì
+sì!
+
+ottimo! di na
+na!
+
+di na
+na!
+
+di pa ma
+pa ma!
+
+bravo! di no
+no!
 
 di ta
 ta!
@@ -8212,143 +3550,1280 @@ ta!
 ottimo! di fa
 fa!
 
-bravo! di na
-na!
-
-fa fa fa. di fa
-fa!
-
-di pa ma
-pa ma!
-
-bene! di ah
-ah!
-
-bravo! di no
-no!
-
-di da
-da!
-
-bene! di da
-da!
-
-benissimo! di mama
-mama!
-
-bravo! di sì
-sì!
-
-ma ma. di ma
-ma!
-
-bravo! di da
-da!
-
-bene! di nana
-nana!
-
-eh eh. di eh
-eh!
-
-la la. di la
-la!
-
-sono physisml. di physisml
-physisml!
-
-ottimo! di sa
-sa!
-
-bene! di ba
-ba!
-
-benissimo! di ta
-ta!
-
-bravo! di baba
-baba!
-
-ottimo! di papa
-papa!
-
-di pa
-pa!
-
-benissimo! di ah
-ah!
-
-di ba
-ba!
-
-sa sa. di sa
-sa!
-
-di ta la
-ta la!
-
-di ga
-ga!
-
-bravo! di sa
-sa!
-
-bene! di la
-la!
-
-bene! di ma
-ma!
-
-ottimo! di eh
-eh!
-
-di papa
-papa!
-
-ah ah. di ah
-ah!
-
-bravo! di oh
+bene! di oh
 oh!
-
-physisml physisml. di physisml
-physisml!
-
-bravo! di mama
-mama!
-
-bene! di ra
-ra!
-
-benissimo! di oh
-oh!
-
-benissimo! di ba
-ba!
 
 bravo! di la
 la!
 
-sa sa sa. di sa
+di oh
+oh!
+
+ottimo! di lala
+lala!
+
+ottimo! di sa
 sa!
+
+ottimo! di eh
+eh!
+
+benissimo! di nana
+nana!
+
+benissimo! di tata
+tata!
+
+bene! di papa
+papa!
+
+bene! di mama
+mama!
+
+di physisml
+physisml!
+
+bene! di na
+na!
+
+bravo! di lala
+lala!
+
+bravo! di eh
+eh!
+
+ottimo! di ba
+ba!
+
+bravo! di pa
+pa!
+
+bene! di da
+da!
+
+di tata
+tata!
+
+ottimo! di ra
+ra!
+
+ottimo! di ba
+ba!
+
+bravo! di ta
+ta!
+
+bravo! di la
+la!
+
+benissimo! di da
+da!
+
+ottimo! di baba
+baba!
+
+di eh
+eh!
+
+bravo! di papa
+papa!
+
+di na
+na!
+
+di da
+da!
+
+di oh
+oh!
+
+benissimo! di papa
+papa!
+
+bravo! di no
+no!
+
+ottimo! di mama
+mama!
+
+di tata
+tata!
+
+di la
+la!
+
+benissimo! di la
+la!
+
+di ah
+ah!
+
+benissimo! di na
+na!
+
+ottimo! di eh
+eh!
+
+di ma
+ma!
+
+di lala
+lala!
+
+bene! di nana
+nana!
+
+di no
+no!
+
+bravo! di tata
+tata!
+
+di na
+na!
+
+di na ba
+na ba!
+
+di fa
+fa!
+
+bene! di ta
+ta!
+
+di ba
+ba!
+
+benissimo! di oh
+oh!
+
+bene! di ba
+ba!
+
+di pa
+pa!
+
+bravo! di sa
+sa!
+
+di physisml
+physisml!
+
+di ra
+ra!
+
+bravo! di eh
+eh!
+
+di ra
+ra!
+
+bene! di no
+no!
+
+benissimo! di baba
+baba!
+
+benissimo! di pa
+pa!
+
+di ta
+ta!
+
+di sa
+sa!
+
+benissimo! di fa
+fa!
+
+di baba
+baba!
+
+di ta la
+ta la!
+
+ottimo! di sa
+sa!
+
+benissimo! di sì
+sì!
+
+di fa
+fa!
+
+bravo! di ah
+ah!
+
+bravo! di sì
+sì!
+
+ottimo! di ma
+ma!
 
 di sì
 sì!
 
+ottimo! di papa
+papa!
+
+di fa
+fa!
+
+di sa
+sa!
+
+di no
+no!
+
+di pa
+pa!
+
+di ca
+ca!
+
+di oh
+oh!
+
+di mama
+mama!
+
+di la
+la!
+
+bene! di pa
+pa!
+
+di ta
+ta!
+
+benissimo! di ba
+ba!
+
+di lala
+lala!
+
+di da
+da!
+
+bravo! di pa
+pa!
+
+bravo! di nana
+nana!
+
+di ma
+ma!
+
+di nana
+nana!
+
 ottimo! di oh
 oh!
 
-benissimo! di ma
+benissimo! di lala
+lala!
+
+di ga
+ga!
+
+di ta
+ta!
+
+ottimo! di fa
+fa!
+
+bene! di sa
+sa!
+
+bene! di na
+na!
+
+bene! di baba
+baba!
+
+ottimo! di la
+la!
+
+bravo! di mama
+mama!
+
+di va
+va!
+
+bravo! di ra
+ra!
+
+di pa
+pa!
+
+ottimo! di sì
+sì!
+
+ottimo! di ta
+ta!
+
+di physisml
+physisml!
+
+di pa ma
+pa ma!
+
+di papa
+papa!
+
+ottimo! di nana
+nana!
+
+benissimo! di nana
+nana!
+
+ottimo! di ah
+ah!
+
+bravo! di na
+na!
+
+di sì
+sì!
+
+benissimo! di no
+no!
+
+bene! di sì
+sì!
+
+di na
+na!
+
+ottimo! di lala
+lala!
+
+sono physisml. di physisml
+physisml!
+
+di nana
+nana!
+
+bravo! di lala
+lala!
+
+bene! di ma
 ma!
 
 di ma
 ma!
 
+ottimo! di na
+na!
+
+bravo! di da
+da!
+
+di baba
+baba!
+
+bene! di mama
+mama!
+
+bene! di fa
+fa!
+
+bravo! di ma
+ma!
+
+bene! di oh
+oh!
+
+di da
+da!
+
+bene! di tata
+tata!
+
+benissimo! di eh
+eh!
+
+ottimo! di tata
+tata!
+
+ottimo! di pa
+pa!
+
+bravo! di ba
+ba!
+
+di no
+no!
+
+benissimo! di ra
+ra!
+
+bene! di la
+la!
+
+bene! di ra
+ra!
+
+di ba
+ba!
+
+bravo! di oh
+oh!
+
+di ca
+ca!
+
+benissimo! di tata
+tata!
+
+ottimo! di no
+no!
+
+di oh
+oh!
+
+bene! di papa
+papa!
+
+di ba
+ba!
+
+benissimo! di ah
+ah!
+
+bene! di ah
+ah!
+
+di ah
+ah!
+
+di ma pa
+ma pa!
+
+bene! di lala
+lala!
+
+benissimo! di mama
+mama!
+
+di ra
+ra!
+
+bravo! di baba
+baba!
+
+di eh
+eh!
+
+benissimo! di sa
+sa!
+
+di sì
+sì!
+
+benissimo! di ma
+ma!
+
+di papa
+papa!
+
+ottimo! di da
+da!
+
+di mama
+mama!
+
+di sa
+sa!
+
+benissimo! di ta
+ta!
+
+bravo! di fa
+fa!
+
+bene! di eh
+eh!
+
+di la
+la!
+
+ottimo! di ra
+ra!
+
+bravo! di ma
+ma!
+
+di no
+no!
+
+bravo! di ra
+ra!
+
+di tata
+tata!
+
+di oh
+oh!
+
+di eh
+eh!
+
+di na
+na!
+
+di physisml
+physisml!
+
+di sì
+sì!
+
+di ga
+ga!
+
+benissimo! di papa
+papa!
+
+benissimo! di pa
+pa!
+
+di ma pa
+ma pa!
+
+bene! di da
+da!
+
+benissimo! di ta
+ta!
+
+benissimo! di ba
+ba!
+
+di ca
+ca!
+
+di pa
+pa!
+
+di sa
+sa!
+
+benissimo! di ah
+ah!
+
+benissimo! di nana
+nana!
+
+di va
+va!
+
+bene! di ba
+ba!
+
+di eh
+eh!
+
+di papa
+papa!
+
+di ma
+ma!
+
+di lala
+lala!
+
+di nana
+nana!
+
+bene! di papa
+papa!
+
+benissimo! di tata
+tata!
+
+bravo! di pa
+pa!
+
+di pa
+pa!
+
+bravo! di sa
+sa!
+
+ottimo! di baba
+baba!
+
+bene! di mama
+mama!
+
+bene! di sì
+sì!
+
+benissimo! di da
+da!
+
+di ah
+ah!
+
+di oh
+oh!
+
+di papa
+papa!
+
+di lala
+lala!
+
+di mama
+mama!
+
+ottimo! di sì
+sì!
+
+di na
+na!
+
+ottimo! di papa
+papa!
+
+sono physisml. di physisml
+physisml!
+
+ottimo! di oh
+oh!
+
+bene! di na
+na!
+
+bravo! di oh
+oh!
+
+benissimo! di ma
+ma!
+
+di ba
+ba!
+
+di baba
+baba!
+
+ottimo! di sa
+sa!
+
+di ca
+ca!
+
+bene! di lala
+lala!
+
+di la
+la!
+
+ottimo! di ta
+ta!
+
+bene! di no
+no!
+
+bravo! di no
+no!
+
+di ma
+ma!
+
+benissimo! di lala
+lala!
+
+ottimo! di fa
+fa!
+
+bene! di eh
+eh!
+
+bene! di oh
+oh!
+
+di ba
+ba!
+
+benissimo! di oh
+oh!
+
+benissimo! di baba
+baba!
+
+bravo! di la
+la!
+
+ottimo! di ba
+ba!
+
+bene! di ah
+ah!
+
+bravo! di sì
+sì!
+
+ottimo! di lala
+lala!
+
+di da
+da!
+
+di nana
+nana!
+
 bene! di ta
 ta!
 
+di ta
+ta!
+
+bene! di tata
+tata!
+
+bene! di pa
+pa!
+
+di sa
+sa!
+
+bravo! di baba
+baba!
+
+bravo! di ah
+ah!
+
+benissimo! di mama
+mama!
+
+di ta la
+ta la!
+
+ottimo! di eh
+eh!
+
+benissimo! di la
+la!
+
+bravo! di fa
+fa!
+
+di sì
+sì!
+
+benissimo! di na
+na!
+
+di fa
+fa!
+
+benissimo! di sa
+sa!
+
+di mama
+mama!
+
+benissimo! di fa
+fa!
+
+di ma
+ma!
+
+di da
+da!
+
+ottimo! di tata
+tata!
+
+ottimo! di la
+la!
+
+bravo! di tata
+tata!
+
+di ra
+ra!
+
+bravo! di lala
+lala!
+
+bravo! di da
+da!
+
+di no
+no!
+
+bene! di la
+la!
+
+di na
+na!
+
+bene! di sa
+sa!
+
+bene! di fa
+fa!
+
+di ra
+ra!
+
+bene! di nana
+nana!
+
+di ta
+ta!
+
+di ba
+ba!
+
+ottimo! di mama
+mama!
+
+di physisml
+physisml!
+
+bene! di baba
+baba!
+
+di la
+la!
+
+di tata
+tata!
+
+ottimo! di ah
+ah!
+
+ottimo! di na
+na!
+
+di pa ma
+pa ma!
+
+ottimo! di no
+no!
+
+ottimo! di nana
+nana!
+
+bravo! di nana
+nana!
+
+bravo! di mama
+mama!
+
+bravo! di papa
+papa!
+
+di ta
+ta!
+
+bravo! di ba
+ba!
+
+di da
+da!
+
+benissimo! di eh
+eh!
+
+di la
+la!
+
+bravo! di na
+na!
+
+ottimo! di da
+da!
+
+di pa
+pa!
+
+di fa
+fa!
+
+bene! di ma
+ma!
+
+di oh
+oh!
+
+di baba
+baba!
+
+bravo! di ta
+ta!
+
+di ah
+ah!
+
+di na ba
+na ba!
+
+di sì
+sì!
+
+ottimo! di ma
+ma!
+
+di no
+no!
+
 benissimo! di sì
 sì!
+
+bravo! di eh
+eh!
+
+benissimo! di no
+no!
+
+di fa
+fa!
+
+benissimo! di ra
+ra!
+
+bene! di ra
+ra!
+
+di sa
+sa!
+
+di ra
+ra!
+
+ottimo! di pa
+pa!
+
+di ga
+ga!
+
+di tata
+tata!
+
+ottimo! di na
+na!
+
+di ra
+ra!
+
+benissimo! di mama
+mama!
+
+di pa
+pa!
+
+bene! di oh
+oh!
+
+di no
+no!
+
+bravo! di ta
+ta!
+
+bravo! di nana
+nana!
+
+di ah
+ah!
+
+benissimo! di nana
+nana!
+
+ottimo! di no
+no!
+
+ottimo! di pa
+pa!
+
+di na
+na!
+
+benissimo! di na
+na!
+
+bene! di eh
+eh!
+
+di na
+na!
+
+di no
+no!
+
+bravo! di ra
+ra!
+
+di sì
+sì!
+
+bene! di pa
+pa!
+
+di oh
+oh!
+
+di pa
+pa!
+
+benissimo! di la
+la!
+
+di oh
+oh!
+
+bene! di ba
+ba!
+
+ottimo! di mama
+mama!
+
+di no
+no!
+
+bene! di ah
+ah!
+
+bravo! di ba
+ba!
+
+bene! di ra
+ra!
+
+benissimo! di baba
+baba!
+
+benissimo! di ra
+ra!
+
+benissimo! di papa
+papa!
+
+di fa
+fa!
+
+di nana
+nana!
+
+bravo! di papa
+papa!
+
+bravo! di eh
+eh!
+
+ottimo! di sa
+sa!
+
+bravo! di ma
+ma!
+
+bene! di sa
+sa!
+
+ottimo! di ba
+ba!
+
+di ma
+ma!
+
+bene! di lala
+lala!
+
+ottimo! di eh
+eh!
+
+di sa
+sa!
+
+di sa
+sa!
+
+ottimo! di fa
+fa!
+
+di sì
+sì!
+
+di ta la
+ta la!
+
+bene! di sì
+sì!
+
+ottimo! di tata
+tata!
+
+di fa
+fa!
+
+bene! di no
+no!
+
+ottimo! di ra
+ra!
+
+bravo! di ah
+ah!
+
+bene! di da
+da!
+
+di eh
+eh!
+
+bene! di tata
+tata!
+
+di pa
+pa!
+
+di ah
+ah!
+
+bravo! di na
+na!
+
+di physisml
+physisml!
+
+ottimo! di oh
+oh!
+
+benissimo! di ah
+ah!
+
+di ra
+ra!
+
+ottimo! di nana
+nana!
+
+di ba
+ba!
+
+di papa
+papa!
+
+bene! di na
+na!
+
+di ta
+ta!
+
+di baba
+baba!
+
+di mama
+mama!
+
+bravo! di mama
+mama!
+
+benissimo! di lala
+lala!
+
+di ba
+ba!
+
+benissimo! di sì
+sì!
+
+ottimo! di da
+da!
+
+bravo! di sa
+sa!
+
+ottimo! di baba
+baba!
+
+di da
+da!
+
+bene! di ta
+ta!
+
+ottimo! di ah
+ah!
+
+di sì
+sì!
+
+benissimo! di sa
+sa!
+
+benissimo! di da
+da!
+
+bene! di papa
+papa!
+
+di da
+da!
+
+ottimo! di lala
+lala!
+
+di va
+va!
+
+benissimo! di tata
+tata!
+
+bravo! di la
+la!
+
+di na
+na!
+
+bene! di nana
+nana!
+
+ottimo! di sì
+sì!
+
+di la
+la!
+
+bravo! di no
+no!
+
+di nana
+nana!
+
+di ma pa
+ma pa!
+
+bravo! di pa
+pa!
+
+di ba
+ba!
+
+ottimo! di ta
+ta!
+
+di tata
+tata!
+
+benissimo! di pa
+pa!
+
+di la
+la!
+
+di ra
+ra!
+
+di fa
+fa!
+
+di la
+la!
 
 di ca
 ca!
@@ -8356,70 +4831,2536 @@ ca!
 benissimo! di eh
 eh!
 
-no no. di no
-no!
-
-pa pa. di pa
-pa!
-
-di na ba
-na ba!
-
-bravo! di lala
+di lala
 lala!
 
-bravo! di ma
+di ta
+ta!
+
+bravo! di sì
+sì!
+
+bene! di la
+la!
+
+di da
+da!
+
+benissimo! di ta
+ta!
+
+bravo! di baba
+baba!
+
+bene! di ma
 ma!
 
-bravo! di ra
-ra!
+ottimo! di papa
+papa!
+
+di physisml
+physisml!
+
+di papa
+papa!
+
+di sa
+sa!
+
+di ma
+ma!
+
+di ta
+ta!
+
+di baba
+baba!
+
+di ca
+ca!
 
 ottimo! di la
 la!
 
-ottimo! di mama
-mama!
+bravo! di tata
+tata!
 
-ra ra ra. di ra
-ra!
+benissimo! di oh
+oh!
 
-ba ba ba. di ba
+sono physisml. di physisml
+physisml!
+
+bravo! di fa
+fa!
+
+bene! di baba
+baba!
+
+benissimo! di no
+no!
+
+bravo! di oh
+oh!
+
+di lala
+lala!
+
+bene! di fa
+fa!
+
+di ma
+ma!
+
+di pa ma
+pa ma!
+
+di eh
+eh!
+
+benissimo! di ba
 ba!
 
-na na. di na
-na!
+ottimo! di ma
+ma!
 
-bene! di lala
+di mama
+mama!
+
+bene! di mama
+mama!
+
+bravo! di lala
 lala!
+
+bravo! di da
+da!
+
+benissimo! di fa
+fa!
+
+di na ba
+na ba!
+
+di oh
+oh!
+
+benissimo! di ma
+ma!
+
+bene! di da
+da!
+
+di ta
+ta!
+
+di ta la
+ta la!
+
+ottimo! di papa
+papa!
+
+benissimo! di la
+la!
+
+bene! di ra
+ra!
+
+di da
+da!
+
+di tata
+tata!
+
+di ra
+ra!
+
+bene! di ta
+ta!
+
+bravo! di ah
+ah!
+
+di da
+da!
+
+bravo! di papa
+papa!
+
+di oh
+oh!
+
+sono physisml. di physisml
+physisml!
+
+bravo! di ta
+ta!
+
+di ca
+ca!
+
+bene! di baba
+baba!
+
+ottimo! di tata
+tata!
+
+bravo! di oh
+oh!
+
+di oh
+oh!
+
+ottimo! di fa
+fa!
+
+bene! di papa
+papa!
+
+di ra
+ra!
+
+benissimo! di fa
+fa!
+
+bene! di eh
+eh!
+
+ottimo! di ra
+ra!
+
+benissimo! di ma
+ma!
+
+di ma pa
+ma pa!
 
 ottimo! di sì
 sì!
 
+di nana
+nana!
+
+di papa
+papa!
+
+benissimo! di papa
+papa!
+
+di na
+na!
+
+benissimo! di baba
+baba!
+
+di mama
+mama!
+
+benissimo! di ah
+ah!
+
+di ma
+ma!
+
+benissimo! di sì
+sì!
+
+ottimo! di baba
+baba!
+
+benissimo! di tata
+tata!
+
+ottimo! di la
+la!
+
+di la
+la!
+
+di pa
+pa!
+
+ottimo! di no
+no!
+
+di fa
+fa!
+
+ottimo! di ta
+ta!
+
+benissimo! di sa
+sa!
+
+di ba
+ba!
+
+di na
+na!
+
+di ra
+ra!
+
+bravo! di tata
+tata!
+
+ottimo! di lala
+lala!
+
+bene! di mama
+mama!
+
+benissimo! di eh
+eh!
+
+bravo! di la
+la!
+
+di fa
+fa!
+
+bene! di tata
+tata!
+
+benissimo! di mama
+mama!
+
+ottimo! di eh
+eh!
+
+di eh
+eh!
+
+di papa
+papa!
+
+ottimo! di ba
+ba!
+
+bravo! di sì
+sì!
+
+di la
+la!
+
+bravo! di baba
+baba!
+
+ottimo! di ah
+ah!
+
+di ma
+ma!
+
+bene! di fa
+fa!
+
+benissimo! di pa
+pa!
+
+di lala
+lala!
+
+bene! di pa
+pa!
+
+di sì
+sì!
+
+di baba
+baba!
+
 benissimo! di lala
 lala!
 
-oh oh. di oh
+benissimo! di ra
+ra!
+
+di sa
+sa!
+
+di eh
+eh!
+
+bene! di sì
+sì!
+
+di ta
+ta!
+
+di ga
+ga!
+
+di nana
+nana!
+
+bene! di no
+no!
+
+bravo! di ba
+ba!
+
+di sì
+sì!
+
+ottimo! di ma
+ma!
+
+benissimo! di no
+no!
+
+ottimo! di pa
+pa!
+
+di ba
+ba!
+
+bravo! di na
+na!
+
+bravo! di no
+no!
+
+di no
+no!
+
+bravo! di pa
+pa!
+
+bravo! di mama
+mama!
+
+di ma
+ma!
+
+bene! di sa
+sa!
+
+benissimo! di oh
 oh!
+
+bene! di lala
+lala!
+
+benissimo! di ba
+ba!
+
+di sa
+sa!
+
+bravo! di nana
+nana!
+
+di pa ma
+pa ma!
+
+bene! di la
+la!
+
+di mama
+mama!
+
+di ah
+ah!
+
+di no
+no!
+
+di va
+va!
+
+di na
+na!
+
+bravo! di sa
+sa!
+
+bravo! di ra
+ra!
+
+di tata
+tata!
+
+di na ba
+na ba!
+
+bravo! di ma
+ma!
 
 benissimo! di nana
 nana!
 
-da da. di da
+di pa
+pa!
+
+di ah
+ah!
+
+ottimo! di nana
+nana!
+
+bene! di oh
+oh!
+
+di la
+la!
+
+di pa
+pa!
+
+bene! di nana
+nana!
+
+ottimo! di sa
+sa!
+
+di sa
+sa!
+
+di ta
+ta!
+
+di oh
+oh!
+
+di physisml
+physisml!
+
+bravo! di lala
+lala!
+
+ottimo! di da
+da!
+
+ottimo! di mama
+mama!
+
+di da
+da!
+
+bravo! di fa
+fa!
+
+di ba
+ba!
+
+ottimo! di na
+na!
+
+bene! di ba
+ba!
+
+di baba
+baba!
+
+di lala
+lala!
+
+bene! di ma
+ma!
+
+benissimo! di na
+na!
+
+bene! di na
+na!
+
+di sì
+sì!
+
+di fa
+fa!
+
+benissimo! di da
+da!
+
+bravo! di da
+da!
+
+di physisml
+physisml!
+
+bravo! di eh
+eh!
+
+di no
+no!
+
+benissimo! di ta
+ta!
+
+bene! di ah
+ah!
+
+di ca
+ca!
+
+ottimo! di oh
+oh!
+
+benissimo! di pa
+pa!
+
+di la
+la!
+
+di ba
+ba!
+
+ottimo! di sì
+sì!
+
+bravo! di oh
+oh!
+
+di ah
+ah!
+
+bravo! di nana
+nana!
+
+ottimo! di na
+na!
+
+bene! di baba
+baba!
+
+benissimo! di oh
+oh!
+
+di sì
+sì!
+
+di ma
+ma!
+
+ottimo! di ma
+ma!
+
+di ta la
+ta la!
+
+di oh
+oh!
+
+bene! di la
+la!
+
+bene! di papa
+papa!
+
+di ma
+ma!
+
+bene! di sì
+sì!
+
+di na
+na!
+
+di lala
+lala!
+
+bene! di ba
+ba!
+
+di ah
+ah!
+
+bene! di tata
+tata!
+
+bene! di ah
+ah!
+
+bene! di ma
+ma!
+
+bravo! di ba
+ba!
+
+benissimo! di lala
+lala!
+
+benissimo! di da
+da!
+
+di da
 da!
 
 bene! di no
 no!
 
-bene! di sì
+bravo! di sa
+sa!
+
+bravo! di da
+da!
+
+benissimo! di tata
+tata!
+
+di fa
+fa!
+
+benissimo! di baba
+baba!
+
+di na
+na!
+
+bravo! di no
+no!
+
+di no
+no!
+
+bene! di pa
+pa!
+
+benissimo! di sì
 sì!
 
-ottimo! di pa
+ottimo! di ta
+ta!
+
+di sa
+sa!
+
+bravo! di ah
+ah!
+
+di mama
+mama!
+
+di lala
+lala!
+
+ottimo! di la
+la!
+
+benissimo! di sa
+sa!
+
+ottimo! di lala
+lala!
+
+bravo! di papa
+papa!
+
+bene! di sa
+sa!
+
+di no
+no!
+
+bene! di na
+na!
+
+di mama
+mama!
+
+benissimo! di la
+la!
+
+di nana
+nana!
+
+di ba
+ba!
+
+bene! di da
+da!
+
+di va
+va!
+
+ottimo! di tata
+tata!
+
+benissimo! di ma
+ma!
+
+bene! di ta
+ta!
+
+bravo! di sì
+sì!
+
+bravo! di mama
+mama!
+
+di ta
+ta!
+
+ottimo! di sa
+sa!
+
+benissimo! di ra
+ra!
+
+di ra
+ra!
+
+di la
+la!
+
+ottimo! di eh
+eh!
+
+di na ba
+na ba!
+
+ottimo! di ba
+ba!
+
+di sì
+sì!
+
+di physisml
+physisml!
+
+ottimo! di oh
+oh!
+
+di ma
+ma!
+
+benissimo! di na
+na!
+
+di ga
+ga!
+
+ottimo! di baba
+baba!
+
+ottimo! di da
+da!
+
+di papa
+papa!
+
+di la
+la!
+
+di fa
+fa!
+
+di pa
 pa!
+
+bravo! di ra
+ra!
+
+ottimo! di fa
+fa!
+
+benissimo! di nana
+nana!
+
+bene! di ra
+ra!
+
+di pa ma
+pa ma!
+
+bene! di oh
+oh!
+
+bravo! di pa
+pa!
+
+ottimo! di nana
+nana!
+
+bravo! di la
+la!
+
+di baba
+baba!
+
+di ra
+ra!
+
+di ca
+ca!
+
+bravo! di fa
+fa!
+
+bravo! di lala
+lala!
+
+bene! di lala
+lala!
+
+bravo! di ta
+ta!
+
+di physisml
+physisml!
+
+di ca
+ca!
+
+di ba
+ba!
+
+di eh
+eh!
+
+di ra
+ra!
+
+sono physisml. di physisml
+physisml!
+
+di baba
+baba!
+
+di da
+da!
+
+bene! di mama
+mama!
+
+ottimo! di papa
+papa!
+
+di da
+da!
+
+di sì
+sì!
+
+benissimo! di fa
+fa!
+
+bene! di fa
+fa!
+
+benissimo! di papa
+papa!
+
+ottimo! di ah
+ah!
+
+ottimo! di no
+no!
+
+di ma pa
+ma pa!
+
+bene! di eh
+eh!
+
+di fa
+fa!
+
+di ta
+ta!
+
+di tata
+tata!
+
+di tata
+tata!
+
+di oh
+oh!
+
+bravo! di ma
+ma!
+
+di oh
+oh!
+
+di sa
+sa!
+
+bravo! di baba
+baba!
+
+benissimo! di ba
+ba!
+
+bene! di nana
+nana!
+
+benissimo! di ta
+ta!
+
+ottimo! di ra
+ra!
 
 benissimo! di no
 no!
 
+benissimo! di mama
+mama!
+
+bravo! di tata
+tata!
+
+bravo! di eh
+eh!
+
+di na
+na!
+
+di ta
+ta!
+
+di pa
+pa!
+
+benissimo! di ah
+ah!
+
+bravo! di na
+na!
+
+di pa
+pa!
+
+benissimo! di eh
+eh!
+
+di papa
+papa!
+
+ottimo! di pa
+pa!
+
+di eh
+eh!
+
+di sa
+sa!
+
+di nana
+nana!
+
+ottimo! di mama
+mama!
+
+di no
+no!
+
+benissimo! di tata
+tata!
+
+di ta la
+ta la!
+
+di eh
+eh!
+
+di physisml
+physisml!
+
+di sì
+sì!
+
+bene! di ba
+ba!
+
+benissimo! di sì
+sì!
+
+di ma
+ma!
+
+di da
+da!
+
+di oh
+oh!
+
+bene! di sa
+sa!
+
+di oh
+oh!
+
+di eh
+eh!
+
+bravo! di pa
+pa!
+
+ottimo! di nana
+nana!
+
+di nana
+nana!
+
+di ta
+ta!
+
+di ga
+ga!
+
+benissimo! di nana
+nana!
+
+di nana
+nana!
+
+benissimo! di mama
+mama!
+
+ottimo! di da
+da!
+
+bravo! di fa
+fa!
+
+ottimo! di ra
+ra!
+
+bravo! di eh
+eh!
+
+di fa
+fa!
+
+benissimo! di fa
+fa!
+
+ottimo! di baba
+baba!
+
+benissimo! di ta
+ta!
+
+bene! di mama
+mama!
+
+benissimo! di ma
+ma!
+
+di ma
+ma!
+
+benissimo! di la
+la!
+
+bene! di la
+la!
+
+di mama
+mama!
+
+di la
+la!
+
 bene! di na
+na!
+
+di no
+no!
+
+bene! di ra
+ra!
+
+benissimo! di sa
+sa!
+
+bene! di papa
+papa!
+
+di ra
+ra!
+
+bravo! di da
+da!
+
+di ba
+ba!
+
+di pa
+pa!
+
+benissimo! di ba
+ba!
+
+bene! di nana
+nana!
+
+di sa
+sa!
+
+bene! di eh
+eh!
+
+di ta
+ta!
+
+di pa ma
+pa ma!
+
+bene! di da
+da!
+
+benissimo! di ra
+ra!
+
+benissimo! di eh
+eh!
+
+di pa
+pa!
+
+di ba
+ba!
+
+di oh
+oh!
+
+bravo! di no
+no!
+
+ottimo! di sì
+sì!
+
+di baba
+baba!
+
+di ra
+ra!
+
+ottimo! di ma
+ma!
+
+ottimo! di fa
+fa!
+
+benissimo! di ah
+ah!
+
+bene! di baba
+baba!
+
+di na ba
+na ba!
+
+di ca
+ca!
+
+benissimo! di papa
+papa!
+
+bene! di pa
+pa!
+
+bravo! di ma
+ma!
+
+bene! di sì
+sì!
+
+di tata
+tata!
+
+di physisml
+physisml!
+
+di fa
+fa!
+
+ottimo! di eh
+eh!
+
+di fa
+fa!
+
+ottimo! di oh
+oh!
+
+bravo! di ta
+ta!
+
+ottimo! di mama
+mama!
+
+bravo! di sa
+sa!
+
+di mama
+mama!
+
+benissimo! di na
+na!
+
+bene! di oh
+oh!
+
+di da
+da!
+
+di tata
+tata!
+
+di ta
+ta!
+
+bravo! di lala
+lala!
+
+bene! di fa
+fa!
+
+di papa
+papa!
+
+di sì
+sì!
+
+benissimo! di baba
+baba!
+
+ottimo! di ta
+ta!
+
+di lala
+lala!
+
+di na
+na!
+
+bene! di ta
+ta!
+
+di ca
+ca!
+
+bravo! di tata
+tata!
+
+di ra
+ra!
+
+ottimo! di papa
+papa!
+
+bravo! di la
+la!
+
+di la
+la!
+
+di ma
+ma!
+
+di va
+va!
+
+di ah
+ah!
+
+bravo! di baba
+baba!
+
+di na
+na!
+
+ottimo! di sa
+sa!
+
+di la
+la!
+
+di sa
+sa!
+
+di no
+no!
+
+bravo! di papa
+papa!
+
+bravo! di nana
+nana!
+
+di ma pa
+ma pa!
+
+di sa
+sa!
+
+di sì
+sì!
+
+di pa
+pa!
+
+di ba
+ba!
+
+benissimo! di da
+da!
+
+bene! di no
+no!
+
+bravo! di ra
+ra!
+
+bravo! di ah
+ah!
+
+sono physisml. di physisml
+physisml!
+
+bene! di tata
+tata!
+
+ottimo! di ah
+ah!
+
+ottimo! di na
+na!
+
+di da
+da!
+
+bravo! di oh
+oh!
+
+benissimo! di no
+no!
+
+di baba
+baba!
+
+bravo! di sì
+sì!
+
+ottimo! di ba
+ba!
+
+di ah
+ah!
+
+bene! di ma
+ma!
+
+di no
+no!
+
+bravo! di mama
+mama!
+
+benissimo! di oh
+oh!
+
+ottimo! di tata
+tata!
+
+ottimo! di la
+la!
+
+bravo! di ba
+ba!
+
+bene! di ah
+ah!
+
+di papa
+papa!
+
+di na
+na!
+
+di lala
+lala!
+
+bene! di lala
+lala!
+
+benissimo! di pa
+pa!
+
+ottimo! di pa
+pa!
+
+bravo! di na
+na!
+
+ottimo! di lala
+lala!
+
+ottimo! di no
+no!
+
+benissimo! di lala
+lala!
+
+di sì
+sì!
+
+benissimo! di baba
+baba!
+
+bravo! di da
+da!
+
+di ma
+ma!
+
+di eh
+eh!
+
+bene! di no
+no!
+
+di la
+la!
+
+benissimo! di ba
+ba!
+
+di tata
+tata!
+
+bene! di ma
+ma!
+
+bene! di ah
+ah!
+
+di fa
+fa!
+
+bene! di pa
+pa!
+
+di oh
+oh!
+
+bene! di papa
+papa!
+
+bravo! di sa
+sa!
+
+di ah
+ah!
+
+benissimo! di nana
+nana!
+
+bravo! di ra
+ra!
+
+bravo! di mama
+mama!
+
+di ma
+ma!
+
+di fa
+fa!
+
+di ta la
+ta la!
+
+benissimo! di eh
+eh!
+
+di no
+no!
+
+ottimo! di na
+na!
+
+bene! di sa
+sa!
+
+ottimo! di fa
+fa!
+
+bravo! di ah
+ah!
+
+benissimo! di mama
+mama!
+
+di ma pa
+ma pa!
+
+ottimo! di mama
+mama!
+
+benissimo! di na
+na!
+
+benissimo! di lala
+lala!
+
+di pa
+pa!
+
+bene! di sì
+sì!
+
+ottimo! di da
+da!
+
+di da
+da!
+
+di tata
+tata!
+
+ottimo! di ma
+ma!
+
+di baba
+baba!
+
+benissimo! di pa
+pa!
+
+bravo! di la
+la!
+
+di ta
+ta!
+
+benissimo! di oh
+oh!
+
+bravo! di oh
+oh!
+
+bravo! di ba
+ba!
+
+benissimo! di ah
+ah!
+
+di na
+na!
+
+di ba
+ba!
+
+bravo! di na
+na!
+
+bravo! di fa
+fa!
+
+bene! di la
+la!
+
+ottimo! di oh
+oh!
+
+bravo! di lala
+lala!
+
+di la
+la!
+
+ottimo! di la
+la!
+
+bene! di tata
+tata!
+
+di na
+na!
+
+bravo! di tata
+tata!
+
+benissimo! di sa
+sa!
+
+benissimo! di ta
+ta!
+
+di eh
+eh!
+
+di da
+da!
+
+bene! di ta
+ta!
+
+benissimo! di la
+la!
+
+bravo! di papa
+papa!
+
+bene! di da
+da!
+
+benissimo! di sì
+sì!
+
+ottimo! di sa
+sa!
+
+di va
+va!
+
+benissimo! di tata
+tata!
+
+ottimo! di no
+no!
+
+di ma
+ma!
+
+di ra
+ra!
+
+di sa
+sa!
+
+di ta
+ta!
+
+di sì
+sì!
+
+di papa
+papa!
+
+di oh
+oh!
+
+di pa
+pa!
+
+bravo! di ma
+ma!
+
+bene! di fa
+fa!
+
+bravo! di eh
+eh!
+
+di no
+no!
+
+di ah
+ah!
+
+ottimo! di baba
+baba!
+
+bravo! di pa
+pa!
+
+di lala
+lala!
+
+ottimo! di ah
+ah!
+
+benissimo! di no
+no!
+
+bene! di nana
+nana!
+
+di pa ma
+pa ma!
+
+di na
+na!
+
+bene! di ba
+ba!
+
+di sa
+sa!
+
+bene! di baba
+baba!
+
+di oh
+oh!
+
+bravo! di sì
+sì!
+
+di lala
+lala!
+
+ottimo! di pa
+pa!
+
+benissimo! di da
+da!
+
+di ta
+ta!
+
+bene! di eh
+eh!
+
+ottimo! di papa
+papa!
+
+di ra
+ra!
+
+bene! di mama
+mama!
+
+di fa
+fa!
+
+bravo! di no
+no!
+
+ottimo! di eh
+eh!
+
+di na ba
+na ba!
+
+ottimo! di lala
+lala!
+
+di pa
+pa!
+
+di mama
+mama!
+
+ottimo! di tata
+tata!
+
+di ca
+ca!
+
+di ca
+ca!
+
+di la
+la!
+
+sono physisml. di physisml
+physisml!
+
+di sa
+sa!
+
+ottimo! di ba
+ba!
+
+bene! di ra
+ra!
+
+di nana
+nana!
+
+di baba
+baba!
+
+bravo! di baba
+baba!
+
+bravo! di nana
+nana!
+
+ottimo! di sì
+sì!
+
+di no
+no!
+
+bene! di oh
+oh!
+
+di papa
+papa!
+
+di physisml
+physisml!
+
+benissimo! di ra
+ra!
+
+benissimo! di ma
+ma!
+
+bene! di lala
+lala!
+
+bravo! di ta
+ta!
+
+ottimo! di ra
+ra!
+
+di ga
+ga!
+
+ottimo! di nana
+nana!
+
+benissimo! di papa
+papa!
+
+di mama
+mama!
+
+di sì
+sì!
+
+bene! di na
+na!
+
+benissimo! di fa
+fa!
+
+di physisml
+physisml!
+
+di ra
+ra!
+
+di da
+da!
+
+ottimo! di ta
+ta!
+
+di ba
+ba!
+
+di nana
+nana!
+
+di ba
+ba!
+
+ottimo! di na
+na!
+
+bene! di ma
+ma!
+
+bene! di sì
+sì!
+
+bravo! di nana
+nana!
+
+bravo! di fa
+fa!
+
+di ba
+ba!
+
+di oh
+oh!
+
+di fa
+fa!
+
+bravo! di oh
+oh!
+
+bravo! di ta
+ta!
+
+di ta
+ta!
+
+bravo! di sa
+sa!
+
+ottimo! di nana
+nana!
+
+di fa
+fa!
+
+di nana
+nana!
+
+bravo! di pa
+pa!
+
+di da
+da!
+
+di baba
+baba!
+
+benissimo! di tata
+tata!
+
+di ta
+ta!
+
+di oh
+oh!
+
+di pa
+pa!
+
+bene! di papa
+papa!
+
+di eh
+eh!
+
+bene! di no
+no!
+
+ottimo! di ta
+ta!
+
+ottimo! di sì
+sì!
+
+ottimo! di ah
+ah!
+
+bravo! di papa
+papa!
+
+di ma
+ma!
+
+ottimo! di no
+no!
+
+ottimo! di ba
+ba!
+
+bene! di tata
+tata!
+
+ottimo! di fa
+fa!
+
+ottimo! di sa
+sa!
+
+di ca
+ca!
+
+bravo! di baba
+baba!
+
+bene! di la
+la!
+
+ottimo! di ma
+ma!
+
+di oh
+oh!
+
+di mama
+mama!
+
+di da
+da!
+
+benissimo! di ra
+ra!
+
+benissimo! di mama
+mama!
+
+di la
+la!
+
+benissimo! di ba
+ba!
+
+ottimo! di da
+da!
+
+benissimo! di baba
+baba!
+
+di lala
+lala!
+
+benissimo! di eh
+eh!
+
+bene! di sa
+sa!
+
+benissimo! di sì
+sì!
+
+di ta
+ta!
+
+benissimo! di ma
+ma!
+
+di da
+da!
+
+bene! di ra
+ra!
+
+di sì
+sì!
+
+di ba
+ba!
+
+di ra
+ra!
+
+benissimo! di ah
+ah!
+
+bravo! di ba
+ba!
+
+ottimo! di pa
+pa!
+
+bravo! di tata
+tata!
+
+di ma pa
+ma pa!
+
+di pa ma
+pa ma!
+
+di ga
+ga!
+
+di papa
+papa!
+
+bene! di ta
+ta!
+
+di ra
+ra!
+
+bene! di fa
+fa!
+
+di ah
+ah!
+
+di sì
+sì!
+
+di ca
+ca!
+
+sono physisml. di physisml
+physisml!
+
+bravo! di eh
+eh!
+
+benissimo! di ta
+ta!
+
+di nana
+nana!
+
+di ra
+ra!
+
+benissimo! di papa
+papa!
+
+bravo! di la
+la!
+
+di sa
+sa!
+
+bene! di na
+na!
+
+benissimo! di nana
+nana!
+
+bene! di ba
+ba!
+
+benissimo! di oh
+oh!
+
+di baba
+baba!
+
+bravo! di lala
+lala!
+
+bene! di mama
+mama!
+
+di ma
+ma!
+
+di na ba
+na ba!
+
+di no
+no!
+
+benissimo! di sa
+sa!
+
+benissimo! di na
+na!
+
+di na
+na!
+
+di tata
+tata!
+
+ottimo! di ra
+ra!
+
+di no
+no!
+
+bene! di ah
+ah!
+
+bene! di pa
+pa!
+
+benissimo! di pa
+pa!
+
+bene! di baba
+baba!
+
+di physisml
+physisml!
+
+bravo! di mama
+mama!
+
+di sì
+sì!
+
+bravo! di da
+da!
+
+ottimo! di lala
+lala!
+
+bene! di nana
+nana!
+
+di na
+na!
+
+di la
+la!
+
+ottimo! di baba
+baba!
+
+bravo! di ra
+ra!
+
+di va
+va!
+
+ottimo! di la
+la!
+
+bravo! di sì
+sì!
+
+di ta la
+ta la!
+
+benissimo! di no
+no!
+
+bene! di lala
+lala!
+
+ottimo! di papa
+papa!
+
+di ma
+ma!
+
+benissimo! di fa
+fa!
+
+bravo! di no
+no!
+
+bravo! di na
+na!
+
+ottimo! di eh
+eh!
+
+di papa
+papa!
+
+di na
+na!
+
+bene! di oh
+oh!
+
+bene! di eh
+eh!
+
+di physisml
+physisml!
+
+di la
+la!
+
+ottimo! di tata
+tata!
+
+di ba
+ba!
+
+di mama
+mama!
+
+bene! di da
+da!
+
+di lala
+lala!
+
+di fa
+fa!
+
+benissimo! di la
+la!
+
+di eh
+eh!
+
+ottimo! di mama
+mama!
+
+di tata
+tata!
+
+di ah
+ah!
+
+di pa
+pa!
+
+benissimo! di da
+da!
+
+bravo! di ma
+ma!
+
+bravo! di ah
+ah!
+
+di pa
+pa!
+
+di sa
+sa!
+
+di no
+no!
+
+di sa
+sa!
+
+ottimo! di oh
+oh!
+
+benissimo! di lala
+lala!
+
+di pa
+pa!
+
+di no
+no!
+
+ottimo! di no
+no!
+
+benissimo! di fa
+fa!
+
+di nana
+nana!
+
+di ta
+ta!
+
+ottimo! di fa
+fa!
+
+di eh
+eh!
+
+bene! di oh
+oh!
+
+sono physisml. di physisml
+physisml!
+
+bravo! di ba
+ba!
+
+di la
+la!
+
+bravo! di da
+da!
+
+di ma pa
+ma pa!
+
+di ah
+ah!
+
+di lala
+lala!
+
+benissimo! di no
+no!
+
+di na
+na!
+
+benissimo! di baba
+baba!
+
+di na ba
+na ba!
+
+bravo! di sì
+sì!
+
+bene! di no
+no!
+
+benissimo! di lala
+lala!
+
+di da
+da!
+
+di ra
+ra!
+
+bene! di ta
+ta!
+
+bravo! di eh
+eh!
+
+di sa
+sa!
+
+di physisml
+physisml!
+
+benissimo! di sì
+sì!
+
+di pa
+pa!
+
+bene! di ra
+ra!
+
+ottimo! di mama
+mama!
+
+di ba
+ba!
+
+bravo! di tata
+tata!
+
+ottimo! di baba
+baba!
+
+bene! di sa
+sa!
+
+di ga
+ga!
+
+di da
+da!
+
+benissimo! di la
+la!
+
+bravo! di la
+la!
+
+bene! di papa
+papa!
+
+di tata
+tata!
+
+bene! di sì
+sì!
+
+di sì
+sì!
+
+di ma
+ma!
+
+bravo! di ta
+ta!
+
+di no
+no!
+
+ottimo! di ah
+ah!
+
+ottimo! di na
+na!
+
+benissimo! di sa
+sa!
+
+di ah
+ah!
+
+ottimo! di sì
+sì!
+
+di nana
+nana!
+
+di na
 na!
 
 ottimo! di ba
@@ -8428,488 +7369,134 @@ ba!
 benissimo! di na
 na!
 
-benissimo! di tata
-tata!
-
-ottimo! di ra
-ra!
-
-bravo! di ah
-ah!
-
-ottimo! di ta
-ta!
-
-benissimo! di sa
-sa!
-
-ma ma ma. di ma
-ma!
-
-ottimo! di baba
-baba!
-
-no no no. di no
-no!
-
-di physisml
-physisml!
-
-papa papa. di papa
-papa!
-
-benissimo! di pa
-pa!
-
-ottimo! di no
-no!
-
-ta ta ta. di ta
-ta!
-
-ottimo! di ah
-ah!
-
-nana nana. di nana
-nana!
-
-pa pa pa. di pa
-pa!
-
-sì sì sì. di sì
-sì!
-
-lala lala. di lala
+bravo! di lala
 lala!
 
-bene! di fa
-fa!
+ottimo! di oh
+oh!
 
-di mama
-mama!
+di la
+la!
 
-bravo! di nana
-nana!
+ottimo! di la
+la!
 
-ra ra. di ra
-ra!
+di baba
+baba!
 
-sì sì sì. di sì
-sì!
+bravo! di oh
+oh!
+
+bene! di la
+la!
+
+benissimo! di da
+da!
+
+di no
+no!
+
+di baba
+baba!
+
+ottimo! di ma
+ma!
 
 ottimo! di nana
 nana!
 
-benissimo! di sì
+ottimo! di da
+da!
+
+di sì
 sì!
 
-benissimo! di ah
+benissimo! di ra
+ra!
+
+di ra
+ra!
+
+ottimo! di pa
+pa!
+
+di ta la
+ta la!
+
+di ta
+ta!
+
+di papa
+papa!
+
+bravo! di sa
+sa!
+
+ottimo! di eh
+eh!
+
+benissimo! di ma
+ma!
+
+di va
+va!
+
+ottimo! di papa
+papa!
+
+di ca
+ca!
+
+bravo! di na
+na!
+
+bravo! di no
+no!
+
+bravo! di ra
+ra!
+
+di sa
+sa!
+
+di eh
+eh!
+
+benissimo! di ta
+ta!
+
+bravo! di papa
+papa!
+
+bene! di na
+na!
+
+bene! di ma
+ma!
+
+di fa
+fa!
+
+bravo! di ah
 ah!
 
 di da
 da!
 
-ottimo! di sa
-sa!
-
-di pa
-pa!
-
-di lala
-lala!
-
-bravo! di papa
-papa!
-
-ottimo! di mama
-mama!
-
-di baba
-baba!
-
-di pa ma
-pa ma!
-
-ottimo! di ta
-ta!
-
-bravo! di baba
-baba!
-
-bene! di baba
-baba!
-
-bravo! di ra
-ra!
-
-bene! di ma
-ma!
-
-ottimo! di tata
-tata!
-
-ottimo! di da
-da!
-
-no no. di no
-no!
-
-ottimo! di no
-no!
-
-benissimo! di ra
-ra!
-
-benissimo! di eh
-eh!
-
-eh eh. di eh
-eh!
-
-na na na. di na
-na!
-
-benissimo! di nana
-nana!
-
-ra ra ra. di ra
-ra!
-
-papa papa. di papa
-papa!
-
 di sì
 sì!
-
-ottimo! di ma
-ma!
-
-ottimo! di ba
-ba!
-
-bene! di nana
-nana!
-
-di ma pa
-ma pa!
-
-bravo! di oh
-oh!
-
-fa fa. di fa
-fa!
-
-physisml physisml. di physisml
-physisml!
-
-di nana
-nana!
-
-na na. di na
-na!
-
-bravo! di nana
-nana!
-
-da da da. di da
-da!
-
-benissimo! di sa
-sa!
-
-bene! di no
-no!
-
-ottimo! di eh
-eh!
-
-bene! di eh
-eh!
-
-benissimo! di papa
-papa!
-
-ottimo! di baba
-baba!
-
-benissimo! di baba
-baba!
-
-bene! di fa
-fa!
-
-sa sa sa. di sa
-sa!
-
-bravo! di ma
-ma!
-
-ottimo! di na
-na!
-
-pa pa pa. di pa
-pa!
-
-di na ba
-na ba!
-
-di na
-na!
-
-ma ma ma. di ma
-ma!
-
-bravo! di fa
-fa!
-
-benissimo! di tata
-tata!
-
-baba baba. di baba
-baba!
-
-di mama
-mama!
-
-di fa
-fa!
-
-bravo! di ba
-ba!
-
-bene! di pa
-pa!
-
-ta ta. di ta
-ta!
-
-mama mama. di mama
-mama!
-
-di no
-no!
-
-bene! di mama
-mama!
-
-bene! di papa
-papa!
-
-bene! di ba
-ba!
-
-benissimo! di ma
-ma!
-
-ba ba. di ba
-ba!
-
-bravo! di pa
-pa!
-
-benissimo! di na
-na!
-
-bravo! di mama
-mama!
-
-benissimo! di lala
-lala!
-
-ottimo! di ah
-ah!
-
-ah ah. di ah
-ah!
-
-tata tata. di tata
-tata!
-
-no no no. di no
-no!
-
-ba ba ba. di ba
-ba!
-
-bene! di ra
-ra!
-
-nana nana. di nana
-nana!
-
-bravo! di sa
-sa!
-
-ottimo! di ra
-ra!
-
-benissimo! di pa
-pa!
-
-sa sa. di sa
-sa!
-
-bene! di tata
-tata!
-
-bene! di lala
-lala!
-
-fa fa fa. di fa
-fa!
-
-benissimo! di oh
-oh!
-
-ca ca ca. di ca
-ca!
-
-di ta
-ta!
-
-la la. di la
-la!
-
-bene! di oh
-oh!
-
-bene! di da
-da!
-
-di oh
-oh!
-
-bene! di sì
-sì!
-
-lala lala. di lala
-lala!
-
-di ra
-ra!
-
-bene! di sa
-sa!
-
-di ca
-ca!
-
-da da. di da
-da!
-
-benissimo! di da
-da!
-
-sì sì. di sì
-sì!
-
-di sa
-sa!
-
-ottimo! di oh
-oh!
-
-bravo! di lala
-lala!
-
-bravo! di ta
-ta!
-
-oh oh. di oh
-oh!
-
-ottimo! di lala
-lala!
-
-bravo! di tata
-tata!
-
-bravo! di sì
-sì!
-
-oh oh oh. di oh
-oh!
-
-di va
-va!
-
-ottimo! di la
-la!
-
-bravo! di la
-la!
-
-benissimo! di mama
-mama!
-
-di ga
-ga!
-
-bene! di la
-la!
-
-di ta la
-ta la!
-
-benissimo! di no
-no!
-
-bravo! di no
-no!
-
-ottimo! di fa
-fa!
-
-di eh
-eh!
-
-di ma
-ma!
-
-benissimo! di fa
-fa!
-
-di physisml
-physisml!
-
-sono physisml. di physisml
-physisml!
-
-bene! di na
-na!
-
-bravo! di ah
-ah!
-
-ma ma. di ma
-ma!
-
-pa pa. di pa
-pa!
 
 di ba
 ba!
 
-di tata
-tata!
+di lala
+lala!
 
-bene! di ta
+benissimo! di oh
+oh!
+
+di ta
 ta!
-
-la la la. di la
-la!
-
-ta ta ta. di ta
-ta!
-
-ottimo! di papa
-papa!
-
-benissimo! di la
-la!
-
-di ah
-ah!
 
 di papa
 papa!
@@ -8917,17 +7504,1106 @@ papa!
 benissimo! di ba
 ba!
 
+bene! di baba
+baba!
+
+di oh
+oh!
+
+benissimo! di tata
+tata!
+
+bene! di fa
+fa!
+
+di ra
+ra!
+
+di fa
+fa!
+
+di la
+la!
+
+di oh
+oh!
+
+di mama
+mama!
+
+benissimo! di pa
+pa!
+
+bene! di eh
+eh!
+
+di ca
+ca!
+
+bene! di pa
+pa!
+
+bene! di nana
+nana!
+
+bene! di lala
+lala!
+
+benissimo! di eh
+eh!
+
+ottimo! di sa
+sa!
+
+di fa
+fa!
+
+ottimo! di ra
+ra!
+
+di oh
+oh!
+
+benissimo! di papa
+papa!
+
+bene! di ba
+ba!
+
+di ma
+ma!
+
+bene! di ah
+ah!
+
+bravo! di fa
+fa!
+
+ottimo! di lala
+lala!
+
+di ma
+ma!
+
+benissimo! di ah
+ah!
+
+benissimo! di nana
+nana!
+
+ottimo! di tata
+tata!
+
+bene! di da
+da!
+
+di sa
+sa!
+
+di pa
+pa!
+
+di pa ma
+pa ma!
+
+bravo! di mama
+mama!
+
+bravo! di baba
+baba!
+
+di mama
+mama!
+
+ottimo! di ta
+ta!
+
+bravo! di ma
+ma!
+
+di na
+na!
+
+benissimo! di mama
+mama!
+
+bravo! di pa
+pa!
+
+bravo! di nana
+nana!
+
+di ba
+ba!
+
+di physisml
+physisml!
+
+di tata
+tata!
+
+bene! di tata
+tata!
+
+bene! di mama
+mama!
+
+di la
+la!
+
+di physisml
+physisml!
+
+di na ba
+na ba!
+
+ottimo! di ra
+ra!
+
+bene! di fa
+fa!
+
+di ra
+ra!
+
+benissimo! di fa
+fa!
+
+di na
+na!
+
+bene! di eh
+eh!
+
+bene! di sa
+sa!
+
+di no
+no!
+
+di nana
+nana!
+
+di ba
+ba!
+
+bravo! di na
+na!
+
+di eh
+eh!
+
+bravo! di mama
+mama!
+
+di nana
+nana!
+
+ottimo! di baba
+baba!
+
+bene! di na
+na!
+
+di ah
+ah!
+
+benissimo! di oh
+oh!
+
+bene! di ra
+ra!
+
+di ta
+ta!
+
+bravo! di papa
+papa!
+
+di sa
+sa!
+
+bravo! di no
+no!
+
+di pa
+pa!
+
+di va
+va!
+
+bravo! di ta
+ta!
+
+benissimo! di tata
+tata!
+
+benissimo! di ta
+ta!
+
+benissimo! di da
+da!
+
+di sì
+sì!
+
+di sa
+sa!
+
+di papa
+papa!
+
+ottimo! di nana
+nana!
+
+di ga
+ga!
+
+di baba
+baba!
+
+benissimo! di nana
+nana!
+
+ottimo! di eh
+eh!
+
+di mama
+mama!
+
+sono physisml. di physisml
+physisml!
+
+di no
+no!
+
+ottimo! di na
+na!
+
+bene! di ba
+ba!
+
+di ah
+ah!
+
+bene! di papa
+papa!
+
+bravo! di nana
+nana!
+
+ottimo! di ma
+ma!
+
+ottimo! di papa
+papa!
+
+di eh
+eh!
+
+di ta la
+ta la!
+
+bravo! di tata
+tata!
+
+di ma
+ma!
+
+di oh
+oh!
+
+ottimo! di sa
+sa!
+
+di ta
+ta!
+
+benissimo! di mama
+mama!
+
+di tata
+tata!
+
 bravo! di da
 da!
 
-ottimo! di sì
-sì!
+bravo! di fa
+fa!
+
+bravo! di ra
+ra!
 
 ottimo! di pa
 pa!
 
+di la
+la!
+
+ottimo! di mama
+mama!
+
+di sì
+sì!
+
+di ca
+ca!
+
+benissimo! di ah
+ah!
+
+benissimo! di ma
+ma!
+
+di ba
+ba!
+
+bravo! di oh
+oh!
+
+benissimo! di sa
+sa!
+
+benissimo! di sì
+sì!
+
+benissimo! di ra
+ra!
+
+di baba
+baba!
+
+benissimo! di na
+na!
+
+benissimo! di la
+la!
+
+benissimo! di lala
+lala!
+
+di da
+da!
+
+bene! di mama
+mama!
+
+bene! di da
+da!
+
+di na
+na!
+
+di oh
+oh!
+
+benissimo! di ba
+ba!
+
+ottimo! di sì
+sì!
+
+di fa
+fa!
+
+di papa
+papa!
+
+di lala
+lala!
+
+bravo! di ah
+ah!
+
+di da
+da!
+
+bene! di baba
+baba!
+
+ottimo! di da
+da!
+
+benissimo! di pa
+pa!
+
+di ca
+ca!
+
+di da
+da!
+
+bravo! di sì
+sì!
+
+bene! di la
+la!
+
+bravo! di ma
+ma!
+
+benissimo! di no
+no!
+
+bravo! di lala
+lala!
+
+di tata
+tata!
+
+di no
+no!
+
+bene! di ma
+ma!
+
+bravo! di eh
+eh!
+
+di la
+la!
+
+di sì
+sì!
+
+bravo! di la
+la!
+
+di lala
+lala!
+
+di pa
+pa!
+
+ottimo! di ta
+ta!
+
+bene! di nana
+nana!
+
+di physisml
+physisml!
+
+ottimo! di tata
+tata!
+
+benissimo! di eh
+eh!
+
+ottimo! di oh
+oh!
+
+di pa
+pa!
+
+bravo! di ba
+ba!
+
+bravo! di sa
+sa!
+
+bene! di sì
+sì!
+
+bene! di no
+no!
+
+bene! di lala
+lala!
+
+di mama
+mama!
+
+bene! di oh
+oh!
+
+bene! di pa
+pa!
+
+bravo! di pa
+pa!
+
+di ra
+ra!
+
+benissimo! di papa
+papa!
+
+ottimo! di ah
+ah!
+
+di sa
+sa!
+
+di ta
+ta!
+
+ottimo! di fa
+fa!
+
+bene! di ah
+ah!
+
+di ma
+ma!
+
+ottimo! di la
+la!
+
+di ra
+ra!
+
+bene! di tata
+tata!
+
+ottimo! di ba
+ba!
+
+di na
+na!
+
+bravo! di baba
+baba!
+
+ottimo! di lala
+lala!
+
+bene! di ta
+ta!
+
+di fa
+fa!
+
+di ba
+ba!
+
+di ma pa
+ma pa!
+
+di fa
+fa!
+
+di oh
+oh!
+
+di pa ma
+pa ma!
+
+benissimo! di baba
+baba!
+
+di ma
+ma!
+
+ottimo! di no
+no!
+
+di la
+la!
+
+benissimo! di nana
+nana!
+
+di baba
+baba!
+
+di pa
+pa!
+
+bravo! di papa
+papa!
+
+bene! di sì
+sì!
+
+di ra
+ra!
+
+di na ba
+na ba!
+
+benissimo! di da
+da!
+
+di na
+na!
+
+benissimo! di tata
+tata!
+
+bravo! di na
+na!
+
+di tata
+tata!
+
+bene! di baba
+baba!
+
+ottimo! di ba
+ba!
+
+benissimo! di ra
+ra!
+
+di sì
+sì!
+
+di ta
+ta!
+
+bene! di nana
+nana!
+
+di tata
+tata!
+
+ottimo! di da
+da!
+
+benissimo! di ba
+ba!
+
+bene! di mama
+mama!
+
+bravo! di eh
+eh!
+
+di la
+la!
+
+benissimo! di sa
+sa!
+
+ottimo! di tata
+tata!
+
+di va
+va!
+
+bravo! di ah
+ah!
+
+di sa
+sa!
+
+di fa
+fa!
+
+bravo! di nana
+nana!
+
+di fa
+fa!
+
+benissimo! di no
+no!
+
+di eh
+eh!
+
+di ca
+ca!
+
+ottimo! di oh
+oh!
+
+di na
+na!
+
+di ra
+ra!
+
+di ba
+ba!
+
+di pa
+pa!
+
+di ma
+ma!
+
+di ba
+ba!
+
+ottimo! di mama
+mama!
+
+di no
+no!
+
+bene! di papa
+papa!
+
+bravo! di tata
+tata!
+
+ottimo! di na
+na!
+
+di ra
+ra!
+
+ottimo! di la
+la!
+
+bravo! di pa
+pa!
+
+di da
+da!
+
+ottimo! di fa
+fa!
+
+di nana
+nana!
+
+di mama
+mama!
+
+bravo! di fa
+fa!
+
+benissimo! di la
+la!
+
+di sì
+sì!
+
+benissimo! di fa
+fa!
+
+bene! di na
+na!
+
+bene! di sa
+sa!
+
+ottimo! di ta
+ta!
+
+ottimo! di no
+no!
+
+di oh
+oh!
+
+benissimo! di baba
+baba!
+
+di ga
+ga!
+
+benissimo! di ma
+ma!
+
+di lala
+lala!
+
+bene! di ta
+ta!
+
+bene! di oh
+oh!
+
+di mama
+mama!
+
+bene! di no
+no!
+
+di pa ma
+pa ma!
+
+bravo! di la
+la!
+
+di ba
+ba!
+
+di pa
+pa!
+
+benissimo! di mama
+mama!
+
+benissimo! di sì
+sì!
+
+bene! di ma
+ma!
+
+ottimo! di lala
+lala!
+
+di physisml
+physisml!
+
+ottimo! di ah
+ah!
+
+bene! di pa
+pa!
+
+ottimo! di baba
+baba!
+
+di fa
+fa!
+
+ottimo! di sì
+sì!
+
+bravo! di no
+no!
+
+bravo! di lala
+lala!
+
+ottimo! di eh
+eh!
+
+bene! di fa
+fa!
+
 benissimo! di ta
 ta!
+
+bene! di da
+da!
+
+sono physisml. di physisml
+physisml!
+
+benissimo! di lala
+lala!
+
+di da
+da!
+
+ottimo! di papa
+papa!
+
+ottimo! di ma
+ma!
+
+bravo! di ma
+ma!
+
+bravo! di ra
+ra!
+
+bravo! di baba
+baba!
+
+bravo! di sì
+sì!
+
+ottimo! di nana
+nana!
+
+ottimo! di ra
+ra!
+
+bene! di ra
+ra!
+
+di sa
+sa!
+
+di eh
+eh!
+
+benissimo! di papa
+papa!
+
+di ah
+ah!
+
+di ta
+ta!
+
+bravo! di oh
+oh!
+
+bene! di ah
+ah!
+
+benissimo! di ah
+ah!
+
+di ta
+ta!
+
+benissimo! di na
+na!
+
+di ma
+ma!
+
+di physisml
+physisml!
+
+benissimo! di oh
+oh!
+
+benissimo! di eh
+eh!
+
+bene! di ba
+ba!
+
+di nana
+nana!
+
+di no
+no!
+
+bene! di lala
+lala!
+
+di sa
+sa!
+
+di baba
+baba!
+
+di oh
+oh!
+
+di ma pa
+ma pa!
+
+di da
+da!
+
+bravo! di ta
+ta!
+
+di papa
+papa!
+
+di no
+no!
+
+bravo! di sa
+sa!
+
+di ca
+ca!
+
+bene! di la
+la!
+
+ottimo! di sa
+sa!
+
+bene! di tata
+tata!
+
+bravo! di mama
+mama!
+
+ottimo! di pa
+pa!
+
+di na
+na!
+
+di papa
+papa!
+
+di lala
+lala!
+
+di la
+la!
+
+benissimo! di pa
+pa!
+
+bene! di eh
+eh!
+
+di ma
+ma!
+
+di ta la
+ta la!
+
+di oh
+oh!
+
+bravo! di ba
+ba!
+
+bravo! di da
+da!
+
+di sì
+sì!
+
+di ah
+ah!
+
+benissimo! di la
+la!
+
+benissimo! di fa
+fa!
+
+bene! di baba
+baba!
+
+ottimo! di ba
+ba!
+
+bravo! di ta
+ta!
+
+di ra
+ra!
+
+benissimo! di tata
+tata!
+
+bene! di mama
+mama!
+
+di sì
+sì!
+
+ottimo! di sì
+sì!
+
+di ta
+ta!
+
+di baba
+baba!
+
+ottimo! di eh
+eh!
+
+bene! di eh
+eh!
+
+di pa ma
+pa ma!
+
+bravo! di da
+da!
+
+sono physisml. di physisml
+physisml!
+
+benissimo! di no
+no!
+
+di physisml
+physisml!
 
 di la
 la!
@@ -8935,6 +8611,390 @@ la!
 bene! di ah
 ah!
 
+di ma
+ma!
+
+ottimo! di ma
+ma!
+
+di no
+no!
+
+bravo! di lala
+lala!
+
+bene! di na
+na!
+
+benissimo! di sa
+sa!
+
+bravo! di sì
+sì!
+
+di oh
+oh!
+
+di sa
+sa!
+
+ottimo! di na
+na!
+
+ottimo! di oh
+oh!
+
+bene! di oh
+oh!
+
+bravo! di pa
+pa!
+
+ottimo! di sa
+sa!
+
+bravo! di fa
+fa!
+
+di fa
+fa!
+
+di ra
+ra!
+
+di la
+la!
+
+di ta
+ta!
+
+ottimo! di la
+la!
+
+bene! di da
+da!
+
+di na ba
+na ba!
+
+di sì
+sì!
+
+bene! di la
+la!
+
+di da
+da!
+
+di ta
+ta!
+
+bene! di fa
+fa!
+
+benissimo! di ta
+ta!
+
+di ba
+ba!
+
+ottimo! di fa
+fa!
+
+ottimo! di mama
+mama!
+
+di sa
+sa!
+
+bene! di tata
+tata!
+
+di ba
+ba!
+
+di ca
+ca!
+
+di na
+na!
+
+bene! di nana
+nana!
+
+bravo! di baba
+baba!
+
+di lala
+lala!
+
+di pa
+pa!
+
+ottimo! di da
+da!
+
+di no
+no!
+
+di nana
+nana!
+
+di na
+na!
+
+bravo! di nana
+nana!
+
+ottimo! di ta
+ta!
+
+bravo! di eh
+eh!
+
+benissimo! di baba
+baba!
+
+di eh
+eh!
+
+di ra
+ra!
+
+bene! di sì
+sì!
+
+benissimo! di ra
+ra!
+
+di oh
+oh!
+
+bene! di ma
+ma!
+
+bene! di sa
+sa!
+
+benissimo! di na
+na!
+
+bene! di lala
+lala!
+
+bene! di ta
+ta!
+
+di lala
+lala!
+
+benissimo! di papa
+papa!
+
+ottimo! di tata
+tata!
+
+benissimo! di eh
+eh!
+
+di da
+da!
+
+ottimo! di lala
+lala!
+
+benissimo! di mama
+mama!
+
+di da
+da!
+
+ottimo! di pa
+pa!
+
+di ma
+ma!
+
+benissimo! di da
+da!
+
+di ah
+ah!
+
+bravo! di tata
+tata!
+
+benissimo! di ba
+ba!
+
+di sì
+sì!
+
+di ba
+ba!
+
+di physisml
+physisml!
+
+bravo! di ra
+ra!
+
+di tata
+tata!
+
+di papa
+papa!
+
 bravo! di na
 na!
+
+di fa
+fa!
+
+di sa
+sa!
+
+benissimo! di lala
+lala!
+
+di baba
+baba!
+
+benissimo! di nana
+nana!
+
+di ah
+ah!
+
+bravo! di la
+la!
+
+di nana
+nana!
+
+bene! di ra
+ra!
+
+bravo! di ba
+ba!
+
+di mama
+mama!
+
+di ca
+ca!
+
+di no
+no!
+
+di na
+na!
+
+ottimo! di no
+no!
+
+benissimo! di sì
+sì!
+
+di va
+va!
+
+bravo! di mama
+mama!
+
+di pa
+pa!
+
+di mama
+mama!
+
+benissimo! di pa
+pa!
+
+bene! di pa
+pa!
+
+benissimo! di oh
+oh!
+
+ottimo! di ra
+ra!
+
+bene! di ba
+ba!
+
+di ga
+ga!
+
+bravo! di sa
+sa!
+
+bravo! di ah
+ah!
+
+ottimo! di baba
+baba!
+
+di oh
+oh!
+
+di ma
+ma!
+
+bene! di no
+no!
+
+bravo! di oh
+oh!
+
+di tata
+tata!
+
+di ma pa
+ma pa!
+
+di fa
+fa!
+
+benissimo! di ah
+ah!
+
+bravo! di papa
+papa!
+
+di eh
+eh!
+
+di la
+la!
+
+bene! di papa
+papa!
+
+benissimo! di ma
+ma!
+
+ottimo! di papa
+papa!
+
+di ta la
+ta la!
+
+ottimo! di nana
+nana!
+
+bravo! di no
+no!
+
+di pa
+pa!
+
+di papa
+papa!
+
+bravo! di ma
+ma!
+
+ottimo! di ah
+ah!
 

@@ -1,35 +1,35 @@
 {"prompt": "ancora. com è la luna?", "response": "la luna è bella."}
 {"prompt": "com è la luna?", "response": "la luna è bella."}
-{"prompt": "ancora. cosa fa il cane?", "response": "il cane mangia e dorme."}
+{"prompt": "ancora. racconta due cose del cane", "response": "il cane mangia e dorme."}
 {"prompt": "com è il cane?", "response": "il cane è grande."}
 {"prompt": "ancora. com è il cane?", "response": "il cane è grande."}
 {"prompt": "ancora. com è la casa?", "response": "la casa è piccola."}
 {"prompt": "ancora. com è il sole?", "response": "il sole è caldo."}
 {"prompt": "ancora. com è l acqua?", "response": "l acqua è fredda."}
 {"prompt": "ancora. com è il pane?", "response": "il pane è buono."}
-{"prompt": "cosa fa il cane?", "response": "il cane mangia e dorme."}
-{"prompt": "ancora. cosa fa il bambino?", "response": "il bambino corre e ride."}
-{"prompt": "ancora. cosa fa la mamma?", "response": "la mamma cucina e canta."}
-{"prompt": "ancora. cosa fa il gatto?", "response": "il gatto salta e corre."}
-{"prompt": "ancora. cosa fa il papà?", "response": "il papà legge e beve."}
-{"prompt": "bravo! cosa fa il cane?", "response": "il cane mangia e dorme."}
+{"prompt": "racconta due cose del cane", "response": "il cane mangia e dorme."}
+{"prompt": "ancora. racconta due cose del bambino", "response": "il bambino corre e ride."}
+{"prompt": "ancora. racconta due cose della mamma", "response": "la mamma cucina e canta."}
+{"prompt": "ancora. racconta due cose del gatto", "response": "il gatto salta e corre."}
+{"prompt": "ancora. racconta due cose del papà", "response": "il papà legge e beve."}
+{"prompt": "bravo! racconta due cose del cane", "response": "il cane mangia e dorme."}
 {"prompt": "com è l acqua?", "response": "l acqua è fredda."}
-{"prompt": "ottimo! cosa fa il cane?", "response": "il cane mangia e dorme."}
+{"prompt": "ottimo! racconta due cose del cane", "response": "il cane mangia e dorme."}
 {"prompt": "bravo! com è il pane?", "response": "il pane è buono."}
-{"prompt": "perfetto! cosa fa il cane?", "response": "il cane mangia e dorme."}
-{"prompt": "cosa fa il bambino?", "response": "il bambino corre e ride."}
-{"prompt": "cosa fa il gatto?", "response": "il gatto salta e corre."}
-{"prompt": "bravo! cosa fa il bambino?", "response": "il bambino corre e ride."}
+{"prompt": "perfetto! racconta due cose del cane", "response": "il cane mangia e dorme."}
+{"prompt": "racconta due cose del bambino", "response": "il bambino corre e ride."}
+{"prompt": "racconta due cose del gatto", "response": "il gatto salta e corre."}
+{"prompt": "bravo! racconta due cose del bambino", "response": "il bambino corre e ride."}
 {"prompt": "com è la casa?", "response": "la casa è piccola."}
 {"prompt": "com è il sole?", "response": "il sole è caldo."}
-{"prompt": "bravo! cosa fa il papà?", "response": "il papà legge e beve."}
+{"prompt": "bravo! racconta due cose del papà", "response": "il papà legge e beve."}
 {"prompt": "ancora. perché la nonna apre la porta?", "response": "la nonna apre perché è caldo."}
 {"prompt": "bravo! com è il sole?", "response": "il sole è caldo."}
 {"prompt": "ottimo! com è il sole?", "response": "il sole è caldo."}
 {"prompt": "com è il pane?", "response": "il pane è buono."}
 {"prompt": "ottimo! com è la luna?", "response": "la luna è bella."}
-{"prompt": "cosa fa il papà?", "response": "il papà legge e beve."}
-{"prompt": "perfetto! cosa fa il papà?", "response": "il papà legge e beve."}
+{"prompt": "racconta due cose del papà", "response": "il papà legge e beve."}
+{"prompt": "perfetto! racconta due cose del papà", "response": "il papà legge e beve."}
 {"prompt": "perché il cane mangia?", "response": "il cane mangia perché ha fame."}
 {"prompt": "ancora. perché il cane mangia?", "response": "il cane mangia perché ha fame."}
 {"prompt": "ancora. perché il bambino beve?", "response": "il bambino beve perché ha sete."}
@@ -39,14 +39,14 @@
 {"prompt": "bene! perché la nonna apre la porta?", "response": "la nonna apre perché è caldo."}
 {"prompt": "perfetto! com è il cane?", "response": "il cane è grande."}
 {"prompt": "benissimo! com è l acqua?", "response": "l acqua è fredda."}
-{"prompt": "benissimo! cosa fa il cane?", "response": "il cane mangia e dorme."}
+{"prompt": "benissimo! racconta due cose del cane", "response": "il cane mangia e dorme."}
 {"prompt": "il cane è grande o piccolo?", "response": "il cane è grande ma buono."}
 {"prompt": "ancora. il cane è grande o piccolo?", "response": "il cane è grande ma buono."}
 {"prompt": "ancora. il pane è dolce?", "response": "il pane è buono ma non dolce."}
 {"prompt": "il pane è dolce?", "response": "il pane è buono ma non dolce."}
 {"prompt": "ottimo! com è il cane?", "response": "il cane è grande."}
 {"prompt": "bravo! com è la luna?", "response": "la luna è bella."}
-{"prompt": "cosa fa la mamma?", "response": "la mamma cucina e canta."}
+{"prompt": "racconta due cose della mamma", "response": "la mamma cucina e canta."}
 {"prompt": "perfetto! perché la nonna apre la porta?", "response": "la nonna apre perché è caldo."}
 {"prompt": "benissimo! il cane è grande o piccolo?", "response": "il cane è grande ma buono."}
 {"prompt": "ottimo! l acqua è calda?", "response": "l acqua è fredda ma buona."}
@@ -55,10 +55,10 @@
 {"prompt": "ancora. il gatto dorme sempre?", "response": "il gatto dorme ma poi corre."}
 {"prompt": "bene! com è il cane?", "response": "il cane è grande."}
 {"prompt": "ottimo! com è l acqua?", "response": "l acqua è fredda."}
-{"prompt": "bene! cosa fa il cane?", "response": "il cane mangia e dorme."}
-{"prompt": "bene! cosa fa il bambino?", "response": "il bambino corre e ride."}
-{"prompt": "bene! cosa fa la mamma?", "response": "la mamma cucina e canta."}
-{"prompt": "bravo! cosa fa il gatto?", "response": "il gatto salta e corre."}
+{"prompt": "bene! racconta due cose del cane", "response": "il cane mangia e dorme."}
+{"prompt": "bene! racconta due cose del bambino", "response": "il bambino corre e ride."}
+{"prompt": "bene! racconta due cose della mamma", "response": "la mamma cucina e canta."}
+{"prompt": "bravo! racconta due cose del gatto", "response": "il gatto salta e corre."}
 {"prompt": "bravo! perché il cane mangia?", "response": "il cane mangia perché ha fame."}
 {"prompt": "perfetto! perché il bambino beve?", "response": "il bambino beve perché ha sete."}
 {"prompt": "bene! il cane è grande o piccolo?", "response": "il cane è grande ma buono."}
@@ -70,7 +70,7 @@
 {"prompt": "perché il gatto dorme?", "response": "il gatto dorme perché è stanco."}
 {"prompt": "bravo! com è l acqua?", "response": "l acqua è fredda."}
 {"prompt": "bene! com è il pane?", "response": "il pane è buono."}
-{"prompt": "bene! cosa fa il papà?", "response": "il papà legge e beve."}
+{"prompt": "bene! racconta due cose del papà", "response": "il papà legge e beve."}
 {"prompt": "bene! perché il bambino beve?", "response": "il bambino beve perché ha sete."}
 {"prompt": "ottimo! perché la mamma ride?", "response": "la mamma ride perché è felice."}
 {"prompt": "bravo! l acqua è calda?", "response": "l acqua è fredda ma buona."}
@@ -82,7 +82,7 @@
 {"prompt": "perfetto! il gatto dorme sempre?", "response": "il gatto dorme ma poi corre."}
 {"prompt": "bravo! il gatto dorme sempre?", "response": "il gatto dorme ma poi corre."}
 {"prompt": "ottimo! il cane è grande o piccolo?", "response": "il cane è grande ma buono."}
-{"prompt": "ottimo! cosa fa il bambino?", "response": "il bambino corre e ride."}
+{"prompt": "ottimo! racconta due cose del bambino", "response": "il bambino corre e ride."}
 {"prompt": "perfetto! perché il gatto dorme?", "response": "il gatto dorme perché è stanco."}
 {"prompt": "benissimo! perché la mamma ride?", "response": "la mamma ride perché è felice."}
 {"prompt": "bene! l acqua è calda?", "response": "l acqua è fredda ma buona."}
@@ -90,9 +90,9 @@
 {"prompt": "ottimo! com è la casa?", "response": "la casa è piccola."}
 {"prompt": "perfetto! com è il pane?", "response": "il pane è buono."}
 {"prompt": "bene! com è la luna?", "response": "la luna è bella."}
-{"prompt": "perfetto! cosa fa il gatto?", "response": "il gatto salta e corre."}
-{"prompt": "benissimo! cosa fa il bambino?", "response": "il bambino corre e ride."}
-{"prompt": "perfetto! cosa fa la mamma?", "response": "la mamma cucina e canta."}
+{"prompt": "perfetto! racconta due cose del gatto", "response": "il gatto salta e corre."}
+{"prompt": "benissimo! racconta due cose del bambino", "response": "il bambino corre e ride."}
+{"prompt": "perfetto! racconta due cose della mamma", "response": "la mamma cucina e canta."}
 {"prompt": "perfetto! perché il cane mangia?", "response": "il cane mangia perché ha fame."}
 {"prompt": "perché la mamma ride?", "response": "la mamma ride perché è felice."}
 {"prompt": "benissimo! il pane è dolce?", "response": "il pane è buono ma non dolce."}
@@ -100,3 +100,201 @@
 {"prompt": "perfetto! il cane è grande o piccolo?", "response": "il cane è grande ma buono."}
 {"prompt": "bravo! il cane è grande o piccolo?", "response": "il cane è grande ma buono."}
 {"prompt": "bravo! il pane è dolce?", "response": "il pane è buono ma non dolce."}
+{"prompt": "perfetto! com è il sole?", "response": "il sole è caldo."}
+{"prompt": "bene! com è il sole?", "response": "il sole è caldo."}
+{"prompt": "benissimo! com è la luna?", "response": "la luna è bella."}
+{"prompt": "ancora. com è la minestra?", "response": "la minestra è fredda."}
+{"prompt": "bravo! com è la minestra?", "response": "la minestra è fredda."}
+{"prompt": "ancora. com è il cavallo?", "response": "il cavallo è stanco."}
+{"prompt": "bravo! com è il cavallo?", "response": "il cavallo è stanco."}
+{"prompt": "ancora. com è la neve?", "response": "la neve è grande."}
+{"prompt": "com è la neve?", "response": "la neve è grande."}
+{"prompt": "ancora. com è la penna?", "response": "la penna è grande."}
+{"prompt": "perfetto! com è la penna?", "response": "la penna è grande."}
+{"prompt": "ancora. com è il fratello?", "response": "il fratello è felice."}
+{"prompt": "bene! com è il fratello?", "response": "il fratello è felice."}
+{"prompt": "ancora. com è la sorella?", "response": "la sorella è buona."}
+{"prompt": "bravo! com è la sorella?", "response": "la sorella è buona."}
+{"prompt": "benissimo! com è la casa?", "response": "la casa è piccola."}
+{"prompt": "ancora. com è la stella?", "response": "la stella è verde."}
+{"prompt": "perfetto! com è la stella?", "response": "la stella è verde."}
+{"prompt": "ancora. com è il lupo?", "response": "il lupo è stanco."}
+{"prompt": "bravo! com è il lupo?", "response": "il lupo è stanco."}
+{"prompt": "benissimo! com è la minestra?", "response": "la minestra è fredda."}
+{"prompt": "ancora. com è la scuola?", "response": "la scuola è tranquilla."}
+{"prompt": "com è la scuola?", "response": "la scuola è tranquilla."}
+{"prompt": "com è il cavallo?", "response": "il cavallo è stanco."}
+{"prompt": "ancora. com è la mela?", "response": "la mela è dolce."}
+{"prompt": "bene! com è la mela?", "response": "la mela è dolce."}
+{"prompt": "ottimo! com è la penna?", "response": "la penna è grande."}
+{"prompt": "ancora. com è la mamma?", "response": "la mamma è buona."}
+{"prompt": "benissimo! com è la mamma?", "response": "la mamma è buona."}
+{"prompt": "ancora. com è il topo?", "response": "il topo è felice."}
+{"prompt": "perfetto! com è il topo?", "response": "il topo è felice."}
+{"prompt": "bravo! com è il fratello?", "response": "il fratello è felice."}
+{"prompt": "ottimo! com è la sorella?", "response": "la sorella è buona."}
+{"prompt": "perfetto! com è l acqua?", "response": "l acqua è fredda."}
+{"prompt": "benissimo! com è la stella?", "response": "la stella è verde."}
+{"prompt": "ottimo! com è la stella?", "response": "la stella è verde."}
+{"prompt": "ancora. com è l ape?", "response": "l ape è tranquilla."}
+{"prompt": "ottimo! com è l ape?", "response": "l ape è tranquilla."}
+{"prompt": "com è il lupo?", "response": "il lupo è stanco."}
+{"prompt": "com è la minestra?", "response": "la minestra è fredda."}
+{"prompt": "benissimo! com è il pane?", "response": "il pane è buono."}
+{"prompt": "ottimo! com è il pane?", "response": "il pane è buono."}
+{"prompt": "com è la stella?", "response": "la stella è verde."}
+{"prompt": "com è l ape?", "response": "l ape è tranquilla."}
+{"prompt": "ancora. com è il mare?", "response": "il mare è grande."}
+{"prompt": "benissimo! com è il mare?", "response": "il mare è grande."}
+{"prompt": "ancora. com è il gelato?", "response": "il gelato è giallo."}
+{"prompt": "com è il gelato?", "response": "il gelato è giallo."}
+{"prompt": "ottimo! com è la neve?", "response": "la neve è grande."}
+{"prompt": "ancora. com è il papà?", "response": "il papà è tranquillo."}
+{"prompt": "ottimo! com è il papà?", "response": "il papà è tranquillo."}
+{"prompt": "com è la mela?", "response": "la mela è dolce."}
+{"prompt": "bene! com è la penna?", "response": "la penna è grande."}
+{"prompt": "com è la penna?", "response": "la penna è grande."}
+{"prompt": "bene! com è la mamma?", "response": "la mamma è buona."}
+{"prompt": "com è la mamma?", "response": "la mamma è buona."}
+{"prompt": "bravo! com è il topo?", "response": "il topo è felice."}
+{"prompt": "ancora. com è il maestro?", "response": "il maestro è basso."}
+{"prompt": "bravo! com è il maestro?", "response": "il maestro è basso."}
+{"prompt": "com è il fratello?", "response": "il fratello è felice."}
+{"prompt": "bene! com è la casa?", "response": "la casa è piccola."}
+{"prompt": "benissimo! com è l ape?", "response": "l ape è tranquilla."}
+{"prompt": "perfetto! com è il lupo?", "response": "il lupo è stanco."}
+{"prompt": "ottimo! com è la minestra?", "response": "la minestra è fredda."}
+{"prompt": "com è il mare?", "response": "il mare è grande."}
+{"prompt": "ottimo! com è il gelato?", "response": "il gelato è giallo."}
+{"prompt": "ancora. com è il cappello?", "response": "il cappello è pulito."}
+{"prompt": "bene! com è il cappello?", "response": "il cappello è pulito."}
+{"prompt": "bravo! com è il papà?", "response": "il papà è tranquillo."}
+{"prompt": "com è il papà?", "response": "il papà è tranquillo."}
+{"prompt": "ottimo! com è la mela?", "response": "la mela è dolce."}
+{"prompt": "com è il topo?", "response": "il topo è felice."}
+{"prompt": "com è il maestro?", "response": "il maestro è basso."}
+{"prompt": "ancora. com è il libro?", "response": "il libro è rosso."}
+{"prompt": "bravo! com è il libro?", "response": "il libro è rosso."}
+{"prompt": "com è la sorella?", "response": "la sorella è buona."}
+{"prompt": "ancora. com è il gatto?", "response": "il gatto è lento."}
+{"prompt": "bravo! com è il gatto?", "response": "il gatto è lento."}
+{"prompt": "perfetto! com è la porta?", "response": "la porta è alta."}
+{"prompt": "ancora. com è la porta?", "response": "la porta è alta."}
+{"prompt": "bravo! com è l ape?", "response": "l ape è tranquilla."}
+{"prompt": "ottimo! com è il lupo?", "response": "il lupo è stanco."}
+{"prompt": "perfetto! com è il mare?", "response": "il mare è grande."}
+{"prompt": "ottimo! com è il cappello?", "response": "il cappello è pulito."}
+{"prompt": "benissimo! com è la scuola?", "response": "la scuola è tranquilla."}
+{"prompt": "bravo! com è la scuola?", "response": "la scuola è tranquilla."}
+{"prompt": "bravo! com è la mela?", "response": "la mela è dolce."}
+{"prompt": "perfetto! com è la mamma?", "response": "la mamma è buona."}
+{"prompt": "bene! com è il topo?", "response": "il topo è felice."}
+{"prompt": "benissimo! com è il maestro?", "response": "il maestro è basso."}
+{"prompt": "com è il libro?", "response": "il libro è rosso."}
+{"prompt": "benissimo! com è la sorella?", "response": "la sorella è buona."}
+{"prompt": "bene! com è il gatto?", "response": "il gatto è lento."}
+{"prompt": "ottimo! com è il gatto?", "response": "il gatto è lento."}
+{"prompt": "com è la porta?", "response": "la porta è alta."}
+{"prompt": "benissimo! racconta due cose della mamma", "response": "la mamma cucina e canta."}
+{"prompt": "benissimo! racconta due cose del gatto", "response": "il gatto salta e corre."}
+{"prompt": "benissimo! racconta due cose del papà", "response": "il papà legge e beve."}
+{"prompt": "ancora. racconta due cose della nonna", "response": "la nonna ride e salta."}
+{"prompt": "bene! racconta due cose della nonna", "response": "la nonna ride e salta."}
+{"prompt": "racconta due cose del fratello", "response": "il fratello corre e ride."}
+{"prompt": "ancora. racconta due cose del fratello", "response": "il fratello corre e ride."}
+{"prompt": "ancora. racconta due cose dell amico", "response": "l amico nuota e cammina."}
+{"prompt": "racconta due cose dell amico", "response": "l amico nuota e cammina."}
+{"prompt": "racconta due cose del cavallo", "response": "il cavallo dorme e corre."}
+{"prompt": "ancora. racconta due cose dell uccello", "response": "l uccello canta e vola."}
+{"prompt": "benissimo! racconta due cose dell uccello", "response": "l uccello canta e vola."}
+{"prompt": "ancora. racconta due cose della bambina", "response": "la bambina nuota e salta."}
+{"prompt": "benissimo! racconta due cose della bambina", "response": "la bambina nuota e salta."}
+{"prompt": "ancora. racconta due cose del maestro", "response": "il maestro salta e corre."}
+{"prompt": "benissimo! racconta due cose del maestro", "response": "il maestro salta e corre."}
+{"prompt": "racconta due cose della sorella", "response": "la sorella ride e nuota."}
+{"prompt": "ancora. racconta due cose del nonno", "response": "il nonno salta e nuota."}
+{"prompt": "benissimo! racconta due cose del nonno", "response": "il nonno salta e nuota."}
+{"prompt": "perché l uccello canta?", "response": "l uccello canta perché è felice."}
+{"prompt": "perché il papà cerca?", "response": "il papà cerca perché ha fame."}
+{"prompt": "ancora. perché il papà cerca?", "response": "il papà cerca perché ha fame."}
+{"prompt": "perché il fratello mangia?", "response": "il fratello mangia perché ha fame."}
+{"prompt": "ancora. perché la nonna canta?", "response": "la nonna canta perché è felice."}
+{"prompt": "perché la nonna canta?", "response": "la nonna canta perché è felice."}
+{"prompt": "perché il nonno cerca?", "response": "il nonno cerca perché ha fame."}
+{"prompt": "ancora. perché la sorella beve?", "response": "la sorella beve perché ha sete."}
+{"prompt": "ottimo! perché la sorella beve?", "response": "la sorella beve perché ha sete."}
+{"prompt": "perché il topo mangia?", "response": "il topo mangia perché ha fame."}
+{"prompt": "ancora. perché il gatto mangia?", "response": "il gatto mangia perché ha fame."}
+{"prompt": "ottimo! perché il gatto mangia?", "response": "il gatto mangia perché ha fame."}
+{"prompt": "ottimo! perché il pesce mangia?", "response": "il pesce mangia perché ha fame."}
+{"prompt": "benissimo! perché il pesce mangia?", "response": "il pesce mangia perché ha fame."}
+{"prompt": "ancora. perché l orso mangia?", "response": "l orso mangia perché ha fame."}
+{"prompt": "perché l orso mangia?", "response": "l orso mangia perché ha fame."}
+{"prompt": "ottimo! perché l ape cerca?", "response": "l ape cerca perché ha fame."}
+{"prompt": "perché l ape cerca?", "response": "l ape cerca perché ha fame."}
+{"prompt": "perfetto! perché il bambino mangia?", "response": "il bambino mangia perché ha fame."}
+{"prompt": "bene! perché il bambino mangia?", "response": "il bambino mangia perché ha fame."}
+{"prompt": "ancora. perché la mamma beve?", "response": "la mamma beve perché ha sete."}
+{"prompt": "ottimo! perché la mamma beve?", "response": "la mamma beve perché ha sete."}
+{"prompt": "ancora. perché la mucca mangia?", "response": "la mucca mangia perché ha fame."}
+{"prompt": "bene! perché la mucca mangia?", "response": "la mucca mangia perché ha fame."}
+{"prompt": "ancora. perché il cavallo dorme?", "response": "il cavallo dorme perché è stanco."}
+{"prompt": "bravo! perché il cavallo dorme?", "response": "il cavallo dorme perché è stanco."}
+{"prompt": "ancora. perché l amico cerca?", "response": "l amico cerca perché ha fame."}
+{"prompt": "perché l amico cerca?", "response": "l amico cerca perché ha fame."}
+{"prompt": "ancora. perché la gallina mangia?", "response": "la gallina mangia perché ha fame."}
+{"prompt": "perché la gallina mangia?", "response": "la gallina mangia perché ha fame."}
+{"prompt": "racconta due cose della nonna", "response": "la nonna ride e salta."}
+{"prompt": "bravo! racconta due cose dell uccello", "response": "l uccello canta e vola."}
+{"prompt": "racconta due cose della bambina", "response": "la bambina nuota e salta."}
+{"prompt": "racconta due cose del maestro", "response": "il maestro salta e corre."}
+{"prompt": "bravo! racconta due cose del nonno", "response": "il nonno salta e nuota."}
+{"prompt": "perfetto! perché la nonna canta?", "response": "la nonna canta perché è felice."}
+{"prompt": "perché il maestro corre?", "response": "il maestro corre perché è veloce."}
+{"prompt": "ancora. perché il maestro corre?", "response": "il maestro corre perché è veloce."}
+{"prompt": "ottimo! perché la bambina dorme?", "response": "la bambina dorme perché è stanco."}
+{"prompt": "ancora. perché la bambina dorme?", "response": "la bambina dorme perché è stanco."}
+{"prompt": "ottimo! perché l orso mangia?", "response": "l orso mangia perché ha fame."}
+{"prompt": "perché la mamma beve?", "response": "la mamma beve perché ha sete."}
+{"prompt": "benissimo! perché il lupo corre?", "response": "il lupo corre perché è veloce."}
+{"prompt": "ancora. perché il lupo corre?", "response": "il lupo corre perché è veloce."}
+{"prompt": "perché il cavallo dorme?", "response": "il cavallo dorme perché è stanco."}
+{"prompt": "perché il cane corre?", "response": "il cane corre perché è veloce."}
+{"prompt": "ancora. perché il cane corre?", "response": "il cane corre perché è veloce."}
+{"prompt": "bene! com è la stella?", "response": "la stella è verde."}
+{"prompt": "benissimo! com è il gelato?", "response": "il gelato è giallo."}
+{"prompt": "perfetto! com è il gelato?", "response": "il gelato è giallo."}
+{"prompt": "perfetto! com è il cappello?", "response": "il cappello è pulito."}
+{"prompt": "bene! com è la scuola?", "response": "la scuola è tranquilla."}
+{"prompt": "bene! com è la neve?", "response": "la neve è grande."}
+{"prompt": "bravo! com è la mamma?", "response": "la mamma è buona."}
+{"prompt": "bene! com è il libro?", "response": "il libro è rosso."}
+{"prompt": "com è il gatto?", "response": "il gatto è lento."}
+{"prompt": "ottimo! com è la porta?", "response": "la porta è alta."}
+{"prompt": "bene! racconta due cose del gatto", "response": "il gatto salta e corre."}
+{"prompt": "ottimo! racconta due cose del papà", "response": "il papà legge e beve."}
+{"prompt": "benissimo! racconta due cose del fratello", "response": "il fratello corre e ride."}
+{"prompt": "ottimo! racconta due cose del cavallo", "response": "il cavallo dorme e corre."}
+{"prompt": "benissimo! racconta due cose del cavallo", "response": "il cavallo dorme e corre."}
+{"prompt": "bene! racconta due cose dell uccello", "response": "l uccello canta e vola."}
+{"prompt": "perfetto! racconta due cose dell uccello", "response": "l uccello canta e vola."}
+{"prompt": "ottimo! racconta due cose della bambina", "response": "la bambina nuota e salta."}
+{"prompt": "racconta due cose del nonno", "response": "il nonno salta e nuota."}
+{"prompt": "bravo! perché il bambino beve?", "response": "il bambino beve perché ha sete."}
+{"prompt": "bravo! perché il gatto dorme?", "response": "il gatto dorme perché è stanco."}
+{"prompt": "ottimo! perché la nonna apre la porta?", "response": "la nonna apre perché è caldo."}
+{"prompt": "benissimo! perché l uccello canta?", "response": "l uccello canta perché è felice."}
+{"prompt": "benissimo! perché il papà cerca?", "response": "il papà cerca perché ha fame."}
+{"prompt": "ancora. perché il fratello mangia?", "response": "il fratello mangia perché ha fame."}
+{"prompt": "bravo! perché il fratello mangia?", "response": "il fratello mangia perché ha fame."}
+{"prompt": "bene! perché la nonna canta?", "response": "la nonna canta perché è felice."}
+{"prompt": "ottimo! perché il nonno cerca?", "response": "il nonno cerca perché ha fame."}
+{"prompt": "perfetto! perché il maestro corre?", "response": "il maestro corre perché è veloce."}
+{"prompt": "perché la sorella beve?", "response": "la sorella beve perché ha sete."}
+{"prompt": "perfetto! perché la sorella beve?", "response": "la sorella beve perché ha sete."}
+{"prompt": "bravo! perché il topo mangia?", "response": "il topo mangia perché ha fame."}
+{"prompt": "perché la bambina dorme?", "response": "la bambina dorme perché è stanco."}
+{"prompt": "bene! perché la bambina dorme?", "response": "la bambina dorme perché è stanco."}
+{"prompt": "perché il gatto mangia?", "response": "il gatto mangia perché ha fame."}
+{"prompt": "perché il pesce mangia?", "response": "il pesce mangia perché ha fame."}
+{"prompt": "bene! perché l orso mangia?", "response": "l orso mangia perché ha fame."}

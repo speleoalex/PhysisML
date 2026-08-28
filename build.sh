@@ -33,6 +33,10 @@ else
 fi
 
 TARGET_LEVEL=${1:-1}
+# Highest level the curriculum has material for. Used by the loops that
+# scan or clean EVERY level rather than the requested range: those were
+# hardcoded to 10 and silently ignored anything above it.
+MAX_LEVEL=12
 LANG="it"
 EPOCHS_0=3    # good balance: enough signal, not wasteful for small corpora (L0-L2)
               # for large corpora (L3+, 20MB+) consider --epochs-0 2 to save time
@@ -118,6 +122,52 @@ if [ -z "$ANTHROPIC_API_KEY" ]; then
   exit 1
 fi
 
+# ── Level completion, as the quality gate defines it ────────────────────────
+# A level is complete when its LAST session cleared the threshold — not when a
+# file exists. phase 1 always writes final_learned.pt, so the old --resume test
+# ('final_learned.pt present and no GATE_FAILED') called a level complete after
+# a phase-2 crash: the dream aborts with exit 1, the gate never runs, no
+# GATE_FAILED is written, and the next --resume silently skips a level that
+# scored 0.12. Same two numbers as the in-loop gate, in one place.
+
+level_last_rate() {   # $1 = level → the strict rate of the last session, or empty
+  $PYTHON -c "
+import glob, json
+logs = sorted(glob.glob('models/checkpoints/$LANG/level_$1/session_*.jsonl'))
+if not logs: raise SystemExit(1)
+with open(logs[-1]) as f:
+    records = [json.loads(l) for l in f if l.strip()]
+if not records: raise SystemExit(1)
+score = sum(1.0 if r.get('feedback') in ('+++','++')
+            else (0.5 if r.get('feedback') == '+' else 0.0) for r in records)
+print(f'{score / len(records):.2f}')
+" 2>/dev/null
+}
+
+level_threshold() {   # $1 = level → the level's own quality_threshold
+  $PYTHON -c "
+import json, os
+p = f'training_files/$LANG/$1/local_teacher.json'
+if os.path.exists(p):
+    print(json.load(open(p)).get('quality_threshold', 0.40))
+else:
+    print({0:0.45, 1:0.40, 2:0.40, 3:0.35, 4:0.32, 5:0.30}.get($1, 0.30))
+" 2>/dev/null || echo 0.35
+}
+
+level_complete() {    # $1 = level → 0 if complete, 1 otherwise
+  local L="$1"
+  [ -f "models/checkpoints/$LANG/level_${L}/final_learned.pt" ] || return 1
+  [ -f "models/checkpoints/$LANG/level_${L}/GATE_FAILED" ] && return 1
+  # The dream is part of finishing a level: build.sh aborts if it fails, so a
+  # level without final_dreamed.pt never got past phase 2.
+  [ -f "models/checkpoints/$LANG/level_${L}/final_dreamed.pt" ] || return 1
+  local R T
+  R=$(level_last_rate "$L"); T=$(level_threshold "$L")
+  [ -z "$R" ] && return 1
+  $PYTHON -c "import sys; sys.exit(0 if float('$R') >= float('$T') else 1)"
+}
+
 # ── Determine START_LEVEL ────────────────────────────────────────────────────
 
 if [ "$RESUME" -eq 1 ]; then
@@ -128,11 +178,18 @@ if [ "$RESUME" -eq 1 ]; then
   # would be silently skipped on resume, bypassing the gate.
   START_LEVEL=0
   for L in $(seq 0 $TARGET_LEVEL); do
-    if [ -f "models/checkpoints/$LANG/level_${L}/final_learned.pt" ] \
-       && [ ! -f "models/checkpoints/$LANG/level_${L}/GATE_FAILED" ]; then
+    if level_complete "$L"; then
       START_LEVEL=$((L + 1))
+    else
+      break
     fi
   done
+  if [ "$START_LEVEL" -le "$TARGET_LEVEL" ]; then
+    R=$(level_last_rate "$START_LEVEL"); T=$(level_threshold "$START_LEVEL")
+    if [ -n "$R" ]; then
+      echo "--resume: level $START_LEVEL is at quality ${R} (threshold ${T}) — continuing it"
+    fi
+  fi
   echo "--resume: levels 0→$((START_LEVEL - 1)) already complete, resuming from level $START_LEVEL"
 
 else
@@ -140,11 +197,16 @@ else
   echo ""
   echo "  Available checkpoints:"
   LAST_COMPLETE=-1
-  for L in $(seq 0 10); do
+  for L in $(seq 0 $MAX_LEVEL); do
     BASE="models/checkpoints/$LANG/level_${L}"
     if [ -f "$BASE/final_learned.pt" ]; then
-      echo "    level $L  ✓ final_learned.pt"
-      LAST_COMPLETE=$L
+      RQ=$(level_last_rate "$L"); TQ=$(level_threshold "$L")
+      if level_complete "$L"; then
+        echo "    level $L  ✓ completo        (qualità ${RQ:-?} ≥ ${TQ})"
+        LAST_COMPLETE=$L
+      else
+        echo "    level $L  … da completare   (qualità ${RQ:-?} < ${TQ}$([ -f "$BASE/final_dreamed.pt" ] || echo ", sogno mancante"))"
+      fi
     elif [ -f "$BASE/final.pt" ]; then
       echo "    level $L    final.pt (phase 0 complete)"
     fi
@@ -163,13 +225,10 @@ else
   read -p "  Start level [Enter = continue]: " FROM_INPUT
 
   if [ -z "$FROM_INPUT" ]; then
-    # Enter = continue from next incomplete (gate-failed levels are retried)
+    # Enter = continue from the first level that has not cleared its gate
     START_LEVEL=0
     for L in $(seq 0 $TARGET_LEVEL); do
-      if [ -f "models/checkpoints/$LANG/level_${L}/final_learned.pt" ] \
-         && [ ! -f "models/checkpoints/$LANG/level_${L}/GATE_FAILED" ]; then
-        START_LEVEL=$((L + 1))
-      fi
+      if level_complete "$L"; then START_LEVEL=$((L + 1)); else break; fi
     done
     echo "  → Continuing from level $START_LEVEL"
   elif [ "$FROM_INPUT" = "0" ]; then
@@ -182,7 +241,7 @@ else
     # Delete checkpoints from START_LEVEL onward so they are rebuilt
     echo ""
     echo "  Deleting checkpoints from level $START_LEVEL onward..."
-    for L in $(seq $START_LEVEL 10); do
+    for L in $(seq $START_LEVEL $MAX_LEVEL); do
       DIR="models/checkpoints/$LANG/level_${L}"
       if [ -d "$DIR" ]; then
         rm -rf "$DIR"
@@ -299,12 +358,29 @@ except Exception: print(0)" 2>/dev/null || echo 0)
     SESSION_START=$(date +%s)
     echo "  [phase 1] Session $SESSION — ${EFFECTIVE_TUTOR} (max ${EFFECTIVE_TURNS} turns) ..."
 
+    # Ask gate: scaffolding for the curiosity level only. The reward asymmetry
+    # in LocalTeacher (+1.0 for asking about something unknown, -0.3 for asking
+    # about something already explained) can only fire once the model actually
+    # asks, and a model that has never produced a question will not start on
+    # its own from teacher-forced golds alone. The gate raises the logit of the
+    # question opener at the first token when local ignorance is high, which is
+    # what makes those turns happen at all. It is deliberately NOT passed to
+    # phase 2 — the dream would then splice question forms into replay — and
+    # NOT to any other level. The honest measurement is scripts/curiosity_rate.py
+    # with the gate OFF: what the gate produces is turns, what the asymmetry
+    # produces is a policy.
+    ASK_GATE_FLAG=""
+    if [ "$LEVEL" -ge 12 ]; then
+      ASK_GATE_FLAG="--ask-gate"
+    fi
+
     $PYTHON -u dynamic_model/train_curriculum.py \
       --phase        1 \
       --level        "$LEVEL" \
       --interactions "$EFFECTIVE_TURNS" \
       --tutor-model  "$EFFECTIVE_TUTOR" \
-      --lang         "$LANG"
+      --lang         "$LANG" \
+      $ASK_GATE_FLAG
 
     if [ $? -ne 0 ]; then
       echo "Error in phase 1, level $LEVEL. Aborting."

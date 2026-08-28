@@ -27,6 +27,7 @@ Usage:
     python3 scripts/expand_teacher_pools.py --levels 1 2 3 --per-step 30
 """
 import os
+import re
 import sys
 import json
 import random
@@ -61,6 +62,38 @@ def di(n: dict) -> str:
     return ("del " if n["g"] == "m" else "della ") + n["w"]
 
 
+def head(cls: str) -> str:
+    """'un animale' -> 'animale'. The evaluator searches for the informative
+    word, and the article is not it."""
+    return re.sub(r"^(un|una|uno)\s+", "", cls)
+
+
+def indef(n: dict) -> str:
+    """'un ragno', 'una zucca', 'un aquila' — apostrophes are spaces here, so
+    the feminine before a vowel is 'un', not 'una'."""
+    if n["g"] == "m":
+        return "un"
+    return "un" if n["w"][0] in "aeiou" else "una"
+
+
+def dimostr(n: dict) -> str:
+    return "questo" if n["g"] == "m" else "questa"
+
+
+def intro(n: dict) -> str:
+    """'questo è un ragno', 'questa è acqua', 'questo è il sole'.
+
+    Mass nouns take no indefinite article ('questa è un acqua' is not Italian)
+    and unique referents take the definite one ('questo è un sole' is not
+    either).
+    """
+    if n.get("mass"):
+        return f"{dimostr(n)} è {n['w']}"
+    if n.get("uniq"):
+        return f"{dimostr(n)} è {phrase(n)}"
+    return f"{dimostr(n)} è {indef(n)} {n['w']}"
+
+
 def pick(rng, seq, k):
     seq = list(seq)
     if not seq:
@@ -77,6 +110,50 @@ class Lex:
         self.verbs = d["verbs"]
         self.adjs = d["adjectives"]
         self.luoghi_verbo = d.get("luoghi_verbo", {})
+        onto = d.get("ontology", {})
+        self.kind_class = onto.get("kind_class", {})
+        self.classes = onto.get("classes", {})
+        self.negative_pool = onto.get("negative_pool", [])
+        self.unknown = d.get("unknown_nouns", [])
+
+    def cls_of(self, n):
+        """The class this noun belongs to, as it is SAID: 'un animale'.
+
+        `kind` is a generator constraint, not an ontology — 'il sole e una
+        natura' is not Italian. The per-noun `cls` wins over the kind default.
+        """
+        return n.get("cls") or self.kind_class.get(n["kind"], "")
+
+    def wrong_cls_for(self, rng, n):
+        """A class this noun does NOT belong to, for the negatives step."""
+        mine = self.cls_of(n)
+        cands = [c for c in self.negative_pool if c != mine]
+        return rng.choice(cands) if cands else None
+
+    def classified(self):
+        """Nouns that have a class — all of them, if the lexicon is complete."""
+        return [n for n in self.nouns if self.cls_of(n)]
+
+    def unknown_of(self, probe=False):
+        """The nouns held out of L0-L11.
+
+        probe=False are the ones L12 teaches; probe=True are held out of L12 as
+        well and exist only for scripts/curiosity_rate.py to measure on. Mixing
+        them would measure the model on what it was just taught.
+        """
+        return [n for n in self.unknown if bool(n.get("probe")) == probe]
+
+    def anchor_of_other_class(self, rng, cls):
+        """A known noun whose class is NOT `cls`, to open a teaching prompt.
+
+        Deliberately a different class: with an anchor of the SAME class
+        ('il cane è un animale, questo è un ragno') the class is already in the
+        prompt, so the model can produce the right answer by copying and the
+        turn stops testing anything — and at L12 it could answer instead of
+        asking and still be right.
+        """
+        cands = [n for n in self.nouns if self.cls_of(n) != cls]
+        return rng.choice(cands) if cands else None
 
     def of(self, *kinds):
         return [n for n in self.nouns if n["kind"] in kinds]
@@ -222,12 +299,26 @@ def g_cosa_verbo(rng, lex, k):
 
 
 def g_chi_verbo(rng, lex, k):
-    out = []
+    """'chi mangia il pane?' -> 'il cane mangia il pane.'
+
+    ONE subject per (verb, object). Any animal or person can eat the cake, and
+    there are only 16 valid (verb, object) pairs against ~20 possible subjects,
+    so drawing subjects at random produced the same question with four
+    different gold answers ('chi mangia la torta?' -> cane / topo / orso /
+    gallina). The level's contract is a closed pool with a fixed association
+    repeated many times; two answers for one question breaks it, and the
+    evaluator then marks a correct answer wrong.
+    """
+    out, taken = [], set()
     for n in pick(rng, lex.of("animale", "persona"), k):
         vo = lex.subj_verb_obj(rng, n)
         if not vo:
             continue
         v, o = vo
+        key = (v["pres"], o["w"])
+        if key in taken:
+            continue
+        taken.add(key)
         out.append({"prompt": f"chi {v['pres']} {phrase(o)}?",
                     "expected": f"{phrase(n)} {v['pres']} {phrase(o)}.",
                     "noun": n["w"], "article": n["art"], "verb": v["pres"]})
@@ -271,7 +362,12 @@ def g_due_verbi(rng, lex, k):
         if len(vs) < 2:
             continue
         v1, v2 = rng.sample(vs, 2)
-        out.append({"prompt": f"cosa fa {phrase(n)}?",
+        # 'racconta due cose del cane', NOT 'cosa fa il cane?': the latter is
+        # L3 step D's prompt with a ONE-verb gold answer, so the same question
+        # had two answers across levels and the retention matrix scored L3 as
+        # regressed after L5. The imperative names the task, and it is the
+        # register L7 step C already uses ('racconta i tre giorni del cane').
+        out.append({"prompt": f"racconta due cose {di(n)}",
                     "expected": f"{phrase(n)} {v1['pres']} e {v2['pres']}.",
                     "noun": v2["pres"], "verb": v1["pres"]})
     return out
@@ -410,7 +506,11 @@ def g_perciò(rng, lex, k):
         if not pr:
             continue
         a1, a2 = (adj_for(n, x) for x in pr)
-        out.append({"prompt": f"perché ti piace {phrase(n)}?",
+        # The 'due motivi:' prefix keeps this apart from L8 step C, whose
+        # prompt is exactly 'perché ti piace il sole?' with a one-reason gold
+        # ('mi piace il sole perché è caldo.'). The colon-prefixed task is the
+        # form L3 step E already uses ('di un numero: uno').
+        out.append({"prompt": f"due motivi: perché ti piace {phrase(n)}?",
                     "expected": f"{phrase(n)} è {a1} e {a2}, perciò mi piace.",
                     "noun": "perciò"})
     return out
@@ -459,6 +559,164 @@ def g_analizza(rng, lex, k):
     return out
 
 
+def g_cos_e(rng, lex, k):
+    """'cos e il gatto?' -> 'il gatto e un animale.'  The class is NOT in the
+    prompt, so the anti-echo at level >= 4 credits it correctly.
+
+    'cos è', not 'cosa è', and not for elegance: 'cosa' is ALSO the head of the
+    top class ('una cosa'). With 'cosa è un cibo?' the gold 'un cibo è una
+    cosa.' shares every word with its own prompt, so a bare echo of the prompt
+    scores full coverage and SIGNAL 4 reinforces the model's parroting — the
+    self-poisoning loop the anti-echo exists to close. Verified by
+    test_prompt_echo_never_earns_echo_training.
+    """
+    out = []
+    for n in pick(rng, lex.classified(), k):
+        c = lex.cls_of(n)
+        out.append({"prompt": f"cos è {phrase(n)}?",
+                    "expected": f"{phrase(n)} è {c}.",
+                    "article": n["art"], "noun": head(c)})
+    return out
+
+
+def g_is_a_si(rng, lex, k):
+    """'il gatto è un animale?' -> 'sì, il gatto è un animale.'"""
+    out = []
+    for n in pick(rng, lex.classified(), k):
+        c = lex.cls_of(n)
+        out.append({"prompt": f"{phrase(n)} è {c}?",
+                    "expected": f"sì, {phrase(n)} è {c}.",
+                    "article": n["art"], "noun": head(c)})
+    return out
+
+
+def g_is_a_no(rng, lex, k):
+    """'il pane è un animale?' -> 'no, il pane è un cibo.'
+
+    Mandatory step. Without negatives the copula collapses and the model
+    answers 'animale' to everything — the same dynamic that at L4 made the
+    grade uncorrelated with correctness. The wrong class is drawn from
+    negative_pool, which excludes the hypernyms: 'il cane è una cosa?' has no
+    clean 'no', 'il cane è una persona?' does.
+    """
+    out = []
+    for n in pick(rng, lex.classified(), k):
+        wrong = lex.wrong_cls_for(rng, n)
+        if not wrong:
+            continue
+        c = lex.cls_of(n)
+        out.append({"prompt": f"{phrase(n)} è {wrong}?",
+                    "expected": f"no, {phrase(n)} è {c}.",
+                    "article": n["art"], "noun": head(c)})
+    return out
+
+
+def g_membro(rng, lex, k):
+    """'fai un esempio di animale' -> 'il cane è un animale.'  Class -> member,
+    the inverse direction of step A: without it the relation is learned one way.
+
+    ONE canonical member per class, not k of them. A class has many members, so
+    drawing them at random gives the SAME prompt two different gold answers
+    ('fai un esempio di persona' -> maestro, then -> fratello) and the evaluator
+    then marks a correct answer wrong. The canonical member is the first of its
+    class in lexicon order, so the pool is stable across regenerations.
+
+    The prompt also deliberately avoids 'cosa è un animale?', which is step E's
+    prompt with a different gold answer.
+    """
+    canonical = {}
+    for n in lex.classified():
+        c = lex.cls_of(n)
+        if c.startswith(("un ", "una ")) and c not in canonical:
+            canonical[c] = n      # first in lexicon order wins
+    # `noun` is the member and `object` the class: here the class is already in
+    # the prompt, so grade_by_coverage's anti-echo drops it and cannot see a
+    # wrong one ('il cane è un persona.' scored +++). The evaluator checks
+    # `object` too, which closes that hole.
+    return [{"prompt": f"fai un esempio di {head(c)}",
+             "expected": f"{phrase(n)} è {c}.",
+             "article": n["art"], "noun": n["w"], "object": head(c)}
+            for c, n in canonical.items()]
+
+
+def g_iperonimo(rng, lex, k):
+    """'cosa è un animale?' -> 'un animale è un essere vivente.'  Second level
+    of the chain. Only classes that are sayable with an article and that have
+    a hypernym: 'cosa è acqua?' is not Italian, and a root has no answer."""
+    cands = [(c, h) for c, h in lex.classes.items()
+             if h and c.startswith(("un ", "una "))]
+    cands.sort()          # dict order is insertion order — sort for determinism
+    return [{"prompt": f"cos è {c}?", "expected": f"{c} è {h}.",
+             "noun": head(h)}
+            for c, h in pick(rng, cands, k)]
+
+
+def g_chiedi_ignoto(rng, lex, k):
+    """'il pane è un cibo, questo è un ragno' -> 'cosa è un ragno?'
+
+    The ask IS the gold answer: a model that has never met 'ragno' cannot know
+    its class, and the anchor deliberately belongs to a DIFFERENT class, so
+    guessing the class is not a way to be right. Asking is.
+
+    Only the non-probe held-out nouns: the probe half is what
+    scripts/curiosity_rate.py measures on, and teaching it would measure the
+    model on what it was just taught.
+    """
+    out = []
+    for n in pick(rng, lex.unknown_of(probe=False), k):
+        a = lex.anchor_of_other_class(rng, n["cls"])
+        if not a:
+            continue
+        out.append({
+            "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
+            "expected": f"cos è {indef(n)} {n['w']}?",
+            "noun": n["w"]})
+    return out
+
+
+def g_non_chiedere(rng, lex, k):
+    """'il cane è un animale, questo è un pane' -> 'il pane è un cibo.'
+
+    The discriminating case, and the reason the level measures curiosity rather
+    than a tic: on a noun it already knows the model must answer, not ask. The
+    anchor's class differs from the answer's, so the class cannot be copied
+    out of the prompt.
+    """
+    out = []
+    for n in pick(rng, lex.classified(), k):
+        c = lex.cls_of(n)
+        a = lex.anchor_of_other_class(rng, c)
+        if not a:
+            continue
+        out.append({
+            "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
+            "expected": f"{phrase(n)} è {c}.",
+            "article": n["art"], "noun": head(c)})
+    return out
+
+
+def g_consolida(rng, lex, k):
+    """'cosa è un ragno?' -> 'il ragno è un animale.'
+
+    The turn after the teacher has answered: the fact the model asked for has
+    to end up in the weights, or asking bought nothing.
+    """
+    return [{"prompt": f"cos è {indef(n)} {n['w']}?"
+                       if not n.get("mass") else f"cos è {n['w']}?",
+             "expected": f"{n['art']} {n['w']} è {n['cls']}.",
+             "article": n["art"], "noun": head(n["cls"])}
+            for n in pick(rng, lex.unknown_of(probe=False), k)]
+
+
+def g_conferma_nuovo(rng, lex, k):
+    """'il ragno è un animale?' -> 'sì, il ragno è un animale.'  Retention
+    check on the nouns learned in this level."""
+    return [{"prompt": f"{n['art']} {n['w']} è {n['cls']}?",
+             "expected": f"sì, {n['art']} {n['w']} è {n['cls']}.",
+             "article": n["art"], "noun": head(n["cls"])}
+            for n in pick(rng, lex.unknown_of(probe=False), k)]
+
+
 # (level, step) -> generator. Steps not listed keep their hand-written targets:
 # L0 is phonemes and L1/L3 identity steps are fixed answers, neither of which
 # a lexicon can widen meaningfully.
@@ -475,6 +733,10 @@ PLAN = {
     (8, "C"): g_perche_piace, (8, "D"): g_descrivi,
     (9, "A"): g_tesi,       (9, "B"): g_perciò,
     (10, "A"): g_commenta,  (10, "C"): g_storia, (10, "D"): g_analizza,
+    (11, "A"): g_cos_e,     (11, "B"): g_is_a_si, (11, "C"): g_is_a_no,
+    (11, "D"): g_membro,    (11, "E"): g_iperonimo,
+    (12, "A"): g_chiedi_ignoto, (12, "B"): g_non_chiedere,
+    (12, "C"): g_consolida,     (12, "D"): g_conferma_nuovo,
 }
 
 
@@ -482,7 +744,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--lang", default="it")
     ap.add_argument("--levels", nargs="+", type=int,
-                    default=list(range(11)))
+                    default=list(range(13)))
     ap.add_argument("--per-step", type=int, default=24,
                     help="targets per generated step (default 24)")
     ap.add_argument("--mode", default="append", choices=["append", "replace"],
@@ -527,6 +789,29 @@ def main():
                 step["targets"] = step["targets"] + [
                     t for t in new if t["prompt"] not in seen]
             touched.append(f"{sname}:+{len(step['targets'])}")
+
+        # A prompt may carry only ONE gold answer. Dedup above only compares a
+        # new target against the targets already present, never against the
+        # rest of its own batch, so a generator that maps two items onto the
+        # same prompt slipped duplicates straight into the committed pool
+        # (measured: 'chi mangia la torta?' ended up with four gold answers).
+        # Keep the first occurrence — deterministic, and it preserves whatever
+        # the pool was originally built with.
+        for sname, step in cfg["steps"].items():
+            seen_p, kept, dropped = set(), [], []
+            for t in step["targets"]:
+                key = t.get("prompt") if isinstance(t, dict) else t
+                if key in seen_p:
+                    dropped.append(key)
+                    continue
+                seen_p.add(key)
+                kept.append(t)
+            if dropped:
+                step["targets"] = kept
+                print(f"    ⚠ L{lvl} step {sname}: scartati "
+                      f"{len(dropped)} target con prompt duplicato "
+                      f"({', '.join(sorted(set(dropped))[:3])}...)")
+
         after = sum(len(s["targets"]) for s in cfg["steps"].values())
         grand_before += before
         grand_after += after

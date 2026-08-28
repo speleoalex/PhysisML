@@ -33,6 +33,10 @@ import os, sys, re, gzip, json, math, argparse, subprocess, glob, shutil
 from collections import defaultdict
 
 CORPUS_BASE   = "training_files/it"
+# Number of curriculum levels to scan. A bare range(11) silently
+# excluded L11 (ontology) and L12 (curiosity) from both the tokenizer
+# and the corpus statistics.
+N_LEVELS = 13
 # Bulk corpora are written to <level>/_reference/, not <level>/ itself.
 # They are kept for reproducibility but never trained on: every loader
 # globs "<level>/*.txt" non-recursively, so a subdirectory is invisible
@@ -57,6 +61,13 @@ TARGET_TOKENS = {
     8:  35_000_000,
     9:  25_000_000,
     10: 15_000_000,
+    # L11 (ontologia) and L12 (curiosita') stay at 0 on purpose: both teach a
+    # single relation over a CLOSED pool, and scraped prose is what erases
+    # prompt->answer associations (see training_files/it/_reference_README.md).
+    # Their text is generated from their own gold answers by
+    # scripts/gen_level_text.py.
+    11: 0,
+    12: 0,
 }
 
 # ── Readability ──────────────────────────────────────────────────────────────
@@ -115,7 +126,7 @@ def show_stats():
     print(f"  {'─'*4}  {'─'*4}  {'─'*8}  {'─'*14}  {'─'*14}  {'─'*6}")
 
     total_chars = 0
-    for level in range(11):
+    for level in range(N_LEVELS):
         d = os.path.join(CORPUS_BASE, str(level))
         files = [f for f in glob.glob(os.path.join(d, "*.txt"))
                  if "teacher_prompt" not in f]

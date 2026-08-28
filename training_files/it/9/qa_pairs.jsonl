@@ -3,24 +3,24 @@
 {"prompt": "il cane è fedele?", "response": "secondo me il cane è fedele perché aspetta."}
 {"prompt": "ancora. il libro è utile?", "response": "secondo me il libro è utile perché insegna."}
 {"prompt": "bravo! il libro è utile?", "response": "secondo me il libro è utile perché insegna."}
-{"prompt": "ancora. perché ti piace il sole?", "response": "il sole è caldo e giallo, perciò mi piace."}
-{"prompt": "perfetto! perché ti piace il sole?", "response": "il sole è caldo e giallo, perciò mi piace."}
-{"prompt": "ancora. perché ti piace il pane?", "response": "il pane è caldo e buono, perciò mi piace."}
-{"prompt": "bravo! perché ti piace il pane?", "response": "il pane è caldo e buono, perciò mi piace."}
-{"prompt": "ottimo! perché ti piace la casa?", "response": "la casa è calda e bella, perciò mi piace."}
-{"prompt": "perfetto! perché ti piace la casa?", "response": "la casa è calda e bella, perciò mi piace."}
-{"prompt": "bene! perché ti piace il gatto?", "response": "il gatto è piccolo e veloce, perciò mi piace."}
-{"prompt": "ancora. perché ti piace il gatto?", "response": "il gatto è piccolo e veloce, perciò mi piace."}
-{"prompt": "perché ti piace il gatto?", "response": "il gatto è piccolo e veloce, perciò mi piace."}
+{"prompt": "ancora. due motivi: perché ti piace il sole?", "response": "il sole è caldo e giallo, perciò mi piace."}
+{"prompt": "perfetto! due motivi: perché ti piace il sole?", "response": "il sole è caldo e giallo, perciò mi piace."}
+{"prompt": "ancora. due motivi: perché ti piace il pane?", "response": "il pane è caldo e buono, perciò mi piace."}
+{"prompt": "bravo! due motivi: perché ti piace il pane?", "response": "il pane è caldo e buono, perciò mi piace."}
+{"prompt": "ottimo! due motivi: perché ti piace la casa?", "response": "la casa è calda e bella, perciò mi piace."}
+{"prompt": "perfetto! due motivi: perché ti piace la casa?", "response": "la casa è calda e bella, perciò mi piace."}
+{"prompt": "bene! due motivi: perché ti piace il gatto?", "response": "il gatto è piccolo e veloce, perciò mi piace."}
+{"prompt": "ancora. due motivi: perché ti piace il gatto?", "response": "il gatto è piccolo e veloce, perciò mi piace."}
+{"prompt": "due motivi: perché ti piace il gatto?", "response": "il gatto è piccolo e veloce, perciò mi piace."}
 {"prompt": "ancora. di un altro modo per dire bello", "response": "bello è come dire bellissimo."}
 {"prompt": "bravo! di un altro modo per dire bello", "response": "bello è come dire bellissimo."}
 {"prompt": "la luna è bella?", "response": "secondo me la luna è bella perché è bianca."}
 {"prompt": "ancora. la luna è bella?", "response": "secondo me la luna è bella perché è bianca."}
 {"prompt": "il libro è utile?", "response": "secondo me il libro è utile perché insegna."}
-{"prompt": "bene! perché ti piace il sole?", "response": "il sole è caldo e giallo, perciò mi piace."}
-{"prompt": "perché ti piace il sole?", "response": "il sole è caldo e giallo, perciò mi piace."}
-{"prompt": "perché ti piace il pane?", "response": "il pane è caldo e buono, perciò mi piace."}
-{"prompt": "benissimo! perché ti piace il gatto?", "response": "il gatto è piccolo e veloce, perciò mi piace."}
+{"prompt": "bene! due motivi: perché ti piace il sole?", "response": "il sole è caldo e giallo, perciò mi piace."}
+{"prompt": "due motivi: perché ti piace il sole?", "response": "il sole è caldo e giallo, perciò mi piace."}
+{"prompt": "due motivi: perché ti piace il pane?", "response": "il pane è caldo e buono, perciò mi piace."}
+{"prompt": "benissimo! due motivi: perché ti piace il gatto?", "response": "il gatto è piccolo e veloce, perciò mi piace."}
 {"prompt": "di un altro modo per dire bello", "response": "bello è come dire bellissimo."}
 {"prompt": "ancora. di un altro modo per dire grande", "response": "grande è come dire enorme."}
 {"prompt": "ancora. di un altro modo per dire piccolo", "response": "piccolo è come dire minuscolo."}
@@ -29,9 +29,9 @@
 {"prompt": "ancora. il pane è buono?", "response": "secondo me il pane è buono perché è caldo."}
 {"prompt": "bravo! il pane è buono?", "response": "secondo me il pane è buono perché è caldo."}
 {"prompt": "ottimo! il cane è fedele?", "response": "secondo me il cane è fedele perché aspetta."}
-{"prompt": "bravo! perché ti piace il sole?", "response": "il sole è caldo e giallo, perciò mi piace."}
-{"prompt": "ottimo! perché ti piace il pane?", "response": "il pane è caldo e buono, perciò mi piace."}
-{"prompt": "perché ti piace la casa?", "response": "la casa è calda e bella, perciò mi piace."}
+{"prompt": "bravo! due motivi: perché ti piace il sole?", "response": "il sole è caldo e giallo, perciò mi piace."}
+{"prompt": "ottimo! due motivi: perché ti piace il pane?", "response": "il pane è caldo e buono, perciò mi piace."}
+{"prompt": "due motivi: perché ti piace la casa?", "response": "la casa è calda e bella, perciò mi piace."}
 {"prompt": "di un altro modo per dire caldo", "response": "caldo è come dire bollente."}
 {"prompt": "ancora. il cane ha fame, cosa farà?", "response": "il cane ha fame, perciò mangerà il pane."}
 {"prompt": "il cane ha fame, cosa farà?", "response": "il cane ha fame, perciò mangerà il pane."}
@@ -70,10 +70,86 @@
 {"prompt": "ottimo! di un altro modo per dire caldo", "response": "caldo è come dire bollente."}
 {"prompt": "benissimo! la luna è bella?", "response": "secondo me la luna è bella perché è bianca."}
 {"prompt": "ottimo! il libro è utile?", "response": "secondo me il libro è utile perché insegna."}
-{"prompt": "benissimo! perché ti piace il sole?", "response": "il sole è caldo e giallo, perciò mi piace."}
+{"prompt": "benissimo! due motivi: perché ti piace il sole?", "response": "il sole è caldo e giallo, perciò mi piace."}
 {"prompt": "perfetto! di un altro modo per dire grande", "response": "grande è come dire enorme."}
 {"prompt": "benissimo! il gatto è stanco, cosa farà?", "response": "il gatto è stanco, perciò dormirà in casa."}
 {"prompt": "perfetto! è caldo, cosa farà la nonna?", "response": "è caldo, perciò la nonna aprirà la porta."}
 {"prompt": "bravo! il bambino ha sete, cosa farà?", "response": "il bambino ha sete, perciò berrà il latte."}
 {"prompt": "ottimo! di un altro modo per dire piccolo", "response": "piccolo è come dire minuscolo."}
 {"prompt": "perfetto! il bambino ha sete, cosa farà?", "response": "il bambino ha sete, perciò berrà il latte."}
+{"prompt": "ancora. il formaggio è dolce?", "response": "secondo me il formaggio è dolce perché è caldo."}
+{"prompt": "ancora. la stella è bella?", "response": "secondo me la stella è bella perché è calda."}
+{"prompt": "la stella è bella?", "response": "secondo me la stella è bella perché è calda."}
+{"prompt": "la mela è dolce?", "response": "secondo me la mela è dolce perché è calda."}
+{"prompt": "ancora. la mela è dolce?", "response": "secondo me la mela è dolce perché è calda."}
+{"prompt": "ancora. il topo è fedele?", "response": "secondo me il topo è fedele perché è grande."}
+{"prompt": "perfetto! il topo è fedele?", "response": "secondo me il topo è fedele perché è grande."}
+{"prompt": "ancora. il gatto è bello?", "response": "secondo me il gatto è bello perché è stanco."}
+{"prompt": "il gatto è bello?", "response": "secondo me il gatto è bello perché è stanco."}
+{"prompt": "ancora. la mucca è fedele?", "response": "secondo me la mucca è fedele perché è tranquilla."}
+{"prompt": "perfetto! la mucca è fedele?", "response": "secondo me la mucca è fedele perché è tranquilla."}
+{"prompt": "ancora. l albero è bello?", "response": "secondo me l albero è bello perché è grande."}
+{"prompt": "l albero è bello?", "response": "secondo me l albero è bello perché è grande."}
+{"prompt": "ancora. il cappello è utile?", "response": "secondo me il cappello è utile perché è grande."}
+{"prompt": "perfetto! il cappello è utile?", "response": "secondo me il cappello è utile perché è grande."}
+{"prompt": "bene! il libro è utile?", "response": "secondo me il libro è utile perché insegna."}
+{"prompt": "il formaggio è dolce?", "response": "secondo me il formaggio è dolce perché è caldo."}
+{"prompt": "ancora. il fiore è bello?", "response": "secondo me il fiore è bello perché è basso."}
+{"prompt": "il fiore è bello?", "response": "secondo me il fiore è bello perché è basso."}
+{"prompt": "ancora. il vento è bello?", "response": "secondo me il vento è bello perché è lungo."}
+{"prompt": "il vento è bello?", "response": "secondo me il vento è bello perché è lungo."}
+{"prompt": "ancora. l ape è buona?", "response": "secondo me l ape è buona perché è alta."}
+{"prompt": "l ape è buona?", "response": "secondo me l ape è buona perché è alta."}
+{"prompt": "la mucca è fedele?", "response": "secondo me la mucca è fedele perché è tranquilla."}
+{"prompt": "ancora. l orso è fedele?", "response": "secondo me l orso è fedele perché è veloce."}
+{"prompt": "l orso è fedele?", "response": "secondo me l orso è fedele perché è veloce."}
+{"prompt": "benissimo! il cappello è utile?", "response": "secondo me il cappello è utile perché è grande."}
+{"prompt": "perfetto! il cane è fedele?", "response": "secondo me il cane è fedele perché aspetta."}
+{"prompt": "ancora. l uccello è buono?", "response": "secondo me l uccello è buono perché è grande."}
+{"prompt": "bravo! l uccello è buono?", "response": "secondo me l uccello è buono perché è grande."}
+{"prompt": "bene! la mela è dolce?", "response": "secondo me la mela è dolce perché è calda."}
+{"prompt": "perfetto! la mela è dolce?", "response": "secondo me la mela è dolce perché è calda."}
+{"prompt": "ancora. il tavolo è utile?", "response": "secondo me il tavolo è utile perché è piccolo."}
+{"prompt": "il gelato è dolce?", "response": "secondo me il gelato è dolce perché è giallo."}
+{"prompt": "ancora. il gelato è dolce?", "response": "secondo me il gelato è dolce perché è giallo."}
+{"prompt": "ancora. la torta è buona?", "response": "secondo me la torta è buona perché è fredda."}
+{"prompt": "bene! il pane è buono?", "response": "secondo me il pane è buono perché è caldo."}
+{"prompt": "bene! la luna è bella?", "response": "secondo me la luna è bella perché è bianca."}
+{"prompt": "bravo! il cane è fedele?", "response": "secondo me il cane è fedele perché aspetta."}
+{"prompt": "benissimo! l uccello è buono?", "response": "secondo me l uccello è buono perché è grande."}
+{"prompt": "bene! il formaggio è dolce?", "response": "secondo me il formaggio è dolce perché è caldo."}
+{"prompt": "la torta è buona?", "response": "secondo me la torta è buona perché è fredda."}
+{"prompt": "bravo! la stella è bella?", "response": "secondo me la stella è bella perché è calda."}
+{"prompt": "il tavolo è utile?", "response": "secondo me il tavolo è utile perché è piccolo."}
+{"prompt": "ancora. il cane è bello?", "response": "secondo me il cane è bello perché è stanco."}
+{"prompt": "il cane è bello?", "response": "secondo me il cane è bello perché è stanco."}
+{"prompt": "ancora. il letto è utile?", "response": "secondo me il letto è utile perché è alto."}
+{"prompt": "il letto è utile?", "response": "secondo me il letto è utile perché è alto."}
+{"prompt": "perfetto! il fiore è bello?", "response": "secondo me il fiore è bello perché è basso."}
+{"prompt": "benissimo! il topo è fedele?", "response": "secondo me il topo è fedele perché è grande."}
+{"prompt": "il cappello è utile?", "response": "secondo me il cappello è utile perché è grande."}
+{"prompt": "ancora. la penna è bella?", "response": "secondo me la penna è bella perché è bassa."}
+{"prompt": "la penna è bella?", "response": "secondo me la penna è bella perché è bassa."}
+{"prompt": "bravo! il gelato è dolce?", "response": "secondo me il gelato è dolce perché è giallo."}
+{"prompt": "ottimo! l uccello è buono?", "response": "secondo me l uccello è buono perché è grande."}
+{"prompt": "ottimo! il formaggio è dolce?", "response": "secondo me il formaggio è dolce perché è caldo."}
+{"prompt": "benissimo! la torta è buona?", "response": "secondo me la torta è buona perché è fredda."}
+{"prompt": "bene! il tavolo è utile?", "response": "secondo me il tavolo è utile perché è piccolo."}
+{"prompt": "ancora. il mare è bello?", "response": "secondo me il mare è bello perché è verde."}
+{"prompt": "il mare è bello?", "response": "secondo me il mare è bello perché è verde."}
+{"prompt": "bene! il gatto è bello?", "response": "secondo me il gatto è bello perché è stanco."}
+{"prompt": "ancora. la sedia è bella?", "response": "secondo me la sedia è bella perché è rossa."}
+{"prompt": "la sedia è bella?", "response": "secondo me la sedia è bella perché è rossa."}
+{"prompt": "bravo! due motivi: perché ti piace il gatto?", "response": "il gatto è piccolo e veloce, perciò mi piace."}
+{"prompt": "ancora. due motivi: perché ti piace la bambina?", "response": "la bambina è fedele e tranquilla, perciò mi piace."}
+{"prompt": "bravo! due motivi: perché ti piace la bambina?", "response": "la bambina è fedele e tranquilla, perciò mi piace."}
+{"prompt": "due motivi: perché ti piace la mamma?", "response": "la mamma è veloce e buona, perciò mi piace."}
+{"prompt": "ancora. due motivi: perché ti piace la mamma?", "response": "la mamma è veloce e buona, perciò mi piace."}
+{"prompt": "ancora. due motivi: perché ti piace la nonna?", "response": "la nonna è tranquilla e fedele, perciò mi piace."}
+{"prompt": "due motivi: perché ti piace la nonna?", "response": "la nonna è tranquilla e fedele, perciò mi piace."}
+{"prompt": "due motivi: perché ti piace l ape?", "response": "l ape è tranquilla e buona, perciò mi piace."}
+{"prompt": "ancora. due motivi: perché ti piace l ape?", "response": "l ape è tranquilla e buona, perciò mi piace."}
+{"prompt": "due motivi: perché ti piace il cane?", "response": "il cane è veloce e tranquillo, perciò mi piace."}
+{"prompt": "perfetto! due motivi: perché ti piace il cane?", "response": "il cane è veloce e tranquillo, perciò mi piace."}
+{"prompt": "benissimo! due motivi: perché ti piace l amico?", "response": "l amico è buono e tranquillo, perciò mi piace."}
+{"prompt": "perfetto! due motivi: perché ti piace l amico?", "response": "l amico è buono e tranquillo, perciò mi piace."}

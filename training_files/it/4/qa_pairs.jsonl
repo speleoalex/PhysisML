@@ -138,3 +138,163 @@
 {"prompt": "ottimo! cosa fai prima di dormire?", "response": "prima canto la canzone."}
 {"prompt": "perfetto! cosa fai dopo la scuola?", "response": "poi corro in casa."}
 {"prompt": "ottimo! cosa fai dopo la scuola?", "response": "poi corro in casa."}
+{"prompt": "ancora. di: cosa mangia il cavallo?", "response": "il cavallo mangia il pane."}
+{"prompt": "ottimo! di: cosa mangia il cavallo?", "response": "il cavallo mangia il pane."}
+{"prompt": "ancora. di: cosa legge la mamma?", "response": "la mamma legge il libro."}
+{"prompt": "perfetto! di: cosa legge la mamma?", "response": "la mamma legge il libro."}
+{"prompt": "ancora. di: cosa mangia l uccello?", "response": "l uccello mangia la mela."}
+{"prompt": "bravo! di: cosa mangia l uccello?", "response": "l uccello mangia la mela."}
+{"prompt": "ancora. di: cosa mangia il topo?", "response": "il topo mangia il pane."}
+{"prompt": "benissimo! di: cosa mangia il topo?", "response": "il topo mangia il pane."}
+{"prompt": "ancora. di: cosa mangia il lupo?", "response": "il lupo mangia il pane."}
+{"prompt": "bravo! di: cosa mangia il lupo?", "response": "il lupo mangia il pane."}
+{"prompt": "ancora. di: cosa beve il fratello?", "response": "il fratello beve il latte."}
+{"prompt": "di: cosa beve il fratello?", "response": "il fratello beve il latte."}
+{"prompt": "perfetto! chi beve il latte?", "response": "il bambino beve il latte."}
+{"prompt": "benissimo! chi legge il libro?", "response": "il papà legge il libro."}
+{"prompt": "ancora. chi guarda il disegno?", "response": "il maestro guarda il disegno."}
+{"prompt": "bene! chi guarda il disegno?", "response": "il maestro guarda il disegno."}
+{"prompt": "ancora. chi mangia la torta?", "response": "l orso mangia la torta."}
+{"prompt": "benissimo! chi mangia la torta?", "response": "l orso mangia la torta."}
+{"prompt": "ancora. chi mangia la mela?", "response": "l amico mangia la mela."}
+{"prompt": "benissimo! chi mangia la mela?", "response": "l amico mangia la mela."}
+{"prompt": "ancora. chi mangia il gelato?", "response": "il cavallo mangia il gelato."}
+{"prompt": "benissimo! chi mangia il gelato?", "response": "il cavallo mangia il gelato."}
+{"prompt": "benissimo! chi mangia il pane?", "response": "il cane mangia il pane."}
+{"prompt": "perfetto! chi guarda la luna?", "response": "il bambino guarda la luna."}
+{"prompt": "ancora. chi guarda il fiore?", "response": "il fratello guarda il fiore."}
+{"prompt": "chi guarda il fiore?", "response": "il fratello guarda il fiore."}
+{"prompt": "chi mangia la mela?", "response": "l amico mangia la mela."}
+{"prompt": "ancora. chi mangia la minestra?", "response": "la mucca mangia la minestra."}
+{"prompt": "chi mangia la minestra?", "response": "la mucca mangia la minestra."}
+{"prompt": "bene! chi legge il libro?", "response": "il papà legge il libro."}
+{"prompt": "ancora. chi mangia il formaggio?", "response": "il lupo mangia il formaggio."}
+{"prompt": "chi mangia il formaggio?", "response": "il lupo mangia il formaggio."}
+{"prompt": "chi guarda il disegno?", "response": "il maestro guarda il disegno."}
+{"prompt": "ottimo! chi guarda il fiore?", "response": "il fratello guarda il fiore."}
+{"prompt": "bravo! chi mangia la torta?", "response": "l orso mangia la torta."}
+{"prompt": "chi mangia il gelato?", "response": "il cavallo mangia il gelato."}
+{"prompt": "benissimo! di: cosa mangia la mucca?", "response": "la mucca mangia il gelato."}
+{"prompt": "ancora. di: cosa mangia la mucca?", "response": "la mucca mangia il gelato."}
+{"prompt": "ancora. di: cosa apre il papà?", "response": "il papà apre il libro."}
+{"prompt": "ancora. di: cosa mangia la nonna?", "response": "la nonna mangia la mela."}
+{"prompt": "bene! di: cosa beve il bambino?", "response": "il bambino beve il latte."}
+{"prompt": "benissimo! di: cosa beve la mamma?", "response": "la mamma beve l acqua."}
+{"prompt": "di: cosa mangia la mucca?", "response": "la mucca mangia il gelato."}
+{"prompt": "di: cosa apre il papà?", "response": "il papà apre il libro."}
+{"prompt": "di: cosa mangia la nonna?", "response": "la nonna mangia la mela."}
+{"prompt": "benissimo! di: cosa mangia il cavallo?", "response": "il cavallo mangia il pane."}
+{"prompt": "ancora. di: cosa mangia l amico?", "response": "l amico mangia la mela."}
+{"prompt": "di: cosa mangia l amico?", "response": "l amico mangia la mela."}
+{"prompt": "bravo! di: cosa legge la mamma?", "response": "la mamma legge il libro."}
+{"prompt": "di: cosa mangia l uccello?", "response": "l uccello mangia la mela."}
+{"prompt": "ancora. di: cosa mangia il pesce?", "response": "il pesce mangia il gelato."}
+{"prompt": "perfetto! di: cosa mangia il pesce?", "response": "il pesce mangia il gelato."}
+{"prompt": "ancora. di: cosa legge il maestro?", "response": "il maestro legge il quaderno."}
+{"prompt": "benissimo! di: cosa legge il maestro?", "response": "il maestro legge il quaderno."}
+{"prompt": "bene! di: cosa mangia il topo?", "response": "il topo mangia il pane."}
+{"prompt": "perfetto! di: cosa mangia il topo?", "response": "il topo mangia il pane."}
+{"prompt": "di: cosa mangia il lupo?", "response": "il lupo mangia il pane."}
+{"prompt": "perfetto! di: cosa beve il fratello?", "response": "il fratello beve il latte."}
+{"prompt": "chi mangia la torta?", "response": "l orso mangia la torta."}
+{"prompt": "perfetto! chi mangia la minestra?", "response": "la mucca mangia la minestra."}
+{"prompt": "bene! chi mangia il gelato?", "response": "il cavallo mangia il gelato."}
+{"prompt": "benissimo! chi guarda il disegno?", "response": "il maestro guarda il disegno."}
+{"prompt": "perfetto! chi mangia la mela?", "response": "l amico mangia la mela."}
+{"prompt": "bravo! chi mangia la minestra?", "response": "la mucca mangia la minestra."}
+{"prompt": "ancora. chi apre il libro?", "response": "la bambina apre il libro."}
+{"prompt": "chi apre il libro?", "response": "la bambina apre il libro."}
+{"prompt": "perfetto! quando brilla il sole?", "response": "il sole brilla di giorno."}
+{"prompt": "ancora. dove canta l uccello?", "response": "l uccello canta in casa."}
+{"prompt": "dove canta l uccello?", "response": "l uccello canta in casa."}
+{"prompt": "ancora. dove dorme il nonno?", "response": "il nonno dorme in casa."}
+{"prompt": "dove dorme il nonno?", "response": "il nonno dorme in casa."}
+{"prompt": "bene! dove nuota il maestro?", "response": "il maestro nuota in mare."}
+{"prompt": "bravo! dove nuota il maestro?", "response": "il maestro nuota in mare."}
+{"prompt": "ancora. dove salta il bambino?", "response": "il bambino salta in giardino."}
+{"prompt": "dove salta il bambino?", "response": "il bambino salta in giardino."}
+{"prompt": "ancora. dove dorme la mucca?", "response": "la mucca dorme in casa."}
+{"prompt": "dove dorme la mucca?", "response": "la mucca dorme in casa."}
+{"prompt": "ancora. dove cammina l amico?", "response": "l amico cammina in giardino."}
+{"prompt": "dove cammina l amico?", "response": "l amico cammina in giardino."}
+{"prompt": "ancora. dove canta la gallina?", "response": "la gallina canta in casa."}
+{"prompt": "ottimo! di: cosa beve il bambino?", "response": "il bambino beve il latte."}
+{"prompt": "bravo! di: cosa legge il papà?", "response": "il papà legge il libro."}
+{"prompt": "bravo! di: cosa guarda il bambino?", "response": "il bambino guarda la luna."}
+{"prompt": "perfetto! di: cosa mangia la mucca?", "response": "la mucca mangia il gelato."}
+{"prompt": "di: cosa mangia il cavallo?", "response": "il cavallo mangia il pane."}
+{"prompt": "di: cosa guarda la bambina?", "response": "la bambina guarda il disegno."}
+{"prompt": "ancora. di: cosa guarda la bambina?", "response": "la bambina guarda il disegno."}
+{"prompt": "di: cosa legge la mamma?", "response": "la mamma legge il libro."}
+{"prompt": "ancora. di: cosa mangia la sorella?", "response": "la sorella mangia la minestra."}
+{"prompt": "di: cosa mangia la sorella?", "response": "la sorella mangia la minestra."}
+{"prompt": "benissimo! di: cosa mangia l uccello?", "response": "l uccello mangia la mela."}
+{"prompt": "perfetto! di: cosa mangia l uccello?", "response": "l uccello mangia la mela."}
+{"prompt": "di: cosa mangia il pesce?", "response": "il pesce mangia il gelato."}
+{"prompt": "ottimo! di: cosa legge il maestro?", "response": "il maestro legge il quaderno."}
+{"prompt": "di: cosa legge il maestro?", "response": "il maestro legge il quaderno."}
+{"prompt": "di: cosa mangia il topo?", "response": "il topo mangia il pane."}
+{"prompt": "ancora. di: cosa mangia la gallina?", "response": "la gallina mangia la torta."}
+{"prompt": "di: cosa mangia la gallina?", "response": "la gallina mangia la torta."}
+{"prompt": "ancora. di: cosa mangia l orso?", "response": "l orso mangia la minestra."}
+{"prompt": "di: cosa mangia l orso?", "response": "l orso mangia la minestra."}
+{"prompt": "ancora. di: cosa guarda il nonno?", "response": "il nonno guarda il fiore."}
+{"prompt": "di: cosa guarda il nonno?", "response": "il nonno guarda il fiore."}
+{"prompt": "benissimo! chi mangia il formaggio?", "response": "il lupo mangia il formaggio."}
+{"prompt": "bravo! chi guarda il disegno?", "response": "il maestro guarda il disegno."}
+{"prompt": "ottimo! chi guarda il disegno?", "response": "il maestro guarda il disegno."}
+{"prompt": "bravo! chi guarda il fiore?", "response": "il fratello guarda il fiore."}
+{"prompt": "perfetto! chi apre il libro?", "response": "la bambina apre il libro."}
+{"prompt": "bene! dove dorme il cane?", "response": "il cane dorme in casa."}
+{"prompt": "bene! dove nuota la mamma?", "response": "la mamma nuota in mare."}
+{"prompt": "ancora. dove nuota la mamma?", "response": "la mamma nuota in mare."}
+{"prompt": "ancora. dove dorme il fratello?", "response": "il fratello dorme in casa."}
+{"prompt": "dove dorme il fratello?", "response": "il fratello dorme in casa."}
+{"prompt": "ancora. dove vola l ape?", "response": "l ape vola in giardino."}
+{"prompt": "dove vola l ape?", "response": "l ape vola in giardino."}
+{"prompt": "ottimo! dove canta l uccello?", "response": "l uccello canta in casa."}
+{"prompt": "ancora. dove nuota la bambina?", "response": "la bambina nuota in mare."}
+{"prompt": "dove nuota la bambina?", "response": "la bambina nuota in mare."}
+{"prompt": "ottimo! dove nuota il maestro?", "response": "il maestro nuota in mare."}
+{"prompt": "ancora. dove cammina la nonna?", "response": "la nonna cammina in prato."}
+{"prompt": "perfetto! dove cammina la nonna?", "response": "la nonna cammina in prato."}
+{"prompt": "dove canta la gallina?", "response": "la gallina canta in casa."}
+{"prompt": "perfetto! dove canta la gallina?", "response": "la gallina canta in casa."}
+{"prompt": "ancora. dove cammina il papà?", "response": "il papà cammina in prato."}
+{"prompt": "dove cammina il papà?", "response": "il papà cammina in prato."}
+{"prompt": "ancora. dove corre il lupo?", "response": "il lupo corre in prato."}
+{"prompt": "dove corre il lupo?", "response": "il lupo corre in prato."}
+{"prompt": "ancora. dove dorme l orso?", "response": "l orso dorme in casa."}
+{"prompt": "dove dorme l orso?", "response": "l orso dorme in casa."}
+{"prompt": "ottimo! cosa fa la nonna la mattina?", "response": "la nonna apre la porta."}
+{"prompt": "benissimo! cosa fai prima di mangiare?", "response": "prima lavo le mani."}
+{"prompt": "bravo! cosa fai dopo mangiato?", "response": "poi bevo l acqua."}
+{"prompt": "bravo! cosa fai dopo la scuola?", "response": "poi corro in casa."}
+{"prompt": "bene! cosa fai dopo mangiato?", "response": "poi bevo l acqua."}
+{"prompt": "bravo! di: cosa mangia la mucca?", "response": "la mucca mangia il gelato."}
+{"prompt": "ottimo! di: cosa mangia l amico?", "response": "l amico mangia la mela."}
+{"prompt": "bravo! dove nuota la mamma?", "response": "la mamma nuota in mare."}
+{"prompt": "dove nuota la mamma?", "response": "la mamma nuota in mare."}
+{"prompt": "bene! dove canta l uccello?", "response": "l uccello canta in casa."}
+{"prompt": "bravo! dove corre il cane?", "response": "il cane corre in giardino."}
+{"prompt": "ancora. dove corre il cane?", "response": "il cane corre in giardino."}
+{"prompt": "bravo! dove corre il cavallo?", "response": "il cavallo corre in prato."}
+{"prompt": "ancora. dove corre il cavallo?", "response": "il cavallo corre in prato."}
+{"prompt": "dove cammina la nonna?", "response": "la nonna cammina in prato."}
+{"prompt": "bene! dove dorme la mucca?", "response": "la mucca dorme in casa."}
+{"prompt": "bene! dove corre il topo?", "response": "il topo corre in bosco."}
+{"prompt": "ancora. dove corre il topo?", "response": "il topo corre in bosco."}
+{"prompt": "bravo! dove cammina il papà?", "response": "il papà cammina in prato."}
+{"prompt": "benissimo! dove corre il gatto?", "response": "il gatto corre in bosco."}
+{"prompt": "ancora. dove corre il gatto?", "response": "il gatto corre in bosco."}
+{"prompt": "bene! dove corre il lupo?", "response": "il lupo corre in prato."}
+{"prompt": "perfetto! dove dorme l orso?", "response": "l orso dorme in casa."}
+{"prompt": "perfetto! di: cosa apre il papà?", "response": "il papà apre il libro."}
+{"prompt": "benissimo! di: cosa mangia l amico?", "response": "l amico mangia la mela."}
+{"prompt": "benissimo! di: cosa guarda il nonno?", "response": "il nonno guarda il fiore."}
+{"prompt": "bene! di: cosa mangia il lupo?", "response": "il lupo mangia il pane."}
+{"prompt": "benissimo! di: cosa beve il fratello?", "response": "il fratello beve il latte."}
+{"prompt": "bene! di: cosa beve il fratello?", "response": "il fratello beve il latte."}
+{"prompt": "perfetto! chi guarda il fiore?", "response": "il fratello guarda il fiore."}
+{"prompt": "bene! chi mangia la mela?", "response": "l amico mangia la mela."}
+{"prompt": "bravo! chi mangia il gelato?", "response": "il cavallo mangia il gelato."}

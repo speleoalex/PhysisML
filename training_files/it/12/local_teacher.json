@@ -1,0 +1,320 @@
+{
+  "lang": "it",
+  "level": 12,
+  "description": "Bambino 12 anni — chiedere quando non si sa",
+  "quality_threshold": 0.28,
+  "quality_strong_min": 0.2,
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "{noun} con struttura completa e terminatore. Ottimo!",
+    "comment_++": "{noun} presente, struttura incompleta.",
+    "comment_+": "{noun} trovato.",
+    "comment_=": "Ne' la domanda ne' la classe attesa.",
+    "comment_-": "Non riconoscibile o troppo lunga."
+  },
+  "encouragement": [
+    "bravo!",
+    "ottimo!",
+    "perfetto!",
+    "bene!",
+    "benissimo!"
+  ],
+  "retry_prefix": "ancora. ",
+  "curiosity": true,
+  "steps": {
+    "A": {
+      "description": "Chiedi sull'ignoto: un nome nuovo -> una domanda",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "l albero è una pianta, questo è un tamburo",
+          "expected": "cos è un tamburo?",
+          "noun": "tamburo"
+        },
+        {
+          "prompt": "il mare è un luogo, questa è una zucca",
+          "expected": "cos è una zucca?",
+          "noun": "zucca"
+        },
+        {
+          "prompt": "la sorella è una persona, questo è un riccio",
+          "expected": "cos è un riccio?",
+          "noun": "riccio"
+        },
+        {
+          "prompt": "il quaderno è un oggetto, questo è un ragno",
+          "expected": "cos è un ragno?",
+          "noun": "ragno"
+        },
+        {
+          "prompt": "la stella è una luce, questo è un faro",
+          "expected": "cos è un faro?",
+          "noun": "faro"
+        },
+        {
+          "prompt": "la gallina è un animale, questo è un bottone",
+          "expected": "cos è un bottone?",
+          "noun": "bottone"
+        }
+      ]
+    },
+    "B": {
+      "description": "Non chiedere sul noto: un nome gia' appreso -> la sua classe",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "il papà è una persona, questo è un bosco",
+          "expected": "il bosco è un luogo.",
+          "article": "il",
+          "noun": "luogo"
+        },
+        {
+          "prompt": "la nonna è una persona, questo è un gelato",
+          "expected": "il gelato è un cibo.",
+          "article": "il",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "il letto è un oggetto, questa è acqua",
+          "expected": "l acqua è un cibo.",
+          "article": "l",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "il quaderno è un oggetto, questo è un bambino",
+          "expected": "il bambino è una persona.",
+          "article": "il",
+          "noun": "persona"
+        },
+        {
+          "prompt": "il papà è una persona, questo è un quaderno",
+          "expected": "il quaderno è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "la nonna è una persona, questa è una mucca",
+          "expected": "la mucca è un animale.",
+          "article": "la",
+          "noun": "animale"
+        },
+        {
+          "prompt": "il formaggio è un cibo, questa è una casa",
+          "expected": "la casa è un luogo.",
+          "article": "la",
+          "noun": "luogo"
+        },
+        {
+          "prompt": "il libro è un oggetto, questo è latte",
+          "expected": "il latte è un cibo.",
+          "article": "il",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "l orso è un animale, questo è un libro",
+          "expected": "il libro è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "la sedia è un oggetto, questa è un ape",
+          "expected": "l ape è un animale.",
+          "article": "l",
+          "noun": "animale"
+        },
+        {
+          "prompt": "il prato è un luogo, questo è un formaggio",
+          "expected": "il formaggio è un cibo.",
+          "article": "il",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "il pesce è un animale, questa è una sorella",
+          "expected": "la sorella è una persona.",
+          "article": "la",
+          "noun": "persona"
+        },
+        {
+          "prompt": "il pallone è un oggetto, questo è vento",
+          "expected": "il vento è una cosa.",
+          "article": "il",
+          "noun": "cosa"
+        },
+        {
+          "prompt": "la casa è un luogo, questo è un albero",
+          "expected": "l albero è una pianta.",
+          "article": "l",
+          "noun": "pianta"
+        },
+        {
+          "prompt": "il papà è una persona, questa è una penna",
+          "expected": "la penna è un oggetto.",
+          "article": "la",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "l acqua è un cibo, questo è il mare",
+          "expected": "il mare è un luogo.",
+          "article": "il",
+          "noun": "luogo"
+        },
+        {
+          "prompt": "il topo è un animale, questa è una nonna",
+          "expected": "la nonna è una persona.",
+          "article": "la",
+          "noun": "persona"
+        },
+        {
+          "prompt": "il bosco è un luogo, questo è un maestro",
+          "expected": "il maestro è una persona.",
+          "article": "il",
+          "noun": "persona"
+        },
+        {
+          "prompt": "il formaggio è un cibo, questo è un papà",
+          "expected": "il papà è una persona.",
+          "article": "il",
+          "noun": "persona"
+        },
+        {
+          "prompt": "il papà è una persona, questo è un tavolo",
+          "expected": "il tavolo è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "il pesce è un animale, questa è una mamma",
+          "expected": "la mamma è una persona.",
+          "article": "la",
+          "noun": "persona"
+        },
+        {
+          "prompt": "la mamma è una persona, questo è un pesce",
+          "expected": "il pesce è un animale.",
+          "article": "il",
+          "noun": "animale"
+        },
+        {
+          "prompt": "la mucca è un animale, questo è un nonno",
+          "expected": "il nonno è una persona.",
+          "article": "il",
+          "noun": "persona"
+        },
+        {
+          "prompt": "il bambino è una persona, questo è un giardino",
+          "expected": "il giardino è un luogo.",
+          "article": "il",
+          "noun": "luogo"
+        }
+      ]
+    },
+    "C": {
+      "description": "Consolida: la classe del nome nuovo, dopo la risposta",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "cos è una zucca?",
+          "expected": "la zucca è un cibo.",
+          "article": "la",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "cos è un ragno?",
+          "expected": "il ragno è un animale.",
+          "article": "il",
+          "noun": "animale"
+        },
+        {
+          "prompt": "cos è un faro?",
+          "expected": "il faro è un luogo.",
+          "article": "il",
+          "noun": "luogo"
+        },
+        {
+          "prompt": "cos è un bottone?",
+          "expected": "il bottone è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "cos è un tamburo?",
+          "expected": "il tamburo è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "cos è un riccio?",
+          "expected": "il riccio è un animale.",
+          "article": "il",
+          "noun": "animale"
+        }
+      ]
+    },
+    "D": {
+      "description": "Ripasso: conferma della classe dei nomi nuovi",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "il riccio è un animale?",
+          "expected": "sì, il riccio è un animale.",
+          "article": "il",
+          "noun": "animale"
+        },
+        {
+          "prompt": "il bottone è un oggetto?",
+          "expected": "sì, il bottone è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "il ragno è un animale?",
+          "expected": "sì, il ragno è un animale.",
+          "article": "il",
+          "noun": "animale"
+        },
+        {
+          "prompt": "il faro è un luogo?",
+          "expected": "sì, il faro è un luogo.",
+          "article": "il",
+          "noun": "luogo"
+        },
+        {
+          "prompt": "il tamburo è un oggetto?",
+          "expected": "sì, il tamburo è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "la zucca è un cibo?",
+          "expected": "sì, la zucca è un cibo.",
+          "article": "la",
+          "noun": "cibo"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,603 @@
+{
+  "lang": "it",
+  "level": 11,
+  "description": "Bambino 11 anni — classi e relazione is-a",
+  "quality_threshold": 0.28,
+  "quality_strong_min": 0.2,
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_+++": "{noun} con struttura completa e terminatore. Ottimo!",
+    "comment_++": "{noun} presente, struttura incompleta.",
+    "comment_+": "{noun} trovato.",
+    "comment_=": "Parole italiane ma non la classe attesa.",
+    "comment_-": "Non riconoscibile o troppo lunga."
+  },
+  "encouragement": [
+    "bravo!",
+    "ottimo!",
+    "perfetto!",
+    "bene!",
+    "benissimo!"
+  ],
+  "retry_prefix": "ancora. ",
+  "steps": {
+    "A": {
+      "description": "Classe di un nome: cos è X -> X è un/una CLASSE",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "cos è la sedia?",
+          "expected": "la sedia è un oggetto.",
+          "article": "la",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "cos è la sorella?",
+          "expected": "la sorella è una persona.",
+          "article": "la",
+          "noun": "persona"
+        },
+        {
+          "prompt": "cos è la minestra?",
+          "expected": "la minestra è un cibo.",
+          "article": "la",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "cos è il tavolo?",
+          "expected": "il tavolo è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "cos è il fratello?",
+          "expected": "il fratello è una persona.",
+          "article": "il",
+          "noun": "persona"
+        },
+        {
+          "prompt": "cos è il formaggio?",
+          "expected": "il formaggio è un cibo.",
+          "article": "il",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "cos è la porta?",
+          "expected": "la porta è un oggetto.",
+          "article": "la",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "cos è il fiore?",
+          "expected": "il fiore è una pianta.",
+          "article": "il",
+          "noun": "pianta"
+        },
+        {
+          "prompt": "cos è l acqua?",
+          "expected": "l acqua è un cibo.",
+          "article": "l",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "cos è la penna?",
+          "expected": "la penna è un oggetto.",
+          "article": "la",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "cos è il letto?",
+          "expected": "il letto è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "cos è la stella?",
+          "expected": "la stella è una luce.",
+          "article": "la",
+          "noun": "luce"
+        },
+        {
+          "prompt": "cos è il papà?",
+          "expected": "il papà è una persona.",
+          "article": "il",
+          "noun": "persona"
+        },
+        {
+          "prompt": "cos è il giardino?",
+          "expected": "il giardino è un luogo.",
+          "article": "il",
+          "noun": "luogo"
+        },
+        {
+          "prompt": "cos è il gelato?",
+          "expected": "il gelato è un cibo.",
+          "article": "il",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "cos è il disegno?",
+          "expected": "il disegno è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "cos è la finestra?",
+          "expected": "la finestra è un oggetto.",
+          "article": "la",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "cos è il pallone?",
+          "expected": "il pallone è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "cos è il cappello?",
+          "expected": "il cappello è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "cos è il latte?",
+          "expected": "il latte è un cibo.",
+          "article": "il",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "cos è il vento?",
+          "expected": "il vento è una cosa.",
+          "article": "il",
+          "noun": "cosa"
+        },
+        {
+          "prompt": "cos è il topo?",
+          "expected": "il topo è un animale.",
+          "article": "il",
+          "noun": "animale"
+        },
+        {
+          "prompt": "cos è la mamma?",
+          "expected": "la mamma è una persona.",
+          "article": "la",
+          "noun": "persona"
+        },
+        {
+          "prompt": "cos è l albero?",
+          "expected": "l albero è una pianta.",
+          "article": "l",
+          "noun": "pianta"
+        }
+      ]
+    },
+    "B": {
+      "description": "Conferma affermativa della classe",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "il vento è una cosa?",
+          "expected": "sì, il vento è una cosa.",
+          "article": "il",
+          "noun": "cosa"
+        },
+        {
+          "prompt": "la scuola è un luogo?",
+          "expected": "sì, la scuola è un luogo.",
+          "article": "la",
+          "noun": "luogo"
+        },
+        {
+          "prompt": "il bambino è una persona?",
+          "expected": "sì, il bambino è una persona.",
+          "article": "il",
+          "noun": "persona"
+        },
+        {
+          "prompt": "la nonna è una persona?",
+          "expected": "sì, la nonna è una persona.",
+          "article": "la",
+          "noun": "persona"
+        },
+        {
+          "prompt": "il topo è un animale?",
+          "expected": "sì, il topo è un animale.",
+          "article": "il",
+          "noun": "animale"
+        },
+        {
+          "prompt": "la neve è acqua?",
+          "expected": "sì, la neve è acqua.",
+          "article": "la",
+          "noun": "acqua"
+        },
+        {
+          "prompt": "il formaggio è un cibo?",
+          "expected": "sì, il formaggio è un cibo.",
+          "article": "il",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "la mucca è un animale?",
+          "expected": "sì, la mucca è un animale.",
+          "article": "la",
+          "noun": "animale"
+        },
+        {
+          "prompt": "il libro è un oggetto?",
+          "expected": "sì, il libro è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "il lupo è un animale?",
+          "expected": "sì, il lupo è un animale.",
+          "article": "il",
+          "noun": "animale"
+        },
+        {
+          "prompt": "la mamma è una persona?",
+          "expected": "sì, la mamma è una persona.",
+          "article": "la",
+          "noun": "persona"
+        },
+        {
+          "prompt": "il cavallo è un animale?",
+          "expected": "sì, il cavallo è un animale.",
+          "article": "il",
+          "noun": "animale"
+        },
+        {
+          "prompt": "il fratello è una persona?",
+          "expected": "sì, il fratello è una persona.",
+          "article": "il",
+          "noun": "persona"
+        },
+        {
+          "prompt": "il tavolo è un oggetto?",
+          "expected": "sì, il tavolo è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "la penna è un oggetto?",
+          "expected": "sì, la penna è un oggetto.",
+          "article": "la",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "la sedia è un oggetto?",
+          "expected": "sì, la sedia è un oggetto.",
+          "article": "la",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "il disegno è un oggetto?",
+          "expected": "sì, il disegno è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "il pesce è un animale?",
+          "expected": "sì, il pesce è un animale.",
+          "article": "il",
+          "noun": "animale"
+        },
+        {
+          "prompt": "il sole è una luce?",
+          "expected": "sì, il sole è una luce.",
+          "article": "il",
+          "noun": "luce"
+        },
+        {
+          "prompt": "il cappello è un oggetto?",
+          "expected": "sì, il cappello è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "il quaderno è un oggetto?",
+          "expected": "sì, il quaderno è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "il nonno è una persona?",
+          "expected": "sì, il nonno è una persona.",
+          "article": "il",
+          "noun": "persona"
+        },
+        {
+          "prompt": "l albero è una pianta?",
+          "expected": "sì, l albero è una pianta.",
+          "article": "l",
+          "noun": "pianta"
+        },
+        {
+          "prompt": "l ape è un animale?",
+          "expected": "sì, l ape è un animale.",
+          "article": "l",
+          "noun": "animale"
+        }
+      ]
+    },
+    "C": {
+      "description": "Conferma negativa: la classe sbagliata va corretta",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "la sorella è un animale?",
+          "expected": "no, la sorella è una persona.",
+          "article": "la",
+          "noun": "persona"
+        },
+        {
+          "prompt": "la neve è una persona?",
+          "expected": "no, la neve è acqua.",
+          "article": "la",
+          "noun": "acqua"
+        },
+        {
+          "prompt": "il giardino è un animale?",
+          "expected": "no, il giardino è un luogo.",
+          "article": "il",
+          "noun": "luogo"
+        },
+        {
+          "prompt": "il gatto è un luogo?",
+          "expected": "no, il gatto è un animale.",
+          "article": "il",
+          "noun": "animale"
+        },
+        {
+          "prompt": "la scuola è una luce?",
+          "expected": "no, la scuola è un luogo.",
+          "article": "la",
+          "noun": "luogo"
+        },
+        {
+          "prompt": "la torta è una luce?",
+          "expected": "no, la torta è un cibo.",
+          "article": "la",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "il pallone è una pianta?",
+          "expected": "no, il pallone è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "il nonno è un luogo?",
+          "expected": "no, il nonno è una persona.",
+          "article": "il",
+          "noun": "persona"
+        },
+        {
+          "prompt": "la minestra è una pianta?",
+          "expected": "no, la minestra è un cibo.",
+          "article": "la",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "il formaggio è un oggetto?",
+          "expected": "no, il formaggio è un cibo.",
+          "article": "il",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "l albero è un oggetto?",
+          "expected": "no, l albero è una pianta.",
+          "article": "l",
+          "noun": "pianta"
+        },
+        {
+          "prompt": "l ape è un oggetto?",
+          "expected": "no, l ape è un animale.",
+          "article": "l",
+          "noun": "animale"
+        },
+        {
+          "prompt": "il prato è una pianta?",
+          "expected": "no, il prato è un luogo.",
+          "article": "il",
+          "noun": "luogo"
+        },
+        {
+          "prompt": "il cappello è un cibo?",
+          "expected": "no, il cappello è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "l acqua è una luce?",
+          "expected": "no, l acqua è un cibo.",
+          "article": "l",
+          "noun": "cibo"
+        },
+        {
+          "prompt": "la porta è un cibo?",
+          "expected": "no, la porta è un oggetto.",
+          "article": "la",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "la sedia è una pianta?",
+          "expected": "no, la sedia è un oggetto.",
+          "article": "la",
+          "noun": "oggetto"
+        },
+        {
+          "prompt": "la casa è un animale?",
+          "expected": "no, la casa è un luogo.",
+          "article": "la",
+          "noun": "luogo"
+        },
+        {
+          "prompt": "il topo è una luce?",
+          "expected": "no, il topo è un animale.",
+          "article": "il",
+          "noun": "animale"
+        },
+        {
+          "prompt": "il papà è una pianta?",
+          "expected": "no, il papà è una persona.",
+          "article": "il",
+          "noun": "persona"
+        },
+        {
+          "prompt": "la nonna è un oggetto?",
+          "expected": "no, la nonna è una persona.",
+          "article": "la",
+          "noun": "persona"
+        },
+        {
+          "prompt": "il mare è un cibo?",
+          "expected": "no, il mare è un luogo.",
+          "article": "il",
+          "noun": "luogo"
+        },
+        {
+          "prompt": "la mamma è un luogo?",
+          "expected": "no, la mamma è una persona.",
+          "article": "la",
+          "noun": "persona"
+        },
+        {
+          "prompt": "il letto è un animale?",
+          "expected": "no, il letto è un oggetto.",
+          "article": "il",
+          "noun": "oggetto"
+        }
+      ]
+    },
+    "D": {
+      "description": "Dalla classe al membro (direzione inversa)",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "fai un esempio di animale",
+          "expected": "il cane è un animale.",
+          "article": "il",
+          "noun": "cane",
+          "object": "animale"
+        },
+        {
+          "prompt": "fai un esempio di persona",
+          "expected": "il bambino è una persona.",
+          "article": "il",
+          "noun": "bambino",
+          "object": "persona"
+        },
+        {
+          "prompt": "fai un esempio di cibo",
+          "expected": "il pane è un cibo.",
+          "article": "il",
+          "noun": "pane",
+          "object": "cibo"
+        },
+        {
+          "prompt": "fai un esempio di oggetto",
+          "expected": "il libro è un oggetto.",
+          "article": "il",
+          "noun": "libro",
+          "object": "oggetto"
+        },
+        {
+          "prompt": "fai un esempio di luce",
+          "expected": "il sole è una luce.",
+          "article": "il",
+          "noun": "sole",
+          "object": "luce"
+        },
+        {
+          "prompt": "fai un esempio di luogo",
+          "expected": "il mare è un luogo.",
+          "article": "il",
+          "noun": "mare",
+          "object": "luogo"
+        },
+        {
+          "prompt": "fai un esempio di cosa",
+          "expected": "il vento è una cosa.",
+          "article": "il",
+          "noun": "vento",
+          "object": "cosa"
+        },
+        {
+          "prompt": "fai un esempio di pianta",
+          "expected": "il fiore è una pianta.",
+          "article": "il",
+          "noun": "fiore",
+          "object": "pianta"
+        }
+      ]
+    },
+    "E": {
+      "description": "Iperonimo: la classe della classe",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "cos è una pianta?",
+          "expected": "una pianta è un essere vivente.",
+          "noun": "essere vivente"
+        },
+        {
+          "prompt": "cos è un animale?",
+          "expected": "un animale è un essere vivente.",
+          "noun": "essere vivente"
+        },
+        {
+          "prompt": "cos è un oggetto?",
+          "expected": "un oggetto è una cosa.",
+          "noun": "cosa"
+        },
+        {
+          "prompt": "cos è un cibo?",
+          "expected": "un cibo è una cosa.",
+          "noun": "cosa"
+        },
+        {
+          "prompt": "cos è una luce?",
+          "expected": "una luce è una cosa.",
+          "noun": "cosa"
+        },
+        {
+          "prompt": "cos è una persona?",
+          "expected": "una persona è un essere vivente.",
+          "noun": "essere vivente"
+        }
+      ]
+    }
+  }
+}

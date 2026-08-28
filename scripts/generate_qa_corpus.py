@@ -15,10 +15,25 @@ Formato output (training_files/it/{level}/qa_corpus.txt):
 Usage:
     python3 scripts/generate_qa_corpus.py --levels 0 1 2 3 --reps 20
 """
-import json, os, sys, argparse, random
+import json, os, re, sys, argparse, random
 
 
 CORPUS_SHUFFLE_SEED = 20260824   # keep in step with train_curriculum.py
+
+# Demo prefix the local teacher's retry writes at L0-L3 ('ma ma. di ma'): the
+# scaffolding must never reach a corpus that is trained as plain text.
+#
+# MUST stay identical to _DEMO_RE in dynamic_model/train_curriculum.py, which
+# regenerates the same file during the dream. It was not, and that alone made
+# every L0/L1 corpus disagree between the two paths — so --check reported them
+# stale forever and a clone trained on a different file than the build wrote.
+# tests/test_ontology_curiosity.py asserts the two patterns match.
+DEMO_RE = re.compile(r'^(?:(\S+)\s+)(?:\1\s+)*\1[.!?]?\s+')
+
+
+def strip_demo(text: str) -> str:
+    out = DEMO_RE.sub("", text or "").strip()
+    return out or (text or "").strip()
 
 
 def generate(level: int, lang: str = "it", reps: int = 20,
@@ -56,8 +71,8 @@ def generate(level: int, lang: str = "it", reps: int = 20,
     for _ in range(reps):
         rng.shuffle(pairs)
         for pair in pairs:
-            p = pair.get("prompt", "").strip()
-            r = pair.get("response", "").strip()
+            p = strip_demo(pair.get("prompt", ""))
+            r = (pair.get("response") or "").strip()
             if p and r:
                 lines.append(p)
                 lines.append(r)
@@ -83,8 +98,15 @@ def check(level: int, lang: str = "it", reps: int = 20) -> bool:
     """
     import tempfile, filecmp, shutil
     out = os.path.join("training_files", lang, str(level), "qa_corpus.txt")
+    src = os.path.join("training_files", lang, str(level), "qa_pairs.jsonl")
+    # No source means nothing to derive: a level that has never been taught has
+    # neither file, and that is its correct state, not a stale one. Reporting it
+    # as stale made --check fail on any newly added level.
+    if not os.path.exists(src) or os.path.getsize(src) == 0:
+        print(f"  L{level}: no qa_pairs.jsonl yet — nothing to derive")
+        return True
     if not os.path.exists(out):
-        print(f"  L{level}: qa_corpus.txt missing")
+        print(f"  L{level}: qa_corpus.txt missing but qa_pairs.jsonl exists — STALE")
         return False
     with tempfile.TemporaryDirectory() as td:
         keep = os.path.join(td, "keep.txt")

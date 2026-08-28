@@ -52,6 +52,26 @@ LEVEL_CONFIG = {
 }
 
 
+def level_description(lang: str, level: int) -> str:
+    """The level's own description, from its local_teacher.json.
+
+    LEVEL_CONFIG only ever had entries 0-3, and the fallback was
+    LEVEL_CONFIG[1]: every level from 4 up printed 'Parole singole e famiglia'
+    as its title. The teacher config is the source of truth for what a level
+    teaches, and it is the same file load_level_cases() already reads.
+    """
+    path = os.path.join("training_files", lang, str(level), "local_teacher.json")
+    if os.path.exists(path):
+        try:
+            with open(path, encoding="utf-8") as f:
+                desc = json.load(f).get("description", "")
+            if desc:
+                return desc
+        except (json.JSONDecodeError, OSError):
+            pass
+    return LEVEL_CONFIG.get(level, {}).get("desc", f"Livello {level}")
+
+
 def load_level_cases(lang: str, level: int) -> list:
     """
     Build the test cases from the level's ACTUAL curriculum
@@ -215,7 +235,7 @@ def main():
         cases = cases[::step][:args.samples]
 
     print(f"\n{'─'*68}")
-    print(f"  TEST MODELLO — Livello {args.level}: {cfg['desc']}")
+    print(f"  TEST MODELLO — Livello {args.level}: {level_description(args.lang, args.level)}")
     print(f"  Checkpoint: {ckpt}")
     print(f"  Params: {model.num_params:,}   Vocab: {model.vocab_size}")
     _mode = "greedy (deterministico)" if args.temperature <= 0.0 else \

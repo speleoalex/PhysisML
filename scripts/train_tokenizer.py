@@ -17,6 +17,10 @@ for _p in [_ROOT, _TEST1]:
 from splx.tokenizer import BPETokenizer
 
 CORPUS_BASE = "training_files/it"
+# Number of curriculum levels to scan. A bare range(11) silently
+# excluded L11 (ontology) and L12 (curiosity) from both the tokenizer
+# and the corpus statistics.
+N_LEVELS = 13
 OUTPUT_BASE = "dynamic_model/data"
 
 
@@ -30,7 +34,7 @@ def collect_targets(reps: int = 20) -> str:
     threshold against a corpus hundreds of times their size.
     """
     parts = []
-    for level in range(11):
+    for level in range(N_LEVELS):
         path = os.path.join(CORPUS_BASE, str(level), "local_teacher.json")
         if not os.path.exists(path):
             continue
@@ -56,7 +60,7 @@ def collect_corpus(sample_mb: int = 50) -> str:
 
     # Collect all files with their sizes
     all_files = []
-    for level in range(11):
+    for level in range(N_LEVELS):
         d = os.path.join(CORPUS_BASE, str(level))
         for fpath in sorted(glob.glob(os.path.join(d, "*.txt"))):
             if "teacher_prompt" not in fpath:
@@ -147,9 +151,27 @@ def main():
     tok = BPETokenizer()
     tok.train(text, vocab_size=args.vocab_size)
 
+    # Register EOS immediately above the last BPE id, so the file always has
+    # one. The vocabulary retrained on 2026-08-25 did NOT, and the whole EOS
+    # machinery downstream is keyed on tok.get_special_id(EOS_TOKEN) being
+    # non-None: TrainerB.generate stops on it, train_curriculum appends it to
+    # every gold, export_gguf declares tokenizer.ggml.eos_token_id. With an
+    # empty special_tokens all of that silently does nothing, and the model
+    # has no way to say 'answer finished' outside the Python generator.
+    #
+    # The id is max+1 and not a reserved low slot on purpose: _sync_vocab_rows
+    # activates every embedding row up to max(vocab)+1, so an EOS placed above
+    # that would leave activated rows with no token behind them — emittable by
+    # the sampler, unresolvable by decode(). This makes the file vocab_size+1
+    # tokens long (8000 BPE + EOS@8000), which is the convention
+    # train_curriculum.py already documents for tokenizer_8k.json.
+    tok.register_special_token(BPETokenizer.EOS_TOKEN, max(tok.vocab.keys()) + 1)
+
     elapsed = time.time() - t0
     print(f"\n  Completato in {elapsed:.0f}s")
-    print(f"  Token totali: {len(tok)}")
+    print(f"  Token totali: {len(tok)}  "
+          f"({len(tok) - 1} BPE + {BPETokenizer.EOS_TOKEN}@"
+          f"{tok.get_special_id(BPETokenizer.EOS_TOKEN)})")
 
     # Show sample of new tokens
     multi_char = []

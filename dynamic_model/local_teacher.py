@@ -32,6 +32,21 @@ FEEDBACK_MAP = {
     "-":  -0.8,
 }
 
+# A question the model asks: 'cosa è un ragno?'. Matched loosely on purpose —
+# a model that has not yet learned to close a question still asked one.
+_QUESTION_RE = re.compile(
+    r"\b(?:cosa|cos|che)\s+(?:è|e)\s+(?:un|una|uno|il|la|lo|l)?\s*"
+    r"([a-zàèéìòù]{3,})",
+    re.IGNORECASE)
+
+# Reward for asking about something genuinely unknown, and the penalty for
+# asking about something already explained. The ASYMMETRY is the whole point:
+# a model rewarded for every question learns to always ask, which is a tic and
+# not curiosity. The gate in AffectModulator only makes the question happen;
+# this is what decides whether it was worth asking.
+ASK_REWARD  =  1.0
+ASK_PENALTY = -0.3
+
 
 class LocalTeacher:
 
@@ -72,6 +87,95 @@ class LocalTeacher:
         self.consecutive_fail   = 0   # failures on current target
         self.total_turns        = 0
 
+        # Curiosity mode: only levels whose config asks for it. The names the
+        # model may legitimately not know come from the lexicon, and half of
+        # them are marked `probe` and withheld even here — those are what
+        # scripts/curiosity_rate.py measures on.
+        self.curiosity_enabled = bool(self.cfg.get("curiosity", False))
+        self.unknown  = {}     # noun -> (article, class), teachable here
+        self.known    = {}     # noun -> (article, class), from the main lexicon
+        self.explained = set() # nouns already answered in THIS session
+        if self.curiosity_enabled:
+            self.unknown, self.known = self._load_nouns()
+
+    def _load_nouns(self) -> tuple:
+        """(unknown, known), each noun -> (article, class).
+
+        `unknown` are the held-out nouns this level may teach. Probe nouns are
+        excluded: they exist so curiosity can be measured on words the model
+        was never taught, and teaching them here would turn the measurement
+        into a recall test.
+
+        `known` is the ordinary lexicon — needed because a question about a
+        name the model already learned is the case this level exists to
+        discourage, and it has to be recognised to be penalised.
+        """
+        path = os.path.join("training_files", self.lang, "lexicon.json")
+        if not os.path.exists(path):
+            return {}, {}
+        try:
+            with open(path, encoding="utf-8") as f:
+                lex = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            return {}, {}
+        unknown = {n["w"]: (n["art"], n["cls"])
+                   for n in lex.get("unknown_nouns", [])
+                   if not n.get("probe") and n.get("cls")}
+        onto = lex.get("ontology", {})
+        kind_class = onto.get("kind_class", {})
+        known = {}
+        for n in lex.get("nouns", []):
+            cls = n.get("cls") or kind_class.get(n.get("kind", ""))
+            if cls:
+                known[n["w"]] = (n["art"], cls)
+        return unknown, known
+
+    def _asked_about(self, response: str):
+        """The noun the model asked about, or None if it did not ask."""
+        if not response:
+            return None
+        m = _QUESTION_RE.search(response)
+        return m.group(1).lower() if m else None
+
+    def _handle_question(self, noun: str) -> dict:
+        """Answer a question worth asking, penalise one that was not.
+
+        Asking about an unknown name earns the full reward AND the answer: the
+        next prompt becomes the fact, so the question buys the model something.
+        Asking about a name it already has — one explained earlier in this
+        session, or an ordinary lexicon word — earns a penalty; otherwise the
+        cheapest policy is to ask about everything, forever, and that is a tic
+        rather than curiosity.
+        """
+        teachable = noun in self.unknown and noun not in self.explained
+        art, cls = (self.unknown.get(noun) or self.known[noun])
+        statement = f"{art} {noun} è {cls}."
+
+        if not teachable:
+            return {
+                "feedback_symbol": "=",
+                "feedback":        ASK_PENALTY,
+                "commento":        f"{noun}: lo sai già",
+                # The definite form, the same shape L11 step A uses
+                # ('cosa è la sedia?'), so the retry is a prompt the model has
+                # actually been trained on.
+                "next_prompt":     f"cosa è {art} {noun}?",
+                "expected":        statement,
+                "step":            self.current_step,
+                "mode":            "curiosity_repeat",
+            }
+
+        self.explained.add(noun)
+        return {
+            "feedback_symbol": "+++",
+            "feedback":        ASK_REWARD,
+            "commento":        f"bella domanda: {noun}",
+            "next_prompt":     f"{art} {noun} è {cls}",
+            "expected":        statement,
+            "step":            self.current_step,
+            "mode":            "curiosity_answer",
+        }
+
     # ------------------------------------------------------------------
     # Main interface (same as TutorAgent)
     # ------------------------------------------------------------------
@@ -84,6 +188,15 @@ class LocalTeacher:
           feedback, feedback_symbol, commento, next_prompt, expected, step
         """
         self.total_turns += 1
+
+        # The model asked something. Handle it INSTEAD of grading the response
+        # against the current target: a question is not a failed attempt at the
+        # target, and _evaluate would score it '=' and teach nothing.
+        if self.curiosity_enabled and turn > 1:
+            asked = self._asked_about(last_response)
+            if asked in self.unknown or asked in self.known:
+                return self._handle_question(asked)
+
         step_cfg  = self.steps[self.current_step]
         targets   = step_cfg["targets"]
         target    = targets[self.current_target_idx % len(targets)]

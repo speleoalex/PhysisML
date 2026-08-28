@@ -211,6 +211,8 @@ PhysisML/
 | it | 7 | Rodari + Wikipedia |
 | it | 8–9 | I Promessi Sposi (excerpt, then full) |
 | it | 10 | Divina Commedia |
+| it | 11 | Class membership (is-a), generated from the curated lexicon |
+| it | 12 | Asking when a name has never been met |
 | en | 0–1 | Sounds and basic grammar (handwritten) |
 | en | 2 | Shakespeare |
 | en | 3 | Alice in Wonderland + Oliver Twist |

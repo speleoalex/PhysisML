@@ -296,44 +296,9 @@
           "verb": "mangia"
         },
         {
-          "prompt": "chi mangia la torta?",
-          "expected": "il cane mangia la torta.",
-          "noun": "cane",
-          "article": "il",
-          "verb": "mangia"
-        },
-        {
-          "prompt": "chi guarda il disegno?",
-          "expected": "la nonna guarda il disegno.",
-          "noun": "nonna",
-          "article": "la",
-          "verb": "guarda"
-        },
-        {
           "prompt": "chi mangia il gelato?",
           "expected": "il cavallo mangia il gelato.",
           "noun": "cavallo",
-          "article": "il",
-          "verb": "mangia"
-        },
-        {
-          "prompt": "chi mangia la torta?",
-          "expected": "il topo mangia la torta.",
-          "noun": "topo",
-          "article": "il",
-          "verb": "mangia"
-        },
-        {
-          "prompt": "chi mangia la torta?",
-          "expected": "la gallina mangia la torta.",
-          "noun": "gallina",
-          "article": "la",
-          "verb": "mangia"
-        },
-        {
-          "prompt": "chi mangia il gelato?",
-          "expected": "il gatto mangia il gelato.",
-          "noun": "gatto",
           "article": "il",
           "verb": "mangia"
         },
@@ -343,20 +308,6 @@
           "noun": "bambina",
           "article": "la",
           "verb": "apre"
-        },
-        {
-          "prompt": "chi mangia la mela?",
-          "expected": "il pesce mangia la mela.",
-          "noun": "pesce",
-          "article": "il",
-          "verb": "mangia"
-        },
-        {
-          "prompt": "chi mangia il formaggio?",
-          "expected": "il papà mangia il formaggio.",
-          "noun": "papà",
-          "article": "il",
-          "verb": "mangia"
         }
       ],
       "prompt_template": "{prompt}",

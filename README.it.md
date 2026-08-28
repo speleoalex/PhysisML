@@ -216,6 +216,8 @@ Per ogni livello ci sono due checkpoint: `final.pt` (solo training testuale) e
 | it | 8 | Comparativi, preferenze motivate, descrizioni |
 | it | 9 | Tesi + motivo + conclusione, sinonimi |
 | it | 10 | Commento motivato, confronto, citazione |
+| it | 11 | Classi e relazione is-a (il gatto è un animale) |
+| it | 12 | Chiedere quando il nome è ignoto |
 | en | 0–1 | Suoni e grammatica base (scritto a mano) |
 | en | 2 | Shakespeare |
 | en | 3 | Alice in Wonderland + Oliver Twist |

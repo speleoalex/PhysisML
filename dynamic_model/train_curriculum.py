@@ -46,6 +46,8 @@ try:
 except ImportError:
     pass  # dotenv not installed — rely on environment variables
 
+from typing import Optional
+
 import numpy as np
 import torch
 import anthropic
@@ -53,7 +55,8 @@ import anthropic
 from splx.torch_model import TorchGPT, TorchAdamOptimizer
 from splx.tokenizer   import BPETokenizer
 from dynamic_model.exp_b.affect_state import AffectState
-from dynamic_model.exp_b.modulator    import AffectModulator
+from dynamic_model.exp_b.modulator    import (AffectModulator, ASK_FORM,
+                                              ask_token_id)
 from dynamic_model.exp_b.axioms       import AxiomRegistry
 from dynamic_model.exp_b.trainer      import TrainerB
 
@@ -64,18 +67,25 @@ torch.set_num_threads(12)
 # ---------------------------------------------------------------------------
 
 CKPT_BASE    = "models/checkpoints"   # language subfolder added at runtime: {CKPT_BASE}/{lang}/
-# Tokenizer: prefer 8K if available (8001 tokens: 8000 BPE + EOS@8000).
-# Fall back to base 503-token tokenizer if 8K not trained yet.
+# Tokenizer: prefer the trained vocabulary if present, else the 503-token
+# base. The name is historical — the file holds whatever the last run of
+# scripts/train_tokenizer.py produced, which after the 2026-08-27 retrain is
+# 2590 tokens (2589 BPE + <|EOS|>@2589), not 8000: the merge threshold decides
+# the real size, --vocab-size is only a ceiling.
 _TOK_8K   = "dynamic_model/data/tokenizer_8k.json"
 _TOK_BASE = "dynamic_model/data/tokenizer_base.json"
 TOKENIZER = _TOK_8K if os.path.exists(_TOK_8K) else _TOK_BASE
 # Maximum vocabulary capacity: pre-allocates this many embedding slots.
 # Slots above the active count are dormant (logit=-inf, grad=0).
 # Grows toward MAX_VOCAB as the model learns new token patterns.
-MAX_VOCAB    = 9000   # 2547 used after the 2026-08-25 tokenizer retrain
-                      # (punctuation no longer glued to words), 6453 dormant
-                      # slots for growth. Dormant rows are masked to -inf and
-                      # take zero gradient: they cost 18MB, not capacity.
+MAX_VOCAB    = 9000   # 2590 used after the 2026-08-27 retrain (2589 BPE +
+                      # <|EOS|>@2589): the 2026-08-25 vocabulary held 2547 and
+                      # neither an EOS nor single tokens for the L11/L12
+                      # material — 'cos' came out as 'co'+'s', which left the
+                      # L12 ask gate with no whole-word anchor to raise.
+                      # 6410 dormant slots for growth; dormant rows are masked
+                      # to -inf and take zero gradient, so they cost 18MB, not
+                      # capacity.
 DATA_IT0     = "training_files/it/0"
 DATA_IT1     = "training_files/it/1"
 
@@ -116,6 +126,125 @@ def extract_teaching_content(prompt: str) -> str:
     if m:
         return m.group(1).strip()
     return ""
+
+# ---------------------------------------------------------------------------
+# Grade sanity check
+# ---------------------------------------------------------------------------
+
+from dynamic_model.stop_words import STOP_WORDS       # noqa: E402
+
+
+def grade_by_coverage(symbol: str, expected: str, response: str,
+                      prompt: str, level: int) -> tuple:
+    """
+    Sanity check: grades must be proportional to real content coverage.
+
+    Applied to ALL teacher types (local, hybrid, Claude). The old check
+    only downgraded ZERO-coverage positives (any() over keywords): one
+    matched word out of 25 still earned '+', which at L4+ made the grade
+    uncorrelated with correctness.
+
+    `expected` must be the gold for THIS `response` (the previous turn's
+    expected), not the gold of the next prompt.
+
+    Returns (symbol, coverage, comment). The symbol is never raised, only
+    lowered to the highest grade the coverage supports; the comment is None
+    when nothing changed. The coverage is consumed by SIGNAL 4, which gates
+    echo-training on it.
+
+    Extracted from the phase-1 loop so the levels that stress it — the
+    confirmation questions of L7 and the is-a steps of L11, where every
+    content word of the answer also occurs in the prompt — can be tested
+    without running a training session.
+    """
+    _kws = [w.lower().strip("!.?,: ") for w in expected.split()
+            if w.lower().strip("!.?,: ") not in STOP_WORDS
+            and len(w.strip("!.?,: ")) > 1]
+    if not _kws:
+        return symbol, 0.0, None
+
+    _resp_low = response.lower()
+    import re as _re
+    def _kw_present(kw, text):
+        # Word-boundary match (primary) — prevents 'ba' inside 'labato'
+        if _re.search(r'\b' + _re.escape(kw) + r'\b', text):
+            return True
+        # Compact fallback only for words >= 4 chars
+        compact = _re.sub(r'\s+', '', text)
+        return len(kw) >= 4 and kw in compact
+    # Anti-echo at L4+: a content word that also appears in the
+    # PROMPT is no evidence of knowledge (97-99% of positive grades
+    # at L4-L10 rewarded words parroted from the prompt) — unless
+    # the task is explicitly imitative (the whole expected answer
+    # is contained in the prompt, as at L0-L2 by design).
+    _prompt_low = (prompt or "").lower()
+    _exp_stripped = expected.lower().strip("!.?, ")
+    # Whole-phrase boundary match: a bare substring test marks
+    # e.g. expected 'arte' as imitation when the prompt contains
+    # 'parte', silently disabling the anti-echo.
+    _is_imitation = bool(_exp_stripped) and bool(
+        _re.search(r"(?<!\w)" + _re.escape(_exp_stripped) + r"(?!\w)",
+                   _prompt_low))
+    if level >= 4 and not _is_imitation:
+        # Anti-echo: only content words NOT present in the prompt
+        # count as evidence. NO fallback to the full keyword list:
+        # when every expected word is already in the prompt (e.g.
+        # multiple-choice questions), a parroted answer proves
+        # nothing — grade it '=' rather than re-enabling the very
+        # echo loop this check exists to close.
+        # Boundary-only match against the prompt: the compact
+        # fallback of _kw_present is meant for degenerate MODEL
+        # output and would find 'arte' inside 'parte' in the
+        # teacher's clean prompt, wrongly zeroing the credit.
+        _scored_kws = [k for k in _kws
+                       if not _re.search(r"\b" + _re.escape(k) + r"\b",
+                                         _prompt_low)]
+    else:
+        _scored_kws = _kws
+    if not _scored_kws:
+        # Every content word of the expected answer already occurs
+        # in the prompt — the normal case for confirmation
+        # questions ('il cane ha fame?' -> 'sì, il cane ha fame.'),
+        # where what distinguishes a real answer is precisely the
+        # word the stop-list drops ('sì'). Declaring '=' here
+        # punished perfect answers: 24% of L7 turns and 10% of L8,
+        # 189 of them exact matches, were downgraded to feedback
+        # 0.0 — i.e. no weight update at all for a correct reply.
+        # Fall back to coverage over the WHOLE expected answer,
+        # function words included: a genuine restatement scores
+        # full marks, while a scrambled prompt echo stays below the
+        # 0.99 gate that guards echo-training in SIGNAL 4.
+        _exp_toks = [w for w in _re.findall(r"[\w'àèéìòùÀÈÉÌÒÙ]+",
+                                           expected.lower()) if w]
+        if _exp_toks:
+            _hits = sum(1 for w in _exp_toks if _kw_present(w, _resp_low))
+            _graded_cov = _hits / len(_exp_toks)
+        else:
+            _hits, _graded_cov = 0, 0.0
+        _scored_kws = _exp_toks
+        # Counting function words is what makes this fallback work
+        # for confirmations, but it must not let grammar-only
+        # garbage collect credit: 'il di che non la' overlaps the
+        # 'il' of the gold answer. Require at least one real
+        # content word, the rule this whole check exists to hold.
+        if not any(_kw_present(k, _resp_low) for k in _kws):
+            _hits, _graded_cov = 0, 0.0
+    else:
+        _hits = sum(1 for k in _scored_kws if _kw_present(k, _resp_low))
+        _graded_cov = _hits / len(_scored_kws)
+    # Downgrade to the highest grade the coverage supports:
+    # +++ = full coverage, ++ = at least half, + = at least one hit.
+    if not _scored_kws:
+        _earned = "="
+    else:
+        _earned = ("+++" if _graded_cov >= 0.99 else
+                   "++"  if _graded_cov >= 0.5  else
+                   "+"   if _hits >= 1          else "=")
+    _rank = {"=": 0, "+": 1, "++": 2, "+++": 3}
+    if _rank[_earned] < _rank.get(symbol, 0):
+        return _earned, _graded_cov, f"[sanity] cov {_hits}/{len(_scored_kws)}"
+    return symbol, _graded_cov, None
+
 
 # ---------------------------------------------------------------------------
 # Teaching agent — Claude as active tutor, not just evaluator
@@ -325,6 +454,26 @@ def teaching_turn(client: anthropic.Anthropic,
 # Vocab/model synchronisation
 # ---------------------------------------------------------------------------
 
+# The token the ask gate boosts: the FIRST token of the question form the
+# curriculum teaches ('cos è un ragno?').
+#
+# Deliberately not a special <|ask|> token. Registering one means activating a
+# dormant slot AND persisting a modified tokenizer, and a tokenizer one token
+# out of step with the model re-segments every prompt — the failure that cost
+# tens of points of exact match in the 22 August investigation. The gate is
+# scaffolding; it is not worth that risk.
+#
+def _ask_gate_id_or_warn(tok, want_gate: bool) -> "Optional[int]":
+    """ask_token_id, but loud when the gate was asked for and cannot be had."""
+    aid = ask_token_id(tok)
+    if want_gate and aid is None:
+        print(f"  ⚠ --ask-gate requested but {ASK_FORM!r} does not start with a "
+              f"whole-word token in this vocabulary "
+              f"({[tok.decode([i]) for i in tok.encode(ASK_FORM)]}) — "
+              f"gate DISABLED. Retrain the tokenizer with the L12 pool in it.")
+    return aid
+
+
 def _tokenizer_candidates(ckpt_base: str, level: int) -> list:
     """Level tokenizers to try, nearest level first.
 
@@ -337,6 +486,58 @@ def _tokenizer_candidates(ckpt_base: str, level: int) -> list:
     """
     return [os.path.join(ckpt_base, f"level_{l}", "tokenizer.json")
             for l in range(level, -1, -1)]
+
+
+def turn_record(turn: int, step: str, prompt: str, expected: str,
+                response: str, feedback, comment: str,
+                graded_prompt: str, graded_expected: str, graded_response: str,
+                content: str, affect: dict, stats: dict) -> dict:
+    """Build one session-log record, with the graded exchange made explicit.
+
+    The teacher sees a response only on the turn AFTER it was produced, so the
+    feedback available while writing turn N's record grades turn N-1's answer.
+    The console marks that with an arrow ('↑+++' = "the grade is for the line
+    above"); the JSONL record used to carry the symbol with no such marker, so
+    every consumer reading it — analyze_log.py, any per-step tally — paired the
+    grade with the wrong question. It shows up as a '+++' sitting next to a
+    visibly wrong answer:
+
+        t9  fb='+++'  R: '...perché è caldo.'   E: '...perché è giallo.'
+        t11 fb='='    R: '...perché è giallo.'  E: '...perché è giallo.'
+
+    'feedback' keeps its name, position and meaning — build.sh's quality gate
+    aggregates it over the whole session, where a one-turn shift is immaterial —
+    and graded_prompt/graded_expected/graded_response say what it refers to, so
+    a record is now self-contained. On turn 1 there is nothing graded yet and
+    all four are None.
+    """
+    return {
+        "turn":            turn,
+        "step":            step,
+        "prompt":          prompt,
+        "expected":        expected,
+        "response":        response,
+        "feedback":        feedback,
+        "graded_prompt":   graded_prompt,
+        "graded_expected": graded_expected,
+        "graded_response": graded_response,
+        "comment":         comment,
+        "content":         content,
+        "affect":          affect,
+        "stats":           stats,
+    }
+
+
+def _affect_memory_path(lang: str) -> str:
+    """Where the curiosity memory lives: one file per language, not per level.
+
+    Knowing a word is not a property of the level that taught it — the model
+    that learned 'gatto' at L1 still knows it at L12, and the ask gate has to
+    agree with that or it asks about everything it was taught before the
+    current session. Every build phase is a separate process, so this file is
+    the only thing that carries AffectState.words_rewarded across them.
+    """
+    return os.path.join(CKPT_BASE, lang, "affect_memory.json")
 
 
 def _sync_vocab_rows(model: "TorchGPT", tok: "BPETokenizer",
@@ -709,8 +910,17 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     opt   = TorchAdamOptimizer(model.parameters(), lr=2e-5)
 
     affect  = AffectState()
+    # Content-word filter and cross-session memory for the curiosity signal.
+    affect.function_words = STOP_WORDS
+    _mem_path = _affect_memory_path(args.lang)
+    _n_mem    = affect.load_memory(_mem_path)
+    print(f"Curiosity memory: {_n_mem} words from {_mem_path}"
+          if _n_mem else f"Curiosity memory: empty (no {_mem_path} yet)")
     eos_id  = tok.get_special_id(tok.EOS_TOKEN) if hasattr(tok, 'get_special_id') else None
-    mod     = AffectModulator(affect, eos_token_id=eos_id)
+    mod     = AffectModulator(affect, eos_token_id=eos_id,
+                              ask_token_id=_ask_gate_id_or_warn(
+                                  tok, getattr(args, 'ask_gate', False)),
+                              ask_gate=getattr(args, 'ask_gate', False))
     axioms  = AxiomRegistry()
     trainer = TrainerB(model, tok, opt, affect, mod, axioms)
 
@@ -968,106 +1178,21 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
         step_label  = result.get("step", "A")
 
         # ── Sanity check: grades must be proportional to real content coverage ─
-        # Applied to ALL teacher types (local, hybrid, Claude). The old check
-        # only downgraded ZERO-coverage positives (any() over keywords): one
-        # matched word out of 25 still earned '+', which at L4+ made the grade
-        # uncorrelated with correctness. Uses _prev_expected (the expected for
+        # See grade_by_coverage(): uses _prev_expected (the expected for
         # current_response); graded_* values are consumed later by SIGNAL 4.
         graded_expected = _prev_expected     # expected for current_response
+        # current_prompt/current_response are overwritten with this turn's pair
+        # further down, before the record is written — keep the graded ones.
+        graded_prompt   = current_prompt
+        graded_response = current_response
         _graded_cov     = 0.0                # content coverage of graded response
         if turn > 1 and symbol in ("+++", "++", "+") and graded_expected and current_response:
-            _STOP = {"il","la","lo","le","gli","i","un","una","di","del","della",
-                     "dei","delle","degli","a","e","è","in","per","da","su","con",
-                     "tra","che","non","si","ha","ho","hai","ai","al","alla","agli",
-                     "alle","ma","anche","mi","ti","ci","vi","ne","già","più","no",
-                     "sì","se","sua","suo","mia","mio","tu","io","lui","lei","noi"}
-            _kws = [w.lower().strip("!.?,: ") for w in graded_expected.split()
-                    if w.lower().strip("!.?,: ") not in _STOP
-                    and len(w.strip("!.?,: ")) > 1]
-            if _kws:
-                _resp_low = current_response.lower()
-                import re as _re
-                def _kw_present(kw, text):
-                    # Word-boundary match (primary) — prevents 'ba' inside 'labato'
-                    if _re.search(r'\b' + _re.escape(kw) + r'\b', text):
-                        return True
-                    # Compact fallback only for words >= 4 chars
-                    compact = _re.sub(r'\s+', '', text)
-                    return len(kw) >= 4 and kw in compact
-                # Anti-echo at L4+: a content word that also appears in the
-                # PROMPT is no evidence of knowledge (97-99% of positive grades
-                # at L4-L10 rewarded words parroted from the prompt) — unless
-                # the task is explicitly imitative (the whole expected answer
-                # is contained in the prompt, as at L0-L2 by design).
-                _prompt_low = (current_prompt or "").lower()
-                _exp_stripped = graded_expected.lower().strip("!.?, ")
-                # Whole-phrase boundary match: a bare substring test marks
-                # e.g. expected 'arte' as imitation when the prompt contains
-                # 'parte', silently disabling the anti-echo.
-                _is_imitation = bool(_exp_stripped) and bool(
-                    _re.search(r"(?<!\w)" + _re.escape(_exp_stripped) + r"(?!\w)",
-                               _prompt_low))
-                if level >= 4 and not _is_imitation:
-                    # Anti-echo: only content words NOT present in the prompt
-                    # count as evidence. NO fallback to the full keyword list:
-                    # when every expected word is already in the prompt (e.g.
-                    # multiple-choice questions), a parroted answer proves
-                    # nothing — grade it '=' rather than re-enabling the very
-                    # echo loop this check exists to close.
-                    # Boundary-only match against the prompt: the compact
-                    # fallback of _kw_present is meant for degenerate MODEL
-                    # output and would find 'arte' inside 'parte' in the
-                    # teacher's clean prompt, wrongly zeroing the credit.
-                    _scored_kws = [k for k in _kws
-                                   if not _re.search(r"\b" + _re.escape(k) + r"\b",
-                                                     _prompt_low)]
-                else:
-                    _scored_kws = _kws
-                if not _scored_kws:
-                    # Every content word of the expected answer already occurs
-                    # in the prompt — the normal case for confirmation
-                    # questions ('il cane ha fame?' -> 'sì, il cane ha fame.'),
-                    # where what distinguishes a real answer is precisely the
-                    # word the stop-list drops ('sì'). Declaring '=' here
-                    # punished perfect answers: 24% of L7 turns and 10% of L8,
-                    # 189 of them exact matches, were downgraded to feedback
-                    # 0.0 — i.e. no weight update at all for a correct reply.
-                    # Fall back to coverage over the WHOLE expected answer,
-                    # function words included: a genuine restatement scores
-                    # full marks, while a scrambled prompt echo stays below the
-                    # 0.99 gate that guards echo-training in SIGNAL 4.
-                    _exp_toks = [w for w in _re.findall(r"[\w'àèéìòùÀÈÉÌÒÙ]+",
-                                                       graded_expected.lower()) if w]
-                    if _exp_toks:
-                        _hits = sum(1 for w in _exp_toks if _kw_present(w, _resp_low))
-                        _graded_cov = _hits / len(_exp_toks)
-                    else:
-                        _hits, _graded_cov = 0, 0.0
-                    _scored_kws = _exp_toks
-                    # Counting function words is what makes this fallback work
-                    # for confirmations, but it must not let grammar-only
-                    # garbage collect credit: 'il di che non la' overlaps the
-                    # 'il' of the gold answer. Require at least one real
-                    # content word, the rule this whole check exists to hold.
-                    if not any(_kw_present(k, _resp_low) for k in _kws):
-                        _hits, _graded_cov = 0, 0.0
-                else:
-                    _hits = sum(1 for k in _scored_kws if _kw_present(k, _resp_low))
-                    _graded_cov = _hits / len(_scored_kws)
-                # Downgrade to the highest grade the coverage supports:
-                # +++ = full coverage, ++ = at least half, + = at least one hit.
-                if not _scored_kws:
-                    _earned = "="
-                else:
-                    _earned = ("+++" if _graded_cov >= 0.99 else
-                               "++"  if _graded_cov >= 0.5  else
-                               "+"   if _hits >= 1          else "=")
-                _rank = {"=": 0, "+": 1, "++": 2, "+++": 3}
-                if _rank[_earned] < _rank.get(symbol, 0):
-                    symbol = _earned
-                    fb     = FEEDBACK_MAP.get(symbol, 0.0)
-                    cmt    = f"[sanity] cov {_hits}/{len(_scored_kws)}"
-
+            _sym, _graded_cov, _sanity_cmt = grade_by_coverage(
+                symbol, graded_expected, current_response, current_prompt, level)
+            if _sanity_cmt is not None:
+                symbol = _sym
+                fb     = FEEDBACK_MAP.get(symbol, 0.0)
+                cmt    = _sanity_cmt
         _prev_expected = expected   # save for next turn's sanity check
 
         # Statistics (skip first turn — no previous feedback)
@@ -1235,23 +1360,22 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
 
         # Log this turn
         a = trainer.affect
-        log_turn({
-            "turn":      turn,
-            "step":      step_label,
-            "prompt":    next_prompt,
-            "expected":  expected,
-            "response":  model_response,
-            "feedback":  fb_disp if turn > 1 else None,
-            "comment":   cmt,
-            "content":   teaching_content,
-            "affect": {
+        log_turn(turn_record(
+            turn=turn, step=step_label,
+            prompt=next_prompt, expected=expected, response=model_response,
+            feedback=fb_disp if turn > 1 else None, comment=cmt,
+            graded_prompt=graded_prompt     if turn > 1 else None,
+            graded_expected=graded_expected if turn > 1 else None,
+            graded_response=graded_response if turn > 1 else None,
+            content=teaching_content,
+            affect={
                 "confidence": round(a.confidence, 3),
                 "fear":       round(a.fear,       3),
                 "pleasure":   round(a.pleasure,   3),
                 "pain":       round(a.pain,        3),
             },
-            "stats": {"positive": positive, "negative": negative, "neutral": neutral},
-        })
+            stats={"positive": positive, "negative": negative, "neutral": neutral},
+        ))
 
         # Affective state + checkpoint every 10 turns
         if turn % 10 == 0:
@@ -1300,6 +1424,9 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     # Always save/overwrite final_learned.pt — even on Ctrl-C or error
     learned_path = os.path.join(ckpt_dir, "final_learned.pt")
     model.save(learned_path)
+    # Same for the curiosity memory: an interrupted session still produced
+    # words, and losing them would make the next session ask about them again.
+    trainer.affect.save_memory(_mem_path)
 
     evaluated = max(turn - 1, 1)
     print("\n" + "="*55)
@@ -1383,6 +1510,77 @@ def _jaccard(a: str, b: str) -> float:
     if not wa or not wb:
         return 0.0
     return len(wa & wb) / len(wa | wb)
+
+
+# The retry prefix the teacher prepends at L4+ ('ancora. di: il cane'). Below
+# L4 the retry prefix repeats the prompt instead, which _strip_demo removes,
+# and praise is handled by strip_praise().
+_RETRY_RE = _re.compile(r'^ancora\.\s*', _re.IGNORECASE)
+
+_MAX_CURRICULUM_LEVEL = 12
+
+
+def _normalize_prompt(text: str) -> str:
+    """A prompt with the scaffolding off, so two golds can be compared.
+
+    The same question reaches the harvest under half a dozen prefixes
+    ('bravo! cosa fa il cane?', 'ancora. cosa fa il cane?'), and a raw string
+    comparison sees each as a new prompt — which is how the collisions got
+    past the duplicate check in the first place.
+    """
+    p = (text or "").strip()
+    for _ in range(3):                      # praise can stack
+        p2 = _strip_demo(_RETRY_RE.sub("", strip_praise(p))).strip()
+        if p2 == p:
+            break
+        p = p2
+    return p
+
+
+def _known_golds(lang: str) -> dict:
+    """normalized prompt -> gold, from EVERY level's pool and harvested pairs.
+
+    A prompt may carry only one gold answer across the whole material: every
+    level's qa_corpus is trained as text and replayed in the dream, and the
+    retention matrix scores every checkpoint on every level. Two answers for
+    one question is contradictory supervision — whichever the model produces,
+    the grader marks it wrong part of the time, and the level reads as
+    regressed when nothing regressed.
+    """
+    golds = {}
+    for lvl in range(_MAX_CURRICULUM_LEVEL + 1):
+        d = os.path.join("training_files", lang, str(lvl))
+        cfg_path = os.path.join(d, "local_teacher.json")
+        if os.path.exists(cfg_path):
+            try:
+                with open(cfg_path, encoding="utf-8") as f:
+                    cfg = json.load(f)
+            except (json.JSONDecodeError, OSError):
+                cfg = {}
+            for step in cfg.get("steps", {}).values():
+                tmpl = step.get("prompt_template", "{prompt}")
+                for t in step.get("targets", []):
+                    if not isinstance(t, dict):
+                        continue
+                    pr = tmpl.format(prompt=t.get("prompt", ""),
+                                     target=t.get("prompt", ""))
+                    golds.setdefault(_normalize_prompt(pr),
+                                     (t.get("expected") or "").strip())
+        qa_path = os.path.join(d, "qa_pairs.jsonl")
+        if os.path.exists(qa_path):
+            with open(qa_path, encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        pair = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue
+                    golds.setdefault(_normalize_prompt(pair.get("prompt", "")),
+                                     (pair.get("response") or "").strip())
+    golds.pop("", None)
+    return golds
 
 
 def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
@@ -1480,13 +1678,26 @@ def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
             except json.JSONDecodeError:
                 continue
 
+    # A candidate whose question already has a DIFFERENT answer anywhere in the
+    # material must not be added: the check below used to look only at this
+    # level's own pairs, so 'come ti chiami?' entered the L3 harvest as
+    # 'mi chiamo physisml.' while the pool answered 'physisml!', and
+    # 'cosa fa il cane?' got a two-verb answer at L5 against L3's one-verb gold.
+    # Both are true sentences, and that is exactly the problem.
+    known_golds = _known_golds(lang)
+
     positive_pairs, neutral_pairs = {}, {}
+    n_conflict = 0
     for i, rec in enumerate(records):
         prompt = (rec.get("prompt") or "").strip()
         expected = (rec.get("expected") or "").strip()
         if not prompt or not expected:
             continue
         if prompt in existing:
+            continue
+        held = known_golds.get(_normalize_prompt(prompt))
+        if held is not None and held != expected:
+            n_conflict += 1
             continue
         feedback = (records[i + 1].get("feedback") if i + 1 < len(records)
                     else None) or "="
@@ -1508,6 +1719,10 @@ def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
     for p, pair in list(neutral_pairs.items())[:remaining]:
         if p not in new_pairs:
             new_pairs[p] = pair
+
+    if n_conflict:
+        print(f"  [QA update] {n_conflict} coppie scartate: il loro prompt ha "
+              f"già un gold diverso nel curriculum")
 
     if not new_pairs:
         _regen_corpus(list(existing.values()))
@@ -1742,7 +1957,13 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
 
     opt   = TorchAdamOptimizer(model.parameters(), lr=2e-5)  # very low LR
     affect = AffectState()
-    mod    = AffectModulator(affect)
+    affect.function_words = STOP_WORDS
+    _mem_path = _affect_memory_path(args.lang)
+    affect.load_memory(_mem_path)
+    mod    = AffectModulator(affect,
+                             ask_token_id=_ask_gate_id_or_warn(
+                                 tok, getattr(args, 'ask_gate', False)),
+                             ask_gate=getattr(args, 'ask_gate', False))
     axioms = AxiomRegistry()
     trainer = TrainerB(model, tok, opt, affect, mod, axioms)
 
@@ -1849,7 +2070,8 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
         dyn_tok.merges      = list(tok.merges)
         dyn_tok.token_parents = {nid: (a, b) for (a, b, nid) in tok.merges}
         # IMPORTANT: preserve special_tokens (EOS, physisml, etc.) — without this,
-        # encode() splits 'physisml' into sub-tokens instead of using ID 8001.
+        # encode() splits a special token into sub-tokens instead of using its
+        # registered id (<|EOS|> today; 'physisml' is a plain BPE token now).
         dyn_tok.special_tokens = dict(getattr(tok, 'special_tokens', {}))
         dyn_tok.special_ids    = dict(getattr(tok, 'special_ids', {}))
         dyn_tok._trained    = True
@@ -2127,6 +2349,10 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
 
     dreamed_path = os.path.join(ckpt_dir, "final_dreamed.pt")
     model.save(dreamed_path)
+    # The dream trains on golds too (N1 replay, N2.5 QA), so it also adds to
+    # what counts as taught. Saved here so the next phase 1 does not treat
+    # those words as unknown again.
+    trainer.affect.save_memory(_mem_path)
 
     print(f"\n{'='*60}")
     print(f"  Dream complete — level {level}")
@@ -2192,6 +2418,13 @@ def main():
                         help="Override N2.5 QA pairs epochs in dream (default: per dream-mode)")
     parser.add_argument("--no-qa-corpus", action="store_true",
                         help="Exclude qa_corpus.txt from text training corpus (for experiments)")
+    parser.add_argument("--ask-gate", action="store_true",
+                        help="Turn on the ask gate: boost the question opener "
+                             "when local ignorance is high. Scaffolding, off by "
+                             "default — it makes the asking turns happen so the "
+                             "teacher's reward asymmetry has something to "
+                             "reinforce. Any measurement of learned curiosity "
+                             "must run with it OFF.")
     parser.add_argument("--no-turn-ckpt", action="store_true",
                         help="Skip per-turn checkpoint saves during phase 1 (saves disk, for experiments)")
     parser.add_argument("--ckpt-base", default=None,

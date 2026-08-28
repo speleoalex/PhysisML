@@ -226,85 +226,85 @@
       "description": "Connettivo 'e' — due azioni",
       "targets": [
         {
-          "prompt": "cosa fa il cane?",
+          "prompt": "racconta due cose del cane",
           "expected": "il cane mangia e dorme.",
           "noun": "dorme",
           "verb": "mangia"
         },
         {
-          "prompt": "cosa fa il bambino?",
+          "prompt": "racconta due cose del bambino",
           "expected": "il bambino corre e ride.",
           "noun": "ride",
           "verb": "corre"
         },
         {
-          "prompt": "cosa fa la mamma?",
+          "prompt": "racconta due cose della mamma",
           "expected": "la mamma cucina e canta.",
           "noun": "canta",
           "verb": "cucina"
         },
         {
-          "prompt": "cosa fa il gatto?",
+          "prompt": "racconta due cose del gatto",
           "expected": "il gatto salta e corre.",
           "noun": "corre",
           "verb": "salta"
         },
         {
-          "prompt": "cosa fa il papà?",
+          "prompt": "racconta due cose del papà",
           "expected": "il papà legge e beve.",
           "noun": "beve",
           "verb": "legge"
         },
         {
-          "prompt": "cosa fa la nonna?",
+          "prompt": "racconta due cose della nonna",
           "expected": "la nonna ride e salta.",
           "noun": "salta",
           "verb": "ride"
         },
         {
-          "prompt": "cosa fa il fratello?",
+          "prompt": "racconta due cose del fratello",
           "expected": "il fratello corre e ride.",
           "noun": "ride",
           "verb": "corre"
         },
         {
-          "prompt": "cosa fa l amico?",
+          "prompt": "racconta due cose dell amico",
           "expected": "l amico nuota e cammina.",
           "noun": "cammina",
           "verb": "nuota"
         },
         {
-          "prompt": "cosa fa il cavallo?",
+          "prompt": "racconta due cose del cavallo",
           "expected": "il cavallo dorme e corre.",
           "noun": "corre",
           "verb": "dorme"
         },
         {
-          "prompt": "cosa fa l uccello?",
+          "prompt": "racconta due cose dell uccello",
           "expected": "l uccello canta e vola.",
           "noun": "vola",
           "verb": "canta"
         },
         {
-          "prompt": "cosa fa la bambina?",
+          "prompt": "racconta due cose della bambina",
           "expected": "la bambina nuota e salta.",
           "noun": "salta",
           "verb": "nuota"
         },
         {
-          "prompt": "cosa fa il maestro?",
+          "prompt": "racconta due cose del maestro",
           "expected": "il maestro salta e corre.",
           "noun": "corre",
           "verb": "salta"
         },
         {
-          "prompt": "cosa fa la sorella?",
+          "prompt": "racconta due cose della sorella",
           "expected": "la sorella ride e nuota.",
           "noun": "nuota",
           "verb": "ride"
         },
         {
-          "prompt": "cosa fa il nonno?",
+          "prompt": "racconta due cose del nonno",
           "expected": "il nonno salta e nuota.",
           "noun": "nuota",
           "verb": "salta"
