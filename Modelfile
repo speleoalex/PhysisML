@@ -1,0 +1,30 @@
+# PhysisML in ollama.
+#
+#   python3 scripts/export_gguf.py \
+#       --checkpoint models/checkpoints/it/level_12/final_dreamed.pt \
+#       --tokenizer  models/checkpoints/it/level_12/tokenizer.json \
+#       --output     models/physisml-l12.gguf
+#   ollama create physisml -f Modelfile
+#   ollama run physisml
+#
+# TEMPLATE is the bare prompt: the model was taught on raw question/answer
+# lines, not on a chat format, so any role wrapper is out of distribution.
+#
+# The punctuation stops are a WORKAROUND, not a preference. The GGUF declares
+# tokenizer.ggml.eos_token_id = 2589, but the model almost never emits it:
+# qa_corpus.txt separates answers with a newline and carries no <|EOS|> at any
+# level, so what the text phase and every dream replay teach is that an answer
+# ends with '\n'. Measured on the level-12 checkpoint, right after a complete
+# answer: P('\n') = 0.97, P(<|EOS|>) = 0.00004, EOS at rank 169. Without these
+# stops the model answers correctly and then keeps writing the teaching
+# dialogue with itself.
+FROM ./models/physisml-l12.gguf
+TEMPLATE {{ .Prompt }}
+PARAMETER temperature 0.8
+PARAMETER top_k 40
+PARAMETER num_predict 32
+PARAMETER repeat_penalty 1
+PARAMETER stop .
+PARAMETER stop !
+PARAMETER stop ?
+PARAMETER stop \n
