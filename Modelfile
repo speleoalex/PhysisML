@@ -18,11 +18,24 @@
 # answer: P('\n') = 0.97, P(<|EOS|>) = 0.00004, EOS at rank 169. Without these
 # stops the model answers correctly and then keeps writing the teaching
 # dialogue with itself.
+#
+# `ollama run physisml` INTERACTIVELY accumulates the conversation and sends it
+# back as context. This model was taught single-turn question/answer lines and
+# has a 128-token window, so a few exchanges are enough to crowd out the actual
+# question: measured on this checkpoint, 'cosa fa la mamma?' answers 'la mamma
+# mangia' on its own and 'il cane' when the three previous turns are prepended.
+# Use /clear between questions, or one-shot `ollama run physisml "..."`, or the
+# API — all three are stateless.
+#
+# temperature 0 because the margin here is thin: at 0.8 the same question gave
+# 'la mamma canta' and 'la mamma mangia' on consecutive runs, and the published
+# scores are greedy.
 FROM ./models/physisml-l12.gguf
 TEMPLATE {{ .Prompt }}
-PARAMETER temperature 0.8
-PARAMETER top_k 40
+PARAMETER temperature 0
+PARAMETER top_k 1
 PARAMETER num_predict 32
+PARAMETER num_ctx 128
 PARAMETER repeat_penalty 1
 PARAMETER stop .
 PARAMETER stop !
