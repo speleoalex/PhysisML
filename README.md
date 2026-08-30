@@ -63,8 +63,10 @@ its dreams half-closing is not a property of the architecture.
 Real examples from the finished model, greedy:
 
 ```
-di ma                                  → ma! benissimo!
 di: il cane                            → il cane!
+cos è un cane?                         → il cane è un animale.
+dove dorme il cane?                    → il cane dorme in casa.
+chi è più grande, il cane o il gatto?  → il cane è più grande del gatto.
 di: cosa mangia il cane?               → il cane mangia il pane.
 perché il cane mangia?                 → il cane mangia perché ha fame.
 cosa ha mangiato il cane?              → il cane ha mangiato il pane.
@@ -80,28 +82,28 @@ instead of inventing.
 
 ### Where it still fails
 
-The is-a relation of level 11 is learned **per prompt shape, not per noun**.
-The same fact reaches the model in three forms and only two of them work:
+Level 11 asks `cos è X?` about 24 nouns. Eighteen more appear in the level's
+yes/no steps without ever being asked that way, and `cane` appears only as an
+*answer* (`fai un esempio di animale`). Asked with the article it was never
+drilled on, the model produces the right shape with the wrong class:
 
 ```
+cos è un cane?             → il cane è un animale.     ✓
 fai un esempio di animale  → il cane è un animale.     ✓
 il cane è un animale?      → sì, il cane è un animale. ✓
-cos è un cane?             → il cane è una persona.    ✗
-cos è un gatto?            → il gatto è una luce.      ✗
+cos è il cane?             → il cane è una cosa.       ✗ (superordinate, not the class)
 ```
 
-`il cane è un animale` appears 80 times in the level's corpus, so the content is
-there; what is missing is any path from the noun to its class that the
-`cos è X?` template can use. Step C of that level drills the template on other
-nouns, and the model treats it as a separate lesson rather than as another way
-of asking what it already knows.
-
-Level 12's asking behaviour is bound the same way: it asks correctly when the
-prompt has the taught shape (`... questo è un tamburo`), and confabulates on a
-bare `chi è zibaldone?`.
+Level 12 asks correctly in the shape it was taught (`l albero è una pianta,
+questo è un tamburo` → `cos è un tamburo?`) and confabulates on a bare
+`chi è zibaldone?` → `il fratello è una persona.`
 
 L2 is the weakest level on its own checkpoint (70%) and the failures there are
 repetition (`di: il fratello beve il latte` → `il letto basso! il letto basso!`).
+
+Every example above is greedy. The margin is thin: with sampling on,
+`cos è un cane?` answers *animale*, *persona* or *luce* depending on the draw.
+The right answer is at the top of the distribution, not alone in it.
 
 ## Requirements
 

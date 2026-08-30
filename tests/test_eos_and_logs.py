@@ -135,15 +135,57 @@ class TestEosRegistration:
         without.special_ids    = {}
         assert with_eos.special_tokens, "reference has no special token to test"
 
+        # The corpus now ends every answer with the marker on purpose, and on
+        # those lines the two tokenizers MUST differ — that is the fix, not a
+        # regression. Strip it and compare what is left: the ordinary text.
         lines = []
         for f in sorted(glob.glob("training_files/it/*/qa_corpus.txt")):
             with open(f, encoding="utf-8", errors="replace") as fh:
-                lines += [l.strip() for l in fh if l.strip()]
+                lines += [l.strip().replace(with_eos.EOS_TOKEN, "")
+                          for l in fh if l.strip()]
+        lines = [l for l in lines if l]
         assert lines, "no corpus to sample"
         random.seed(11)
         for s in random.sample(lines, min(400, len(lines))):
             assert with_eos.encode(s) == without.encode(s), \
                 f"encoding changed for {s!r}"
+
+    def test_the_corpus_carries_the_marker_on_every_answer(self):
+        """The tokenizer knowing EOS is not the same as the model learning it.
+
+        qa_corpus.txt is what phase 0 trains on and what every dream replays;
+        the teaching gold's EOS is a rounding error next to it. With no marker
+        here the 0-12 build put P(newline) = 0.97 and P(EOS) = 0.00004 right
+        after a finished answer, so llama.cpp and ollama had nothing to stop
+        on and kept generating the teaching dialogue.
+        """
+        eos = BPETokenizer().EOS_TOKEN if hasattr(BPETokenizer, "EOS_TOKEN") \
+              else "<|EOS|>"
+        checked = 0
+        for f in sorted(glob.glob("training_files/it/*/qa_corpus.txt")):
+            with open(f, encoding="utf-8") as fh:
+                block = [l.rstrip("\n") for l in fh]
+            # Layout is prompt / answer / blank, repeated: the answer is the
+            # line before every blank one.
+            for i, line in enumerate(block[:-1]):
+                if block[i + 1].strip() == "" and line.strip():
+                    assert line.endswith(eos), \
+                        f"{f}: answer without the marker: {line!r}"
+                    checked += 1
+        assert checked > 100, f"only {checked} answers checked — corpus missing?"
+
+    def test_both_corpus_writers_use_the_same_marker(self):
+        """qa_corpus.txt has two writers and is committed output. When their
+        demo-prefix regexes drifted the corpora disagreed for weeks; the
+        marker is the same kind of shared constant.
+        """
+        import re as _re
+        sys.path.insert(0, "scripts")
+        import generate_qa_corpus as G
+        src = open("dynamic_model/train_curriculum.py", encoding="utf-8").read()
+        m = _re.search(r'_EOS_MARK = "(.+?)"', src)
+        assert m, "_EOS_MARK not found in train_curriculum.py"
+        assert G.EOS_MARK == m.group(1) == BPETokenizer().EOS_TOKEN
 
     def test_the_seed_a_from_zero_build_uses_has_an_eos(self):
         """A build with no checkpoints does not read models/active_tokenizer.json.

@@ -59,8 +59,10 @@ about a closed world of familiar nouns and verbs. Every line below is an actual
 greedy output of these weights, through the bundled `generate.py`:
 
 ```
-di ma                                  → ma! benissimo!
 di: il cane                            → il cane!
+cos è un cane?                         → il cane è un animale.
+dove dorme il cane?                    → il cane dorme in casa.
+chi è più grande, il cane o il gatto?  → il cane è più grande del gatto.
 di: cosa mangia il cane?               → il cane mangia il pane.
 perché il cane mangia?                 → il cane mangia perché ha fame.
 cosa ha mangiato il cane?              → il cane ha mangiato il pane.
@@ -107,25 +109,25 @@ one of them.
 
 ## Where it fails
 
-The class-membership relation of level 11 is learned **per prompt shape, not
-per noun**. The same fact reaches the model three ways and only two work:
+Level 11 teaches class membership, and the `cos è X?` form is asked about only
+24 nouns. Eighteen more appear in the level's yes/no steps without ever being
+asked that way, and `cane` appears only as an *answer* (`fai un esempio di
+animale`). The consequences are visible:
 
 ```
+cos è un cane?             → il cane è un animale.     ✓
 fai un esempio di animale  → il cane è un animale.     ✓
 il cane è un animale?      → sì, il cane è un animale. ✓
-cos è un cane?             → il cane è una persona.    ✗
-cos è un gatto?            → il gatto è una luce.      ✗
+cos è il cane?             → il cane è una cosa.       ✗ (a superordinate, not the class)
 ```
 
-`il cane è un animale` appears 80 times in that level's corpus, so the content
-is there. What is missing is any path from the noun to its class that the
-`cos è X?` template can reach: the level drills that template on other nouns,
-and the model treats it as a separate lesson rather than another way of asking
-what it already knows.
+The shape is right and the class is not: the model has the fact and no drilled
+path from that phrasing to it.
 
-Level 12's asking behaviour is bound the same way. It asks correctly when the
-prompt has the taught shape (`l albero è una pianta, questo è un tamburo`), and
-confabulates on a bare `chi è zibaldone?` — answering `nonno è una casa`.
+Level 12 teaches asking about a name it has never met, and it does that well in
+the sentence shape it was taught (`l albero è una pianta, questo è un tamburo`
+→ `cos è un tamburo?`). A bare `chi è zibaldone?` was never taught, and there
+it confabulates — `il fratello è una persona.`
 
 Beyond that:
 
@@ -136,6 +138,10 @@ Beyond that:
 - **128-token context**, so no documents, no long conversations.
 - **No alignment or safety tuning of any kind.** There is no refusal behaviour,
   no filtering, no RLHF. It is a research artifact, not a product.
+- **Sampling costs a lot here.** Every example on this page is greedy
+  (`--temperature 0`). With sampling on, `cos è un cane?` answers *animale*,
+  *persona* or *luce* depending on the draw: at this scale the model has the
+  right answer at the top of the distribution, not alone in it.
 
 Do not put this in front of users. Use it to study the training method.
 

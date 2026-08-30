@@ -64,8 +64,10 @@ non è una proprietà dell'architettura.
 Esempi reali dal modello finito, greedy:
 
 ```
-di ma                                  → ma! benissimo!
 di: il cane                            → il cane!
+cos è un cane?                         → il cane è un animale.
+dove dorme il cane?                    → il cane dorme in casa.
+chi è più grande, il cane o il gatto?  → il cane è più grande del gatto.
 di: cosa mangia il cane?               → il cane mangia il pane.
 perché il cane mangia?                 → il cane mangia perché ha fame.
 cosa ha mangiato il cane?              → il cane ha mangiato il pane.
@@ -81,29 +83,29 @@ modello chiede invece di inventare.
 
 ### Dove ancora sbaglia
 
-La relazione is-a del livello 11 è appresa **per forma di prompt, non per
-sostantivo**. Lo stesso fatto raggiunge il modello in tre forme e solo due
-funzionano:
+Il livello 11 chiede `cos è X?` su 24 sostantivi. Altri diciotto compaiono
+negli step sì/no del livello senza essere mai chiesti in quella forma, e `cane`
+compare solo come *risposta* (`fai un esempio di animale`). Chiesto con
+l'articolo su cui non è stato allenato, il modello produce la forma giusta con
+la classe sbagliata:
 
 ```
+cos è un cane?             → il cane è un animale.     ✓
 fai un esempio di animale  → il cane è un animale.     ✓
 il cane è un animale?      → sì, il cane è un animale. ✓
-cos è un cane?             → il cane è una persona.    ✗
-cos è un gatto?            → il gatto è una luce.      ✗
+cos è il cane?             → il cane è una cosa.       ✗ (sovraordinato, non la classe)
 ```
 
-`il cane è un animale` compare 80 volte nel corpus del livello, quindi il
-contenuto c'è; quello che manca è un percorso dal sostantivo alla sua classe
-utilizzabile dal template `cos è X?`. Lo step C di quel livello allena il
-template su altri sostantivi, e il modello lo tratta come una lezione separata
-invece che come un altro modo di chiedere ciò che già sa.
-
-Il comportamento di domanda del livello 12 è legato allo stesso modo: chiede
-correttamente quando il prompt ha la forma insegnata (`... questo è un
-tamburo`), e confabula su un `chi è zibaldone?` nudo.
+Il livello 12 chiede correttamente nella forma insegnata (`l albero è una
+pianta, questo è un tamburo` → `cos è un tamburo?`) e confabula su un
+`chi è zibaldone?` nudo → `il fratello è una persona.`
 
 L2 è il livello più debole sul proprio checkpoint (70%) e lì i fallimenti sono
 ripetizioni (`di: il fratello beve il latte` → `il letto basso! il letto basso!`).
+
+Tutti gli esempi qui sopra sono greedy. Il margine è sottile: campionando,
+`cos è un cane?` risponde *animale*, *persona* o *luce* a seconda
+dell'estrazione. La risposta giusta è in cima alla distribuzione, non da sola.
 
 ## Requisiti
 

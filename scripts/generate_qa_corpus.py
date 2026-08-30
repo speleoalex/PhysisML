@@ -7,10 +7,18 @@ training) as well as in the N2.5 dream.
 
 Formato output (training_files/it/{level}/qa_corpus.txt):
     di: il cane dorme
-    il cane dorme.
+    il cane dorme.<|EOS|>
 
     cosa fa il cane?
-    il cane dorme.
+    il cane dorme.<|EOS|>
+
+The marker on the answer line is the whole point of writing it here. The
+teaching gold appends EOS, but this file is what phase 0 trains on and what
+every dream replays (30MB of N1), so without it the model learns that an
+answer ends with a newline. Measured on the 0-12 build, right after a complete
+answer: P('\n') = 0.97, P(<|EOS|>) = 0.00004, EOS at rank 169 — and in ollama
+the model answered correctly and then kept writing the dialogue with itself.
+BPETokenizer.encode maps the literal marker to the registered id.
 
 Usage:
     python3 scripts/generate_qa_corpus.py --levels 0 1 2 3 --reps 20
@@ -19,6 +27,11 @@ import json, os, re, sys, argparse, random
 
 
 CORPUS_SHUFFLE_SEED = 20260824   # keep in step with train_curriculum.py
+
+# End-of-answer marker written after every response. MUST stay identical to
+# _EOS_MARK in dynamic_model/train_curriculum.py and to BPETokenizer.EOS_TOKEN;
+# tests/test_eos_and_logs.py asserts all three agree.
+EOS_MARK = "<|EOS|>"
 
 # Demo prefix the local teacher's retry writes at L0-L3 ('ma ma. di ma'): the
 # scaffolding must never reach a corpus that is trained as plain text.
@@ -75,7 +88,7 @@ def generate(level: int, lang: str = "it", reps: int = 20,
             r = (pair.get("response") or "").strip()
             if p and r:
                 lines.append(p)
-                lines.append(r)
+                lines.append(r if r.endswith(EOS_MARK) else r + EOS_MARK)
                 lines.append("")  # blank line between dialogues
 
     with open(out_path, "w", encoding="utf-8") as f:

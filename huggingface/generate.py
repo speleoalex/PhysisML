@@ -129,14 +129,23 @@ def generate(model, tok, prompt: str, *, max_tokens: int, temperature: float,
 
             if modulator is not None:
                 affect.update_from_logits(logits, model.vocab_size)
+                # The modulator applies the temperature itself, so the sampler
+                # is called with 1.0 afterwards. Greedy therefore cannot be
+                # expressed as temperature 0 here: it is top_k = 1, exactly as
+                # the training repo's own evaluation harness does it. Passing
+                # temperature 0 and leaving top_k at 40 sampled instead —
+                # 'cos è un cane?' answered animale, persona and luce on three
+                # consecutive runs of what claimed to be greedy decoding.
                 logits = modulator.modulate(
                     logits, temperature if temperature > 0 else 1.0,
                     response_len = len(ids) - n_prompt,
                     eos_min_len  = min_tokens + 1,
                 )
-                sample_temperature = 1.0   # already applied by the modulator
+                sample_temperature = 1.0
+                sample_k = 1 if temperature <= 0 else top_k
             else:
                 sample_temperature = temperature
+                sample_k = top_k
 
             logits = logits.clone()
             if eos_id is not None and (len(ids) - n_prompt) < min_tokens \
@@ -145,10 +154,10 @@ def generate(model, tok, prompt: str, *, max_tokens: int, temperature: float,
             if mask is not None:
                 logits[mask] = float("-inf")
 
-            if sample_temperature <= 0:
+            if sample_temperature <= 0 or sample_k == 1:
                 next_id = int(torch.argmax(logits).item())
             else:
-                next_id = int(sample_top_k(logits.numpy(), k=top_k,
+                next_id = int(sample_top_k(logits.numpy(), k=sample_k,
                                            temperature=sample_temperature))
             ids.append(next_id)
 

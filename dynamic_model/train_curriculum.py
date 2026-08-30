@@ -1669,6 +1669,8 @@ def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
                 pp = _strip_demo(pair.get("prompt", ""))
                 rr = (pair.get("response") or "").strip()
                 if pp and rr:
+                    if not rr.endswith(_EOS_MARK):
+                        rr += _EOS_MARK
                     lines.extend([pp, rr, ""])
         with open(corpus_path, "w", encoding="utf-8") as f:
             f.write("\n".join(lines) + "\n")
@@ -1796,6 +1798,12 @@ def _strip_demo(text: str) -> str:
 # contents must depend only on qa_pairs.jsonl and the level — never on the
 # state of the global RNG.
 _CORPUS_SHUFFLE_SEED = 20260824
+
+# End-of-answer marker written after every response in qa_corpus.txt. MUST stay
+# identical to EOS_MARK in scripts/generate_qa_corpus.py and to
+# BPETokenizer.EOS_TOKEN: the two writers produce a committed file, and the
+# tokenizer is what has to turn the marker back into the registered id.
+_EOS_MARK = "<|EOS|>"
 
 
 def _is_periodic_text(s: str) -> bool:
