@@ -115,6 +115,12 @@ class Lex:
         self.classes = onto.get("classes", {})
         self.negative_pool = onto.get("negative_pool", [])
         self.unknown = d.get("unknown_nouns", [])
+        # Names that appear in NO trained file at any level, and are never
+        # given a class anywhere: the only honest answer about them is that the
+        # model does not know. Kept out of unknown_nouns on purpose — those get
+        # taught (non-probe) or measured (probe), and either would make these
+        # answerable.
+        self.bare_unknown = d.get("bare_unknown_nouns", [])
 
     def cls_of(self, n):
         """The class this noun belongs to, as it is SAID: 'un animale'.
@@ -569,9 +575,18 @@ def g_cos_e(rng, lex, k):
     scores full coverage and SIGNAL 4 reinforces the model's parroting — the
     self-poisoning loop the anti-echo exists to close. Verified by
     test_prompt_echo_never_earns_echo_training.
+
+    NOTE: this step and the two below IGNORE k and take EVERY classified noun,
+    in lexicon order. Sampling k of them per step gave each step its own random
+    subset: 'cane' was asked in none of the three and appeared only as the
+    ANSWER to 'fai un esempio di animale', and eighteen nouns drilled in the
+    yes/no steps were never asked 'cos è X?' at all. Measured on the finished
+    0-12 model, that is exactly where the relation breaks — 'cos è il cane?'
+    answers 'il cane è una cosa', the right shape with a superordinate instead
+    of the class. A relation taught on half the nouns is not a relation.
     """
     out = []
-    for n in pick(rng, lex.classified(), k):
+    for n in lex.classified():
         c = lex.cls_of(n)
         out.append({"prompt": f"cos è {phrase(n)}?",
                     "expected": f"{phrase(n)} è {c}.",
@@ -580,9 +595,12 @@ def g_cos_e(rng, lex, k):
 
 
 def g_is_a_si(rng, lex, k):
-    """'il gatto è un animale?' -> 'sì, il gatto è un animale.'"""
+    """'il gatto è un animale?' -> 'sì, il gatto è un animale.'
+
+    Every classified noun, like step A — see the note there.
+    """
     out = []
-    for n in pick(rng, lex.classified(), k):
+    for n in lex.classified():
         c = lex.cls_of(n)
         out.append({"prompt": f"{phrase(n)} è {c}?",
                     "expected": f"sì, {phrase(n)} è {c}.",
@@ -600,7 +618,7 @@ def g_is_a_no(rng, lex, k):
     clean 'no', 'il cane è una persona?' does.
     """
     out = []
-    for n in pick(rng, lex.classified(), k):
+    for n in lex.classified():
         wrong = lex.wrong_cls_for(rng, n)
         if not wrong:
             continue
@@ -717,6 +735,42 @@ def g_conferma_nuovo(rng, lex, k):
             for n in pick(rng, lex.unknown_of(probe=False), k)]
 
 
+def g_non_lo_so(rng, lex, k):
+    """'cos è un falco?' -> 'non lo so.'
+
+    Level 12 teaches asking, but only inside the two-clause shape it drills
+    ('il pane è un cibo, questo è un ragno' -> 'cos è un ragno?'). Measured on
+    the finished 0-12 model, a BARE question about a name it has never met is
+    answered with a confabulation instead: 'chi è zibaldone?' -> 'il fratello è
+    una persona.' The shape was never taught, so the model falls back on the
+    nearest pattern it has.
+
+    Two prompt shapes per name, the open question and the yes/no, because both
+    have the same honest answer and the yes/no is the one L11 step B teaches to
+    answer 'sì' for a known noun. The contrast is the lesson: the class of a
+    noun you know, 'non lo so' for one you do not.
+
+    The gold is deliberately NOT a question. Asking a question back at a bare
+    'cos è un falco?' would only repeat it. That is why this does not feed
+    scripts/curiosity_rate.py, which measures the two-clause shape where asking
+    IS the informative answer.
+    """
+    # `noun` is the keyword the grader looks for in the RESPONSE, so it has to
+    # be a word of the gold, not the word being asked about: with noun='falco'
+    # the answer 'non lo so.' could never earn +++ and the step would train
+    # against itself. validate_teacher_configs.py catches exactly this.
+    # 'so' is safe as a keyword: the grader matches on word boundaries, and its
+    # compact fallback only applies to words of four characters or more, so it
+    # cannot match inside 'sole' or 'sorella'.
+    out = []
+    for n in lex.bare_unknown:
+        out.append({"prompt": f"cos è {indef(n)} {n['w']}?",
+                    "expected": "non lo so.", "noun": "so"})
+        out.append({"prompt": f"{n['art']} {n['w']} è un animale?",
+                    "expected": "non lo so.", "noun": "so"})
+    return out
+
+
 # (level, step) -> generator. Steps not listed keep their hand-written targets:
 # L0 is phonemes and L1/L3 identity steps are fixed answers, neither of which
 # a lexicon can widen meaningfully.
@@ -737,6 +791,7 @@ PLAN = {
     (11, "D"): g_membro,    (11, "E"): g_iperonimo,
     (12, "A"): g_chiedi_ignoto, (12, "B"): g_non_chiedere,
     (12, "C"): g_consolida,     (12, "D"): g_conferma_nuovo,
+    (12, "E"): g_non_lo_so,
 }
 
 

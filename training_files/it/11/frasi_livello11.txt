@@ -1,252 +1,495 @@
-la sorella è una persona.
-no, il topo è un animale.
-sì, la mucca è un animale.
-il letto è un oggetto.
-il fiore è una pianta.
-no, la porta è un oggetto.
-sì, l ape è un animale.
-un oggetto è una cosa.
-no, il papà è una persona.
-il gelato è un cibo.
-sì, il disegno è un oggetto.
-no, la porta è un oggetto.
-una luce è una cosa.
-no, l ape è un animale.
-la sorella è una persona.
+la stella è una luce.
+no, il vento è una cosa.
+no, la luna è una luce.
+sì, la penna è un oggetto.
+la mamma è una persona.
+sì, il letto è un oggetto.
+no, il cavallo è un animale.
+la casa è un luogo.
+no, il quaderno è un oggetto.
 sì, il quaderno è un oggetto.
-sì, la mamma è una persona.
-il cappello è un oggetto.
-no, il formaggio è un cibo.
-il giardino è un luogo.
-no, l albero è una pianta.
-il formaggio è un cibo.
-la stella è una luce.
-no, il letto è un oggetto.
-no, il nonno è una persona.
-il mare è un luogo.
-il gelato è un cibo.
-no, il mare è un luogo.
-sì, il sole è una luce.
-sì, la scuola è un luogo.
-no, la sorella è una persona.
-la sedia è un oggetto.
-no, il topo è un animale.
-sì, il topo è un animale.
-la finestra è un oggetto.
-no, la sedia è un oggetto.
-sì, il tavolo è un oggetto.
-il bambino è una persona.
-no, il giardino è un luogo.
-no, la casa è un luogo.
-il topo è un animale.
-il bambino è una persona.
-l acqua è un cibo.
-sì, la penna è un oggetto.
-la penna è un oggetto.
-no, la sedia è un oggetto.
-il giardino è un luogo.
-un animale è un essere vivente.
-sì, il cappello è un oggetto.
-no, la torta è un cibo.
-sì, il lupo è un animale.
-no, il prato è un luogo.
-no, l ape è un animale.
-il giardino è un luogo.
-sì, la nonna è una persona.
-no, la scuola è un luogo.
-il letto è un oggetto.
-il papà è una persona.
-sì, il nonno è una persona.
-no, l acqua è un cibo.
-sì, la penna è un oggetto.
-no, la mamma è una persona.
-sì, il bambino è una persona.
-il formaggio è un cibo.
-il fratello è una persona.
-sì, il formaggio è un cibo.
-no, il gatto è un animale.
-sì, il pesce è un animale.
+no, il sole è una luce.
+sì, il cane è un animale.
+sì, la torta è un cibo.
+no, la finestra è un oggetto.
+il gatto è un animale.
+la luna è una luce.
 l albero è una pianta.
-no, la sedia è un oggetto.
-no, la nonna è una persona.
-no, la casa è un luogo.
-una persona è un essere vivente.
-il vento è una cosa.
-sì, la mucca è un animale.
-no, il gatto è un animale.
-il cane è un animale.
-il tavolo è un oggetto.
-no, la minestra è un cibo.
-una luce è una cosa.
-no, il formaggio è un cibo.
+no, la mela è un cibo.
+sì, la mamma è una persona.
+il cavallo è un animale.
 la stella è una luce.
-sì, il fratello è una persona.
-no, la casa è un luogo.
-no, il mare è un luogo.
+no, il fiore è una pianta.
+il maestro è una persona.
 no, la nonna è una persona.
-una persona è un essere vivente.
-l acqua è un cibo.
-il pane è un cibo.
-sì, il sole è una luce.
-sì, l ape è un animale.
-no, il letto è un oggetto.
-il gelato è un cibo.
-il formaggio è un cibo.
-no, la minestra è un cibo.
-no, l albero è una pianta.
-no, il giardino è un luogo.
-sì, il bambino è una persona.
-la finestra è un oggetto.
-sì, il libro è un oggetto.
-sì, il cavallo è un animale.
-sì, la nonna è una persona.
+no, il libro è un oggetto.
+no, il tavolo è un oggetto.
+l ape è un animale.
+l amico è una persona.
+no, la casa è un luogo.
+no, il formaggio è un cibo.
 sì, l albero è una pianta.
-sì, la penna è un oggetto.
-sì, il tavolo è un oggetto.
-no, il pallone è un oggetto.
-il vento è una cosa.
-no, il papà è una persona.
-no, il letto è un oggetto.
-no, la neve è acqua.
-sì, l ape è un animale.
-sì, la nonna è una persona.
-la porta è un oggetto.
-no, il gatto è un animale.
-il sole è una luce.
-il papà è una persona.
-il topo è un animale.
+sì, il bambino è una persona.
+sì, il formaggio è un cibo.
+no, il formaggio è un cibo.
+no, il quaderno è un oggetto.
 il disegno è un oggetto.
-il libro è un oggetto.
-sì, il topo è un animale.
-sì, la neve è acqua.
-il cappello è un oggetto.
-sì, il disegno è un oggetto.
-una pianta è un essere vivente.
+la minestra è un cibo.
+sì, il fratello è una persona.
+sì, l orso è un animale.
+sì, l uccello è un animale.
+no, il lupo è un animale.
+sì, la penna è un oggetto.
+no, la minestra è un cibo.
+no, la nonna è una persona.
+no, la gallina è un animale.
+no, il lupo è un animale.
+no, la stella è una luce.
+il quaderno è un oggetto.
+no, la porta è un oggetto.
+no, la sedia è un oggetto.
+la sorella è una persona.
+no, il letto è un oggetto.
+sì, l ape è un animale.
+la neve è acqua.
+sì, il maestro è una persona.
+no, il fratello è una persona.
+la bambina è una persona.
+il disegno è un oggetto.
+no, il cappello è un oggetto.
+il cavallo è un animale.
+una luce è una cosa.
+un oggetto è una cosa.
+il fiore è una pianta.
+no, il nonno è una persona.
+sì, l amico è una persona.
+la penna è un oggetto.
+sì, il papà è una persona.
+sì, il lupo è un animale.
+il gatto è un animale.
+no, il nonno è una persona.
+sì, la sorella è una persona.
+sì, l acqua è un cibo.
+il bosco è un luogo.
+sì, l uccello è un animale.
+no, il cappello è un oggetto.
+la torta è un cibo.
+sì, il fiore è una pianta.
+un animale è un essere vivente.
+il pallone è un oggetto.
+il cane è un animale.
+no, il bambino è una persona.
+sì, l ape è un animale.
+sì, il bosco è un luogo.
+un animale è un essere vivente.
+sì, il mare è un luogo.
+sì, la torta è un cibo.
+sì, il libro è un oggetto.
+sì, il bosco è un luogo.
+sì, il bambino è una persona.
+la scuola è un luogo.
+il formaggio è un cibo.
+la gallina è un animale.
+il bambino è una persona.
+il letto è un oggetto.
+il formaggio è un cibo.
+no, il mare è un luogo.
+sì, il pallone è un oggetto.
 un cibo è una cosa.
+una persona è un essere vivente.
+no, il pesce è un animale.
+sì, il topo è un animale.
+il giardino è un luogo.
+sì, il bosco è un luogo.
+sì, la mamma è una persona.
+la mucca è un animale.
+la sedia è un oggetto.
+sì, il prato è un luogo.
+il papà è una persona.
+no, la mamma è una persona.
+no, il topo è un animale.
+no, il pane è un cibo.
+il papà è una persona.
+la neve è acqua.
+sì, la sorella è una persona.
+no, la scuola è un luogo.
+no, il prato è un luogo.
+sì, la casa è un luogo.
+no, il bambino è una persona.
+sì, il cappello è un oggetto.
+la mucca è un animale.
+l uccello è un animale.
+sì, il sole è una luce.
+il vento è una cosa.
+no, la nonna è una persona.
+no, la mela è un cibo.
+sì, la neve è acqua.
+sì, il disegno è un oggetto.
+il quaderno è un oggetto.
+no, il cane è un animale.
+il cappello è un oggetto.
+sì, la minestra è un cibo.
+no, l ape è un animale.
+no, il giardino è un luogo.
+sì, il nonno è una persona.
+sì, la mucca è un animale.
+il latte è un cibo.
+sì, il nonno è una persona.
+no, il gatto è un animale.
+sì, il cavallo è un animale.
+no, il maestro è una persona.
+sì, il pesce è un animale.
+sì, la casa è un luogo.
+no, l acqua è un cibo.
+sì, la minestra è un cibo.
+no, il prato è un luogo.
+il maestro è una persona.
+no, il gelato è un cibo.
+sì, l orso è un animale.
+il sole è una luce.
+sì, la porta è un oggetto.
+l amico è una persona.
+sì, l albero è una pianta.
+no, il tavolo è un oggetto.
+una pianta è un essere vivente.
+no, il gatto è un animale.
+no, il topo è un animale.
+sì, il disegno è un oggetto.
+sì, il formaggio è un cibo.
+sì, il latte è un cibo.
+sì, il lupo è un animale.
+sì, il cappello è un oggetto.
+sì, la bambina è una persona.
+la scuola è un luogo.
+sì, il sole è una luce.
+no, il sole è una luce.
+il pesce è un animale.
+la bambina è una persona.
+sì, la nonna è una persona.
+no, la casa è un luogo.
+il pesce è un animale.
+il lupo è un animale.
+la scuola è un luogo.
+la minestra è un cibo.
+il fiore è una pianta.
+il latte è un cibo.
+sì, l amico è una persona.
+no, la sedia è un oggetto.
+no, il libro è un oggetto.
+sì, la minestra è un cibo.
+no, il mare è un luogo.
+il pane è un cibo.
+sì, il fiore è una pianta.
+sì, la stella è una luce.
+no, il gelato è un cibo.
+no, il bosco è un luogo.
+sì, il tavolo è un oggetto.
+sì, il topo è un animale.
+no, la minestra è un cibo.
+sì, la mamma è una persona.
+no, il cane è un animale.
+sì, il pane è un cibo.
+no, la neve è acqua.
+la mucca è un animale.
+sì, l ape è un animale.
+no, la porta è un oggetto.
+no, il bosco è un luogo.
+sì, la finestra è un oggetto.
+no, la bambina è una persona.
+il mare è un luogo.
+no, la luna è una luce.
+l uccello è un animale.
+no, la luna è una luce.
+no, la finestra è un oggetto.
+no, il fratello è una persona.
+sì, il fratello è una persona.
 la penna è un oggetto.
 il latte è un cibo.
-no, l ape è un animale.
-no, l acqua è un cibo.
-la finestra è un oggetto.
-sì, il disegno è un oggetto.
-no, l albero è una pianta.
-no, la scuola è un luogo.
-la sedia è un oggetto.
-la sorella è una persona.
-sì, la mamma è una persona.
-sì, la mamma è una persona.
-il fiore è una pianta.
-la mamma è una persona.
-un cibo è una cosa.
-sì, il quaderno è un oggetto.
-sì, il pesce è un animale.
+no, il letto è un oggetto.
+la casa è un luogo.
+no, il letto è un oggetto.
+sì, il bambino è una persona.
+sì, la casa è un luogo.
 il pane è un cibo.
-sì, il nonno è una persona.
-la porta è un oggetto.
-il libro è un oggetto.
-sì, il cavallo è un animale.
-il latte è un cibo.
-il latte è un cibo.
-sì, la sedia è un oggetto.
-no, il cappello è un oggetto.
-il libro è un oggetto.
-no, il formaggio è un cibo.
-sì, il lupo è un animale.
-sì, l albero è una pianta.
-un oggetto è una cosa.
-no, il cappello è un oggetto.
-la minestra è un cibo.
-no, la sorella è una persona.
-sì, il cavallo è un animale.
-no, il papà è una persona.
-no, la nonna è una persona.
-l acqua è un cibo.
-sì, il vento è una cosa.
-sì, il pesce è un animale.
-no, il nonno è una persona.
-no, la neve è acqua.
-no, la porta è un oggetto.
-no, la mamma è una persona.
-sì, la neve è acqua.
-la minestra è un cibo.
-il fratello è una persona.
-la stella è una luce.
-il fratello è una persona.
-sì, il libro è un oggetto.
-sì, il topo è un animale.
-no, la neve è acqua.
-il fiore è una pianta.
+il nonno è una persona.
+il cavallo è un animale.
+il gelato è un cibo.
+sì, il cane è un animale.
+no, l orso è un animale.
+no, la gallina è un animale.
+sì, l amico è una persona.
+sì, la scuola è un luogo.
+sì, il cane è un animale.
+sì, il latte è un cibo.
 no, il prato è un luogo.
-no, la minestra è un cibo.
-una pianta è un essere vivente.
+no, l orso è un animale.
+sì, la penna è un oggetto.
+il papà è una persona.
+sì, il pane è un cibo.
 l albero è una pianta.
-la porta è un oggetto.
-un oggetto è una cosa.
-il tavolo è un oggetto.
-no, il cappello è un oggetto.
-una persona è un essere vivente.
-il sole è una luce.
-un animale è un essere vivente.
 il disegno è un oggetto.
-sì, l albero è una pianta.
-sì, la neve è acqua.
-il pane è un cibo.
-sì, il lupo è un animale.
-sì, il formaggio è un cibo.
-un animale è un essere vivente.
+la mamma è una persona.
+sì, la finestra è un oggetto.
+la penna è un oggetto.
+la porta è un oggetto.
+il tavolo è un oggetto.
+il sole è una luce.
+il mare è un luogo.
+no, il maestro è una persona.
+no, il gelato è un cibo.
+sì, il maestro è una persona.
+il pallone è un oggetto.
+il topo è un animale.
+la stella è una luce.
+la sorella è una persona.
+no, il papà è una persona.
+no, il pesce è un animale.
+la minestra è un cibo.
+il prato è un luogo.
+sì, la sedia è un oggetto.
+no, la sorella è una persona.
+la porta è un oggetto.
+no, la finestra è un oggetto.
+no, il formaggio è un cibo.
+no, il maestro è una persona.
 il cappello è un oggetto.
+sì, il cavallo è un animale.
+sì, il libro è un oggetto.
+no, il libro è un oggetto.
+no, l acqua è un cibo.
+no, il pane è un cibo.
+l orso è un animale.
+no, il disegno è un oggetto.
+no, il pane è un cibo.
+no, il mare è un luogo.
+no, l ape è un animale.
+no, la mela è un cibo.
+la mela è un cibo.
+no, l albero è una pianta.
+sì, la nonna è una persona.
+sì, il tavolo è un oggetto.
+sì, il maestro è una persona.
+l amico è una persona.
+no, l uccello è un animale.
+sì, la mucca è un animale.
+il nonno è una persona.
+no, la mucca è un animale.
+sì, il vento è una cosa.
+sì, il giardino è un luogo.
+il cappello è un oggetto.
+la sorella è una persona.
+sì, il pane è un cibo.
+una persona è un essere vivente.
+il bambino è una persona.
+sì, il nonno è una persona.
+il pane è un cibo.
+no, la bambina è una persona.
+no, la mucca è un animale.
+no, il bambino è una persona.
+no, la porta è un oggetto.
+sì, il giardino è un luogo.
+il cane è un animale.
+sì, la stella è una luce.
+sì, la porta è un oggetto.
+il libro è un oggetto.
+il gelato è un cibo.
+sì, il letto è un oggetto.
+sì, la neve è acqua.
+sì, il formaggio è un cibo.
+la finestra è un oggetto.
+no, l amico è una persona.
+la torta è un cibo.
+sì, la bambina è una persona.
+una persona è un essere vivente.
+no, la neve è acqua.
+sì, l orso è un animale.
+no, il cane è un animale.
+no, la stella è una luce.
+la gallina è un animale.
+sì, la finestra è un oggetto.
+la finestra è un oggetto.
+sì, la gallina è un animale.
+no, la penna è un oggetto.
+il libro è un oggetto.
+no, il cavallo è un animale.
+il topo è un animale.
+il mare è un luogo.
+sì, il vento è una cosa.
+il lupo è un animale.
+no, il lupo è un animale.
+no, la scuola è un luogo.
+sì, il gelato è un cibo.
+l orso è un animale.
+l orso è un animale.
+il fratello è una persona.
+no, il disegno è un oggetto.
+no, il cappello è un oggetto.
+l albero è una pianta.
+sì, la stella è una luce.
+sì, il gatto è un animale.
+la nonna è una persona.
+sì, il lupo è un animale.
+il fiore è una pianta.
+l acqua è un cibo.
+no, il giardino è un luogo.
+il topo è un animale.
+un oggetto è una cosa.
+il prato è un luogo.
+sì, la scuola è un luogo.
+sì, la gallina è un animale.
+no, la sorella è una persona.
+no, la gallina è un animale.
+il tavolo è un oggetto.
+il pesce è un animale.
+no, la mamma è una persona.
+no, la sorella è una persona.
+no, il fratello è una persona.
+la gallina è un animale.
+sì, la sedia è un oggetto.
+no, l albero è una pianta.
+sì, il papà è una persona.
+un animale è un essere vivente.
+no, il disegno è un oggetto.
+sì, il mare è un luogo.
+il pallone è un oggetto.
+sì, l acqua è un cibo.
+no, il pesce è un animale.
+sì, la luna è una luce.
+sì, il pesce è un animale.
+sì, il letto è un oggetto.
+l ape è un animale.
+sì, l uccello è un animale.
+la neve è acqua.
+sì, il prato è un luogo.
 no, la mamma è una persona.
 il letto è un oggetto.
-sì, il nonno è una persona.
-sì, la scuola è un luogo.
-sì, il cappello è un oggetto.
-no, il topo è un animale.
-no, il pallone è un oggetto.
-il vento è una cosa.
-una pianta è un essere vivente.
-il cane è un animale.
-no, il prato è un luogo.
-il tavolo è un oggetto.
-sì, il tavolo è un oggetto.
-sì, la scuola è un luogo.
-sì, il sole è una luce.
+sì, il prato è un luogo.
 la sedia è un oggetto.
-sì, la mucca è un animale.
-il pallone è un oggetto.
-un cibo è una cosa.
-il papà è una persona.
-il mare è un luogo.
-la minestra è un cibo.
-il topo è un animale.
-sì, il bambino è una persona.
-sì, la sedia è un oggetto.
-la mamma è una persona.
-no, l acqua è un cibo.
+la porta è un oggetto.
+sì, la nonna è una persona.
+il lupo è un animale.
+la torta è un cibo.
 sì, il cappello è un oggetto.
-la penna è un oggetto.
-sì, la sedia è un oggetto.
-no, la sorella è una persona.
-il mare è un luogo.
-una luce è una cosa.
-sì, il quaderno è un oggetto.
-il disegno è un oggetto.
-il sole è una luce.
-sì, il vento è una cosa.
-sì, il formaggio è un cibo.
-no, la scuola è un luogo.
-il pallone è un oggetto.
-no, il mare è un luogo.
+no, il vento è una cosa.
+il gelato è un cibo.
+sì, la luna è una luce.
 no, il giardino è un luogo.
-sì, il fratello è una persona.
-sì, il fratello è una persona.
+no, la casa è un luogo.
+sì, la sorella è una persona.
+no, il quaderno è un oggetto.
+sì, la mela è un cibo.
+il giardino è un luogo.
+no, la penna è un oggetto.
+sì, il sole è una luce.
+la mela è un cibo.
+la nonna è una persona.
+sì, il gatto è un animale.
+no, la sedia è un oggetto.
+sì, la sedia è un oggetto.
+no, l ape è un animale.
+sì, il tavolo è un oggetto.
+sì, il latte è un cibo.
 il cane è un animale.
-no, la torta è un cibo.
-l albero è una pianta.
-sì, il libro è un oggetto.
+sì, il pallone è un oggetto.
+sì, il pallone è un oggetto.
+no, la bambina è una persona.
+il formaggio è un cibo.
+sì, la porta è un oggetto.
+il maestro è una persona.
+sì, il quaderno è un oggetto.
+no, l uccello è un animale.
+un oggetto è una cosa.
+no, la mucca è un animale.
+sì, il fiore è una pianta.
+la casa è un luogo.
+no, l albero è una pianta.
+no, la minestra è un cibo.
+no, il vento è una cosa.
+no, il latte è un cibo.
+no, il latte è un cibo.
+sì, la neve è acqua.
+il fratello è una persona.
+sì, il gelato è un cibo.
 no, il nonno è una persona.
+l acqua è un cibo.
+sì, il fratello è una persona.
+sì, la mucca è un animale.
+sì, il mare è un luogo.
+il vento è una cosa.
+no, il bosco è un luogo.
 no, il pallone è un oggetto.
-sì, il vento è una cosa.
-il pallone è un oggetto.
+una pianta è un essere vivente.
+la luna è una luce.
+la finestra è un oggetto.
+una luce è una cosa.
+il giardino è un luogo.
+no, il papà è una persona.
+il fratello è una persona.
+una luce è una cosa.
+un cibo è una cosa.
+l uccello è un animale.
+il nonno è una persona.
+no, la neve è acqua.
+no, il gatto è un animale.
+sì, l acqua è un cibo.
+sì, il libro è un oggetto.
+una pianta è un essere vivente.
+la bambina è una persona.
+no, l amico è una persona.
+sì, l albero è una pianta.
+il vento è una cosa.
+no, il topo è un animale.
+sì, il topo è un animale.
+sì, il gelato è un cibo.
+no, l uccello è un animale.
+no, l orso è un animale.
+il quaderno è un oggetto.
+no, il pallone è un oggetto.
+no, il latte è un cibo.
+no, l acqua è un cibo.
+il letto è un oggetto.
+sì, la gallina è un animale.
+il prato è un luogo.
+sì, la mela è un cibo.
+il tavolo è un oggetto.
+sì, il disegno è un oggetto.
+no, il tavolo è un oggetto.
 il bambino è una persona.
-no, la torta è un cibo.
+un cibo è una cosa.
+il gatto è un animale.
+no, il fiore è una pianta.
+l acqua è un cibo.
+il libro è un oggetto.
+sì, il vento è una cosa.
+sì, il papà è una persona.
+la luna è una luce.
+no, il papà è una persona.
+sì, la torta è un cibo.
 la mamma è una persona.
+sì, la bambina è una persona.
+sì, il giardino è un luogo.
+no, il cavallo è un animale.
+no, la stella è una luce.
+la sedia è un oggetto.
+sì, la mela è un cibo.
+l ape è un animale.
+no, il fiore è una pianta.
+sì, la scuola è un luogo.
+sì, il cavallo è un animale.
+no, la torta è un cibo.
+la nonna è una persona.
+no, l amico è una persona.
+sì, la luna è una luce.
+sì, il quaderno è un oggetto.
+sì, il gatto è un animale.
+no, la penna è un oggetto.
+no, la scuola è un luogo.
+il bosco è un luogo.
+sì, il pesce è un animale.
+no, la torta è un cibo.
+no, la torta è un cibo.
+il bosco è un luogo.
+la mela è un cibo.
+no, il sole è una luce.
+no, il pallone è un oggetto.
+il sole è una luce.

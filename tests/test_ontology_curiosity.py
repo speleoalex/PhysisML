@@ -109,6 +109,61 @@ class TestOntology:
 
 class TestPools:
 
+    def test_every_classified_noun_is_asked_cos_e(self):
+        """The is-a relation must cover the lexicon, not a sample of it.
+
+        Each step used to draw its own random k nouns, so the three forms of
+        the same relation were taught about three different subsets: 'cane' was
+        in none of them and appeared only as the ANSWER to 'fai un esempio di
+        animale'. Measured on the finished 0-12 model, that is exactly where it
+        broke — 'cos è il cane?' -> 'il cane è una cosa', the right shape with a
+        superordinate instead of the class, while 'cos è un cane?' and the
+        yes/no form were both right.
+        """
+        import json as _json
+        import re
+        lex = _json.load(open("training_files/it/lexicon.json", encoding="utf-8"))
+        onto = lex.get("ontology", {})
+        kind_class = onto.get("kind_class", {})
+        classified = [n["w"] for n in lex["nouns"]
+                      if n.get("cls") or kind_class.get(n.get("kind"), "")]
+        asked = {t["prompt"] for _s, _st, _p, t in all_targets(11)
+                 if t["prompt"].startswith("cos è ")}
+        missing = [w for w in classified
+                   if not any(re.search(r"\b" + re.escape(w) + r"\b", p)
+                              for p in asked)]
+        assert not missing, f"nouns never asked 'cos è X?' at L11: {missing}"
+
+    def test_the_bare_unknown_names_appear_nowhere_else(self):
+        """L12 step E teaches 'non lo so.' about names the model cannot know.
+
+        That is only true while the names appear in no trained file. A name
+        that leaks into another level's material — or into unknown_nouns, which
+        L12 itself teaches — turns the step into training the model to deny
+        something it was taught.
+        """
+        import glob as _glob, json as _json, re
+        lex = _json.load(open("training_files/it/lexicon.json", encoding="utf-8"))
+        bare = [n["w"] for n in lex.get("bare_unknown_nouns", [])]
+        assert bare, "no bare_unknown_nouns in the lexicon"
+        taught = {n["w"] for n in lex.get("unknown_nouns", [])}
+        assert not (set(bare) & taught), "a bare name is also in unknown_nouns"
+
+        # Trained material only: *.txt at the level root, plus the pools and
+        # pair files. _reference/ subdirectories are not globbed by phase 0.
+        patterns = ["training_files/it/*/*.txt", "training_files/it/*/*.json",
+                    "training_files/it/*/*.jsonl"]
+        offenders = []
+        for pat in patterns:
+            for path in _glob.glob(pat):
+                if "/12/" in path:          # step E is where they belong
+                    continue
+                text = open(path, encoding="utf-8", errors="replace").read()
+                for w in bare:
+                    if re.search(r"\b" + re.escape(w) + r"\b", text):
+                        offenders.append(f"{w} in {path}")
+        assert not offenders, f"bare names in trained material: {offenders[:5]}"
+
     @pytest.mark.parametrize("level", ONTO_LEVELS)
     def test_no_prompt_has_two_gold_answers(self, level):
         """Two answers for one prompt is contradictory supervision: whichever

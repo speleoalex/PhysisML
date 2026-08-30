@@ -315,6 +315,78 @@
           "noun": "cibo"
         }
       ]
+    },
+    "E": {
+      "description": "Dire di non sapere: una domanda nuda su un nome mai spiegato",
+      "prompt_template": "{prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "cos è una bussola?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "la bussola è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un falco?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il falco è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un mirtillo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il mirtillo è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un sgabello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "lo sgabello è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un clarinetto?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il clarinetto è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un scoiattolo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "lo scoiattolo è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        }
+      ]
     }
   }
 }

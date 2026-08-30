@@ -1450,5 +1450,37 @@
       "cls": "un luogo",
       "probe": true
     }
+  ],
+  "bare_unknown_nouns": [
+    {
+      "w": "bussola",
+      "art": "la",
+      "g": "f"
+    },
+    {
+      "w": "falco",
+      "art": "il",
+      "g": "m"
+    },
+    {
+      "w": "mirtillo",
+      "art": "il",
+      "g": "m"
+    },
+    {
+      "w": "sgabello",
+      "art": "lo",
+      "g": "m"
+    },
+    {
+      "w": "clarinetto",
+      "art": "il",
+      "g": "m"
+    },
+    {
+      "w": "scoiattolo",
+      "art": "lo",
+      "g": "m"
+    }
   ]
 }
