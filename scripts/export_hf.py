@@ -110,10 +110,25 @@ def export_one(ckpt_path: str, out_dir: str, save_file,
     sd  = data["state_dict"]
     cfg = dict(data["config"])
 
-    # Clone every tensor: safetensors refuses to write tensors that share
-    # storage, and tok_emb / lm_head are separate here but need not stay so.
-    tensors = {k: v.detach().cpu().contiguous().clone() for k, v in sd.items()}
+    # The LM head is weight-TIED to the token embedding (lm_head.weight IS
+    # tok_emb.weight), so the checkpoint serialises the same 4.6M values twice.
+    # safetensors refuses shared storage; cloning would silently untie them and
+    # inflate the file by 18MB, and summing numel() over the state dict would
+    # report 28.2M parameters for a 23.6M model. Drop the duplicates instead
+    # and let the loader re-tie — TorchGPT.__init__ does it unconditionally.
+    seen, tensors, tied = {}, {}, []
+    for k, v in sd.items():
+        v = v.detach().cpu()
+        ptr = v.data_ptr()
+        if ptr in seen:
+            tied.append((k, seen[ptr]))
+            continue
+        seen[ptr] = k
+        tensors[k] = v.contiguous().clone()
     n_params = sum(v.numel() for v in tensors.values())
+    if tied:
+        print("  tied weights, stored once: "
+              + ", ".join(f"{a} = {b}" for a, b in tied))
 
     os.makedirs(out_dir, exist_ok=True)
     weights_path = os.path.join(out_dir, "model.safetensors")
@@ -127,7 +142,9 @@ def export_one(ckpt_path: str, out_dir: str, save_file,
 
     out_cfg = {
         "model_type":        "physisml",
-        "architecture":      "decoder-only transformer, pre-LayerNorm, untied lm_head",
+        "architecture":      "decoder-only transformer, pre-LayerNorm, "
+                             "LM head weight-tied to the token embedding",
+        "tied_weights":      {k: v for k, v in tied},
         "vocab_size":        cfg["vocab_size"],
         "active_vocab_size": cfg.get("active_vocab_size", cfg["vocab_size"]),
         "d_model":           cfg["d_model"],

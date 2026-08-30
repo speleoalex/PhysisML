@@ -68,7 +68,16 @@ def load_model(folder: str):
         dropout_p         = 0.0,
         active_vocab_size = cfg.get("active_vocab_size", cfg["vocab_size"]),
     )
-    model.load_state_dict(load_file(os.path.join(folder, "model.safetensors")))
+    # lm_head.weight is tied to tok_emb.weight and is therefore NOT stored in
+    # the file — TorchGPT.__init__ re-ties it. strict=False is required for
+    # that one key and for nothing else, so check exactly that.
+    missing, unexpected = model.load_state_dict(
+        load_file(os.path.join(folder, "model.safetensors")), strict=False)
+    tied = set(cfg.get("tied_weights", {}))
+    if set(missing) - tied or unexpected:
+        raise RuntimeError(
+            f"checkpoint does not match config.json — missing {list(missing)}, "
+            f"unexpected {list(unexpected)}")
     model.eval()
     return model, cfg
 

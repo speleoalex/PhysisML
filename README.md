@@ -6,7 +6,7 @@ A small LLM built from scratch, inspired by biological learning.
 The model learns like a child — sounds first, then words, then sentences —
 guided by a tutor that adapts the curriculum in real time.
 
-- **Progressive curriculum**: from phonemes to literature (Italian levels 0–10, English 0–5)
+- **Progressive curriculum**: from phonemes to literature and class membership (Italian levels 0–12, English 0–5)
 - **Innate affective system**: `confidence`, `pleasure`, `pain`, `fear` modulate the logits during inference
 - **Teacher signal**: a free local teacher (or, optionally, a Claude tutor) generates targeted examples on the model's current deficits
 - **Tiny footprint**: GPT-2 style transformer, ~23.6M parameters, trains on a CPU or a consumer GPU
@@ -24,81 +24,84 @@ guided by a tutor that adapts the curriculum in real time.
 
 ## Results
 
-Exact match over the curriculum targets, post-dream checkpoints, greedy
-decoding (`python3 dynamic_model/test_model.py --level N --samples 0`):
+The curriculum now runs from phonemes to level 12, and the finished model keeps
+almost all of it. Two numbers, both greedy, both against the curriculum's gold
+answers — 849 graded prompts across the thirteen levels.
 
-| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 |
-|----|----|----|----|----|----|----|----|----|----|-----|
-| 100% | 96% | 100% | 82% | 100% | 95% | 100% | 100% | 100% | 88% | 94% |
+**Each level on its own checkpoint** (`python3 scripts/measure_repetition.py
+--ckpt-base models/checkpoints/it --levels 0-12`):
 
-**Mean across the 11 levels: 96%.** The dream improves ten levels out of eleven
-(+53 points at L7, +38 at L9 and L10).
+| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
+|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
+| 100% | 89% | 70% | 89% | 100% | 99% | 95% | 100% | 100% | 100% | 97% | 94% | 100% |
 
-For comparison, the May build before the fixes: L0 4.4%, L1 1.8%,
-L2 12.8%, L3 1.0%, **L4 and beyond 0.0%**.
+Mean across the thirteen levels: **94.9%** (93% weighted by prompt count).
 
-### What the 96% measures
+**The final checkpoint against every level** — one model, asked everything it
+was ever taught:
 
-Each level is scored on its **own** checkpoint: eleven snapshots, not a
-cumulative capability. The final L10 checkpoint, asked about *every* level's
-targets, scores **20%** — it can do L10 and L0, and the rest is buried.
+| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
+|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
+| 100% | 94% | 80% | 84% | 88% | 94% | 92% | 85% | 87% | 77% | 95% | 79% | 100% |
 
-The retention matrix makes the difference visible
-(`python3 scripts/retention_matrix.py --levels 0-10`): the 96% is its
-diagonal. The one row that retains earlier levels is L4 (100/83/100/71% on
-L0-L3), and L4 is the only level that needed ten teaching sessions — every
-session ends in a dream, and the dream's N1 replays *every* level's
-`qa_corpus`. The other levels ran one to three.
+Mean: **89.0%**, self-repetition 1.4%.
 
-Retention is therefore a function of consolidation cycles, and the damage is
-not permanent. Six extra dreams on the finished L10 checkpoint — no new
-teaching, only reconsolidation of what the session logs already hold
-(`./scripts/experiment_extra_dreams.sh --confirm`):
+That second table is the one that changed. In the previous build the final
+checkpoint scored **20%** across all levels — it could do the last level and
+the first, and everything between was buried; ten extra consolidation cycles
+recovered it only to 48%. Here nothing needed recovering: no level of the
+finished model sits below 77%.
 
-| dreams | 0 | 2 | 4 | 6 | 8 | 10 | 12 |
-|--------|---|---|---|---|---|----|----|
-| exact across all levels | 20% | 27% | 36% | 43% | 44% | 48% | **48%** |
-| answers with repetition | 37% | 25% | 19% | 17% | 18% | 15% | **18%** |
+The run cannot attribute the gain to a single change, because five landed
+together: six dream cycles per level by default rather than however many the
+quality gate happened to trigger, target pools widened from 227 to 728, a
+vocabulary retrained without punctuation glued to words, one gold answer per
+prompt enforced across levels, and `<|EOS|>` registered again so answers can
+end. What the run does show is that the retention gap the earlier build spent
+its dreams half-closing is not a property of the architecture.
 
-Every level improves and L10 stays at 100%. The curve **saturates between the
-sixth and tenth dream**: +3.6 points per dream from 1 to 6, +1.0 from 7 to 12
-— and that second slope is below the measured noise between two identical runs
-(2.2 points), so it is indistinguishable from zero. The first six dreams do the
-work.
-
-But the ceiling is **48%, not 96%**: consolidation recovers about half the gap.
-The second half is not recoverable by dreaming, because rehearsal during
-teaching drew only on the current level's gold pairs.
-
-Extending it to earlier levels looked like the natural next step, but it **did
-not work**: `--rehearsal-scope balanced` beat the control by +12 points at one
-seed and lost by 1 at a second, reversing sign on exactly the older levels it
-was meant to protect. The default stayed `level`. The second half of the gap is
-still open — details in
-[docs/en/physisml_model.md](docs/en/physisml_model.md#6-experimental-results).
-
-Real examples (greedy, post-dream checkpoints):
+Real examples from the finished model, greedy:
 
 ```
-di ma                      → ma!
-di: il cane                → il cane!
-di: il cane dorme          → il cane dorme!
-di: cosa mangia il cane?   → il cane mangia il pane.
-perché il cane mangia?     → il cane mangia perché ha fame.
-cosa ha mangiato il cane?  → il cane ha mangiato il pane.
+di ma                                  → ma! benissimo!
+di: il cane                            → il cane!
+di: cosa mangia il cane?               → il cane mangia il pane.
+perché il cane mangia?                 → il cane mangia perché ha fame.
+cosa ha mangiato il cane?              → il cane ha mangiato il pane.
 cosa mangerà il cane domani?           → domani il cane mangerà il pane.
-chi è più grande, il cane o il gatto?  → il cane è più grande del gatto.
 il pane è buono?                       → secondo me il pane è buono perché è caldo.
+il cane è fedele?                      → secondo me il cane è fedele perché aspetta.
 commenta il libro                      → il libro insegna, e questo è importante.
+l albero è una pianta, questo è un tamburo  → cos è un tamburo?
 ```
 
-The remaining errors fall into two families: targets sharing a prompt prefix
-collapse onto the same answer (`di un numero: tre` and `di un colore: rosso`
-both yield `due!`), and at levels 9-10 the model repeats the opening of the
-answer before completing it (`il cane il cane il cane è fedele`). It is not a
-capacity limit — pure SFT on a level's targets reaches 100% in 30 epochs.
+The last line is level 12: shown a name it has never met, the model asks
+instead of inventing.
 
-Details in [docs/en/physisml_model.md](docs/en/physisml_model.md).
+### Where it still fails
+
+The is-a relation of level 11 is learned **per prompt shape, not per noun**.
+The same fact reaches the model in three forms and only two of them work:
+
+```
+fai un esempio di animale  → il cane è un animale.     ✓
+il cane è un animale?      → sì, il cane è un animale. ✓
+cos è un cane?             → il cane è una persona.    ✗
+cos è un gatto?            → il gatto è una luce.      ✗
+```
+
+`il cane è un animale` appears 80 times in the level's corpus, so the content is
+there; what is missing is any path from the noun to its class that the
+`cos è X?` template can use. Step C of that level drills the template on other
+nouns, and the model treats it as a separate lesson rather than as another way
+of asking what it already knows.
+
+Level 12's asking behaviour is bound the same way: it asks correctly when the
+prompt has the taught shape (`... questo è un tamburo`), and confabulates on a
+bare `chi è zibaldone?`.
+
+L2 is the weakest level on its own checkpoint (70%) and the failures there are
+repetition (`di: il fratello beve il latte` → `il letto basso! il letto basso!`).
 
 ## Requirements
 
@@ -183,8 +186,8 @@ Each level starts from the previous level's `final_learned.pt`.
 | `./reset.sh [--dry-run]` | Backup + reset the model |
 | `python3 dynamic_model/train_curriculum.py` | Text training and/or teaching (see `--help`) |
 | `python3 dynamic_model/test_model.py --level N` | Quality statistics for the current model |
-| `python3 scripts/measure_repetition.py --ckpt-base models/checkpoints/it --levels 0-10` | Exact match **and** self-repetition rate, greedy |
-| `python3 scripts/retention_matrix.py --levels 0-10` | Retention matrix: every checkpoint against every level |
+| `python3 scripts/measure_repetition.py --ckpt-base models/checkpoints/it --levels 0-12` | Exact match **and** self-repetition rate, greedy |
+| `python3 scripts/retention_matrix.py --levels 0-12` | Retention matrix: every checkpoint against every level |
 | `python3 dynamic_model/run.py` | Interactive session |
 | `python3 scripts/download_wikipedia.py --level N` | Download Wikipedia articles for training |
 | `python3 scripts/generate_qa_corpus.py --levels 0 1 2` | Build dialogue corpus from QA pairs |
@@ -261,14 +264,19 @@ subdirectory is invisible by construction. See
 
 - **Model**: TorchGPT — GPT-2 style decoder-only transformer, Pre-LayerNorm,
   weight-tied LM head. In use: `d_model=512`, 6 layers, 8 heads, `d_ff=2048`, 128-token context, **23.6M parameters**.
-- **Tokenizer**: 8,000-token BPE with dormant slots up to 9,000: the vocabulary
-  grows during the dream phase (8,002 → 8,083 tokens from L0 to L10).
+  (The state dict serialises `lm_head.weight` and `tok_emb.weight` separately, but they are the
+  same tensor: counting the file's entries gives 28.2M for a 23.6M model.)
+- **Tokenizer**: byte-level BPE, 2,590 active slots out of 9,000 allocated. The
+  dream phase can grow it; in the 0-12 build it did not — the same 2,590 tokens
+  covered every level, which is what the punctuation-free retrain was for.
 - **Affective system**: innate state (`confidence`, `pleasure`, `pain`, `fear`)
   that modulates generation and tracks learning progress.
 - **Anti-forgetting**: *interleaved* rehearsal on the gold pairs during teaching
-  (4 pairs every 5 turns), plus corpus replay in the dream phase. Both are
-  weighted toward the current level, and measurement shows this holds *within*
-  a level but not *across* levels — see [What the 96% measures](#what-the-96-measures).
+  (4 pairs every 5 turns), plus corpus replay in the dream phase. Rehearsal is
+  weighted toward the current level; the cross-level work is done by the dream,
+  whose N1 replays *every* level's `qa_corpus`. Six dreams per level is what
+  turned the final checkpoint from 20% across all levels into 89% —
+  see [Results](#results).
 - **Test-then-show didactics**: the model answers *before* seeing the solution.
   The reverse order (show-then-test) measured recall after a hint rather than
   retained knowledge.

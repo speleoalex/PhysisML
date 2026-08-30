@@ -6,7 +6,7 @@ Un piccolo LLM costruito da zero, ispirato all'apprendimento biologico.
 Il modello impara come un bambino — prima i suoni, poi le parole, poi le frasi —
 guidato da un tutor che adatta il curriculum in tempo reale.
 
-- **Curriculum progressivo**: da fonemi a letteratura (italiano livelli 0–10, inglese 0–5)
+- **Curriculum progressivo**: da fonemi a letteratura e appartenenza a classi (italiano livelli 0–12, inglese 0–5)
 - **Sistema affettivo innato**: `confidence`, `pleasure`, `pain`, `fear` modulano i logits durante l'inference
 - **Segnale insegnante**: un insegnante locale gratuito (o, opzionalmente, un tutor Claude) genera esempi mirati sui deficit correnti del modello
 - **Dimensioni minime**: transformer GPT-2 style, ~23.6M parametri, si addestra su CPU o GPU consumer
@@ -24,81 +24,86 @@ guidato da un tutor che adatta il curriculum in tempo reale.
 
 ## Risultati
 
-Exact match sugli obiettivi del curriculum, checkpoint post-sogno, decoding
-greedy (`python3 dynamic_model/test_model.py --level N --samples 0`):
+Il curriculum arriva ora dai fonemi al livello 12, e il modello finito ne
+conserva quasi tutto. Due numeri, entrambi greedy, entrambi contro le risposte
+gold del curriculum — 849 prompt valutati sui tredici livelli.
 
-| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 |
-|----|----|----|----|----|----|----|----|----|----|-----|
-| 100% | 96% | 100% | 82% | 100% | 95% | 100% | 100% | 100% | 88% | 94% |
+**Ogni livello sul proprio checkpoint** (`python3 scripts/measure_repetition.py
+--ckpt-base models/checkpoints/it --levels 0-12`):
 
-**Media sugli 11 livelli: 96%.** Il sogno migliora il risultato a dieci livelli
-su undici (+53 punti a L7, +38 a L9 e L10).
+| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
+|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
+| 100% | 89% | 70% | 89% | 100% | 99% | 95% | 100% | 100% | 100% | 97% | 94% | 100% |
 
-Per confronto, il build di maggio prima delle correzioni: L0 4.4%, L1 1.8%,
-L2 12.8%, L3 1.0%, **L4 e oltre 0.0%**.
+Media sui tredici livelli: **94.9%** (93% pesando per numero di prompt).
 
-### Il 96% misura una cosa precisa
+**Il checkpoint finale su tutti i livelli** — un solo modello, interrogato su
+tutto quello che gli è mai stato insegnato:
 
-Ogni livello è valutato sul **proprio** checkpoint: sono undici fotografie, non
-una capacità cumulativa. Il checkpoint finale L10, interrogato sugli obiettivi
-di *tutti* i livelli, fa **20%** — sa fare L10 e L0, il resto è sepolto.
+| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
+|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
+| 100% | 94% | 80% | 84% | 88% | 94% | 92% | 85% | 87% | 77% | 95% | 79% | 100% |
 
-La distinzione si vede nella matrice di ritenzione
-(`python3 scripts/retention_matrix.py --levels 0-10`): il 96% è la sua
-diagonale. L'unica riga che ritiene i livelli precedenti è L4 (100/83/100/71%
-su L0–L3), e L4 è l'unico livello che ha richiesto dieci sessioni di
-insegnamento — ogni sessione finisce con un sogno, e N1 nel sogno rigioca il
-`qa_corpus` di *tutti* i livelli. Gli altri livelli ne hanno avute da una a tre.
+Media: **89.0%**, auto-ripetizione 1.4%.
 
-La ritenzione è quindi proporzionale ai cicli di consolidamento, e il danno non
-è permanente. Sei sogni aggiuntivi sul checkpoint L10 finito — nessun
-insegnamento nuovo, solo riconsolidamento di ciò che è già nei log di sessione
-(`./scripts/experiment_extra_dreams.sh --confirm`):
+È la seconda tabella ad essere cambiata. Nel build precedente il checkpoint
+finale faceva **20%** su tutti i livelli — sapeva l'ultimo livello e il primo, e
+in mezzo era tutto sepolto; dieci cicli di consolidamento in più lo portavano
+solo al 48%. Qui non c'era niente da recuperare: nessun livello del modello
+finito sta sotto il 77%.
 
-| sogni | 0 | 2 | 4 | 6 | 8 | 10 | 12 |
-|-------|---|---|---|---|---|----|----|
-| exact su tutti i livelli | 20% | 27% | 36% | 43% | 44% | 48% | **48%** |
-| risposte con ripetizione | 37% | 25% | 19% | 17% | 18% | 15% | **18%** |
+Il run non può attribuire il guadagno a una singola modifica, perché ne sono
+arrivate cinque insieme: sei cicli di sogno per livello di default invece di
+quanti ne innescasse il quality gate, i pool degli obiettivi allargati da 227 a
+728, un vocabolario ritrainato senza punteggiatura attaccata alle parole, una
+sola risposta gold per prompt su tutti i livelli, e `<|EOS|>` di nuovo
+registrato perché le risposte possano finire. Quello che il run mostra è che il
+divario di ritenzione che il build precedente passava i sogni a colmare a metà
+non è una proprietà dell'architettura.
 
-Ogni livello migliora e L10 resta al 100%. La curva **satura fra il sesto e il
-decimo sogno**: +3.6 punti per sogno da 1 a 6, +1.0 da 7 a 12 — e quest'ultima
-pendenza è sotto il rumore misurato fra due run identici (2.2 punti), quindi
-indistinguibile da zero. I primi sei sogni fanno il lavoro.
-
-Ma il tetto è **48%, non 96%**: il consolidamento recupera circa metà del
-divario. La seconda metà non si recupera sognando, perché il rehearsal durante
-l'insegnamento pescava solo dalle coppie gold del livello corrente.
-
-Estenderlo ai livelli precedenti sembrava il passo naturale, ma **non ha
-funzionato**: `--rehearsal-scope balanced` batteva il controllo di +12 punti a
-un seed e perdeva di 1 a un secondo, invertendo il segno proprio sui livelli
-più vecchi che doveva proteggere. Il default è rimasto `level`. La seconda metà
-del divario resta aperta — dettagli in
-[docs/it/modello_PhysisML.md](docs/it/modello_PhysisML.md#6-risultati-sperimentali).
-
-Esempi reali (greedy, checkpoint post-sogno):
+Esempi reali dal modello finito, greedy:
 
 ```
-di ma                      → ma!
-di: il cane                → il cane!
-di: il cane dorme          → il cane dorme!
-di: cosa mangia il cane?   → il cane mangia il pane.
-perché il cane mangia?     → il cane mangia perché ha fame.
-cosa ha mangiato il cane?  → il cane ha mangiato il pane.
+di ma                                  → ma! benissimo!
+di: il cane                            → il cane!
+di: cosa mangia il cane?               → il cane mangia il pane.
+perché il cane mangia?                 → il cane mangia perché ha fame.
+cosa ha mangiato il cane?              → il cane ha mangiato il pane.
 cosa mangerà il cane domani?           → domani il cane mangerà il pane.
-chi è più grande, il cane o il gatto?  → il cane è più grande del gatto.
 il pane è buono?                       → secondo me il pane è buono perché è caldo.
+il cane è fedele?                      → secondo me il cane è fedele perché aspetta.
 commenta il libro                      → il libro insegna, e questo è importante.
+l albero è una pianta, questo è un tamburo  → cos è un tamburo?
 ```
 
-Gli errori residui sono di due famiglie: obiettivi che condividono il prefisso
-del prompt collassano sulla stessa risposta (`di un numero: tre` e
-`di un colore: rosso` producono entrambi `due!`), e ai livelli 9–10 il modello
-ripete l'inizio della risposta prima di completarla (`il cane il cane il cane è
-fedele`). Non è un limite di capacità — un SFT puro sugli obiettivi di un
-livello li porta al 100% in 30 epoche.
+L'ultima riga è il livello 12: davanti a un nome che non ha mai incontrato, il
+modello chiede invece di inventare.
 
-Dettagli in [docs/it/modello_PhysisML.md](docs/it/modello_PhysisML.md).
+### Dove ancora sbaglia
+
+La relazione is-a del livello 11 è appresa **per forma di prompt, non per
+sostantivo**. Lo stesso fatto raggiunge il modello in tre forme e solo due
+funzionano:
+
+```
+fai un esempio di animale  → il cane è un animale.     ✓
+il cane è un animale?      → sì, il cane è un animale. ✓
+cos è un cane?             → il cane è una persona.    ✗
+cos è un gatto?            → il gatto è una luce.      ✗
+```
+
+`il cane è un animale` compare 80 volte nel corpus del livello, quindi il
+contenuto c'è; quello che manca è un percorso dal sostantivo alla sua classe
+utilizzabile dal template `cos è X?`. Lo step C di quel livello allena il
+template su altri sostantivi, e il modello lo tratta come una lezione separata
+invece che come un altro modo di chiedere ciò che già sa.
+
+Il comportamento di domanda del livello 12 è legato allo stesso modo: chiede
+correttamente quando il prompt ha la forma insegnata (`... questo è un
+tamburo`), e confabula su un `chi è zibaldone?` nudo.
+
+L2 è il livello più debole sul proprio checkpoint (70%) e lì i fallimenti sono
+ripetizioni (`di: il fratello beve il latte` → `il letto basso! il letto basso!`).
 
 ## Requisiti
 
@@ -183,8 +188,8 @@ Ogni livello parte dal `final_learned.pt` del livello precedente.
 | `./reset.sh [--dry-run]` | Backup + reset del modello |
 | `python3 dynamic_model/train_curriculum.py` | Training testuale e/o insegnamento (vedi `--help`) |
 | `python3 dynamic_model/test_model.py --level N` | Statistiche di qualità del modello corrente |
-| `python3 scripts/measure_repetition.py --ckpt-base models/checkpoints/it --levels 0-10` | Exact match **e** tasso di ripetizione, in greedy |
-| `python3 scripts/retention_matrix.py --levels 0-10` | Matrice di ritenzione: ogni checkpoint su ogni livello |
+| `python3 scripts/measure_repetition.py --ckpt-base models/checkpoints/it --levels 0-12` | Exact match **e** tasso di ripetizione, in greedy |
+| `python3 scripts/ retention_matrix.py --levels 0-12` | Matrice di ritenzione: ogni checkpoint su ogni livello |
 | `python3 dynamic_model/run.py` | Sessione interattiva |
 | `python3 scripts/download_wikipedia.py --level N` | Scarica articoli Wikipedia per il training |
 | `python3 scripts/generate_qa_corpus.py --levels 0 1 2` | Genera corpus dialogico dalle coppie QA |
@@ -273,16 +278,21 @@ cartella del livello. Dettagli in
 
 - **Modello**: TorchGPT — transformer decoder-only GPT-2 style, Pre-LayerNorm,
   testa LM con weight tying. Configurazione in uso: `d_model=512`, 6 layer,
-  8 head, `d_ff=2048`, contesto 128 token, **23.6M parametri**.
-- **Tokenizer**: BPE da 8.000 token, con slot dormienti fino a 9.000: il
-  vocabolario cresce durante la fase di sogno (8.002 → 8.083 token da L0 a L10).
+  8 head, `d_ff=2048`, contesto 128 token, **23.6M parametri**. (Lo state dict
+  serializza `lm_head.weight` e `tok_emb.weight` separatamente ma sono lo stesso
+  tensore: contare le voci del file dà 28.2M per un modello da 23.6M.)
+- **Tokenizer**: BPE byte-level, 2.590 slot attivi su 9.000 allocati. La fase di
+  sogno può farlo crescere; nel build 0-12 non è successo — gli stessi 2.590
+  token sono bastati per ogni livello, che è lo scopo del retrain senza
+  punteggiatura attaccata.
 - **Sistema affettivo**: stato innato (`confidence`, `pleasure`, `pain`, `fear`)
   che modula la generazione e traccia lo stato di apprendimento.
 - **Anti-forgetting**: rehearsal *interleaved* sulle coppie gold durante
-  l'insegnamento (4 coppie ogni 5 turni), più il replay del corpus nella fase
-  di sogno. Entrambi sono pesati sul livello corrente, e la misura mostra che
-  tengono *dentro* un livello ma non *fra* livelli — vedi
-  [Il 96% misura una cosa precisa](#il-96-misura-una-cosa-precisa).
+  l'insegnamento (4 coppie ogni 5 turni), più il replay del corpus nella fase di
+  sogno. Il rehearsal è pesato sul livello corrente; il lavoro fra livelli lo fa
+  il sogno, il cui N1 rigioca il `qa_corpus` di *tutti* i livelli. Sei sogni per
+  livello sono ciò che ha portato il checkpoint finale dal 20% su tutti i
+  livelli all'89% — vedi [Risultati](#risultati).
 - **Didattica test-then-show**: il modello risponde *prima* di vedere la
   soluzione. L'ordine inverso (show-then-test) misurava il richiamo dopo
   suggerimento invece della conoscenza ritenuta.
