@@ -29,6 +29,12 @@ import json, os, re, sys, argparse, random
 CORPUS_SHUFFLE_SEED = 20260824   # keep in step with train_curriculum.py
 
 # End-of-answer marker written after every response. MUST stay identical to
+# The dream rewrites this file with the same number of repetitions, read from
+# the same variable: PHYSISML_CORPUS_REPS. See _regen_corpus in
+# dynamic_model/train_curriculum.py — reps is the epoch count of N1, which is
+# about 75% of the build.
+DEFAULT_REPS = int(os.environ.get("PHYSISML_CORPUS_REPS", "20"))
+
 # _EOS_MARK in dynamic_model/train_curriculum.py and to BPETokenizer.EOS_TOKEN;
 # tests/test_eos_and_logs.py asserts all three agree.
 EOS_MARK = "<|EOS|>"
@@ -49,7 +55,7 @@ def strip_demo(text: str) -> str:
     return out or (text or "").strip()
 
 
-def generate(level: int, lang: str = "it", reps: int = 20,
+def generate(level: int, lang: str = "it", reps: int = None,
              quiet: bool = False) -> None:
     qa_path = os.path.join("training_files", lang, str(level), "qa_pairs.jsonl")
     out_path = os.path.join("training_files", lang, str(level), "qa_corpus.txt")
@@ -72,6 +78,7 @@ def generate(level: int, lang: str = "it", reps: int = 20,
         print(f"  L{level}: qa_pairs empty — skip")
         return
 
+    reps = DEFAULT_REPS if reps is None else reps
     # Generate corpus: reps repetitions of dialogues, shuffled order.
     # A dedicated RNG with a fixed seed, not the global one: qa_corpus.txt is
     # committed, so its contents must depend only on qa_pairs.jsonl and the
@@ -100,7 +107,7 @@ def generate(level: int, lang: str = "it", reps: int = 20,
               f" dialogues  → {out_path}  ({chars/1024:.0f}KB)")
 
 
-def check(level: int, lang: str = "it", reps: int = 20) -> bool:
+def check(level: int, lang: str = "it", reps: int = None) -> bool:
     """Is the committed qa_corpus.txt the one qa_pairs.jsonl would produce?
 
     qa_corpus.txt is a derived file and is committed; qa_pairs.jsonl is its
@@ -109,6 +116,7 @@ def check(level: int, lang: str = "it", reps: int = 20) -> bool:
     different data than the machine that produced the published numbers. Now
     that generation is deterministic, that question has a yes/no answer.
     """
+    reps = DEFAULT_REPS if reps is None else reps
     import tempfile, filecmp, shutil
     out = os.path.join("training_files", lang, str(level), "qa_corpus.txt")
     src = os.path.join("training_files", lang, str(level), "qa_pairs.jsonl")
@@ -136,7 +144,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--levels", nargs="+", type=int, default=[0, 1, 2, 3])
     parser.add_argument("--lang", default="it")
-    parser.add_argument("--reps", type=int, default=20,
+    parser.add_argument("--reps", type=int, default=DEFAULT_REPS,
                         help="Dialogue repetitions in the corpus (default: 20)")
     parser.add_argument("--check", action="store_true",
                         help="Verify each qa_corpus.txt matches its "

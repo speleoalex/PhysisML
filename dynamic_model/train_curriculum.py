@@ -1653,7 +1653,16 @@ def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
         import random as _rnd
         corpus_path = os.path.join("training_files", lang, str(level),
                                    "qa_corpus.txt")
-        reps = 20
+        # How many shuffled repetitions of the pairs the file carries. It is the
+        # number of EPOCHS the dream's N1 does over this material, written into
+        # the file instead of into a loop — and N1 is ~75% of the whole build,
+        # so this constant is the single biggest cost knob there is. Env-
+        # overridable so the cost/retention trade-off can be measured without
+        # editing the source; the default is what the validated build used.
+        # scripts/generate_qa_corpus.py reads the same variable: if the two
+        # disagreed, the dream would silently rewrite the corpus at 20 reps
+        # after a run was set up at 5.
+        reps = _CORPUS_REPS
         # A DEDICATED RNG with a fixed seed, not the global one. Two reasons:
         # the file is committed, so a shuffle that depends on how much of the
         # global stream was consumed earlier makes it differ between machines
@@ -1793,6 +1802,8 @@ def _strip_demo(text: str) -> str:
     out = _DEMO_RE.sub("", text or "").strip()
     return out or (text or "").strip()
 
+
+_CORPUS_REPS = int(os.environ.get("PHYSISML_CORPUS_REPS", "20"))
 
 # Fixed seed for the qa_corpus.txt shuffle. The file is committed, so its
 # contents must depend only on qa_pairs.jsonl and the level — never on the
