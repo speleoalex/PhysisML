@@ -1,0 +1,61 @@
+{
+ "lang": "it",
+ "level": 13,
+ "description": "Autonomia — la classe dei nomi acquisiti dal loop, non scritta a mano",
+ "_note": [
+  "Questo file e' RIGENERATO da scripts/autonomy_loop.py dai batch in",
+  "batches/NNNN/targets.jsonl. Non modificarlo a mano: la modifica sparisce",
+  "alla prossima acquisizione. Per togliere del materiale si rimuove il suo",
+  "batch (il batch e' l'unita' di rollback) e si rigenera.",
+  "I targets partono vuoti: il livello 13 non ha un pool progettato, ha un",
+  "sedimento."
+ ],
+ "quality_threshold": 0.28,
+ "quality_strong_min": 0.2,
+ "evaluation": {
+  "has_terminator_pattern": "[.!?]",
+  "comment_+++": "{noun} con struttura completa e terminatore. Ottimo!",
+  "comment_++": "{noun} presente, struttura incompleta.",
+  "comment_+": "{noun} trovato.",
+  "comment_=": "Non la classe attesa.",
+  "comment_-": "Non riconoscibile o troppo lunga."
+ },
+ "encouragement": ["bravo!", "ottimo!", "perfetto!", "bene!", "benissimo!"],
+ "retry_prefix": "ancora. ",
+ "curiosity": true,
+ "steps": {
+  "A": {
+   "description": "La classe di un nome acquisito: cos e' X? (ogni formulazione)",
+   "prompt_template": "{prompt}",
+   "max_response_words": 8,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false,
+   "targets": []
+  },
+  "B": {
+   "description": "Conferma: X e' <classe>?  -> si'",
+   "prompt_template": "{prompt}",
+   "max_response_words": 8,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false,
+   "targets": []
+  },
+  "C": {
+   "description": "Negativo: X e' <classe sbagliata>?  -> no, X e' <classe>",
+   "prompt_template": "{prompt}",
+   "max_response_words": 8,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false,
+   "targets": []
+  }
+ }
+}

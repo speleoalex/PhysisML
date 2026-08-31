@@ -69,11 +69,52 @@ def head(cls: str) -> str:
 
 
 def indef(n: dict) -> str:
-    """'un ragno', 'una zucca', 'un aquila' — apostrophes are spaces here, so
-    the feminine before a vowel is 'un', not 'una'."""
+    """'un ragno', 'una zucca', 'un aquila', 'uno sgabello'.
+
+    Apostrophes are spaces in this corpus, so the feminine before a vowel is
+    'un', not 'una'. The masculine takes 'uno' before s+consonant, z, gn, ps,
+    pn, x and y — the same trigger as the definite 'lo'. Missing that rule put
+    'cos è un sgabello?' and 'cos è un scoiattolo?' into L12 step E (four
+    prompts, gold 'non lo so.' — the article is in the QUESTION, not the
+    answer). Found when the ontology oracle rendered the same two nouns.
+    """
     if n["g"] == "m":
-        return "un"
+        return "uno" if re.match(r"^(s[^aeiou]|z|gn|ps|pn|x|y)", n["w"]) else "un"
     return "un" if n["w"][0] in "aeiou" else "una"
+
+
+def ask_forms(n: dict, cls_head: str) -> list:
+    """Every way Italian asks 'what is X?' about this noun.
+
+    Two axes — the interrogative ('cos è' / 'cosa è') and the article
+    (definite / indefinite) — and BOTH must be crossed with the same gold, or
+    the surface shape of the question becomes a feature the model reads the
+    answer off instead of reading the noun.
+
+    Measured on the finished 0-12 model, that is exactly what happened:
+    'cosa è un cane?' answered 'non lo so.' The corpus had asked 'cosa è' only
+    ever with a definite article (280 times, 280 definitions, 0 'non lo so'),
+    while 'un' came overwhelmingly from L12's honesty step (700 of the 1040
+    'cos è un X?'). Neither feature was about the noun, and the combination the
+    user typed had appeared zero times, so the model fell back on the article.
+    g_non_lo_so crosses the same two axes on the nouns whose honest answer IS
+    'non lo so', which is what makes both axes uninformative.
+
+    `cls_head` is the head of the gold's class, and it gates the 'cosa è'
+    phrasing: 'cosa' is ALSO the head of the top class ('una cosa'), so with
+    'cosa è il vento?' the gold 'il vento è una cosa.' shares every word with
+    its own prompt and a bare echo scores full coverage — the self-poisoning
+    loop the anti-echo exists to close (see g_cos_e). Pass '' when the gold
+    cannot contain a class at all.
+    """
+    forms = []
+    for h in ("cos è",) if cls_head == "cosa" else ("cos è", "cosa è"):
+        forms.append(f"{h} {phrase(n)}?")
+        # A mass noun takes no indefinite article ('cos è un acqua?') and a
+        # unique referent takes the definite one ('cos è un sole?').
+        if not n.get("mass") and not n.get("uniq"):
+            forms.append(f"{h} {indef(n)} {n['w']}?")
+    return forms
 
 
 def dimostr(n: dict) -> str:
@@ -569,12 +610,18 @@ def g_cos_e(rng, lex, k):
     """'cos e il gatto?' -> 'il gatto e un animale.'  The class is NOT in the
     prompt, so the anti-echo at level >= 4 credits it correctly.
 
-    'cos è', not 'cosa è', and not for elegance: 'cosa' is ALSO the head of the
-    top class ('una cosa'). With 'cosa è un cibo?' the gold 'un cibo è una
-    cosa.' shares every word with its own prompt, so a bare echo of the prompt
-    scores full coverage and SIGNAL 4 reinforces the model's parroting — the
-    self-poisoning loop the anti-echo exists to close. Verified by
-    test_prompt_echo_never_earns_echo_training.
+    Both interrogatives and both articles, from ask_forms — asking each noun
+    one single way made the SHAPE of the question predict the answer, and
+    'cosa è un cane?' came back 'non lo so.' See the note there.
+
+    'cosa è' is dropped only where the gold's class is 'una cosa', and not for
+    elegance: 'cosa' is ALSO the head of the top class. With 'cosa è un cibo?'
+    the gold 'un cibo è una cosa.' shares every word with its own prompt, so a
+    bare echo of the prompt scores full coverage and SIGNAL 4 reinforces the
+    model's parroting — the self-poisoning loop the anti-echo exists to close.
+    Verified by test_prompt_echo_never_earns_echo_training. g_iperonimo, whose
+    gold is ALWAYS a hypernym and is 'una cosa' for four of the classes, keeps
+    'cos è' unconditionally.
 
     NOTE: this step and the two below IGNORE k and take EVERY classified noun,
     in lexicon order. Sampling k of them per step gave each step its own random
@@ -588,9 +635,12 @@ def g_cos_e(rng, lex, k):
     out = []
     for n in lex.classified():
         c = lex.cls_of(n)
-        out.append({"prompt": f"cos è {phrase(n)}?",
-                    "expected": f"{phrase(n)} è {c}.",
-                    "article": n["art"], "noun": head(c)})
+        gold = f"{phrase(n)} è {c}."
+        # Every phrasing, same gold: see ask_forms. Asking each noun only one
+        # way is what let the model answer from the article instead of the noun.
+        for p in ask_forms(n, head(c)):
+            out.append({"prompt": p, "expected": gold,
+                        "article": n["art"], "noun": head(c)})
     return out
 
 
@@ -745,10 +795,21 @@ def g_non_lo_so(rng, lex, k):
     una persona.' The shape was never taught, so the model falls back on the
     nearest pattern it has.
 
-    Two prompt shapes per name, the open question and the yes/no, because both
-    have the same honest answer and the yes/no is the one L11 step B teaches to
-    answer 'sì' for a known noun. The contrast is the lesson: the class of a
-    noun you know, 'non lo so' for one you do not.
+    Every phrasing of the open question, from ask_forms, plus the yes/no,
+    because all of them have the same honest answer and the yes/no is the one
+    L11 step B teaches to answer 'sì' for a known noun. The contrast is the
+    lesson: the class of a noun you know, 'non lo so' for one you do not.
+
+    The phrasings matter as much as the names. Asking these six only as
+    'cos è un X?' made the indefinite article itself mean 'unknown' — 700 of
+    the 1040 'cos è un X?' in the 0-12 corpus answered 'non lo so' — while
+    'cosa è' never appeared here at all and so came to mean 'known'. The model
+    then answered from the article and the interrogative, which say nothing
+    about the noun. Crossing both axes on BOTH sides (here and in g_cos_e) is
+    what puts the decision back on the name.
+
+    The gold has no class in it, so ask_forms's 'una cosa' guard does not
+    apply and every phrasing is emitted.
 
     The gold is deliberately NOT a question. Asking a question back at a bare
     'cos è un falco?' would only repeat it. That is why this does not feed
@@ -764,11 +825,39 @@ def g_non_lo_so(rng, lex, k):
     # cannot match inside 'sole' or 'sorella'.
     out = []
     for n in lex.bare_unknown:
-        out.append({"prompt": f"cos è {indef(n)} {n['w']}?",
-                    "expected": "non lo so.", "noun": "so"})
-        out.append({"prompt": f"{n['art']} {n['w']} è un animale?",
+        for p in ask_forms(n, ""):
+            out.append({"prompt": p, "expected": "non lo so.", "noun": "so"})
+        out.append({"prompt": f"{phrase(n)} è un animale?",
                     "expected": "non lo so.", "noun": "so"})
     return out
+
+
+def g_ripasso_cosa_fa(rng, lex, k):
+    """L3 step D's questions, asked again at L11 and L12.
+
+    'cosa fa il cane?' -> 'il cane dorme.' is taught at L2, L3 and L4 and then
+    never again: eight levels with no 'cosa fa' at all, while L11 drills
+    'cos è il cane?' -> 'il cane è un animale.' 240 times. Measured on the
+    finished 0-12 model, 'cosa fa il cane?' now answers 'il cane è un
+    animale.' — the prefix 'cosa ... il cane' has exactly one recently
+    reinforced continuation, and the verb no longer steers it. This is the only
+    interrogative of L2-L4 that no later level revisits.
+
+    COPIED from the committed L3 pool, not regenerated. A prompt may carry only
+    ONE gold answer (validate_teacher_configs.py, which was added after this
+    very question got two), and g_cosa_fa draws a random verb per noun from a
+    per-step RNG: generating it again here would give 'cosa fa il cane?' a
+    second, contradictory answer at another level. Rehearsal means the same
+    question with the same answer, so the source pool is the right source.
+    """
+    src = os.path.join(ROOT, "training_files", LANG, "3", "local_teacher.json")
+    if not os.path.exists(src):
+        return []
+    with open(src, encoding="utf-8") as f:
+        step = json.load(f)["steps"].get("D", {})
+    # dicts only: L0-L3 pools may still hold bare strings, which carry none of
+    # the fields the evaluator needs to reach '+++'.
+    return [dict(t) for t in step.get("targets", []) if isinstance(t, dict)]
 
 
 # (level, step) -> generator. Steps not listed keep their hand-written targets:
@@ -789,10 +878,15 @@ PLAN = {
     (10, "A"): g_commenta,  (10, "C"): g_storia, (10, "D"): g_analizza,
     (11, "A"): g_cos_e,     (11, "B"): g_is_a_si, (11, "C"): g_is_a_no,
     (11, "D"): g_membro,    (11, "E"): g_iperonimo,
+    (11, "F"): g_ripasso_cosa_fa,
     (12, "A"): g_chiedi_ignoto, (12, "B"): g_non_chiedere,
     (12, "C"): g_consolida,     (12, "D"): g_conferma_nuovo,
-    (12, "E"): g_non_lo_so,
+    (12, "E"): g_non_lo_so,     (12, "F"): g_ripasso_cosa_fa,
 }
+
+# Set by main(). g_ripasso_cosa_fa reads another level's committed pool, and a
+# generator only receives (rng, lex, k) — the language is not among them.
+LANG = "it"
 
 
 def main():
@@ -808,6 +902,8 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
 
+    global LANG
+    LANG = a.lang
     lex = Lex(load_lexicon(a.lang))
     grand_before = grand_after = 0
 

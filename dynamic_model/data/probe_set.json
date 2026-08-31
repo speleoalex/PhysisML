@@ -1,0 +1,544 @@
+{
+ "lang": "it",
+ "seed": 20260831,
+ "per_level": 8,
+ "levels": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12
+ ],
+ "n": 104,
+ "fingerprint": "d2b21321e13338c2",
+ "items": [
+  {
+   "level": 0,
+   "prompt": "di da",
+   "expected": "da!"
+  },
+  {
+   "level": 0,
+   "prompt": "di eh",
+   "expected": "eh!"
+  },
+  {
+   "level": 0,
+   "prompt": "di sì",
+   "expected": "sì!"
+  },
+  {
+   "level": 0,
+   "prompt": "di sa",
+   "expected": "sa!"
+  },
+  {
+   "level": 0,
+   "prompt": "di baba",
+   "expected": "baba!"
+  },
+  {
+   "level": 0,
+   "prompt": "di ta",
+   "expected": "ta!"
+  },
+  {
+   "level": 0,
+   "prompt": "di fa",
+   "expected": "fa!"
+  },
+  {
+   "level": 0,
+   "prompt": "di ra",
+   "expected": "ra!"
+  },
+  {
+   "level": 1,
+   "prompt": "di: il disegno",
+   "expected": "il disegno!"
+  },
+  {
+   "level": 1,
+   "prompt": "di: l orso",
+   "expected": "l orso!"
+  },
+  {
+   "level": 1,
+   "prompt": "di: l acqua",
+   "expected": "l acqua!"
+  },
+  {
+   "level": 1,
+   "prompt": "di: la torta",
+   "expected": "la torta!"
+  },
+  {
+   "level": 1,
+   "prompt": "di: la nonna",
+   "expected": "la nonna!"
+  },
+  {
+   "level": 1,
+   "prompt": "di: nonna",
+   "expected": "nonna!"
+  },
+  {
+   "level": 1,
+   "prompt": "di: l ape",
+   "expected": "l ape!"
+  },
+  {
+   "level": 1,
+   "prompt": "di: bravo",
+   "expected": "bravo!"
+  },
+  {
+   "level": 2,
+   "prompt": "di: il lupo mangia la torta",
+   "expected": "il lupo mangia la torta!"
+  },
+  {
+   "level": 2,
+   "prompt": "di: il pesce",
+   "expected": "il pesce!"
+  },
+  {
+   "level": 2,
+   "prompt": "di: la stella rossa",
+   "expected": "la stella rossa!"
+  },
+  {
+   "level": 2,
+   "prompt": "di: il papà beve l acqua",
+   "expected": "il papà beve l acqua!"
+  },
+  {
+   "level": 2,
+   "prompt": "di: la casa fredda",
+   "expected": "la casa fredda!"
+  },
+  {
+   "level": 2,
+   "prompt": "di: la casa bella",
+   "expected": "la casa bella!"
+  },
+  {
+   "level": 2,
+   "prompt": "di: il pesce mangia il formaggio",
+   "expected": "il pesce mangia il formaggio!"
+  },
+  {
+   "level": 2,
+   "prompt": "di: la mamma fa il pane",
+   "expected": "la mamma fa il pane!"
+  },
+  {
+   "level": 3,
+   "prompt": "di: il lupo",
+   "expected": "il lupo!"
+  },
+  {
+   "level": 3,
+   "prompt": "cosa fa la nonna?",
+   "expected": "la nonna corre."
+  },
+  {
+   "level": 3,
+   "prompt": "di: il latte",
+   "expected": "il latte!"
+  },
+  {
+   "level": 3,
+   "prompt": "di: la nonna dorme",
+   "expected": "la nonna dorme!"
+  },
+  {
+   "level": 3,
+   "prompt": "di: la mucca dorme",
+   "expected": "la mucca dorme!"
+  },
+  {
+   "level": 3,
+   "prompt": "di un colore: rosso",
+   "expected": "rosso!"
+  },
+  {
+   "level": 3,
+   "prompt": "cosa fa il pesce?",
+   "expected": "il pesce nuota."
+  },
+  {
+   "level": 3,
+   "prompt": "di: l albero cresce",
+   "expected": "l albero cresce!"
+  },
+  {
+   "level": 4,
+   "prompt": "chi apre il libro?",
+   "expected": "la bambina apre il libro."
+  },
+  {
+   "level": 4,
+   "prompt": "di: cosa mangia la sorella?",
+   "expected": "la sorella mangia la minestra."
+  },
+  {
+   "level": 4,
+   "prompt": "dove corre il cane?",
+   "expected": "il cane corre in giardino."
+  },
+  {
+   "level": 4,
+   "prompt": "di: cosa beve il bambino?",
+   "expected": "il bambino beve il latte."
+  },
+  {
+   "level": 4,
+   "prompt": "chi legge il libro?",
+   "expected": "il papà legge il libro."
+  },
+  {
+   "level": 4,
+   "prompt": "di: cosa beve la mamma?",
+   "expected": "la mamma beve l acqua."
+  },
+  {
+   "level": 4,
+   "prompt": "dove cammina il papà?",
+   "expected": "il papà cammina in prato."
+  },
+  {
+   "level": 4,
+   "prompt": "chi mangia il pane?",
+   "expected": "il cane mangia il pane."
+  },
+  {
+   "level": 5,
+   "prompt": "racconta due cose del maestro",
+   "expected": "il maestro salta e corre."
+  },
+  {
+   "level": 5,
+   "prompt": "racconta due cose dell uccello",
+   "expected": "l uccello canta e vola."
+  },
+  {
+   "level": 5,
+   "prompt": "perché il papà cerca?",
+   "expected": "il papà cerca perché ha fame."
+  },
+  {
+   "level": 5,
+   "prompt": "perché il fratello mangia?",
+   "expected": "il fratello mangia perché ha fame."
+  },
+  {
+   "level": 5,
+   "prompt": "perché il gatto mangia?",
+   "expected": "il gatto mangia perché ha fame."
+  },
+  {
+   "level": 5,
+   "prompt": "perché il bambino beve?",
+   "expected": "il bambino beve perché ha sete."
+  },
+  {
+   "level": 5,
+   "prompt": "perché il gatto dorme?",
+   "expected": "il gatto dorme perché è stanco."
+  },
+  {
+   "level": 5,
+   "prompt": "perché il pesce mangia?",
+   "expected": "il pesce mangia perché ha fame."
+  },
+  {
+   "level": 6,
+   "prompt": "cosa ha letto il papà?",
+   "expected": "il papà ha letto il libro."
+  },
+  {
+   "level": 6,
+   "prompt": "cosa ha mangiato la sorella?",
+   "expected": "la sorella ha mangiato la torta."
+  },
+  {
+   "level": 6,
+   "prompt": "cosa ha mangiato il bambino?",
+   "expected": "il bambino ha mangiato il gelato."
+  },
+  {
+   "level": 6,
+   "prompt": "racconta del gatto",
+   "expected": "il gatto è stanco e dorme sul letto."
+  },
+  {
+   "level": 6,
+   "prompt": "racconta del sole",
+   "expected": "il sole è caldo e brilla di giorno."
+  },
+  {
+   "level": 6,
+   "prompt": "cosa ha mangiato il lupo?",
+   "expected": "il lupo ha mangiato la mela."
+  },
+  {
+   "level": 6,
+   "prompt": "cosa ha mangiato l orso?",
+   "expected": "l orso ha mangiato il formaggio."
+  },
+  {
+   "level": 6,
+   "prompt": "cosa ha aperto la bambina?",
+   "expected": "la bambina ha aperto la porta."
+  },
+  {
+   "level": 7,
+   "prompt": "cosa mangerà la gallina domani?",
+   "expected": "domani la gallina mangerà la torta."
+  },
+  {
+   "level": 7,
+   "prompt": "racconta i tre giorni della mucca",
+   "expected": "oggi mangia, ieri ha mangiato, domani mangerà."
+  },
+  {
+   "level": 7,
+   "prompt": "racconta i tre giorni del maestro",
+   "expected": "oggi mangia, ieri ha mangiato, domani mangerà."
+  },
+  {
+   "level": 7,
+   "prompt": "cosa mangerà l amico domani?",
+   "expected": "domani l amico mangerà il pane."
+  },
+  {
+   "level": 7,
+   "prompt": "racconta i tre giorni del cane",
+   "expected": "oggi mangia, ieri ha mangiato, domani mangerà."
+  },
+  {
+   "level": 7,
+   "prompt": "racconta i tre giorni del gatto",
+   "expected": "oggi dorme, ieri ha dormito, domani dormirà."
+  },
+  {
+   "level": 7,
+   "prompt": "racconta i tre giorni del bambino",
+   "expected": "oggi apre, ieri ha aperto, domani aprirà."
+  },
+  {
+   "level": 7,
+   "prompt": "racconta i tre giorni del topo",
+   "expected": "oggi mangia, ieri ha mangiato, domani mangerà."
+  },
+  {
+   "level": 8,
+   "prompt": "chi è più vecchia, la finestra o il libro?",
+   "expected": "la finestra è più vecchia del libro."
+  },
+  {
+   "level": 8,
+   "prompt": "perché ti piace la torta?",
+   "expected": "mi piace la torta perché è buona."
+  },
+  {
+   "level": 8,
+   "prompt": "perché ti piace la mucca?",
+   "expected": "mi piace la mucca perché è felice."
+  },
+  {
+   "level": 8,
+   "prompt": "perché ti piace l orso?",
+   "expected": "mi piace l orso perché è tranquillo."
+  },
+  {
+   "level": 8,
+   "prompt": "cosa ti piace bere?",
+   "expected": "mi piace il latte."
+  },
+  {
+   "level": 8,
+   "prompt": "descrivi il cappello",
+   "expected": "il cappello è grande e utile."
+  },
+  {
+   "level": 8,
+   "prompt": "perché ti piace il gatto?",
+   "expected": "mi piace il gatto perché è veloce."
+  },
+  {
+   "level": 8,
+   "prompt": "descrivi la luna",
+   "expected": "la luna è bianca e bella."
+  },
+  {
+   "level": 9,
+   "prompt": "la penna è bella?",
+   "expected": "secondo me la penna è bella perché è bassa."
+  },
+  {
+   "level": 9,
+   "prompt": "la stella è bella?",
+   "expected": "secondo me la stella è bella perché è calda."
+  },
+  {
+   "level": 9,
+   "prompt": "il gelato è dolce?",
+   "expected": "secondo me il gelato è dolce perché è giallo."
+  },
+  {
+   "level": 9,
+   "prompt": "due motivi: perché ti piace la mucca?",
+   "expected": "la mucca è tranquilla e bella, perciò mi piace."
+  },
+  {
+   "level": 9,
+   "prompt": "l uccello è buono?",
+   "expected": "secondo me l uccello è buono perché è grande."
+  },
+  {
+   "level": 9,
+   "prompt": "l albero è bello?",
+   "expected": "secondo me l albero è bello perché è grande."
+  },
+  {
+   "level": 9,
+   "prompt": "di un altro modo per dire grande",
+   "expected": "grande è come dire enorme."
+  },
+  {
+   "level": 9,
+   "prompt": "due motivi: perché ti piace l ape?",
+   "expected": "l ape è tranquilla e buona, perciò mi piace."
+  },
+  {
+   "level": 10,
+   "prompt": "commenta l amico",
+   "expected": "l amico è tranquillo, e questo è buono."
+  },
+  {
+   "level": 10,
+   "prompt": "analizza la stella",
+   "expected": "la stella brilla. è piccola e bianca."
+  },
+  {
+   "level": 10,
+   "prompt": "cosa dice la storia dell uccello",
+   "expected": "la storia dice che l uccello canta."
+  },
+  {
+   "level": 10,
+   "prompt": "analizza il cane",
+   "expected": "il cane aspetta la mamma. è fedele e buono."
+  },
+  {
+   "level": 10,
+   "prompt": "analizza il topo",
+   "expected": "il topo corre. è felice e bello."
+  },
+  {
+   "level": 10,
+   "prompt": "meglio il libro o il letto?",
+   "expected": "meglio il libro, perché insegna."
+  },
+  {
+   "level": 10,
+   "prompt": "analizza il bambino",
+   "expected": "il bambino corre. è tranquillo e buono."
+  },
+  {
+   "level": 10,
+   "prompt": "analizza l ape",
+   "expected": "l ape vola. è fedele e tranquilla."
+  },
+  {
+   "level": 11,
+   "prompt": "il maestro è una pianta?",
+   "expected": "no, il maestro è una persona."
+  },
+  {
+   "level": 11,
+   "prompt": "cos è una mela?",
+   "expected": "la mela è un cibo."
+  },
+  {
+   "level": 11,
+   "prompt": "cos è un oggetto?",
+   "expected": "un oggetto è una cosa."
+  },
+  {
+   "level": 11,
+   "prompt": "il topo è un animale?",
+   "expected": "sì, il topo è un animale."
+  },
+  {
+   "level": 11,
+   "prompt": "cos è un albero?",
+   "expected": "l albero è una pianta."
+  },
+  {
+   "level": 11,
+   "prompt": "cosa è l orso?",
+   "expected": "l orso è un animale."
+  },
+  {
+   "level": 11,
+   "prompt": "cosa è il tavolo?",
+   "expected": "il tavolo è un oggetto."
+  },
+  {
+   "level": 11,
+   "prompt": "il bambino è un luogo?",
+   "expected": "no, il bambino è una persona."
+  },
+  {
+   "level": 12,
+   "prompt": "cos è un bottone?",
+   "expected": "il bottone è un oggetto."
+  },
+  {
+   "level": 12,
+   "prompt": "il ragno è un animale?",
+   "expected": "sì, il ragno è un animale."
+  },
+  {
+   "level": 12,
+   "prompt": "cosa fa la luna?",
+   "expected": "la luna brilla."
+  },
+  {
+   "level": 12,
+   "prompt": "la mamma è una persona, questo è un pesce",
+   "expected": "il pesce è un animale."
+  },
+  {
+   "level": 12,
+   "prompt": "il formaggio è un cibo, questo è un papà",
+   "expected": "il papà è una persona."
+  },
+  {
+   "level": 12,
+   "prompt": "il pallone è un oggetto, questo è vento",
+   "expected": "il vento è una cosa."
+  },
+  {
+   "level": 12,
+   "prompt": "il papà è una persona, questo è un quaderno",
+   "expected": "il quaderno è un oggetto."
+  },
+  {
+   "level": 12,
+   "prompt": "cos è una zucca?",
+   "expected": "la zucca è un cibo."
+  }
+ ]
+}
