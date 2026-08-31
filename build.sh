@@ -32,6 +32,67 @@ else
   echo "  Device: cpu  (system python3)"
 fi
 
+# ── CPU power policy ────────────────────────────────────────────────────────
+# Measured on this machine (i7-1360P, d=512/L=6 training step, batch 8):
+#
+#   EPP balance_performance (the desktop default)   870 tok/s   1.9 GHz  59°C
+#   EPP performance                               1400 tok/s   4.0 GHz  85°C
+#
+# 1.6x, sustained, for one command — the CPU was sitting at 38% of its maximum
+# clock while cool, because power-profiles-daemon keeps the 'balanced' profile.
+# The build is ~94% dream, all of it this one training step, so the whole run
+# scales with this number.
+#
+# NOT the 'performance' GOVERNOR, which measured SLOWER (746 tok/s): it pins a
+# high P-state on the 8 E-cores too and the package power budget then splits
+# across 16 threads instead of feeding the 4 P-cores. The knob is EPP.
+#
+# Restored on every exit path, Ctrl-C included. POWER_PROFILE=off skips it —
+# the laptop runs at 85°C for the duration, which is within spec (crit 100°C)
+# but audible.
+POWER_PROFILE="${POWER_PROFILE:-performance}"
+_POWER_SAVED=""
+
+power_boost_on() {
+  [ "$POWER_PROFILE" = "off" ] && return 0
+  if command -v powerprofilesctl > /dev/null 2>&1; then
+    _POWER_SAVED="$(powerprofilesctl get 2>/dev/null)"
+    if [ -n "$_POWER_SAVED" ] && powerprofilesctl set "$POWER_PROFILE" 2>/dev/null; then
+      echo "  Power: profile $_POWER_SAVED -> $POWER_PROFILE  (~1.6x, restored on exit)"
+      return 0
+    fi
+    _POWER_SAVED=""
+  fi
+  # No power-profiles-daemon: write EPP directly, if sudo does not prompt.
+  local epp=/sys/devices/system/cpu/cpu0/cpufreq/energy_performance_preference
+  if [ -w "$epp" ] || sudo -n true 2>/dev/null; then
+    _POWER_SAVED="epp:$(cat $epp 2>/dev/null)"
+    for f in /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference; do
+      echo performance | sudo -n tee "$f" > /dev/null 2>&1
+    done
+    echo "  Power: EPP ${_POWER_SAVED#epp:} -> performance  (restored on exit)"
+  else
+    echo "  Power: left as is (no powerprofilesctl, no passwordless sudo)."
+    echo "         The CPU may be capped at ~40% of its clock: check with"
+    echo "         'powerprofilesctl get' — 'performance' is worth ~1.6x here."
+  fi
+}
+
+power_boost_off() {
+  case "$_POWER_SAVED" in
+    "") return 0 ;;
+    epp:*) for f in /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference; do
+             echo "${_POWER_SAVED#epp:}" | sudo -n tee "$f" > /dev/null 2>&1
+           done ;;
+    *) powerprofilesctl set "$_POWER_SAVED" 2>/dev/null ;;
+  esac
+  echo "  Power: restored to $_POWER_SAVED"
+  _POWER_SAVED=""
+}
+
+trap power_boost_off EXIT INT TERM
+power_boost_on
+
 TARGET_LEVEL=${1:-1}
 # Highest level the curriculum has material for. Used by the loops that
 # scan or clean EVERY level rather than the requested range: those were
