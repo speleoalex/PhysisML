@@ -3,19 +3,28 @@ HybridTeacher — combines LocalTeacher (prompt generation) + local LLM (evaluat
 
 Architecture:
   - LocalTeacher: generates the next prompt and expected (deterministic, free)
-  - OllamaEvaluator: rates the model response (intelligent, local, GPU)
+  - LLMEvaluator: rates the model response (intelligent, local, GPU)
 
 The LLM receives a very short prompt (~60 tokens) and replies only with the
 feedback symbol (+++, ++, +, = or -). Much faster than also generating the question.
+
+The grader runs on whichever local server answers — llama.cpp's llama-server or
+ollama — via `dynamic_model.llm_backend`. When neither is reachable, or when the
+level's model is not installed, the evaluation falls back to LocalTeacher's
+rule-based grading and says so.
 
 Recommended models per level:
   L3-L4: qwen2:0.5b-instruct-q4_0  (352MB, ~100ms/evaluation)
   L5-L6: llama3.2:latest            (2GB, ~300ms/evaluation)
   L7+:   qwen3:8b                   (5GB, ~500ms/evaluation)
+These are ollama names. With llama.cpp the mapping is informational: the server
+hosts one model and that is the one used.
 
-Environment overrides:
-  OLLAMA_BASE            ollama host (default http://localhost:11434)
-  PHYSISML_OLLAMA_MODEL  force one model for every level
+Environment overrides (see llm_backend for the full list):
+  PHYSISML_LLM_BACKEND   auto (default) | llamacpp | ollama | off
+  LLAMA_SERVER_BASE      llama-server host (default http://localhost:8080)
+  OLLAMA_BASE            ollama host      (default http://localhost:11434)
+  PHYSISML_LLM_MODEL     force one model for every level
 
 Usage:
   teacher = HybridTeacher(lang='it', level=3)
@@ -28,6 +37,7 @@ import urllib.request
 import urllib.error
 from typing import Optional
 
+from dynamic_model import llm_backend
 from dynamic_model.local_teacher import LocalTeacher
 
 # Level → ollama model mapping (configurable)
@@ -44,12 +54,12 @@ LEVEL_TO_MODEL = {
 DEFAULT_MODEL = "llama3.2:latest"
 
 # Endpoint and model are overridable from the environment so the grader can run
-# on another machine (or any ollama-compatible service) instead of localhost:
-#   OLLAMA_BASE=http://gpu-box:11434  PHYSISML_OLLAMA_MODEL=qwen3:8b
-OLLAMA_BASE      = os.environ.get("OLLAMA_BASE", "http://localhost:11434").rstrip("/")
-OLLAMA_URL       = f"{OLLAMA_BASE}/api/generate"
-OLLAMA_TAGS_URL  = f"{OLLAMA_BASE}/api/tags"
-ENV_MODEL        = os.environ.get("PHYSISML_OLLAMA_MODEL") or None
+# on another machine, or on llama.cpp instead of ollama:
+#   OLLAMA_BASE=http://gpu-box:11434     PHYSISML_LLM_MODEL=qwen3:8b
+#   LLAMA_SERVER_BASE=http://gpu-box:8080  PHYSISML_LLM_BACKEND=llamacpp
+OLLAMA_BASE = llm_backend.OLLAMA_BASE     # re-exported: older callers read these
+LLAMA_BASE  = llm_backend.LLAMA_BASE
+ENV_MODEL   = llm_backend.ENV_MODEL
 
 FEEDBACK_MAP = {
     "+++": 1.0, "++": 0.8, "+": 0.5, "=": 0.0, "-": -0.8,
@@ -83,31 +93,15 @@ Reply ONLY with one of the symbols: +++ ++ + = -
 Do NOT add text, explanations, or punctuation. Only the symbol."""
 
 
-def _ollama_generate(model: str, prompt: str, system: str = "",
-                     timeout: int = 15) -> str:
-    """Call ollama API and return text response."""
-    payload = json.dumps({
-        "model":  model,
-        "prompt": prompt,
-        "system": system,
-        "stream": False,
-        "options": {
-            "temperature": 0.0,  # deterministic
-            "num_predict": 8,    # only need 1-3 chars
-        }
-    }).encode()
+def _llm_generate(model: str, prompt: str, system: str = "",
+                  timeout: int = 15, backend=None) -> str:
+    """One grading call, deterministic, 8 tokens — the symbol is 1-3 chars."""
+    return llm_backend.generate(prompt, system=system, model=model,
+                                timeout=timeout, max_tokens=8,
+                                temperature=0.0, backend=backend)
 
-    req = urllib.request.Request(
-        OLLAMA_URL,
-        data=payload,
-        headers={"Content-Type": "application/json"},
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            data = json.loads(resp.read())
-            return data.get("response", "").strip()
-    except Exception:
-        return ""
+
+_ollama_generate = _llm_generate   # older name, kept for callers outside this file
 
 
 def _parse_feedback(text: str) -> str:
@@ -119,32 +113,32 @@ def _parse_feedback(text: str) -> str:
     return "="  # default neutral if unclear
 
 
-class OllamaEvaluator:
+class LLMEvaluator:
     """
-    Intelligent response evaluator using a local LLM via ollama.
+    Intelligent response evaluator using a local LLM (llama.cpp or ollama).
     Only evaluates (+++/++/+/=/−) — does not generate prompts.
     """
 
     def __init__(self, model: str = DEFAULT_MODEL):
-        self.model   = model
-        self._online = None  # cached connectivity check
+        self.requested = model
+        self.model     = model   # replaced by the resolved name once probed
+        self.backend   = None
+        self._online   = None    # cached connectivity check
 
     def is_available(self) -> bool:
-        """Check if ollama is running and model is available."""
+        """Is a server reachable, and can it serve the model we asked for?"""
         if self._online is not None:
             return self._online
-        try:
-            req = urllib.request.Request(OLLAMA_TAGS_URL)
-            with urllib.request.urlopen(req, timeout=3) as resp:
-                data = json.loads(resp.read())
-                models = [m["name"] for m in data.get("models", [])]
-                self._online = any(
-                    self.model.split(":")[0] in m for m in models
-                )
-                return self._online
-        except Exception:
-            self._online = False
-            return False
+        self.backend = llm_backend.detect()
+        resolved = llm_backend.resolve_model(self.requested, self.backend)
+        if resolved:
+            self.model = resolved
+        self._online = resolved is not None
+        return self._online
+
+    def status(self) -> str:
+        """What the probe found — printed once, so a mismatch is not silent."""
+        return llm_backend.status_line(self.requested)
 
     def evaluate(self, prompt: str, response: str,
                  expected: str = "", level: int = 0) -> dict:
@@ -183,7 +177,8 @@ class OllamaEvaluator:
         lines.append("\nRating (symbol only):")
         eval_prompt = "\n".join(lines)
 
-        raw = _ollama_generate(self.model, eval_prompt, EVAL_SYSTEM, timeout=20)
+        raw = _llm_generate(self.model, eval_prompt, EVAL_SYSTEM, timeout=20,
+                            backend=self.backend)
         symbol = _parse_feedback(raw)
 
         # Deterministic sanity check: if the target content word is absent from
@@ -224,9 +219,9 @@ class HybridTeacher:
     """
     Teacher that combines:
     - LocalTeacher for prompt generation (rule-based, deterministic)
-    - OllamaEvaluator for response evaluation (LLM, intelligent)
+    - LLMEvaluator for response evaluation (LLM, intelligent)
 
-    Falls back to LocalTeacher evaluation if ollama is unavailable.
+    Falls back to LocalTeacher evaluation if no local LLM is usable.
     """
 
     def __init__(self, lang: str, level: int,
@@ -241,21 +236,26 @@ class HybridTeacher:
         # LLM evaluator
         model = (ollama_model or ENV_MODEL
                  or LEVEL_TO_MODEL.get(level, DEFAULT_MODEL))
-        self.evaluator = OllamaEvaluator(model)
+        self.evaluator = LLMEvaluator(model)
 
         self._use_llm = self.evaluator.is_available()
         self._last_expected = ""  # stores expected from previous turn for evaluation
+        # Print what the probe actually resolved either way. The old message
+        # said only "ollama not available", which is why a whole build ran with
+        # the rule-based grader without anyone noticing that the mapped model
+        # (llama3.2) was simply not installed.
         if self._use_llm:
-            print(f"  HybridTeacher: {model} for evaluation (online)")
+            print(f"  HybridTeacher: evaluation on {self.evaluator.status()}")
         else:
-            print(f"  HybridTeacher: fallback to LocalTeacher (ollama not available)")
+            print(f"  HybridTeacher: fallback to LocalTeacher — "
+                  f"{self.evaluator.status()}")
 
     def turn(self, last_prompt: str = "", last_response: str = "",
              turn: int = 1) -> dict:
         """
         Generate next teaching turn.
         - LocalTeacher generates the next prompt and expected
-        - OllamaEvaluator rates the previous response using the STORED expected
+        - LLMEvaluator rates the previous response using the STORED expected
           (from the previous turn, not the new one)
         """
         # 1. Get the rule-based evaluation of last_response using the CURRENT
@@ -289,3 +289,6 @@ class HybridTeacher:
     def __repr__(self) -> str:
         llm_info = f"LLM={self.evaluator.model}" if self._use_llm else "LLM=off"
         return f"HybridTeacher(lang={self.lang}, level={self.level}, {llm_info})"
+
+
+OllamaEvaluator = LLMEvaluator   # older name, kept for callers outside this file

@@ -125,8 +125,19 @@ if [ -z "$ANTHROPIC_API_KEY" ]; then
   echo "      Levels without training_files/$LANG/N/local_teacher.json will stop."
 fi
 
-# ollama endpoint for the hybrid tutor (override for a remote GPU box)
+# Local-LLM endpoints for the hybrid tutor (override for a remote GPU box).
+# Either server will do: llama.cpp's llama-server speaks the OpenAI dialect on
+# 8080, ollama its own on 11434. dynamic_model/llm_backend.py picks whichever
+# answers, llama.cpp first.
+LLAMA_SERVER_BASE="${LLAMA_SERVER_BASE:-http://localhost:8080}"
 OLLAMA_BASE="${OLLAMA_BASE:-http://localhost:11434}"
+
+# Is a grader reachable at all? Probed once, not per level.
+local_llm_up() {
+  curl -sf --max-time 2 "$LLAMA_SERVER_BASE/v1/models" > /dev/null 2>&1 && return 0
+  curl -sf --max-time 2 "$OLLAMA_BASE/api/tags"        > /dev/null 2>&1 && return 0
+  return 1
+}
 
 # ── Level completion, as the quality gate defines it ────────────────────────
 # A level is complete when its LAST session cleared the threshold — not when a
@@ -331,8 +342,8 @@ for LEVEL in $(seq $START_LEVEL $TARGET_LEVEL); do
 
     # Teacher selection per level:
     #   L0-L1: local (pure regex, instant — sufficient for phonemes/words)
-    #   L2+:   hybrid (LocalTeacher prompts + ollama evaluation), or local
-    #          again when ollama is not reachable.
+    #   L2+:   hybrid (LocalTeacher prompts + local-LLM evaluation), or local
+    #          again when no LLM server is reachable.
     # Both need local_teacher.json; the Claude tutor is used only for levels
     # that do not have one (currently: the English curriculum).
     HYBRID_MIN_LEVEL=2   # from this level up use hybrid instead of local
@@ -340,7 +351,7 @@ for LEVEL in $(seq $START_LEVEL $TARGET_LEVEL); do
     if [ -f "training_files/$LANG/$LEVEL/local_teacher.json" ]; then
       if [ "$LEVEL" -lt "$HYBRID_MIN_LEVEL" ]; then
         EFFECTIVE_TUTOR="local"
-      elif curl -s --max-time 2 "$OLLAMA_BASE/api/tags" > /dev/null 2>&1; then
+      elif local_llm_up; then
         EFFECTIVE_TUTOR="hybrid"
       else
         EFFECTIVE_TUTOR="local"

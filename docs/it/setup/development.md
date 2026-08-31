@@ -81,9 +81,10 @@ TUTOR_MODEL="haiku"     # haiku | sonnet | opus (default per Claude)
 
 Il teacher locale viene selezionato automaticamente quando esiste
 `training_files/{lang}/{level}/local_teacher.json`: `local` per L0-L1,
-`hybrid` da L2 in su se ollama risponde su `$OLLAMA_BASE`
-(default `http://localhost:11434`). `TUTOR_MODEL` decide solo quale modello
-Claude usare per i livelli che non hanno una config locale.
+`hybrid` da L2 in su se risponde un LLM locale — llama.cpp su
+`$LLAMA_SERVER_BASE` (default `http://localhost:8080`), altrimenti ollama su
+`$OLLAMA_BASE` (default `http://localhost:11434`). `TUTOR_MODEL` decide solo
+quale modello Claude usare per i livelli che non hanno una config locale.
 
 ---
 
@@ -100,10 +101,16 @@ ANTHROPIC_API_KEY=sk-ant-...
 ```
 e installare l'SDK opzionale: `pip install anthropic python-dotenv`.
 
-Override per il tutor ibrido, per usare un LLM locale su un altro host:
+Override per il tutor ibrido — quale server ospita il valutatore e quale modello:
 ```
+PHYSISML_LLM_BACKEND=llamacpp          # auto (default) | llamacpp | ollama | off
+LLAMA_SERVER_BASE=http://gpu-box:8080  # default http://localhost:8080
 OLLAMA_BASE=http://gpu-box:11434       # default http://localhost:11434
-PHYSISML_OLLAMA_MODEL=qwen3:8b         # forza un solo valutatore per ogni livello
+PHYSISML_LLM_MODEL=qwen3:8b            # forza un solo valutatore per ogni livello
+```
+`auto` prova prima llama.cpp, poi ollama. Per vedere cosa ha trovato:
+```bash
+python3 -m dynamic_model.llm_backend        # o con un nome di modello da verificare
 ```
 
 ---

@@ -5,7 +5,7 @@
 #   ./teach.sh                    # 10 turns, level 0, it, tutor=auto
 #   ./teach.sh 100                # 100 turns
 #   ./teach.sh 100 local          # rule-based tutor, offline
-#   ./teach.sh 100 hybrid         # local prompts + ollama grading, offline
+#   ./teach.sh 100 hybrid         # local prompts + local-LLM grading, offline
 #   ./teach.sh 100 opus           # Claude tutor (needs ANTHROPIC_API_KEY)
 #   ./teach.sh 100 auto it 1      # level 1 (default: 0)
 #

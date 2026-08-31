@@ -97,17 +97,24 @@ serve nessuna chiave API**: tutti i livelli 0-12 hanno il loro
 | `--tutor-model` | Chi valuta le risposte | Richiede |
 |---|---|---|
 | `local` | regole deterministiche | niente |
-| `hybrid` | prompt locali + un LLM locale piccolo | [ollama](https://ollama.com) attivo |
+| `hybrid` | prompt locali + un LLM locale piccolo | [llama.cpp](https://github.com/ggml-org/llama.cpp) o [ollama](https://ollama.com) attivo |
 | `claude-haiku-4-5`, `claude-sonnet-4-6` | API Claude | `pip install anthropic` + chiave API |
 | `auto` *(default)* | `hybrid` → `local` se il livello ha `local_teacher.json`, altrimenti Claude | — |
 
-`build.sh` usa `local` per L0-L1 e `hybrid` da L2 in su quando ollama risponde,
-quindi un run italiano completo non costa nulla. Il valutatore ibrido può stare
-anche su un'altra macchina:
+`build.sh` usa `local` per L0-L1 e `hybrid` da L2 in su quando un LLM locale
+risponde, quindi un run italiano completo non costa nulla. Il valutatore gira su
+**llama.cpp o ollama**, quello che è attivo — se ci sono entrambi vince
+`llama-server` di llama.cpp (un solo modello già residente, nessuna latenza di
+caricamento) — e può stare anche su un'altra macchina:
 
 ```bash
-OLLAMA_BASE=http://gpu-box:11434 PHYSISML_OLLAMA_MODEL=qwen3:8b ./build.sh 4
+LLAMA_SERVER_BASE=http://gpu-box:8080 ./build.sh 4     # llama.cpp
+OLLAMA_BASE=http://gpu-box:11434 PHYSISML_LLM_MODEL=qwen3:8b ./build.sh 4
 ```
+
+Con ollama la mappa livello → modello è un requisito: un modello non installato
+disabilita il valutatore LLM invece di sostituirlo con un altro. Con llama.cpp il
+server ospita un modello solo, e quello è quello che si usa.
 
 Il tutor Claude resta l'insegnante migliore ai livelli alti, ed è l'unico
 disponibile per il curriculum inglese (`training_files/en/` non ha ancora un
@@ -181,8 +188,8 @@ Flag principali di `train_curriculum.py`: `--phase 0|1`, `--level N`, `--lang it
 insegnamento), `--tutor-model auto|local|hybrid|haiku|sonnet`.
 
 **Insegnanti disponibili**: `local_teacher.py` (deterministico, gratuito,
-offline), `hybrid_teacher.py` (prompt locali + valutazione ollama, gratuito e
-con GPU), tutor Claude via API (opzionale — vedi [Tutor disponibili](#tutor-disponibili)).
+offline), `hybrid_teacher.py` (prompt locali + valutazione con LLM locale via
+llama.cpp o ollama, gratuito e con GPU), tutor Claude via API (opzionale — vedi [Tutor disponibili](#tutor-disponibili)).
 
 ---
 

@@ -96,17 +96,23 @@ teaches with the offline tutor.
 | `--tutor-model` | What grades the answers | Needs |
 |---|---|---|
 | `local` | rule-based, deterministic | nothing |
-| `hybrid` | local prompts + a small local LLM | [ollama](https://ollama.com) running |
+| `hybrid` | local prompts + a small local LLM | [llama.cpp](https://github.com/ggml-org/llama.cpp) or [ollama](https://ollama.com) running |
 | `claude-haiku-4-5`, `claude-sonnet-4-6` | Claude API | `pip install anthropic` + API key |
 | `auto` *(default)* | `hybrid` → `local` when the level has `local_teacher.json`, Claude otherwise | — |
 
-`build.sh` uses `local` for L0-L1 and `hybrid` from L2 up whenever ollama
-answers, so a full Italian run costs nothing. The hybrid grader can also live
-on another machine:
+`build.sh` uses `local` for L0-L1 and `hybrid` from L2 up whenever a local LLM
+answers, so a full Italian run costs nothing. The grader runs on **llama.cpp or
+ollama**, whichever is up — llama.cpp's `llama-server` is preferred when both
+are (one resident model, no load latency) — and it can live on another machine:
 
 ```bash
-OLLAMA_BASE=http://gpu-box:11434 PHYSISML_OLLAMA_MODEL=qwen3:8b ./build.sh 4
+LLAMA_SERVER_BASE=http://gpu-box:8080 ./build.sh 4     # llama.cpp
+OLLAMA_BASE=http://gpu-box:11434 PHYSISML_LLM_MODEL=qwen3:8b ./build.sh 4
 ```
+
+With ollama the level → model mapping is a requirement: a model that is not
+installed disables the LLM grader instead of substituting another one. With
+llama.cpp the server hosts one model and that is the one used.
 
 The Claude tutor stays the better teacher at the higher levels, and it is the
 only tutor for the English curriculum (`training_files/en/` has no
@@ -180,7 +186,8 @@ Key `train_curriculum.py` flags: `--phase 0|1`, `--level N`, `--lang it|en`,
 `--tutor-model auto|local|hybrid|haiku|sonnet`.
 
 **Teachers**: `local_teacher.py` (deterministic, free, offline),
-`hybrid_teacher.py` (local prompts + ollama evaluation, free and GPU-friendly),
+`hybrid_teacher.py` (local prompts + local-LLM evaluation via llama.cpp or
+ollama, free and GPU-friendly),
 Claude API tutor (optional — see [Tutors](#tutors)).
 
 ---
