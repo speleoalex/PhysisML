@@ -385,6 +385,264 @@
           "prompt": "lo scoiattolo è un animale?",
           "expected": "non lo so.",
           "noun": "so"
+        },
+        {
+          "prompt": "cos è la bussola?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è la bussola?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è una bussola?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il falco?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il falco?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un falco?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il mirtillo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il mirtillo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un mirtillo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è lo sgabello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è lo sgabello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un sgabello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il clarinetto?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il clarinetto?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un clarinetto?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è lo scoiattolo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è lo scoiattolo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un scoiattolo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        }
+      ]
+    },
+    "F": {
+      "description": "Ripasso: cosa fa? dove e?  (L3 D, riascoltato)",
+      "prompt_template": "{prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": true,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "cosa fa il cane?",
+          "expected": "il cane dorme.",
+          "noun": "cane",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "cosa fa la mamma?",
+          "expected": "la mamma mangia.",
+          "noun": "mamma",
+          "verb": "mangia"
+        },
+        {
+          "prompt": "cosa fa il gatto?",
+          "expected": "il gatto dorme.",
+          "noun": "gatto",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "dove è il cane?",
+          "expected": "il cane è qui.",
+          "noun": "cane",
+          "verb": "è"
+        },
+        {
+          "prompt": "dove è la mamma?",
+          "expected": "la mamma è qui.",
+          "noun": "mamma",
+          "verb": "è"
+        },
+        {
+          "prompt": "cosa vuoi?",
+          "expected": "voglio il pane.",
+          "noun": "pane",
+          "verb": "voglio"
+        },
+        {
+          "prompt": "cosa fa il pesce?",
+          "expected": "il pesce nuota.",
+          "noun": "pesce",
+          "verb": "nuota"
+        },
+        {
+          "prompt": "cosa fa il papà?",
+          "expected": "il papà canta.",
+          "noun": "papà",
+          "verb": "canta"
+        },
+        {
+          "prompt": "cosa fa la neve?",
+          "expected": "la neve cade.",
+          "noun": "neve",
+          "verb": "cade"
+        },
+        {
+          "prompt": "cosa fa l orso?",
+          "expected": "l orso dorme.",
+          "noun": "orso",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "cosa fa la nonna?",
+          "expected": "la nonna corre.",
+          "noun": "nonna",
+          "verb": "corre"
+        },
+        {
+          "prompt": "cosa fa il sole?",
+          "expected": "il sole brilla.",
+          "noun": "sole",
+          "verb": "brilla"
+        },
+        {
+          "prompt": "cosa fa l albero?",
+          "expected": "l albero cresce.",
+          "noun": "albero",
+          "verb": "cresce"
+        },
+        {
+          "prompt": "cosa fa la gallina?",
+          "expected": "la gallina canta.",
+          "noun": "gallina",
+          "verb": "canta"
+        },
+        {
+          "prompt": "cosa fa l uccello?",
+          "expected": "l uccello canta.",
+          "noun": "uccello",
+          "verb": "canta"
+        },
+        {
+          "prompt": "cosa fa il fiore?",
+          "expected": "il fiore cresce.",
+          "noun": "fiore",
+          "verb": "cresce"
+        },
+        {
+          "prompt": "cosa fa la stella?",
+          "expected": "la stella brilla.",
+          "noun": "stella",
+          "verb": "brilla"
+        },
+        {
+          "prompt": "cosa fa il lupo?",
+          "expected": "il lupo corre.",
+          "noun": "lupo",
+          "verb": "corre"
+        },
+        {
+          "prompt": "cosa fa il nonno?",
+          "expected": "il nonno dorme.",
+          "noun": "nonno",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "cosa fa il bambino?",
+          "expected": "il bambino corre.",
+          "noun": "bambino",
+          "verb": "corre"
+        },
+        {
+          "prompt": "cosa fa il topo?",
+          "expected": "il topo corre.",
+          "noun": "topo",
+          "verb": "corre"
+        },
+        {
+          "prompt": "cosa fa la luna?",
+          "expected": "la luna brilla.",
+          "noun": "luna",
+          "verb": "brilla"
+        },
+        {
+          "prompt": "cosa fa la bambina?",
+          "expected": "la bambina nuota.",
+          "noun": "bambina",
+          "verb": "nuota"
+        },
+        {
+          "prompt": "cosa fa la mucca?",
+          "expected": "la mucca dorme.",
+          "noun": "mucca",
+          "verb": "dorme"
+        },
+        {
+          "prompt": "cosa fa l amico?",
+          "expected": "l amico corre.",
+          "noun": "amico",
+          "verb": "corre"
+        },
+        {
+          "prompt": "cosa fa la sorella?",
+          "expected": "la sorella nuota.",
+          "noun": "sorella",
+          "verb": "nuota"
         }
       ]
     }
