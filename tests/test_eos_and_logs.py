@@ -67,25 +67,28 @@ class TestEosRegistration:
         assert tok.get_special_id(tok.EOS_TOKEN) is not None, \
             "no EOS in the active tokenizer: run scripts/register_eos.py"
 
-    def test_eos_is_the_last_id_so_no_row_is_left_without_a_token(self):
-        """EOS must sit immediately after the last real token, with no gap.
+    def test_no_activated_row_is_left_without_a_token(self):
+        """Every id from 0 to the maximum must decode to something.
 
-        _sync_vocab_rows() activates every embedding row up to
-        max(vocab)+1. An EOS placed any higher leaves activated rows with no
-        token behind them: the sampler can emit one and decode() raises
-        KeyError. This is the constraint that makes 'just use a reserved slot
-        like 256' wrong for this tokenizer.
+        _sync_vocab_rows() activates every embedding row up to max(vocab)+1, so
+        a hole anywhere below the maximum is a row the sampler can emit and
+        decode() then raises KeyError on. This is the constraint that makes
+        'just use a reserved slot like 256' wrong for this tokenizer.
+
+        It used to be written as `eos == last_real + 1`, which was true only at
+        the moment register_eos.py ran. The dream's N2-B grows the vocabulary,
+        and the L11->L12 rebuild added 17 tokens AFTER the EOS at 2589: the
+        assertion failed on a tokenizer that has no hole at all. The property
+        worth defending is contiguity, not the position of EOS within it.
         """
         tok = BPETokenizer()
         tok.load(REFERENCE)
         eos = tok.get_special_id(tok.EOS_TOKEN)
-        # NOT max(vocab): register_special_token() writes the special token into
-        # vocab, so it becomes the maximum itself and the check would be
-        # tautological — a mutation putting EOS at 2600 passed that version.
-        last_real = max(i for i in tok.vocab if not tok.is_special(i))
-        assert eos == last_real + 1, \
-            f"EOS at {eos} but the last real token is {last_real}: " \
-            f"{eos - last_real - 1} activated rows would have no token"
+        assert eos is not None and eos in tok.vocab, "EOS not in the vocabulary"
+        ids = set(tok.vocab)
+        holes = [i for i in range(max(ids) + 1) if i not in ids]
+        assert not holes, \
+            f"{len(holes)} activated rows with no token: {holes[:10]}"
 
     def test_every_snapshot_that_can_hold_eos_agrees_on_the_id(self):
         """Same weights get loaded with different snapshots across a build.

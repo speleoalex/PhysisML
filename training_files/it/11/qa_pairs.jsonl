@@ -197,3 +197,104 @@
 {"prompt": "perfetto! cos è un oggetto?", "response": "un oggetto è una cosa."}
 {"prompt": "bravo! cos è una luce?", "response": "una luce è una cosa."}
 {"prompt": "bene! cos è una pianta?", "response": "una pianta è un essere vivente."}
+{"prompt": "bravo! cos è la minestra?", "response": "la minestra è un cibo."}
+{"prompt": "bene! cos è il tavolo?", "response": "il tavolo è un oggetto."}
+{"prompt": "cos è il tavolo?", "response": "il tavolo è un oggetto."}
+{"prompt": "perfetto! cos è il fratello?", "response": "il fratello è una persona."}
+{"prompt": "ottimo! cos è il formaggio?", "response": "il formaggio è un cibo."}
+{"prompt": "bene! cos è il formaggio?", "response": "il formaggio è un cibo."}
+{"prompt": "perfetto! cos è la porta?", "response": "la porta è un oggetto."}
+{"prompt": "bravo! cos è la penna?", "response": "la penna è un oggetto."}
+{"prompt": "cos è la penna?", "response": "la penna è un oggetto."}
+{"prompt": "bravo! cos è il papà?", "response": "il papà è una persona."}
+{"prompt": "bravo! cos è il gelato?", "response": "il gelato è un cibo."}
+{"prompt": "bravo! cos è il disegno?", "response": "il disegno è un oggetto."}
+{"prompt": "ottimo! cos è il pallone?", "response": "il pallone è un oggetto."}
+{"prompt": "bravo! cos è il topo?", "response": "il topo è un animale."}
+{"prompt": "perfetto! cos è la mamma?", "response": "la mamma è una persona."}
+{"prompt": "cos è la mamma?", "response": "la mamma è una persona."}
+{"prompt": "ottimo! cos è l albero?", "response": "l albero è una pianta."}
+{"prompt": "bene! cos è il cane?", "response": "il cane è un animale."}
+{"prompt": "benissimo! cos è il cane?", "response": "il cane è un animale."}
+{"prompt": "bene! cos è il gatto?", "response": "il gatto è un animale."}
+{"prompt": "cos è il gatto?", "response": "il gatto è un animale."}
+{"prompt": "cos è il pesce?", "response": "il pesce è un animale."}
+{"prompt": "bene! cos è il pesce?", "response": "il pesce è un animale."}
+{"prompt": "cos è il cavallo?", "response": "il cavallo è un animale."}
+{"prompt": "cos è il lupo?", "response": "il lupo è un animale."}
+{"prompt": "ottimo! cos è il lupo?", "response": "il lupo è un animale."}
+{"prompt": "perfetto! cos è l orso?", "response": "l orso è un animale."}
+{"prompt": "cos è l orso?", "response": "l orso è un animale."}
+{"prompt": "cos è l uccello?", "response": "l uccello è un animale."}
+{"prompt": "ancora. cos è la gallina?", "response": "la gallina è un animale."}
+{"prompt": "cos è la gallina?", "response": "la gallina è un animale."}
+{"prompt": "cos è la mucca?", "response": "la mucca è un animale."}
+{"prompt": "ottimo! cos è l ape?", "response": "l ape è un animale."}
+{"prompt": "bene! cos è l ape?", "response": "l ape è un animale."}
+{"prompt": "benissimo! cos è il bambino?", "response": "il bambino è una persona."}
+{"prompt": "cos è il nonno?", "response": "il nonno è una persona."}
+{"prompt": "perfetto! cos è il nonno?", "response": "il nonno è una persona."}
+{"prompt": "ancora. cos è il maestro?", "response": "il maestro è una persona."}
+{"prompt": "bene! cos è il maestro?", "response": "il maestro è una persona."}
+{"prompt": "perfetto! cos è l amico?", "response": "l amico è una persona."}
+{"prompt": "cos è l amico?", "response": "l amico è una persona."}
+{"prompt": "ottimo! cos è la nonna?", "response": "la nonna è una persona."}
+{"prompt": "bene! cos è la bambina?", "response": "la bambina è una persona."}
+{"prompt": "cos è la bambina?", "response": "la bambina è una persona."}
+{"prompt": "cos è il pane?", "response": "il pane è un cibo."}
+{"prompt": "cos è la mela?", "response": "la mela è un cibo."}
+{"prompt": "cos è la torta?", "response": "la torta è un cibo."}
+{"prompt": "bene! cos è il libro?", "response": "il libro è un oggetto."}
+{"prompt": "cos è il libro?", "response": "il libro è un oggetto."}
+{"prompt": "cos è il quaderno?", "response": "il quaderno è un oggetto."}
+{"prompt": "cos è il sole?", "response": "il sole è una luce."}
+{"prompt": "cos è il mare?", "response": "il mare è un luogo."}
+{"prompt": "cos è la luna?", "response": "la luna è una luce."}
+{"prompt": "cos è la neve?", "response": "la neve è acqua."}
+{"prompt": "benissimo! cos è la neve?", "response": "la neve è acqua."}
+{"prompt": "cos è la casa?", "response": "la casa è un luogo."}
+{"prompt": "cos è la scuola?", "response": "la scuola è un luogo."}
+{"prompt": "benissimo! cos è il prato?", "response": "il prato è un luogo."}
+{"prompt": "perfetto! cos è il prato?", "response": "il prato è un luogo."}
+{"prompt": "cos è il bosco?", "response": "il bosco è un luogo."}
+{"prompt": "benissimo! la nonna è una persona?", "response": "sì, la nonna è una persona."}
+{"prompt": "benissimo! la neve è acqua?", "response": "sì, la neve è acqua."}
+{"prompt": "bene! il formaggio è un cibo?", "response": "sì, il formaggio è un cibo."}
+{"prompt": "bene! la penna è un oggetto?", "response": "sì, la penna è un oggetto."}
+{"prompt": "la sedia è un oggetto?", "response": "sì, la sedia è un oggetto."}
+{"prompt": "bene! il disegno è un oggetto?", "response": "sì, il disegno è un oggetto."}
+{"prompt": "ottimo! il pesce è un animale?", "response": "sì, il pesce è un animale."}
+{"prompt": "il pesce è un animale?", "response": "sì, il pesce è un animale."}
+{"prompt": "perfetto! il sole è una luce?", "response": "sì, il sole è una luce."}
+{"prompt": "perfetto! il cappello è un oggetto?", "response": "sì, il cappello è un oggetto."}
+{"prompt": "ottimo! il quaderno è un oggetto?", "response": "sì, il quaderno è un oggetto."}
+{"prompt": "il nonno è una persona?", "response": "sì, il nonno è una persona."}
+{"prompt": "benissimo! l albero è una pianta?", "response": "sì, l albero è una pianta."}
+{"prompt": "bene! l ape è un animale?", "response": "sì, l ape è un animale."}
+{"prompt": "bravo! il cane è un animale?", "response": "sì, il cane è un animale."}
+{"prompt": "il cane è un animale?", "response": "sì, il cane è un animale."}
+{"prompt": "ottimo! il gatto è un animale?", "response": "sì, il gatto è un animale."}
+{"prompt": "il gatto è un animale?", "response": "sì, il gatto è un animale."}
+{"prompt": "l orso è un animale?", "response": "sì, l orso è un animale."}
+{"prompt": "bravo! l uccello è un animale?", "response": "sì, l uccello è un animale."}
+{"prompt": "perfetto! l uccello è un animale?", "response": "sì, l uccello è un animale."}
+{"prompt": "benissimo! la gallina è un animale?", "response": "sì, la gallina è un animale."}
+{"prompt": "la gallina è un animale?", "response": "sì, la gallina è un animale."}
+{"prompt": "ottimo! il papà è una persona?", "response": "sì, il papà è una persona."}
+{"prompt": "il papà è una persona?", "response": "sì, il papà è una persona."}
+{"prompt": "il maestro è una persona?", "response": "sì, il maestro è una persona."}
+{"prompt": "perfetto! il maestro è una persona?", "response": "sì, il maestro è una persona."}
+{"prompt": "benissimo! l amico è una persona?", "response": "sì, l amico è una persona."}
+{"prompt": "l amico è una persona?", "response": "sì, l amico è una persona."}
+{"prompt": "la bambina è una persona?", "response": "sì, la bambina è una persona."}
+{"prompt": "la sorella è una persona?", "response": "sì, la sorella è una persona."}
+{"prompt": "bravo! il pane è un cibo?", "response": "sì, il pane è un cibo."}
+{"prompt": "benissimo! il pane è un cibo?", "response": "sì, il pane è un cibo."}
+{"prompt": "ottimo! il latte è un cibo?", "response": "sì, il latte è un cibo."}
+{"prompt": "il latte è un cibo?", "response": "sì, il latte è un cibo."}
+{"prompt": "perfetto! il gelato è un cibo?", "response": "sì, il gelato è un cibo."}
+{"prompt": "bene! il gelato è un cibo?", "response": "sì, il gelato è un cibo."}
+{"prompt": "bene! l acqua è un cibo?", "response": "sì, l acqua è un cibo."}
+{"prompt": "l acqua è un cibo?", "response": "sì, l acqua è un cibo."}
+{"prompt": "bene! la mela è un cibo?", "response": "sì, la mela è un cibo."}
+{"prompt": "bravo! la mela è un cibo?", "response": "sì, la mela è un cibo."}
