@@ -24,86 +24,62 @@ guided by a tutor that adapts the curriculum in real time.
 
 ## Results
 
-The curriculum now runs from phonemes to level 12, and the finished model keeps
-almost all of it. Two numbers, both greedy, both against the curriculum's gold
-answers — 849 graded prompts across the thirteen levels.
+Exact match against the curriculum's gold answers, greedy, 849 graded prompts
+over the thirteen levels (`scripts/measure_repetition.py`).
 
-**Each level on its own checkpoint** (`python3 scripts/measure_repetition.py
---ckpt-base models/checkpoints/it --levels 0-12`):
+| | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 | mean |
+|---|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|------|
+| **final checkpoint, every level** | 100% | 97% | 80% | 83% | 93% | 90% | 85% | 93% | 90% | 70% | 85% | 79% | 100% | **88.1%** |
+| each level on its own snapshot | 100% | 89% | 70% | 89% | 100% | 99% | 95% | 100% | 100% | 100% | 97% | 90% | 100% | 94.5% |
 
-| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
-|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
-| 100% | 89% | 70% | 89% | 100% | 99% | 95% | 100% | 100% | 100% | 97% | 94% | 100% |
+The first row is the one that matters, and the one that changed: a single model
+asked everything it was ever taught, with self-repetition at 1.3%. The previous
+build scored **20%** there, and ten extra consolidation cycles took it only to
+48%. Here nothing needed recovering.
 
-Mean across the thirteen levels: **94.9%** (93% weighted by prompt count).
+The lever is the **dream** — a replay pass over every level's material, no new
+teaching. Measured at level 6 of this build, before and after one cycle:
+23.7% → **84.3%** mean across the seven levels seen, self-repetition 11.1% →
+3.4%. Teaching a level erases the earlier ones outright; one replay brings them
+back and costs the current level nothing. The build runs six cycles per level.
 
-**The final checkpoint against every level** — one model, asked everything it
-was ever taught:
+Five things changed between the two builds — six dreams per level by default,
+target pools widened from 227 to 728, a vocabulary retrained without
+punctuation glued to words, one gold answer per prompt enforced, and `<|EOS|>`
+registered and written into the corpus — so the gain cannot be attributed to
+any one of them.
 
-| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
-|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
-| 100% | 94% | 80% | 84% | 88% | 94% | 92% | 85% | 87% | 77% | 95% | 79% | 100% |
-
-Mean: **89.0%**, self-repetition 1.4%.
-
-That second table is the one that changed. In the previous build the final
-checkpoint scored **20%** across all levels — it could do the last level and
-the first, and everything between was buried; ten extra consolidation cycles
-recovered it only to 48%. Here nothing needed recovering: no level of the
-finished model sits below 77%.
-
-The run cannot attribute the gain to a single change, because five landed
-together: six dream cycles per level by default rather than however many the
-quality gate happened to trigger, target pools widened from 227 to 728, a
-vocabulary retrained without punctuation glued to words, one gold answer per
-prompt enforced across levels, and `<|EOS|>` registered again so answers can
-end. What the run does show is that the retention gap the earlier build spent
-its dreams half-closing is not a property of the architecture.
-
-Real examples from the finished model, greedy:
+Real answers, greedy:
 
 ```
-di: il cane                            → il cane!
-cos è un cane?                         → il cane è un animale.
-dove dorme il cane?                    → il cane dorme in casa.
-chi è più grande, il cane o il gatto?  → il cane è più grande del gatto.
 di: cosa mangia il cane?               → il cane mangia il pane.
 perché il cane mangia?                 → il cane mangia perché ha fame.
-cosa ha mangiato il cane?              → il cane ha mangiato il pane.
 cosa mangerà il cane domani?           → domani il cane mangerà il pane.
+cos è il cane?                         → il cane è un animale.
 il pane è buono?                       → secondo me il pane è buono perché è caldo.
-il cane è fedele?                      → secondo me il cane è fedele perché aspetta.
 commenta il libro                      → il libro insegna, e questo è importante.
+cos è un falco?                        → non lo so.
 l albero è una pianta, questo è un tamburo  → cos è un tamburo?
 ```
 
-The last line is level 12: shown a name it has never met, the model asks
-instead of inventing.
+The last two are level 12: on a name it has never met the model declares
+ignorance or asks, instead of guessing. Measured on held-out names it has never
+seen (`scripts/curiosity_rate.py --gate off`): 67% honest answers on unknown
+nouns against **0%** on known ones — it never claims ignorance about something
+it knows.
 
 ### Where it still fails
 
-Level 11 asks `cos è X?` about 24 nouns. Eighteen more appear in the level's
-yes/no steps without ever being asked that way, and `cane` appears only as an
-*answer* (`fai un esempio di animale`). Asked with the article it was never
-drilled on, the model produces the right shape with the wrong class:
-
-```
-cos è un cane?             → il cane è un animale.     ✓
-fai un esempio di animale  → il cane è un animale.     ✓
-il cane è un animale?      → sì, il cane è un animale. ✓
-cos è il cane?             → il cane è una cosa.       ✗ (superordinate, not the class)
-```
-
-Level 12 asks correctly in the shape it was taught (`l albero è una pianta,
-questo è un tamburo` → `cos è un tamburo?`) and confabulates on a bare
-`chi è zibaldone?` → `il fratello è una persona.`
-
-L2 is the weakest level on its own checkpoint (70%) and the failures there are
-repetition (`di: il fratello beve il latte` → `il letto basso! il letto basso!`).
-
-Every example above is greedy. The margin is thin: with sampling on,
-`cos è un cane?` answers *animale*, *persona* or *luce* depending on the draw.
-The right answer is at the top of the distribution, not alone in it.
+- **L9 (70%) and L2 (80%)** are the weak levels of the final checkpoint; L2's
+  errors are repetition (`di: il fratello beve il latte` → `il letto basso! il
+  letto basso!`).
+- **Untaught phrasings drift onto the nearest taught pattern.** `cos è il cane?`
+  is right, `cos è un cane?` (indefinite, never drilled for a concrete noun)
+  answers `un animale è un essere vivente` — the class-level question's answer.
+  Same for `chi è zibaldone?`, which confabulates: level 12 teaches the ask on
+  `cos è un X?` and the yes/no form, not on that one.
+- **The margin is thin.** Every example here is greedy. With sampling on,
+  `cos è un cane?` answers *animale*, *persona* or *luce* depending on the draw.
 
 ## Requirements
 
@@ -194,8 +170,10 @@ Each level starts from the previous level's `final_learned.pt`.
 | `python3 scripts/download_wikipedia.py --level N` | Download Wikipedia articles for training |
 | `python3 scripts/generate_qa_corpus.py --levels 0 1 2` | Build dialogue corpus from QA pairs |
 | `python3 scripts/generate_qa_corpus.py --check --levels 0 1 2` | Verify each `qa_corpus.txt` matches its `qa_pairs.jsonl` (exits 1 if stale) |
-| `python3 scripts/export_gguf.py` | Export a checkpoint to GGUF (llama.cpp / ollama) |
-| `python3 scripts/export_hf.py --out hf_upload --levels 0-9` | Build a Hugging Face upload folder (safetensors + card + inference code) |
+| `python3 scripts/export_gguf.py` | Export a checkpoint to GGUF, then `ollama create physisml -f Modelfile` |
+| `python3 scripts/export_hf.py --out hf_upload` | Build a Hugging Face upload folder (safetensors + card + inference code) |
+| `./scripts/build_status.sh` | Where a running build is: level, session, quality, what is running now |
+| `python3 scripts/curiosity_rate.py --gate off` | Does it admit ignorance on unknown names and not on known ones |
 
 Key `train_curriculum.py` flags: `--phase 0|1`, `--level N`, `--lang it|en`,
 `--epochs-0 N`, `--interactions N|auto`, `--age 0-7+` (virtual age → teaching style),

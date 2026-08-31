@@ -15,7 +15,15 @@
 set -u
 LOG="${1:-}"
 if [ -z "$LOG" ]; then
-  LOG=$(ls -t /tmp/claude-*/*/*/scratchpad/*.log ./*.log ./logs/*.log 2>/dev/null | head -1)
+  # Newest first, but only among files that actually look like a build log.
+  # The bare glob also matches every scratchpad log of every agent session —
+  # an eval or an export log would win on mtime and then this reported a
+  # frozen picture of something that was never the build.
+  for f in $(ls -t /tmp/claude-*/*/*/scratchpad/*.log ./*.log ./logs/*.log 2>/dev/null); do
+    if grep -qE "\[phase [012]\]|\[level [0-9]+\] Session" "$f" 2>/dev/null; then
+      LOG="$f"; break
+    fi
+  done
 fi
 if [ -z "$LOG" ] || [ ! -f "$LOG" ]; then
   echo "No build log found. Pass one: ./scripts/build_status.sh path/to.log"
@@ -68,8 +76,31 @@ echo "sessions of the current level:"
 grep -E "^  \[level [0-9]+\] Session" "$LOG" | tail -8 | sed 's/^  /  /'
 
 # The gate decision is the line that says whether another session is coming.
-echo
-tail -400 "$LOG" | grep -E "✓ (Quality|High quality)|✗ (Regression|Best|MAX)|↻ Not converged|Plateau|consolidated with|Top-up dream" | tail -4
+# Searched over the WHOLE log, not a tail: a teaching session writes ~800 lines
+# and a dream a few hundred more, so with a 400-line window the last decision
+# was 1772 lines out of reach and this section printed nothing, every time.
+echo "decisions:"
+grep -E "✓ (Quality|High quality)|✗ (Regression|Best|MAX)|↻ Not converged|Plateau|consolidated with|Top-up dream" "$LOG" | tail -4 | sed 's/^ *//;s/^/  /' 
+
+# The one number that moves every few seconds. The sections above change once
+# every few hours, which is what makes the whole report look frozen.
+RUNLEVEL=$(ps -eo args= | grep "[t]rain_curriculum.py" | grep -o -- "--level [0-9]*" | awk '{print $2}' | head -1)
+if [ -n "${RUNLEVEL:-}" ]; then
+  echo
+  python3 - "$CKPT/level_$RUNLEVEL" <<'PYEOF'
+import glob, json, os, sys, time
+logs = sorted(glob.glob(os.path.join(sys.argv[1], "session_*.jsonl")))
+if logs:
+    recs = [json.loads(l) for l in open(logs[-1], encoding="utf-8") if l.strip()]
+    if recs:
+        graded = [r for r in recs if r.get("feedback")]
+        score = sum(1.0 if r.get("feedback") in ("+++", "++")
+                    else (0.5 if r.get("feedback") == "+" else 0.0) for r in recs)
+        age = time.time() - os.path.getmtime(logs[-1])
+        print(f"current session: {len(recs)} turns, quality {score/len(recs):.0%} so far"
+              f"  (last turn {age/60:.0f} min ago)")
+PYEOF
+fi
 
 echo
 echo "last log line:"

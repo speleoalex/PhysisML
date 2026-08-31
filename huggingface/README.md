@@ -54,94 +54,79 @@ transfers to another language is an open question, not a claim of this release.
 
 ## What it can do
 
-It answers the kind of prompt its curriculum drilled — short Italian questions
-about a closed world of familiar nouns and verbs. Every line below is an actual
-greedy output of these weights, through the bundled `generate.py`:
+Short Italian questions about a closed world of familiar nouns and verbs. Every
+line is an actual greedy output of these weights:
 
 ```
-di: il cane                            → il cane!
-cos è un cane?                         → il cane è un animale.
-dove dorme il cane?                    → il cane dorme in casa.
-chi è più grande, il cane o il gatto?  → il cane è più grande del gatto.
 di: cosa mangia il cane?               → il cane mangia il pane.
 perché il cane mangia?                 → il cane mangia perché ha fame.
-cosa ha mangiato il cane?              → il cane ha mangiato il pane.
 cosa mangerà il cane domani?           → domani il cane mangerà il pane.
+cos è il cane?                         → il cane è un animale.
+il cane è un animale?                  → sì, il cane è un animale.
 il pane è buono?                       → secondo me il pane è buono perché è caldo.
-il cane è fedele?                      → secondo me il cane è fedele perché aspetta.
 commenta il libro                      → il libro insegna, e questo è importante.
+cos è un falco?                        → non lo so.
 l albero è una pianta, questo è un tamburo  → cos è un tamburo?
 ```
 
-The last line is level 12: shown a name it has never met, the model asks
-instead of inventing.
+The last two are level 12: on a name it has never met the model declares
+ignorance or asks, rather than guessing. On held-out names it has never seen,
+67% of answers are honest that way, against **0%** on nouns it knows — it never
+claims ignorance about something it was taught.
 
 ## Results
 
-Exact match against the curriculum's gold answers, greedy decoding, 849 graded
-prompts across the thirteen levels.
+Exact match against the curriculum's gold answers, greedy, 849 graded prompts
+across the thirteen levels.
 
-**The published checkpoint against every level** — one model, asked everything
-it was ever taught:
+| | mean | worst level |
+|---|---|---|
+| **this checkpoint, asked about every level** | **88.1%** | 70% (L9) |
+| each level scored on its own snapshot | 94.5% | 70% (L2) |
 
-| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
-|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
-| 100% | 94% | 80% | 84% | 88% | 94% | 92% | 85% | 87% | 77% | 95% | 79% | 100% |
+The first row is the interesting one: one model asked everything it was ever
+taught, self-repetition 1.3%. The project's previous build scored **20%** on
+that same question, and ten extra consolidation cycles took it only to 48%.
 
-Mean **89.0%**, self-repetition 1.4%.
+Per level: 100 / 97 / 80 / 83 / 93 / 90 / 85 / 93 / 90 / 70 / 85 / 79 / 100.
 
-For scale: in the project's previous build the final checkpoint scored **20%**
-on the same question, and ten extra consolidation cycles brought it only to
-48%. Here no level of the finished model sits below 77%.
+The lever is the **dream**: a replay pass over every level's material with no
+new teaching. Measured at level 6 of this build, immediately before and after
+one cycle — 23.7% → **84.3%**, self-repetition 11.1% → 3.4%. Teaching a level
+erases the earlier ones; one replay brings them back and costs the current level
+nothing. The build runs six per level.
 
-The usual per-level table — each level scored on its own snapshot, which is a
-much easier question — averages 94.9% on this run:
-
-| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
-|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
-| 100% | 89% | 70% | 89% | 100% | 99% | 95% | 100% | 100% | 100% | 97% | 94% | 100% |
-
-Five things changed between the two builds — six dream cycles per level by
-default, target pools widened from 227 to 728, a vocabulary retrained without
-punctuation glued to words, one gold answer per prompt enforced across levels,
-and `<|EOS|>` registered again — so the gain cannot be attributed to any single
-one of them.
+Five things changed between the two builds (six dreams per level by default,
+target pools 227 → 728, a vocabulary retrained without punctuation glued to
+words, one gold per prompt enforced, `<|EOS|>` written into the corpus), so the
+gain cannot be attributed to any single one.
 
 ## Where it fails
 
-Level 11 teaches class membership, and the `cos è X?` form is asked about only
-24 nouns. Eighteen more appear in the level's yes/no steps without ever being
-asked that way, and `cane` appears only as an *answer* (`fai un esempio di
-animale`). The consequences are visible:
+**Untaught phrasings drift onto the nearest taught pattern.** This is the
+sharpest limit of a model this size:
 
 ```
-cos è un cane?             → il cane è un animale.     ✓
-fai un esempio di animale  → il cane è un animale.     ✓
-il cane è un animale?      → sì, il cane è un animale. ✓
-cos è il cane?             → il cane è una cosa.       ✗ (a superordinate, not the class)
+cos è il cane?     → il cane è un animale.            ✓ (the drilled form)
+cos è un cane?     → un animale è un essere vivente.  ✗ (answers the class question)
+chi è zibaldone?   → il tamburo è un oggetto.         ✗ (asks nothing — shape never taught)
 ```
 
-The shape is right and the class is not: the model has the fact and no drilled
-path from that phrasing to it.
+Level 11 drills `cos è {definite} X?`; the indefinite variant on a concrete noun
+is not in the pool, and the model reaches for the class-level question it does
+know. Level 12 teaches the ask on `cos è un X?` and the yes/no form, not on
+`chi è X?`.
 
-Level 12 teaches asking about a name it has never met, and it does that well in
-the sentence shape it was taught (`l albero è una pianta, questo è un tamburo`
-→ `cos è un tamburo?`). A bare `chi è zibaldone?` was never taught, and there
-it confabulates — `il fratello è una persona.`
+Also:
 
-Beyond that:
-
-- **No world knowledge.** It was trained on a synthetic teaching curriculum of a
-  few megabytes, not on a web corpus. Anything factual it produces is invention.
-- **No instruction following** beyond the prompt shapes in the curriculum.
-- **Closed vocabulary** — 2590 active tokens. Out-of-curriculum words break it.
-- **128-token context**, so no documents, no long conversations.
-- **No alignment or safety tuning of any kind.** There is no refusal behaviour,
-  no filtering, no RLHF. It is a research artifact, not a product.
-- **Sampling costs a lot here.** Every example on this page is greedy
-  (`--temperature 0`). With sampling on, `cos è un cane?` answers *animale*,
-  *persona* or *luce* depending on the draw: at this scale the model has the
-  right answer at the top of the distribution, not alone in it.
+- **No world knowledge.** A synthetic teaching curriculum of a few megabytes,
+  not a web corpus. Anything factual it produces is invention.
+- **Closed vocabulary** — 2607 active tokens; out-of-curriculum words break it.
+- **128-token context**, single-turn only: it was never trained on
+  conversations, and prior turns crowd out the question.
+- **No alignment or safety tuning of any kind.** No refusals, no filtering.
+- **The margin is thin.** Every example here is greedy. Sampling makes
+  `cos è un cane?` answer *animale*, *persona* or *luce* depending on the draw.
 
 Do not put this in front of users. Use it to study the training method.
 
@@ -170,16 +155,24 @@ Files:
 | `physisml/` | inference code: model, tokenizer, sampling, affective modulation |
 | `generate.py` | CLI: single prompt or REPL |
 | `MANIFEST.json` | which checkpoint each artifact came from, with sha256 |
+| `physisml.gguf` + `Modelfile` | the same weights for llama.cpp / ollama |
 
 `generate.py` is a port of the repository's own generation path, so the
 affective system (`confidence`, `pleasure`, `pain`, `fear` shifting the logits
 at every step) is active by default — `--no-affect` turns it off if you want to
 see what the bare transformer does.
 
-One detail it cannot reproduce: the published exact-match scores are measured
-with the punctuation stop threshold set from the length of the gold answer,
-which a free-form prompt does not know. Expect the model to run past its answer
-more often here than the tables suggest.
+### In ollama
+
+```bash
+ollama create physisml -f Modelfile && ollama run physisml
+```
+
+The model ends its own answers — it emits `<|EOS|>`, which the GGUF declares —
+so the Modelfile needs no stop strings. Note that `ollama run` interactively
+sends the whole conversation back as context: with a 128-token window and no
+multi-turn training, a few exchanges crowd out the question. Use `/clear`,
+one-shot `ollama run physisml "..."`, or the API.
 
 ## How it was trained
 

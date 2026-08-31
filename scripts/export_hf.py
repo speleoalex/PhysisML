@@ -208,6 +208,10 @@ def main() -> None:
     ap.add_argument("--level-file", default="final_dreamed.pt",
                     help="which snapshot per level (default: final_dreamed.pt, "
                          "the one the published scores were measured on)")
+    ap.add_argument("--gguf", default=None,
+                    help="also ship this GGUF plus the repo Modelfile, so the "
+                         "published model can be run in ollama without a "
+                         "conversion step")
     ap.add_argument("--force", action="store_true",
                     help="overwrite the output folder if it exists")
     args = ap.parse_args()
@@ -291,6 +295,26 @@ def main() -> None:
         else:
             print(f"  ⚠ {os.path.relpath(src, _ROOT)} missing — "
                   f"{dst_name} not written.")
+
+    if args.gguf:
+        if not os.path.exists(args.gguf):
+            die(f"gguf not found: {args.gguf}")
+        shutil.copy2(args.gguf, os.path.join(args.out, "physisml.gguf"))
+        mf = os.path.join(_ROOT, "Modelfile")
+        if os.path.exists(mf):
+            # Rewrite the FROM line: the repo one points into models/, which
+            # does not exist in the published folder.
+            text = open(mf, encoding="utf-8").read().replace(
+                "FROM ./models/physisml.gguf", "FROM ./physisml.gguf")
+            with open(os.path.join(args.out, "Modelfile"), "w",
+                      encoding="utf-8") as f:
+                f.write(text)
+        manifest["gguf"] = {
+            "source": os.path.relpath(args.gguf, _ROOT),
+            "sha256": sha256(os.path.join(args.out, "physisml.gguf")),
+            "bytes":  os.path.getsize(os.path.join(args.out, "physisml.gguf")),
+        }
+        print(f"gguf            : {os.path.relpath(args.gguf, _ROOT)} + Modelfile")
 
     with open(os.path.join(args.out, "MANIFEST.json"), "w",
               encoding="utf-8") as f:

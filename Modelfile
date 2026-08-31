@@ -3,41 +3,26 @@
 #   python3 scripts/export_gguf.py \
 #       --checkpoint models/checkpoints/it/level_12/final_dreamed.pt \
 #       --tokenizer  models/checkpoints/it/level_12/tokenizer.json \
-#       --output     models/physisml-l12.gguf
-#   ollama create physisml -f Modelfile
-#   ollama run physisml
+#       --output     models/physisml.gguf
+#   ollama create physisml -f Modelfile && ollama run physisml
 #
-# TEMPLATE is the bare prompt: the model was taught on raw question/answer
-# lines, not on a chat format, so any role wrapper is out of distribution.
+# TEMPLATE is the bare prompt: the model was taught single-turn question/answer
+# lines, so any chat wrapper is out of distribution. Greedy because the margin
+# is thin and the published scores are measured that way.
 #
-# The punctuation stops are a WORKAROUND, not a preference. The GGUF declares
-# tokenizer.ggml.eos_token_id = 2589, but the model almost never emits it:
-# qa_corpus.txt separates answers with a newline and carries no <|EOS|> at any
-# level, so what the text phase and every dream replay teach is that an answer
-# ends with '\n'. Measured on the level-12 checkpoint, right after a complete
-# answer: P('\n') = 0.97, P(<|EOS|>) = 0.00004, EOS at rank 169. Without these
-# stops the model answers correctly and then keeps writing the teaching
-# dialogue with itself.
+# No stop strings: the model emits <|EOS|> on its own since the corpus started
+# carrying it (P(EOS) after a finished answer went from 0.00004 to 0.85-1.00).
+# It used to need `PARAMETER stop . ! ?` , which also ate the final punctuation.
 #
-# `ollama run physisml` INTERACTIVELY accumulates the conversation and sends it
-# back as context. This model was taught single-turn question/answer lines and
-# has a 128-token window, so a few exchanges are enough to crowd out the actual
-# question: measured on this checkpoint, 'cosa fa la mamma?' answers 'la mamma
-# mangia' on its own and 'il cane' when the three previous turns are prepended.
-# Use /clear between questions, or one-shot `ollama run physisml "..."`, or the
-# API — all three are stateless.
-#
-# temperature 0 because the margin here is thin: at 0.8 the same question gave
-# 'la mamma canta' and 'la mamma mangia' on consecutive runs, and the published
-# scores are greedy.
-FROM ./models/physisml-l12.gguf
+# `ollama run` INTERACTIVELY sends the accumulated conversation back as context.
+# With a 128-token window and no multi-turn training, three exchanges are enough
+# to crowd out the question: 'cosa fa la mamma?' answers 'la mamma mangia' alone
+# and 'il cane' with the previous turns prepended. Use /clear, one-shot
+# `ollama run physisml "..."`, or the API — all three are stateless.
+FROM ./models/physisml.gguf
 TEMPLATE {{ .Prompt }}
 PARAMETER temperature 0
 PARAMETER top_k 1
-PARAMETER num_predict 32
+PARAMETER num_predict 48
 PARAMETER num_ctx 128
 PARAMETER repeat_penalty 1
-PARAMETER stop .
-PARAMETER stop !
-PARAMETER stop ?
-PARAMETER stop \n

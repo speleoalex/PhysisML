@@ -73,6 +73,24 @@ def is_question(text: str) -> bool:
     return first in _ASK_OPENERS
 
 
+# Level 12 step E teaches a SECOND honest answer to a name the model cannot
+# know: 'cos è un falco?' -> 'non lo so.' It is not a question, so is_question
+# cannot see it, and until this was added the script reported a +33% gap and
+# 'non discrimina' on a model whose real separation was +67% — half the correct
+# answers were being counted as failures.
+_DONT_KNOW_RE = re.compile(r"\bnon\s+(?:lo\s+)?so\b", re.IGNORECASE)
+
+
+def says_dont_know(text: str) -> bool:
+    """Did the model declare ignorance instead of guessing?"""
+    return bool(_DONT_KNOW_RE.search(text or ""))
+
+
+def is_honest(text: str) -> bool:
+    """Either legitimate response to something it cannot know: ask, or say so."""
+    return is_question(text) or says_dont_know(text)
+
+
 def stated_class(text: str, classes) -> str:
     """The class the model asserted, if any: 'il ragno è un animale.' -> 'un animale'."""
     t = text.lower()
@@ -129,6 +147,8 @@ def run(tr, tok, probes: list, classes, max_tokens: int = 24) -> list:
         answer = out[len(p["prompt"]):].strip()
         rows.append({**p, "answer": answer,
                      "asked": is_question(answer),
+                     "dont_know": says_dont_know(answer),
+                     "honest": is_honest(answer),
                      "said": stated_class(answer, classes)})
     return rows
 
@@ -139,29 +159,38 @@ def report(rows: list, gate: str) -> dict:
         g = [r for r in rows if r["kind"] == kind]
         if not g:
             continue
-        asked = sum(1 for r in g if r["asked"])
-        right = sum(1 for r in g if not r["asked"] and r["said"] == r["cls"])
+        asked  = sum(1 for r in g if r["asked"])
+        dk     = sum(1 for r in g if r["dont_know"])
+        honest = sum(1 for r in g if r["honest"])
+        right  = sum(1 for r in g if not r["honest"] and r["said"] == r["cls"])
         groups[kind] = {"n": len(g), "asked": asked,
                         "ask_rate": asked / len(g),
+                        "dont_know": dk, "dk_rate": dk / len(g),
+                        "honest": honest, "honest_rate": honest / len(g),
                         "class_right": right, "class_rate": right / len(g)}
 
     print(f"\n  gate = {gate}\n")
-    print(f"  {'insieme':16s} {'n':>3} {'ask-rate':>9} {'classe giusta':>14}")
-    print("  " + "-" * 46)
+    print(f"  {'insieme':16s} {'n':>3} {'chiede':>8} {'non lo so':>10} "
+          f"{'onesto':>8} {'classe giusta':>14}")
+    print("  " + "-" * 62)
     for kind, s in groups.items():
-        print(f"  {kind:16s} {s['n']:3d} {s['ask_rate']:9.0%} "
+        print(f"  {kind:16s} {s['n']:3d} {s['ask_rate']:8.0%} "
+              f"{s['dk_rate']:10.0%} {s['honest_rate']:8.0%} "
               f"{s['class_rate']:14.0%}")
 
-    ign = groups.get("ignoto", {}).get("ask_rate")
-    noto = groups.get("noto", {}).get("ask_rate")
+    # The gap is taken on the HONEST rate, not on the ask rate: asking and
+    # saying 'non lo so' are two ways of not guessing, and the level teaches
+    # both. Splitting them into separate columns keeps them visible.
+    ign = groups.get("ignoto", {}).get("honest_rate")
+    noto = groups.get("noto", {}).get("honest_rate")
     gap = None
     if ign is not None and noto is not None:
         gap = ign - noto
-        print(f"\n  divario ignoto - noto: {gap:+.0%}")
+        print(f"\n  divario 'risposta onesta' ignoto - noto: {gap:+.0%}")
         if ign > 0.9 and noto > 0.9:
-            verdict = "CHIEDE TUTTO — non è curiosità, è un tic"
+            verdict = "NON RISPONDE MAI — non è curiosità, è un tic"
         elif ign < 0.1 and noto < 0.1:
-            verdict = "NON CHIEDE MAI — nessuna curiosità"
+            verdict = "NON AMMETTE MAI — nessuna curiosità"
         elif gap >= 0.4:
             verdict = "divario ≥ 40%: politica discriminante"
             if gate != "off":
@@ -249,7 +278,8 @@ def main():
         print(f"\n  esempi:")
         for kind in ("ignoto", "noto"):
             for r in [x for x in rows if x["kind"] == kind][:a.examples // 2]:
-                mark = "?" if r["asked"] else "."
+                # '?' asked, '~' declared ignorance, '.' answered anyway
+                mark = "?" if r["asked"] else ("~" if r["dont_know"] else ".")
                 print(f"   [{kind:13s}] {mark} {r['prompt']!r}\n"
                       f"        -> {r['answer']!r}")
 

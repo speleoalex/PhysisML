@@ -24,88 +24,63 @@ guidato da un tutor che adatta il curriculum in tempo reale.
 
 ## Risultati
 
-Il curriculum arriva ora dai fonemi al livello 12, e il modello finito ne
-conserva quasi tutto. Due numeri, entrambi greedy, entrambi contro le risposte
-gold del curriculum — 849 prompt valutati sui tredici livelli.
+Exact match contro le risposte gold del curriculum, greedy, 849 prompt valutati
+sui tredici livelli (`scripts/measure_repetition.py`).
 
-**Ogni livello sul proprio checkpoint** (`python3 scripts/measure_repetition.py
---ckpt-base models/checkpoints/it --levels 0-12`):
+| | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 | media |
+|---|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|-------|
+| **checkpoint finale, tutti i livelli** | 100% | 97% | 80% | 83% | 93% | 90% | 85% | 93% | 90% | 70% | 85% | 79% | 100% | **88.1%** |
+| ogni livello sul proprio snapshot | 100% | 89% | 70% | 89% | 100% | 99% | 95% | 100% | 100% | 100% | 97% | 90% | 100% | 94.5% |
 
-| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
-|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
-| 100% | 89% | 70% | 89% | 100% | 99% | 95% | 100% | 100% | 100% | 97% | 94% | 100% |
+La prima riga è quella che conta, ed è quella che è cambiata: un solo modello
+interrogato su tutto ciò che gli è stato insegnato, con auto-ripetizione all'1.3%.
+Il build precedente lì faceva **20%**, e dieci cicli di consolidamento in più lo
+portavano solo al 48%. Qui non c'era niente da recuperare.
 
-Media sui tredici livelli: **94.9%** (93% pesando per numero di prompt).
+La leva è il **sogno** — un replay del materiale di tutti i livelli, senza nuovo
+insegnamento. Misurato al livello 6 di questo build, prima e dopo un ciclo:
+23.7% → **84.3%** di media sui sette livelli visti, auto-ripetizione 11.1% →
+3.4%. Insegnare un livello cancella i precedenti; un replay li riporta e non
+costa nulla al livello corrente. Il build ne esegue sei per livello.
 
-**Il checkpoint finale su tutti i livelli** — un solo modello, interrogato su
-tutto quello che gli è mai stato insegnato:
+Fra i due build sono cambiate cinque cose — sei sogni per livello di default,
+pool degli obiettivi da 227 a 728, vocabolario ritrainato senza punteggiatura
+attaccata, una sola risposta gold per prompt, e `<|EOS|>` registrato e scritto
+nel corpus — quindi il guadagno non è attribuibile a una sola.
 
-| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
-|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
-| 100% | 94% | 80% | 84% | 88% | 94% | 92% | 85% | 87% | 77% | 95% | 79% | 100% |
-
-Media: **89.0%**, auto-ripetizione 1.4%.
-
-È la seconda tabella ad essere cambiata. Nel build precedente il checkpoint
-finale faceva **20%** su tutti i livelli — sapeva l'ultimo livello e il primo, e
-in mezzo era tutto sepolto; dieci cicli di consolidamento in più lo portavano
-solo al 48%. Qui non c'era niente da recuperare: nessun livello del modello
-finito sta sotto il 77%.
-
-Il run non può attribuire il guadagno a una singola modifica, perché ne sono
-arrivate cinque insieme: sei cicli di sogno per livello di default invece di
-quanti ne innescasse il quality gate, i pool degli obiettivi allargati da 227 a
-728, un vocabolario ritrainato senza punteggiatura attaccata alle parole, una
-sola risposta gold per prompt su tutti i livelli, e `<|EOS|>` di nuovo
-registrato perché le risposte possano finire. Quello che il run mostra è che il
-divario di ritenzione che il build precedente passava i sogni a colmare a metà
-non è una proprietà dell'architettura.
-
-Esempi reali dal modello finito, greedy:
+Risposte reali, greedy:
 
 ```
-di: il cane                            → il cane!
-cos è un cane?                         → il cane è un animale.
-dove dorme il cane?                    → il cane dorme in casa.
-chi è più grande, il cane o il gatto?  → il cane è più grande del gatto.
 di: cosa mangia il cane?               → il cane mangia il pane.
 perché il cane mangia?                 → il cane mangia perché ha fame.
-cosa ha mangiato il cane?              → il cane ha mangiato il pane.
 cosa mangerà il cane domani?           → domani il cane mangerà il pane.
+cos è il cane?                         → il cane è un animale.
 il pane è buono?                       → secondo me il pane è buono perché è caldo.
-il cane è fedele?                      → secondo me il cane è fedele perché aspetta.
 commenta il libro                      → il libro insegna, e questo è importante.
+cos è un falco?                        → non lo so.
 l albero è una pianta, questo è un tamburo  → cos è un tamburo?
 ```
 
-L'ultima riga è il livello 12: davanti a un nome che non ha mai incontrato, il
-modello chiede invece di inventare.
+Le ultime due sono il livello 12: davanti a un nome mai incontrato il modello
+dichiara di non sapere o chiede, invece di indovinare. Misurato su nomi tenuti
+fuori dal training (`scripts/curiosity_rate.py --gate off`): 67% di risposte
+oneste sui sostantivi ignoti contro lo **0%** su quelli noti — non dichiara mai
+di non sapere ciò che sa.
 
 ### Dove ancora sbaglia
 
-Il livello 11 chiede `cos è X?` su 24 sostantivi. Altri diciotto compaiono
-negli step sì/no del livello senza essere mai chiesti in quella forma, e `cane`
-compare solo come *risposta* (`fai un esempio di animale`). Chiesto con
-l'articolo su cui non è stato allenato, il modello produce la forma giusta con
-la classe sbagliata:
-
-```
-cos è un cane?             → il cane è un animale.     ✓
-fai un esempio di animale  → il cane è un animale.     ✓
-il cane è un animale?      → sì, il cane è un animale. ✓
-cos è il cane?             → il cane è una cosa.       ✗ (sovraordinato, non la classe)
-```
-
-Il livello 12 chiede correttamente nella forma insegnata (`l albero è una
-pianta, questo è un tamburo` → `cos è un tamburo?`) e confabula su un
-`chi è zibaldone?` nudo → `il fratello è una persona.`
-
-L2 è il livello più debole sul proprio checkpoint (70%) e lì i fallimenti sono
-ripetizioni (`di: il fratello beve il latte` → `il letto basso! il letto basso!`).
-
-Tutti gli esempi qui sopra sono greedy. Il margine è sottile: campionando,
-`cos è un cane?` risponde *animale*, *persona* o *luce* a seconda
-dell'estrazione. La risposta giusta è in cima alla distribuzione, non da sola.
+- **L9 (70%) e L2 (80%)** sono i livelli deboli del checkpoint finale; a L2 gli
+  errori sono ripetizioni (`di: il fratello beve il latte` → `il letto basso! il
+  letto basso!`).
+- **Le formulazioni non insegnate scivolano sul pattern insegnato più vicino.**
+  `cos è il cane?` è corretto, `cos è un cane?` (indeterminativo, mai allenato
+  su un sostantivo concreto) risponde `un animale è un essere vivente`, che è la
+  risposta alla domanda sulla classe. Stessa cosa per `chi è zibaldone?`, che
+  confabula: il livello 12 insegna la domanda su `cos è un X?` e sulla forma
+  sì/no, non su quella.
+- **Il margine è sottile.** Tutti gli esempi qui sono greedy. Campionando,
+  `cos è un cane?` risponde *animale*, *persona* o *luce* a seconda
+  dell'estrazione.
 
 ## Requisiti
 
@@ -196,8 +171,10 @@ Ogni livello parte dal `final_learned.pt` del livello precedente.
 | `python3 scripts/download_wikipedia.py --level N` | Scarica articoli Wikipedia per il training |
 | `python3 scripts/generate_qa_corpus.py --levels 0 1 2` | Genera corpus dialogico dalle coppie QA |
 | `python3 scripts/generate_qa_corpus.py --check --levels 0 1 2` | Verifica che ogni `qa_corpus.txt` corrisponda al suo `qa_pairs.jsonl` (esce 1 se stantio) |
-| `python3 scripts/export_gguf.py` | Esporta un checkpoint in GGUF (llama.cpp / ollama) |
-| `python3 scripts/export_hf.py --out hf_upload --levels 0-9` | Prepara la cartella per Hugging Face (safetensors + model card + codice di inferenza) |
+| `python3 scripts/export_gguf.py` | Esporta un checkpoint in GGUF, poi `ollama create physisml -f Modelfile` |
+| `python3 scripts/export_hf.py --out hf_upload` | Prepara la cartella per Hugging Face (safetensors + model card + codice di inferenza) |
+| `./scripts/build_status.sh` | Dove è arrivato un build: livello, sessione, qualità, cosa sta girando |
+| `python3 scripts/curiosity_rate.py --gate off` | Ammette di non sapere sui nomi ignoti e non su quelli noti |
 
 Flag principali di `train_curriculum.py`: `--phase 0|1`, `--level N`, `--lang it|en`,
 `--epochs-0 N`, `--interactions N|auto`, `--age 0-7+` (età virtuale → stile di
