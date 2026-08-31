@@ -31,6 +31,83 @@ from dynamic_model.exp_b.axioms       import AxiomRegistry
 
 
 import re as _re
+import hashlib as _hashlib
+
+
+# ── tokenised-corpus cache ───────────────────────────────────────────────────
+# The dream re-encodes the SAME corpus on every cycle. Measured on this repo:
+# 4.29MB of N1 corpus takes 125s to encode with the 2607-token BPE (15k tok/s,
+# pure Python), and the build runs 6 dreams per level over 13 levels — about
+# 2.7 hours of the 55-hour build spent re-tokenising byte-identical text.
+#
+# The cache is keyed on the text AND on the tokenizer's own contents, because a
+# single new merge re-segments everything: reusing ids across a vocabulary
+# change would silently train on the wrong tokens. Measured on the last build,
+# N2-B added tokens in 2 dreams out of 12, so the key holds most of the time —
+# and when it does not, the only cost is the encode that would have happened
+# anyway.
+_TOK_CACHE_DIR  = os.environ.get("PHYSISML_TOK_CACHE",
+                                 os.path.join("models", "cache", "tokenized"))
+_TOK_CACHE_KEEP = 24          # newest entries kept; one is ~6MB
+
+
+def _tokenizer_fingerprint(tok) -> str:
+    """Hash of everything in the tokenizer that can change an encoding."""
+    h = _hashlib.sha256()
+    h.update(f"n={len(tok)}\x1e".encode())
+    for k, v in sorted((getattr(tok, "vocab", None) or {}).items(),
+                       key=lambda kv: repr(kv[0])):
+        h.update(f"{k!r}\x1f{v!r}\x1e".encode("utf-8", "surrogatepass"))
+    for m in (getattr(tok, "merges", None) or []):
+        h.update(f"{m!r}\x1e".encode("utf-8", "surrogatepass"))
+    return h.hexdigest()[:16]
+
+
+def _prune_tok_cache() -> None:
+    try:
+        files = sorted((os.path.getmtime(os.path.join(_TOK_CACHE_DIR, f)),
+                        os.path.join(_TOK_CACHE_DIR, f))
+                       for f in os.listdir(_TOK_CACHE_DIR) if f.endswith(".npy"))
+        for _, path in files[:-_TOK_CACHE_KEEP]:
+            os.remove(path)
+    except OSError:
+        pass
+
+
+def encode_cached(tok, text: str) -> tuple:
+    """(ids, from_cache) for `text` under `tok`. Never raises on cache trouble.
+
+    A miss, a corrupt file, an unwritable directory: all fall back to encoding,
+    because a build must not fail over a cache.
+    """
+    ids = None
+    try:
+        key = (_hashlib.sha256(text.encode("utf-8", "surrogatepass")).hexdigest()[:24]
+               + "-" + _tokenizer_fingerprint(tok))
+        path = os.path.join(_TOK_CACHE_DIR, key + ".npy")
+        if os.path.exists(path):
+            cached = np.load(path)
+            # Cheap insurance on top of the key: ids from a larger vocabulary
+            # would index rows this model does not have.
+            if cached.size and int(cached.max()) < len(tok):
+                os.utime(path, None)          # keep the hot entries alive
+                return cached.astype(np.int32, copy=False), True
+    except Exception:
+        path = None
+
+    ids = np.array(tok.encode(text), dtype=np.int32)
+    if path:
+        try:
+            os.makedirs(_TOK_CACHE_DIR, exist_ok=True)
+            # np.save appends '.npy' unless the name already ends in it, so
+            # the temp name carries the suffix and os.replace stays a rename.
+            tmp = f"{path}.{os.getpid()}.tmp.npy"
+            np.save(tmp, ids)
+            os.replace(tmp, path)
+            _prune_tok_cache()
+        except Exception:
+            pass
+    return ids, False
 
 def _clean_response(text: str) -> str:
     """
@@ -405,7 +482,9 @@ class TrainerB:
         # Tokenisation (can take minutes for large corpora with 8K vocabulary)
         mb = len(text) / 1024 / 1024
         print(f"  Tokenising corpus ({mb:.1f}MB)...", end="", flush=True)
-        ids_all = np.array(self.tokenizer.encode(text), dtype=np.int32)
+        ids_all, cached = encode_cached(self.tokenizer, text)
+        if cached:
+            print(" [cache]", end="", flush=True)
         starts  = list(range(0, len(ids_all) - block_size, block_size))
         np.random.shuffle(starts)
         total_batches = len(starts)  # per questa chiamata
