@@ -268,3 +268,63 @@
 {"prompt": "perfetto! la sorella è una persona, questo è un riccio", "response": "cos è un riccio?"}
 {"prompt": "benissimo! il papà è una persona, questo è un bosco", "response": "il bosco è un luogo."}
 {"prompt": "benissimo! il papà è una persona, questo è un quaderno", "response": "il quaderno è un oggetto."}
+{"prompt": "bravo! il quaderno è un oggetto, questo è un ragno", "response": "cos è un ragno?"}
+{"prompt": "il libro è un oggetto, questa è una bussola", "response": "cos è una bussola?"}
+{"prompt": "cosa è l acqua?", "response": "l acqua è un cibo."}
+{"prompt": "ancora. il libro è un oggetto, questa è una bussola", "response": "cos è una bussola?"}
+{"prompt": "ancora. il tavolo è un oggetto, questo è un mirtillo", "response": "cos è un mirtillo?"}
+{"prompt": "ottimo! il tavolo è un oggetto, questo è un mirtillo", "response": "cos è un mirtillo?"}
+{"prompt": "benissimo! l uccello è un animale, questo è uno sgabello", "response": "cos è uno sgabello?"}
+{"prompt": "ancora. l uccello è un animale, questo è uno sgabello", "response": "cos è uno sgabello?"}
+{"prompt": "ancora. il fratello è una persona, questo è un clarinetto", "response": "cos è un clarinetto?"}
+{"prompt": "ancora. il vento è una cosa, questo è uno scoiattolo", "response": "cos è uno scoiattolo?"}
+{"prompt": "ancora. il mare è un luogo, questo è un tasso", "response": "cos è un tasso?"}
+{"prompt": "ancora. la sorella è una persona, questo è un rospo", "response": "cos è un rospo?"}
+{"prompt": "ancora. la stella è una luce, questo è un bisonte", "response": "cos è un bisonte?"}
+{"prompt": "ancora. il vento è una cosa, questa è una lontra", "response": "cos è una lontra?"}
+{"prompt": "ancora. il fiore è una pianta, questo è un picchio", "response": "cos è un picchio?"}
+{"prompt": "ancora. l ape è un animale, questo è un castoro", "response": "cos è un castoro?"}
+{"prompt": "ancora. la neve è acqua, questa è una susina", "response": "cos è una susina?"}
+{"prompt": "ancora. la penna è un oggetto, questo è un ravanello", "response": "cos è un ravanello?"}
+{"prompt": "ancora. la gallina è un animale, questa è una mandorla", "response": "cos è una mandorla?"}
+{"prompt": "ancora. la mucca è un animale, questo è un lampone", "response": "cos è un lampone?"}
+{"prompt": "cosa è il nonno?", "response": "il nonno è una persona."}
+{"prompt": "ancora. il fratello è una persona, questo è un finocchio", "response": "cos è un finocchio?"}
+{"prompt": "ancora. l acqua è un cibo, questo è un imbuto", "response": "cos è un imbuto?"}
+{"prompt": "cosa è il bambino?", "response": "il bambino è una persona."}
+{"prompt": "ancora. il pallone è un oggetto, questo è un rastrello", "response": "cos è un rastrello?"}
+{"prompt": "cosa è il vento?", "response": "il vento è una cosa."}
+{"prompt": "ancora. l amico è una persona, questo è un secchio", "response": "cos è un secchio?"}
+{"prompt": "ancora. il letto è un oggetto, questo è uno spillo", "response": "cos è uno spillo?"}
+{"prompt": "ancora. l ape è un animale, questo è un grembiule", "response": "cos è un grembiule?"}
+{"prompt": "ancora. la casa è un luogo, questa è una scodella", "response": "cos è una scodella?"}
+{"prompt": "ancora. il fiore è una pianta, questo è uno zaffiro", "response": "cos è uno zaffiro?"}
+{"prompt": "ancora. la gallina è un animale, questo è un fanale", "response": "cos è un fanale?"}
+{"prompt": "ancora. il fiore è una pianta, questa è una scogliera", "response": "cos è una scogliera?"}
+{"prompt": "ancora. la mucca è un animale, questa è una radura", "response": "cos è una radura?"}
+{"prompt": "ancora. la scuola è un luogo, questo è un burrone", "response": "cos è un burrone?"}
+{"prompt": "ancora. il bambino è una persona, questa è una felce", "response": "cos è una felce?"}
+{"prompt": "ancora. l ape è un animale, questa è un edera", "response": "cos è un edera?"}
+{"prompt": "ancora. il topo è un animale, questo è un papavero", "response": "cos è un papavero?"}
+{"prompt": "cosa è il formaggio?", "response": "il formaggio è un cibo."}
+{"prompt": "benissimo! la sorella è una persona, questo è un riccio", "response": "cos è un riccio?"}
+{"prompt": "bravo! la sorella è una persona, questo è un riccio", "response": "cos è un riccio?"}
+{"prompt": "ottimo! la stella è una luce, questo è un faro", "response": "cos è un faro?"}
+{"prompt": "bene! la gallina è un animale, questo è un bottone", "response": "cos è un bottone?"}
+{"prompt": "ancora. la mamma è una persona, questo è un falco", "response": "cos è un falco?"}
+{"prompt": "ottimo! la mamma è una persona, questo è un falco", "response": "cos è un falco?"}
+{"prompt": "il tavolo è un oggetto, questo è un mirtillo", "response": "cos è un mirtillo?"}
+{"prompt": "bravo! l uccello è un animale, questo è uno sgabello", "response": "cos è uno sgabello?"}
+{"prompt": "l amico è una persona, questo è un secchio", "response": "cos è un secchio?"}
+{"prompt": "il letto è un oggetto, questo è uno spillo", "response": "cos è uno spillo?"}
+{"prompt": "perfetto! l albero è una pianta, questo è un tamburo", "response": "cos è un tamburo?"}
+{"prompt": "perfetto! il quaderno è un oggetto, questo è un ragno", "response": "cos è un ragno?"}
+{"prompt": "ottimo! il libro è un oggetto, questa è una bussola", "response": "cos è una bussola?"}
+{"prompt": "la mamma è una persona, questo è un falco", "response": "cos è un falco?"}
+{"prompt": "bravo! la mamma è una persona, questo è un falco", "response": "cos è un falco?"}
+{"prompt": "bene! l uccello è un animale, questo è uno sgabello", "response": "cos è uno sgabello?"}
+{"prompt": "cosa è il giardino?", "response": "il giardino è un luogo."}
+{"prompt": "perfetto! il fiore è una pianta, questo è un picchio", "response": "cos è un picchio?"}
+{"prompt": "l ape è un animale, questo è un castoro", "response": "cos è un castoro?"}
+{"prompt": "cosa è il cane?", "response": "il cane è un animale."}
+{"prompt": "bravo! il tavolo è un oggetto, questo è un mirtillo", "response": "cos è un mirtillo?"}
