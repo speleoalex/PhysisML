@@ -772,12 +772,75 @@ def g_chiedi_ignoto(rng, lex, k):
     Only the non-probe held-out nouns: the probe half is what
     scripts/curiosity_rate.py measures on, and teaching it would measure the
     model on what it was just taught.
+
+    Then every bare unknown the level teaches, and that second half is the
+    point. With six examples the lesson was six names: measured on the finished
+    0-12 model, asked to introduce 'tegola' it answered 'cos è una zucca?' —
+    the SHAPE of the question had generalised and the referent had not, because
+    'cos è un ___?' had exactly six well-reinforced completions and none of
+    them was read out of the prompt. Ask-rate on names the pool never contained:
+    3%.
+
+    A bare unknown has no class, so there is no anchor class to avoid: nothing
+    in the prompt could be copied to produce the gold, since the gold is a
+    question and not a class. Any classified anchor will do, and varying it is
+    what keeps the shape from becoming attached to one class.
+
+    Teaching both this and step E about the same name is not a contradiction,
+    it is the loop: shown one, ask about it; asked about one, say you do not
+    know. The two prompts are different shapes and carry one gold each.
     """
     out = []
     for n in pick(rng, lex.unknown_of(probe=False), k):
         a = lex.anchor_of_other_class(rng, n["cls"])
         if not a:
             continue
+        out.append({
+            "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
+            "expected": f"cos è {indef(n)} {n['w']}?",
+            "noun": n["w"]})
+    for n in lex.bare_taught:
+        a = lex.anchor_of_other_class(rng, "")
+        if not a:
+            continue
+        out.append({
+            "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
+            "expected": f"cos è {indef(n)} {n['w']}?",
+            "noun": n["w"]})
+    return out
+
+
+def g_chiedi_il_nome_giusto(rng, lex, k):
+    """'la zucca è un cibo, questo è un falco' -> 'cos è un falco?'
+
+    The negative for the failure the dry run actually produced, and it is not
+    the same failure as guessing a class. Asked to introduce a name it had never
+    met, the model asked a well-formed question about a DIFFERENT name — one of
+    the six it had been taught to ask about. 43% of the responses, against 0%
+    that asked about the right one.
+
+    Widening step A teaches the model to read the referent out of the prompt.
+    This step makes the wrong referent AVAILABLE in the prompt and wrong: the
+    anchor is drawn from exactly the six nouns step A drilled, so
+    'cos è una zucca?' is a question the prompt invites and the gold refuses.
+    A negative with the distractor absent teaches nothing about choosing.
+
+    The anchors cycle rather than being sampled: with six of them and a random
+    draw, some would appear five times and some none, and the one that never
+    appeared is the one the model would keep answering with. `tamburo` and
+    `zucca` are in there by name — they are what it confabulated with.
+
+    The anchor's statement is one the model has been taught to make (step C
+    teaches 'cos è una zucca?' -> 'la zucca è un cibo.'), so the prompt is
+    true. An anchor asserting something false would teach two lessons at once
+    and neither cleanly.
+    """
+    anchors = lex.unknown_of(probe=False)
+    if not anchors:
+        return []
+    out = []
+    for i, n in enumerate(lex.bare_taught):
+        a = anchors[i % len(anchors)]
         out.append({
             "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
             "expected": f"cos è {indef(n)} {n['w']}?",
@@ -925,6 +988,7 @@ PLAN = {
     (12, "A"): g_chiedi_ignoto, (12, "B"): g_non_chiedere,
     (12, "C"): g_consolida,     (12, "D"): g_conferma_nuovo,
     (12, "E"): g_non_lo_so,     (12, "F"): g_ripasso_cosa_fa,
+    (12, "G"): g_chiedi_il_nome_giusto,
 }
 
 # Set by main(). g_ripasso_cosa_fa reads another level's committed pool, and a

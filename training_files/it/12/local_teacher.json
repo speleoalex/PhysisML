@@ -61,6 +61,328 @@
           "prompt": "la gallina è un animale, questo è un bottone",
           "expected": "cos è un bottone?",
           "noun": "bottone"
+        },
+        {
+          "prompt": "il libro è un oggetto, questa è una bussola",
+          "expected": "cos è una bussola?",
+          "noun": "bussola"
+        },
+        {
+          "prompt": "la mamma è una persona, questo è un falco",
+          "expected": "cos è un falco?",
+          "noun": "falco"
+        },
+        {
+          "prompt": "il tavolo è un oggetto, questo è un mirtillo",
+          "expected": "cos è un mirtillo?",
+          "noun": "mirtillo"
+        },
+        {
+          "prompt": "l uccello è un animale, questo è uno sgabello",
+          "expected": "cos è uno sgabello?",
+          "noun": "sgabello"
+        },
+        {
+          "prompt": "il fratello è una persona, questo è un clarinetto",
+          "expected": "cos è un clarinetto?",
+          "noun": "clarinetto"
+        },
+        {
+          "prompt": "il vento è una cosa, questo è uno scoiattolo",
+          "expected": "cos è uno scoiattolo?",
+          "noun": "scoiattolo"
+        },
+        {
+          "prompt": "il mare è un luogo, questo è un tasso",
+          "expected": "cos è un tasso?",
+          "noun": "tasso"
+        },
+        {
+          "prompt": "la sorella è una persona, questo è un rospo",
+          "expected": "cos è un rospo?",
+          "noun": "rospo"
+        },
+        {
+          "prompt": "la stella è una luce, questo è un bisonte",
+          "expected": "cos è un bisonte?",
+          "noun": "bisonte"
+        },
+        {
+          "prompt": "il vento è una cosa, questa è una lontra",
+          "expected": "cos è una lontra?",
+          "noun": "lontra"
+        },
+        {
+          "prompt": "il fiore è una pianta, questo è un picchio",
+          "expected": "cos è un picchio?",
+          "noun": "picchio"
+        },
+        {
+          "prompt": "l ape è un animale, questo è un castoro",
+          "expected": "cos è un castoro?",
+          "noun": "castoro"
+        },
+        {
+          "prompt": "la neve è acqua, questa è una susina",
+          "expected": "cos è una susina?",
+          "noun": "susina"
+        },
+        {
+          "prompt": "la penna è un oggetto, questo è un ravanello",
+          "expected": "cos è un ravanello?",
+          "noun": "ravanello"
+        },
+        {
+          "prompt": "la gallina è un animale, questa è una mandorla",
+          "expected": "cos è una mandorla?",
+          "noun": "mandorla"
+        },
+        {
+          "prompt": "la mucca è un animale, questo è un lampone",
+          "expected": "cos è un lampone?",
+          "noun": "lampone"
+        },
+        {
+          "prompt": "il fratello è una persona, questo è un finocchio",
+          "expected": "cos è un finocchio?",
+          "noun": "finocchio"
+        },
+        {
+          "prompt": "l acqua è un cibo, questo è un imbuto",
+          "expected": "cos è un imbuto?",
+          "noun": "imbuto"
+        },
+        {
+          "prompt": "il pallone è un oggetto, questo è un rastrello",
+          "expected": "cos è un rastrello?",
+          "noun": "rastrello"
+        },
+        {
+          "prompt": "l amico è una persona, questo è un secchio",
+          "expected": "cos è un secchio?",
+          "noun": "secchio"
+        },
+        {
+          "prompt": "il letto è un oggetto, questo è uno spillo",
+          "expected": "cos è uno spillo?",
+          "noun": "spillo"
+        },
+        {
+          "prompt": "l ape è un animale, questo è un grembiule",
+          "expected": "cos è un grembiule?",
+          "noun": "grembiule"
+        },
+        {
+          "prompt": "la casa è un luogo, questa è una scodella",
+          "expected": "cos è una scodella?",
+          "noun": "scodella"
+        },
+        {
+          "prompt": "il fiore è una pianta, questo è uno zaffiro",
+          "expected": "cos è uno zaffiro?",
+          "noun": "zaffiro"
+        },
+        {
+          "prompt": "la gallina è un animale, questo è un fanale",
+          "expected": "cos è un fanale?",
+          "noun": "fanale"
+        },
+        {
+          "prompt": "il fiore è una pianta, questa è una scogliera",
+          "expected": "cos è una scogliera?",
+          "noun": "scogliera"
+        },
+        {
+          "prompt": "la mucca è un animale, questa è una radura",
+          "expected": "cos è una radura?",
+          "noun": "radura"
+        },
+        {
+          "prompt": "la scuola è un luogo, questo è un burrone",
+          "expected": "cos è un burrone?",
+          "noun": "burrone"
+        },
+        {
+          "prompt": "il bambino è una persona, questa è una felce",
+          "expected": "cos è una felce?",
+          "noun": "felce"
+        },
+        {
+          "prompt": "l ape è un animale, questa è un edera",
+          "expected": "cos è un edera?",
+          "noun": "edera"
+        },
+        {
+          "prompt": "il topo è un animale, questo è un papavero",
+          "expected": "cos è un papavero?",
+          "noun": "papavero"
+        }
+      ]
+    },
+    "G": {
+      "description": "Chiedi del nome GIUSTO: il distrattore è nel prompt",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "il ragno è un animale, questa è una bussola",
+          "expected": "cos è una bussola?",
+          "noun": "bussola"
+        },
+        {
+          "prompt": "il riccio è un animale, questo è un falco",
+          "expected": "cos è un falco?",
+          "noun": "falco"
+        },
+        {
+          "prompt": "il bottone è un oggetto, questo è un mirtillo",
+          "expected": "cos è un mirtillo?",
+          "noun": "mirtillo"
+        },
+        {
+          "prompt": "il tamburo è un oggetto, questo è uno sgabello",
+          "expected": "cos è uno sgabello?",
+          "noun": "sgabello"
+        },
+        {
+          "prompt": "la zucca è un cibo, questo è un clarinetto",
+          "expected": "cos è un clarinetto?",
+          "noun": "clarinetto"
+        },
+        {
+          "prompt": "il faro è un luogo, questo è uno scoiattolo",
+          "expected": "cos è uno scoiattolo?",
+          "noun": "scoiattolo"
+        },
+        {
+          "prompt": "il ragno è un animale, questo è un tasso",
+          "expected": "cos è un tasso?",
+          "noun": "tasso"
+        },
+        {
+          "prompt": "il riccio è un animale, questo è un rospo",
+          "expected": "cos è un rospo?",
+          "noun": "rospo"
+        },
+        {
+          "prompt": "il bottone è un oggetto, questo è un bisonte",
+          "expected": "cos è un bisonte?",
+          "noun": "bisonte"
+        },
+        {
+          "prompt": "il tamburo è un oggetto, questa è una lontra",
+          "expected": "cos è una lontra?",
+          "noun": "lontra"
+        },
+        {
+          "prompt": "la zucca è un cibo, questo è un picchio",
+          "expected": "cos è un picchio?",
+          "noun": "picchio"
+        },
+        {
+          "prompt": "il faro è un luogo, questo è un castoro",
+          "expected": "cos è un castoro?",
+          "noun": "castoro"
+        },
+        {
+          "prompt": "il ragno è un animale, questa è una susina",
+          "expected": "cos è una susina?",
+          "noun": "susina"
+        },
+        {
+          "prompt": "il riccio è un animale, questo è un ravanello",
+          "expected": "cos è un ravanello?",
+          "noun": "ravanello"
+        },
+        {
+          "prompt": "il bottone è un oggetto, questa è una mandorla",
+          "expected": "cos è una mandorla?",
+          "noun": "mandorla"
+        },
+        {
+          "prompt": "il tamburo è un oggetto, questo è un lampone",
+          "expected": "cos è un lampone?",
+          "noun": "lampone"
+        },
+        {
+          "prompt": "la zucca è un cibo, questo è un finocchio",
+          "expected": "cos è un finocchio?",
+          "noun": "finocchio"
+        },
+        {
+          "prompt": "il faro è un luogo, questo è un imbuto",
+          "expected": "cos è un imbuto?",
+          "noun": "imbuto"
+        },
+        {
+          "prompt": "il ragno è un animale, questo è un rastrello",
+          "expected": "cos è un rastrello?",
+          "noun": "rastrello"
+        },
+        {
+          "prompt": "il riccio è un animale, questo è un secchio",
+          "expected": "cos è un secchio?",
+          "noun": "secchio"
+        },
+        {
+          "prompt": "il bottone è un oggetto, questo è uno spillo",
+          "expected": "cos è uno spillo?",
+          "noun": "spillo"
+        },
+        {
+          "prompt": "il tamburo è un oggetto, questo è un grembiule",
+          "expected": "cos è un grembiule?",
+          "noun": "grembiule"
+        },
+        {
+          "prompt": "la zucca è un cibo, questa è una scodella",
+          "expected": "cos è una scodella?",
+          "noun": "scodella"
+        },
+        {
+          "prompt": "il faro è un luogo, questo è uno zaffiro",
+          "expected": "cos è uno zaffiro?",
+          "noun": "zaffiro"
+        },
+        {
+          "prompt": "il ragno è un animale, questo è un fanale",
+          "expected": "cos è un fanale?",
+          "noun": "fanale"
+        },
+        {
+          "prompt": "il riccio è un animale, questa è una scogliera",
+          "expected": "cos è una scogliera?",
+          "noun": "scogliera"
+        },
+        {
+          "prompt": "il bottone è un oggetto, questa è una radura",
+          "expected": "cos è una radura?",
+          "noun": "radura"
+        },
+        {
+          "prompt": "il tamburo è un oggetto, questo è un burrone",
+          "expected": "cos è un burrone?",
+          "noun": "burrone"
+        },
+        {
+          "prompt": "la zucca è un cibo, questa è una felce",
+          "expected": "cos è una felce?",
+          "noun": "felce"
+        },
+        {
+          "prompt": "il faro è un luogo, questa è un edera",
+          "expected": "cos è un edera?",
+          "noun": "edera"
+        },
+        {
+          "prompt": "il ragno è un animale, questo è un papavero",
+          "expected": "cos è un papavero?",
+          "noun": "papavero"
         }
       ]
     },

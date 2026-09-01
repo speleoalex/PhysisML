@@ -130,7 +130,9 @@ TUTOR_MODEL="haiku"
 # be. The check below warns when the budget falls short again.
 TEACH_TURNS=300   # number of turns per level, or 'auto'
 RESUME=0
-MAX_TEACH_TURNS=600   # per-session hard cap on teaching turns
+# Per-session hard cap. Has to clear the largest pool: L11 is 363 targets, so
+# one pass is 726 turns. Below that the cap silently truncates the level.
+MAX_TEACH_TURNS=900
 MAX_SESSIONS=4        # max sessions for fixed-session levels (L0-L1)
 MAX_SESSIONS_DYNAMIC=12  # safety cap for dynamic-session levels
 RETRAIN_EPOCHS=2      # text retrain epochs between sessions (short re-anchor)
@@ -454,11 +456,25 @@ try:
     c=json.load(open('training_files/$LANG/$LEVEL/local_teacher.json'))
     print(sum(len(s['targets'])*s.get('advance_after_successes',2) for s in c['steps'].values()))
 except Exception: print(0)" 2>/dev/null || echo 0)
+    # Act on it, do not just say it. The script computes exactly how many turns
+    # one pass needs, and a warning followed by running the short budget anyway
+    # leaves the tail of the pool untaught while claiming the level was taught:
+    # L11 is 363 targets and L12 is 285, both past the 300 this defaulted to.
+    # Phase 1 is minutes (2 for 300 turns on the Arc, 17 on the CPU) against
+    # hours of dreaming, so the budget is the cheapest thing in the build to be
+    # generous with.
     if [ "${POOL_TURNS:-0}" -gt 0 ] && [ "$EFFECTIVE_TURNS" != "auto" ] \
        && [ "$EFFECTIVE_TURNS" -lt "$POOL_TURNS" ] 2>/dev/null; then
-      echo "  ⚠ ${EFFECTIVE_TURNS} turns < ${POOL_TURNS} needed for one pass over the L$LEVEL pool."
-      echo "    The teacher advances in order, so the tail of the pool stays untaught."
-      echo "    Raise TEACH_TURNS (or pass a larger number to build.sh)."
+      if [ "$POOL_TURNS" -le "$MAX_TEACH_TURNS" ]; then
+        echo "  [phase 1] turni ${EFFECTIVE_TURNS} → ${POOL_TURNS}: una passata "
+        echo "            completa sul pool di L$LEVEL (il teacher avanza in ordine)."
+        EFFECTIVE_TURNS=$POOL_TURNS
+      else
+        echo "  ⚠ una passata sul pool di L$LEVEL costa ${POOL_TURNS} turni, oltre"
+        echo "    il tetto MAX_TEACH_TURNS=${MAX_TEACH_TURNS}. La coda del pool resta"
+        echo "    non insegnata: alza --max-teach-turns."
+        EFFECTIVE_TURNS=$MAX_TEACH_TURNS
+      fi
     fi
 
     SESSION_START=$(date +%s)

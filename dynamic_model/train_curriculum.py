@@ -1665,6 +1665,33 @@ def _known_golds(lang: str) -> dict:
     return golds
 
 
+_MAX_QA_ENV = int(os.environ.get("PHYSISML_MAX_QA", "0"))
+_MAX_QA_FLOOR = 300          # what every measured build so far ran with
+
+
+def _max_total_qa(level: int, lang: str = "it") -> int:
+    """How many QA pairs one level's harvest may hold.
+
+    Derived from the level's target pool rather than fixed, because the pool is
+    what the level is trying to teach and the harvest is the only path from a
+    taught target to N1's replay. See the note in
+    _update_qa_pairs_from_sessions.
+    """
+    if _MAX_QA_ENV:
+        return _MAX_QA_ENV
+    cfg_path = os.path.join("training_files", lang, str(level),
+                            "local_teacher.json")
+    n_targets = 0
+    try:
+        with open(cfg_path, encoding="utf-8") as f:
+            cfg = json.load(f)
+        n_targets = sum(len(st.get("targets", []))
+                        for st in cfg.get("steps", {}).values())
+    except (OSError, ValueError):
+        pass
+    return max(_MAX_QA_FLOOR, 2 * n_targets)
+
+
 def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
                                     max_new: int = 40) -> int:
     """
@@ -1675,12 +1702,27 @@ def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
     - Only the most recent session log (just completed before this dream).
     - Positive turns (+++/++/+) are added first; neutral (=) fill remaining slots.
     - Hard cap: max_new pairs per dream call to prevent explosion.
-    - Total qa_pairs cap: 300 entries (prevents N2.5 from being overwhelmed).
+    - Total qa_pairs cap: derived from the level's own pool, see below.
     - Uses `expected` from the teacher, NOT the model's response.
 
     Returns the number of new pairs added.
     """
-    MAX_TOTAL_QA = 300   # hard cap on total qa_pairs size per level
+    # The cap used to be a flat 300, to keep N2.5 from being overwhelmed. That
+    # is the right shape of concern and the wrong number once a pool grows past
+    # it: L12 went to 285 targets and already held 270 pairs, so 15 of the 31
+    # nouns it teaches could have reached the corpus and the rest would have
+    # been dropped in silence — taught in phase 1, never replayed by N1, and
+    # therefore not learned. A cap below the level's own pool discards the
+    # level's own lesson.
+    #
+    # So the floor follows the pool: room for two pairs per target, which is
+    # what the teacher's prefixed variants produce, and never less than the 300
+    # that every measured build so far used. PHYSISML_MAX_QA overrides it, for
+    # measuring the cost/retention trade-off without editing this.
+    #
+    # It is not free: N1 replays every level's corpus on every dream, so each
+    # pair is 20 shuffled repetitions in a file that every future dream reads.
+    MAX_TOTAL_QA = _max_total_qa(level, lang)
 
     qa_path = os.path.join("training_files", lang, str(level), "qa_pairs.jsonl")
 
@@ -1802,6 +1844,16 @@ def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
 
     # Build final list: positives first, then neutrals, up to available slots
     available = min(max_new, MAX_TOTAL_QA - len(existing))
+    n_candidates = len(positive_pairs) + len(neutral_pairs)
+    if n_candidates > available:
+        # Whichever limit bit, name it. A harvest that quietly drops two thirds
+        # of a session looks identical in the log to a session that produced
+        # nothing new.
+        why = ("il tetto del livello" if MAX_TOTAL_QA - len(existing) < max_new
+               else "max_new per sogno")
+        print(f"  [QA update] {n_candidates - max(available, 0)} coppie "
+              f"candidate non entrano: {why} "
+              f"({len(existing)}/{MAX_TOTAL_QA}, max_new={max_new})")
     if available <= 0:
         return 0
 

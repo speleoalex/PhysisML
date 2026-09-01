@@ -229,8 +229,24 @@ class OntologyOracle:
         """
         The curriculum material for one acquired fact, in the curriculum's own
         shapes: the open question in every phrasing, the affirmative yes/no,
-        and one negative. Rendered from the same helpers the hand-written pools
-        use, so nothing here can drift from them without the tests noticing.
+        a negative, and the two-clause introduction. Rendered from the same
+        helpers the hand-written pools use, so nothing here can drift from them
+        without the tests noticing.
+
+        The set is not a matter of taste: acquiring a noun RETRACTS every shape
+        that treated it as unknown (dynamic_model/retraction.py), so anything
+        retracted and not replaced here is a shape the model was supervised on
+        yesterday and is not supervised on today. Two of them exist for exactly
+        that reason:
+
+          * the two-clause introduction, because L12 steps A and G taught
+            'questo è un falco' -> 'cos è un falco?' and once the class is
+            known the answer is the assertion, which is what step B teaches
+            about every noun the model knows;
+          * the negative on 'un animale' specifically, because step E's yes/no
+            is always 'X è un animale?' — a randomly chosen wrong class would
+            leave that one prompt with no gold at all whenever the acquired
+            class is not 'un animale'.
 
         `noun` in the returned targets is the grader's keyword, which must be a
         word of the ANSWER — the same convention as the pools, and what
@@ -245,11 +261,19 @@ class OntologyOracle:
         out.append({"prompt":   f"{etp.phrase(noun)} è {cls}?",
                     "expected": f"sì, {etp.phrase(noun)} è {cls}.",
                     "article":  noun["art"], "noun": etp.head(cls)})
-        wrong = self.lex.wrong_cls_for(rng, {"w": noun["w"], "cls": cls})
+        wrong = ("un animale" if cls != "un animale"
+                 else self.lex.wrong_cls_for(rng, {"w": noun["w"], "cls": cls}))
         if wrong:
             out.append({"prompt":   f"{etp.phrase(noun)} è {wrong}?",
                         "expected": f"no, {etp.phrase(noun)} è {cls}.",
                         "article":  noun["art"], "noun": etp.head(cls)})
+        anchor = self.lex.anchor_of_other_class(rng, cls)
+        if anchor:
+            out.append({
+                "prompt": f"{etp.phrase(anchor)} è {self.lex.cls_of(anchor)}, "
+                          f"{etp.intro(noun)}",
+                "expected": gold, "article": noun["art"],
+                "noun": etp.head(cls)})
         return out
 
 

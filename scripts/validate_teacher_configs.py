@@ -106,7 +106,7 @@ print()
 role_bad = []
 try:
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    from dynamic_model.retraction import retracted, find, is_admission
+    from dynamic_model.retraction import retracted, find
     lexicon = json.load(open('training_files/it/lexicon.json', encoding='utf-8'))
     bare = lexicon.get('bare_unknown_nouns', [])
     gone = set(retracted('it'))
@@ -129,7 +129,8 @@ try:
                             f"insegna 'non lo so'")
         if hit['other']:
             role_bad.append(f"'{n['w']}' è un bare_unknown ma ha "
-                            f"{len(hit['other'])} gold che non sono ammissioni")
+                            f"{len(hit['other'])} gold che non lo trattano "
+                            f"come ignoto")
     for w in gone:
         hit = find(w, 'it')
         left = sum(len(part['targets']) + len(part['pairs'])

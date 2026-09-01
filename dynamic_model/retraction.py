@@ -54,6 +54,30 @@ def is_admission(gold: str) -> bool:
     return (gold or "").strip().lower().rstrip(".!?") in ADMISSIONS
 
 
+def is_ignorance(gold: str, word: str) -> bool:
+    """Does this gold treat `word` as something the model cannot know?
+
+    Two shapes, not one, and the second was missed at first. Level 12 teaches
+    both `cos è un falco?` -> `non lo so.` AND
+    `il ragno è un animale, questo è un falco` -> `cos è un falco?`. Learning
+    that a falcon is an animal falsifies both: once the class is known, being
+    shown a falcon calls for the assertion (which is what step B already
+    teaches about every known noun), not the question. Retracting only the
+    admission would leave the level teaching the model to ask about something
+    it had just been taught — a contradiction under two shapes of the same
+    situation, which is the failure this module exists to prevent.
+
+    The question has to be about THIS word, checked in the gold and not in the
+    prompt: step G's prompts deliberately name a second noun as a distractor
+    ('la zucca è un cibo, questo è un falco'), and that lesson is about falco,
+    not about zucca.
+    """
+    if is_admission(gold):
+        return True
+    g = (gold or "").strip()
+    return g.endswith("?") and bool(_word_re(word).search(g))
+
+
 def ledger_path(lang: str = "it") -> str:
     return os.path.join(_ROOT, "training_files", lang, LEDGER_NAME)
 
@@ -99,10 +123,10 @@ def _levels(lang: str):
 def find(word: str, lang: str = "it") -> dict:
     """Everything in the curriculum that answers about `word` with an admission.
 
-    Also reports, under 'other', material about the same noun whose gold is NOT
-    an admission. That list must be empty for a retraction to be safe: it would
-    mean the noun is taught something else somewhere, and removing only the
-    admissions would leave the pool half-changed.
+    Also reports, under 'other', material about the same noun whose gold does
+    NOT treat it as unknown. That list must be empty for a retraction to be
+    safe: it would mean the noun is taught something else somewhere, and
+    removing only part would leave the pool half-changed.
     """
     pat = _word_re(word)
     hit = {"word": word, "levels": {}, "other": []}
@@ -118,7 +142,7 @@ def find(word: str, lang: str = "it") -> dict:
                         continue
                     if not pat.search(t.get("prompt", "")):
                         continue
-                    if is_admission(t.get("expected", "")):
+                    if is_ignorance(t.get("expected", ""), word):
                         targets.append({"step": sid, "index": i, "target": t})
                     else:
                         hit["other"].append(
@@ -138,7 +162,7 @@ def find(word: str, lang: str = "it") -> dict:
                         continue
                     if not pat.search(rec.get("prompt", "")):
                         continue
-                    if is_admission(rec.get("response", "")):
+                    if is_ignorance(rec.get("response", ""), word):
                         pairs.append({"index": i, "line": s})
                     else:
                         hit["other"].append(
@@ -178,14 +202,14 @@ def retract(word: str, lang: str = "it", *, save_dir: str,
             batch: str = "", source: str = "", reason: str = "") -> dict:
     """Remove every admission about `word`, saving what it takes to put it back.
 
-    Raises ValueError if the noun also carries a non-admission gold: that is
-    not a retraction, it is a pool that needs fixing first.
+    Raises ValueError if the noun also carries a gold that does not treat it as
+    unknown: that is not a retraction, it is a pool that needs fixing first.
     """
     hit = find(word, lang)
     if hit["other"]:
         raise ValueError(
-            f"'{word}' porta anche gold non-ammissioni "
-            f"({len(hit['other'])}): non è un ritiro, è un pool da correggere")
+            f"'{word}' porta anche {len(hit['other'])} gold che non lo "
+            f"trattano come ignoto: non è un ritiro, è un pool da correggere")
     if not hit["levels"]:
         return {"word": word, "targets": 0, "pairs": 0, "levels": []}
 

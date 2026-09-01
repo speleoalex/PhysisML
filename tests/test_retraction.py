@@ -252,3 +252,58 @@ def test_discarding_a_batch_brings_back_what_it_retracted(tree, monkeypatch,
     for p, d in before.items():
         assert _digest(lvl12 / p) == d, f"{p} non è tornato dopo il rollback"
     assert retraction.retracted("it") == {}
+
+
+# ── retraction and acquisition must cover the same shapes ────────────────────
+def _family(prompt: str) -> str:
+    """Which of the three shapes L12 uses this prompt belongs to.
+
+    Compared by family and not by string for one of them: the two-clause
+    introduction opens with a randomly drawn anchor, so the pool's
+    'la mamma è una persona, questo è un falco' and the oracle's
+    'la sedia è un oggetto, questo è un falco' are the same lesson.
+    """
+    tail = prompt.split(", ")[-1].strip().lower()
+    if tail.startswith(("questo è", "questa è")):
+        return "introduzione"
+    if prompt.rstrip().endswith("?") and \
+            prompt.strip().lower().split()[0] in ("cos", "cosa", "chi", "che"):
+        return "domanda aperta"
+    return "sì/no"
+
+
+def test_every_shape_the_retraction_removes_is_replaced():
+    """The invariant that makes an acquisition complete rather than a deletion.
+
+    Acquiring a noun retracts every shape that treated it as unknown. A shape
+    retracted and not replaced is one the model was supervised on yesterday and
+    is not supervised on today — no contradiction, just a silent hole, and
+    holes are what the level's own generators exist to fill.
+    """
+    from dynamic_model.ontology_oracle import OntologyOracle
+    o = OntologyOracle()
+    lex = etp.Lex(etp.load_lexicon("it"), "it")
+    cases = [({"w": "falco", "art": "il", "g": "m"}, "un animale"),
+             ({"w": "ravanello", "art": "il", "g": "m"}, "un cibo"),
+             ({"w": "scodella", "art": "la", "g": "f"}, "un oggetto")]
+    for noun, cls in cases:
+        hit = retraction.find(noun["w"], "it")
+        assert hit["levels"], f"{noun['w']} non è insegnato da nessuna parte"
+        removed = {_family(item["target"]["prompt"])
+                   for part in hit["levels"].values()
+                   for item in part["targets"]}
+        material = o.material_for(noun, cls)
+        supplied = {_family(t["prompt"]) for t in material}
+        assert removed <= supplied, (
+            f"{noun['w']}: forme rimosse e non rimpiazzate: {removed - supplied}")
+        # The open questions carry no anchor, so for those the exact prompt has
+        # to come back — a different phrasing would leave the retracted one bare.
+        removed_q = {item["target"]["prompt"]
+                     for part in hit["levels"].values()
+                     for item in part["targets"]
+                     if _family(item["target"]["prompt"]) == "domanda aperta"}
+        supplied_q = {t["prompt"] for t in material}
+        assert removed_q <= supplied_q, removed_q - supplied_q
+        # Step E's yes/no is always 'X è un animale?', whatever the class is.
+        yn = f"{etp.phrase(noun)} è un animale?"
+        assert yn in supplied_q, f"{yn} resterebbe senza gold"
