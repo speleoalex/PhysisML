@@ -24,63 +24,35 @@ guidato da un tutor che adatta il curriculum in tempo reale.
 
 ## Risultati
 
-Exact match contro le risposte gold del curriculum, greedy, 849 prompt valutati
-sui tredici livelli (`scripts/measure_repetition.py`).
+Exact match contro le risposte gold del curriculum, greedy
+(`scripts/measure_repetition.py`), build del 2026-09-01. Il set di target è
+cresciuto con questo rebuild — i livelli 11-12 ora insegnano la relazione
+dell'onestà su 38 nomi in ogni formulazione, 1369 prompt contro gli 849
+precedenti — quindi due numeri, ognuno onesto su cosa confronta:
 
-| | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 | media |
-|---|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|-------|
-| **checkpoint finale, tutti i livelli** | 100% | 97% | 80% | 83% | 93% | 90% | 85% | 93% | 90% | 70% | 85% | 79% | 100% | **88.1%** |
-| ogni livello sul proprio snapshot | 100% | 89% | 70% | 89% | 100% | 99% | 95% | 100% | 100% | 100% | 97% | 90% | 100% | 94.5% |
+| | |
+|---|---|
+| **probe congelato, 104 prompt identici — build precedente vs questa** | 84.6% → **90.4%** |
+| questo checkpoint su tutti i target attuali (1369 prompt) | 84%, auto-ripetizione 2% |
 
-La prima riga è quella che conta, ed è quella che è cambiata: un solo modello
-interrogato su tutto ciò che gli è stato insegnato, con auto-ripetizione all'1.3%.
-Il build precedente lì faceva **20%**, e dieci cicli di consolidamento in più lo
-portavano solo al 48%. Qui non c'era niente da recuperare.
+| | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
+|---|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
+| tutti i livelli, un solo modello | 100% | 97% | 79% | 87% | 93% | 97% | 80% | 91% | 95% | 75% | 97% | 92% | 57% |
 
-La leva è il **sogno** — un replay del materiale di tutti i livelli, senza nuovo
-insegnamento. Misurato al livello 6 di questo build, prima e dopo un ciclo:
-23.7% → **84.3%** di media sui sette livelli visti, auto-ripetizione 11.1% →
-3.4%. Insegnare un livello cancella i precedenti; un replay li riporta e non
-costa nulla al livello corrente. Il build ne esegue sei per livello.
+Il 57% di L12 è sul suo pool triplicato e più duro (chiedere del referente
+giusto con un distrattore nel prompt, sì/no valutato sulla parola di polarità —
+che nessun valutatore controllava prima di questo build).
 
-Fra i due build sono cambiate cinque cose — sei sogni per livello di default,
-pool degli obiettivi da 227 a 728, vocabolario ritrainato senza punteggiatura
-attaccata, una sola risposta gold per prompt, e `<|EOS|>` registrato e scritto
-nel corpus — quindi il guadagno non è attribuibile a una sola.
-
-Risposte reali, greedy:
-
-```
-di: cosa mangia il cane?               → il cane mangia il pane.
-perché il cane mangia?                 → il cane mangia perché ha fame.
-cosa mangerà il cane domani?           → domani il cane mangerà il pane.
-cos è il cane?                         → il cane è un animale.
-il pane è buono?                       → secondo me il pane è buono perché è caldo.
-commenta il libro                      → il libro insegna, e questo è importante.
-cos è un falco?                        → non lo so.
-l albero è una pianta, questo è un tamburo  → cos è un tamburo?
-```
-
-Le ultime due sono il livello 12: davanti a un nome mai incontrato il modello
-dichiara di non sapere o chiede, invece di indovinare. Misurato su nomi tenuti
-fuori dal training (`scripts/curiosity_rate.py --gate off`): 67% di risposte
-oneste sui sostantivi ignoti contro lo **0%** su quelli noti — non dichiara mai
-di non sapere ciò che sa.
-
-### Dove ancora sbaglia
-
-- **L9 (70%) e L2 (80%)** sono i livelli deboli del checkpoint finale; a L2 gli
-  errori sono ripetizioni (`di: il fratello beve il latte` → `il letto basso! il
-  letto basso!`).
-- **Le formulazioni non insegnate scivolano sul pattern insegnato più vicino.**
-  `cos è il cane?` è corretto, `cos è un cane?` (indeterminativo, mai allenato
-  su un sostantivo concreto) risponde `un animale è un essere vivente`, che è la
-  risposta alla domanda sulla classe. Stessa cosa per `chi è zibaldone?`, che
-  confabula: il livello 12 insegna la domanda su `cos è un X?` e sulla forma
-  sì/no, non su quella.
-- **Il margine è sottile.** Tutti gli esempi qui sono greedy. Campionando,
-  `cos è un cane?` risponde *animale*, *persona* o *luce* a seconda
-  dell'estrazione.
+La leva è il **sogno** — un ripasso del materiale di ogni livello, senza nuovo
+insegnamento. Misurato al livello 6, un ciclo ha portato la media sui sette
+livelli visti da 23.7% a **84.3%**. I sogni non si contano più con una
+costante: dopo ognuno il probe congelato viene rimisurato e il livello smette
+di sognare quando il guadagno marginale muore
+(`scripts/dream_until_plateau.py`). Misurato su questo build, il ginocchio di
+L11 era a 8 sogni — il vecchio `MIN_DREAMS=6` lo avrebbe fermato a 76.9%
+invece di 82.7% sul probe — e L12 ha toccato il massimo al sogno 9 di una
+curva a dente di sega. La curva di ogni livello è registrata nella sua
+cartella checkpoint come `dream_curve.json`.
 
 ## Requisiti
 
@@ -166,7 +138,7 @@ Ogni livello parte dal `final_learned.pt` del livello precedente.
 | Comando | Scopo |
 |---------|-------|
 | `./build.sh N [modello] [auto] [--resume]` | Addestramento automatico livelli 0→N |
-| `MIN_DREAMS=6 ./build.sh N` | Idem, con N cicli di sogno minimi per livello (default 6, `0` disattiva) |
+| `MIN_DREAMS=6 ./build.sh N` | Pavimento di sogni per livello (default 6, `0` disattiva). Sopra il pavimento il conteggio è misurato: si sogna finché il probe congelato guadagna (`MAX_DREAMS`, `DREAM_EPSILON`, `DREAM_PATIENCE`) |
 | `./teach.sh [turni\|auto] [local\|hybrid\|haiku\|…] [lingua] [livello]` | Sessione di insegnamento |
 | `./set_model.sh <checkpoint>` | Imposta il modello attivo (`models/active.pt`) |
 | `./reset.sh [--dry-run]` | Backup + reset del modello |

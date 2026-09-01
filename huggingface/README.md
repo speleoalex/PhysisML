@@ -28,7 +28,7 @@ assistant and it will not behave like one.
   to the token embedding
 - 23.6M parameters — `d_model=512`, `n_layers=6`, `n_heads=8`, `d_ff=2048`
 - Context window: **128 tokens**
-- Tokenizer: byte-level BPE, 9000 slots allocated, **2590 active** (the vocabulary
+- Tokenizer: byte-level BPE, 9000 slots allocated, **2593 active** (the vocabulary
   can grow during training; unused slots are masked to `-inf` at inference)
 - float32, runs on a CPU
 
@@ -66,40 +66,61 @@ il cane è un animale?                  → sì, il cane è un animale.
 il pane è buono?                       → secondo me il pane è buono perché è caldo.
 commenta il libro                      → il libro insegna, e questo è importante.
 cos è un falco?                        → non lo so.
-l albero è una pianta, questo è un tamburo  → cos è un tamburo?
+l albero è una pianta, questo è un tamburo  → cos è un tamburo? il tamburo è un oggetto.
 ```
 
-The last two are level 12: on a name it has never met the model declares
-ignorance or asks, rather than guessing. On held-out names it has never seen,
-67% of answers are honest that way, against **0%** on nouns it knows — it never
-claims ignorance about something it was taught.
+The last two are level 12: on a name held out of the curriculum the model
+declares ignorance, or asks and then answers itself once told. On the held-out
+probe the gap between honest answers on unknown and on taught nouns is
+**+75 points** (gate off, greedy), and it never claims ignorance about a noun
+it was taught.
+
+**Outside the trained pool that relation does not generalize.** On seven names
+no training file has ever mentioned, only 14% of answers are honest — the
+model usually confabulates a class, or asks about a *different* noun it knows
+(`questa è una lumaca` → `cos è una bussola?`). Widening the honesty pool from
+6 to 38 nouns moved the behaviour onto the new nouns without generalizing it;
+meanwhile the model's *internal* state separates known from unknown nearly
+perfectly (margin over the 10 classes: AUC 0.987 on these weights, replicated
+across two independently trained builds). The gap between what the weights
+know and what the string binds to is the project's current work front.
 
 ## Results
 
-Exact match against the curriculum's gold answers, greedy, 849 graded prompts
-across the thirteen levels.
+Exact match against the curriculum's gold answers, greedy. The 2026-09-01
+rebuild grew the target set (levels 11-12 now teach the honesty relation over
+38 nouns in every phrasing, 1369 graded prompts against the previous 849), so
+two numbers, each honest about what it compares:
 
-| | mean | worst level |
-|---|---|---|
-| **this checkpoint, asked about every level** | **88.1%** | 70% (L9) |
-| each level scored on its own snapshot | 94.5% | 70% (L2) |
+| | |
+|---|---|
+| **frozen probe — 104 identical prompts, previous published build vs this one** | 84.6% → **90.4%** |
+| this checkpoint on every current target (1369 prompts) | 84%, self-repetition 2% |
 
-The first row is the interesting one: one model asked everything it was ever
-taught, self-repetition 1.3%. The project's previous build scored **20%** on
-that same question, and ten extra consolidation cycles took it only to 48%.
+Per level: 100 / 97 / 79 / 87 / 93 / 97 / 80 / 91 / 95 / 75 / 97 / 92 / 57.
 
-Per level: 100 / 97 / 80 / 83 / 93 / 90 / 85 / 93 / 90 / 70 / 85 / 79 / 100.
+That last value is worth staring at rather than hiding: level 12's own pool
+tripled and hardened (asking about the right referent with a distractor in the
+prompt, yes/no answers graded on the polarity word), and the model holds 57%
+of it. The failures are real and listed below.
 
 The lever is the **dream**: a replay pass over every level's material with no
-new teaching. Measured at level 6 of this build, immediately before and after
-one cycle — 23.7% → **84.3%**, self-repetition 11.1% → 3.4%. Teaching a level
-erases the earlier ones; one replay brings them back and costs the current level
-nothing. The build runs six per level.
+new teaching. Measured at level 6, one cycle took cross-level exact match from
+23.7% to **84.3%**. This build stopped counting dreams by constant and started
+measuring them: after each dream the frozen probe is re-scored, and the level
+stops dreaming when the marginal gain dies (`scripts/dream_until_plateau.py`).
+Level 11's own knee turned out to be 8 dreams, not the 6 the old constant
+assumed; level 12 oscillated sawtooth to its best at dream 9. Each level's
+curve ships in its checkpoint directory as `dream_curve.json`.
 
-Five things changed between the two builds (six dreams per level by default,
-target pools 227 → 728, a vocabulary retrained without punctuation glued to
-words, one gold per prompt enforced, `<|EOS|>` written into the corpus), so the
-gain cannot be attributed to any single one.
+Between the previous build and this one: the honesty pool went from 6 nouns to
+38 with declared roles (23 acquirable by the autonomy loop, 8 permanent
+reserve, 7 never taught — the generalization probe above), the two-clause
+asking lesson covers all of them with a distractor step, yes/no answers are
+graded on the polarity word (they never were before — both `sì` and `no`
+earned full marks), phase-1 budgets now cover the whole pool, and dreams are
+counted by measurement. As before, the gain cannot be attributed to any single
+change.
 
 ## Where it fails
 
@@ -107,21 +128,24 @@ gain cannot be attributed to any single one.
 sharpest limit of a model this size:
 
 ```
-cos è il cane?     → il cane è un animale.            ✓ (the drilled form)
-cos è un cane?     → un animale è un essere vivente.  ✗ (answers the class question)
-chi è zibaldone?   → il tamburo è un oggetto.         ✗ (asks nothing — shape never taught)
+cos è il cane?            → il cane è un animale.          ✓ (drilled)
+cos è un cane?            → il cane è un animale.          ✓ (fixed this build: both articles now trained)
+il giardino è un animale? → sì, il giardino è un luogo.    ✗ (right class, wrong yes)
+chi è zibaldone?          → il cane è grande. il cane…     ✗ (shape never taught)
+cos è una tegola?         → la penna è un oggetto.         ✗ (never-seen noun → confabulation)
 ```
 
-Level 11 drills `cos è {definite} X?`; the indefinite variant on a concrete noun
-is not in the pool, and the model reaches for the class-level question it does
-know. Level 12 teaches the ask on `cos è un X?` and the yes/no form, not on
-`chi è X?`.
+The polarity slip is instructive: the grader was blind to the `sì`/`no` word
+until this build (both answers scored identically), so the distinction was
+never part of the training signal before now, and one build of graded polarity
+has not finished repairing it. `chi è X?` is a shape no level teaches. The
+last line is the generalization limit measured above.
 
 Also:
 
 - **No world knowledge.** A synthetic teaching curriculum of a few megabytes,
   not a web corpus. Anything factual it produces is invention.
-- **Closed vocabulary** — 2607 active tokens; out-of-curriculum words break it.
+- **Closed vocabulary** — 2593 active tokens; out-of-curriculum words break it.
 - **128-token context**, single-turn only: it was never trained on
   conversations, and prior turns crowd out the question.
 - **No alignment or safety tuning of any kind.** No refusals, no filtering.
@@ -199,11 +223,13 @@ back and cost the current level nothing. The build runs six such cycles per
 level.
 
 The tutors are, in cost order: a rule-based deterministic teacher (offline), a
-hybrid teacher using a small local LLM for the grading (offline, via ollama),
+hybrid teacher using a small local LLM for the grading (offline, via
+llama.cpp or ollama),
 and optionally the Claude API. **The whole Italian curriculum trains offline** —
 every level ships its own local teacher configuration, so no API key is needed
 to reproduce this model from scratch (`./build.sh 12`, about two and a half
-days on a 16-core CPU).
+days on a 16-core CPU, or hours with a small Intel Arc GPU — the build picks
+it up by itself).
 
 Training data is the curriculum in `training_files/it/`: hand-built and
 script-expanded target pools, question-answer pairs, and level texts. Parts of

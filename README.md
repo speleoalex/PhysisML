@@ -24,30 +24,34 @@ guided by a tutor that adapts the curriculum in real time.
 
 ## Results
 
-Exact match against the curriculum's gold answers, greedy, 849 graded prompts
-over the thirteen levels (`scripts/measure_repetition.py`).
+Exact match against the curriculum's gold answers, greedy
+(`scripts/measure_repetition.py`), 2026-09-01 build. The target set grew with
+this rebuild — levels 11-12 now teach the honesty relation over 38 nouns in
+every phrasing, 1369 graded prompts against the previous 849 — so two numbers,
+each honest about what it compares:
 
-| | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 | mean |
-|---|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|------|
-| **final checkpoint, every level** | 100% | 97% | 80% | 83% | 93% | 90% | 85% | 93% | 90% | 70% | 85% | 79% | 100% | **88.1%** |
-| each level on its own snapshot | 100% | 89% | 70% | 89% | 100% | 99% | 95% | 100% | 100% | 100% | 97% | 90% | 100% | 94.5% |
+| | |
+|---|---|
+| **frozen probe, 104 identical prompts — previous build vs this one** | 84.6% → **90.4%** |
+| this checkpoint on every current target (1369 prompts) | 84%, self-repetition 2% |
 
-The first row is the one that matters, and the one that changed: a single model
-asked everything it was ever taught, with self-repetition at 1.3%. The previous
-build scored **20%** there, and ten extra consolidation cycles took it only to
-48%. Here nothing needed recovering.
+| | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
+|---|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
+| every level, one model | 100% | 97% | 79% | 87% | 93% | 97% | 80% | 91% | 95% | 75% | 97% | 92% | 57% |
+
+L12's 57% is on its own tripled-and-hardened pool (asking about the right
+referent with a distractor in the prompt, yes/no graded on the polarity word —
+which no grader checked before this build).
 
 The lever is the **dream** — a replay pass over every level's material, no new
-teaching. Measured at level 6 of this build, before and after one cycle:
-23.7% → **84.3%** mean across the seven levels seen, self-repetition 11.1% →
-3.4%. Teaching a level erases the earlier ones outright; one replay brings them
-back and costs the current level nothing. The build runs six cycles per level.
-
-Five things changed between the two builds — six dreams per level by default,
-target pools widened from 227 to 728, a vocabulary retrained without
-punctuation glued to words, one gold answer per prompt enforced, and `<|EOS|>`
-registered and written into the corpus — so the gain cannot be attributed to
-any one of them.
+teaching. Measured at level 6, one cycle took the mean across the seven levels
+seen from 23.7% to **84.3%**. Dreams are no longer counted by constant: after
+each one the frozen probe is re-scored and the level stops dreaming when the
+marginal gain dies (`scripts/dream_until_plateau.py`). Measured on this build,
+level 11's own knee was 8 dreams — the old `MIN_DREAMS=6` would have stopped
+it at 76.9% instead of 82.7% on the probe — and level 12 reached its best at
+dream 9 of a sawtooth curve. Each level's curve is recorded in its checkpoint
+directory as `dream_curve.json`.
 
 Real answers, greedy:
 
@@ -164,7 +168,7 @@ Each level starts from the previous level's `final_learned.pt`.
 | Command | Purpose |
 |---------|---------|
 | `./build.sh N [model] [auto] [--resume]` | Auto-train levels 0→N |
-| `MIN_DREAMS=6 ./build.sh N` | Same, with a minimum of N dream cycles per level (default 6, `0` disables) |
+| `MIN_DREAMS=6 ./build.sh N` | Dream floor per level (default 6, `0` disables). Above the floor the count is measured: dreams continue while the frozen probe still gains (`MAX_DREAMS`, `DREAM_EPSILON`, `DREAM_PATIENCE`) |
 | `./teach.sh [turns\|auto] [local\|hybrid\|haiku\|…] [lang] [level]` | Teaching session |
 | `./set_model.sh <checkpoint>` | Set the active model (`models/active.pt`) |
 | `./reset.sh [--dry-run]` | Backup + reset the model |
