@@ -757,7 +757,12 @@ print(1 if recent_peak <= prior_peak + min_delta else 0)
       if [ $? -ne 0 ]; then
         # A failed top-up is not fatal: the level already passed its gate, and
         # the checkpoint on disk is the last dream that did succeed.
-        echo "  ⚠ Top-up dream $i failed — keeping the $((DREAMS_DONE + i - 1)) dreams already done."
+        # DREAMS_DONE is already incremented for each top-up that succeeded,
+        # so adding (i - 1) counted them twice: a run with one session dream
+        # and four good top-ups reported "keeping the 9 dreams" and then
+        # "consolidated with 5". The second number was the true one, and the
+        # first is the one anybody reading a failure would believe.
+        echo "  ⚠ Top-up dream $i failed — keeping the $DREAMS_DONE dreams already done."
         break
       fi
       DREAMS_DONE=$((DREAMS_DONE + 1))
