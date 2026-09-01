@@ -193,6 +193,58 @@ def grade_by_coverage(symbol: str, expected: str, response: str,
         # Compact fallback only for words >= 4 chars
         compact = _re.sub(r'\s+', '', text)
         return len(kw) >= 4 and kw in compact
+
+    # ── polarity, before coverage ────────────────────────────────────────
+    # 'no, il giardino è un luogo.' and 'sì, il giardino è un luogo.' are the
+    # right and the wrong answer to 'il giardino è un animale?', and until this
+    # existed every grader scored them the same. 'sì' and 'no' are in
+    # STOP_WORDS — rightly, for the levels where they are grammar — so the
+    # coverage below strips the one token that IS the answer, and
+    # LocalTeacher._evaluate only ever looks for the class head. Measured on
+    # the rules-only path, which every build before 2026-09 used: both earned
+    # '+++' and both ADVANCED the step, so L11's negative is-a step (126 of its
+    # 363 targets) was never graded at all.
+    #
+    # The local LLM evaluator does notice, giving '+' where the rules give
+    # '+++'. That leaves the only check on the negative step resting on the one
+    # component with no guarantees, and '+' is still feedback 0.5 — a positive
+    # weight update for the opposite of the gold. Measured over one L11
+    # session: 22 turns of 726.
+    #
+    # Two failures, two caps:
+    #   wrong polarity   -> '=', 0.0. Not partial credit: it asserts the
+    #                       contrary. 0.0 also keeps the turn out of SIGNAL 4's
+    #                       echo-training gate, which reads the coverage.
+    #   polarity missing -> '+', which _update_state already treats as
+    #                       encouragement that does NOT advance the target: the
+    #                       class is right and the question is unanswered.
+    #
+    # Nested, and using the function-local _re, because tests/
+    # test_ontology_curiosity.py compiles a SLICE of this file starting at the
+    # def line — a module-level helper is invisible there, and the test would
+    # fail with NameError instead of telling anyone why.
+    def _polarity_of(text, require_comma):
+        """'sì' / 'no' / '' — the yes-no answer a sentence opens with.
+
+        The comma is required of the gold, whose shape the pools control, and
+        not of the model, which may drop it while answering correctly. Both
+        spellings of the affirmative are accepted and normalised: the
+        curriculum writes 'sì', and a model that has not learned the accent is
+        still answering the question. Anchored at the start, so 'il cane non è
+        un cibo' is not read as a 'no'.
+        """
+        m = _re.match(r"\s*(s[iì]|no)\b\s*(,?)", text or "", _re.IGNORECASE)
+        if not m or (require_comma and not m.group(2)):
+            return ""
+        return "no" if m.group(1).lower() == "no" else "sì"
+
+    _exp_pol = _polarity_of(expected, True)
+    if _exp_pol:
+        _resp_pol = _polarity_of(response, False)
+        if _resp_pol and _resp_pol != _exp_pol:
+            return "=", 0.0, f"[polarità] attesa '{_exp_pol}', trovata '{_resp_pol}'"
+        if not _resp_pol and symbol in ("+++", "++"):
+            symbol = "+"
     # Anti-echo at L4+: a content word that also appears in the
     # PROMPT is no evidence of knowledge (97-99% of positive grades
     # at L4-L10 rewarded words parroted from the prompt) — unless
