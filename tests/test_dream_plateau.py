@@ -175,3 +175,20 @@ def test_build_sh_fallbacks_match_the_module_defaults():
     assert knob("DREAM_EPSILON") == DEFAULTS["epsilon"]
     assert knob("DREAM_PATIENCE") == DEFAULTS["patience"]
     assert knob("DREAM_MAX_DROP") == DEFAULTS["max_drop"]
+
+
+def test_the_disk_always_ends_on_the_best_measured_state():
+    """The restore condition is best-beats-last, not only catastrophe.
+
+    First live run (L11, 2026-09-01): plateau stop with dream 9 on disk at
+    81.7% and dream 8 in the snapshot at 82.7% — the old max_drop-only rule
+    would have based the next level on the worse of two measured states. The
+    check lives in main()'s finally, so here it is asserted at the source:
+    the restore must trigger on ANY curve whose last point is under its best.
+    """
+    import inspect
+    import dream_until_plateau as dp
+    src = inspect.getsource(dp.main)
+    assert "curve[-1] < curve[best_i]:" in src, \
+        "il ripristino deve scattare quando l'ultimo è sotto il migliore, " \
+        "non solo oltre max_drop"

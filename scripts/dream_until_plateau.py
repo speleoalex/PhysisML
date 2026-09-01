@@ -371,13 +371,19 @@ def main() -> int:
         stopped, why = "interrupted", "Ctrl-C"
         rc = 130
     finally:
-        # The rule-based regression stop restores here too: decide() sees the
-        # regression, breaks, and this puts the best state back on disk.
-        if curve[-1] < curve[best_i] - a.max_drop:
+        # Whatever ended the loop, the disk gets the BEST measured state, not
+        # the last one. Every point on the curve is the same deterministic
+        # measurement, so past the best the extra dreams bought nothing by
+        # definition — the first live run stopped on a plateau with dream 9 at
+        # 81.7% on disk while dream 8 sat in the snapshot at 82.7% with a
+        # third of the repetition, and the old rule (restore only beyond
+        # max_drop) would have handed the WORSE state to the next level's
+        # build. The regression stop is the same rule with a bigger gap.
+        if curve[-1] < curve[best_i]:
             names = restore_state(level_dir, best_dir)
             print(f"  RIPRISTINO dello stato migliore (sogno "
-                  f"{a.already_done + best_i}, exact {curve[best_i]:.1%}): "
-                  f"{', '.join(names)}")
+                  f"{a.already_done + best_i}, exact {curve[best_i]:.1%}, "
+                  f"su disco c'era {curve[-1]:.1%}): {', '.join(names)}")
         write_record(curve_path, {
             "level": a.level, "at": time.strftime("%Y-%m-%dT%H:%M:%S"),
             "already_done": a.already_done,
