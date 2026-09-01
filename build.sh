@@ -110,8 +110,68 @@ power_boost_off() {
   _POWER_SAVED=""
 }
 
-trap power_boost_off EXIT INT TERM
+# ── Yield the Arc to the trainer ────────────────────────────────────────────
+# llama.cpp (Qwen3-VL-4B, -ngl 99) parks ~3.4 of the Arc's 4 GB. With the
+# trainer on the same card that is not a squeeze, it is a coin flip: L11
+# trained through it, L12's phase 0 died at batch 16 with
+# UR_RESULT_ERROR_OUT_OF_HOST_MEMORY in loss.backward(). So when training on
+# the Arc, move llama off it for the length of the build and put it back on
+# every exit path, same discipline as the power profile.
+#
+# The switchers are machine-local (scripts_internal/, gitignored): they encode
+# THIS machine's systemd unit and devices. On a machine without them this
+# block is silent, and the coin flip is back — the warning below says so.
+#
+#   LLAMA_YIELD=cpu   (default) -dev none: server on the CPU, slower grading
+#   LLAMA_YIELD=igpu  Iris Xe via Vulkan0: Arc equally free, faster server
+#   LLAMA_YIELD=off   leave llama where it is
+LLAMA_YIELD="${LLAMA_YIELD:-cpu}"
+_LLAMA_YIELDED=""
+gpu_yield_on() {
+  [ "$LLAMA_YIELD" = "off" ] && return 0
+  [ "$GPU_STATUS" = "xpu" ] || return 0
+  local sw="scripts_internal/llama_${LLAMA_YIELD}.sh"
+  if [ -x "$sw" ]; then
+    if "$sw"; then
+      _LLAMA_YIELDED=1
+      echo "  llama.cpp: spostato ($LLAMA_YIELD) per la durata del build."
+    else
+      # A failed switch is NOT "nothing changed": the switcher writes its
+      # drop-in before restarting, so llama may be half-moved. Roll back
+      # explicitly rather than assume.
+      echo "  ⚠ $sw è fallito: provo a rimettere llama sull'Arc…"
+      scripts_internal/llama_gpu.sh || \
+        echo "  ⚠ anche il ripristino è fallito: controlla 'systemctl --user status llama'."
+      echo "    Se llama è rimasto sull'Arc, la fase 0/2 può morire di"
+      echo "    UR_RESULT_ERROR_OUT_OF_HOST_MEMORY."
+    fi
+  elif curl -sf --max-time 2 http://localhost:8080/health >/dev/null 2>&1; then
+    echo "  ⚠ llama-server è attivo sull'Arc e $sw non esiste qui:"
+    echo "    memoria contesa, la fase 0/2 può morire di OUT_OF_HOST_MEMORY."
+  fi
+}
+gpu_yield_off() {
+  [ -n "$_LLAMA_YIELDED" ] || return 0
+  if [ -x scripts_internal/llama_gpu.sh ] && scripts_internal/llama_gpu.sh; then
+    _LLAMA_YIELDED=""
+    echo "  llama.cpp: tornato sull'Arc."
+  else
+    # Flag left set on purpose: a second EXIT pass (nested trap) retries, and
+    # the message names the manual command instead of pretending success.
+    echo "  ⚠ llama NON è tornato sull'Arc: esegui a mano"
+    echo "      scripts_internal/llama_gpu.sh"
+  fi
+}
+
+# Cleanup runs on EXIT only; INT/TERM convert into an exit instead of running
+# the cleanup and letting the script fall through. Reviewed and confirmed: the
+# old single trap undid the GPU yield and the power boost on the first Ctrl-C
+# and then KEPT BUILDING wherever the interrupted command's failure was
+# non-fatal — un-boosted, un-yielded, and looking normal.
+trap 'gpu_yield_off; power_boost_off' EXIT
+trap 'echo ""; echo "  interrotto."; exit 130' INT TERM
 power_boost_on
+gpu_yield_on
 
 TARGET_LEVEL=${1:-1}
 # Highest level the curriculum has material for. Used by the loops that
@@ -146,6 +206,17 @@ RETRAIN_EPOCHS=2      # text retrain epochs between sessions (short re-anchor)
 # cost is ~30 min per extra dream and no API calls, since nothing is taught.
 # Set to 0 to restore the old behaviour (one dream per session, nothing more).
 MIN_DREAMS=${MIN_DREAMS:-6}
+# The dynamic side of the same knob: after MIN_DREAMS, keep dreaming while the
+# frozen probe still improves, stop when the marginal gain dies (see
+# scripts/dream_until_plateau.py — with these defaults the rule reproduces ~6
+# on the L10 curve MIN_DREAMS came from, so 6-as-floor is a belt over
+# suspenders until a few levels' own curves say the floor can drop to 2-3).
+# The fallbacks here must equal DEFAULTS in scripts/dream_until_plateau.py —
+# tests/test_dream_plateau.py parses this file and fails when they drift.
+MAX_DREAMS=${MAX_DREAMS:-12}
+DREAM_EPSILON=${DREAM_EPSILON:-0.02}
+DREAM_PATIENCE=${DREAM_PATIENCE:-2}
+DREAM_MAX_DROP=${DREAM_MAX_DROP:-0.05}
 BETWEEN_SESSIONS="dream-only"  # what happens between sessions:
                                #   dream-only  : only dream, no retrain (recommended by experiment)
                                #   standard    : dream + retrain (classic, but retrain hurts)
@@ -737,38 +808,49 @@ print(1 if recent_peak <= prior_peak + min_delta else 0)
   # session logs already hold, and it costs the current level nothing (L10 went
   # 94% -> 100% while the earlier levels recovered).
   DREAMED="models/checkpoints/$LANG/level_${LEVEL}/final_dreamed.pt"
-  if [ "$MIN_DREAMS" -gt 0 ] && [ "$DREAMS_DONE" -lt "$MIN_DREAMS" ] \
-     && [ ! -f GATE_FAILED ] && [ -f "$DREAMED" ]; then
-    TOPUP=$((MIN_DREAMS - DREAMS_DONE))
+  if [ "$MIN_DREAMS" -gt 0 ] && [ ! -f GATE_FAILED ] && [ -f "$DREAMED" ]; then
+    # The fixed top-up loop this replaces dreamed the level up to MIN_DREAMS
+    # and stopped, measuring nothing: 6 was the knee of ONE curve (L10), and
+    # whether dream 5 of THIS level was still worth anything nobody knew.
+    # dream_until_plateau.py scores the frozen probe after every dream and
+    # stops when the marginal gain dies (or restores the best state if a
+    # dream damaged retention). It accumulates via --checkpoint internally —
+    # the same requirement the old loop carried — and leaves each level's
+    # curve in level_N/dream_curve.json.
     echo ""
-    echo "  ── Dream top-up: $DREAMS_DONE done, $TOPUP more to reach $MIN_DREAMS ──"
-    for i in $(seq 1 "$TOPUP"); do
+    echo "  ── Sogni fino al plateau (sessione: $DREAMS_DONE, pavimento $MIN_DREAMS, tetto $MAX_DREAMS) ──"
+    $PYTHON -u scripts/dream_until_plateau.py \
+      --level        "$LEVEL" \
+      --lang         "$LANG" \
+      --already-done "$DREAMS_DONE" \
+      --min          "$MIN_DREAMS" \
+      --max          "$MAX_DREAMS" \
+      --epsilon      "$DREAM_EPSILON" \
+      --patience     "$DREAM_PATIENCE" \
+      --max-drop     "$DREAM_MAX_DROP"
+    _PLATEAU_RC=$?
+    if [ "$_PLATEAU_RC" -eq 3 ]; then
+      # A crashed dream is survivable BECAUSE the script measured what the
+      # crash left on disk and restored the best state if it was damaged —
+      # the curve records the salvage.
+      echo "  ⚠ un sogno è fallito: stato verificato dallo script (curva in level_${LEVEL}/dream_curve.json)."
       echo ""
-      echo "  [phase 2] Top-up dream $i/$TOPUP (standard)..."
-      # --checkpoint is REQUIRED here: without it phase 2 falls back to
-      # final_learned.pt (pre-dream), which would repeat the first dream
-      # instead of accumulating on the previous one's output.
-      $PYTHON -u dynamic_model/train_curriculum.py \
-        --phase      2 \
-        --level      "$LEVEL" \
-        --lang       "$LANG" \
-        --dream-mode standard \
-        --checkpoint "$DREAMED"
-      if [ $? -ne 0 ]; then
-        # A failed top-up is not fatal: the level already passed its gate, and
-        # the checkpoint on disk is the last dream that did succeed.
-        # DREAMS_DONE is already incremented for each top-up that succeeded,
-        # so adding (i - 1) counted them twice: a run with one session dream
-        # and four good top-ups reported "keeping the 9 dreams" and then
-        # "consolidated with 5". The second number was the true one, and the
-        # first is the one anybody reading a failure would believe.
-        echo "  ⚠ Top-up dream $i failed — keeping the $DREAMS_DONE dreams already done."
-        break
-      fi
-      DREAMS_DONE=$((DREAMS_DONE + 1))
-    done
-    echo ""
-    echo "  ✓ Level $LEVEL consolidated with $DREAMS_DONE dreams."
+      echo "  ✓ Level $LEVEL consolidato (curva in models/checkpoints/$LANG/level_${LEVEL}/dream_curve.json)."
+    elif [ "$_PLATEAU_RC" -ne 0 ]; then
+      # Anything else means ZERO or unknown consolidation: a missing/edited
+      # probe (rc 1), bad DREAM_* values (rc 2), an interrupt (rc 130). The
+      # loop this replaced guaranteed MIN_DREAMS top-ups unconditionally —
+      # printing a checkmark here would ship a level with one dream (~20%
+      # retention, measured) under a log line that says consolidated.
+      echo ""
+      echo "  ✗ dream_until_plateau è uscito con codice $_PLATEAU_RC: il livello"
+      echo "    NON è consolidato. Correggi (probe? parametri DREAM_*?) e rilancia:"
+      echo "    il build si ferma qui invece di avanzare su fondamenta a un sogno."
+      exit 1
+    else
+      echo ""
+      echo "  ✓ Level $LEVEL consolidato (curva in models/checkpoints/$LANG/level_${LEVEL}/dream_curve.json)."
+    fi
   fi
 
   # Update active.pt — prefer dreamed checkpoint if available
