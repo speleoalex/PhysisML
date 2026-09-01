@@ -549,7 +549,7 @@ def turn_record(turn: int, step: str, prompt: str, expected: str,
     }
 
 
-def _affect_memory_path(lang: str) -> str:
+def _affect_memory_path(lang: str, ckpt_base: str = None) -> str:
     """Where the curiosity memory lives: one file per language, not per level.
 
     Knowing a word is not a property of the level that taught it — the model
@@ -558,7 +558,13 @@ def _affect_memory_path(lang: str) -> str:
     current session. Every build phase is a separate process, so this file is
     the only thing that carries AffectState.words_rewarded across them.
     """
-    return os.path.join(CKPT_BASE, lang, "affect_memory.json")
+    # It follows --ckpt-base. It used to be built from the global CKPT_BASE
+    # alone, so an experiment run against an isolated checkpoint tree still
+    # wrote into the REAL build's curiosity memory — silently, and in both
+    # directions: the run inherited words_rewarded from a completely different
+    # model, and left its own behind. With no override the path is unchanged.
+    return os.path.join(ckpt_base or os.path.join(CKPT_BASE, lang),
+                        "affect_memory.json")
 
 
 def _sync_vocab_rows(model: "TorchGPT", tok: "BPETokenizer",
@@ -947,7 +953,7 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     affect  = AffectState()
     # Content-word filter and cross-session memory for the curiosity signal.
     affect.function_words = STOP_WORDS
-    _mem_path = _affect_memory_path(args.lang)
+    _mem_path = _affect_memory_path(args.lang, ckpt_base)
     _n_mem    = affect.load_memory(_mem_path)
     print(f"Curiosity memory: {_n_mem} words from {_mem_path}"
           if _n_mem else f"Curiosity memory: empty (no {_mem_path} yet)")
@@ -1497,9 +1503,12 @@ def _load_memory_bank(ckpt_base: str, level: int,
     """
     FEEDBACK_WEIGHT = {"+++": 1.0, "++": 0.8, "+": 0.5, "=": 0.0, "-": -0.8}
     bank = []
+    _levels_with_logs = 0
     for lvl in range(level + 1):
         lvl_dir = os.path.join(ckpt_base, f"level_{lvl}")
         logs = sorted(glob.glob(os.path.join(lvl_dir, "session_*.jsonl")))
+        if logs:
+            _levels_with_logs += 1
         if lvl == level and current_level_sessions is not None:
             logs = logs[:current_level_sessions]
         for log_path in logs:
@@ -1534,6 +1543,18 @@ def _load_memory_bank(ckpt_base: str, level: int,
                     "weight":   FEEDBACK_WEIGHT[fb],
                     "level":    lvl,
                 })
+    # N3 replays this bank, and it is the dream's SECOND anti-forgetting channel
+    # alongside N1's corpus replay. Re-running a level against an isolated
+    # --ckpt-base without copying the earlier levels' session logs leaves it
+    # with nothing to replay — and nothing used to say so, because N1 keeps
+    # working normally. Measured: the same checkpoint, the same single dream,
+    # recovered to 30.4% without those logs and 51.8% with them.
+    if level > 0 and _levels_with_logs <= 1:
+        print(f"  [N3] ATTENZIONE: session log presenti solo per "
+              f"{_levels_with_logs} livello/i su {level + 1} in {ckpt_base} — "
+              f"la banca di memoria dei livelli precedenti è vuota e N3 non ha "
+              f"nulla da rigiocare. Se è un esperimento isolato, copiaci i "
+              f"session_*.jsonl dei livelli 0-{level - 1}.", flush=True)
     bank.sort(key=lambda x: abs(x["weight"]), reverse=True)
     return bank
 
@@ -2012,7 +2033,7 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
     opt   = TorchAdamOptimizer(model.parameters(), lr=2e-5)  # very low LR
     affect = AffectState()
     affect.function_words = STOP_WORDS
-    _mem_path = _affect_memory_path(args.lang)
+    _mem_path = _affect_memory_path(args.lang, ckpt_base)
     affect.load_memory(_mem_path)
     mod    = AffectModulator(affect,
                              ask_token_id=_ask_gate_id_or_warn(

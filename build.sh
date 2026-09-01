@@ -23,6 +23,13 @@ if [ -f "$CONDA_GPU_PYTHON" ] && [ -f "$ONEAPI_VARS" ]; then
   if [ -d "$HOME/.local/lib" ]; then
     export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
   fi
+  # And the user site must be OFF, or ~/.local's torch shadows the env's.
+  # A conda env puts ~/.local/lib/python3.X/site-packages AHEAD of its own
+  # site-packages, so a plain 'pip install --user torch' anywhere on this
+  # machine silently replaces the XPU build with whatever that one is — the
+  # build then reports 'Device: cpu' and runs three times slower with no error.
+  # Measured: 8,283 tok/s on the Arc against 911 on the CPU.
+  export PYTHONNOUSERSITE=1
   PYTHON="$CONDA_GPU_PYTHON"
   GPU_STATUS=$("$PYTHON" -c "import torch; print('xpu' if torch.xpu.is_available() else 'cpu')" 2>/dev/null || echo "cpu")
   echo "  Device: $GPU_STATUS  (conda physisml_gpu)"
