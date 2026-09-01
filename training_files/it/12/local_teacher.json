@@ -357,11 +357,6 @@
           "noun": "so"
         },
         {
-          "prompt": "cos è un sgabello?",
-          "expected": "non lo so.",
-          "noun": "so"
-        },
-        {
           "prompt": "lo sgabello è un animale?",
           "expected": "non lo so.",
           "noun": "so"
@@ -373,11 +368,6 @@
         },
         {
           "prompt": "il clarinetto è un animale?",
-          "expected": "non lo so.",
-          "noun": "so"
-        },
-        {
-          "prompt": "cos è un scoiattolo?",
           "expected": "non lo so.",
           "noun": "so"
         },
@@ -442,11 +432,6 @@
           "noun": "so"
         },
         {
-          "prompt": "cosa è un sgabello?",
-          "expected": "non lo so.",
-          "noun": "so"
-        },
-        {
           "prompt": "cos è il clarinetto?",
           "expected": "non lo so.",
           "noun": "so"
@@ -472,7 +457,647 @@
           "noun": "so"
         },
         {
-          "prompt": "cosa è un scoiattolo?",
+          "prompt": "cos è uno sgabello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è uno sgabello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è uno scoiattolo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è uno scoiattolo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il tasso?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un tasso?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il tasso?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un tasso?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il tasso è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il rospo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un rospo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il rospo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un rospo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il rospo è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il bisonte?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un bisonte?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il bisonte?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un bisonte?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il bisonte è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è la lontra?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è una lontra?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è la lontra?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è una lontra?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "la lontra è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il picchio?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un picchio?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il picchio?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un picchio?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il picchio è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il castoro?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un castoro?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il castoro?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un castoro?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il castoro è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è la susina?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è una susina?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è la susina?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è una susina?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "la susina è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il ravanello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un ravanello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il ravanello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un ravanello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il ravanello è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è la mandorla?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è una mandorla?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è la mandorla?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è una mandorla?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "la mandorla è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il lampone?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un lampone?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il lampone?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un lampone?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il lampone è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il finocchio?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un finocchio?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il finocchio?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un finocchio?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il finocchio è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è l imbuto?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un imbuto?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è l imbuto?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un imbuto?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "l imbuto è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il rastrello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un rastrello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il rastrello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un rastrello?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il rastrello è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il secchio?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un secchio?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il secchio?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un secchio?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il secchio è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è lo spillo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è uno spillo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è lo spillo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è uno spillo?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "lo spillo è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il grembiule?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un grembiule?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il grembiule?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un grembiule?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il grembiule è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è la scodella?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è una scodella?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è la scodella?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è una scodella?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "la scodella è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è lo zaffiro?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è uno zaffiro?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è lo zaffiro?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è uno zaffiro?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "lo zaffiro è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il fanale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un fanale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il fanale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un fanale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il fanale è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è la scogliera?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è una scogliera?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è la scogliera?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è una scogliera?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "la scogliera è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è la radura?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è una radura?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è la radura?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è una radura?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "la radura è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il burrone?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un burrone?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il burrone?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un burrone?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il burrone è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è la felce?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è una felce?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è la felce?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è una felce?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "la felce è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è l edera?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un edera?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è l edera?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un edera?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "l edera è un animale?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è il papavero?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cos è un papavero?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è il papavero?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "cosa è un papavero?",
+          "expected": "non lo so.",
+          "noun": "so"
+        },
+        {
+          "prompt": "il papavero è un animale?",
           "expected": "non lo so.",
           "noun": "so"
         }

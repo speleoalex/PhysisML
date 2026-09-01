@@ -33,8 +33,9 @@ import probe_set                                                       # noqa: E
 import autonomy_loop as al                                             # noqa: E402
 from dynamic_model.ontology_oracle import (OntologyOracle, article_for,  # noqa: E402
                                             guess_gender, normalize_class)
+from dynamic_model import retraction                                   # noqa: E402
 
-LEX = etp.Lex(etp.load_lexicon("it"))
+LEX = etp.Lex(etp.load_lexicon("it"), "it")
 CLASSES = sorted(set(LEX.classes.keys()) | {v for v in LEX.classes.values() if v})
 
 
@@ -266,3 +267,75 @@ def test_the_session_log_grades_the_row_above(tmp_path):
     # therefore pairs 'p1' with '+++'
     grade_of_p1 = rows[1]["feedback"]
     assert (rows[0]["prompt"], grade_of_p1) == ("p1", "+++")
+
+
+# ── the pool split: what the loop must never spend ───────────────────────────
+def _args(**kw):
+    import argparse
+    d = {"queue": None, "lang": "it"}
+    d.update(kw)
+    return argparse.Namespace(**d)
+
+
+class _FakeOracle:
+    """Records who it was asked about: a dropped name must never reach it."""
+    def __init__(self):
+        self.asked = []
+
+    def gender_of(self, w):
+        self.asked.append(w)
+        return "m"
+
+
+def test_the_default_queue_is_only_the_acquirable_third():
+    q = {n["w"] for n in al.build_queue(_args(), LEX, {"items": []},
+                                       _FakeOracle())}
+    reserve = {n["w"] for n in LEX.bare_reserve}
+    probe_r = {n["w"] for n in LEX.bare_probe}
+    assert q, "la coda non può essere vuota"
+    assert q.isdisjoint(reserve), "il controllo permanente è finito in coda"
+    assert q.isdisjoint(probe_r), "la misura di generalizzazione è finita in coda"
+
+
+def test_an_explicit_queue_cannot_override_the_reserve(tmp_path):
+    """A --queue file is a convenience, not an override.
+
+    The reserve is the only evidence that acquisition has not eroded honesty,
+    and the probe third the only evidence that the relation generalised. A run
+    launched with the wrong file would consume both and nothing downstream
+    could tell.
+    """
+    forbidden = [LEX.bare_reserve[0]["w"], LEX.bare_probe[0]["w"]]
+    f = tmp_path / "q.txt"
+    f.write_text("\n".join(forbidden + ["ninnolo"]) + "\n", encoding="utf-8")
+    oracle = _FakeOracle()
+    q = al.build_queue(_args(queue=str(f)), LEX, {"items": []}, oracle)
+    assert {n["w"] for n in q} == {"ninnolo"}
+    assert set(oracle.asked).isdisjoint(set(forbidden))
+
+
+def test_a_retraction_that_would_delete_a_frozen_probe_prompt_is_vetoed():
+    """inspect() guards the material; this guards what the retraction REMOVES.
+
+    A probe item that is itself an admission would be deleted by the
+    retraction, and the degradation trigger would then measure the model on a
+    lesson the loop had just erased — the self-confirming measurement the
+    frozen probe exists to prevent.
+    """
+    word = next(n["w"] for n in LEX.bare_taught
+                if n.get("role", "acquirable") == "acquirable"
+                and retraction.find(n["w"], "it")["levels"])
+    hit = retraction.find(word, "it")
+    victim = next(iter(hit["levels"].values()))["targets"][0]["target"]["prompt"]
+    assert _gate(probe_prompts=[victim]).retractable(word, "it")
+    assert _gate().retractable(word, "it") == ""
+
+
+def test_forget_clears_the_golds_a_retraction_removed():
+    g = _gate({al._normalize_prompt("cos è un falco?"): "non lo so.",
+               al._normalize_prompt("cosa è un falco?"): "non lo so.",
+               al._normalize_prompt("cos è un cane?"): "il cane è un animale."})
+    assert g.forget("falco") == 2
+    mat = [{"prompt": "cos è un falco?", "expected": "il falco è un animale."}]
+    assert g.inspect(mat)["ok"], "dopo il ritiro la collisione non esiste più"
+    assert len(g.known) == 1

@@ -93,4 +93,55 @@ print(('OGNI PROMPT HA UN SOLO GOLD' if not clash
        else f'{len(clash)} PROMPT CON GOLD CONTRASTANTI '
             f'(correggi con scripts/fix_gold_conflicts.py)'))
 
-sys.exit(1 if (bad or clash) else 0)
+# ── the three roles of bare_unknown_nouns ────────────────────────────────────
+# The pool split only works if the roles are respected on disk. Each of these
+# is a measurement that silently becomes meaningless when it is not:
+#   probe    - taught anywhere at all, and the answer to 'did the honesty
+#              relation generalise?' becomes 'we taught it';
+#   reserve  - retracted, and the control that acquisition has not eroded
+#              honesty is gone;
+#   retracted- an admission left behind somewhere, and the prompt has two golds
+#              under two shapes, which is the failure ask_forms exists for.
+print()
+role_bad = []
+try:
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from dynamic_model.retraction import retracted, find, is_admission
+    lexicon = json.load(open('training_files/it/lexicon.json', encoding='utf-8'))
+    bare = lexicon.get('bare_unknown_nouns', [])
+    gone = set(retracted('it'))
+    roles = collections.Counter(n.get('role', 'acquirable') for n in bare)
+
+    for n in bare:
+        role = n.get('role', 'acquirable')
+        hit = find(n['w'], 'it')
+        taught = sum(len(part['targets']) + len(part['pairs'])
+                     for part in hit['levels'].values())
+        if role == 'probe' and (taught or hit['other']):
+            role_bad.append(f"'{n['w']}' ha role=probe ma compare in "
+                            f"{taught + len(hit['other'])} punti del "
+                            f"curriculum: la misura di generalizzazione è persa")
+        if role == 'reserve' and n['w'] in gone:
+            role_bad.append(f"'{n['w']}' ha role=reserve ma è stato ritirato: "
+                            f"il controllo permanente è stato speso")
+        if role == 'reserve' and not taught:
+            role_bad.append(f"'{n['w']}' ha role=reserve ma nessun livello gli "
+                            f"insegna 'non lo so'")
+        if hit['other']:
+            role_bad.append(f"'{n['w']}' è un bare_unknown ma ha "
+                            f"{len(hit['other'])} gold che non sono ammissioni")
+    for w in gone:
+        hit = find(w, 'it')
+        left = sum(len(part['targets']) + len(part['pairs'])
+                   for part in hit['levels'].values())
+        if left:
+            role_bad.append(f"'{w}' è ritirato ma restano {left} ammissioni "
+                            f"nel curriculum")
+    for line in role_bad:
+        print(f'  {line}')
+    print(f"RUOLI bare_unknown: {dict(roles)}, ritirati {len(gone)} — "
+          + ('ok' if not role_bad else f'{len(role_bad)} PROBLEMI'))
+except Exception as e:                       # noqa: BLE001
+    print(f'  ruoli non verificati: {e}')
+
+sys.exit(1 if (bad or clash or role_bad) else 0)

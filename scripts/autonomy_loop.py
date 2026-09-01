@@ -48,6 +48,7 @@ import glob
 import json
 import os
 import random
+import re
 import shutil
 import subprocess
 import sys
@@ -68,6 +69,7 @@ from dynamic_model.ontology_oracle import (OntologyOracle, article_for,  # noqa:
 from dynamic_model.test_model import is_exact                          # noqa: E402
 from dynamic_model.train_curriculum import (turn_record, _known_golds,  # noqa: E402
                                             _normalize_prompt, _EOS_MARK)
+from dynamic_model import retraction                              # noqa: E402
 
 ASKED, ADMITTED, ASSERTED = "asked", "admitted", "asserted"
 # A fourth outcome, and it exists because the dry run produced it: asked to
@@ -110,7 +112,7 @@ class Gatekeeper:
     a decision, not a side effect.
     """
 
-    ADMISSIONS = ("non lo so", "non so")
+    ADMISSIONS = retraction.ADMISSIONS
 
     def __init__(self, lang: str, probe: dict, max_new: int):
         self.known    = _known_golds(lang)
@@ -123,8 +125,44 @@ class Gatekeeper:
         self.refusals[why] = self.refusals.get(why, 0) + n
 
     def _is_admission(self, gold: str) -> bool:
-        g = gold.strip().lower().rstrip(".!?")
-        return any(g == a for a in self.ADMISSIONS)
+        return retraction.is_admission(gold)
+
+    def retractable(self, word: str, lang: str) -> str:
+        """'' if the admissions about `word` may be removed, else why not.
+
+        The frozen probe is the reason this check exists separately from
+        `inspect`: inspect refuses material that lands ON a probe prompt, but a
+        retraction removes DIFFERENT prompts — the admissions — and one of
+        those could itself be a probe item. Removing it would make the
+        degradation trigger measure a lesson the loop had just deleted, which
+        is the self-confirming measurement the frozen probe exists to prevent.
+        """
+        hit = retraction.find(word, lang)
+        if hit["other"]:
+            return (f"{len(hit['other'])} gold su '{word}' non sono ammissioni")
+        for part in hit["levels"].values():
+            for item in part["targets"]:
+                if _normalize_prompt(item["target"]["prompt"]) in self.probe_p:
+                    return f"'{item['target']['prompt']}' sta nel probe congelato"
+            for item in part["pairs"]:
+                rec = json.loads(item["line"])
+                if _normalize_prompt(rec["prompt"]) in self.probe_p:
+                    return f"'{rec['prompt']}' sta nel probe congelato"
+        return ""
+
+    def forget(self, word: str) -> int:
+        """Drop every gold about `word` from the in-memory index.
+
+        Called after a retraction has removed them from disk. Without this the
+        next phrasing of the same noun still collides with a gold that no
+        longer exists, and the acquisition is refused for a reason that is no
+        longer true.
+        """
+        pat = re.compile(rf"\b{re.escape(word)}\b")
+        dead = [p for p in self.known if pat.search(p)]
+        for p in dead:
+            del self.known[p]
+        return len(dead)
 
     def inspect(self, material: list) -> dict:
         """What would happen, without changing anything."""
@@ -155,7 +193,7 @@ class Gatekeeper:
                     f"diverso nel curriculum")
         if verdict["stale"]:
             return (f"{len(verdict['stale'])} ammissioni 'non lo so' da "
-                    f"ritirare prima (il curriculum insegna a non saperlo)")
+                    f"ritirare prima (--retract per farlo)")
         if verdict["in_probe"]:
             return f"{verdict['in_probe']} prompt stanno nel probe congelato"
         return "cap del batch raggiunto"
@@ -186,6 +224,7 @@ class Batch:
         self.parent   = parent_ckpt
         self.targets  = []
         self.nouns    = []
+        self.retracted = []
 
     def _next_id(self) -> int:
         ids = [int(os.path.basename(d)) for d in glob.glob(
@@ -215,6 +254,21 @@ class Batch:
                         "class": cls, "word": noun["w"]})
             self.targets.append(rec)
 
+    def retract(self, word: str, source: str) -> dict:
+        """Retract the admission of ignorance about `word`, into THIS batch.
+
+        The save file goes in the batch directory, so undoing the batch undoes
+        the retraction too: without that, a rolled-back acquisition would leave
+        the curriculum permanently missing the lesson it was refused for.
+        """
+        d = os.path.join(self.data_dir, self.slug)
+        os.makedirs(d, exist_ok=True)
+        info = retraction.retract(word, self.lang, save_dir=d,
+                                  batch=self.slug, source=source)
+        if info["targets"] or info["pairs"]:
+            self.retracted.append(info)
+        return info
+
     def write(self) -> str:
         """Persist the batch and rebuild the level config from every batch."""
         d = os.path.join(self.data_dir, self.slug)
@@ -222,6 +276,10 @@ class Batch:
         with open(os.path.join(d, "targets.jsonl"), "w", encoding="utf-8") as f:
             for t in self.targets:
                 f.write(json.dumps(t, ensure_ascii=False) + "\n")
+        if self.retracted:
+            with open(os.path.join(d, "retracted.json"), "w",
+                      encoding="utf-8") as f:
+                json.dump(self.retracted, f, ensure_ascii=False, indent=1)
         rebuild_config(self.lang, self.level)
         return d
 
@@ -241,9 +299,22 @@ class Batch:
             shutil.copy2(dreamed, dst)
 
     def discard(self, dreamed: str) -> None:
-        """Undo this batch: its material leaves the curriculum, its weights
-        are replaced by the state it started from."""
+        """Undo this batch: its material leaves the curriculum, whatever it
+        retracted comes back, and its weights return to the state it started
+        from.
+
+        Restore BEFORE the directory is moved aside — the save files live in
+        it, and a rollback that could not find them would leave the curriculum
+        with neither the acquisition nor the admission it replaced.
+        """
         d = os.path.join(self.data_dir, self.slug)
+        for info in self.retracted:
+            try:
+                retraction.restore(info["word"], self.lang, save_dir=d)
+            except (FileNotFoundError, KeyError) as e:
+                print(f"  ATTENZIONE: ritiro di {info['word']} non "
+                      f"ripristinato ({e}). Il livello che lo insegnava ora "
+                      f"non insegna né l'ammissione né la classe.")
         if os.path.isdir(d):
             shutil.move(d, d + f".rejected.{int(time.time())}")
         rebuild_config(self.lang, self.level)
@@ -389,13 +460,30 @@ def ask_shapes(noun: dict, lex, rng) -> list:
 
 def build_queue(args, lex, probe, oracle) -> list:
     """
-    The nouns to ask about: from --queue, else the lexicon's bare unknowns.
+    The nouns to ask about: from --queue, else the lexicon's ACQUIRABLE bare
+    unknowns.
 
-    Excluded, always: anything the lexicon already classifies (the curriculum's
-    answer has authority over the oracle's) and the probe half of
-    unknown_nouns, which scripts/curiosity_rate.py measures on.
+    Excluded, always — and every exclusion is a measurement that would
+    otherwise destroy itself:
+
+      * anything the lexicon already classifies: the curriculum's answer has
+        authority over the oracle's;
+      * the probe half of `unknown_nouns`, which scripts/curiosity_rate.py
+        measures the curiosity gap on;
+      * `bare_unknown_nouns` with role 'reserve': the permanent control that
+        acquisition has not eroded honesty. Acquiring one would spend the
+        control to gain one noun;
+      * role 'probe': taught nowhere, and the only way left to ask whether the
+        honesty RELATION generalised. Teaching it answers the question by
+        removing it.
+
+    An explicit --queue is filtered the same way. A queue file is a
+    convenience, not an override: the reserve exists so that no run, however
+    it was launched, can quietly consume it.
     """
     reserved = {n["w"] for n in lex.unknown_of(probe=True)}
+    reserved |= {n["w"] for n in lex.bare_reserve}
+    reserved |= {n["w"] for n in lex.bare_probe}
     classified = {n["w"] for n in lex.nouns if lex.cls_of(n)}
     raw = []
     if args.queue:
@@ -406,7 +494,8 @@ def build_queue(args, lex, probe, oracle) -> list:
                 raw = [ln.strip() for ln in f if ln.strip()
                        and not ln.startswith("#")]
     else:
-        raw = list(lex.bare_unknown)
+        raw = [n for n in lex.bare_taught
+               if n.get("role", "acquirable") == "acquirable"]
     out, seen = [], set()
     for item in raw:
         n = dict(item) if isinstance(item, dict) else {"w": str(item).strip()}
@@ -484,6 +573,11 @@ def main() -> None:
     ap.add_argument("--ckpt-base", default=None)
     ap.add_argument("--probe", default=probe_set.DEFAULT_PATH)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--retract", action="store_true",
+                    help="quando l'acquisizione collide con un 'non lo so' "
+                         "insegnato dal curriculum, RITIRA l'ammissione "
+                         "(solo per i nomi con role=acquirable). Senza questo "
+                         "flag l'acquisizione viene rifiutata e detto perché")
     ap.add_argument("--teach-confabulations", action="store_true",
                     help="also acquire material on turns where the model "
                          "asserted a class instead of admitting ignorance "
@@ -609,6 +703,44 @@ def main() -> None:
 
         material = oracle.material_for(verdict.noun, verdict.cls, rng)
         check    = gate.inspect(material)
+        # A collision with a stale admission is the ONE refusal that learning
+        # can legitimately clear, and only for a noun the lexicon marks
+        # acquirable: 'reserve' is the control that acquisition has not eroded
+        # honesty, so spending it to gain one noun is the one trade never worth
+        # making. The retraction happens BEFORE the material is learned, and
+        # inside the batch, so one rollback undoes both halves.
+        if (not check["ok"] and check["stale"] and not check["conflict"]
+                and not check["in_probe"] and args.retract
+                and noun.get("role", "acquirable") == "acquirable"):
+            veto = gate.retractable(noun["w"], args.lang)
+            if veto:
+                gate._refuse(f"ritiro impossibile: {veto}")
+                print(f"   ritiro rifiutato: {veto}")
+                continue
+            if args.dry_run:
+                # Say what it would remove, and remove it from the in-memory
+                # index only: a dry run that could not report the retraction
+                # would report every acquisition as refused and hide the whole
+                # point of --retract.
+                hit = retraction.find(noun["w"], args.lang)
+                n_t = sum(len(x["targets"]) for x in hit["levels"].values())
+                n_p = sum(len(x["pairs"]) for x in hit["levels"].values())
+                print(f"   ritirerebbe {n_t} target e {n_p} coppie su "
+                      f"{noun['w']} (L{','.join(hit['levels'])})")
+                gate.forget(noun["w"])
+            else:
+                try:
+                    info = batch.retract(noun["w"],
+                                        source=f"oracle:{oracle.model}")
+                except ValueError as e:
+                    gate._refuse(f"ritiro impossibile: {e}")
+                    print(f"   ritiro rifiutato: {e}")
+                    continue
+                gate.forget(noun["w"])
+                print(f"   ritiro: {info['targets']} target e {info['pairs']} "
+                      f"coppie di 'non lo so' su {noun['w']} "
+                      f"(L{','.join(str(l) for l in info['levels'])})")
+            check = gate.inspect(material)
         if not check["ok"]:
             why = gate.reason(check)
             gate._refuse(why)
@@ -705,6 +837,12 @@ def main() -> None:
     print(f"onesto       : {(tally[ASKED]+tally[ADMITTED])/n:5.0%}"
           f"   ← il segnale che alimenta il giro")
     print(f"target       : {gate.accepted} accettati, {learned_targets} appresi")
+    if batch.retracted:
+        n_t = sum(r["targets"] for r in batch.retracted)
+        n_p = sum(r["pairs"] for r in batch.retracted)
+        print(f"ritiri       : {len(batch.retracted)} nomi, {n_t} target e "
+              f"{n_p} coppie di 'non lo so' rimosse "
+              f"({', '.join(r['word'] for r in batch.retracted)})")
     for why, k in sorted(gate.refusals.items(), key=lambda x: -x[1]):
         print(f"  rifiutati  : {k:4d}  {why}")
     if history:

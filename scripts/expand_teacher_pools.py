@@ -145,8 +145,24 @@ def pick(rng, seq, k):
     return rng.sample(seq, k)
 
 
+def _retracted_words(lang: str) -> set:
+    """Nouns whose admission of ignorance has been retracted by acquisition.
+
+    Read through dynamic_model/retraction.py so the ledger has exactly one
+    reader. Missing module or missing ledger both mean 'nothing retracted' —
+    this script has to keep working in a checkout without the autonomy loop.
+    """
+    try:
+        sys.path.insert(0, ROOT)
+        from dynamic_model.retraction import retracted
+        return set(retracted(lang))
+    except Exception:
+        return set()
+
+
 class Lex:
-    def __init__(self, d):
+    def __init__(self, d, lang: str = "it"):
+        self.lang = lang
         self.nouns = d["nouns"]
         self.verbs = d["verbs"]
         self.adjs = d["adjectives"]
@@ -161,7 +177,34 @@ class Lex:
         # model does not know. Kept out of unknown_nouns on purpose — those get
         # taught (non-probe) or measured (probe), and either would make these
         # answerable.
-        self.bare_unknown = d.get("bare_unknown_nouns", [])
+        # Three roles, and the split is the difference between a lesson that
+        # survives acquisition and one that gets eaten by it:
+        #   acquirable - taught 'non lo so'; the autonomy loop may acquire it,
+        #                which RETRACTS the admission (dynamic_model/
+        #                retraction.py). Every acquisition spends one example.
+        #   reserve    - taught 'non lo so'; the loop must never touch it. The
+        #                permanent control that acquisition has not eroded
+        #                honesty, and the reason the published +67% keeps its
+        #                meaning once the loop starts running.
+        #   probe      - taught NOWHERE. The only way to ask whether the
+        #                RELATION generalised rather than 32 names being
+        #                memorised. Measured on the finished 0-12 model:
+        #                7% honest on names outside the pool against 6/6 on the
+        #                six inside it, which is why the pool grew.
+        # A retracted noun leaves the pool here, not at the call sites: the
+        # generator is re-run on every rebuild and would otherwise resurrect
+        # the very admission the loop just retracted, silently.
+        gone = _retracted_words(self.lang)
+        bare = [n for n in d.get("bare_unknown_nouns", [])
+                if n["w"] not in gone]
+        self.bare_taught = [n for n in bare
+                            if n.get("role", "acquirable") != "probe"]
+        self.bare_reserve = [n for n in bare if n.get("role") == "reserve"]
+        self.bare_probe = [n for n in bare if n.get("role") == "probe"]
+        # The name the generators use: everything the curriculum teaches
+        # 'non lo so' about, acquirable and reserve alike. The probe third is
+        # deliberately absent — teaching it would destroy the measurement.
+        self.bare_unknown = self.bare_taught
 
     def cls_of(self, n):
         """The class this noun belongs to, as it is SAID: 'un animale'.
@@ -904,7 +947,7 @@ def main():
 
     global LANG
     LANG = a.lang
-    lex = Lex(load_lexicon(a.lang))
+    lex = Lex(load_lexicon(a.lang), a.lang)
     grand_before = grand_after = 0
 
     for lvl in a.levels:

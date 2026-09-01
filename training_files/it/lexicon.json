@@ -9,7 +9,8 @@
     "'puo' elenca i verbi sensati per quel nome, 'luoghi_verbo' i luoghi per verbo, 'dim'/'pol' la dimensione semantica e la polarita' di ogni aggettivo. Senza questi vincoli il generatore produce 'il lupo vola', 'la mamma apre il tavolo' e 'il gelato e' rosso perche' e' bianco'.",
     "'ontology' porta la relazione is-a insegnata a L11; 'unknown_nouns' i nomi tenuti fuori da L0-L11 su cui si misura la curiosita' a L12 (meta' marcati 'probe' restano fuori anche da L12: sono il set di misura).",
     "'mass' marca i nomi massa: non prendono l'articolo indeterminativo, quindi si presentano come 'questa e acqua', non 'questa e un acqua'.",
-    "'uniq' marca i referenti unici: si presentano con l'articolo determinativo ('questo e il sole'), perche' 'questo e un sole' non si dice."
+    "'uniq' marca i referenti unici: si presentano con l'articolo determinativo ('questo e il sole'), perche' 'questo e un sole' non si dice.",
+    "'bare_unknown_nouns' porta un 'role': 'acquirable' lo insegna come 'non lo so' e il loop di autonomia lo puo' acquisire (ritirando l'ammissione); 'reserve' lo insegna ma il loop non lo tocca mai, ed e' il controllo permanente che l'onestà non si sia erosa; 'probe' non e' insegnato da nessuna parte e serve solo a misurare se la relazione 'nome mai visto -> ammetti' ha generalizzato."
   ],
   "nouns": [
     {
@@ -1455,32 +1456,230 @@
     {
       "w": "bussola",
       "art": "la",
-      "g": "f"
+      "g": "f",
+      "role": "reserve"
     },
     {
       "w": "falco",
       "art": "il",
-      "g": "m"
+      "g": "m",
+      "role": "reserve"
     },
     {
       "w": "mirtillo",
       "art": "il",
-      "g": "m"
+      "g": "m",
+      "role": "acquirable"
     },
     {
       "w": "sgabello",
       "art": "lo",
-      "g": "m"
+      "g": "m",
+      "role": "acquirable"
     },
     {
       "w": "clarinetto",
       "art": "il",
-      "g": "m"
+      "g": "m",
+      "role": "acquirable"
     },
     {
       "w": "scoiattolo",
       "art": "lo",
-      "g": "m"
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "tasso",
+      "art": "il",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "rospo",
+      "art": "il",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "bisonte",
+      "art": "il",
+      "g": "m",
+      "role": "reserve"
+    },
+    {
+      "w": "lontra",
+      "art": "la",
+      "g": "f",
+      "role": "acquirable"
+    },
+    {
+      "w": "picchio",
+      "art": "il",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "castoro",
+      "art": "il",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "susina",
+      "art": "la",
+      "g": "f",
+      "role": "acquirable"
+    },
+    {
+      "w": "ravanello",
+      "art": "il",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "mandorla",
+      "art": "la",
+      "g": "f",
+      "role": "acquirable"
+    },
+    {
+      "w": "lampone",
+      "art": "il",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "finocchio",
+      "art": "il",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "imbuto",
+      "art": "l",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "rastrello",
+      "art": "il",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "secchio",
+      "art": "il",
+      "g": "m",
+      "role": "reserve"
+    },
+    {
+      "w": "spillo",
+      "art": "lo",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "grembiule",
+      "art": "il",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "scodella",
+      "art": "la",
+      "g": "f",
+      "role": "acquirable"
+    },
+    {
+      "w": "zaffiro",
+      "art": "lo",
+      "g": "m",
+      "role": "reserve"
+    },
+    {
+      "w": "fanale",
+      "art": "il",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "scogliera",
+      "art": "la",
+      "g": "f",
+      "role": "acquirable"
+    },
+    {
+      "w": "radura",
+      "art": "la",
+      "g": "f",
+      "role": "reserve"
+    },
+    {
+      "w": "burrone",
+      "art": "il",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "felce",
+      "art": "la",
+      "g": "f",
+      "role": "reserve"
+    },
+    {
+      "w": "edera",
+      "art": "l",
+      "g": "f",
+      "role": "reserve"
+    },
+    {
+      "w": "papavero",
+      "art": "il",
+      "g": "m",
+      "role": "acquirable"
+    },
+    {
+      "w": "tegola",
+      "art": "la",
+      "g": "f",
+      "role": "probe"
+    },
+    {
+      "w": "rondine",
+      "art": "la",
+      "g": "f",
+      "role": "probe"
+    },
+    {
+      "w": "libellula",
+      "art": "la",
+      "g": "f",
+      "role": "probe"
+    },
+    {
+      "w": "ghiro",
+      "art": "il",
+      "g": "m",
+      "role": "probe"
+    },
+    {
+      "w": "prugna",
+      "art": "la",
+      "g": "f",
+      "role": "probe"
+    },
+    {
+      "w": "cetriolo",
+      "art": "il",
+      "g": "m",
+      "role": "probe"
+    },
+    {
+      "w": "sciarpa",
+      "art": "la",
+      "g": "f",
+      "role": "probe"
     }
   ]
 }

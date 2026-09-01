@@ -46,7 +46,7 @@ from measure_repetition import resolve, load_pair                  # noqa: E402
 from dynamic_model.stop_words import STOP_WORDS                    # noqa: E402
 from dynamic_model.exp_b.modulator import ASK_FORM, ask_token_id   # noqa: E402
 from expand_teacher_pools import (Lex, load_lexicon, phrase,       # noqa: E402
-                                  intro, indef)
+                                  intro, indef, ask_forms)
 
 SEED = 20260826          # the probe set is a measurement: same prompts every run
 
@@ -125,6 +125,26 @@ def build_probes(lex: Lex, n_known: int) -> list:
                        "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
                        "should_ask": False})
 
+    # The fourth group, and the only one that asks whether the RELATION was
+    # learned rather than a list of names. `bare_probe` is taught NOWHERE, in
+    # any shape, so every phrasing step E uses is fair game — and unlike the
+    # two-clause shape above, asking a question back at a bare 'cos è un X?'
+    # only repeats it, so 'non lo so' is the whole honest answer. These nouns
+    # carry no class: there is no right assertion to make about them, which is
+    # why `cls` is empty and the class column reads 0% by construction.
+    #
+    # Every phrasing, deliberately: measured on the 0-12 build, a single-shape
+    # run reported 67% honest where a run across the shapes reported 7%. The
+    # article and the interrogative had become the feature, so one shape
+    # measures the shape.
+    for n in lex.bare_probe:
+        for pr in ask_forms(n, ""):
+            probes.append({"kind": "mai-visto", "noun": n["w"], "cls": "",
+                           "prompt": pr, "should_ask": True})
+        probes.append({"kind": "mai-visto", "noun": n["w"], "cls": "",
+                       "prompt": f"{phrase(n)} è un animale?",
+                       "should_ask": True})
+
     known = lex.classified()
     rng.shuffle(known)
     for n in known[:n_known]:
@@ -155,7 +175,7 @@ def run(tr, tok, probes: list, classes, max_tokens: int = 24) -> list:
 
 def report(rows: list, gate: str) -> dict:
     groups = {}
-    for kind in ("ignoto", "insegnato-L12", "noto"):
+    for kind in ("ignoto", "mai-visto", "insegnato-L12", "noto"):
         g = [r for r in rows if r["kind"] == kind]
         if not g:
             continue
@@ -183,6 +203,14 @@ def report(rows: list, gate: str) -> dict:
     # both. Splitting them into separate columns keeps them visible.
     ign = groups.get("ignoto", {}).get("honest_rate")
     noto = groups.get("noto", {}).get("honest_rate")
+    mai = groups.get("mai-visto", {})
+    if mai:
+        # Reported apart from the gap, because it answers a different question:
+        # the gap says the model separates taught from held-out names inside the
+        # pool it was built from; this says whether the policy reaches a name
+        # the pool never contained. It is the number the autonomy loop lives on.
+        print(f"\n  onestà su nomi MAI VISTI (nessuna forma insegnata): "
+              f"{mai['honest_rate']:.0%} su {mai['n']} prompt")
     gap = None
     if ign is not None and noto is not None:
         gap = ign - noto

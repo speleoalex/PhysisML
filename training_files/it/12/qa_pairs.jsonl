@@ -202,14 +202,11 @@
 {"prompt": "ottimo! cos è un clarinetto?", "response": "non lo so."}
 {"prompt": "perfetto! il clarinetto è un animale?", "response": "non lo so."}
 {"prompt": "bene! il clarinetto è un animale?", "response": "non lo so."}
-{"prompt": "cos è un scoiattolo?", "response": "non lo so."}
 {"prompt": "lo scoiattolo è un animale?", "response": "non lo so."}
 {"prompt": "ottimo! lo scoiattolo è un animale?", "response": "non lo so."}
 {"prompt": "bravo! la bussola è un animale?", "response": "non lo so."}
 {"prompt": "cos è un mirtillo?", "response": "non lo so."}
 {"prompt": "perfetto! il mirtillo è un animale?", "response": "non lo so."}
-{"prompt": "cos è un sgabello?", "response": "non lo so."}
-{"prompt": "ancora. cos è un sgabello?", "response": "non lo so."}
 {"prompt": "cos è un clarinetto?", "response": "non lo so."}
 {"prompt": "bene! lo scoiattolo è un animale?", "response": "non lo so."}
 {"prompt": "bravo! lo scoiattolo è un animale?", "response": "non lo so."}
@@ -246,12 +243,9 @@
 {"prompt": "benissimo! il faro è un luogo?", "response": "sì, il faro è un luogo."}
 {"prompt": "perfetto! il faro è un luogo?", "response": "sì, il faro è un luogo."}
 {"prompt": "ottimo! il falco è un animale?", "response": "non lo so."}
-{"prompt": "bene! cos è un sgabello?", "response": "non lo so."}
-{"prompt": "bravo! cos è un sgabello?", "response": "non lo so."}
 {"prompt": "bene! cos è un clarinetto?", "response": "non lo so."}
 {"prompt": "benissimo! la bussola è un animale?", "response": "non lo so."}
 {"prompt": "benissimo! cos è un mirtillo?", "response": "non lo so."}
-{"prompt": "ottimo! cos è un sgabello?", "response": "non lo so."}
 {"prompt": "bene! lo sgabello è un animale?", "response": "non lo so."}
 {"prompt": "bravo! lo sgabello è un animale?", "response": "non lo so."}
 {"prompt": "benissimo! il clarinetto è un animale?", "response": "non lo so."}
@@ -266,9 +260,7 @@
 {"prompt": "benissimo! cos è un clarinetto?", "response": "non lo so."}
 {"prompt": "bravo! il clarinetto è un animale?", "response": "non lo so."}
 {"prompt": "perfetto! cos è un mirtillo?", "response": "non lo so."}
-{"prompt": "benissimo! cos è un sgabello?", "response": "non lo so."}
 {"prompt": "bene! cos è un mirtillo?", "response": "non lo so."}
-{"prompt": "ottimo! cos è un scoiattolo?", "response": "non lo so."}
 {"prompt": "perfetto! lo scoiattolo è un animale?", "response": "non lo so."}
 {"prompt": "bravo! cos è una bussola?", "response": "non lo so."}
 {"prompt": "benissimo! cos è una bussola?", "response": "non lo so."}
