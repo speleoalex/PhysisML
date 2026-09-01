@@ -306,9 +306,19 @@ class TorchAdamOptimizer:
     needed, use decoupled AdamW and exclude LayerNorm/embedding params.
     """
     def __init__(self, parameters, lr=1e-3, weight_decay=0.0,
-                 betas=(0.9, 0.999), eps=1e-8):
+                 betas=(0.9, 0.999), eps=1e-8, foreach=None):
+        # foreach=False on XPU. Adam's default multi-tensor path
+        # (torch._foreach_lerp_) allocates temporaries for every parameter at
+        # once, and on the Arc that is where the dream died:
+        #   RuntimeError: level_zero backend failed with error: 38
+        #   (UR_RESULT_ERROR_OUT_OF_HOST_MEMORY)   in _multi_tensor_adam
+        # The single-tensor path uses a fraction of the peak memory for a
+        # negligible slowdown at this model size (36 parameter tensors).
+        if foreach is None:
+            foreach = False if str(DEVICE) == "xpu" else None
         self._opt = torch.optim.Adam(
-            parameters, lr=lr, betas=betas, eps=eps, weight_decay=weight_decay)
+            parameters, lr=lr, betas=betas, eps=eps, weight_decay=weight_decay,
+            foreach=foreach)
 
     def zero_grad(self):  self._opt.zero_grad()
     def step(self):       self._opt.step()

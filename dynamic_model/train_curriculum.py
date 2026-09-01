@@ -549,6 +549,32 @@ def turn_record(turn: int, step: str, prompt: str, expected: str,
     }
 
 
+def repeated_dream_warning(ckpt_dir: str):
+    """The message for a dream that is about to repeat instead of accumulate.
+
+    A dream with no --checkpoint starts from the PRE-dream weights. That is
+    right for the first dream of a level and wrong for every one after it: the
+    second dream then repeats the first instead of building on its output.
+    build.sh's top-up loop passes --checkpoint for exactly this reason; a
+    hand-run experiment forgets, and nothing used to say so. Measured at level
+    6: six "consecutive" dreams moved the retention row by less than the
+    run-to-run noise, while three accumulating ones took it from 16% to 70%.
+
+    Returns None when there is nothing to warn about.
+    """
+    learned = os.path.join(ckpt_dir, "final_learned.pt")
+    dreamed = os.path.join(ckpt_dir, "final_dreamed.pt")
+    if not (os.path.exists(learned) and os.path.exists(dreamed)):
+        return None
+    if os.path.getmtime(dreamed) <= os.path.getmtime(learned):
+        return None          # the teaching phase ran after the last dream
+    return ("  ATTENZIONE: parto da " + learned + " (pre-sogno) mentre "
+            "final_dreamed.pt \u00e8 pi\u00f9 recente.\n"
+            "              Questo sogno RIPETE il precedente invece di "
+            "accumularci sopra.\n"
+            "              Per accumulare: --checkpoint " + dreamed)
+
+
 def _affect_memory_path(lang: str, ckpt_base: str = None) -> str:
     """Where the curiosity memory lives: one file per language, not per level.
 
@@ -1999,6 +2025,9 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
         if not os.path.exists(learned):
             print(f"  Error: {learned} not found. Run --phase 1 first.")
             return None
+        msg = repeated_dream_warning(ckpt_dir)
+        if msg:
+            print(msg, flush=True)
         start_checkpoint = learned
 
     # Load tokenizer: prefer the most recent compatible tokenizer for this level.

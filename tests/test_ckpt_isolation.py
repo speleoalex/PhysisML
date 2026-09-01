@@ -89,3 +89,31 @@ def test_level_zero_never_warns(tmp_path):
     with redirect_stdout(out):
         _load_memory_bank(base, 0)
     assert "ATTENZIONE" not in out.getvalue()
+
+
+def test_a_repeated_dream_is_announced(tmp_path):
+    """The third silent failure of the same family: a dream with no
+    --checkpoint starts from the pre-dream weights, so the second one repeats
+    the first instead of accumulating. Measured at level 6: six "consecutive"
+    dreams moved the retention row less than the run-to-run noise, while three
+    accumulating ones took it from 16% to 70%."""
+    import time as _t
+    from dynamic_model.train_curriculum import repeated_dream_warning
+
+    d = tmp_path / "level_6"
+    d.mkdir(parents=True)
+    assert repeated_dream_warning(str(d)) is None, "nothing on disk yet"
+
+    (d / "final_learned.pt").write_bytes(b"x")
+    assert repeated_dream_warning(str(d)) is None, "the first dream is fine"
+
+    _t.sleep(0.01)
+    (d / "final_dreamed.pt").write_bytes(b"y")       # a dream has now run
+    msg = repeated_dream_warning(str(d))
+    assert msg and "RIPETE" in msg
+    assert "--checkpoint" in msg, "the warning must say how to fix it"
+
+    # teaching ran again after that dream: starting from final_learned is right
+    _t.sleep(0.01)
+    (d / "final_learned.pt").write_bytes(b"z")
+    assert repeated_dream_warning(str(d)) is None
