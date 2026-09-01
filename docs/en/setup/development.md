@@ -101,6 +101,18 @@ ANTHROPIC_API_KEY=sk-ant-...
 ```
 and install the optional SDK: `pip install anthropic python-dotenv`.
 
+Compute device — the CPU and the Intel Arc are interchangeable mid-build,
+because a checkpoint written on one reads back bit-identically on the other:
+```
+PHYSISML_DEVICE=auto   # default: the Arc when usable, else the CPU
+PHYSISML_DEVICE=cpu    # force the CPU (the GPU is busy, or a run must match an earlier CPU one)
+PHYSISML_DEVICE=xpu    # force the Arc
+```
+A request that cannot be honoured falls back to the CPU and says so on stderr.
+Measured at level 6: a dream takes 6 minutes on the Arc against 27 on the CPU,
+and the retention it produces is the same within noise. The GPU path needs the
+conda env `physisml_gpu` with a `+xpu` torch wheel and oneAPI 2025.3.
+
 Hybrid-tutor overrides — which server hosts the grader, and which model:
 ```
 PHYSISML_LLM_BACKEND=llamacpp          # auto (default) | llamacpp | ollama | off

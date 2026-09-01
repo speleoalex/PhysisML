@@ -23,6 +23,9 @@ Esempio:
     opt   = TorchAdamOptimizer(model.parameters(), lr=1e-3)
     loss  = model.train_step(ids_batch, opt)
 """
+import os
+import sys
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -35,20 +38,46 @@ from pathlib import Path
 # Priority: CUDA (NVIDIA) > XPU (Intel Arc) > MPS (Apple) > CPU
 # ---------------------------------------------------------------------------
 
+def _device_available(name: str) -> bool:
+    if name == "cpu":
+        return True
+    if name == "cuda":
+        return torch.cuda.is_available()
+    if name == "xpu":
+        return getattr(torch, "xpu", None) is not None and torch.xpu.is_available()
+    if name == "mps":
+        return getattr(torch.backends, "mps", None) is not None \
+               and torch.backends.mps.is_available()
+    return False
+
+
 def get_device() -> str:
-    """Return the best available compute device string."""
-    if torch.cuda.is_available():
-        return "cuda"
-    try:
-        if torch.xpu.is_available():
-            return "xpu"
-    except AttributeError:
-        pass
-    try:
-        if torch.backends.mps.is_available():
-            return "mps"
-    except AttributeError:
-        pass
+    """The compute device: PHYSISML_DEVICE if set, else the best available.
+
+    PHYSISML_DEVICE = auto (default) | cpu | xpu | cuda | mps
+
+    The override exists because the two paths are interchangeable — a
+    checkpoint written on the Arc reads back bit-identically on the CPU and
+    vice versa, since load() maps to CPU and the trainer moves the model to
+    whatever device is active — so which one runs is a scheduling decision, not
+    an architectural one. Reasons to force CPU: the GPU is busy (llama-server
+    holds VRAM on the same card), or a result has to be comparable with an
+    earlier CPU run.
+
+    A request that cannot be honoured falls back, LOUDLY. Silence here is how a
+    build ends up running four times slower than intended with nothing in the
+    log to say so — the same failure as the CUDA wheel that sat in the XPU env.
+    """
+    want = (os.environ.get("PHYSISML_DEVICE") or "auto").strip().lower()
+    if want not in ("", "auto"):
+        if _device_available(want):
+            return want
+        print(f"[device] PHYSISML_DEVICE={want} richiesto ma non disponibile: "
+              f"uso la CPU", file=sys.stderr, flush=True)
+        return "cpu"
+    for cand in ("cuda", "xpu", "mps"):
+        if _device_available(cand):
+            return cand
     return "cpu"
 
 

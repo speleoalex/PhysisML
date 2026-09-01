@@ -9,15 +9,28 @@
 #   ./build.sh 1 --resume     # skip prompt, continue from next incomplete level
 #   ./build.sh 2 haiku 100 --resume
 
-# ── GPU auto-detection ──────────────────────────────────────────────────────
-# Use Intel Arc A370M if conda physisml_gpu env is available.
-# Native PyTorch+XPU (2.11+) needs oneAPI 2025.3 runtime + pip-installed MKL.
-# Falls back to system python3 (CPU) if XPU import fails.
+# ── Device selection ────────────────────────────────────────────────────────
+# Use the Intel Arc A370M if the conda physisml_gpu env is available.
+# Native PyTorch+XPU (2.11+) needs the oneAPI 2025.3 runtime + pip-installed MKL.
+# Falls back to system python3 (CPU) if the XPU import fails.
+#
+#   PHYSISML_DEVICE=auto   (default) GPU when usable, else CPU
+#   PHYSISML_DEVICE=cpu              force the CPU: skips the GPU env entirely
+#   PHYSISML_DEVICE=xpu              force the Arc: refuses to fall back quietly
+#
+# The two are interchangeable mid-build: a checkpoint written on the Arc reads
+# back bit-identically on the CPU and the other way round (load() maps to CPU
+# and the trainer moves the model), so a level can be trained on one and the
+# next on the other. Verified both directions. Measured, at level 6: a dream
+# takes 6 minutes on the Arc against 27 on the CPU.
+PHYSISML_DEVICE="${PHYSISML_DEVICE:-auto}"
+export PHYSISML_DEVICE
 CONDA_GPU_PYTHON="$HOME/miniforge3/envs/physisml_gpu/bin/python"
 ONEAPI_VARS="/opt/intel/oneapi/2025.3/oneapi-vars.sh"
 [ ! -f "$ONEAPI_VARS" ] && ONEAPI_VARS="/opt/intel/oneapi/setvars.sh"
 
-if [ -f "$CONDA_GPU_PYTHON" ] && [ -f "$ONEAPI_VARS" ]; then
+if [ "$PHYSISML_DEVICE" != "cpu" ] && [ -f "$CONDA_GPU_PYTHON" ] \
+     && [ -f "$ONEAPI_VARS" ]; then
   source "$ONEAPI_VARS" > /dev/null 2>&1
   # MKL libs (libmkl_intel_lp64.so.2 etc.) come from pip into ~/.local/lib
   if [ -d "$HOME/.local/lib" ]; then
