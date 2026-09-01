@@ -1,27 +1,48 @@
 #!/bin/bash
 # PhysisML backup cleanup — keeps significant milestones
 #
-# MILESTONES TO KEEP:
-#   2026-04-11_225505  — Baseline: first complete run L0-L5, 501 fixed tokens
-#   2026-04-12_064448  — Dormant slots + LR=2e-5 (first stability fix)
-#   2026-04-13_164633  — LocalTeacher + QA pairs (first optimised run)
-#   2026-04-13_204325  — Best: L0-L2 with 8K tokens (state of the art)
+# MILESTONES TO KEEP (2026-09-01):
+#   2026-08-27_174537  — the most recent full snapshot of levels 0-9. Not a
+#                        copy of the live tree: L0 and L5 differ by md5 and it
+#                        has no level_10, so it is a superseded build kept as
+#                        the one fallback if the live foundation is lost.
 #
 # TO DELETE:
-#   - All active_*.pt files (snapshots without context)
-#   - Apr 11 dev directories (iterative runs before optimisations)
-#   - Intermediate directories without distinctive characteristics
+#   - All active_*.pt files (snapshots of models/active.pt without context;
+#     set_model.sh writes one on every switch and never rotates them)
+#   - The 2026-08-19 / 08-20 series: eleven snapshots of one afternoon, all
+#     superseded by the build that produced the published checkpoint
+#   - 2026-08-26_100401: superseded by 08-27
+#
+# NOT here, and must not be: models/checkpoints/it/_pre_rebuild_20260901 holds
+# the published L11/L12 (88.1%) while the rebuild regenerates them. It lives
+# under checkpoints/ on purpose — build.sh only deletes level_N directories.
+#
+# A KEEP entry that does not exist on disk is an ERROR, not a no-op: this list
+# was still naming four April directories that had long since been removed, so
+# running the script would have deleted everything while reporting that it had
+# preserved the milestones.
 
 BACKUP_DIR="models/backups"
 DRY_RUN=0
 [ "$1" = "--dry-run" ] && DRY_RUN=1
 
 KEEP=(
-  "2026-04-11_225505"
-  "2026-04-12_064448"
-  "2026-04-13_164633"
-  "2026-04-13_204325"
+  "2026-08-27_174537"
 )
+
+# Refuse to run on a stale list. Without this the script is most dangerous
+# exactly when it is most out of date.
+MISSING=0
+for k in "${KEEP[@]}"; do
+  if [ ! -d "$BACKUP_DIR/$k" ]; then
+    echo "ERRORE: la milestone '$k' non esiste in $BACKUP_DIR."
+    echo "        La lista KEEP è vecchia: aggiornala prima di cancellare,"
+    echo "        o lo script cancella tutto credendo di preservare qualcosa."
+    MISSING=1
+  fi
+done
+[ "$MISSING" -eq 1 ] && exit 1
 
 echo "=== PhysisML backup cleanup ==="
 echo ""
