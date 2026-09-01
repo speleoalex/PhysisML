@@ -339,3 +339,52 @@ def test_forget_clears_the_golds_a_retraction_removed():
     mat = [{"prompt": "cos è un falco?", "expected": "il falco è un animale."}]
     assert g.inspect(mat)["ok"], "dopo il ritiro la collisione non esiste più"
     assert len(g.known) == 1
+
+
+# ── the curiosity state a fresh load does not carry ──────────────────────────
+class _BareTrainer:
+    """Just enough of a trainer: load_pair hands back exactly this much state."""
+    def __init__(self):
+        from dynamic_model.exp_b.affect_state import AffectState
+        self.affect = AffectState()
+
+
+def test_a_bare_affect_state_calls_everything_unknown():
+    """The defect, stated as the thing it makes false.
+
+    load_pair builds AffectState() with no content-word filter and no memory of
+    what has been explained, so `word_ignorance` is 1.0 on 'cos è un cane?' —
+    a noun taught at level 1 — and even 'un' and 'cos' count as words the model
+    was never taught.
+    """
+    tr = _BareTrainer()
+    assert tr.affect.word_ignorance("cos è un cane?") == 1.0
+    assert "un" in tr.affect.untaught_words("cos è un cane?")
+
+
+def test_rearm_restores_the_filter_and_the_memory(tmp_path):
+    from dynamic_model.exp_b.affect_state import AffectState
+    seed = AffectState()
+    for phrase in ("il cane è un animale.", "il gatto dorme."):
+        seed.register_rewarded_words(phrase, 1.0)
+    seed.save_memory(str(tmp_path / "affect_memory.json"))
+
+    tr = _BareTrainer()
+    n = al.rearm_affect(tr, "it", str(tmp_path), quiet=True)
+    assert n > 0
+    # Function words stop counting, and a taught noun is no longer unknown.
+    # ('cos' is not a stop word and is not in this seed, so it is asserted away
+    # rather than expecting an empty set — the real memory holds 277 words.)
+    assert "un" not in tr.affect.untaught_words("cos è un cane?")
+    assert "cane" not in tr.affect.untaught_words("cos è un cane?")
+    assert tr.affect.word_ignorance("il cane è un animale") == 0.0
+    # A noun nothing ever explained still is — and the state NAMES it, which is
+    # what the loop needs and a bare 1.0 could never give.
+    assert "ravanello" in tr.affect.untaught_words("cos è un ravanello?")
+
+
+def test_rearm_says_so_when_there_is_no_memory_to_load(tmp_path, capsys):
+    """Silence here would be the same defect with a different cause: the column
+    reads 'everything unknown' and nothing in the log explains why."""
+    assert al.rearm_affect(_BareTrainer(), "it", str(tmp_path)) == 0
+    assert "nessuna memoria di curiosità" in capsys.readouterr().out

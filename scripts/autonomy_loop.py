@@ -70,6 +70,8 @@ from dynamic_model.test_model import is_exact                          # noqa: E
 from dynamic_model.train_curriculum import (turn_record, _known_golds,  # noqa: E402
                                             _normalize_prompt, _EOS_MARK)
 from dynamic_model import retraction                              # noqa: E402
+from dynamic_model.stop_words import STOP_WORDS                   # noqa: E402
+from dynamic_model.train_curriculum import _affect_memory_path    # noqa: E402
 
 ASKED, ADMITTED, ASSERTED = "asked", "admitted", "asserted"
 # A fourth outcome, and it exists because the dry run produced it: asked to
@@ -517,6 +519,42 @@ def build_queue(args, lex, probe, oracle) -> list:
     return out
 
 
+def rearm_affect(tr, lang: str, ckpt_base: str, quiet: bool = False) -> int:
+    """Give a freshly loaded model back its curiosity state.
+
+    `load_pair` builds a bare `AffectState()`, and the two things that make the
+    curiosity signal mean anything are not in the checkpoint:
+
+      * `function_words` — without the content-word filter every article and
+        preposition counts as a word the model was never taught;
+      * `words_rewarded`, from affect_memory.json — the only thing that carries
+        'this has been explained to me' across processes, since every build
+        phase is a separate one.
+
+    Missing both, `AffectState.untaught_words` answers 'unknown' to everything,
+    so `word_ignorance` is 1.0 on every prompt and `ask_drive` fires always.
+    scripts/curiosity_rate.py has done this since the measurement was written;
+    the loop never did, and its `affect` column in every session_*.jsonl is
+    meaningless as a result. It has not produced a wrong acquisition — nothing
+    branches on it today — but it is exactly the column the epistemic trigger
+    is meant to calibrate against, and a ground truth that says 'unknown' to
+    everything cannot check anything.
+
+    Called after EVERY load_pair, not just the first: a dream and a rollback
+    both rebuild the trainer, and a state re-armed only at startup goes bare
+    again at the first dream — which is precisely where a long run spends its
+    time.
+    """
+    tr.affect.function_words = STOP_WORDS
+    path = _affect_memory_path(lang, ckpt_base)
+    n = tr.affect.load_memory(path)
+    if not quiet:
+        print(f"  memoria di curiosità: {n} parole da {path}" if n else
+              f"  ⚠ nessuna memoria di curiosità in {path}: ogni prompt "
+              f"risulta ignoto e la colonna 'affect' del log non dice nulla")
+    return n
+
+
 def degraded(now: dict, baseline: dict, args) -> str:
     """Why the model needs to sleep, or ''.
 
@@ -624,6 +662,7 @@ def main() -> None:
     print(f"modo       : {'DRY RUN (nessun peso, nessuna scrittura)' if args.dry_run else 'apprendimento attivo'}")
 
     tr, tok = load_pair(ckpt, tok_path)
+    rearm_affect(tr, args.lang, ckpt_base)
     eos = tok.EOS_TOKEN if hasattr(tok, "EOS_TOKEN") else ""
     if not (eos and hasattr(tok, "get_special_id")
             and tok.get_special_id(eos) is not None):
@@ -798,6 +837,7 @@ def main() -> None:
         dreamed = os.path.join(level_dir, "final_dreamed.pt")
         ckpt2, tok2 = resolve(ckpt_base, args.level)
         tr, tok = load_pair(ckpt2 or dreamed, tok2 or tok_path)
+        rearm_affect(tr, args.lang, ckpt_base, quiet=True)
         post = probe_set.score(tr, tok, probe)
         history.append({"batch": batch.name, "why": why,
                         "pre": pre["exact_rate"], "post": post["exact_rate"],
@@ -813,6 +853,7 @@ def main() -> None:
                   f"(sotto la baseline di più di {args.max_drop:.0%})")
             batch.discard(dreamed)
             tr, tok = load_pair(batch.parent, tok2 or tok_path)
+            rearm_affect(tr, args.lang, ckpt_base, quiet=True)
             baseline = probe_set.score(tr, tok, probe)
         else:
             batch.snapshot(dreamed)
@@ -864,6 +905,7 @@ def main() -> None:
             if run_dream(args, args.level):
                 ckpt2, tok2 = resolve(ckpt_base, args.level)
                 tr, tok = load_pair(ckpt2, tok2 or tok_path)
+                rearm_affect(tr, args.lang, ckpt_base, quiet=True)
                 post = probe_set.score(tr, tok, probe)
                 print(f"  sogno finale: exact {post['exact_rate']:.1%} "
                       f"(baseline {baseline['exact_rate']:.1%})")
