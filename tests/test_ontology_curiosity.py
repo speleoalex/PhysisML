@@ -7,6 +7,7 @@ is one that would otherwise show up only as a bad number at the end.
 
 Run with:  python3 -m pytest tests/test_ontology_curiosity.py -v
 """
+import glob
 import json
 import os
 import random
@@ -27,6 +28,18 @@ from dynamic_model.local_teacher import LocalTeacher               # noqa: E402
 from dynamic_model.stop_words import STOP_WORDS                    # noqa: E402
 
 ONTO_LEVELS = (11, 12)
+
+
+def curriculum_levels():
+    """Every level directory on disk, the autonomy level (13) included.
+
+    A hardcoded range(13) made three whole-curriculum scans blind to level 13
+    — the level the autonomy loop writes into, and the one place where the
+    first real run actually produced a two-gold conflict (2026-09-03).
+    """
+    return sorted(int(os.path.basename(p))
+                  for p in glob.glob("training_files/it/[0-9]*")
+                  if os.path.basename(p).isdigit() and os.path.isdir(p))
 
 
 @pytest.fixture(scope="module")
@@ -149,6 +162,15 @@ class TestPools:
         taught = {n["w"] for n in lex.get("unknown_nouns", [])}
         assert not (set(bare) & taught), "a bare name is also in unknown_nouns"
 
+        # A retracted name is no longer unknown: acquisition replaced its
+        # admission with a class gold in the autonomy level, so appearing in
+        # trained material is now its job, not a leak. The residue check in
+        # validate_teacher_configs.py still catches any admission left behind
+        # for the same name.
+        from dynamic_model.retraction import retracted
+        gone = set(retracted("it"))
+        bare = [w for w in bare if w not in gone]
+
         # Trained material only: *.txt at the level root, plus the pools and
         # pair files. _reference/ subdirectories are not globbed by phase 0.
         patterns = ["training_files/it/*/*.txt", "training_files/it/*/*.json",
@@ -157,6 +179,15 @@ class TestPools:
         for pat in patterns:
             for path in _glob.glob(pat):
                 if "/12/" in path:          # step E is where they belong
+                    continue
+                # The autonomy level harvests its sessions, and a turn where
+                # the model correctly asked about a still-unknown name is a
+                # pair worth keeping — the same lesson as step E, one level
+                # up. The leaks this scan exists for are still caught: a
+                # probe name taught anywhere, or a class gold without a
+                # retraction, both trip validate_teacher_configs.py's role
+                # checks through retraction.find.
+                if "/13/" in path:
                     continue
                 text = open(path, encoding="utf-8", errors="replace").read()
                 for w in bare:
@@ -184,7 +215,7 @@ class TestPools:
         step D with one verb and L5 step B with two.
         """
         gold, where = {}, {}
-        for level in range(13):
+        for level in curriculum_levels():
             if not os.path.exists(
                     f"training_files/it/{level}/local_teacher.json"):
                 continue
@@ -210,7 +241,7 @@ class TestPools:
         """
         known = set()          # all conflicts cleared: nothing may reappear
         gold = {}
-        for level in range(13):
+        for level in curriculum_levels():
             d = f"training_files/it/{level}"
             if os.path.exists(f"{d}/local_teacher.json"):
                 for _sn, _st, prompt, t in all_targets(level):
@@ -703,7 +734,7 @@ class TestVocabularyCoversTheNewLevels:
                   if e.get("probe")]
         assert probes, "no probe nouns in the lexicon"
         pooled = set()
-        for level in range(13):
+        for level in curriculum_levels():
             path = f"training_files/it/{level}/local_teacher.json"
             if not os.path.exists(path):
                 continue

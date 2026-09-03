@@ -78,6 +78,27 @@ def is_ignorance(gold: str, word: str) -> bool:
     return g.endswith("?") and bool(_word_re(word).search(g))
 
 
+def stale_admission(prompt: str, gold: str, gone) -> bool:
+    """Does (prompt, gold) teach ignorance about a word already retracted?
+
+    `gone` is an iterable of retracted words (see `retracted()`). The word is
+    looked for in the PROMPT, because a bare admission ("non lo so.") names no
+    word at all — its subject is whatever the question asked about. The gold
+    is then tested with `is_ignorance`, which also catches the ask-shaped gold
+    ("cos è un tasso?") of the two-clause step.
+
+    This is the predicate the dream's QA harvest needs: a session log records
+    the gold OF THE MOMENT THE TURN RAN, and a turn asked before an acquisition
+    carries "non lo so." even after the retraction has removed that admission
+    from the curriculum. Harvesting it would re-teach the retracted admission
+    right next to the new class gold — one prompt, two answers.
+    """
+    for w in gone:
+        if _word_re(w).search(prompt or "") and is_ignorance(gold, w):
+            return True
+    return False
+
+
 def ledger_path(lang: str = "it") -> str:
     return os.path.join(_ROOT, "training_files", lang, LEDGER_NAME)
 

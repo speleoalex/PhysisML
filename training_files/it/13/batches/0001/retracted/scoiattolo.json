@@ -1,0 +1,107 @@
+{
+ "word": "scoiattolo",
+ "levels": {
+  "12": {
+   "targets": [
+    {
+     "step": "A",
+     "index": 8,
+     "target": {
+      "prompt": "il vento è una cosa, questo è uno scoiattolo",
+      "expected": "cos è uno scoiattolo?",
+      "noun": "scoiattolo"
+     }
+    },
+    {
+     "step": "G",
+     "index": 2,
+     "target": {
+      "prompt": "il faro è un luogo, questo è uno scoiattolo",
+      "expected": "cos è uno scoiattolo?",
+      "noun": "scoiattolo"
+     }
+    },
+    {
+     "step": "E",
+     "index": 4,
+     "target": {
+      "prompt": "lo scoiattolo è un animale?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 11,
+     "target": {
+      "prompt": "cos è lo scoiattolo?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 12,
+     "target": {
+      "prompt": "cosa è lo scoiattolo?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 13,
+     "target": {
+      "prompt": "cos è uno scoiattolo?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 14,
+     "target": {
+      "prompt": "cosa è uno scoiattolo?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    }
+   ],
+   "pairs": [
+    {
+     "index": 166,
+     "line": "{\"prompt\": \"ancora. lo scoiattolo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 167,
+     "line": "{\"prompt\": \"benissimo! lo scoiattolo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 191,
+     "line": "{\"prompt\": \"lo scoiattolo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 192,
+     "line": "{\"prompt\": \"ottimo! lo scoiattolo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 194,
+     "line": "{\"prompt\": \"bene! lo scoiattolo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 195,
+     "line": "{\"prompt\": \"bravo! lo scoiattolo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 230,
+     "line": "{\"prompt\": \"perfetto! lo scoiattolo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 240,
+     "line": "{\"prompt\": \"ancora. il vento è una cosa, questo è uno scoiattolo\", \"response\": \"cos è uno scoiattolo?\"}"
+    }
+   ]
+  }
+ },
+ "other": []
+}

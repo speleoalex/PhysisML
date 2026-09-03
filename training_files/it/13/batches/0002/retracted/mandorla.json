@@ -1,0 +1,92 @@
+{
+ "word": "mandorla",
+ "levels": {
+  "12": {
+   "targets": [
+    {
+     "step": "A",
+     "index": 11,
+     "target": {
+      "prompt": "la gallina è un animale, questa è una mandorla",
+      "expected": "cos è una mandorla?",
+      "noun": "mandorla"
+     }
+    },
+    {
+     "step": "G",
+     "index": 5,
+     "target": {
+      "prompt": "il bottone è un oggetto, questa è una mandorla",
+      "expected": "cos è una mandorla?",
+      "noun": "mandorla"
+     }
+    },
+    {
+     "step": "E",
+     "index": 25,
+     "target": {
+      "prompt": "cos è la mandorla?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 26,
+     "target": {
+      "prompt": "cos è una mandorla?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 27,
+     "target": {
+      "prompt": "cosa è la mandorla?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 28,
+     "target": {
+      "prompt": "cosa è una mandorla?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 29,
+     "target": {
+      "prompt": "la mandorla è un animale?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    }
+   ],
+   "pairs": [
+    {
+     "index": 236,
+     "line": "{\"prompt\": \"ancora. la gallina è un animale, questa è una mandorla\", \"response\": \"cos è una mandorla?\"}"
+    }
+   ]
+  },
+  "13": {
+   "targets": [],
+   "pairs": [
+    {
+     "index": 46,
+     "line": "{\"prompt\": \"cos è una mandorla?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 56,
+     "line": "{\"prompt\": \"il giardino è un luogo, questa è una mandorla\", \"response\": \"cos è una mandorla?\"}"
+    }
+   ]
+  }
+ },
+ "other": []
+}

@@ -1,0 +1,119 @@
+{
+ "word": "sgabello",
+ "levels": {
+  "12": {
+   "targets": [
+    {
+     "step": "A",
+     "index": 8,
+     "target": {
+      "prompt": "l uccello è un animale, questo è uno sgabello",
+      "expected": "cos è uno sgabello?",
+      "noun": "sgabello"
+     }
+    },
+    {
+     "step": "G",
+     "index": 2,
+     "target": {
+      "prompt": "il tamburo è un oggetto, questo è uno sgabello",
+      "expected": "cos è uno sgabello?",
+      "noun": "sgabello"
+     }
+    },
+    {
+     "step": "E",
+     "index": 4,
+     "target": {
+      "prompt": "lo sgabello è un animale?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 14,
+     "target": {
+      "prompt": "cos è lo sgabello?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 15,
+     "target": {
+      "prompt": "cosa è lo sgabello?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 21,
+     "target": {
+      "prompt": "cos è uno sgabello?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 22,
+     "target": {
+      "prompt": "cosa è uno sgabello?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    }
+   ],
+   "pairs": [
+    {
+     "index": 166,
+     "line": "{\"prompt\": \"ancora. lo sgabello è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 167,
+     "line": "{\"prompt\": \"lo sgabello è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 211,
+     "line": "{\"prompt\": \"benissimo! lo sgabello è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 238,
+     "line": "{\"prompt\": \"bene! lo sgabello è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 239,
+     "line": "{\"prompt\": \"bravo! lo sgabello è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 246,
+     "line": "{\"prompt\": \"ottimo! lo sgabello è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 252,
+     "line": "{\"prompt\": \"perfetto! lo sgabello è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 260,
+     "line": "{\"prompt\": \"benissimo! l uccello è un animale, questo è uno sgabello\", \"response\": \"cos è uno sgabello?\"}"
+    },
+    {
+     "index": 261,
+     "line": "{\"prompt\": \"ancora. l uccello è un animale, questo è uno sgabello\", \"response\": \"cos è uno sgabello?\"}"
+    },
+    {
+     "index": 299,
+     "line": "{\"prompt\": \"bravo! l uccello è un animale, questo è uno sgabello\", \"response\": \"cos è uno sgabello?\"}"
+    },
+    {
+     "index": 307,
+     "line": "{\"prompt\": \"bene! l uccello è un animale, questo è uno sgabello\", \"response\": \"cos è uno sgabello?\"}"
+    }
+   ]
+  }
+ },
+ "other": []
+}

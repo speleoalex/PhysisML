@@ -35,6 +35,10 @@ dynamic_model/exp_b/checkpoints/
 # from an older pair set, so a fresh clone trained on different data than the
 # machine that produced the results, with neither version declared canonical.
 !training_files/**/qa_pairs.jsonl
+# Same reason for the autonomy loop's batch ledger: retracted/ is committed, and
+# without targets.jsonl beside it a rollback in a fresh clone would put the
+# admissions back without removing the material that replaced them.
+!training_files/**/batches/**/targets.jsonl
 
 # Raw corpus downloads (multi-GB)
 corpus_raw/

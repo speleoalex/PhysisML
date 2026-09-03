@@ -1,0 +1,42 @@
+[
+ {
+  "word": "mirtillo",
+  "targets": 7,
+  "pairs": 18,
+  "levels": [
+   12
+  ]
+ },
+ {
+  "word": "sgabello",
+  "targets": 7,
+  "pairs": 11,
+  "levels": [
+   12
+  ]
+ },
+ {
+  "word": "clarinetto",
+  "targets": 7,
+  "pairs": 14,
+  "levels": [
+   12
+  ]
+ },
+ {
+  "word": "scoiattolo",
+  "targets": 7,
+  "pairs": 8,
+  "levels": [
+   12
+  ]
+ },
+ {
+  "word": "rospo",
+  "targets": 7,
+  "pairs": 1,
+  "levels": [
+   12
+  ]
+ }
+]

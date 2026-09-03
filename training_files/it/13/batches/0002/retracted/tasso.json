@@ -1,0 +1,92 @@
+{
+ "word": "tasso",
+ "levels": {
+  "12": {
+   "targets": [
+    {
+     "step": "A",
+     "index": 8,
+     "target": {
+      "prompt": "il mare è un luogo, questo è un tasso",
+      "expected": "cos è un tasso?",
+      "noun": "tasso"
+     }
+    },
+    {
+     "step": "G",
+     "index": 2,
+     "target": {
+      "prompt": "il ragno è un animale, questo è un tasso",
+      "expected": "cos è un tasso?",
+      "noun": "tasso"
+     }
+    },
+    {
+     "step": "E",
+     "index": 10,
+     "target": {
+      "prompt": "cos è il tasso?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 11,
+     "target": {
+      "prompt": "cos è un tasso?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 12,
+     "target": {
+      "prompt": "cosa è il tasso?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 13,
+     "target": {
+      "prompt": "cosa è un tasso?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 14,
+     "target": {
+      "prompt": "il tasso è un animale?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    }
+   ],
+   "pairs": [
+    {
+     "index": 233,
+     "line": "{\"prompt\": \"ancora. il mare è un luogo, questo è un tasso\", \"response\": \"cos è un tasso?\"}"
+    }
+   ]
+  },
+  "13": {
+   "targets": [],
+   "pairs": [
+    {
+     "index": 28,
+     "line": "{\"prompt\": \"la minestra è un cibo, questo è un tasso\", \"response\": \"cos è un tasso?\"}"
+    },
+    {
+     "index": 40,
+     "line": "{\"prompt\": \"cos è un tasso?\", \"response\": \"non lo so.\"}"
+    }
+   ]
+  }
+ },
+ "other": []
+}

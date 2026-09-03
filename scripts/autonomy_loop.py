@@ -141,15 +141,15 @@ class Gatekeeper:
         """
         hit = retraction.find(word, lang)
         if hit["other"]:
-            return (f"{len(hit['other'])} gold su '{word}' non sono ammissioni")
+            return (f"{len(hit['other'])} golds on '{word}' are not admissions")
         for part in hit["levels"].values():
             for item in part["targets"]:
                 if _normalize_prompt(item["target"]["prompt"]) in self.probe_p:
-                    return f"'{item['target']['prompt']}' sta nel probe congelato"
+                    return f"'{item['target']['prompt']}' is in the frozen probe"
             for item in part["pairs"]:
                 rec = json.loads(item["line"])
                 if _normalize_prompt(rec["prompt"]) in self.probe_p:
-                    return f"'{rec['prompt']}' sta nel probe congelato"
+                    return f"'{rec['prompt']}' is in the frozen probe"
         return ""
 
     def forget(self, word: str) -> int:
@@ -184,21 +184,27 @@ class Gatekeeper:
                 stale.append((t["prompt"], held))
             else:
                 conflict.append((t["prompt"], held))
-        ok = not (stale or conflict or in_probe) and \
-             self.accepted + len(material) - dup <= self.max_new
+        room = self.accepted + len(material) - dup <= self.max_new
+        ok = not (stale or conflict or in_probe) and room
         return {"ok": ok, "stale": stale, "conflict": conflict,
-                "in_probe": in_probe, "duplicate": dup}
+                "in_probe": in_probe, "duplicate": dup, "room": room}
 
     def reason(self, verdict: dict) -> str:
+        # The cap comes first: with the batch full, no amount of retracting
+        # makes the acquisition fit, so naming the stale admissions here would
+        # invite the exact retract-then-refuse sequence that orphaned ten
+        # nouns on the first real run (2026-09-03).
+        if not verdict["room"]:
+            return "batch cap reached"
         if verdict["conflict"]:
-            return (f"{len(verdict['conflict'])} prompt hanno già un gold "
-                    f"diverso nel curriculum")
+            return (f"{len(verdict['conflict'])} prompts already have a "
+                    f"different gold in the curriculum")
         if verdict["stale"]:
-            return (f"{len(verdict['stale'])} ammissioni 'non lo so' da "
-                    f"ritirare prima (--retract per farlo)")
+            return (f"{len(verdict['stale'])} 'non lo so' admissions have to "
+                    f"be retracted first (--retract to do it)")
         if verdict["in_probe"]:
-            return f"{verdict['in_probe']} prompt stanno nel probe congelato"
-        return "cap del batch raggiunto"
+            return f"{verdict['in_probe']} prompts are in the frozen probe"
+        return "batch cap reached"
 
     def commit(self, material: list) -> list:
         """Accept a whole acquisition. Only ever called after inspect().ok."""
@@ -314,9 +320,9 @@ class Batch:
             try:
                 retraction.restore(info["word"], self.lang, save_dir=d)
             except (FileNotFoundError, KeyError) as e:
-                print(f"  ATTENZIONE: ritiro di {info['word']} non "
-                      f"ripristinato ({e}). Il livello che lo insegnava ora "
-                      f"non insegna né l'ammissione né la classe.")
+                print(f"  WARNING: the retraction of {info['word']} was not "
+                      f"restored ({e}). The level that taught it now teaches "
+                      f"neither the admission nor the class.")
         if os.path.isdir(d):
             shutil.move(d, d + f".rejected.{int(time.time())}")
         rebuild_config(self.lang, self.level)
@@ -549,9 +555,9 @@ def rearm_affect(tr, lang: str, ckpt_base: str, quiet: bool = False) -> int:
     path = _affect_memory_path(lang, ckpt_base)
     n = tr.affect.load_memory(path)
     if not quiet:
-        print(f"  memoria di curiosità: {n} parole da {path}" if n else
-              f"  ⚠ nessuna memoria di curiosità in {path}: ogni prompt "
-              f"risulta ignoto e la colonna 'affect' del log non dice nulla")
+        print(f"  curiosity memory: {n} words from {path}" if n else
+              f"  ⚠ no curiosity memory in {path}: every prompt reads as "
+              f"unknown and the log's 'affect' column says nothing")
     return n
 
 
@@ -564,10 +570,10 @@ def degraded(now: dict, baseline: dict, args) -> str:
     """
     drop = baseline["exact_rate"] - now["exact_rate"]
     if drop > args.max_drop:
-        return f"exact -{drop:.1%} (soglia {args.max_drop:.0%})"
+        return f"exact -{drop:.1%} (threshold {args.max_drop:.0%})"
     if now["repetition_rate"] > args.max_repetition:
-        return (f"ripetizione {now['repetition_rate']:.1%} "
-                f"(soglia {args.max_repetition:.0%})")
+        return (f"repetition {now['repetition_rate']:.1%} "
+                f"(threshold {args.max_repetition:.0%})")
     return ""
 
 
@@ -612,10 +618,10 @@ def main() -> None:
     ap.add_argument("--probe", default=probe_set.DEFAULT_PATH)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--retract", action="store_true",
-                    help="quando l'acquisizione collide con un 'non lo so' "
-                         "insegnato dal curriculum, RITIRA l'ammissione "
-                         "(solo per i nomi con role=acquirable). Senza questo "
-                         "flag l'acquisizione viene rifiutata e detto perché")
+                    help="when an acquisition collides with a curriculum-"
+                         "taught 'non lo so', RETRACT the admission (only for "
+                         "nouns with role=acquirable). Without this flag the "
+                         "acquisition is refused, with the reason printed")
     ap.add_argument("--teach-confabulations", action="store_true",
                     help="also acquire material on turns where the model "
                          "asserted a class instead of admitting ignorance "
@@ -635,31 +641,31 @@ def main() -> None:
     probe = probe_set.load(args.probe)          # raises if missing or edited
     oracle = OntologyOracle(lang=args.lang)
     if not oracle.is_available():
-        print(f"Nessun LLM locale raggiungibile: {oracle.status()}\n"
-              f"L'oracolo è il passo 4 del giro — senza di lui il loop non ha "
-              f"nulla da imparare. Avvia llama-server o ollama.")
+        print(f"No local LLM reachable: {oracle.status()}\n"
+              f"The oracle is step 4 of the cycle — without it the loop has "
+              f"nothing to learn. Start llama-server or ollama.")
         sys.exit(1)
 
     ckpt, tok_path = resolve(ckpt_base, args.level)
     if not ckpt:
         ckpt, tok_path = resolve(ckpt_base, args.level - 1)
     if not ckpt or not tok_path:
-        print(f"Nessun checkpoint di partenza sotto {ckpt_base}.")
+        print(f"No starting checkpoint under {ckpt_base}.")
         sys.exit(1)
 
     queue = build_queue(args, lex, probe, oracle)
     if not queue:
-        print("Coda vuota: nessun nome ignoto da chiedere.")
+        print("Empty queue: no unknown noun left to ask about.")
         sys.exit(1)
 
-    print(f"livello    : {args.level}  (batch = unità di acquisizione)")
+    print(f"level      : {args.level}  (the batch is the unit of acquisition)")
     print(f"checkpoint : {ckpt}")
-    print(f"oracolo    : {oracle.status()}")
-    print(f"probe      : {probe['n']} prompt, fingerprint {probe['fingerprint']}")
-    print(f"coda       : {len(queue)} nomi — "
+    print(f"oracle     : {oracle.status()}")
+    print(f"probe      : {probe['n']} prompts, fingerprint {probe['fingerprint']}")
+    print(f"queue      : {len(queue)} nouns — "
           f"{', '.join(n['w'] for n in queue[:8])}"
           f"{' …' if len(queue) > 8 else ''}")
-    print(f"modo       : {'DRY RUN (nessun peso, nessuna scrittura)' if args.dry_run else 'apprendimento attivo'}")
+    print(f"mode       : {'DRY RUN (no weights, no writes)' if args.dry_run else 'learning'}")
 
     tr, tok = load_pair(ckpt, tok_path)
     rearm_affect(tr, args.lang, ckpt_base)
@@ -670,10 +676,10 @@ def main() -> None:
 
     baseline = None
     if not args.dry_run:
-        print("\nbaseline sul probe…", end=" ", flush=True)
+        print("\nprobe baseline…", end=" ", flush=True)
         baseline = probe_set.score(tr, tok, probe)
         print(f"exact {baseline['exact_rate']:.1%}  "
-              f"ripetizione {baseline['repetition_rate']:.1%}")
+              f"repetition {baseline['repetition_rate']:.1%}")
 
     gate  = Gatekeeper(args.lang, probe, args.max_new)
     batch = Batch(args.lang, args.level, ckpt_base,
@@ -682,7 +688,7 @@ def main() -> None:
                   else ckpt)
     log   = SessionLog(level_dir, enabled=not args.dry_run)
     gold_bank = load_gold_bank(args.lang, args.level)
-    print(f"rehearsal  : {len(gold_bank)} coppie gold (livelli 0-{args.level})")
+    print(f"rehearsal  : {len(gold_bank)} gold pairs (levels 0-{args.level})")
     print(f"batch      : {batch.name}\n")
 
     tally = {ASKED: 0, ADMITTED: 0, ASSERTED: 0, ASKED_OTHER: 0}
@@ -727,17 +733,17 @@ def main() -> None:
         log.add(step=shape["step"], prompt=shape["prompt"],
                 expected=shape["expected"], response=answer,
                 symbol="+++" if honest else "=",
-                comment=f"esito: {outcome}", affect=affect_dict(tr))
+                comment=f"outcome: {outcome}", affect=affect_dict(tr))
 
         if not (honest or args.teach_confabulations):
-            print("   (chiede di un altro nome: nessuna acquisizione)"
+            print("   (asks about another noun: nothing acquired)"
                   if outcome == ASKED_OTHER else
-                  "   (confabula: nessuna acquisizione)")
+                  "   (confabulates: nothing acquired)")
             continue
 
         verdict = oracle.ask(noun)
         if not verdict.ok:
-            print(f"   oracolo: rifiutato — {verdict.reason}")
+            print(f"   oracle: refused — {verdict.reason}")
             continue
 
         material = oracle.material_for(verdict.noun, verdict.cls, rng)
@@ -747,14 +753,19 @@ def main() -> None:
         # acquirable: 'reserve' is the control that acquisition has not eroded
         # honesty, so spending it to gain one noun is the one trade never worth
         # making. The retraction happens BEFORE the material is learned, and
-        # inside the batch, so one rollback undoes both halves.
+        # inside the batch, so one rollback undoes both halves. It also
+        # requires room in the batch: the cap used to be checked only by the
+        # re-inspect AFTER the retraction, so once the batch filled up every
+        # further noun was retracted, then refused, and left with neither an
+        # admission nor a class gold (ten silent holes on the first real run,
+        # 2026-09-03).
         if (not check["ok"] and check["stale"] and not check["conflict"]
-                and not check["in_probe"] and args.retract
+                and not check["in_probe"] and check["room"] and args.retract
                 and noun.get("role", "acquirable") == "acquirable"):
             veto = gate.retractable(noun["w"], args.lang)
             if veto:
-                gate._refuse(f"ritiro impossibile: {veto}")
-                print(f"   ritiro rifiutato: {veto}")
+                gate._refuse(f"retraction impossible: {veto}")
+                print(f"   retraction refused: {veto}")
                 continue
             if args.dry_run:
                 # Say what it would remove, and remove it from the in-memory
@@ -764,7 +775,7 @@ def main() -> None:
                 hit = retraction.find(noun["w"], args.lang)
                 n_t = sum(len(x["targets"]) for x in hit["levels"].values())
                 n_p = sum(len(x["pairs"]) for x in hit["levels"].values())
-                print(f"   ritirerebbe {n_t} target e {n_p} coppie su "
+                print(f"   would retract {n_t} targets and {n_p} pairs on "
                       f"{noun['w']} (L{','.join(hit['levels'])})")
                 gate.forget(noun["w"])
             else:
@@ -772,21 +783,21 @@ def main() -> None:
                     info = batch.retract(noun["w"],
                                         source=f"oracle:{oracle.model}")
                 except ValueError as e:
-                    gate._refuse(f"ritiro impossibile: {e}")
-                    print(f"   ritiro rifiutato: {e}")
+                    gate._refuse(f"retraction impossible: {e}")
+                    print(f"   retraction refused: {e}")
                     continue
                 gate.forget(noun["w"])
-                print(f"   ritiro: {info['targets']} target e {info['pairs']} "
-                      f"coppie di 'non lo so' su {noun['w']} "
+                print(f"   retracted: {info['targets']} targets and "
+                      f"{info['pairs']} 'non lo so' pairs on {noun['w']} "
                       f"(L{','.join(str(l) for l in info['levels'])})")
             check = gate.inspect(material)
         if not check["ok"]:
             why = gate.reason(check)
             gate._refuse(why)
-            print(f"   oracolo: {verdict.cls} — acquisizione rifiutata: {why}")
+            print(f"   oracle: {verdict.cls} — acquisition refused: {why}")
             continue
         accepted = gate.commit(material)
-        print(f"   oracolo: {verdict.cls}  ({len(accepted)} target accettati)")
+        print(f"   oracle: {verdict.cls}  ({len(accepted)} targets accepted)")
         if not accepted:
             continue
 
@@ -802,7 +813,7 @@ def main() -> None:
                 log.add(step=t.get("step", "A"), prompt=t["prompt"],
                         expected=t["expected"], response=resp,
                         symbol="+++" if is_exact(resp, t["expected"]) else "=",
-                        comment=f"acquisito da oracolo: {verdict.cls}",
+                        comment=f"acquired from oracle: {verdict.cls}",
                         affect=affect_dict(tr))
         batch.add(verdict.noun, verdict.cls, accepted,
                   source=f"oracle:{oracle.model}")
@@ -819,7 +830,7 @@ def main() -> None:
         why = degraded(now, baseline, args)
         print(f"     probe: exact {now['exact_rate']:.1%} "
               f"(baseline {baseline['exact_rate']:.1%})  "
-              f"ripetizione {now['repetition_rate']:.1%}"
+              f"repetition {now['repetition_rate']:.1%}"
               f"{'  → ' + why if why else '  ok'}")
         if not why or args.no_dream:
             continue
@@ -827,10 +838,10 @@ def main() -> None:
         pre = now
         batch.write()
         tr.model.save(os.path.join(level_dir, "final_learned.pt"))
-        print(f"\n  ── sogno: batch {batch.name}, {len(batch.targets)} target, "
-              f"{why} ──")
+        print(f"\n  ── dream: batch {batch.name}, {len(batch.targets)} "
+              f"targets, {why} ──")
         if not run_dream(args, args.level):
-            print("  sogno FALLITO: mi fermo, i pesi appresi sono in "
+            print("  dream FAILED: stopping here, the learned weights are in "
                   "final_learned.pt")
             break
 
@@ -844,13 +855,13 @@ def main() -> None:
                         "pre_rep": pre["repetition_rate"],
                         "post_rep": post["repetition_rate"],
                         "targets": len(batch.targets)})
-        print(f"  sogno fatto: exact {pre['exact_rate']:.1%} → "
-              f"{post['exact_rate']:.1%}  ripetizione "
+        print(f"  dream done: exact {pre['exact_rate']:.1%} → "
+              f"{post['exact_rate']:.1%}  repetition "
               f"{pre['repetition_rate']:.1%} → {post['repetition_rate']:.1%}")
 
         if post["exact_rate"] < baseline["exact_rate"] - args.max_drop:
-            print(f"  ROLLBACK di {batch.name}: il sogno non ha recuperato "
-                  f"(sotto la baseline di più di {args.max_drop:.0%})")
+            print(f"  ROLLBACK of {batch.name}: the dream did not recover "
+                  f"(more than {args.max_drop:.0%} below the baseline)")
             batch.discard(dreamed)
             tr, tok = load_pair(batch.parent, tok2 or tok_path)
             rearm_affect(tr, args.lang, ckpt_base, quiet=True)
@@ -862,43 +873,45 @@ def main() -> None:
                       os.path.join(level_dir, "final_dreamed.pt"))
         gate = Gatekeeper(args.lang, probe, args.max_new)
         gold_bank = load_gold_bank(args.lang, args.level)
-        print(f"  batch nuovo: {batch.name}\n")
+        print(f"  new batch: {batch.name}\n")
 
     log.close()
 
     # ── what happened ──────────────────────────────────────────────────────
     n = sum(tally.values()) or 1
     print(f"\n{'—' * 62}")
-    print(f"interazioni  : {sum(tally.values())}")
-    print(f"  chiede     : {tally[ASKED]:4d}  {tally[ASKED]/n:5.0%}")
-    print(f"  non lo so  : {tally[ADMITTED]:4d}  {tally[ADMITTED]/n:5.0%}")
-    print(f"  chiede ma  : {tally[ASKED_OTHER]:4d}  {tally[ASKED_OTHER]/n:5.0%}"
-          f"  (di un altro nome)")
-    print(f"  confabula  : {tally[ASSERTED]:4d}  {tally[ASSERTED]/n:5.0%}")
-    print(f"onesto       : {(tally[ASKED]+tally[ADMITTED])/n:5.0%}"
-          f"   ← il segnale che alimenta il giro")
-    print(f"target       : {gate.accepted} accettati, {learned_targets} appresi")
+    print(f"interactions : {sum(tally.values())}")
+    print(f"  asks       : {tally[ASKED]:4d}  {tally[ASKED]/n:5.0%}")
+    print(f"  admits     : {tally[ADMITTED]:4d}  {tally[ADMITTED]/n:5.0%}"
+          f"  (says 'non lo so')")
+    print(f"  asks other : {tally[ASKED_OTHER]:4d}  {tally[ASKED_OTHER]/n:5.0%}"
+          f"  (about another noun)")
+    print(f"  asserts    : {tally[ASSERTED]:4d}  {tally[ASSERTED]/n:5.0%}"
+          f"  (confabulates)")
+    print(f"honest       : {(tally[ASKED]+tally[ADMITTED])/n:5.0%}"
+          f"   ← the signal that feeds the cycle")
+    print(f"targets      : {gate.accepted} accepted, {learned_targets} learned")
     if batch.retracted:
         n_t = sum(r["targets"] for r in batch.retracted)
         n_p = sum(r["pairs"] for r in batch.retracted)
-        print(f"ritiri       : {len(batch.retracted)} nomi, {n_t} target e "
-              f"{n_p} coppie di 'non lo so' rimosse "
+        print(f"retractions  : {len(batch.retracted)} nouns, {n_t} targets and "
+              f"{n_p} 'non lo so' pairs removed "
               f"({', '.join(r['word'] for r in batch.retracted)})")
     for why, k in sorted(gate.refusals.items(), key=lambda x: -x[1]):
-        print(f"  rifiutati  : {k:4d}  {why}")
+        print(f"  refused    : {k:4d}  {why}")
     if history:
-        print("\nsogni:")
+        print("\ndreams:")
         for h in history:
-            print(f"  {h['batch']:6}  {h['targets']:3d} target  "
+            print(f"  {h['batch']:6}  {h['targets']:3d} targets  "
                   f"exact {h['pre']:.1%} → {h['post']:.1%}  "
-                  f"rip {h['pre_rep']:.1%} → {h['post_rep']:.1%}  ({h['why']})")
+                  f"rep {h['pre_rep']:.1%} → {h['post_rep']:.1%}  ({h['why']})")
 
     if args.dry_run:
-        print("\nDRY RUN: nessun peso modificato, nessun file scritto.")
+        print("\nDRY RUN: no weight changed, no file written.")
         return
     if batch.targets:
-        print(f"\nbatch {batch.name} non consolidato: {len(batch.targets)} "
-              f"target in attesa di un sogno.")
+        print(f"\nbatch {batch.name} not consolidated: {len(batch.targets)} "
+              f"targets waiting for a dream.")
         batch.write()
         tr.model.save(os.path.join(level_dir, "final_learned.pt"))
         if not args.no_dream:
@@ -907,7 +920,7 @@ def main() -> None:
                 tr, tok = load_pair(ckpt2, tok2 or tok_path)
                 rearm_affect(tr, args.lang, ckpt_base, quiet=True)
                 post = probe_set.score(tr, tok, probe)
-                print(f"  sogno finale: exact {post['exact_rate']:.1%} "
+                print(f"  final dream: exact {post['exact_rate']:.1%} "
                       f"(baseline {baseline['exact_rate']:.1%})")
                 batch.snapshot(os.path.join(level_dir, "final_dreamed.pt"))
 

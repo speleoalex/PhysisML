@@ -20,7 +20,13 @@
   "comment_=": "Non la classe attesa.",
   "comment_-": "Non riconoscibile o troppo lunga."
  },
- "encouragement": ["bravo!", "ottimo!", "perfetto!", "bene!", "benissimo!"],
+ "encouragement": [
+  "bravo!",
+  "ottimo!",
+  "perfetto!",
+  "bene!",
+  "benissimo!"
+ ],
  "retry_prefix": "ancora. ",
  "curiosity": true,
  "steps": {
@@ -33,7 +39,308 @@
    "require_article": false,
    "require_verb": false,
    "require_adjective": false,
-   "targets": []
+   "targets": [
+    {
+     "prompt": "cos è il mirtillo?",
+     "expected": "il mirtillo è una pianta.",
+     "article": "il",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "cos è un mirtillo?",
+     "expected": "il mirtillo è una pianta.",
+     "article": "il",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "cosa è il mirtillo?",
+     "expected": "il mirtillo è una pianta.",
+     "article": "il",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "cosa è un mirtillo?",
+     "expected": "il mirtillo è una pianta.",
+     "article": "il",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "il mirtillo è una pianta?",
+     "expected": "sì, il mirtillo è una pianta.",
+     "article": "il",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "cos è lo sgabello?",
+     "expected": "lo sgabello è un oggetto.",
+     "article": "lo",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "cos è uno sgabello?",
+     "expected": "lo sgabello è un oggetto.",
+     "article": "lo",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "cosa è lo sgabello?",
+     "expected": "lo sgabello è un oggetto.",
+     "article": "lo",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "cosa è uno sgabello?",
+     "expected": "lo sgabello è un oggetto.",
+     "article": "lo",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "lo sgabello è un oggetto?",
+     "expected": "sì, lo sgabello è un oggetto.",
+     "article": "lo",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "cos è il clarinetto?",
+     "expected": "il clarinetto è un oggetto.",
+     "article": "il",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "cos è un clarinetto?",
+     "expected": "il clarinetto è un oggetto.",
+     "article": "il",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "cosa è il clarinetto?",
+     "expected": "il clarinetto è un oggetto.",
+     "article": "il",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "cosa è un clarinetto?",
+     "expected": "il clarinetto è un oggetto.",
+     "article": "il",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "il clarinetto è un oggetto?",
+     "expected": "sì, il clarinetto è un oggetto.",
+     "article": "il",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "cos è lo scoiattolo?",
+     "expected": "lo scoiattolo è un animale.",
+     "article": "lo",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cos è uno scoiattolo?",
+     "expected": "lo scoiattolo è un animale.",
+     "article": "lo",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cosa è lo scoiattolo?",
+     "expected": "lo scoiattolo è un animale.",
+     "article": "lo",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cosa è uno scoiattolo?",
+     "expected": "lo scoiattolo è un animale.",
+     "article": "lo",
+     "noun": "animale"
+    },
+    {
+     "prompt": "lo scoiattolo è un animale?",
+     "expected": "sì, lo scoiattolo è un animale.",
+     "article": "lo",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cos è il rospo?",
+     "expected": "il rospo è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cos è un rospo?",
+     "expected": "il rospo è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cosa è il rospo?",
+     "expected": "il rospo è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cosa è un rospo?",
+     "expected": "il rospo è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il rospo è un animale?",
+     "expected": "sì, il rospo è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cos è il tasso?",
+     "expected": "il tasso è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cos è un tasso?",
+     "expected": "il tasso è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cosa è il tasso?",
+     "expected": "il tasso è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cosa è un tasso?",
+     "expected": "il tasso è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il tasso è un animale?",
+     "expected": "sì, il tasso è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cos è il picchio?",
+     "expected": "il picchio è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cos è un picchio?",
+     "expected": "il picchio è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cosa è il picchio?",
+     "expected": "il picchio è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cosa è un picchio?",
+     "expected": "il picchio è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il picchio è un animale?",
+     "expected": "sì, il picchio è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cos è il castoro?",
+     "expected": "il castoro è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cos è un castoro?",
+     "expected": "il castoro è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cosa è il castoro?",
+     "expected": "il castoro è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cosa è un castoro?",
+     "expected": "il castoro è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il castoro è un animale?",
+     "expected": "sì, il castoro è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "cos è la susina?",
+     "expected": "la susina è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "cos è una susina?",
+     "expected": "la susina è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "cosa è la susina?",
+     "expected": "la susina è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "cosa è una susina?",
+     "expected": "la susina è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "la susina è una pianta?",
+     "expected": "sì, la susina è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "cos è la mandorla?",
+     "expected": "la mandorla è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "cos è una mandorla?",
+     "expected": "la mandorla è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "cosa è la mandorla?",
+     "expected": "la mandorla è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "cosa è una mandorla?",
+     "expected": "la mandorla è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "la mandorla è una pianta?",
+     "expected": "sì, la mandorla è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    }
+   ]
   },
   "B": {
    "description": "Conferma: X e' <classe>?  -> si'",
@@ -44,7 +351,80 @@
    "require_article": false,
    "require_verb": false,
    "require_adjective": false,
-   "targets": []
+   "targets": [
+    {
+     "prompt": "il mirtillo è un animale?",
+     "expected": "no, il mirtillo è una pianta.",
+     "article": "il",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "lo sgabello è un animale?",
+     "expected": "no, lo sgabello è un oggetto.",
+     "article": "lo",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "il clarinetto è un animale?",
+     "expected": "no, il clarinetto è un oggetto.",
+     "article": "il",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "lo scoiattolo è un luogo?",
+     "expected": "no, lo scoiattolo è un animale.",
+     "article": "lo",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il rospo è una luce?",
+     "expected": "no, il rospo è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il tasso è un luogo?",
+     "expected": "no, il tasso è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il picchio è un oggetto?",
+     "expected": "no, il picchio è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il castoro è una luce?",
+     "expected": "no, il castoro è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "la susina è un animale?",
+     "expected": "no, la susina è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "la mandorla è un animale?",
+     "expected": "no, la mandorla è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "il picchio è una persona?",
+     "expected": "no, il picchio è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il castoro è una pianta?",
+     "expected": "no, il castoro è un animale.",
+     "article": "il",
+     "noun": "animale"
+    }
+   ]
   },
   "C": {
    "description": "Negativo: X e' <classe sbagliata>?  -> no, X e' <classe>",
@@ -55,7 +435,116 @@
    "require_article": false,
    "require_verb": false,
    "require_adjective": false,
-   "targets": []
+   "targets": [
+    {
+     "prompt": "il giardino è un luogo, questo è un mirtillo",
+     "expected": "il mirtillo è una pianta.",
+     "article": "il",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "il pesce è un animale, questo è uno sgabello",
+     "expected": "lo sgabello è un oggetto.",
+     "article": "lo",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "il fiore è una pianta, questo è un clarinetto",
+     "expected": "il clarinetto è un oggetto.",
+     "article": "il",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "il letto è un oggetto, questo è uno scoiattolo",
+     "expected": "lo scoiattolo è un animale.",
+     "article": "lo",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il gelato è un cibo, questo è un rospo",
+     "expected": "il rospo è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "la finestra è un oggetto, questo è un mirtillo",
+     "expected": "il mirtillo è una pianta.",
+     "article": "il",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "la stella è una luce, questo è un clarinetto",
+     "expected": "il clarinetto è un oggetto.",
+     "article": "il",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "la mucca è un animale, questo è un mirtillo",
+     "expected": "il mirtillo è una pianta.",
+     "article": "il",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "la luna è una luce, questo è uno sgabello",
+     "expected": "lo sgabello è un oggetto.",
+     "article": "lo",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "il lupo è un animale, questo è un clarinetto",
+     "expected": "il clarinetto è un oggetto.",
+     "article": "il",
+     "noun": "oggetto"
+    },
+    {
+     "prompt": "il papà è una persona, questo è un tasso",
+     "expected": "il tasso è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il mare è un luogo, questo è un picchio",
+     "expected": "il picchio è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il gelato è un cibo, questo è un castoro",
+     "expected": "il castoro è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "la gallina è un animale, questa è una susina",
+     "expected": "la susina è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "l amico è una persona, questa è una mandorla",
+     "expected": "la mandorla è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    },
+    {
+     "prompt": "la porta è un oggetto, questo è un picchio",
+     "expected": "il picchio è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "il prato è un luogo, questo è un castoro",
+     "expected": "il castoro è un animale.",
+     "article": "il",
+     "noun": "animale"
+    },
+    {
+     "prompt": "la finestra è un oggetto, questa è una susina",
+     "expected": "la susina è una pianta.",
+     "article": "la",
+     "noun": "pianta"
+    }
+   ]
   }
  }
 }

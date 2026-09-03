@@ -1,0 +1,96 @@
+{
+ "word": "castoro",
+ "levels": {
+  "12": {
+   "targets": [
+    {
+     "step": "A",
+     "index": 10,
+     "target": {
+      "prompt": "l ape è un animale, questo è un castoro",
+      "expected": "cos è un castoro?",
+      "noun": "castoro"
+     }
+    },
+    {
+     "step": "G",
+     "index": 4,
+     "target": {
+      "prompt": "il faro è un luogo, questo è un castoro",
+      "expected": "cos è un castoro?",
+      "noun": "castoro"
+     }
+    },
+    {
+     "step": "E",
+     "index": 20,
+     "target": {
+      "prompt": "cos è il castoro?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 21,
+     "target": {
+      "prompt": "cos è un castoro?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 22,
+     "target": {
+      "prompt": "cosa è il castoro?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 23,
+     "target": {
+      "prompt": "cosa è un castoro?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 24,
+     "target": {
+      "prompt": "il castoro è un animale?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    }
+   ],
+   "pairs": [
+    {
+     "index": 235,
+     "line": "{\"prompt\": \"ancora. l ape è un animale, questo è un castoro\", \"response\": \"cos è un castoro?\"}"
+    },
+    {
+     "index": 273,
+     "line": "{\"prompt\": \"l ape è un animale, questo è un castoro\", \"response\": \"cos è un castoro?\"}"
+    }
+   ]
+  },
+  "13": {
+   "targets": [],
+   "pairs": [
+    {
+     "index": 46,
+     "line": "{\"prompt\": \"cos è un castoro?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 58,
+     "line": "{\"prompt\": \"la stella è una luce, questo è un castoro\", \"response\": \"cos è un castoro?\"}"
+    }
+   ]
+  }
+ },
+ "other": []
+}

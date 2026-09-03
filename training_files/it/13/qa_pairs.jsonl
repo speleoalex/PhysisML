@@ -1,0 +1,106 @@
+{"prompt": "cos è il mirtillo?", "response": "il mirtillo è una pianta."}
+{"prompt": "cosa è il mirtillo?", "response": "il mirtillo è una pianta."}
+{"prompt": "cosa è un mirtillo?", "response": "il mirtillo è una pianta."}
+{"prompt": "il mirtillo è una pianta?", "response": "sì, il mirtillo è una pianta."}
+{"prompt": "il mirtillo è un animale?", "response": "no, il mirtillo è una pianta."}
+{"prompt": "il giardino è un luogo, questo è un mirtillo", "response": "il mirtillo è una pianta."}
+{"prompt": "cos è lo sgabello?", "response": "lo sgabello è un oggetto."}
+{"prompt": "cosa è lo sgabello?", "response": "lo sgabello è un oggetto."}
+{"prompt": "cosa è uno sgabello?", "response": "lo sgabello è un oggetto."}
+{"prompt": "lo sgabello è un oggetto?", "response": "sì, lo sgabello è un oggetto."}
+{"prompt": "lo sgabello è un animale?", "response": "no, lo sgabello è un oggetto."}
+{"prompt": "il pesce è un animale, questo è uno sgabello", "response": "lo sgabello è un oggetto."}
+{"prompt": "cos è il clarinetto?", "response": "il clarinetto è un oggetto."}
+{"prompt": "cosa è il clarinetto?", "response": "il clarinetto è un oggetto."}
+{"prompt": "cosa è un clarinetto?", "response": "il clarinetto è un oggetto."}
+{"prompt": "il clarinetto è un oggetto?", "response": "sì, il clarinetto è un oggetto."}
+{"prompt": "il clarinetto è un animale?", "response": "no, il clarinetto è un oggetto."}
+{"prompt": "il fiore è una pianta, questo è un clarinetto", "response": "il clarinetto è un oggetto."}
+{"prompt": "cos è lo scoiattolo?", "response": "lo scoiattolo è un animale."}
+{"prompt": "cosa è lo scoiattolo?", "response": "lo scoiattolo è un animale."}
+{"prompt": "cosa è uno scoiattolo?", "response": "lo scoiattolo è un animale."}
+{"prompt": "cos è un imbuto?", "response": "non lo so."}
+{"prompt": "cos è un rastrello?", "response": "non lo so."}
+{"prompt": "cos è uno spillo?", "response": "non lo so."}
+{"prompt": "cos è un grembiule?", "response": "non lo so."}
+{"prompt": "cos è un fanale?", "response": "non lo so."}
+{"prompt": "cos è un burrone?", "response": "non lo so."}
+{"prompt": "il tavolo è un oggetto, questo è uno spillo", "response": "cos è uno spillo?"}
+{"prompt": "la stella è una luce, questa è una scodella", "response": "cos è una scodella?"}
+{"prompt": "la porta è un oggetto, questo è un papavero", "response": "cos è un papavero?"}
+{"prompt": "cos è un mirtillo?", "response": "il mirtillo è una pianta."}
+{"prompt": "cos è uno sgabello?", "response": "lo sgabello è un oggetto."}
+{"prompt": "cos è un clarinetto?", "response": "il clarinetto è un oggetto."}
+{"prompt": "cos è uno scoiattolo?", "response": "lo scoiattolo è un animale."}
+{"prompt": "lo scoiattolo è un animale?", "response": "sì, lo scoiattolo è un animale."}
+{"prompt": "lo scoiattolo è un luogo?", "response": "no, lo scoiattolo è un animale."}
+{"prompt": "il letto è un oggetto, questo è uno scoiattolo", "response": "lo scoiattolo è un animale."}
+{"prompt": "cos è il rospo?", "response": "il rospo è un animale."}
+{"prompt": "cos è un rospo?", "response": "il rospo è un animale."}
+{"prompt": "cosa è il rospo?", "response": "il rospo è un animale."}
+{"prompt": "cosa è un rospo?", "response": "il rospo è un animale."}
+{"prompt": "il rospo è un animale?", "response": "sì, il rospo è un animale."}
+{"prompt": "il rospo è una luce?", "response": "no, il rospo è un animale."}
+{"prompt": "il gelato è un cibo, questo è un rospo", "response": "il rospo è un animale."}
+{"prompt": "cos è una lontra?", "response": "non lo so."}
+{"prompt": "cos è un ravanello?", "response": "non lo so."}
+{"prompt": "cos è un lampone?", "response": "non lo so."}
+{"prompt": "cos è un finocchio?", "response": "non lo so."}
+{"prompt": "cos è una scodella?", "response": "non lo so."}
+{"prompt": "cos è una scogliera?", "response": "non lo so."}
+{"prompt": "cos è un papavero?", "response": "non lo so."}
+{"prompt": "la finestra è un oggetto, questo è un mirtillo", "response": "il mirtillo è una pianta."}
+{"prompt": "la stella è una luce, questo è un clarinetto", "response": "il clarinetto è un oggetto."}
+{"prompt": "il prato è un luogo, questa è una lontra", "response": "cos è una lontra?"}
+{"prompt": "il bosco è un luogo, questo è un ravanello", "response": "cos è un ravanello?"}
+{"prompt": "il vento è una cosa, questo è un lampone", "response": "cos è un lampone?"}
+{"prompt": "il sole è una luce, questo è un finocchio", "response": "cos è un finocchio?"}
+{"prompt": "il cane è un animale, questo è un imbuto", "response": "cos è un imbuto?"}
+{"prompt": "la finestra è un oggetto, questo è un rastrello", "response": "cos è un rastrello?"}
+{"prompt": "il maestro è una persona, questo è un grembiule", "response": "cos è un grembiule?"}
+{"prompt": "la luna è una luce, questo è un fanale", "response": "cos è un fanale?"}
+{"prompt": "il topo è un animale, questa è una scogliera", "response": "cos è una scogliera?"}
+{"prompt": "il nonno è una persona, questo è un burrone", "response": "cos è un burrone?"}
+{"prompt": "la mucca è un animale, questo è un mirtillo", "response": "il mirtillo è una pianta."}
+{"prompt": "la luna è una luce, questo è uno sgabello", "response": "lo sgabello è un oggetto."}
+{"prompt": "il lupo è un animale, questo è un clarinetto", "response": "il clarinetto è un oggetto."}
+{"prompt": "l amico è una persona, questa è una lontra", "response": "cos è una lontra?"}
+{"prompt": "il maestro è una persona, questo è un lampone", "response": "cos è un lampone?"}
+{"prompt": "la sorella è una persona, questo è un finocchio", "response": "cos è un finocchio?"}
+{"prompt": "il topo è un animale, questo è un imbuto", "response": "cos è un imbuto?"}
+{"prompt": "la porta è un oggetto, questo è un rastrello", "response": "cos è un rastrello?"}
+{"prompt": "il maestro è una persona, questo è uno spillo", "response": "cos è uno spillo?"}
+{"prompt": "la minestra è un cibo, questo è un fanale", "response": "cos è un fanale?"}
+{"prompt": "la sorella è una persona, questo è un burrone", "response": "cos è un burrone?"}
+{"prompt": "il tavolo è un oggetto, questo è un papavero", "response": "cos è un papavero?"}
+{"prompt": "cos è il tasso?", "response": "il tasso è un animale."}
+{"prompt": "cos è un tasso?", "response": "il tasso è un animale."}
+{"prompt": "cosa è il tasso?", "response": "il tasso è un animale."}
+{"prompt": "cosa è un tasso?", "response": "il tasso è un animale."}
+{"prompt": "il tasso è un animale?", "response": "sì, il tasso è un animale."}
+{"prompt": "il tasso è un luogo?", "response": "no, il tasso è un animale."}
+{"prompt": "il papà è una persona, questo è un tasso", "response": "il tasso è un animale."}
+{"prompt": "cos è il picchio?", "response": "il picchio è un animale."}
+{"prompt": "cos è un picchio?", "response": "il picchio è un animale."}
+{"prompt": "cosa è il picchio?", "response": "il picchio è un animale."}
+{"prompt": "cosa è un picchio?", "response": "il picchio è un animale."}
+{"prompt": "il picchio è un animale?", "response": "sì, il picchio è un animale."}
+{"prompt": "il picchio è un oggetto?", "response": "no, il picchio è un animale."}
+{"prompt": "il mare è un luogo, questo è un picchio", "response": "il picchio è un animale."}
+{"prompt": "cos è il castoro?", "response": "il castoro è un animale."}
+{"prompt": "cos è un castoro?", "response": "il castoro è un animale."}
+{"prompt": "cosa è il castoro?", "response": "il castoro è un animale."}
+{"prompt": "cosa è un castoro?", "response": "il castoro è un animale."}
+{"prompt": "il castoro è un animale?", "response": "sì, il castoro è un animale."}
+{"prompt": "il castoro è una luce?", "response": "no, il castoro è un animale."}
+{"prompt": "il gelato è un cibo, questo è un castoro", "response": "il castoro è un animale."}
+{"prompt": "cos è la susina?", "response": "la susina è una pianta."}
+{"prompt": "cos è una susina?", "response": "la susina è una pianta."}
+{"prompt": "cosa è la susina?", "response": "la susina è una pianta."}
+{"prompt": "cosa è una susina?", "response": "la susina è una pianta."}
+{"prompt": "la susina è una pianta?", "response": "sì, la susina è una pianta."}
+{"prompt": "la susina è un animale?", "response": "no, la susina è una pianta."}
+{"prompt": "la gallina è un animale, questa è una susina", "response": "la susina è una pianta."}
+{"prompt": "cos è la mandorla?", "response": "la mandorla è una pianta."}
+{"prompt": "cos è una mandorla?", "response": "la mandorla è una pianta."}
+{"prompt": "cosa è la mandorla?", "response": "la mandorla è una pianta."}

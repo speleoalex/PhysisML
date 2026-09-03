@@ -1,0 +1,96 @@
+{
+ "word": "picchio",
+ "levels": {
+  "12": {
+   "targets": [
+    {
+     "step": "A",
+     "index": 10,
+     "target": {
+      "prompt": "il fiore è una pianta, questo è un picchio",
+      "expected": "cos è un picchio?",
+      "noun": "picchio"
+     }
+    },
+    {
+     "step": "G",
+     "index": 4,
+     "target": {
+      "prompt": "la zucca è un cibo, questo è un picchio",
+      "expected": "cos è un picchio?",
+      "noun": "picchio"
+     }
+    },
+    {
+     "step": "E",
+     "index": 20,
+     "target": {
+      "prompt": "cos è il picchio?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 21,
+     "target": {
+      "prompt": "cos è un picchio?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 22,
+     "target": {
+      "prompt": "cosa è il picchio?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 23,
+     "target": {
+      "prompt": "cosa è un picchio?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 24,
+     "target": {
+      "prompt": "il picchio è un animale?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    }
+   ],
+   "pairs": [
+    {
+     "index": 235,
+     "line": "{\"prompt\": \"ancora. il fiore è una pianta, questo è un picchio\", \"response\": \"cos è un picchio?\"}"
+    },
+    {
+     "index": 274,
+     "line": "{\"prompt\": \"perfetto! il fiore è una pianta, questo è un picchio\", \"response\": \"cos è un picchio?\"}"
+    }
+   ]
+  },
+  "13": {
+   "targets": [],
+   "pairs": [
+    {
+     "index": 28,
+     "line": "{\"prompt\": \"il disegno è un oggetto, questo è un picchio\", \"response\": \"cos è un picchio?\"}"
+    },
+    {
+     "index": 47,
+     "line": "{\"prompt\": \"cos è un picchio?\", \"response\": \"non lo so.\"}"
+    }
+   ]
+  }
+ },
+ "other": []
+}

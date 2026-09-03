@@ -1,0 +1,147 @@
+{
+ "word": "mirtillo",
+ "levels": {
+  "12": {
+   "targets": [
+    {
+     "step": "A",
+     "index": 8,
+     "target": {
+      "prompt": "il tavolo è un oggetto, questo è un mirtillo",
+      "expected": "cos è un mirtillo?",
+      "noun": "mirtillo"
+     }
+    },
+    {
+     "step": "G",
+     "index": 2,
+     "target": {
+      "prompt": "il bottone è un oggetto, questo è un mirtillo",
+      "expected": "cos è un mirtillo?",
+      "noun": "mirtillo"
+     }
+    },
+    {
+     "step": "E",
+     "index": 4,
+     "target": {
+      "prompt": "cos è un mirtillo?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 5,
+     "target": {
+      "prompt": "il mirtillo è un animale?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 16,
+     "target": {
+      "prompt": "cos è il mirtillo?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 17,
+     "target": {
+      "prompt": "cosa è il mirtillo?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 18,
+     "target": {
+      "prompt": "cosa è un mirtillo?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    }
+   ],
+   "pairs": [
+    {
+     "index": 166,
+     "line": "{\"prompt\": \"ancora. cos è un mirtillo?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 167,
+     "line": "{\"prompt\": \"ottimo! cos è un mirtillo?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 168,
+     "line": "{\"prompt\": \"ancora. il mirtillo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 169,
+     "line": "{\"prompt\": \"benissimo! il mirtillo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 207,
+     "line": "{\"prompt\": \"cos è un mirtillo?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 208,
+     "line": "{\"prompt\": \"perfetto! il mirtillo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 217,
+     "line": "{\"prompt\": \"bene! il mirtillo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 218,
+     "line": "{\"prompt\": \"ottimo! il mirtillo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 221,
+     "line": "{\"prompt\": \"il mirtillo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 247,
+     "line": "{\"prompt\": \"benissimo! cos è un mirtillo?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 253,
+     "line": "{\"prompt\": \"bravo! cos è un mirtillo?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 254,
+     "line": "{\"prompt\": \"bravo! il mirtillo è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 261,
+     "line": "{\"prompt\": \"perfetto! cos è un mirtillo?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 262,
+     "line": "{\"prompt\": \"bene! cos è un mirtillo?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 274,
+     "line": "{\"prompt\": \"ancora. il tavolo è un oggetto, questo è un mirtillo\", \"response\": \"cos è un mirtillo?\"}"
+    },
+    {
+     "index": 275,
+     "line": "{\"prompt\": \"ottimo! il tavolo è un oggetto, questo è un mirtillo\", \"response\": \"cos è un mirtillo?\"}"
+    },
+    {
+     "index": 315,
+     "line": "{\"prompt\": \"il tavolo è un oggetto, questo è un mirtillo\", \"response\": \"cos è un mirtillo?\"}"
+    },
+    {
+     "index": 329,
+     "line": "{\"prompt\": \"bravo! il tavolo è un oggetto, questo è un mirtillo\", \"response\": \"cos è un mirtillo?\"}"
+    }
+   ]
+  }
+ },
+ "other": []
+}

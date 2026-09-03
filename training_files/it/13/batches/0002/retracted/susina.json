@@ -1,0 +1,92 @@
+{
+ "word": "susina",
+ "levels": {
+  "12": {
+   "targets": [
+    {
+     "step": "A",
+     "index": 10,
+     "target": {
+      "prompt": "la neve è acqua, questa è una susina",
+      "expected": "cos è una susina?",
+      "noun": "susina"
+     }
+    },
+    {
+     "step": "G",
+     "index": 4,
+     "target": {
+      "prompt": "il ragno è un animale, questa è una susina",
+      "expected": "cos è una susina?",
+      "noun": "susina"
+     }
+    },
+    {
+     "step": "E",
+     "index": 20,
+     "target": {
+      "prompt": "cos è la susina?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 21,
+     "target": {
+      "prompt": "cos è una susina?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 22,
+     "target": {
+      "prompt": "cosa è la susina?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 23,
+     "target": {
+      "prompt": "cosa è una susina?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 24,
+     "target": {
+      "prompt": "la susina è un animale?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    }
+   ],
+   "pairs": [
+    {
+     "index": 235,
+     "line": "{\"prompt\": \"ancora. la neve è acqua, questa è una susina\", \"response\": \"cos è una susina?\"}"
+    }
+   ]
+  },
+  "13": {
+   "targets": [],
+   "pairs": [
+    {
+     "index": 0,
+     "line": "{\"prompt\": \"l acqua è un cibo, questa è una susina\", \"response\": \"cos è una susina?\"}"
+    },
+    {
+     "index": 46,
+     "line": "{\"prompt\": \"cos è una susina?\", \"response\": \"non lo so.\"}"
+    }
+   ]
+  }
+ },
+ "other": []
+}

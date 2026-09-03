@@ -127,7 +127,12 @@ try:
         if role == 'reserve' and not taught:
             role_bad.append(f"'{n['w']}' ha role=reserve ma nessun livello gli "
                             f"insegna 'non lo so'")
-        if hit['other']:
+        # A retracted word is SUPPOSED to carry class golds now: retraction is
+        # what acquisition does to an admission, and the ledger is the record
+        # of that transition. Flagging its new golds would flag every
+        # successful acquisition. The residue check below still catches any
+        # admission left behind for the same word.
+        if hit['other'] and n['w'] not in gone:
             role_bad.append(f"'{n['w']}' è un bare_unknown ma ha "
                             f"{len(hit['other'])} gold che non lo trattano "
                             f"come ignoto")
@@ -138,6 +143,13 @@ try:
         if left:
             role_bad.append(f"'{w}' è ritirato ma restano {left} ammissioni "
                             f"nel curriculum")
+        # Retraction is only legitimate as half of an acquisition: the ledger
+        # word must carry at least one replacement gold somewhere, or the
+        # curriculum simply lost it. The first real run left ten nouns in
+        # exactly this state (cap checked after the retraction, 2026-09-03).
+        if not hit['other']:
+            role_bad.append(f"'{w}' è ritirato ma nessun gold lo rimpiazza: "
+                            f"né ammissione né classe, un buco silenzioso")
     for line in role_bad:
         print(f'  {line}')
     print(f"RUOLI bare_unknown: {dict(roles)}, ritirati {len(gone)} — "

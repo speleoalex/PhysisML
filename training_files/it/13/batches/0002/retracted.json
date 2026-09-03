@@ -1,0 +1,47 @@
+[
+ {
+  "word": "tasso",
+  "targets": 7,
+  "pairs": 3,
+  "levels": [
+   12,
+   13
+  ]
+ },
+ {
+  "word": "picchio",
+  "targets": 7,
+  "pairs": 4,
+  "levels": [
+   12,
+   13
+  ]
+ },
+ {
+  "word": "castoro",
+  "targets": 7,
+  "pairs": 4,
+  "levels": [
+   12,
+   13
+  ]
+ },
+ {
+  "word": "susina",
+  "targets": 7,
+  "pairs": 3,
+  "levels": [
+   12,
+   13
+  ]
+ },
+ {
+  "word": "mandorla",
+  "targets": 7,
+  "pairs": 3,
+  "levels": [
+   12,
+   13
+  ]
+ }
+]

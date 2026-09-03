@@ -175,6 +175,25 @@ def test_the_batch_cap_holds():
     assert g.inspect(mat)["ok"] is False
 
 
+def test_a_full_batch_says_cap_even_over_a_stale_admission():
+    """The verdict that decides whether to retract. When the batch is full,
+    inspect() must say so BEFORE anything is removed: the first real run
+    (2026-09-03) checked the cap only after batch.retract(), so every noun
+    past the cap ended the run with its admission gone and no class gold —
+    ten silent holes. The loop keys the retraction on verdict['room'], and
+    the reason must name the cap, not the retractable admission."""
+    mat = [{"prompt": "cos è un falco?", "expected": "il falco è un animale."}]
+    g = _gate({al._normalize_prompt("cos è un falco?"): "non lo so."})
+    g.accepted = g.max_new
+    v = g.inspect(mat)
+    assert not v["ok"] and not v["room"] and v["stale"]
+    assert g.reason(v) == "batch cap reached"
+    # with room, the same material is reported as retractable, as before
+    g.accepted = 0
+    v = g.inspect(mat)
+    assert v["room"] and "non lo so" in g.reason(v)
+
+
 # ── the outcome of a turn ────────────────────────────────────────────────────
 def test_a_question_about_another_noun_is_not_evidence_about_this_one():
     assert al.classify("cos è una tegola?", "tegola") == al.ASKED
@@ -387,4 +406,4 @@ def test_rearm_says_so_when_there_is_no_memory_to_load(tmp_path, capsys):
     """Silence here would be the same defect with a different cause: the column
     reads 'everything unknown' and nothing in the log explains why."""
     assert al.rearm_affect(_BareTrainer(), "it", str(tmp_path)) == 0
-    assert "nessuna memoria di curiosità" in capsys.readouterr().out
+    assert "no curiosity memory" in capsys.readouterr().out

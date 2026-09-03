@@ -1,0 +1,131 @@
+{
+ "word": "clarinetto",
+ "levels": {
+  "12": {
+   "targets": [
+    {
+     "step": "A",
+     "index": 8,
+     "target": {
+      "prompt": "il fratello è una persona, questo è un clarinetto",
+      "expected": "cos è un clarinetto?",
+      "noun": "clarinetto"
+     }
+    },
+    {
+     "step": "G",
+     "index": 2,
+     "target": {
+      "prompt": "la zucca è un cibo, questo è un clarinetto",
+      "expected": "cos è un clarinetto?",
+      "noun": "clarinetto"
+     }
+    },
+    {
+     "step": "E",
+     "index": 4,
+     "target": {
+      "prompt": "cos è un clarinetto?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 5,
+     "target": {
+      "prompt": "il clarinetto è un animale?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 13,
+     "target": {
+      "prompt": "cos è il clarinetto?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 14,
+     "target": {
+      "prompt": "cosa è il clarinetto?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 15,
+     "target": {
+      "prompt": "cosa è un clarinetto?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    }
+   ],
+   "pairs": [
+    {
+     "index": 166,
+     "line": "{\"prompt\": \"perfetto! cos è un clarinetto?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 167,
+     "line": "{\"prompt\": \"bravo! cos è un clarinetto?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 168,
+     "line": "{\"prompt\": \"il clarinetto è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 194,
+     "line": "{\"prompt\": \"ancora. cos è un clarinetto?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 195,
+     "line": "{\"prompt\": \"ottimo! cos è un clarinetto?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 196,
+     "line": "{\"prompt\": \"perfetto! il clarinetto è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 197,
+     "line": "{\"prompt\": \"bene! il clarinetto è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 201,
+     "line": "{\"prompt\": \"cos è un clarinetto?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 233,
+     "line": "{\"prompt\": \"bene! cos è un clarinetto?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 235,
+     "line": "{\"prompt\": \"benissimo! il clarinetto è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 238,
+     "line": "{\"prompt\": \"ottimo! il clarinetto è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 241,
+     "line": "{\"prompt\": \"benissimo! cos è un clarinetto?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 242,
+     "line": "{\"prompt\": \"bravo! il clarinetto è un animale?\", \"response\": \"non lo so.\"}"
+    },
+    {
+     "index": 253,
+     "line": "{\"prompt\": \"ancora. il fratello è una persona, questo è un clarinetto\", \"response\": \"cos è un clarinetto?\"}"
+    }
+   ]
+  }
+ },
+ "other": []
+}

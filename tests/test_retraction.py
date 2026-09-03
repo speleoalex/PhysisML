@@ -91,6 +91,33 @@ def test_only_a_bare_admission_counts():
     assert not retraction.is_admission("il falco è un animale.")
 
 
+def test_a_stale_admission_is_one_about_a_word_already_retracted():
+    """The predicate the dream's QA harvest filters with.
+
+    A session row records the gold OF THE MOMENT THE TURN RAN, so turns asked
+    before an acquisition still carry 'non lo so.' — harvested as-is they
+    re-import the very admission the acquisition retracted (18 of 40 pairs on
+    the first real run, 2026-09-03). The word is looked for in the PROMPT,
+    because a bare admission names no word; the gold must still be an
+    ignorance shape, or every pair mentioning the word would be dropped.
+    """
+    gone = ["tasso"]
+    # Both shapes step E teaches: the bare admission and the ask-shaped gold.
+    assert retraction.stale_admission("cos è un tasso?", "non lo so.", gone)
+    assert retraction.stale_admission(
+        "l acqua è un cibo, questo è un tasso", "cos è un tasso?", gone)
+    # Same shapes about a word NOT retracted: still the correct current gold.
+    assert not retraction.stale_admission("cos è una susina?", "non lo so.",
+                                          gone)
+    # The class gold the acquisition installed is knowledge, not an admission.
+    assert not retraction.stale_admission("cos è un tasso?",
+                                          "il tasso è un animale.", gone)
+    # Whole word only: 'tasso' must not eat 'tassonomia'.
+    assert not retraction.stale_admission("cos è la tassonomia?", "non lo so.",
+                                          gone)
+    assert not retraction.stale_admission("", "non lo so.", gone)
+
+
 # ── find ─────────────────────────────────────────────────────────────────────
 def test_find_catches_every_phrasing_including_the_prefixed_harvest(tree):
     hit = retraction.find("falco", "it")
@@ -207,9 +234,14 @@ def test_the_acquirable_pool_is_large_enough_to_spend_from():
 
     With six nouns the lesson dies after six acquisitions, which is why the
     pool was widened before the loop was allowed to retract anything.
+
+    Counted on the raw lexicon, not through Lex: spending an example moves it
+    to the ledger, it does not shrink the designed pool. After the first real
+    run (15 acquired, 2026-09-03) Lex.bare_taught legitimately holds only what
+    is left, and this test is about the design, not the balance.
     """
-    lex = etp.Lex(etp.load_lexicon("it"), "it")
-    acquirable = [n for n in lex.bare_taught
+    raw = etp.load_lexicon("it")
+    acquirable = [n for n in raw.get("bare_unknown_nouns", [])
                   if n.get("role", "acquirable") == "acquirable"]
     assert len(acquirable) >= 20
 
@@ -283,9 +315,18 @@ def test_every_shape_the_retraction_removes_is_replaced():
     from dynamic_model.ontology_oracle import OntologyOracle
     o = OntologyOracle()
     lex = etp.Lex(etp.load_lexicon("it"), "it")
-    cases = [({"w": "falco", "art": "il", "g": "m"}, "un animale"),
-             ({"w": "ravanello", "art": "il", "g": "m"}, "un cibo"),
-             ({"w": "scodella", "art": "la", "g": "f"}, "un oggetto")]
+    # Drawn from the pool as it stands, never hardcoded: a hardcoded noun is
+    # one autonomy run away from being retracted, and then this test measures
+    # the ledger instead of the oracle (scodella, first run, 2026-09-03). The
+    # reserve is taught and never retracted by construction; one noun per
+    # gender covers both article shapes, and one still-unspent acquirable —
+    # when the pool has any left — exercises the nouns the loop actually eats.
+    cases = [(next(n for n in lex.bare_reserve if n["g"] == g), cls)
+             for g, cls in (("m", "un animale"), ("f", "un oggetto"))]
+    acquirable = [n for n in lex.bare_taught
+                  if n.get("role", "acquirable") == "acquirable"]
+    if acquirable:
+        cases.append((acquirable[0], "un cibo"))
     for noun, cls in cases:
         hit = retraction.find(noun["w"], "it")
         assert hit["levels"], f"{noun['w']} non è insegnato da nessuna parte"

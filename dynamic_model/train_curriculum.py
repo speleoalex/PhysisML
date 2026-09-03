@@ -622,11 +622,11 @@ def repeated_dream_warning(ckpt_dir: str):
         return None
     if os.path.getmtime(dreamed) <= os.path.getmtime(learned):
         return None          # the teaching phase ran after the last dream
-    return ("  ATTENZIONE: parto da " + learned + " (pre-sogno) mentre "
-            "final_dreamed.pt \u00e8 pi\u00f9 recente.\n"
-            "              Questo sogno RIPETE il precedente invece di "
-            "accumularci sopra.\n"
-            "              Per accumulare: --checkpoint " + dreamed)
+    return ("  WARNING: starting from " + learned + " (pre-dream) while "
+            "final_dreamed.pt is more recent.\n"
+            "           This dream REPEATS the previous one instead of "
+            "accumulating on top of it.\n"
+            "           To accumulate: --checkpoint " + dreamed)
 
 
 def _affect_memory_path(lang: str, ckpt_base: str = None) -> str:
@@ -831,7 +831,7 @@ def phase_0(args, ckpt_base: str) -> str:
             _t = BPETokenizer(); _t.load(prev_tok)
             if len(_t) >= base_vocab_size:
                 tok = _t
-                print(f"Tokenizer aggiornato: {prev_tok}  (vocab={len(tok)})")
+                print(f"Tokenizer updated: {prev_tok}  (vocab={len(tok)})")
             else:
                 print(f"  Skip stale tokenizer {prev_tok} (vocab={len(_t)} < base={base_vocab_size})")
 
@@ -857,7 +857,7 @@ def phase_0(args, ckpt_base: str) -> str:
         # (tokenizer may have grown since the checkpoint was saved)
         _sync_vocab_rows(model, tok, label="phase_0 vocab sync")
     else:
-        print("Nuovo modello da zero.")
+        print("New model from scratch.")
         # Architecture: d=512, L=6, h=8 — optimal for Arc A370M GPU utilization
         # (23M params, 13× faster training than d=256 L=4 due to better GPU saturation)
         # active_vocab_size uses max(id)+1, consistent with _sync_vocab_rows
@@ -1047,7 +1047,7 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     if os.path.exists(prompt_path):
         print(f"Teacher prompt: {prompt_path}  ← custom")
     else:
-        print(f"Teacher prompt: generated from --age  (crea {prompt_path} per personalizzare)")
+        print(f"Teacher prompt: generated from --age  (create {prompt_path} to customize)")
     print()
 
     ckpt_dir = os.path.join(ckpt_base, f"level_{level}")
@@ -1254,9 +1254,9 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
             if _p not in gold_own:
                 gold_prev[_p] = _r
     gold_bank = {**gold_prev, **gold_own}   # prompt -> expected
-    print(f"  Gold bank per rehearsal: {len(gold_bank)} coppie "
-          f"(scope={_reh_scope}: {len(gold_own)} livello {level}"
-          f"{', %d precedenti' % len(gold_prev) if gold_prev else ''})")
+    print(f"  Gold bank for rehearsal: {len(gold_bank)} pairs "
+          f"(scope={_reh_scope}: {len(gold_own)} from level {level}"
+          f"{', %d from earlier levels' % len(gold_prev) if gold_prev else ''})")
 
     def gold_rehearsal_step(exclude_prompt: str = "") -> int:
         """Replay K random gold pairs already taught. Returns how many ran.
@@ -1343,7 +1343,7 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     mode_label = "AUTO (Ctrl-C to stop)" if AUTO_MODE else f"{args.interactions} turns"
     print(f"Starting teaching dialogue ({mode_label})...\n")
     print(f"{'Turn':>5}  {'Stp'}  {'Claude says':25s}  {'Model responds':25s}  "
-          f"{'FB*':>4}  {'Comment (* = feedback sulla risposta precedente)'}")
+          f"{'FB*':>4}  {'Comment (* = feedback on the previous answer)'}")
     print("-" * 100)
 
     # --- Session log (JSON Lines, one record per turn) ---
@@ -1666,7 +1666,7 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     print(f"  Neutral (=):         {neutral} ({100*neutral//evaluated}%)")
     print(f"  Affect:              {trainer.affect}")
     print(f"  → {learned_path}  (learned knowledge level {level})")
-    print(f"  Per testare: ./set_model.sh {learned_path}")
+    print(f"  To test it: ./set_model.sh {learned_path}")
     print("="*55)
 
     return learned_path
@@ -1690,6 +1690,20 @@ def _load_memory_bank(ckpt_base: str, level: int,
       did not exist yet.
     """
     FEEDBACK_WEIGHT = {"+++": 1.0, "++": 0.8, "+": 0.5, "=": 0.0, "-": -0.8}
+    # Same lesson as the QA harvest, second channel: a session row records the
+    # gold OF THE MOMENT THE TURN RAN, so a turn asked before an acquisition
+    # carries "non lo so." about a word the retraction has since removed.
+    # Without this filter N3/REM consolidate that stale admission back into
+    # the weights right next to the new class gold — measured on the first
+    # autonomy run's corrective re-dream (2026-09-03): 3 of the 5 acquired
+    # nouns still answered "non lo so. ancora." after a dream whose qa_pairs
+    # were clean, because the bank was not.
+    from dynamic_model import retraction as _retraction
+    _lang = os.path.basename(os.path.normpath(ckpt_base))
+    if len(_lang) != 2:
+        _lang = "it"
+    _gone = list(_retraction.retracted(_lang))
+    _n_stale = 0
     bank = []
     _levels_with_logs = 0
     for lvl in range(level + 1):
@@ -1723,6 +1737,9 @@ def _load_memory_bank(ckpt_base: str, level: int,
                 response = (rec.get("response") or "").strip()
                 if not prompt:
                     continue
+                if _retraction.stale_admission(prompt, expected, _gone):
+                    _n_stale += 1
+                    continue
                 bank.append({
                     "prompt":   prompt,
                     "expected": expected,
@@ -1738,11 +1755,15 @@ def _load_memory_bank(ckpt_base: str, level: int,
     # working normally. Measured: the same checkpoint, the same single dream,
     # recovered to 30.4% without those logs and 51.8% with them.
     if level > 0 and _levels_with_logs <= 1:
-        print(f"  [N3] ATTENZIONE: session log presenti solo per "
-              f"{_levels_with_logs} livello/i su {level + 1} in {ckpt_base} — "
-              f"la banca di memoria dei livelli precedenti è vuota e N3 non ha "
-              f"nulla da rigiocare. Se è un esperimento isolato, copiaci i "
-              f"session_*.jsonl dei livelli 0-{level - 1}.", flush=True)
+        print(f"  [N3] WARNING: session logs present for only "
+              f"{_levels_with_logs} level(s) out of {level + 1} in "
+              f"{ckpt_base} — the earlier levels' memory bank is empty and N3 "
+              f"has nothing to replay. If this is an isolated experiment, copy "
+              f"the session_*.jsonl of levels 0-{level - 1} into it.",
+              flush=True)
+    if _n_stale:
+        print(f"  [N3] {_n_stale} rows discarded: admissions about nouns "
+              f"already retracted (retraction ledger)", flush=True)
     bank.sort(key=lambda x: abs(x["weight"]), reverse=True)
     return bank
 
@@ -1760,9 +1781,6 @@ def _jaccard(a: str, b: str) -> float:
 # L4 the retry prefix repeats the prompt instead, which _strip_demo removes,
 # and praise is handled by strip_praise().
 _RETRY_RE = _re.compile(r'^ancora\.\s*', _re.IGNORECASE)
-
-_MAX_CURRICULUM_LEVEL = 12
-
 
 def _normalize_prompt(text: str) -> str:
     """A prompt with the scaffolding off, so two golds can be compared.
@@ -1791,9 +1809,17 @@ def _known_golds(lang: str) -> dict:
     the grader marks it wrong part of the time, and the level reads as
     regressed when nothing regressed.
     """
+    # Enumerated from the directory tree, not from a MAX constant: a constant
+    # capped at 12 made the guard blind to level 13, the autonomy level —
+    # which is precisely where the harvest writes and where a conflict with a
+    # freshly acquired pool target is most likely.
+    base = os.path.join("training_files", lang)
+    levels = sorted(int(os.path.basename(p))
+                    for p in glob.glob(os.path.join(base, "[0-9]*"))
+                    if os.path.basename(p).isdigit() and os.path.isdir(p))
     golds = {}
-    for lvl in range(_MAX_CURRICULUM_LEVEL + 1):
-        d = os.path.join("training_files", lang, str(lvl))
+    for lvl in levels:
+        d = os.path.join(base, str(lvl))
         cfg_path = os.path.join(d, "local_teacher.json")
         if os.path.exists(cfg_path):
             try:
@@ -1983,14 +2009,28 @@ def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
     # Both are true sentences, and that is exactly the problem.
     known_golds = _known_golds(lang)
 
+    # A session row records the gold OF THE MOMENT THE TURN RAN. When the turn
+    # asked about a noun that was acquired later in the same session, that gold
+    # is an admission ("non lo so.", or the ask-shaped "cos è un tasso?") which
+    # the retraction has since removed from the curriculum — and known_golds
+    # cannot catch it, because the admission no longer exists anywhere to
+    # conflict with. Measured on the first autonomy run (2026-09-03): 18 of 40
+    # harvested pairs were stale admissions and 5 prompts ended up carrying two
+    # golds. The ledger is the record of what is stale.
+    from dynamic_model import retraction as _retraction
+    retracted_words = list(_retraction.retracted(lang))
+
     positive_pairs, neutral_pairs = {}, {}
-    n_conflict = 0
+    n_conflict = n_stale = 0
     for i, rec in enumerate(records):
         prompt = (rec.get("prompt") or "").strip()
         expected = (rec.get("expected") or "").strip()
         if not prompt or not expected:
             continue
         if prompt in existing:
+            continue
+        if _retraction.stale_admission(prompt, expected, retracted_words):
+            n_stale += 1
             continue
         held = known_golds.get(_normalize_prompt(prompt))
         if held is not None and held != expected:
@@ -2011,10 +2051,10 @@ def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
         # Whichever limit bit, name it. A harvest that quietly drops two thirds
         # of a session looks identical in the log to a session that produced
         # nothing new.
-        why = ("il tetto del livello" if MAX_TOTAL_QA - len(existing) < max_new
-               else "max_new per sogno")
-        print(f"  [QA update] {n_candidates - max(available, 0)} coppie "
-              f"candidate non entrano: {why} "
+        why = ("the level cap" if MAX_TOTAL_QA - len(existing) < max_new
+               else "max_new per dream")
+        print(f"  [QA update] {n_candidates - max(available, 0)} candidate "
+              f"pairs do not fit: {why} "
               f"({len(existing)}/{MAX_TOTAL_QA}, max_new={max_new})")
     if available <= 0:
         return 0
@@ -2028,8 +2068,11 @@ def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
             new_pairs[p] = pair
 
     if n_conflict:
-        print(f"  [QA update] {n_conflict} coppie scartate: il loro prompt ha "
-              f"già un gold diverso nel curriculum")
+        print(f"  [QA update] {n_conflict} pairs discarded: their prompt "
+              f"already has a different gold in the curriculum")
+    if n_stale:
+        print(f"  [QA update] {n_stale} pairs discarded: admissions about "
+              f"nouns already retracted (retraction ledger)")
 
     if not new_pairs:
         _regen_corpus(list(existing.values()))
@@ -2044,12 +2087,12 @@ def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
             f.write(json.dumps(pair, ensure_ascii=False) + "\n")
 
     n_added = len(new_pairs)
-    print(f"  [QA update] +{n_added} nuove coppie ({n_pos}+ {n_neu}=) → {qa_path}  "
-          f"(totale: {len(existing) + n_added}/{MAX_TOTAL_QA})")
+    print(f"  [QA update] +{n_added} new pairs ({n_pos}+ {n_neu}=) → {qa_path}  "
+          f"(total: {len(existing) + n_added}/{MAX_TOTAL_QA})")
 
     all_pairs = list(existing.values()) + list(new_pairs.values())
     _regen_corpus(all_pairs)
-    print(f"  [QA update] qa_corpus.txt rigenerato  ({len(all_pairs)} coppie × 20 reps)")
+    print(f"  [QA update] qa_corpus.txt regenerated  ({len(all_pairs)} pairs × 20 reps)")
 
     return n_added
 
@@ -2292,7 +2335,7 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
     bank = _load_memory_bank(ckpt_base, level)
     pos_count = sum(1 for e in bank if e["weight"] > 0)
     neg_count = sum(1 for e in bank if e["weight"] < 0)
-    print(f"  Memoria: {len(bank)} entries  "
+    print(f"  Memory: {len(bank)} entries  "
           f"({pos_count} positive, {neg_count} negative, "
           f"{len(bank)-pos_count-neg_count} neutral)")
 
@@ -2381,7 +2424,7 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
     growth_stats  = []
 
     if growth_source == "off":
-        print("  N2-B: off (--vocab-growth off) — tokenizer statico")
+        print("  N2-B: off (--vocab-growth off) — static tokenizer")
     elif not cfg['n2b']:
         print(f"  N2-B: off (dream-mode {dream_mode})")
 
@@ -2512,9 +2555,9 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
                             "seed":          getattr(args, 'seed', None),
                             "timestamp":     _stamp,
                         }, ensure_ascii=False) + "\n")
-                print(f"  N2-B: eventi in {_ev_path}")
+                print(f"  N2-B: events in {_ev_path}")
             except OSError as _e:
-                print(f"  N2-B: growth log non scritto ({_e})")
+                print(f"  N2-B: growth log not written ({_e})")
 
     # ── N1: NREM slow wave — corpus replay, BEFORE the supervised phases ─────
     # N1 used to run LAST "so it has the final word on the distribution". That
@@ -2550,7 +2593,7 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
             n_qa_epochs = args.n_qa_epochs
         else:
             n_qa_epochs = 15 if dream_mode == "standard" else (10 if dream_mode == "deep" else 5)
-        print(f"\n  [N2.5] SFT Q&A pairs ({qa_path}, {n_qa_epochs} epoche)...")
+        print(f"\n  [N2.5] SFT Q&A pairs ({qa_path}, {n_qa_epochs} epochs)...")
         qa_losses = trainer.train_on_qa_pairs(qa_path, n_epochs=n_qa_epochs)
         if qa_losses:
             import numpy as _np
@@ -2569,9 +2612,9 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
                                     cfg['n3_min_weight'],
                                     bool(cfg.get('n3_positive_only')))
     if _af != 'dream':
-        print(f"  N3 ristretto al livello {level} (anti-forgetting={_af}): "
-              f"{len(n3_entries)} memorie correnti, replay cross-livello "
-              f"sostituito dalla penalità (ewc) o da nulla (none)")
+        print(f"  N3 restricted to level {level} (anti-forgetting={_af}): "
+              f"{len(n3_entries)} current memories, cross-level replay "
+              f"replaced by the penalty (ewc) or by nothing (none)")
 
     # Recency bias: the memory bank spans every level, so at high levels the
     # replay is swamped by older material — measured 5% of entries from the
@@ -2588,8 +2631,8 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
         _old = random.sample(_old, len(_own))
         n3_entries = _own + _old
         random.shuffle(n3_entries)
-        print(f"  N3 ribilanciato: {len(_own)} memorie del livello {level} "
-              f"+ {len(_old)} dai livelli precedenti")
+        print(f"  N3 rebalanced: {len(_own)} memories from level {level} "
+              f"+ {len(_old)} from the earlier levels")
     if n3_entries:
         print(f"  {len(n3_entries)} entries with |weight| ≥ 0.5")
         n3_count = 0
@@ -2608,14 +2651,14 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
         print("  No memories with sufficient salience — skip N3.")
 
     # ── REM: Introspection / self-play ───────────────────────────────────────
-    print(f"\n  [REM] Introspezione / self-play...")
+    print(f"\n  [REM] Introspection / self-play...")
     # Sample top high-salience entries with known expected
     rem_entries = [e for e in bank
                    if abs(e["weight"]) >= 0.8 and e.get("expected")]
     rem_entries = rem_entries[:cfg['rem_cap']]   # 0 = skip REM (light mode)
 
     if rem_entries:
-        print(f"  {len(rem_entries)} entries da esaminare...")
+        print(f"  {len(rem_entries)} entries to examine...")
         close_count = 0   # model already knows
         gap_count   = 0   # model still needs to learn
         rem_count   = 0
@@ -2695,7 +2738,7 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
     print(f"  N2 patterns: {len(patterns)}  +{n_new_tokens} new tokens")
     print(f"  N3 memories: {len(n3_entries)}")
     print(f"  REM self-play: {len(rem_entries)}")
-    print(f"  QA pairs nuove: {n_qa_added}")
+    print(f"  New QA pairs:   {n_qa_added}")
     print(f"  Vocab: {model.active_vocab_size} active / {model.vocab_size} allocated")
     print(f"  → {dreamed_path}")
     print("="*60)
@@ -2890,7 +2933,7 @@ def main():
     base    = os.path.join(level_dir, "final.pt")
     best    = learned if os.path.exists(learned) else base
     if os.path.exists(best):
-        print(f"\nPer testare il modello:")
+        print(f"\nTo test the model:")
         print(f"  ./set_model.sh {best}")
 
 

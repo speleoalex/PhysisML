@@ -1,0 +1,79 @@
+{
+ "word": "rospo",
+ "levels": {
+  "12": {
+   "targets": [
+    {
+     "step": "A",
+     "index": 9,
+     "target": {
+      "prompt": "la sorella è una persona, questo è un rospo",
+      "expected": "cos è un rospo?",
+      "noun": "rospo"
+     }
+    },
+    {
+     "step": "G",
+     "index": 3,
+     "target": {
+      "prompt": "il riccio è un animale, questo è un rospo",
+      "expected": "cos è un rospo?",
+      "noun": "rospo"
+     }
+    },
+    {
+     "step": "E",
+     "index": 15,
+     "target": {
+      "prompt": "cos è il rospo?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 16,
+     "target": {
+      "prompt": "cos è un rospo?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 17,
+     "target": {
+      "prompt": "cosa è il rospo?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 18,
+     "target": {
+      "prompt": "cosa è un rospo?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    },
+    {
+     "step": "E",
+     "index": 19,
+     "target": {
+      "prompt": "il rospo è un animale?",
+      "expected": "non lo so.",
+      "noun": "so"
+     }
+    }
+   ],
+   "pairs": [
+    {
+     "index": 234,
+     "line": "{\"prompt\": \"ancora. la sorella è una persona, questo è un rospo\", \"response\": \"cos è un rospo?\"}"
+    }
+   ]
+  }
+ },
+ "other": []
+}
