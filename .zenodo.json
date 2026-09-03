@@ -1,0 +1,37 @@
+{
+  "title": "PhysisML: a language model trained from scratch on a developmental curriculum, with dream consolidation against catastrophic forgetting",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Vernassa, Alessandro"
+    }
+  ],
+  "description": "<p><strong>PhysisML</strong> (&phi;&upsilon;&sigma;&iota;&sigmaf; <em>physis</em>, nature/growth, + ML) is a language model implemented from scratch &mdash; a decoder-only transformer with every layer's forward and backward pass hand-written in NumPy, plus a PyTorch mirror for speed &mdash; and trained on a developmental curriculum of thirteen Italian levels (phonemes to question answering), with a dynamic vocabulary that grows during training and a rule-based tutor that grades every answer, so the whole curriculum reproduces offline.</p><p>Each teaching session ends in a <strong>dream</strong>: a consolidation pass that replays every previous level's question-answer corpus. The dream is what turns catastrophic forgetting (~20% retention across levels) into ~88%. The repository includes a head-to-head benchmark of the dream against online Elastic Weight Consolidation (Schwarz et al. 2018) on the same harness (exp_i): the replay dominates on both seeds (final-row retention 64.4% vs 13.0%), and EWC lands below the no-protection floor (22.0%) because at near-zero training loss the empirical Fisher measures inter-example gradient variance concentrated on shared structural tokens &mdash; an anti-selective anchor that freezes the answer-production machinery instead of the knowledge.</p><p>The repository contains the full training code, the Italian curriculum, the teaching loop with rule-based/local-LLM/API tutors, the retention benchmark harness, and documentation in English and Italian.</p>",
+  "keywords": [
+    "large language model",
+    "LLM from scratch",
+    "NumPy",
+    "transformer",
+    "curriculum learning",
+    "developmental learning",
+    "catastrophic forgetting",
+    "experience replay",
+    "elastic weight consolidation",
+    "EWC",
+    "dream consolidation",
+    "dynamic vocabulary",
+    "Italian",
+    "continual learning"
+  ],
+  "notes": "Licensed under the MIT License. See the LICENSE file in the repository.",
+  "related_identifiers": [
+    {
+      "identifier": "https://huggingface.co/speleoalex/physisml-it-preview",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    }
+  ]
+}

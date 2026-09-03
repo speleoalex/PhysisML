@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+type: software
+title: "PhysisML: a language model trained from scratch on a developmental curriculum, with dream consolidation against catastrophic forgetting"
+abstract: >-
+  PhysisML is a language model implemented from scratch (decoder-only
+  transformer, forward and backward passes hand-written in NumPy, with a
+  PyTorch mirror) and trained on a thirteen-level developmental curriculum of
+  Italian, with a dynamic vocabulary and a rule-based tutor so the whole
+  curriculum reproduces offline. Each session ends in a dream: a replay
+  consolidation pass that turns ~20% cross-level retention into ~88%.
+  Benchmarked head-to-head on the same harness, the dream dominates online
+  EWC on both seeds (64.4% vs 13.0% final-row retention), with EWC landing
+  below the no-protection floor because at near-zero loss the empirical
+  Fisher measures inter-example variance on shared structural tokens.
+authors:
+  - family-names: Vernassa
+    given-names: Alessandro
+    email: speleoalex@gmail.com
+repository-code: "https://github.com/speleoalex/PhysisML"
+license: MIT
+keywords:
+  - large language model
+  - LLM from scratch
+  - NumPy
+  - transformer
+  - curriculum learning
+  - catastrophic forgetting
+  - experience replay
+  - elastic weight consolidation
+  - dream consolidation
+  - dynamic vocabulary
+  - Italian
+version: "1.0.0"
+date-released: "2026-09-03"
