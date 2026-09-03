@@ -72,6 +72,72 @@ seen (`scripts/curiosity_rate.py --gate off`): 67% honest answers on unknown
 nouns against **0%** on known ones — it never claims ignorance about something
 it knows.
 
+### Is the dream just replay? The EWC control (exp_i)
+
+The dream is experience replay — so the honest question is whether a standard
+anti-forgetting method from the literature does the same job without carrying
+the corpus around. Benchmark `exp_i` answers it: same network, same curriculum,
+same harness, levels 0→6, two seeds, three arms — `dream` (the shipped
+mechanism), `ewc` (online EWC, Schwarz et al. 2018: running Fisher
+`F ← γ·F_prev + F_new`, γ=0.95, anchor refreshed at each level boundary,
+λ=1000 from a preliminary sweep), `none` (the floor, λ=0). The ewc/none arms
+keep every within-level consolidation channel and lose only the cross-level
+replay; six dreams per level, fixed, in all arms.
+
+| arm | retention (final checkpoint on all levels) | learning (each level on its own checkpoint) |
+|---|---|---|
+| dream | **64.4%** (65.0 / 63.9) | 80.7% (82.5 / 79.0) |
+| ewc | 13.0% (13.6 / 12.5) | 37.1% (35.0 / 39.2) |
+| none | 22.0% (20.1 / 23.9) | 77.9% (76.4 / 79.4) |
+
+*(mean across seeds, then seed 1 / seed 2; run-to-run noise is 2.2 points)*
+
+Three verdicts, each replicated on both seeds:
+
+- **Replay is worth +42.5 points** of retention over no protection at all.
+  The `none` arm lands at ~20% — the same number the pre-dream builds scored,
+  which doubles as an internal validity check of the harness.
+- **EWC lands 9 points *below* doing nothing**, and costs ~44 points of
+  *current* learning. The per-level detail is stark: `none` forgets the middle
+  levels but keeps L0 and the just-learned L6 at ~100%; `ewc` loses even
+  those (L6 at 10–20%).
+- λ is not the issue: in the sweep, retention rises monotonically with λ
+  (33→41% for λ=100→10000) but never approaches the replay arm, while
+  current learning falls.
+
+**Why EWC collapses here** — kept as the sequence of failed diagnoses,
+because the elimination process is the argument:
+
+1. *Fisher accumulation over the level anchors?* Dead: γ-accumulation
+   explains a factor of ~2.9× at most; the measured Fisher mass grows ~70×.
+2. *A feedback spiral from estimating the Fisher on a non-converged level?*
+   Dead: level-end losses on the very pairs used for estimation are ≈0
+   (0.0001–0.06) even in the collapsed arm; Spearman ρ = −0.14 between final
+   loss and new Fisher mass.
+3. *What survives:* at loss ≈ 0 the empirical Fisher `E[g²]` is the
+   **variance of the gradient across examples**, not curvature. With a
+   prompt-masked SFT loss and short answers, that variance concentrates on
+   the tokens every example shares: 20 embedding rows out of 2,590 carry
+   89–93% of the mass — the space character alone 32–43%, then ':',
+   articles, '!' — plus another 27–32% on the first attention block. The
+   anchor is **anti-selective**: it freezes the machinery that produces *any*
+   answer, not the knowledge of past levels. Replicated on both seeds — same
+   concentration, same top tokens, ~3× different absolute mass: the damage
+   tracks the concentration, not the scale.
+
+The claim this supports is deliberately narrow: **in a curriculum regime of
+near-perfect per-level memorization, standard online EWC with the empirical
+Fisher is structurally disadvantaged, and replay dominates it on both
+retention and current learning — at the price of keeping the corpus around
+instead of summary statistics.** It is not "EWC is wrong in general":
+normalizing the Fisher per token, or excluding structural tokens, would be a
+different algorithm (the Riemannian-Walk family, Chaudhry et al. 2018), and
+part of the dream−ewc gap is token budget — the dream's N1 replays up to 7
+levels per cycle against the ewc arm's one, so a compute-matched arm is
+listed as future work. Reproduce with
+`MODE=sweep|main ./scripts/experiment_ewc.sh --confirm`; per-arm retention
+matrices land in `models/exp_i/`.
+
 ### Where it still fails
 
 - **L9 (70%) and L2 (80%)** are the weak levels of the final checkpoint; L2's
@@ -176,6 +242,8 @@ Each level starts from the previous level's `final_learned.pt`.
 | `python3 dynamic_model/test_model.py --level N` | Quality statistics for the current model |
 | `python3 scripts/measure_repetition.py --ckpt-base models/checkpoints/it --levels 0-12` | Exact match **and** self-repetition rate, greedy |
 | `python3 scripts/retention_matrix.py --levels 0-12` | Retention matrix: every checkpoint against every level |
+| `ANTI_FORGETTING=dream\|ewc\|none ./build.sh N` | Anti-forgetting arm: `ewc` = online EWC (`EWC_LAMBDA`, `EWC_GAMMA`) with per-level Fisher sidecars (`scripts/compute_fisher.py`); `none` = no cross-level channel |
+| `MODE=sweep\|main ./scripts/experiment_ewc.sh --confirm` | The dream-vs-EWC benchmark (exp_i): λ sweep on L0-L2, then 3 arms × 2 seeds on L0-L6 |
 | `python3 dynamic_model/run.py` | Interactive session |
 | `python3 scripts/download_wikipedia.py --level N` | Download Wikipedia articles for training |
 | `python3 scripts/generate_qa_corpus.py --levels 0 1 2` | Build dialogue corpus from QA pairs |
@@ -265,9 +333,11 @@ subdirectory is invisible by construction. See
 - **Anti-forgetting**: *interleaved* rehearsal on the gold pairs during teaching
   (4 pairs every 5 turns), plus corpus replay in the dream phase. Rehearsal is
   weighted toward the current level; the cross-level work is done by the dream,
-  whose N1 replays *every* level's `qa_corpus`. Six dreams per level is what
-  turned the final checkpoint from 20% across all levels into 89% —
-  see [Results](#results).
+  whose N1 replays *every* level's `qa_corpus`. The dream is what turned the
+  final checkpoint from 20% across all levels into ~88% — and benchmarked
+  head-to-head on the same harness it dominates online EWC, which collapses
+  below the no-protection floor
+  (see [the EWC control](#is-the-dream-just-replay-the-ewc-control-exp_i)).
 - **Test-then-show didactics**: the model answers *before* seeing the solution.
   The reverse order (show-then-test) measured recall after a hint rather than
   retained knowledge.

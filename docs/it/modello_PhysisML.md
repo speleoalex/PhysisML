@@ -432,6 +432,109 @@ questo.
 `all` resta il peggiore dei tre al primo seed, coerente con la diluizione: a L3
 l'unione è 535 coppie contro 188 del livello stesso.
 
+#### Intervento 3 — il controllo: replay contro EWC online (exp_i)
+
+Il canale cross-livello del sogno è experience replay, e il replay è il
+trucco più vecchio del continual learning. Il claim "il sogno ha sistemato la
+ritenzione" è interessante solo se un metodo di *regolarizzazione* standard —
+che porta con sé statistiche riassuntive invece del corpus — non sa fare lo
+stesso. `exp_i` è quel controllo: stessa rete, stesso curriculum, stesso
+harness, L0→L6, due semi, tre bracci a un flag di distanza
+(`--anti-forgetting`):
+
+- **`dream`** — il meccanismo del progetto: N1 rigioca il corpus di ogni
+  livello, N3 rigioca il memory bank episodico cross-livello.
+- **`ewc`** — EWC online (Schwarz et al. 2018): un Fisher diagonale running
+  `F ← γ·F_prev + F_new` (γ=0.95) con l'ancora θ* rinnovata a ogni confine di
+  livello, penalità `½·λ·Σ F·(θ−θ*)²` nelle fasi 1 e 2. Il Fisher è quello
+  empirico, stimato sulle coppie gold post-harvest del livello con la stessa
+  loss prompt-masked del training (`scripts/compute_fisher.py`, sidecar
+  `level_N/fisher.pt`). LayerNorm ed embedding posizionali esclusi
+  dall'ancora (la lezione del weight decay su `ln_f`), embedding legato
+  contato una volta, righe di vocabolario dormienti libere. In questo braccio
+  il sogno gira comunque, ma N1 è ristretto al livello corrente e N3 alle
+  memorie del livello corrente: tutto ciò che consolida il livello *corrente*
+  resta, cambia solo il canale cross-livello.
+- **`none`** — gating identico con λ=0: il pavimento.
+
+λ=1000 viene da uno sweep preliminare su L0→L2 (λ ∈ {100, 1000, 10000}:
+media riga finale 33/37/41%, diagonale 78/76/73 — la ritenzione sale
+monotona con λ ma non avvicina mai il replay, mentre l'apprendimento
+corrente scende). Sei sogni per livello, fissi in ogni braccio, così il
+budget di consolidamento non è un confound. Per riprodurre:
+`MODE=sweep ./scripts/experiment_ewc.sh --confirm`, poi `MODE=main`; le
+matrici per braccio finiscono in `models/exp_i/`.
+
+Risultato — media tra i semi (seme 1 / seme 2), rumore run-to-run 2.2 punti:
+
+| braccio | riga finale (ritenzione) | diagonale (apprendimento) |
+|---|---|---|
+| dream | **64.4%** (65.0 / 63.9) | 80.7% (82.5 / 79.0) |
+| ewc | 13.0% (13.6 / 12.5) | 37.1% (35.0 / 39.2) |
+| none | 22.0% (20.1 / 23.9) | 77.9% (76.4 / 79.4) |
+
+Riga finale per livello, entrambi i semi:
+
+```
+            L0   L1   L2   L3   L4   L5   L6
+dream_s1   100   58   44   57   72   75  100
+dream_s2   100   59   42   52   71   76  100
+ewc_s1      29   32   14   19    0    0   10
+ewc_s2      43   29   10   12    0    0   20
+none_s1    100   26    7    9    0    0   98
+none_s2    100   30   13   16    1    0  100
+```
+
+Tre verdetti, ognuno replicato su entrambi i semi. Il canale replay da solo
+vale +42.5 punti di ritenzione su `none` — il cui ~20% replica i build
+pre-sogno e fa anche da controllo di validità interna dell'harness. EWC
+finisce 9 punti *sotto* il non fare niente e costa ~44 punti di
+apprendimento corrente. Le righe per livello dicono perché è notevole:
+`none` mostra l'oblio catastrofico da manuale (tiene L0 e l'appena-imparato
+L6 a ~100%, perde il mezzo), mentre `ewc` perde anche L0 e anche L6 —
+l'ancora danneggia la capacità del modello di imparare il livello che gli
+si sta insegnando.
+
+**Perché EWC collassa qui.** La diagnosi è passata per due ipotesi
+sbagliate, tenute qui in ordine perché l'eliminazione è ciò che rende
+credibile la superstite:
+
+1. *Accumulo del Fisher tra le ancore* — uccisa: con γ=0.95 il fattore di
+   accumulo è limitato a ~2.9×, mentre la massa di Fisher misurata cresce
+   ~70× (0 → 421 → 5.8k → 20k → 29k lungo i livelli, sul seme 1).
+2. *Una spirale a feedback dallo stimare il Fisher su un livello non
+   convergente* (la penalità peggiora la convergenza → i gradienti alla
+   stima restano grandi → l'ancora dopo è più rigida → …) — uccisa da un
+   test di correlazione diretto: le loss di fine livello sulle stesse coppie
+   usate per la stima sono ≈0 ovunque (0.0001–0.06) anche nel braccio
+   collassato, e Spearman ρ = −0.14 tra loss finale e massa nuova di Fisher.
+3. *La superstite:* a loss ≈ 0, `E[g²]` ≈ Var(g) — il Fisher empirico smette
+   di misurare curvatura e misura il **disaccordo tra esempi**. Con la loss
+   SFT prompt-masked e risposte brevi, ogni coppia spinge i token condivisi
+   (separatore, spazio, ':', articoli, '!') in direzioni diverse a seconda
+   della risposta: la varianza si concentra esattamente sulla macchina che
+   ogni risposta riusa: 20 righe di embedding su 2.590 portano l'89–93%
+   della massa di `F_new`, lo spazio da solo il 32–43%, più il 27–32%
+   sull'`in_proj` del primo blocco di attention. L'ancora è
+   **anti-selettiva** — congela la macchina di produzione della risposta,
+   non il sapere del livello. Replicata su entrambi i semi con la stessa
+   concentrazione e gli stessi token in testa a masse assolute ~3× diverse:
+   il danno segue la concentrazione, non la scala. Caso limite imparentato:
+   dopo un livello convergente alla *perfezione* il Fisher è esattamente
+   zero (la massa di L0 è 0.0 su entrambi i semi — EWC di fatto spento a
+   L1), l'altra faccia dello stesso difetto.
+
+**Confini del claim.** In un regime di curriculum a memorizzazione
+quasi-perfetta per livello, l'EWC online standard con Fisher empirico è
+strutturalmente svantaggiato, e il replay lo domina sia in ritenzione che
+in apprendimento corrente — al prezzo di portarsi dietro il corpus invece
+delle statistiche. Non è nel claim: "EWC è sbagliato in generale". La
+normalizzazione per-token del Fisher o l'esclusione dei token strutturali è
+un'altra famiglia di algoritmi (Riemannian Walk, Chaudhry et al. 2018); e
+parte del divario dream−ewc è budget di token (N1 rigioca fino a 7 livelli
+per ciclo contro 1 — un braccio "ewc + N1 compute-matched" è lavoro
+futuro), anche se il budget non può spiegare ewc che finisce sotto `none`.
+
 ### Esempi reali di domanda e risposta
 
 Generati in greedy dai checkpoint post-sogno. Sono riportati anche gli errori:

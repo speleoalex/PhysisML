@@ -217,6 +217,15 @@ MAX_DREAMS=${MAX_DREAMS:-12}
 DREAM_EPSILON=${DREAM_EPSILON:-0.02}
 DREAM_PATIENCE=${DREAM_PATIENCE:-2}
 DREAM_MAX_DROP=${DREAM_MAX_DROP:-0.05}
+# Anti-forgetting arm (exp_i): dream (default, the validated build) | ewc
+# (N1 restricted to the current level, N3 off, online-EWC penalty in phases
+# 1-2, fisher.pt written at each level boundary) | none (ewc's gating with no
+# penalty — the floor arm). The EWC_* fallbacks must equal DEFAULTS in
+# dynamic_model/exp_b/ewc.py — tests/test_ewc.py parses this file and fails
+# when they drift (same contract as the DREAM_* knobs above).
+ANTI_FORGETTING=${ANTI_FORGETTING:-dream}
+EWC_LAMBDA=${EWC_LAMBDA:-1000}
+EWC_GAMMA=${EWC_GAMMA:-0.95}
 BETWEEN_SESSIONS="dream-only"  # what happens between sessions:
                                #   dream-only  : only dream, no retrain (recommended by experiment)
                                #   standard    : dream + retrain (classic, but retrain hurts)
@@ -573,6 +582,9 @@ except Exception: print(0)" 2>/dev/null || echo 0)
       --interactions "$EFFECTIVE_TURNS" \
       --tutor-model  "$EFFECTIVE_TUTOR" \
       --lang         "$LANG" \
+      --anti-forgetting "$ANTI_FORGETTING" \
+      --ewc-lambda   "$EWC_LAMBDA" \
+      --ewc-gamma    "$EWC_GAMMA" \
       $ASK_GATE_FLAG
 
     if [ $? -ne 0 ]; then
@@ -592,7 +604,10 @@ except Exception: print(0)" 2>/dev/null || echo 0)
       --phase      2 \
       --level      "$LEVEL" \
       --lang       "$LANG" \
-      --dream-mode "$DREAM_MODE"
+      --dream-mode "$DREAM_MODE" \
+      --anti-forgetting "$ANTI_FORGETTING" \
+      --ewc-lambda "$EWC_LAMBDA" \
+      --ewc-gamma  "$EWC_GAMMA"
 
     if [ $? -ne 0 ]; then
       echo "Error in phase 2, level $LEVEL. Aborting."
@@ -827,7 +842,10 @@ print(1 if recent_peak <= prior_peak + min_delta else 0)
       --max          "$MAX_DREAMS" \
       --epsilon      "$DREAM_EPSILON" \
       --patience     "$DREAM_PATIENCE" \
-      --max-drop     "$DREAM_MAX_DROP"
+      --max-drop     "$DREAM_MAX_DROP" \
+      --anti-forgetting "$ANTI_FORGETTING" \
+      --ewc-lambda   "$EWC_LAMBDA" \
+      --ewc-gamma    "$EWC_GAMMA"
     _PLATEAU_RC=$?
     if [ "$_PLATEAU_RC" -eq 3 ]; then
       # A crashed dream is survivable BECAUSE the script measured what the
@@ -850,6 +868,25 @@ print(1 if recent_peak <= prior_peak + min_delta else 0)
     else
       echo ""
       echo "  ✓ Level $LEVEL consolidato (curva in models/checkpoints/$LANG/level_${LEVEL}/dream_curve.json)."
+    fi
+  fi
+
+  # ── EWC Fisher (exp_i, ewc arm only) ────────────────────────────────────
+  # The end-of-level boundary: the Fisher is computed on the exact
+  # final_dreamed.pt the next level's phase 0 will inherit, right after the
+  # top-up settled on the best measured state. Gated on the arm so the
+  # validated build and the dream/none arms never write sidecars. A failure
+  # aborts: the next level would otherwise train as the 'none' arm while the
+  # log says ewc.
+  if [ "$ANTI_FORGETTING" = "ewc" ] && [ -f "$DREAMED" ]; then
+    echo ""
+    echo "  ── Fisher EWC (level $LEVEL) ──"
+    $PYTHON -u scripts/compute_fisher.py \
+      --level "$LEVEL" --lang "$LANG" --gamma "$EWC_GAMMA"
+    if [ $? -ne 0 ]; then
+      echo "  ✗ compute_fisher.py fallito: senza sidecar il livello dopo"
+      echo "    girerebbe come braccio 'none' sotto un log che dice ewc."
+      exit 1
     fi
   fi
 

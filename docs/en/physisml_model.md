@@ -390,6 +390,106 @@ than being used to rescue this one.
 `all` remains the worst of the three at the first seed, consistent with
 dilution: at L3 the union is 535 pairs against 188 for the level itself.
 
+#### Intervention 3 — the control: replay vs online EWC (exp_i)
+
+The dream's cross-level channel is experience replay, and replay is the
+oldest trick in the continual-learning book. The claim "the dream fixed
+retention" is only interesting if a standard *regularization* method — one
+that carries summary statistics instead of the corpus — cannot do the same.
+`exp_i` is that control: same network, same curriculum, same harness,
+L0→L6, two seeds, three arms one flag apart (`--anti-forgetting`):
+
+- **`dream`** — the shipped mechanism: N1 replays every level's corpus, N3
+  replays the episodic memory bank across levels.
+- **`ewc`** — online EWC (Schwarz et al. 2018): a running diagonal Fisher
+  `F ← γ·F_prev + F_new` (γ=0.95) with the anchor θ* refreshed at each level
+  boundary, penalty `½·λ·Σ F·(θ−θ*)²` added in phases 1 and 2. The Fisher is
+  the empirical one, estimated on the level's post-harvest gold pairs with
+  the same prompt-masked loss the training uses (`scripts/compute_fisher.py`,
+  sidecar `level_N/fisher.pt`). LayerNorm and positional embeddings are
+  excluded from the anchor (the `ln_f` weight-decay lesson), the tied
+  embedding is counted once, dormant vocabulary rows are free. In this arm
+  the dream still runs, but N1 is restricted to the current level and N3 to
+  the current level's memories: everything that consolidates the *current*
+  level is kept, only the cross-level channel changes.
+- **`none`** — identical gating with λ=0: the floor.
+
+λ=1000 came from a preliminary sweep on L0→L2 (λ ∈ {100, 1000, 10000}:
+final-row mean 33/37/41%, diagonal 78/76/73 — retention rises monotonically
+with λ but never approaches replay, while current learning falls). Six
+dreams per level, fixed in every arm, so consolidation budget is not a
+confound. Reproduce: `MODE=sweep ./scripts/experiment_ewc.sh --confirm`,
+then `MODE=main`; per-arm matrices land in `models/exp_i/`.
+
+Result — mean across seeds (seed 1 / seed 2), run-to-run noise 2.2 points:
+
+| arm | final row (retention) | diagonal (learning) |
+|---|---|---|
+| dream | **64.4%** (65.0 / 63.9) | 80.7% (82.5 / 79.0) |
+| ewc | 13.0% (13.6 / 12.5) | 37.1% (35.0 / 39.2) |
+| none | 22.0% (20.1 / 23.9) | 77.9% (76.4 / 79.4) |
+
+Final row per level, both seeds:
+
+```
+            L0   L1   L2   L3   L4   L5   L6
+dream_s1   100   58   44   57   72   75  100
+dream_s2   100   59   42   52   71   76  100
+ewc_s1      29   32   14   19    0    0   10
+ewc_s2      43   29   10   12    0    0   20
+none_s1    100   26    7    9    0    0   98
+none_s2    100   30   13   16    1    0  100
+```
+
+Three verdicts, each replicated on both seeds. The replay channel alone is
+worth +42.5 points of retention over `none` — whose ~20% replicates the
+pre-dream builds and doubles as an internal validity check of the harness.
+EWC lands 9 points *below* doing nothing and costs ~44 points of current
+learning. The per-level rows say why that is remarkable: `none` shows
+textbook catastrophic forgetting (keeps L0 and the just-learned L6 at ~100%,
+loses the middle), while `ewc` loses even L0 and even L6 — the anchor damages
+the model's ability to learn the level it is currently being taught.
+
+**Why EWC collapses here.** The diagnosis went through two wrong hypotheses,
+kept here in order because the elimination is what makes the survivor
+credible:
+
+1. *Fisher accumulation across anchors* — killed: with γ=0.95 the
+   accumulation factor is bounded at ~2.9×, while the measured Fisher mass
+   grows ~70× (0 → 421 → 5.8k → 20k → 29k across levels on seed 1).
+2. *A feedback spiral from estimating the Fisher on a non-converged level*
+   (penalty hurts convergence → gradients at estimation stay large → next
+   anchor stiffer → …) — killed by a direct correlation test: the level-end
+   losses on the very pairs used for estimation are ≈0 everywhere
+   (0.0001–0.06) even in the collapsed arm, and Spearman ρ = −0.14 between
+   final loss and new Fisher mass.
+3. *The survivor:* at loss ≈ 0, `E[g²]` ≈ Var(g) — the empirical Fisher
+   stops measuring curvature and measures the **disagreement between
+   examples**. With a prompt-masked SFT loss and short answers, each pair
+   pushes the shared tokens (separator, space, ':', articles, '!') in a
+   different direction depending on its answer, so the variance concentrates
+   exactly on the machinery every answer reuses: 20 embedding rows out of
+   2,590 carry 89–93% of `F_new`'s mass, the space character alone 32–43%,
+   plus 27–32% on the first attention block's `in_proj`. The anchor is
+   **anti-selective** — it freezes the answer-production machinery, not the
+   level's knowledge. Replicated on both seeds with the same concentration
+   and the same top tokens at ~3× different absolute mass, so the damage
+   tracks the concentration, not the scale. A related boundary case: after a
+   *perfectly* converged level the Fisher is exactly zero (L0's mass is 0.0
+   on both seeds — EWC is effectively off at L1), the other face of the same
+   defect.
+
+**Scope of the claim.** In a curriculum regime of near-perfect per-level
+memorization, standard online EWC with the empirical Fisher is structurally
+disadvantaged, and replay dominates it on both retention and current
+learning — at the price of keeping the corpus instead of statistics. Not
+claimed: "EWC is wrong in general". Per-token Fisher normalization or
+excluding structural tokens is a different algorithm family (Riemannian
+Walk, Chaudhry et al. 2018); and part of the dream−ewc gap is token budget
+(N1 replays up to 7 levels per cycle against 1 — an "ewc + compute-matched
+N1" arm is future work), though budget cannot explain ewc falling below
+`none`.
+
 ### Real question-and-answer examples
 
 Generated greedily from the post-dream checkpoints. Failures are included:

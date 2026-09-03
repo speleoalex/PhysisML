@@ -85,7 +85,11 @@ STOP_MAX = "stop-max"
 DEFAULTS = {"epsilon": 0.02, "patience": 2, "max_drop": 0.05, "cap": 12}
 
 # The pair a dream writes, plus the memory that must stay in step with them.
-_STATE_FILES = ("final_dreamed.pt", "tokenizer.json")
+# fisher.pt (the exp_i EWC sidecar) rides along copy-if-exists: its anchor IS
+# a snapshot of specific weights, so a rollback that restored the checkpoint
+# without it would leave the anchor pointing at weights no longer on disk —
+# the exact bug class this tuple exists to prevent for the tokenizer.
+_STATE_FILES = ("final_dreamed.pt", "tokenizer.json", "fisher.pt")
 
 
 def decide(curve, *, epsilon, patience, max_dreams, max_drop,
@@ -186,7 +190,16 @@ def run_one_dream(args, dreamed: str) -> bool:
            "--phase", "2", "--level", str(args.level), "--lang", args.lang,
            "--dream-mode", args.dream_mode,
            "--checkpoint", dreamed,
-           "--ckpt-base", args.ckpt_base]
+           "--ckpt-base", args.ckpt_base,
+           # Threaded through explicitly: without this every top-up dream
+           # would silently run as the 'dream' arm regardless of what the
+           # session dreams did — the single most likely silent bug in the
+           # exp_i comparison.
+           "--anti-forgetting", args.anti_forgetting]
+    if args.ewc_lambda is not None:
+        cmd += ["--ewc-lambda", str(args.ewc_lambda)]
+    if args.ewc_gamma is not None:
+        cmd += ["--ewc-gamma", str(args.ewc_gamma)]
     print(f"  → {' '.join(cmd)}", flush=True)
     if subprocess.run(cmd, cwd=_ROOT).returncode != 0:
         return False
@@ -279,6 +292,12 @@ def main() -> int:
                          "passes its DREAMS_DONE)")
     ap.add_argument("--dream-mode", default="standard",
                     choices=["light", "standard", "deep"])
+    # exp_i arm flags, forwarded verbatim to every dream child (see
+    # run_one_dream). Defaults reproduce the validated build.
+    ap.add_argument("--anti-forgetting", default="dream",
+                    choices=["dream", "ewc", "none"])
+    ap.add_argument("--ewc-lambda", type=float, default=None)
+    ap.add_argument("--ewc-gamma", type=float, default=None)
     ap.add_argument("--probe", default=probe_set.DEFAULT_PATH)
     a = ap.parse_args()
 

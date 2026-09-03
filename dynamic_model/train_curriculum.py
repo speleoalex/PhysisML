@@ -80,6 +80,8 @@ from dynamic_model.exp_b.modulator    import (AffectModulator, ASK_FORM,
                                               ask_token_id)
 from dynamic_model.exp_b.axioms       import AxiomRegistry
 from dynamic_model.exp_b.trainer      import TrainerB
+from dynamic_model.exp_b.ewc          import (DEFAULTS as EWC_DEFAULTS,
+                                              SIDECAR as EWC_SIDECAR)
 
 torch.set_num_threads(12)
 
@@ -645,6 +647,108 @@ def _affect_memory_path(lang: str, ckpt_base: str = None) -> str:
                         "affect_memory.json")
 
 
+# ---------------------------------------------------------------------------
+# Anti-forgetting arms (exp_i): dream replay vs online EWC vs nothing
+# ---------------------------------------------------------------------------
+
+def _n1_replay_levels(level: int, anti_forgetting: str) -> list:
+    """Which levels the dream's N1 corpus replay draws on.
+
+    'dream'      every level 0..N — the build's main cross-level
+                 anti-forgetting channel (the validated behaviour);
+    'ewc'/'none' the current level only: the quadratic penalty (or, in the
+                 floor arm, nothing at all) replaces the cross-level replay,
+                 so the corpus must not do that job for it. Everything else
+                 in the dream (N2-A/B, N2.5, REM, harvest) stays identical
+                 across arms — the replay channel is the ONLY variable.
+    """
+    if anti_forgetting == "dream":
+        return list(range(level + 1))
+    return [level]
+
+
+def _select_n3_entries(bank: list, level: int, anti_forgetting: str,
+                       min_weight: float, positive_only: bool) -> list:
+    """Which memory-bank entries N3 replays, per anti-forgetting arm.
+
+    'dream'      every entry past the salience threshold (the validated
+                 behaviour — this is the dream's second cross-level channel);
+    'ewc'/'none' the CURRENT level's entries only. They must stay because N3
+                 does two jobs — cross-level replay AND current-level
+                 consolidation — and the arms are only supposed to give up
+                 the first. (An earlier version of this comment claimed ~45
+                 diagonal points for the current-level share, comparing the
+                 sweep against exp_h; that reference ran on a different
+                 corpus/config epoch and is not comparable — the exp_i main
+                 run measured dream and ewc-sweep L2 diagonals as identical
+                 at this budget. The clean current-level-only comparison is
+                 dream vs none in models/exp_i: diagonal 80.7 vs 77.9,
+                 within seed spread.)
+    """
+    if positive_only:
+        picked = [e for e in bank if e["weight"] >= min_weight]
+    else:
+        picked = [e for e in bank if abs(e["weight"]) >= min_weight]
+    if anti_forgetting != "dream":
+        picked = [e for e in picked if e.get("level") == level]
+    return picked
+
+
+def _find_prior_fisher(ckpt_base: str, level: int):
+    """Newest fisher.pt walking back from level-1 DOWN (same walk-back the
+    tokenizer search uses: a level that computed no Fisher leaves none).
+
+    Never from `level` itself: a retried or resumed level can already hold
+    its own fisher.pt from a previous attempt, and anchoring a level to its
+    own past self is not the experiment.
+    """
+    for lvl in range(level - 1, -1, -1):
+        path = os.path.join(ckpt_base, f"level_{lvl}", EWC_SIDECAR)
+        if os.path.exists(path):
+            return path
+    return None
+
+
+def _attach_ewc(trainer, args, ckpt_base: str) -> None:
+    """Load the prior level's Fisher sidecar onto the trainer when the run is
+    the 'ewc' arm. Loud in every outcome: a silently missing Fisher would
+    make the ewc arm identical to 'none' with nothing in the log to say so
+    (the experiment script greps for the attach line as its no-op guard)."""
+    if getattr(args, 'anti_forgetting', 'dream') != 'ewc':
+        return
+    lam = getattr(args, 'ewc_lambda', 0.0) or 0.0
+    if lam <= 0:
+        print("  [ewc] lambda <= 0 — penalty off")
+        return
+    path = _find_prior_fisher(ckpt_base, args.level)
+    if path is None:
+        print(f"  [ewc] no fisher.pt below level {args.level} — penalty off "
+              f"(first level: nothing to anchor to yet)")
+        return
+    from dynamic_model.exp_b.ewc import EWC, file_sha256
+    trainer.ewc = EWC.load(path, lam=lam,
+                           gamma=getattr(args, 'ewc_gamma', None),
+                           device=trainer.device)
+    # Staleness made loud, not fatal: a dream rollback that restored the
+    # checkpoint without its sidecar leaves the anchor pointing at weights no
+    # longer on disk. fisher.pt travels in dream_until_plateau._STATE_FILES
+    # precisely to prevent this; the hash check is the backstop.
+    src = trainer.ewc.meta.get("source_checkpoint")
+    src_sha = trainer.ewc.meta.get("source_sha256")
+    if src and src_sha and os.path.exists(src) and file_sha256(src) != src_sha:
+        print(f"  [ewc] WARNING: {src} changed since this Fisher was computed"
+              f" — anchor and weights on disk no longer match")
+    with torch.no_grad():
+        opening = float(trainer.ewc.penalty(trainer.model))
+    # The opening penalty is the most informative number in the sweep logs:
+    # phase 0 runs unprotected at lr 1e-3, so this is how far it drifted.
+    print(f"  [ewc] penalty attached: {path}  "
+          f"lambda={lam:g} gamma={trainer.ewc.gamma:g}  "
+          f"opening penalty {opening:.4f}")
+    for name, val in trainer.ewc.per_tensor_report(trainer.model, top_k=5):
+        print(f"  [ewc]   {name}: {val:.4f}")
+
+
 def _sync_vocab_rows(model: "TorchGPT", tok: "BPETokenizer",
                      label: str = "") -> int:
     """
@@ -1042,6 +1146,7 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
                               ask_gate=getattr(args, 'ask_gate', False))
     axioms  = AxiomRegistry()
     trainer = TrainerB(model, tok, opt, affect, mod, axioms)
+    _attach_ewc(trainer, args, ckpt_base)
 
     # Core grammatical axioms
     for text, prot in [("io sono", 0.9), ("tu sei", 0.9),
@@ -1211,7 +1316,12 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
         opt_inner.zero_grad()
         logits = trainer.model.forward(batch)
         loss   = trainer.model.loss(logits, batch)
-        loss.backward()
+        # This closure bypasses TrainerB.step, so the EWC penalty (when the
+        # arm attached one) has to join the backward here explicitly too.
+        total = loss
+        if getattr(trainer, "ewc", None) is not None:
+            total = total + trainer.ewc.penalty(trainer.model)
+        total.backward()
         torch.nn.utils.clip_grad_norm_(trainer.model.parameters(), 1.0)
         opt_inner.step()
         loss_val = float(loss.detach())
@@ -2174,6 +2284,8 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
                              ask_gate=getattr(args, 'ask_gate', False))
     axioms = AxiomRegistry()
     trainer = TrainerB(model, tok, opt, affect, mod, axioms)
+    _af = getattr(args, 'anti_forgetting', 'dream') or 'dream'
+    _attach_ewc(trainer, args, ckpt_base)
 
     # ── Build memory bank (used by N3 and REM) ───────────────────────────────
     print(f"\n  Building memory bank from logs L0→{level}...")
@@ -2204,7 +2316,11 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
     corpus_parts = []
     total_chars  = 0
     _n1_narrative_exclude = level >= 3
-    for lvl in range(level + 1):
+    # Arm gating (exp_i): 'ewc'/'none' restrict the replay to the current
+    # level — the cross-level anti-forgetting job belongs to the penalty (or
+    # to nothing, in the floor arm), not to the corpus.
+    _n1_levels = _n1_replay_levels(level, _af)
+    for lvl in _n1_levels:
         corpus_dir = os.path.join("training_files", args.lang, str(lvl))
         for fpath in sorted(glob.glob(os.path.join(corpus_dir, "*.txt"))):
             if "teacher_prompt" in fpath:
@@ -2408,7 +2524,10 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
     # undid 44% of its own supervised gains, every session. The broad text
     # distribution is still anchored, it just no longer speaks last: the final
     # word belongs to the gold supervision (N3 -> REM -> N2.5).
-    print(f"\n  [N1] NREM slow wave — corpus replay L0→{level} (max {N1_MAX_CHARS//1_000_000}MB)...")
+    _n1_scope = (f"L0→{level}" if _af == "dream"
+                 else f"L{level} only (anti-forgetting={_af})")
+    print(f"\n  [N1] NREM slow wave — corpus replay {_n1_scope} "
+          f"(max {N1_MAX_CHARS//1_000_000}MB)...")
     if corpus_parts:
         random.shuffle(corpus_parts)
         nrem_text = "\n\n".join(corpus_parts)
@@ -2441,11 +2560,18 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
 
     # ── N3: Memory bank replay (emotional) ───────────────────────────────────
     print(f"\n  [N3] NREM deep sleep — memory bank consolidation (min_weight={cfg['n3_min_weight']})...")
+    # Arm gating (exp_i): the ewc/none arms keep the CURRENT level's memories
+    # (current-level consolidation must stay equal across arms) and lose only
+    # the cross-level ones — see _select_n3_entries. REM's <=rem_cap entries
+    # remain a deliberate residual cross-level channel present in ALL arms.
     # In light mode: only positive memories (no negatives — avoid consolidating failures)
-    if cfg.get('n3_positive_only'):
-        n3_entries = [e for e in bank if e["weight"] >= cfg['n3_min_weight']]
-    else:
-        n3_entries = [e for e in bank if abs(e["weight"]) >= cfg['n3_min_weight']]
+    n3_entries = _select_n3_entries(bank, level, _af,
+                                    cfg['n3_min_weight'],
+                                    bool(cfg.get('n3_positive_only')))
+    if _af != 'dream':
+        print(f"  N3 ristretto al livello {level} (anti-forgetting={_af}): "
+              f"{len(n3_entries)} memorie correnti, replay cross-livello "
+              f"sostituito dalla penalità (ewc) o da nulla (none)")
 
     # Recency bias: the memory bank spans every level, so at high levels the
     # replay is swamped by older material — measured 5% of entries from the
@@ -2684,6 +2810,27 @@ def main():
     parser.add_argument("--growth-min-rel", type=float, default=0.002,
                         help="Relative term of the adaptive growth threshold "
                              "(default 0.002 = 0.2%% of the growth buffer)")
+    # ── Anti-forgetting experiment arms (exp_i) ──────────────────────────────
+    # Defaults reproduce the validated build exactly; the other values exist
+    # for scripts/experiment_ewc.sh.
+    parser.add_argument("--anti-forgetting", default="dream",
+                        choices=["dream", "ewc", "none"],
+                        help="Cross-level anti-forgetting channel: 'dream' "
+                             "(default — N1 replays every level's corpus and "
+                             "N3 replays the whole memory bank), 'ewc' (N1 "
+                             "and N3 restricted to the current level, online "
+                             "EWC penalty active in phases 1 and 2 from the "
+                             "prior level's fisher.pt), or 'none' (same "
+                             "gating as ewc with no penalty — the floor arm)")
+    parser.add_argument("--ewc-lambda", type=float,
+                        default=EWC_DEFAULTS["lambda"],
+                        help="EWC penalty strength (only with "
+                             "--anti-forgetting ewc; <=0 turns it off)")
+    parser.add_argument("--ewc-gamma", type=float,
+                        default=EWC_DEFAULTS["gamma"],
+                        help="Online-EWC decay of the running Fisher "
+                             "(scripts/compute_fisher.py must be run with "
+                             "the same value)")
     args = parser.parse_args()
 
     if args.seed is not None:

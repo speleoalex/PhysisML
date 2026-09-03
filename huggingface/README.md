@@ -219,8 +219,18 @@ dream, on all seven levels the model had seen:
 | after | 95% | 91% | 74% | 74% | 72% | 83% | 100% | **84.3%** |
 
 Teaching level 6 had erased levels 1 to 5 outright; one replay pass brought them
-back and cost the current level nothing. The build runs six such cycles per
-level.
+back and cost the current level nothing. The build repeats the cycle until the
+probe stops improving (at least six times per level).
+
+Is the dream just experience replay dressed up? Mostly yes — and that is the
+finding. Benchmarked head-to-head on the same harness against online EWC
+(Schwarz et al. 2018, λ from a sweep, two seeds, levels 0–6), the dream kept
+64% of past levels where EWC kept 13% and no protection at all kept 22%: EWC
+landed *below* the unprotected floor, because at near-zero training loss the
+empirical Fisher measures inter-example variance concentrated on shared
+structural tokens, and the anchor freezes the answer-production machinery
+instead of the knowledge. Full numbers and the diagnostic trail are in the
+repository README (`exp_i`).
 
 The tutors are, in cost order: a rule-based deterministic teacher (offline), a
 hybrid teacher using a small local LLM for the grading (offline, via

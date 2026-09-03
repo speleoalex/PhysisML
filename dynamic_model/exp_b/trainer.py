@@ -137,13 +137,55 @@ def _clean_response(text: str) -> str:
     return t
 
 
+def encode_prompt_response(tokenizer, prompt: str, response: str,
+                           max_len: int) -> tuple:
+    """Encode a (prompt, response) pair exactly the way step() trains on it.
+
+    Returns (ids_np, n_prompt). Shared between TrainerB.step and
+    EWC.estimate_fisher: the Fisher must measure the same loss geometry the
+    training steps optimise, and a hand copy of this block would drift.
+
+    Insert a separator at the prompt/response boundary when missing:
+    encode(prompt + response) would otherwise BPE-merge the last prompt word
+    with the first response word ('di: il cane' + 'il cane!' -> segment
+    'caneil'), training on tokens the model can never reproduce.
+
+    The separator is deliberately counted as part of the RESPONSE: the model
+    generates from encode(prompt) alone, so if the separator position were
+    masked it would never learn to emit it and every turn would start from an
+    off-distribution context. Measured at L0 with the separator masked:
+    P('!'|'di ba') = 0.966 — the model treated the prompt's trailing syllable
+    as its own answer and only added the terminator, capping step A at ~27%
+    exact.
+
+    Truncation cuts from the LEFT so the response (the learning target) is
+    always preserved; long prompts lose their oldest tokens instead of
+    silently dropping the answer.
+    """
+    sep = ""
+    if prompt and response and not prompt[-1].isspace() \
+            and not response[0].isspace():
+        sep = " "
+    ids_np = np.array(
+        tokenizer.encode(prompt + sep + response), dtype=np.int32)
+    # Prompt tokens are conditioning context only — excluded from the loss.
+    n_prompt = len(tokenizer.encode(prompt)) if prompt else 0
+
+    if len(ids_np) > max_len:
+        cut = len(ids_np) - max_len
+        ids_np   = ids_np[cut:]
+        n_prompt = max(0, n_prompt - cut)
+    return ids_np, n_prompt
+
+
 class TrainerB:
 
     def __init__(self, model: TorchGPT, tokenizer,
                  optimizer: TorchAdamOptimizer,
                  affect_state: Optional[AffectState] = None,
                  modulator: Optional[AffectModulator] = None,
-                 axiom_registry: Optional[AxiomRegistry] = None):
+                 axiom_registry: Optional[AxiomRegistry] = None,
+                 ewc=None):
 
         self.device   = DEVICE
         self.model    = model.to(self.device)
@@ -158,8 +200,33 @@ class TrainerB:
         # Collega il backward hook per protezione assiomi
         self.axioms.register_hook(model)
 
+        # Optional exp_b.ewc.EWC instance (exp_i's --anti-forgetting ewc arm).
+        # When set, every backward site adds its quadratic penalty. None (the
+        # default) changes nothing — the validated build never sets it.
+        self.ewc = ewc
+        self._ewc_log_every   = 200   # steps between penalty/grad-ratio logs
+        self._ewc_log_counter = 0
+
         self.step_count   = 0
         self.loss_history = []
+
+    def _ewc_log(self, total_norm) -> None:
+        """Every _ewc_log_every backward passes: the penalty value and the
+        ratio of the penalty's analytic gradient norm to the pre-clip norm of
+        the COMBINED gradient. A ratio sitting near or above 1 means the
+        clip_grad_norm_(1.0) that follows every backward is spending its
+        budget on the anchor instead of the task — the lambda-too-high
+        failure mode the sweep exists to reject."""
+        if self.ewc is None:
+            return
+        self._ewc_log_counter += 1
+        if self._ewc_log_counter % self._ewc_log_every:
+            return
+        with torch.no_grad():
+            pen = float(self.ewc.penalty(self.model))
+        ratio = self.ewc.penalty_grad_norm(self.model) \
+            / max(float(total_norm), 1e-9)
+        print(f"  [ewc] penalty {pen:.4f}  grad-ratio {ratio:.3f}", flush=True)
 
     # ------------------------------------------------------------------
     # Main step with feedback
@@ -177,38 +244,15 @@ class TrainerB:
 
         Returns: dict with loss, affect snapshot, step
         """
-        # Insert a separator at the prompt/response boundary when missing:
-        # encode(prompt + response) would otherwise BPE-merge the last prompt
-        # word with the first response word ('di: il cane' + 'il cane!' →
-        # segment 'caneil'), training on tokens the model can never reproduce.
-        sep = ""
-        if prompt and response and not prompt[-1].isspace() \
-                and not response[0].isspace():
-            sep = " "
-        ids_np = np.array(
-            self.tokenizer.encode(prompt + sep + response), dtype=np.int32)
-        # Prompt tokens are conditioning context only — excluded from the loss.
-        # The separator is deliberately counted as part of the RESPONSE: the
-        # model generates from encode(prompt) alone, so if the separator
-        # position were masked it would never learn to emit it and every turn
-        # would start from an off-distribution context. Measured at L0 with
-        # the separator masked: P('!'|'di ba') = 0.966 — the model treated the
-        # prompt's trailing syllable as its own answer and only added the
-        # terminator, capping step A at ~27% exact.
-        n_prompt = len(self.tokenizer.encode(prompt)) if prompt else 0
+        # Separator insertion, prompt masking and left truncation all live in
+        # encode_prompt_response (shared with EWC.estimate_fisher — see its
+        # docstring for the measured rationale of each choice).
+        ids_np, n_prompt = encode_prompt_response(
+            self.tokenizer, prompt, response, self.model.max_seq_len - 1)
 
         if len(ids_np) < 2:
             return {"loss": None, "affect": self.affect.snapshot(),
                     "step": self.step_count}
-
-        # Truncate to model's max_seq_len — cut from the LEFT so the response
-        # (the learning target) is always preserved; long prompts lose their
-        # oldest tokens instead of silently dropping the answer.
-        max_len = self.model.max_seq_len - 1
-        if len(ids_np) > max_len:
-            cut = len(ids_np) - max_len
-            ids_np   = ids_np[cut:]
-            n_prompt = max(0, n_prompt - cut)
 
         ids = torch.from_numpy(ids_np).long().to(self.device)
 
@@ -245,8 +289,20 @@ class TrainerB:
             # Guard: a dormant-slot target (tokenizer/model desync) yields
             # loss=+inf; skip the update rather than corrupting the weights.
             if torch.isfinite(scaled_loss):
-                scaled_loss.backward()
-                torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
+                total_loss = scaled_loss
+                if self.ewc is not None:
+                    # AFTER the sign flip above: added before it, a
+                    # negative-feedback turn would run gradient ASCENT on the
+                    # quadratic and actively repel the weights from the
+                    # anchor. The affect lr_mult below scales the combined
+                    # update, penalty pull included — a 0.3x unlearning step
+                    # also pulls 0.3x toward the anchor, which is
+                    # directionally correct.
+                    total_loss = total_loss + self.ewc.penalty(self.model)
+                total_loss.backward()
+                _total_norm = torch.nn.utils.clip_grad_norm_(
+                    self.model.parameters(), 1.0)
+                self._ewc_log(_total_norm)
                 # Feedback modulates the LEARNING RATE, not the loss: with
                 # Adam, loss scaling is neutralised by the adaptive
                 # normalisation (and by the clip above), so |feedback| had no
@@ -548,9 +604,17 @@ class TrainerB:
             _n_bad += (~torch.isfinite(loss.detach())).long()
             loss = torch.nan_to_num(loss, nan=0.0, posinf=0.0, neginf=0.0)
 
-            loss.backward()
-            torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
+            # The EWC penalty (when attached) joins the backward here too:
+            # this covers phase 1's autonomous pre-training and the dream's
+            # N1 pass — both major sources of drift from the anchor. The
+            # logged loss stays the TASK loss so curves compare across arms.
+            total_loss = loss if self.ewc is None \
+                else loss + self.ewc.penalty(self.model)
+            total_loss.backward()
+            _total_norm = torch.nn.utils.clip_grad_norm_(
+                self.model.parameters(), 1.0)
             opt.step()
+            self._ewc_log(_total_norm)
 
             # Kept on the device; drained in one transfer below. .item() here
             # was the second stall per step.

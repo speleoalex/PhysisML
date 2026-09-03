@@ -54,6 +54,75 @@ invece di 82.7% sul probe — e L12 ha toccato il massimo al sogno 9 di una
 curva a dente di sega. La curva di ogni livello è registrata nella sua
 cartella checkpoint come `dream_curve.json`.
 
+### Il sogno è solo replay? Il controllo EWC (exp_i)
+
+Il sogno è experience replay — la domanda onesta è se un metodo
+anti-oblio standard della letteratura faccia lo stesso lavoro senza portarsi
+dietro il corpus. Il benchmark `exp_i` risponde: stessa rete, stesso
+curriculum, stesso harness, livelli 0→6, due semi, tre bracci — `dream` (il
+meccanismo del progetto), `ewc` (EWC online, Schwarz et al. 2018: Fisher
+running `F ← γ·F_prev + F_new`, γ=0.95, ancora rinnovata a ogni confine di
+livello, λ=1000 da uno sweep preliminare), `none` (il pavimento, λ=0). I
+bracci ewc/none tengono ogni canale di consolidamento del livello corrente e
+perdono solo il replay cross-livello; sei sogni per livello, fissi, in tutti
+i bracci.
+
+| braccio | ritenzione (checkpoint finale su tutti i livelli) | apprendimento (ogni livello sul proprio checkpoint) |
+|---|---|---|
+| dream | **64.4%** (65.0 / 63.9) | 80.7% (82.5 / 79.0) |
+| ewc | 13.0% (13.6 / 12.5) | 37.1% (35.0 / 39.2) |
+| none | 22.0% (20.1 / 23.9) | 77.9% (76.4 / 79.4) |
+
+*(media tra i semi, poi seme 1 / seme 2; rumore run-to-run: 2.2 punti)*
+
+Tre verdetti, ognuno replicato su entrambi i semi:
+
+- **Il replay vale +42.5 punti** di ritenzione rispetto a nessuna protezione.
+  Il braccio `none` atterra a ~20% — lo stesso numero dei build pre-sogno,
+  che fa anche da controllo di validità interna dell'harness.
+- **EWC finisce 9 punti *sotto* il non fare niente**, e costa ~44 punti di
+  apprendimento *corrente*. Il dettaglio per livello è eloquente: `none`
+  dimentica i livelli di mezzo ma tiene L0 e l'appena-imparato L6 a ~100%;
+  `ewc` perde anche quelli (L6 al 10–20%).
+- λ non è il problema: nello sweep la ritenzione sale monotona con λ
+  (33→41% per λ=100→10000) senza mai avvicinare il braccio replay, mentre
+  l'apprendimento corrente scende.
+
+**Perché EWC collassa qui** — riportato come sequenza di diagnosi
+falsificate, perché il processo di eliminazione è l'argomento:
+
+1. *Accumulo del Fisher sulle ancore dei livelli?* Morta: l'accumulo γ
+   spiega al massimo un fattore ~2.9×; la massa di Fisher misurata cresce
+   di ~70×.
+2. *Una spirale a feedback dallo stimare il Fisher su un livello non
+   convergente?* Morta: le loss di fine livello sulle stesse coppie usate
+   per la stima sono ≈0 (0.0001–0.06) anche nel braccio collassato;
+   Spearman ρ = −0.14 tra loss finale e massa nuova di Fisher.
+3. *Quella che sopravvive:* a loss ≈ 0 il Fisher empirico `E[g²]` è la
+   **varianza del gradiente tra esempi**, non curvatura. Con la loss SFT
+   prompt-masked e risposte brevi, quella varianza si concentra sui token
+   che ogni esempio condivide: 20 righe di embedding su 2.590 portano
+   l'89–93% della massa — lo spazio da solo il 32–43%, poi ':', articoli,
+   '!' — più un altro 27–32% sul primo blocco di attention. L'ancora è
+   **anti-selettiva**: congela la macchina che produce *qualsiasi*
+   risposta, non il sapere dei livelli passati. Replicato su entrambi i
+   semi — stessa concentrazione, stessi token in testa, massa assoluta ~3×
+   diversa: il danno segue la concentrazione, non la scala.
+
+Il claim che questo sostiene è deliberatamente stretto: **in un regime di
+curriculum a memorizzazione quasi-perfetta per livello, l'EWC online
+standard con Fisher empirico è strutturalmente svantaggiato, e il replay lo
+domina sia in ritenzione che in apprendimento corrente — al prezzo di
+portarsi dietro il corpus invece delle statistiche.** Non è "EWC è
+sbagliato in generale": normalizzare il Fisher per token, o escludere i
+token strutturali, sarebbe un altro algoritmo (la famiglia Riemannian Walk,
+Chaudhry et al. 2018), e parte del divario dream−ewc è budget di token —
+l'N1 del sogno rigioca fino a 7 livelli per ciclo contro l'unico del
+braccio ewc, quindi un braccio compute-matched è annotato come lavoro
+futuro. Riproducibile con
+`MODE=sweep|main ./scripts/experiment_ewc.sh --confirm`; le matrici di
+ritenzione per braccio finiscono in `models/exp_i/`.
+
 ## Requisiti
 
 ```bash
@@ -145,7 +214,9 @@ Ogni livello parte dal `final_learned.pt` del livello precedente.
 | `python3 dynamic_model/train_curriculum.py` | Training testuale e/o insegnamento (vedi `--help`) |
 | `python3 dynamic_model/test_model.py --level N` | Statistiche di qualità del modello corrente |
 | `python3 scripts/measure_repetition.py --ckpt-base models/checkpoints/it --levels 0-12` | Exact match **e** tasso di ripetizione, in greedy |
-| `python3 scripts/ retention_matrix.py --levels 0-12` | Matrice di ritenzione: ogni checkpoint su ogni livello |
+| `python3 scripts/retention_matrix.py --levels 0-12` | Matrice di ritenzione: ogni checkpoint su ogni livello |
+| `ANTI_FORGETTING=dream\|ewc\|none ./build.sh N` | Braccio anti-oblio: `ewc` = EWC online (`EWC_LAMBDA`, `EWC_GAMMA`) con sidecar Fisher per livello (`scripts/compute_fisher.py`); `none` = nessun canale cross-livello |
+| `MODE=sweep\|main ./scripts/experiment_ewc.sh --confirm` | Il benchmark sogno-vs-EWC (exp_i): sweep λ su L0-L2, poi 3 bracci × 2 semi su L0-L6 |
 | `python3 dynamic_model/run.py` | Sessione interattiva |
 | `python3 scripts/download_wikipedia.py --level N` | Scarica articoli Wikipedia per il training |
 | `python3 scripts/generate_qa_corpus.py --levels 0 1 2` | Genera corpus dialogico dalle coppie QA |
@@ -248,9 +319,11 @@ cartella del livello. Dettagli in
 - **Anti-forgetting**: rehearsal *interleaved* sulle coppie gold durante
   l'insegnamento (4 coppie ogni 5 turni), più il replay del corpus nella fase di
   sogno. Il rehearsal è pesato sul livello corrente; il lavoro fra livelli lo fa
-  il sogno, il cui N1 rigioca il `qa_corpus` di *tutti* i livelli. Sei sogni per
-  livello sono ciò che ha portato il checkpoint finale dal 20% su tutti i
-  livelli all'89% — vedi [Risultati](#risultati).
+  il sogno, il cui N1 rigioca il `qa_corpus` di *tutti* i livelli. Il sogno è
+  ciò che ha portato il checkpoint finale dal 20% su tutti i livelli a ~88% —
+  e nel benchmark testa-a-testa sullo stesso harness domina l'EWC online, che
+  collassa sotto il pavimento senza protezione
+  (vedi [il controllo EWC](#il-sogno-è-solo-replay-il-controllo-ewc-exp_i)).
 - **Didattica test-then-show**: il modello risponde *prima* di vedere la
   soluzione. L'ordine inverso (show-then-test) misurava il richiamo dopo
   suggerimento invece della conoscenza ritenuta.
