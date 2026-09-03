@@ -128,8 +128,8 @@ def _mark_applied_sync(db_url: str, feedback_ids: list[int]) -> None:
 
 def _run_training(lr: float, steps_per_sample: int) -> None:
     """Worker body. Runs inside a background thread."""
-    from splx.torch_model import TorchGPT, TorchAdamOptimizer
-    from splx.tokenizer   import BPETokenizer
+    from physisml.torch_model import TorchGPT, TorchAdamOptimizer
+    from physisml.tokenizer   import BPETokenizer
 
     started = datetime.utcnow()
     _set_status(

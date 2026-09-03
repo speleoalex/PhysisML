@@ -16,8 +16,8 @@ import numpy as np
 import torch
 import time
 
-from splx.torch_model import TorchGPT, TorchAdamOptimizer, ids_batch
-from splx.tokenizer   import BPETokenizer
+from physisml.torch_model import TorchGPT, TorchAdamOptimizer, ids_batch
+from physisml.tokenizer   import BPETokenizer
 
 from dynamic_model.core.tokenizer           import DynamicBPETokenizer
 from dynamic_model.exp_a.transformer        import TorchDynamicGPT

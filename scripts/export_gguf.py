@@ -67,8 +67,8 @@ except ImportError as e:
     print(f"ERROR: {e}. Run from physisml_gpu conda env.")
     sys.exit(1)
 
-from splx.torch_model import TorchGPT
-from splx.tokenizer import BPETokenizer
+from physisml.torch_model import TorchGPT
+from physisml.tokenizer import BPETokenizer
 
 
 # ---------------------------------------------------------------------------

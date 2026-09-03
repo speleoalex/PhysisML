@@ -8,9 +8,9 @@ import pytest
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from splx.transformer import GPT
-from splx.optimizer   import AdamOptimizer
-from splx.utils       import clip_grad_norm, set_seed
+from physisml.transformer import GPT
+from physisml.optimizer   import AdamOptimizer
+from physisml.utils       import clip_grad_norm, set_seed
 
 
 TINY_CFG = dict(

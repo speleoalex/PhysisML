@@ -22,14 +22,14 @@ import torch
 from app.config import settings
 
 
-# Allow `import splx.*` from standalone/splx/
+# Allow `import physisml.*` from standalone/physisml/
 _STANDALONE = settings.resolve(settings.STANDALONE_DIR)
 if str(_STANDALONE) not in sys.path:
     sys.path.insert(0, str(_STANDALONE))
 
-from splx.torch_model import TorchGPT        # noqa: E402
-from splx.tokenizer   import BPETokenizer    # noqa: E402
-from splx.utils       import sample_top_k    # noqa: E402
+from physisml.torch_model import TorchGPT        # noqa: E402
+from physisml.tokenizer   import BPETokenizer    # noqa: E402
+from physisml.utils       import sample_top_k    # noqa: E402
 
 
 CONTEXT_WINDOW = 128

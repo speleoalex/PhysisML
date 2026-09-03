@@ -1,5 +1,5 @@
 """
-Training script for the splx LLM — with curriculum learning support.
+Training script for the PhysisML LLM — with curriculum learning support.
 
 Usage
 -----
@@ -46,8 +46,8 @@ import time
 
 import numpy as np
 
-from splx import BPETokenizer, GPT, AdamOptimizer, set_seed
-from splx.utils import clip_grad_norm
+from physisml import BPETokenizer, GPT, AdamOptimizer, set_seed
+from physisml.utils import clip_grad_norm
 
 
 # ---------------------------------------------------------------------------
@@ -277,7 +277,7 @@ def train(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Train splx LLM with curriculum learning support",
+        description="Train the PhysisML LLM with curriculum learning support",
         formatter_class=argparse.RawTextHelpFormatter,
     )
     grp = parser.add_mutually_exclusive_group()

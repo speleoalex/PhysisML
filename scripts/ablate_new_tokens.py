@@ -34,8 +34,8 @@ for _p in [_ROOT, _TEST1]:
 
 import torch
 import numpy as np
-from splx.torch_model import TorchGPT, TorchAdamOptimizer
-from splx.tokenizer   import BPETokenizer
+from physisml.torch_model import TorchGPT, TorchAdamOptimizer
+from physisml.tokenizer   import BPETokenizer
 from dynamic_model.exp_b.affect_state import AffectState
 from dynamic_model.exp_b.modulator    import AffectModulator
 from dynamic_model.exp_b.trainer      import TrainerB

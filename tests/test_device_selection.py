@@ -21,8 +21,8 @@ for _p in (ROOT, os.path.join(ROOT, "tests", "test_1")):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-from splx.torch_model import TorchGPT, get_device                    # noqa: E402
-import splx.torch_model as tm                                        # noqa: E402
+from physisml.torch_model import TorchGPT, get_device                    # noqa: E402
+import physisml.torch_model as tm                                        # noqa: E402
 
 
 @pytest.fixture(autouse=True)

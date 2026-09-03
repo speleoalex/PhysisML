@@ -107,8 +107,8 @@ Il modello esiste in due implementazioni:
 
 | Implementazione | File | Uso |
 |----------------|------|-----|
-| **PyTorch CPU** | `tests/test_1/splx/torch_model.py` | Training attivo (59 seq/s, batch=8) |
-| **NumPy puro** | `tests/test_1/splx/` | Reference, gradient check, educativo |
+| **PyTorch CPU** | `tests/test_1/physisml/torch_model.py` | Training attivo (59 seq/s, batch=8) |
+| **NumPy puro** | `tests/test_1/physisml/` | Reference, gradient check, educativo |
 
 ---
 

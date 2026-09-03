@@ -1,7 +1,7 @@
 """
 TorchGPT — PyTorch backend for the GPT-2 style transformer.
 
-Same architecture as GPT (splx/transformer.py) but uses PyTorch + autograd.
+Same architecture as GPT (physisml/transformer.py) but uses PyTorch + autograd.
 Advantages:
   - 13× faster than NumPy at d=128 (MKL on CPU with 12 threads)
   - Efficient mini-batching: PyTorch d=256 B=8 → 64 seq/s vs NumPy 11 seq/s
@@ -16,18 +16,72 @@ Compatibility:
   - Can be used as drop-in replacement in existing training loops
 
 Esempio:
-    from splx.torch_model import TorchGPT, TorchAdamOptimizer
+    from physisml.torch_model import TorchGPT, TorchAdamOptimizer
     model = TorchGPT(vocab_size=8000, d_model=256, n_heads=4, n_layers=4,
                      d_ff=1024, max_seq_len=129, dropout_p=0.1,
                      active_vocab_size=501)   # 501 attivi, 7499 dormienti
     opt   = TorchAdamOptimizer(model.parameters(), lr=1e-3)
     loss  = model.train_step(ids_batch, opt)
 """
+import os
+import sys
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 from pathlib import Path
+
+
+# ---------------------------------------------------------------------------
+# Device detection — auto-selects best available device
+# Priority: CUDA (NVIDIA) > XPU (Intel Arc) > MPS (Apple) > CPU
+# ---------------------------------------------------------------------------
+
+def _device_available(name: str) -> bool:
+    if name == "cpu":
+        return True
+    if name == "cuda":
+        return torch.cuda.is_available()
+    if name == "xpu":
+        return getattr(torch, "xpu", None) is not None and torch.xpu.is_available()
+    if name == "mps":
+        return getattr(torch.backends, "mps", None) is not None \
+               and torch.backends.mps.is_available()
+    return False
+
+
+def get_device() -> str:
+    """The compute device: PHYSISML_DEVICE if set, else the best available.
+
+    PHYSISML_DEVICE = auto (default) | cpu | xpu | cuda | mps
+
+    The override exists because the two paths are interchangeable — a
+    checkpoint written on the Arc reads back bit-identically on the CPU and
+    vice versa, since load() maps to CPU and the trainer moves the model to
+    whatever device is active — so which one runs is a scheduling decision, not
+    an architectural one. Reasons to force CPU: the GPU is busy (llama-server
+    holds VRAM on the same card), or a result has to be comparable with an
+    earlier CPU run.
+
+    A request that cannot be honoured falls back, LOUDLY. Silence here is how a
+    build ends up running four times slower than intended with nothing in the
+    log to say so — the same failure as the CUDA wheel that sat in the XPU env.
+    """
+    want = (os.environ.get("PHYSISML_DEVICE") or "auto").strip().lower()
+    if want not in ("", "auto"):
+        if _device_available(want):
+            return want
+        print(f"[device] PHYSISML_DEVICE={want} richiesto ma non disponibile: "
+              f"uso la CPU", file=sys.stderr, flush=True)
+        return "cpu"
+    for cand in ("cuda", "xpu", "mps"):
+        if _device_available(cand):
+            return cand
+    return "cpu"
+
+
+DEVICE = get_device()
 
 
 class TorchGPT(nn.Module):
@@ -94,6 +148,11 @@ class TorchGPT(nn.Module):
             with torch.no_grad():
                 nn.init.zeros_(self.tok_emb.weight[self.active_vocab_size:])
 
+    def to_device(self, device: str = None) -> "TorchGPT":
+        """Move model to specified device (or auto-detect best)."""
+        d = device or DEVICE
+        return self.to(d)
+
     def forward(self, ids: torch.Tensor) -> torch.Tensor:
         """
         ids: (T,) o (B, T)
@@ -129,10 +188,18 @@ class TorchGPT(nn.Module):
     # Loss e training step
     # ------------------------------------------------------------------
 
-    def loss(self, logits: torch.Tensor, ids: torch.Tensor):
+    def loss(self, logits: torch.Tensor, ids: torch.Tensor,
+             prompt_len: int = 0):
         """
         Cross-entropy loss autoregressive.
         logits: (T,V) o (B,T,V)  |  ids: (T,) o (B,T)
+        prompt_len: if > 0, the first prompt_len tokens are treated as
+          conditioning context and excluded from the loss — only the
+          predictions of tokens at index >= prompt_len contribute.
+          Without this mask, prompt tokens dominate the average loss
+          (prompts are longer than answers at high curriculum levels)
+          and the model is mostly trained to reproduce the teacher's
+          question instead of the answer.
         Returns: scalar loss
         """
         squeeze = logits.dim() == 2
@@ -140,9 +207,21 @@ class TorchGPT(nn.Module):
             logits = logits.unsqueeze(0)
             ids    = ids.unsqueeze(0)
         B, T, V = logits.shape
+        targets = ids[:, 1:]
+        if prompt_len > 0:
+            # Position t predicts token t+1: masking targets[:, :prompt_len-1]
+            # excludes every prediction whose target is still a prompt token.
+            targets = targets.clone()
+            targets[:, :max(prompt_len - 1, 0)] = -100
+            if (targets != -100).sum() == 0:
+                # Nothing left to learn (response truncated away) — zero loss
+                # that still participates in autograd without NaN.
+                # Column 0 only: dormant-slot columns hold -inf and -inf*0=NaN.
+                return logits[..., 0].sum() * 0.0
         return F.cross_entropy(
             logits[:, :-1].reshape(-1, V),
-            ids[:, 1:].reshape(-1))
+            targets.reshape(-1),
+            ignore_index=-100)
 
     def train_step(self, ids: torch.Tensor,
                    optimizer: torch.optim.Optimizer,
@@ -248,14 +327,27 @@ class TorchAdamOptimizer:
     Wrapper leggero per torch.optim.Adam con interfaccia compatibile.
 
     weight_decay defaults to 0: with torch.optim.Adam the decay is COUPLED
-    (added to the gradient) and progressively kills rarely-used embeddings
-    and LayerNorm gains during online training. See PhysisML
-    tests/test_1/splx/torch_model.py for details.
+    (added to the gradient), so any parameter whose true gradient is small
+    receives a constant shrink toward zero at every step. Over the hundreds
+    of thousands of single-sample steps of curriculum training this silently
+    kills rarely-used embeddings and LayerNorm gains (measured on the May
+    build: ln_f gain 0.87 at L0 → 0.008 at L10). If regularisation is ever
+    needed, use decoupled AdamW and exclude LayerNorm/embedding params.
     """
     def __init__(self, parameters, lr=1e-3, weight_decay=0.0,
-                 betas=(0.9, 0.999), eps=1e-8):
+                 betas=(0.9, 0.999), eps=1e-8, foreach=None):
+        # foreach=False on XPU. Adam's default multi-tensor path
+        # (torch._foreach_lerp_) allocates temporaries for every parameter at
+        # once, and on the Arc that is where the dream died:
+        #   RuntimeError: level_zero backend failed with error: 38
+        #   (UR_RESULT_ERROR_OUT_OF_HOST_MEMORY)   in _multi_tensor_adam
+        # The single-tensor path uses a fraction of the peak memory for a
+        # negligible slowdown at this model size (36 parameter tensors).
+        if foreach is None:
+            foreach = False if str(DEVICE) == "xpu" else None
         self._opt = torch.optim.Adam(
-            parameters, lr=lr, betas=betas, eps=eps, weight_decay=weight_decay)
+            parameters, lr=lr, betas=betas, eps=eps, weight_decay=weight_decay,
+            foreach=foreach)
 
     def zero_grad(self):  self._opt.zero_grad()
     def step(self):       self._opt.step()

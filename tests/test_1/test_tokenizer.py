@@ -6,7 +6,7 @@ import pytest
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from splx.tokenizer import BPETokenizer
+from physisml.tokenizer import BPETokenizer
 
 SAMPLE_TEXT = (
     "Hello world! Hello world! Hello world!\n"

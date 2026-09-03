@@ -95,4 +95,4 @@ Se un training peggiora il modello: ferma il server, ricopia
 
 - Python ≥ 3.10
 - `torch`, `numpy` (installati automaticamente se mancanti)
-- Riusa `standalone/splx/` tramite `sys.path`.
+- Riusa `standalone/physisml/` tramite `sys.path`.

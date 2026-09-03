@@ -641,7 +641,7 @@ class TestVocabularyCoversTheNewLevels:
     SEED = "dynamic_model/data/tokenizer_8k.json"
 
     def seed(self):
-        from splx.tokenizer import BPETokenizer
+        from physisml.tokenizer import BPETokenizer
         tok = BPETokenizer()
         tok.load(self.SEED)
         return tok
@@ -666,7 +666,7 @@ class TestVocabularyCoversTheNewLevels:
     def test_ask_token_id_refuses_a_fragment(self):
         """The guard, on the vocabulary that actually had the problem."""
         import os
-        from splx.tokenizer import BPETokenizer
+        from physisml.tokenizer import BPETokenizer
         from dynamic_model.exp_b.modulator import ask_token_id
         old = "dynamic_model/data/tokenizer_8k.pre_l11l12.json"
         if not os.path.exists(old):

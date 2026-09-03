@@ -94,4 +94,4 @@ If a training run makes the model worse: stop the server, copy
 
 - Python ≥ 3.10
 - `torch`, `numpy` (installed automatically if missing)
-- Reuses `standalone/splx/` via `sys.path`.
+- Reuses `standalone/physisml/` via `sys.path`.

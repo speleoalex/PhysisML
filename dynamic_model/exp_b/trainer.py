@@ -18,12 +18,12 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'tests', 
 
 import numpy as np
 import torch
-from splx.torch_model import DEVICE  # auto-detected best device
+from physisml.torch_model import DEVICE  # auto-detected best device
 import torch.nn.functional as F
 from typing import Optional, List
 
-from splx.torch_model import TorchGPT, TorchAdamOptimizer
-from splx.tokenizer   import BPETokenizer
+from physisml.torch_model import TorchGPT, TorchAdamOptimizer
+from physisml.tokenizer   import BPETokenizer
 
 from dynamic_model.exp_b.affect_state import AffectState, AffectSnapshot
 from dynamic_model.exp_b.modulator    import AffectModulator
@@ -425,7 +425,7 @@ class TrainerB:
         """
         if stop_after is None:
             stop_after = min_tokens
-        from splx.utils import sample_top_k
+        from physisml.utils import sample_top_k
         ids = self.tokenizer.encode(prompt)
         # Ensure prompt fits within max_seq_len
         max_ctx = self.model.max_seq_len - 1

@@ -42,12 +42,12 @@ import torch
 _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Files copied verbatim into the upload folder: the model card, the licence,
-# and the standalone inference code (renamed to a package the card can import).
+# and the standalone inference code, which is the package the card imports.
 CARD_SRC     = os.path.join(_ROOT, "huggingface", "README.md")
 GENERATE_SRC = os.path.join(_ROOT, "huggingface", "generate.py")
 LICENSE_SRC  = os.path.join(_ROOT, "LICENSE")
-SPLX_SRC     = os.path.join(_ROOT, "standalone", "splx")
 PKG_NAME     = "physisml"
+PKG_SRC      = os.path.join(_ROOT, "standalone", PKG_NAME)
 
 # The affective system, copied into the package so the published model can
 # actually demonstrate it. These live outside standalone/ and import each other
@@ -265,9 +265,9 @@ def main() -> None:
 
     # ── code, card, licence ─────────────────────────────────────────────────
     pkg_dst = os.path.join(args.out, PKG_NAME)
-    shutil.copytree(SPLX_SRC, pkg_dst,
+    shutil.copytree(PKG_SRC, pkg_dst,
                     ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
-    print(f"inference code  : standalone/splx/ → {PKG_NAME}/")
+    print(f"inference code  : {os.path.relpath(PKG_SRC, _ROOT)}/ → {PKG_NAME}/")
 
     for src in AFFECT_SRCS:
         if not os.path.exists(src):

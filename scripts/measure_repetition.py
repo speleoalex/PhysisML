@@ -29,7 +29,7 @@ for _p in (_ROOT, os.path.join(_ROOT, "tests", "test_1")):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-from splx.torch_model import TorchGPT, TorchAdamOptimizer          # noqa: E402
+from physisml.torch_model import TorchGPT, TorchAdamOptimizer          # noqa: E402
 from dynamic_model.core.tokenizer import DynamicBPETokenizer       # noqa: E402
 from dynamic_model.exp_b.affect_state import AffectState           # noqa: E402
 from dynamic_model.exp_b.modulator import AffectModulator          # noqa: E402

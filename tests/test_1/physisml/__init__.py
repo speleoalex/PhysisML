@@ -1,5 +1,5 @@
 """
-splx — a tiny GPT-2 style language model built from scratch in pure NumPy.
+PhysisML — a tiny GPT-2 style language model built from scratch in pure NumPy.
 
 Public API
 ----------

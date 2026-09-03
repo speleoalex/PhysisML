@@ -2,7 +2,7 @@
 
 ## Context
 
-Due esperimenti indipendenti che condividono la stessa base di codice (`tests/test_1/splx/`),
+Due esperimenti indipendenti che condividono la stessa base di codice (`tests/test_1/physisml/`),
 ma con obiettivi separati. Tenerli separati permette di isolare le variabili e misurare
 il contributo di ciascuna innovazione.
 
@@ -32,7 +32,7 @@ essere combinato con A una volta che entrambi funzionano individualmente.
 
 ## Fondamenta comuni
 
-Entrambi gli esperimenti importano direttamente da `tests/test_1/splx/`:
+Entrambi gli esperimenti importano direttamente da `tests/test_1/physisml/`:
 
 - `layers.py` — `Linear`, `LayerNorm`, `GELU`, `Dropout`, `FFN`
 - `attention.py` — `MultiHeadSelfAttention`

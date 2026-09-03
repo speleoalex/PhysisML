@@ -47,7 +47,7 @@ for _p in (_ROOT, os.path.join(_ROOT, "tests", "test_1")):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-from splx.tokenizer import BPETokenizer                     # noqa: E402
+from physisml.tokenizer import BPETokenizer                     # noqa: E402
 
 # The tokenizer the live model is loaded with: it decides the EOS id, every
 # other snapshot has to agree with it.

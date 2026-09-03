@@ -1,5 +1,5 @@
 """
-Autoregressive text generation with a trained splx model.
+Autoregressive text generation with a trained PhysisML model.
 
 Usage
 -----
@@ -14,8 +14,8 @@ import argparse
 import os
 import numpy as np
 
-from splx import BPETokenizer, GPT, set_seed
-from splx.utils import sample_top_k, sample_top_p
+from physisml import BPETokenizer, GPT, set_seed
+from physisml.utils import sample_top_k, sample_top_p
 
 
 # ---------------------------------------------------------------------------
@@ -74,7 +74,7 @@ def generate(
 # ---------------------------------------------------------------------------
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate text with splx LLM")
+    parser = argparse.ArgumentParser(description="Generate text with the PhysisML LLM")
     parser.add_argument("--checkpoint",  required=True,
                         help="Path to .npz checkpoint file")
     parser.add_argument("--tokenizer",   required=True,

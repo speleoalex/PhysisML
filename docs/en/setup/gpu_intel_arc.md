@@ -180,7 +180,7 @@ pip install ipex-2.8.10+xpu.whl
 The code detects the device automatically (updated 2026-04-14):
 
 ```python
-# tests/test_1/splx/torch_model.py
+# tests/test_1/physisml/torch_model.py
 DEVICE = get_device()  # auto: cuda > xpu > mps > cpu
 
 # TrainerB automatically moves model and tensors to DEVICE

@@ -1,9 +1,9 @@
 """
-Configura il sys.path per importare da tests/test_1/splx/.
+Configura il sys.path per importare da tests/test_1/physisml/.
 Da importare come primo statement in ogni modulo di dynamic_model:
 
     from dynamic_model._imports import *  # noqa
-    from splx.layers import Linear, LayerNorm, ...
+    from physisml.layers import Linear, LayerNorm, ...
 """
 import sys
 import os

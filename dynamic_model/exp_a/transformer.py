@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'tests', 
 import numpy as np
 import torch
 
-from splx.torch_model import TorchGPT
+from physisml.torch_model import TorchGPT
 
 
 class TorchDynamicGPT(TorchGPT):

@@ -73,8 +73,8 @@ except ImportError:
 # Model used when --tutor-model auto has no local teacher to fall back on.
 DEFAULT_CLAUDE_MODEL = "claude-haiku-4-5"
 
-from splx.torch_model import TorchGPT, TorchAdamOptimizer
-from splx.tokenizer   import BPETokenizer
+from physisml.torch_model import TorchGPT, TorchAdamOptimizer
+from physisml.tokenizer   import BPETokenizer
 from dynamic_model.exp_b.affect_state import AffectState
 from dynamic_model.exp_b.modulator    import (AffectModulator, ASK_FORM,
                                               ask_token_id)

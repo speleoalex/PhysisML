@@ -17,9 +17,9 @@ for _p in [_ROOT, _TEST1]:
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-from splx.torch_model import TorchGPT
-from splx.tokenizer   import BPETokenizer
-from splx.utils       import sample_top_k, softmax
+from physisml.torch_model import TorchGPT
+from physisml.tokenizer   import BPETokenizer
+from physisml.utils       import sample_top_k, softmax
 
 torch.set_num_threads(12)
 

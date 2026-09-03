@@ -5,7 +5,7 @@ import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'tests', 'test_1'))
 
 import numpy as np
-from splx.optimizer import AdamOptimizer
+from physisml.optimizer import AdamOptimizer
 
 
 class DynamicAdam(AdamOptimizer):

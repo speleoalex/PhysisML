@@ -31,7 +31,7 @@ for _p in (ROOT, os.path.join(ROOT, "scripts"),
 
 os.chdir(ROOT)
 
-from splx.tokenizer import BPETokenizer                            # noqa: E402
+from physisml.tokenizer import BPETokenizer                            # noqa: E402
 import analyze_log as AL                                           # noqa: E402
 
 REFERENCE = "models/active_tokenizer.json"
@@ -232,7 +232,7 @@ class TestEosDoesNotLeakIntoTheCuriosityMemory:
         from dynamic_model.exp_b.modulator import AffectModulator
         from dynamic_model.exp_b.axioms import AxiomRegistry
         from dynamic_model.exp_b.trainer import TrainerB
-        from splx.torch_model import TorchGPT, TorchAdamOptimizer
+        from physisml.torch_model import TorchGPT, TorchAdamOptimizer
 
         tok = BPETokenizer(); tok.load(SEED)
         # Must cover the EOS id: a smaller vocabulary indexes out of range.

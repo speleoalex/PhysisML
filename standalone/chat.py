@@ -89,9 +89,9 @@ import torch
 _HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, _HERE)
 
-from splx.torch_model import TorchGPT
-from splx.tokenizer   import BPETokenizer
-from splx.utils       import sample_top_k
+from physisml.torch_model import TorchGPT
+from physisml.tokenizer   import BPETokenizer
+from physisml.utils       import sample_top_k
 
 DEFAULT_MODEL     = os.path.join(_HERE, "model.pt")
 DEFAULT_TOKENIZER = os.path.join(_HERE, "tokenizer.json")

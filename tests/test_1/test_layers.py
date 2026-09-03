@@ -1,5 +1,5 @@
 """
-Tests for splx/layers.py — includes numerical gradient checks.
+Tests for physisml/layers.py — includes numerical gradient checks.
 Run with: python -m pytest tests/test_layers.py -v
 """
 import numpy as np
@@ -7,8 +7,8 @@ import pytest
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from splx.layers import Linear, LayerNorm, GELU, Dropout, Embedding, FFN
-from splx.utils  import numerical_gradient
+from physisml.layers import Linear, LayerNorm, GELU, Dropout, Embedding, FFN
+from physisml.utils  import numerical_gradient
 
 
 # ---- helpers ---------------------------------------------------------------

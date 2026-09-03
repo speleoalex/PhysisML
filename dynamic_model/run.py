@@ -24,7 +24,7 @@ Start:
 import sys, os, argparse
 
 # Add the project root to path so that both `dynamic_model`
-# and `splx` are importable regardless of where the script is launched
+# and `physisml` are importable regardless of where the script is launched
 _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _TEST1 = os.path.join(_ROOT, 'tests', 'test_1')
 for _p in [_ROOT, _TEST1]:
@@ -34,8 +34,8 @@ for _p in [_ROOT, _TEST1]:
 import torch
 import numpy as np
 
-from splx.torch_model import TorchGPT, TorchAdamOptimizer
-from splx.tokenizer   import BPETokenizer
+from physisml.torch_model import TorchGPT, TorchAdamOptimizer
+from physisml.tokenizer   import BPETokenizer
 
 from dynamic_model.exp_b.affect_state import AffectState
 from dynamic_model.exp_b.modulator    import AffectModulator

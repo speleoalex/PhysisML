@@ -35,7 +35,7 @@ for _p in [_ROOT, _TEST1]:
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-from splx.tokenizer import BPETokenizer
+from physisml.tokenizer import BPETokenizer
 from dynamic_model.train_curriculum import (
     _load_memory_bank, _extract_patterns, build_growth_text,
 )

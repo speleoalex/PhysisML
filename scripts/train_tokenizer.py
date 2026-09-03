@@ -14,7 +14,7 @@ for _p in [_ROOT, _TEST1]:
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-from splx.tokenizer import BPETokenizer
+from physisml.tokenizer import BPETokenizer
 
 CORPUS_BASE = "training_files/it"
 # Number of curriculum levels to scan. A bare range(11) silently

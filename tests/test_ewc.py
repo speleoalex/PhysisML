@@ -29,8 +29,8 @@ for _p in (ROOT, os.path.join(ROOT, "scripts"),
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-from splx.torch_model import TorchGPT, TorchAdamOptimizer           # noqa: E402
-from splx.tokenizer import BPETokenizer                             # noqa: E402
+from physisml.torch_model import TorchGPT, TorchAdamOptimizer           # noqa: E402
+from physisml.tokenizer import BPETokenizer                             # noqa: E402
 from dynamic_model.exp_b.ewc import EWC, DEFAULTS, SIDECAR          # noqa: E402
 
 TOK_PATH = os.path.join(ROOT, "dynamic_model", "data", "tokenizer_8k.json")

@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'tests', 
 from collections import defaultdict
 from typing import Dict, List, Optional, Tuple
 
-from splx.tokenizer import BPETokenizer, _apply_merge_list, _get_pairs
+from physisml.tokenizer import BPETokenizer, _apply_merge_list, _get_pairs
 
 
 class DynamicBPETokenizer(BPETokenizer):

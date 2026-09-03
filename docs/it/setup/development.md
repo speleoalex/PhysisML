@@ -28,19 +28,19 @@ Nessun'altra dipendenza. Il progetto usa solo Python standard + NumPy + PyTorch.
 ```
 PhysisML/
 ├── docs/
-│   ├── it/setup/        ← questa cartella
-│   └── en/setup/        ← versione inglese
-├── dynamic_model/       ← PhysisML (Esperimento B — sistema affettivo)
-│   ├── exp_b/           ← TrainerB, AffectState, Modulator, Axioms
-│   ├── train_curriculum.py  ← pipeline principale
-│   ├── local_teacher.py     ← teacher locale (L0-L2, no API)
-│   └── run.py               ← chat/training interattivo
-├── tests/test_1/splx/   ← libreria core (TorchGPT, BPETokenizer, ...)
-├── training_files/it/   ← corpus per livello (0-10)
-├── models/              ← checkpoints attivi
-├── scripts/             ← analyze_log.py, compare_checkpoints.py, ...
-├── diario/              ← note giornaliere (solo locale, non pubblicate)
-└── build.sh             ← build automatico L0→Ln
+│   ├── it/setup/           ← questa cartella
+│   └── en/setup/           ← versione inglese
+├── dynamic_model/          ← PhysisML (Esperimento B — sistema affettivo)
+│   ├── exp_b/              ← TrainerB, AffectState, Modulator, Axioms
+│   ├── train_curriculum.py ← pipeline principale
+│   ├── local_teacher.py    ← teacher locale (L0-L2, no API)
+│   └── run.py              ← chat/training interattivo
+├── tests/test_1/physisml/  ← libreria core (TorchGPT, BPETokenizer, ...)
+├── training_files/it/      ← corpus per livello (0-10)
+├── models/                 ← checkpoints attivi
+├── scripts/                ← analyze_log.py, compare_checkpoints.py, ...
+├── diario/                 ← note giornaliere (solo locale, non pubblicate)
+└── build.sh                ← build automatico L0→Ln
 ```
 
 ---
@@ -145,5 +145,5 @@ Vedere `gpu_intel_arc.md` per la procedura completa.
 Una volta installato IPEX XPU, il codice usa la GPU automaticamente:
 ```python
 # Nessuna modifica necessaria — auto-detection in torch_model.py
-from splx.torch_model import DEVICE  # cpu | xpu | cuda | mps
+from physisml.torch_model import DEVICE  # cpu | xpu | cuda | mps
 ```

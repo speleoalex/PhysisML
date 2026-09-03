@@ -28,19 +28,19 @@ No other dependencies. The project only uses standard Python + NumPy + PyTorch.
 ```
 PhysisML/
 ├── docs/
-│   ├── en/setup/        ← this folder
-│   └── it/setup/        ← Italian version
-├── dynamic_model/       ← PhysisML (Experiment B — affective system)
-│   ├── exp_b/           ← TrainerB, AffectState, Modulator, Axioms
-│   ├── train_curriculum.py  ← main pipeline
-│   ├── local_teacher.py     ← local teacher (L0-L2, no API)
-│   └── run.py               ← interactive chat/training
-├── tests/test_1/splx/   ← core library (TorchGPT, BPETokenizer, ...)
-├── training_files/it/   ← corpus per level (0-10)
-├── models/              ← active checkpoints
-├── scripts/             ← analyze_log.py, compare_checkpoints.py, ...
-├── diario/              ← daily notes (local only, not published)
-└── build.sh             ← automatic build L0→Ln
+│   ├── en/setup/           ← this folder
+│   └── it/setup/           ← Italian version
+├── dynamic_model/          ← PhysisML (Experiment B — affective system)
+│   ├── exp_b/              ← TrainerB, AffectState, Modulator, Axioms
+│   ├── train_curriculum.py ← main pipeline
+│   ├── local_teacher.py    ← local teacher (L0-L2, no API)
+│   └── run.py              ← interactive chat/training
+├── tests/test_1/physisml/  ← core library (TorchGPT, BPETokenizer, ...)
+├── training_files/it/      ← corpus per level (0-10)
+├── models/                 ← active checkpoints
+├── scripts/                ← analyze_log.py, compare_checkpoints.py, ...
+├── diario/                 ← daily notes (local only, not published)
+└── build.sh                ← automatic build L0→Ln
 ```
 
 ---
@@ -145,5 +145,5 @@ See `gpu_intel_arc.md` for the full procedure.
 Once IPEX XPU is installed, the code uses the GPU automatically:
 ```python
 # No changes needed — auto-detection in torch_model.py
-from splx.torch_model import DEVICE  # cpu | xpu | cuda | mps
+from physisml.torch_model import DEVICE  # cpu | xpu | cuda | mps
 ```

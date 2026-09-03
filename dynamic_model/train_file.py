@@ -34,8 +34,8 @@ for _p in [_ROOT, _TEST1]:
 
 import numpy as np
 import torch
-from splx.torch_model import TorchGPT, TorchAdamOptimizer
-from splx.tokenizer   import BPETokenizer
+from physisml.torch_model import TorchGPT, TorchAdamOptimizer
+from physisml.tokenizer   import BPETokenizer
 from dynamic_model.exp_b.trainer import TrainerB
 
 torch.set_num_threads(12)

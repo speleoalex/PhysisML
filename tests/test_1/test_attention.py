@@ -1,5 +1,5 @@
 """
-Tests for splx/attention.py
+Tests for physisml/attention.py
 Run with: python -m pytest tests/test_attention.py -v
 """
 import numpy as np
@@ -7,8 +7,8 @@ import pytest
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from splx.attention import MultiHeadSelfAttention
-from splx.utils     import numerical_gradient
+from physisml.attention import MultiHeadSelfAttention
+from physisml.utils     import numerical_gradient
 
 
 def mse_loss(out):
