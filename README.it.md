@@ -1,5 +1,7 @@
 # PhysisML
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22285422.svg)](https://doi.org/10.5281/zenodo.22285422)
+
 *Leggi in: [English](README.md)*
 
 Un piccolo LLM costruito da zero, ispirato all'apprendimento biologico.
@@ -109,17 +111,20 @@ falsificate, perché il processo di eliminazione è l'argomento:
    semi — stessa concentrazione, stessi token in testa, massa assoluta ~3×
    diversa: il danno segue la concentrazione, non la scala.
 
-Il claim che questo sostiene è deliberatamente stretto: **in un regime di
-curriculum a memorizzazione quasi-perfetta per livello, l'EWC online
-standard con Fisher empirico è strutturalmente svantaggiato, e il replay lo
-domina sia in ritenzione che in apprendimento corrente — al prezzo di
-portarsi dietro il corpus invece delle statistiche.** Non è "EWC è
-sbagliato in generale": normalizzare il Fisher per token, o escludere i
-token strutturali, sarebbe un altro algoritmo (la famiglia Riemannian Walk,
-Chaudhry et al. 2018), e parte del divario dream−ewc è budget di token —
-l'N1 del sogno rigioca fino a 7 livelli per ciclo contro l'unico del
-braccio ewc, quindi un braccio compute-matched è annotato come lavoro
-futuro. Riproducibile con
+Il claim che questo sostiene è deliberatamente stretto: **in questo
+curriculum a memorizzazione quasi-perfetta per livello, la nostra
+implementazione dell'EWC online standard con Fisher diagonale empirico
+resta nettamente sotto l'experience replay — sia in ritenzione che in
+apprendimento corrente — e persino sotto il baseline non regolarizzato; il
+replay lo paga portandosi dietro il corpus invece delle statistiche.** Non
+è "EWC è sbagliato in generale": normalizzare il Fisher per token, o
+escludere i token strutturali, sarebbe un altro algoritmo (la famiglia
+Riemannian Walk, Chaudhry et al. 2018), e il confronto non è
+compute-matched — l'N1 del sogno rigioca fino a 7 livelli per ciclo contro
+l'unico del braccio ewc — quindi l'*efficienza* relativa dei due metodi
+resta una questione aperta (un braccio compute-matched è annotato come
+lavoro futuro), anche se il budget non può spiegare ewc che finisce sotto
+`none`. Riproducibile con
 `MODE=sweep|main ./scripts/experiment_ewc.sh --confirm`; le matrici di
 ritenzione per braccio finiscono in `models/exp_i/`.
 
@@ -321,8 +326,9 @@ cartella del livello. Dettagli in
   sogno. Il rehearsal è pesato sul livello corrente; il lavoro fra livelli lo fa
   il sogno, il cui N1 rigioca il `qa_corpus` di *tutti* i livelli. Il sogno è
   ciò che ha portato il checkpoint finale dal 20% su tutti i livelli a ~88% —
-  e nel benchmark testa-a-testa sullo stesso harness domina l'EWC online, che
-  collassa sotto il pavimento senza protezione
+  e nel benchmark testa-a-testa sullo stesso harness (non compute-matched)
+  ritiene molto più dell'EWC online, che collassa sotto il pavimento senza
+  protezione
   (vedi [il controllo EWC](#il-sogno-è-solo-replay-il-controllo-ewc-exp_i)).
 - **Didattica test-then-show**: il modello risponde *prima* di vedere la
   soluzione. L'ordine inverso (show-then-test) misurava il richiamo dopo
@@ -364,6 +370,17 @@ Setup: [docs/it/setup/gpu_intel_arc.md](docs/it/setup/gpu_intel_arc.md).
   dati di training e nella documentazione italiana.
 
 ---
+
+## Come citare
+
+Se usi PhysisML nella tua ricerca, citalo tramite il suo DOI Zenodo:
+
+> Vernassa, A. (2026). *PhysisML: a language model trained from scratch on a developmental curriculum, with dream consolidation against catastrophic forgetting* (v1.0.0). Zenodo. <https://doi.org/10.5281/zenodo.22285423>
+
+- **Concept DOI** (risolve sempre all'ultima versione): [10.5281/zenodo.22285422](https://doi.org/10.5281/zenodo.22285422)
+- **Version DOI** (v1.0.0): [10.5281/zenodo.22285423](https://doi.org/10.5281/zenodo.22285423)
+
+I metadati di citazione sono disponibili anche in [CITATION.cff](CITATION.cff) (pulsante "Cite this repository" su GitHub).
 
 ## Licenza
 

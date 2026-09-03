@@ -229,8 +229,9 @@ finding. Benchmarked head-to-head on the same harness against online EWC
 landed *below* the unprotected floor, because at near-zero training loss the
 empirical Fisher measures inter-example variance concentrated on shared
 structural tokens, and the anchor freezes the answer-production machinery
-instead of the knowledge. Full numbers and the diagnostic trail are in the
-repository README (`exp_i`).
+instead of the knowledge. The comparison is not compute-matched, so the
+relative efficiency of the two methods remains open. Full numbers and the
+diagnostic trail are in the repository README (`exp_i`).
 
 The tutors are, in cost order: a rule-based deterministic teacher (offline), a
 hybrid teacher using a small local LLM for the grading (offline, via
@@ -252,12 +253,17 @@ MIT — Copyright (c) 2026 Alessandro Vernassa. See `LICENSE`.
 
 ```bibtex
 @software{physisml,
-  author = {Vernassa, Alessandro},
-  title  = {PhysisML: a language model trained on a developmental curriculum},
-  year   = {2026},
-  url    = {https://github.com/speleoalex/PhysisML}
+  author  = {Vernassa, Alessandro},
+  title   = {PhysisML: a language model trained on a developmental curriculum},
+  year    = {2026},
+  version = {1.0.0},
+  doi     = {10.5281/zenodo.22285423},
+  url     = {https://github.com/speleoalex/PhysisML}
 }
 ```
+
+Concept DOI (always the latest version):
+[10.5281/zenodo.22285422](https://doi.org/10.5281/zenodo.22285422).
 
 The name is φύσις (*physis*, nature, growth) + ML. The documentation exists in
 both English and Italian in the repository.

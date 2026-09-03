@@ -1,5 +1,7 @@
 # PhysisML
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22285422.svg)](https://doi.org/10.5281/zenodo.22285422)
+
 *Read this in: [Italiano](README.it.md)*
 
 A small LLM built from scratch, inspired by biological learning.
@@ -125,16 +127,18 @@ because the elimination process is the argument:
    concentration, same top tokens, ~3× different absolute mass: the damage
    tracks the concentration, not the scale.
 
-The claim this supports is deliberately narrow: **in a curriculum regime of
-near-perfect per-level memorization, standard online EWC with the empirical
-Fisher is structurally disadvantaged, and replay dominates it on both
-retention and current learning — at the price of keeping the corpus around
+The claim this supports is deliberately narrow: **in this near-perfect
+per-level memorization curriculum, our implementation of standard online EWC
+with an empirical diagonal Fisher substantially underperforms experience
+replay — on both retention and current learning — including against the
+unregularized baseline; replay pays for it by keeping the corpus around
 instead of summary statistics.** It is not "EWC is wrong in general":
 normalizing the Fisher per token, or excluding structural tokens, would be a
 different algorithm (the Riemannian-Walk family, Chaudhry et al. 2018), and
-part of the dream−ewc gap is token budget — the dream's N1 replays up to 7
-levels per cycle against the ewc arm's one, so a compute-matched arm is
-listed as future work. Reproduce with
+the comparison is not compute-matched — the dream's N1 replays up to 7
+levels per cycle against the ewc arm's one — so the relative *efficiency* of
+the two methods remains open (a compute-matched arm is listed as future
+work), though budget cannot explain ewc finishing below `none`. Reproduce with
 `MODE=sweep|main ./scripts/experiment_ewc.sh --confirm`; per-arm retention
 matrices land in `models/exp_i/`.
 
@@ -335,8 +339,8 @@ subdirectory is invisible by construction. See
   weighted toward the current level; the cross-level work is done by the dream,
   whose N1 replays *every* level's `qa_corpus`. The dream is what turned the
   final checkpoint from 20% across all levels into ~88% — and benchmarked
-  head-to-head on the same harness it dominates online EWC, which collapses
-  below the no-protection floor
+  head-to-head on the same harness (not compute-matched) it retains far more
+  than online EWC, which collapses below the no-protection floor
   (see [the EWC control](#is-the-dream-just-replay-the-ewc-control-exp_i)).
 - **Test-then-show didactics**: the model answers *before* seeing the solution.
   The reverse order (show-then-test) measured recall after a hint rather than
@@ -377,6 +381,17 @@ Setup: [docs/it/setup/gpu_intel_arc.md](docs/it/setup/gpu_intel_arc.md).
   training data and Italian documentation.
 
 ---
+
+## How to Cite
+
+If you use PhysisML in your research, please cite it via its Zenodo DOI:
+
+> Vernassa, A. (2026). *PhysisML: a language model trained from scratch on a developmental curriculum, with dream consolidation against catastrophic forgetting* (v1.0.0). Zenodo. <https://doi.org/10.5281/zenodo.22285423>
+
+- **Concept DOI** (always resolves to the latest version): [10.5281/zenodo.22285422](https://doi.org/10.5281/zenodo.22285422)
+- **Version DOI** (v1.0.0): [10.5281/zenodo.22285423](https://doi.org/10.5281/zenodo.22285423)
+
+Citation metadata is also available in [CITATION.cff](CITATION.cff) (use the "Cite this repository" button on GitHub).
 
 ## License
 

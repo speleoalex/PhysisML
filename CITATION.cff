@@ -9,10 +9,13 @@ abstract: >-
   Italian, with a dynamic vocabulary and a rule-based tutor so the whole
   curriculum reproduces offline. Each session ends in a dream: a replay
   consolidation pass that turns ~20% cross-level retention into ~88%.
-  Benchmarked head-to-head on the same harness, the dream dominates online
-  EWC on both seeds (64.4% vs 13.0% final-row retention), with EWC landing
-  below the no-protection floor because at near-zero loss the empirical
-  Fisher measures inter-example variance on shared structural tokens.
+  Benchmarked head-to-head on the same harness, in this near-perfect
+  memorization regime standard online EWC with an empirical diagonal Fisher
+  substantially underperforms the replay on both seeds (13.0% vs 64.4%
+  final-row retention), landing below even the no-protection floor, because
+  at near-zero loss the empirical Fisher measures inter-example variance on
+  shared structural tokens. The comparison is not compute-matched, so the
+  relative efficiency of the two methods remains open.
 authors:
   - family-names: Vernassa
     given-names: Alessandro

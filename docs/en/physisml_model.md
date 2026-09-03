@@ -479,16 +479,17 @@ credible:
    on both seeds — EWC is effectively off at L1), the other face of the same
    defect.
 
-**Scope of the claim.** In a curriculum regime of near-perfect per-level
-memorization, standard online EWC with the empirical Fisher is structurally
-disadvantaged, and replay dominates it on both retention and current
-learning — at the price of keeping the corpus instead of statistics. Not
-claimed: "EWC is wrong in general". Per-token Fisher normalization or
+**Scope of the claim.** In this near-perfect per-level memorization
+curriculum, our implementation of standard online EWC with an empirical
+diagonal Fisher substantially underperforms experience replay — on both
+retention and current learning — including against the unregularized
+baseline; replay pays for it by keeping the corpus instead of statistics.
+Not claimed: "EWC is wrong in general". Per-token Fisher normalization or
 excluding structural tokens is a different algorithm family (Riemannian
-Walk, Chaudhry et al. 2018); and part of the dream−ewc gap is token budget
-(N1 replays up to 7 levels per cycle against 1 — an "ewc + compute-matched
-N1" arm is future work), though budget cannot explain ewc falling below
-`none`.
+Walk, Chaudhry et al. 2018); and the comparison is not compute-matched (N1
+replays up to 7 levels per cycle against 1 — an "ewc + compute-matched N1"
+arm is future work), so the relative efficiency of the two methods remains
+open, though budget cannot explain ewc falling below `none`.
 
 ### Real question-and-answer examples
 

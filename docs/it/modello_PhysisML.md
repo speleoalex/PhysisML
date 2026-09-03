@@ -524,16 +524,18 @@ credibile la superstite:
    zero (la massa di L0 è 0.0 su entrambi i semi — EWC di fatto spento a
    L1), l'altra faccia dello stesso difetto.
 
-**Confini del claim.** In un regime di curriculum a memorizzazione
-quasi-perfetta per livello, l'EWC online standard con Fisher empirico è
-strutturalmente svantaggiato, e il replay lo domina sia in ritenzione che
-in apprendimento corrente — al prezzo di portarsi dietro il corpus invece
-delle statistiche. Non è nel claim: "EWC è sbagliato in generale". La
+**Confini del claim.** In questo curriculum a memorizzazione quasi-perfetta
+per livello, la nostra implementazione dell'EWC online standard con Fisher
+diagonale empirico resta nettamente sotto l'experience replay — sia in
+ritenzione che in apprendimento corrente — e persino sotto il baseline non
+regolarizzato; il replay lo paga portandosi dietro il corpus invece delle
+statistiche. Non è nel claim: "EWC è sbagliato in generale". La
 normalizzazione per-token del Fisher o l'esclusione dei token strutturali è
 un'altra famiglia di algoritmi (Riemannian Walk, Chaudhry et al. 2018); e
-parte del divario dream−ewc è budget di token (N1 rigioca fino a 7 livelli
-per ciclo contro 1 — un braccio "ewc + N1 compute-matched" è lavoro
-futuro), anche se il budget non può spiegare ewc che finisce sotto `none`.
+il confronto non è compute-matched (N1 rigioca fino a 7 livelli per ciclo
+contro 1 — un braccio "ewc + N1 compute-matched" è lavoro futuro), quindi
+l'efficienza relativa dei due metodi resta una questione aperta, anche se
+il budget non può spiegare ewc che finisce sotto `none`.
 
 ### Esempi reali di domanda e risposta
 
