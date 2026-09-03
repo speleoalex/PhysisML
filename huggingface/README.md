@@ -5,6 +5,8 @@ language:
 tags:
 - physisml
 - curriculum-learning
+- continual-learning
+- catastrophic-forgetting
 - from-scratch
 - italian
 - research

@@ -1,0 +1,30 @@
+{"word": "mirtillo", "levels": [12], "targets": 7, "pairs": 18, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:22", "saved": "training_files/it/13/batches/0001/retracted/mirtillo.json"}
+{"word": "sgabello", "levels": [12], "targets": 7, "pairs": 11, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:28", "saved": "training_files/it/13/batches/0001/retracted/sgabello.json"}
+{"word": "clarinetto", "levels": [12], "targets": 7, "pairs": 14, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:31", "saved": "training_files/it/13/batches/0001/retracted/clarinetto.json"}
+{"word": "scoiattolo", "levels": [12], "targets": 7, "pairs": 8, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:35", "saved": "training_files/it/13/batches/0001/retracted/scoiattolo.json"}
+{"word": "rospo", "levels": [12], "targets": 7, "pairs": 1, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:39", "saved": "training_files/it/13/batches/0001/retracted/rospo.json"}
+{"word": "imbuto", "levels": [12], "targets": 7, "pairs": 1, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:43", "saved": "training_files/it/13/batches/0001/retracted/imbuto.json"}
+{"word": "rastrello", "levels": [12], "targets": 7, "pairs": 1, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:43", "saved": "training_files/it/13/batches/0001/retracted/rastrello.json"}
+{"word": "spillo", "levels": [12], "targets": 7, "pairs": 2, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:44", "saved": "training_files/it/13/batches/0001/retracted/spillo.json"}
+{"word": "grembiule", "levels": [12], "targets": 7, "pairs": 1, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:45", "saved": "training_files/it/13/batches/0001/retracted/grembiule.json"}
+{"word": "fanale", "levels": [12], "targets": 7, "pairs": 1, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:45", "saved": "training_files/it/13/batches/0001/retracted/fanale.json"}
+{"word": "burrone", "levels": [12], "targets": 7, "pairs": 1, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:46", "saved": "training_files/it/13/batches/0001/retracted/burrone.json"}
+{"word": "tasso", "levels": [12], "targets": 7, "pairs": 1, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:50", "saved": "training_files/it/13/batches/0001/retracted/tasso.json"}
+{"word": "picchio", "levels": [12], "targets": 7, "pairs": 2, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:51", "saved": "training_files/it/13/batches/0001/retracted/picchio.json"}
+{"word": "scodella", "levels": [12], "targets": 7, "pairs": 1, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:54", "saved": "training_files/it/13/batches/0001/retracted/scodella.json"}
+{"word": "papavero", "levels": [12], "targets": 7, "pairs": 1, "batch": "0001", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T19:46:56", "saved": "training_files/it/13/batches/0001/retracted/papavero.json"}
+{"word": "papavero", "restored": true, "at": "2026-09-03T20:19:40"}
+{"word": "scodella", "restored": true, "at": "2026-09-03T20:19:40"}
+{"word": "picchio", "restored": true, "at": "2026-09-03T20:19:40"}
+{"word": "tasso", "restored": true, "at": "2026-09-03T20:19:40"}
+{"word": "burrone", "restored": true, "at": "2026-09-03T20:19:40"}
+{"word": "fanale", "restored": true, "at": "2026-09-03T20:19:40"}
+{"word": "grembiule", "restored": true, "at": "2026-09-03T20:19:40"}
+{"word": "spillo", "restored": true, "at": "2026-09-03T20:19:40"}
+{"word": "rastrello", "restored": true, "at": "2026-09-03T20:19:40"}
+{"word": "imbuto", "restored": true, "at": "2026-09-03T20:19:40"}
+{"word": "tasso", "levels": [12, 13], "targets": 7, "pairs": 3, "batch": "0002", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T21:58:27", "saved": "training_files/it/13/batches/0002/retracted/tasso.json"}
+{"word": "picchio", "levels": [12, 13], "targets": 7, "pairs": 4, "batch": "0002", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T21:58:31", "saved": "training_files/it/13/batches/0002/retracted/picchio.json"}
+{"word": "castoro", "levels": [12, 13], "targets": 7, "pairs": 4, "batch": "0002", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T21:58:33", "saved": "training_files/it/13/batches/0002/retracted/castoro.json"}
+{"word": "susina", "levels": [12, 13], "targets": 7, "pairs": 3, "batch": "0002", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T21:58:36", "saved": "training_files/it/13/batches/0002/retracted/susina.json"}
+{"word": "mandorla", "levels": [12, 13], "targets": 7, "pairs": 3, "batch": "0002", "source": "oracle:qwen3-vl", "reason": "acquisita: l'ammissione è diventata falsa", "at": "2026-09-03T21:58:40", "saved": "training_files/it/13/batches/0002/retracted/mandorla.json"}

@@ -1,13 +1,17 @@
 """
 PhysisML — standalone chat script.
 
-Loads the model and tokenizer from the same directory and runs
-an interactive REPL: type a text prompt, get a generated continuation.
+Talks to a PhysisML checkpoint. With no weights on disk it downloads the
+published ones from the Hugging Face Hub, so a fresh clone can hear the model
+speak without training anything:
 
-Usage:
-    cd standalone/
-    python3 chat.py
-    python3 chat.py --temperature 0.9 --top_k 50 --max_tokens 120
+    python3 standalone/chat.py "di: cosa mangia il cane?"   # one answer
+    python3 standalone/chat.py                              # interactive REPL
+    python3 standalone/chat.py --download                   # fetch weights only
+
+Weights are looked for in this order: --model if given, then standalone/model.pt
+(what a local build writes), then the Hugging Face snapshot under
+models/hf/<repo>/ — downloading it on first use unless --no-download.
 
 Commands inside the REPL:
     /info    — show model parameters and current settings
@@ -80,98 +84,223 @@ install_missing_packages()
 # --- End auto-install ---
 
 import os
+import json
 import argparse
 
-import numpy as np
 import torch
 
-# Resolve paths relative to this file so the script works from any cwd
+# Resolve paths relative to this file so the script works from any cwd. The
+# repository root goes on the path too: the affective modules live in
+# dynamic_model/exp_b/ here, and are only copied into the package on export.
 _HERE = os.path.dirname(os.path.abspath(__file__))
+_ROOT = os.path.dirname(_HERE)
 sys.path.insert(0, _HERE)
+sys.path.insert(0, _ROOT)
 
 from physisml.torch_model import TorchGPT
 from physisml.tokenizer   import BPETokenizer
-from physisml.utils       import sample_top_k
+from physisml.generation  import generate, undecodable_mask, load_affect
 
-DEFAULT_MODEL     = os.path.join(_HERE, "model.pt")
-DEFAULT_TOKENIZER = os.path.join(_HERE, "tokenizer.json")
-CONTEXT_WINDOW    = 128
-
-
-def generate(model: TorchGPT, tok: BPETokenizer,
-             prompt: str, max_tokens: int,
-             temperature: float, top_k: int) -> str:
-    prompt_ids = tok.encode(prompt)
-    if not prompt_ids:
-        return ""
-
-    ids = list(prompt_ids)
-
-    model.eval()
-    with torch.no_grad():
-        for _ in range(max_tokens):
-            ctx    = torch.tensor(ids[-CONTEXT_WINDOW:], dtype=torch.long)
-            logits = model.forward(ctx)   # (T, V)
-            last   = logits[-1].numpy()   # (V,)
-
-            next_id = sample_top_k(last, k=top_k, temperature=temperature)
-            ids.append(next_id)
-
-            if tok.is_special(next_id):   # stop at EOS or any special token
-                break
-
-    generated_ids = ids[len(prompt_ids):]
-    return tok.decode(generated_ids)
+LOCAL_MODEL    = os.path.join(_HERE, "model.pt")
+LOCAL_TOKENIZER = os.path.join(_HERE, "tokenizer.json")
+HF_REPO        = "speleoalex/physisml-it-preview"
+HF_FILES       = ["config.json", "model.safetensors", "tokenizer.json"]
+HF_MB          = 95
+CONTEXT_WINDOW = 128
 
 
-def print_info(model: TorchGPT, args) -> None:
-    print(f"  model      : {args.model}")
+def _in_venv() -> bool:
+    return (hasattr(sys, "real_prefix")
+            or (hasattr(sys, "base_prefix") and sys.base_prefix != sys.prefix))
+
+
+def _ensure(module: str, package: str, why: str) -> None:
+    """
+    Make sure one on-demand package is importable. Both are in
+    requirements.txt; this only covers the case of someone running the script
+    against a checkout that was set up before they existed. Installing is
+    attempted only inside a virtualenv — a system Python is very likely
+    externally managed (PEP 668) and pip would refuse anyway, with a wall of
+    text that hides the one line that matters.
+    """
+    try:
+        __import__(module)
+        return
+    except ImportError:
+        pass
+    if _in_venv():
+        print(f"Installing {package} ({why})...")
+        if subprocess.run(
+                [sys.executable, "-m", "pip", "install", package]).returncode == 0:
+            return
+    print(f"Error: {package} is missing — {why}.\n"
+          f"       pip install {package}\n"
+          f"       or, for everything at once: pip install -r requirements.txt",
+          file=sys.stderr)
+    sys.exit(1)
+
+
+def hf_snapshot(repo: str, download: bool = True) -> str:
+    """
+    Return the local folder holding the published weights, downloading them on
+    first use. Lands in models/hf/<repo>/, which is gitignored like every other
+    weight in this repository.
+    """
+    dest = os.path.join(_ROOT, "models", "hf", repo.split("/")[-1])
+    if all(os.path.exists(os.path.join(dest, f)) for f in HF_FILES):
+        return dest
+    if not download:
+        return dest
+    _ensure("huggingface_hub", "huggingface_hub",
+            "needed to download the published weights")
+    from huggingface_hub import snapshot_download
+    print(f"Downloading {repo} (~{HF_MB} MB) → {os.path.relpath(dest, _ROOT)}/")
+    snapshot_download(repo_id=repo, local_dir=dest, allow_patterns=HF_FILES)
+    return dest
+
+
+def load_from_folder(folder: str):
+    """Build the model from config.json and fill it from model.safetensors."""
+    _ensure("safetensors", "safetensors",
+            "needed to read model.safetensors")
+    from safetensors.torch import load_file
+
+    with open(os.path.join(folder, "config.json"), encoding="utf-8") as f:
+        cfg = json.load(f)
+
+    model = TorchGPT(
+        vocab_size        = cfg["vocab_size"],
+        d_model           = cfg["d_model"],
+        n_heads           = cfg["n_heads"],
+        n_layers          = cfg["n_layers"],
+        d_ff              = cfg["d_ff"],
+        max_seq_len       = cfg["max_seq_len"],
+        dropout_p         = 0.0,
+        active_vocab_size = cfg.get("active_vocab_size", cfg["vocab_size"]),
+    )
+    # lm_head.weight is tied to tok_emb.weight and is therefore NOT stored in
+    # the file — TorchGPT.__init__ re-ties it. strict=False is required for
+    # that one key and for nothing else, so check exactly that.
+    missing, unexpected = model.load_state_dict(
+        load_file(os.path.join(folder, "model.safetensors")), strict=False)
+    tied = set(cfg.get("tied_weights", {}))
+    if set(missing) - tied or unexpected:
+        raise RuntimeError(
+            f"checkpoint does not match config.json — missing {list(missing)}, "
+            f"unexpected {list(unexpected)}")
+    return model, os.path.join(folder, "tokenizer.json"), folder
+
+
+def resolve(args):
+    """
+    Pick the weights to load and return (model, tokenizer_path, label).
+    --model wins; then a local build; then the published snapshot.
+    """
+    if args.model:
+        if os.path.isdir(args.model):
+            return load_from_folder(args.model)
+        if not os.path.exists(args.model):
+            print(f"Error: model not found: {args.model}", file=sys.stderr)
+            sys.exit(1)
+        return TorchGPT.load(args.model), args.tokenizer or LOCAL_TOKENIZER, args.model
+
+    if os.path.exists(LOCAL_MODEL) and os.path.exists(LOCAL_TOKENIZER):
+        return TorchGPT.load(LOCAL_MODEL), args.tokenizer or LOCAL_TOKENIZER, LOCAL_MODEL
+
+    folder = hf_snapshot(args.hf_repo, download=not args.no_download)
+    if not all(os.path.exists(os.path.join(folder, f)) for f in HF_FILES):
+        print("Error: no weights found.\n"
+              f"       Train one with ./build.sh, or drop --no-download to "
+              f"fetch {args.hf_repo} from the Hugging Face Hub.",
+              file=sys.stderr)
+        sys.exit(1)
+    model, tok_path, label = load_from_folder(folder)
+    return model, (args.tokenizer or tok_path), label
+
+
+def print_info(model, args, label) -> None:
+    print(f"  model      : {label}")
     print(f"  params     : {model.num_params:,}")
     print(f"  vocab      : {model.active_vocab_size} active / {model.vocab_size} total")
     print(f"  d_model    : {model.d_model}  n_heads={model.n_heads}  n_layers={model.n_layers}")
     print(f"  context    : {CONTEXT_WINDOW} tokens")
-    print(f"  temperature: {args.temperature}")
+    print(f"  temperature: {args.temperature}  (0 = greedy)")
     print(f"  top_k      : {args.top_k}")
     print(f"  max_tokens : {args.max_tokens}")
+    print(f"  affect     : {'on' if not args.no_affect else 'off'}")
 
 
 def main():
     parser = argparse.ArgumentParser(description="PhysisML interactive chat")
-    parser.add_argument("--model",       default=DEFAULT_MODEL,
-                        help="Path to .pt checkpoint (default: model.pt)")
-    parser.add_argument("--tokenizer",   default=DEFAULT_TOKENIZER,
-                        help="Path to tokenizer JSON (default: tokenizer.json)")
-    parser.add_argument("--temperature", type=float, default=0.8,
-                        help="Sampling temperature (default: 0.8)")
+    parser.add_argument("prompt",        nargs="*",
+                        help="prompt to answer once, then exit (omit for a REPL)")
+    parser.add_argument("--model",       default=None,
+                        help="checkpoint .pt, or a folder with config.json + "
+                             "model.safetensors (default: standalone/model.pt, "
+                             "else the published weights)")
+    parser.add_argument("--tokenizer",   default=None,
+                        help="tokenizer JSON (default: next to the weights)")
+    parser.add_argument("--hf-repo",     default=HF_REPO,
+                        help=f"Hugging Face model repo (default: {HF_REPO})")
+    parser.add_argument("--download",    action="store_true",
+                        help="fetch the published weights and exit")
+    parser.add_argument("--no-download", action="store_true",
+                        help="never touch the network")
+    parser.add_argument("--temperature", type=float, default=0.0,
+                        help="0 = greedy (default). Published scores are greedy")
     parser.add_argument("--top_k",       type=int,   default=40,
-                        help="Top-k sampling (default: 40)")
-    parser.add_argument("--max_tokens",  type=int,   default=80,
-                        help="Max tokens to generate per turn (default: 80)")
+                        help="only used when temperature > 0")
+    parser.add_argument("--max_tokens",  type=int,   default=40,
+                        help="max tokens to generate per turn (default: 40)")
+    parser.add_argument("--min_tokens",  type=int,   default=4,
+                        help="EOS is suppressed before this many tokens")
+    parser.add_argument("--no-affect",   action="store_true",
+                        help="disable affective modulation of the logits")
     args = parser.parse_args()
 
-    # Validate paths
-    for label, path in [("model", args.model), ("tokenizer", args.tokenizer)]:
-        if not os.path.exists(path):
-            print(f"Error: {label} not found: {path}", file=sys.stderr)
-            sys.exit(1)
+    if args.download:
+        folder = hf_snapshot(args.hf_repo)
+        print(f"Weights ready in {folder}")
+        return
 
     # Use all available CPU threads
     torch.set_num_threads(os.cpu_count() or 4)
 
-    # Load tokenizer and model
-    tok = BPETokenizer()
-    tok.load(args.tokenizer)
-
-    model = TorchGPT.load(args.model)
+    model, tok_path, label = resolve(args)
     model.eval()
+
+    if not os.path.exists(tok_path):
+        print(f"Error: tokenizer not found: {tok_path}", file=sys.stderr)
+        sys.exit(1)
+    tok = BPETokenizer()
+    tok.load(tok_path)
+
+    mask = undecodable_mask(model, tok)
+    modulator = affect = None
+    if not args.no_affect:
+        modulator, affect = load_affect(tok)
+
+    def answer(text: str) -> str:
+        return generate(model, tok, text,
+                        max_tokens  = args.max_tokens,
+                        temperature = args.temperature,
+                        top_k       = args.top_k,
+                        min_tokens  = args.min_tokens,
+                        stop_after  = args.min_tokens,
+                        context     = CONTEXT_WINDOW,
+                        modulator   = modulator, affect = affect, mask = mask)
+
+    if args.prompt:
+        print(answer(" ".join(args.prompt)))
+        return
 
     print("=" * 56)
     print("  PhysisML — interactive generation")
     print("=" * 56)
-    print_info(model, args)
+    print_info(model, args, label)
     print("=" * 56)
-    print("  /info    mostra dettagli modello")
-    print("  /quit    esci")
+    print("  /info    show model details")
+    print("  /quit    exit")
     print("=" * 56)
     print()
 
@@ -189,15 +318,11 @@ def main():
             break
 
         if prompt == "/info":
-            print_info(model, args)
+            print_info(model, args, label)
             print()
             continue
 
-        output = generate(model, tok, prompt,
-                          max_tokens=args.max_tokens,
-                          temperature=args.temperature,
-                          top_k=args.top_k)
-        print(f"<<< {output}\n")
+        print(f"<<< {answer(prompt)}\n")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,73 @@
+name: Bug report
+description: Something does not run, or runs and produces the wrong thing.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing: if the model simply answered something odd, that is
+        probably not a bug — it is a 23.6M-parameter model trained on a small
+        Italian curriculum and it will produce nonsense outside that ground.
+        Use **Question about the results** for that. This form is for code
+        that fails, or that behaves differently from what the documentation
+        says it does.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: The command you ran and what came back. Paste the full traceback if there is one.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+      description: If the documentation says otherwise, link the line.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Commit
+      description: "`git rev-parse --short HEAD`, or the release tag."
+      placeholder: ed8b89f
+    validations:
+      required: true
+
+  - type: dropdown
+    id: path
+    attributes:
+      label: Which path
+      options:
+        - Published weights (standalone/chat.py, Hugging Face)
+        - Training a model (build.sh, dynamic_model/)
+        - Tests
+        - Export (GGUF / safetensors / Hugging Face)
+        - Web UI
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      description: |
+        Python version, OS, and the output of:
+        `python3 -c "import torch, numpy; print(torch.__version__, numpy.__version__)"`
+      render: shell
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I installed with `pip install -r requirements.txt` (or said above what I did instead).
+        - label: There is no API key, password, or host name in what I pasted.

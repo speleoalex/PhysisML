@@ -1,0 +1,19 @@
+# PhysisML — runtime dependencies.
+#
+#   pip install -r requirements.txt
+#
+# On a CPU-only machine add the PyTorch CPU index to avoid pulling the CUDA
+# wheels (~2 GB instead of ~200 MB):
+#
+#   pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+#
+# Everything below is needed to train the Italian curriculum end to end and to
+# talk to a model. No API key is required: every level ships a local_teacher.json.
+
+numpy>=1.26
+torch>=2.1
+
+# Quick start: download and load the published weights from the Hugging Face
+# Hub (standalone/chat.py, scripts/export_hf.py). Small pure-Python packages.
+huggingface_hub>=0.23
+safetensors>=0.4

@@ -38,6 +38,17 @@ REFERENCE = "models/active_tokenizer.json"
 # What a build started from scratch seeds itself with.
 SEED = "dynamic_model/data/tokenizer_8k.json"
 
+# models/ is a build artefact and is not in the repository, so a fresh clone —
+# and CI — has no active tokenizer to inspect. The tests below assert facts
+# about a tokenizer that a build PRODUCED; they cannot be rewritten against a
+# synthetic one without asserting something else. Skip them explicitly, one by
+# one, so the report says which checks did not run and why: the tests that read
+# only committed material (the corpora, the from-scratch seed) still run in CI
+# and are the ones that would catch the marker regressing at the source.
+needs_reference = pytest.mark.skipif(
+    not os.path.exists(os.path.join(ROOT, REFERENCE)),
+    reason=f"{REFERENCE} is a build artefact: run ./build.sh to produce it")
+
 
 def _load_tc():
     """train_curriculum.py is a script, not a module: load it by path."""
@@ -60,6 +71,7 @@ def _snapshots():
 
 class TestEosRegistration:
 
+    @needs_reference
     def test_the_active_tokenizer_has_an_eos(self):
         """The single fact whose absence made all the EOS code dead."""
         tok = BPETokenizer()
@@ -67,6 +79,7 @@ class TestEosRegistration:
         assert tok.get_special_id(tok.EOS_TOKEN) is not None, \
             "no EOS in the active tokenizer: run scripts/register_eos.py"
 
+    @needs_reference
     def test_no_activated_row_is_left_without_a_token(self):
         """Every id from 0 to the maximum must decode to something.
 
@@ -90,6 +103,7 @@ class TestEosRegistration:
         assert not holes, \
             f"{len(holes)} activated rows with no token: {holes[:10]}"
 
+    @needs_reference
     def test_every_snapshot_that_can_hold_eos_agrees_on_the_id(self):
         """Same weights get loaded with different snapshots across a build.
 
@@ -110,6 +124,7 @@ class TestEosRegistration:
             else:
                 assert have == eos_id, f"{path} has EOS at {have}, not {eos_id}"
 
+    @needs_reference
     def test_eos_survives_save_and_load(self, tmp_path):
         tok = BPETokenizer(); tok.load(REFERENCE)
         out = str(tmp_path / "t.json")
@@ -119,6 +134,7 @@ class TestEosRegistration:
             tok.get_special_id(tok.EOS_TOKEN)
         assert again.is_special(again.get_special_id(again.EOS_TOKEN))
 
+    @needs_reference
     def test_eos_encodes_to_exactly_one_token(self):
         tok = BPETokenizer(); tok.load(REFERENCE)
         eos = tok.get_special_id(tok.EOS_TOKEN)
@@ -127,6 +143,7 @@ class TestEosRegistration:
             tok.encode("il cane dorme.") + [eos]
         assert tok.decode([eos]) == tok.EOS_TOKEN
 
+    @needs_reference
     def test_registering_eos_does_not_change_ordinary_text(self):
         """Registering a special token switches encode() to a slower path that
         splits on the special literal. Ordinary text must come out identical,
@@ -206,6 +223,7 @@ class TestEosRegistration:
         last_real = max(i for i in tok.vocab if not tok.is_special(i))
         assert eos == last_real + 1
 
+    @needs_reference
     def test_the_exporter_would_declare_the_eos(self):
         """export_gguf derives the GGUF eos_token_id from the tokenizer, so
         registration is all that stands between ollama and a native stop.

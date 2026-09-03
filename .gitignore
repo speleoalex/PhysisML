@@ -39,6 +39,12 @@ dynamic_model/exp_b/checkpoints/
 # without targets.jsonl beside it a rollback in a fresh clone would put the
 # admissions back without removing the material that replaced them.
 !training_files/**/batches/**/targets.jsonl
+# And the retraction ledger itself, for the same reason one step up: it is the
+# record the generators consult before rebuilding a level (retraction.py:
+# "a fact about the material, and a fresh clone has to see it"). Without it
+# expand_teacher_pools.py resurrects every retracted admission on the next run,
+# and the test suite reads an acquired noun as still unspent.
+!training_files/**/retracted.jsonl
 
 # Raw corpus downloads (multi-GB)
 corpus_raw/

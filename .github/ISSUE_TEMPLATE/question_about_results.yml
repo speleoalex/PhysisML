@@ -1,0 +1,47 @@
+name: Question about the results
+description: Something in the measurements, the claims, or the method does not add up.
+labels: ["question", "results"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        These are welcome — more welcome than feature requests. The five
+        objections that come up most already have answers in
+        [the FAQ](../../blob/main/docs/en/faq.md): exact-match as a
+        memorization measure, whether honesty generalizes, the EWC comparison
+        not being compute-matched, the model's scale, and "it's nanoGPT with a
+        curriculum". If yours is one of those and the answer there is wrong or
+        incomplete, say so here — that is exactly the useful case.
+
+  - type: textarea
+    id: claim
+    attributes:
+      label: Which claim
+      description: Quote it, and link where you read it (README, docs/, the Zenodo record, the model card).
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What does not add up
+      description: |
+        What would have to be true for the claim to hold, and why you think it
+        is not. If you re-ran something and got a different number, put both
+        numbers here.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: What you ran, if anything
+      description: Commands and output. Optional — a purely conceptual objection is fine.
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I read the FAQ and this is not answered there, or the answer there is what I am disputing.

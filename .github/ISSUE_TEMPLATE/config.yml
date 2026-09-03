@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Conventions before opening a pull request
+    url: https://github.com/speleoalex/PhysisML/blob/main/CONTRIBUTING.md
+    about: Code in English, curriculum in Italian, what _reference/ is, and why the ledgers are versioned.

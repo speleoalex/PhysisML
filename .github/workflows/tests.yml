@@ -1,0 +1,39 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        # The CPU index keeps the PyTorch wheel at ~200 MB instead of pulling
+        # the CUDA build, which no runner here can use.
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt \
+            --extra-index-url https://download.pytorch.org/whl/cpu
+
+      - name: Run the test suite
+        # A few seconds on CPU. tests/ is the whole suite: everything named
+        # test_*.py elsewhere in the tree is a CLI diagnostic, not a module
+        # pytest collects (dynamic_model/test_model.py reports on a build).
+        #
+        # There is no -k exclusion here on purpose. The runner has no models/
+        # directory — it is a build artefact — so the handful of tests that
+        # assert facts about a tokenizer a build produced skip themselves,
+        # each with a reason that names the missing file. A skip is visible in
+        # the report; an exclusion in this file would not be.
+        run: python -m pytest tests/ -q

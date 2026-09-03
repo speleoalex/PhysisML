@@ -1,6 +1,7 @@
 # PhysisML
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22285422.svg)](https://doi.org/10.5281/zenodo.22285422)
+[![tests](https://github.com/speleoalex/PhysisML/actions/workflows/tests.yml/badge.svg)](https://github.com/speleoalex/PhysisML/actions/workflows/tests.yml)
 
 *Read this in: [Italiano](README.it.md)*
 
@@ -13,14 +14,84 @@ guided by a tutor that adapts the curriculum in real time.
 - **Teacher signal**: a free local teacher (or, optionally, a Claude tutor) generates targeted examples on the model's current deficits
 - **Tiny footprint**: GPT-2 style transformer, ~23.6M parameters, trains on a CPU or a consumer GPU
 
+---
+
+## Try it in two minutes
+
+Trained weights are published on the Hugging Face Hub. Nothing has to be
+trained to hear the model talk:
+
+```bash
+# --depth 1 on purpose: the curriculum corpora are versioned in the repository
+# so the results are reproducible, which makes the full history ~400 MB.
+git clone --depth 1 https://github.com/speleoalex/PhysisML.git
+cd PhysisML
+pip install -r requirements.txt
+
+python3 standalone/chat.py "di: cosa mangia il cane?"
+```
+
+The first run downloads ~95 MB from
+[`speleoalex/physisml-it-preview`](https://huggingface.co/speleoalex/physisml-it-preview)
+into `models/hf/` and answers — the whole thing took 74 seconds on a CPU-only
+laptop, download included:
+
+```
+il cane mangia il pane.
+```
+
+Run it with no argument for a REPL. Verbatim, greedy, on the published weights:
+
+```
+========================================================
+  PhysisML — interactive generation
+========================================================
+  params     : 23,589,376
+  vocab      : 2593 active / 9000 total
+  d_model    : 512  n_heads=8  n_layers=6
+  context    : 128 tokens
+  temperature: 0.0  (0 = greedy)
+  affect     : on
+========================================================
+
+>>> cos è il cane?
+<<< il cane è un animale.
+
+>>> il pane è buono?
+<<< secondo me il pane è buono perché è caldo.
+
+>>> cos è un falco?
+<<< non lo so.
+```
+
+The model speaks Italian: it has only ever been shown an Italian curriculum.
+That last answer is the point of the project — `falco` is a noun it was never
+taught, and level 12 teaches it to say so instead of inventing. It is a small
+model with a small vocabulary, and it will produce nonsense outside the ground
+it was taught; [the FAQ](docs/en/faq.md) is blunt about what that does and does
+not demonstrate.
+
+On a CPU-only machine, add the PyTorch CPU index to the install to pull a
+~200 MB wheel instead of the ~2 GB CUDA one:
+
+```bash
+pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+```
+
+To train one from scratch instead, see [Quick start](#quick-start) below.
+
+---
+
 **Documentation**
 
 | Document | EN | IT |
 |---|---|---|
+| **FAQ — the five objections** | [docs/en/faq.md](docs/en/faq.md) | [docs/it/faq.md](docs/it/faq.md) |
 | Technical and philosophical design | [docs/en/physisml_model.md](docs/en/physisml_model.md) | [docs/it/modello_PhysisML.md](docs/it/modello_PhysisML.md) |
 | Background on classic language models | [docs/en/classic_language_models.md](docs/en/classic_language_models.md) | [docs/it/modelli_linguistici_classici.md](docs/it/modelli_linguistici_classici.md) |
 | Development setup | [docs/en/setup/development.md](docs/en/setup/development.md) | [docs/it/setup/development.md](docs/it/setup/development.md) |
 | Intel Arc GPU setup | [docs/en/setup/gpu_intel_arc.md](docs/en/setup/gpu_intel_arc.md) | [docs/it/setup/gpu_intel_arc.md](docs/it/setup/gpu_intel_arc.md) |
+| How to contribute | [CONTRIBUTING.md](CONTRIBUTING.md) | — |
 
 ---
 
@@ -158,12 +229,20 @@ matrices land in `models/exp_i/`.
 ## Requirements
 
 ```bash
-pip install torch --index-url https://download.pytorch.org/whl/cpu
+pip install -r requirements.txt
+
+# CPU-only machine: a ~200 MB wheel instead of the ~2 GB CUDA one
+pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
 ```
 
-That is the whole hard dependency. **No API key is needed to train the Italian
-curriculum**: every level 0-12 ships a `local_teacher.json`, so `./build.sh`
-teaches with the offline tutor.
+Four packages: `numpy` and `torch` to train, `huggingface_hub` and
+`safetensors` to fetch and load the published weights. `requirements-dev.txt`
+adds pytest; `requirements-optional.txt` lists what individual scripts ask for
+and guard at the import site — the Claude tutor, the corpus builder, the GGUF
+exporter.
+
+**No API key is needed to train the Italian curriculum**: every level 0-12
+ships a `local_teacher.json`, so `./build.sh` teaches with the offline tutor.
 
 ### Tutors
 

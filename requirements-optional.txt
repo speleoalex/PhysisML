@@ -1,0 +1,20 @@
+# PhysisML — optional dependencies. Nothing here is needed for the quick start
+# or for a full Italian curriculum build; each unlocks one extra path and every
+# import site degrades gracefully when the package is missing.
+#
+#   pip install -r requirements-optional.txt
+
+# Claude tutor (--tutor-model haiku|sonnet) and the .env that holds its key.
+# The Italian curriculum does not need it; the English one currently does.
+anthropic>=0.40
+python-dotenv>=1.0
+
+# scripts/build_corpus.py --source huggingface: pull Wikipedia IT from the Hub
+# instead of a local dump.
+datasets>=2.19
+
+# scripts/export_gguf.py: export a checkpoint for llama.cpp / ollama.
+gguf>=0.10
+
+# The web UI has its own, larger dependency set (FastAPI, SQLAlchemy, …):
+#   pip install -r standalone/webui/chat_server/requirements.txt

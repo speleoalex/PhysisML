@@ -1,0 +1,8 @@
+# PhysisML — development dependencies (test suite).
+#
+#   pip install -r requirements-dev.txt
+#   python3 -m pytest tests/ -q
+
+-r requirements.txt
+
+pytest>=8.0

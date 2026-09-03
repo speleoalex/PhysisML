@@ -33,9 +33,34 @@ async def ensure_admin() -> None:
         print(f"Default admin created: {settings.ADMIN_EMAIL}")
 
 
+def warn_about_defaults() -> None:
+    """
+    Say out loud when the server is running on the shipped placeholders.
+
+    config.py has to have defaults for JWT_SECRET and ADMIN_PASSWORD or the
+    app will not start without a .env, which makes trying it out needlessly
+    hard. The failure mode is someone leaving them in place and exposing the
+    port: 'change-me' signs every token, so anyone who reads this file can
+    mint an admin one. Refusing to start would be wrong for a local demo;
+    starting silently is what actually gets people hurt.
+    """
+    weak = [name for name, placeholder in
+            (("JWT_SECRET", "change-me"), ("ADMIN_PASSWORD", "admin123"))
+            if getattr(settings, name) == placeholder]
+    if not weak:
+        return
+    print("=" * 68)
+    print("  WARNING: still using the shipped default for: " + ", ".join(weak))
+    print("  Anyone who has read the source can sign an admin token.")
+    print("  Fine on localhost, never on an exposed port. Set them in")
+    print("  chat_server/.env (see .env.example) before binding to 0.0.0.0.")
+    print("=" * 68)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print(f"PhysisML chat_server starting ({settings.ENVIRONMENT})")
+    warn_about_defaults()
     await init_db()
     await ensure_admin()
     inference.load()
