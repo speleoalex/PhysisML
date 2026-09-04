@@ -40,6 +40,10 @@ import sys
 import torch
 
 _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _ROOT not in sys.path:
+    sys.path.insert(0, _ROOT)
+
+from dynamic_model.exp_b.none_token import SCORING_ONLY_TOKENS, scoring_cut  # noqa: E402
 
 # Files copied verbatim into the upload folder: the model card, the licence,
 # and the standalone inference code, which is the package the card imports.
@@ -140,13 +144,32 @@ def export_one(ckpt_path: str, out_dir: str, save_file,
     with open(tok_src, encoding="utf-8") as f:
         tok = json.load(f)
 
+    # The published loaders (huggingface/generate.py, standalone/chat.py) build
+    # the model with this config's active_vocab_size, and the standalone
+    # forward masks every row at or above it. The scoring-only rows
+    # (`<|NONE|>`, scored but never sampled here) are hidden the same way at
+    # decoding time inside the repo, so the exported integer is the masked
+    # one: the weights ship in full, the row stays dormant for a sampler.
+    active  = cfg.get("active_vocab_size", cfg["vocab_size"])
+    special = tok.get("special_tokens", {})
+    scoring_only = {t: int(special[t]) for t in SCORING_ONLY_TOKENS if t in special}
+    export_active = scoring_cut(active, set(scoring_only.values()))
+    if export_active is None:
+        die(f"scoring-only rows {sorted(scoring_only.values())} sit below a "
+            f"trained row in {os.path.relpath(ckpt_path, _ROOT)}; the exported "
+            "config cannot mask them")
+    if export_active != active:
+        print(f"  scoring-only rows kept dormant in the export: {scoring_only} "
+              f"(active_vocab_size {active} → {export_active})")
+
     out_cfg = {
         "model_type":        "physisml",
         "architecture":      "decoder-only transformer, pre-LayerNorm, "
                              "LM head weight-tied to the token embedding",
         "tied_weights":      {k: v for k, v in tied},
         "vocab_size":        cfg["vocab_size"],
-        "active_vocab_size": cfg.get("active_vocab_size", cfg["vocab_size"]),
+        "active_vocab_size": export_active,
+        "scoring_only_tokens": scoring_only,
         "d_model":           cfg["d_model"],
         "n_heads":           cfg["n_heads"],
         "n_layers":          cfg["n_layers"],

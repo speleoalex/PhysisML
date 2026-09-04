@@ -4,7 +4,9 @@ Export a TorchGPT checkpoint to GGUF format for use with llama.cpp and ollama.
 Architecture: GPT-2 decoder-only (Pre-LayerNorm, causal mask, weight-tied LM head).
 
 Weight mapping  TorchGPT → GGUF:
-  tok_emb.weight                   → token_embd.weight        (active rows only)
+  tok_emb.weight                   → token_embd.weight        (active rows only;
+                                       scoring-only rows such as <|NONE|> are
+                                       left out — llama.cpp cannot mask them)
   pos_emb.weight                   → position_embd.weight
   blocks.i.self_attn.in_proj_weight → blk.i.attn_qkv.weight   (Q|K|V concatenated)
   blocks.i.self_attn.in_proj_bias  → blk.i.attn_qkv.bias
@@ -69,6 +71,12 @@ except ImportError as e:
 
 from physisml.torch_model import TorchGPT
 from physisml.tokenizer import BPETokenizer
+from dynamic_model.exp_b.none_token import mask_scoring_rows, scoring_only_ids
+
+# A GGUF has no active_vocab_size: every row it ships can be sampled by
+# llama.cpp. The scoring-only rows (`<|NONE|>`, the eleventh class) are masked
+# at decoding time inside this repo, so the export enters the same mask and
+# writes what a sampler here would see — the row is simply not in the file.
 
 
 # ---------------------------------------------------------------------------
@@ -273,7 +281,13 @@ def export_hf_format(model: TorchGPT, tok: BPETokenizer,
       merges.txt           BPE merge rules
       tokenizer_config.json
     """
-    active = model.active_vocab_size
+    # The mask must hold while `active` is read: everything below uses the
+    # local, so the block can close right away.
+    with mask_scoring_rows(model, tok) as leftover:
+        if leftover:
+            raise ValueError(f"scoring-only rows {leftover} sit below a trained "
+                             "row; an HF export cannot mask them")
+        active = model.active_vocab_size
     sd = model.state_dict()
 
     # --- config.json ---
@@ -465,39 +479,52 @@ def main() -> None:
     tok.load(tok_path)
     print(f"  vocab size: {len(tok)}")
 
-    # Write GGUF directly
+    # Write GGUF directly. The whole file is written with the scoring-only
+    # rows dormant, exactly as TrainerB.generate sees the model: token list,
+    # merges and embedding rows all stop at the same cut, so ids stay aligned.
     print(f"\nWriting {out_path} ...")
-    writer = gguf.GGUFWriter(out_path, gguf.MODEL_ARCH_NAMES[gguf.MODEL_ARCH.GPT2])
+    with mask_scoring_rows(model, tok) as leftover:
+        if leftover:
+            print(f"ERROR: scoring-only rows {leftover} sit below a trained row; "
+                  "a GGUF cannot mask them and llama.cpp would sample them.")
+            sys.exit(1)
+        dropped = sorted(i for i in scoring_only_ids(tok)
+                         if i >= model.active_vocab_size)
+        if dropped:
+            print(f"  scoring-only rows left out of the file: {dropped} "
+                  f"(active {model.active_vocab_size} for the export)")
 
-    # Metadata
-    writer.add_name("PhysisML")
-    writer.add_description(
-        f"PhysisML GPT-2 {model.n_layers}L d{model.d_model} h{model.n_heads} "
-        f"vocab{model.active_vocab_size}")
-    writer.add_author("PhysisML project")
+        writer = gguf.GGUFWriter(out_path, gguf.MODEL_ARCH_NAMES[gguf.MODEL_ARCH.GPT2])
 
-    # Architecture
-    writer.add_context_length(model.max_seq_len)  # must match pos_emb rows
-    writer.add_embedding_length(model.d_model)
-    writer.add_feed_forward_length(model.d_model * 4)
-    writer.add_block_count(model.n_layers)
-    writer.add_head_count(model.n_heads)
-    writer.add_layer_norm_eps(args.layer_norm_eps)
-    writer.add_file_type(gguf.LlamaFileType.ALL_F32)
+        # Metadata
+        writer.add_name("PhysisML")
+        writer.add_description(
+            f"PhysisML GPT-2 {model.n_layers}L d{model.d_model} h{model.n_heads} "
+            f"vocab{model.active_vocab_size}")
+        writer.add_author("PhysisML project")
 
-    # Tokenizer
-    print("\nExporting tokenizer...")
-    export_tokenizer(tok, writer, model.active_vocab_size)
+        # Architecture
+        writer.add_context_length(model.max_seq_len)  # must match pos_emb rows
+        writer.add_embedding_length(model.d_model)
+        writer.add_feed_forward_length(model.d_model * 4)
+        writer.add_block_count(model.n_layers)
+        writer.add_head_count(model.n_heads)
+        writer.add_layer_norm_eps(args.layer_norm_eps)
+        writer.add_file_type(gguf.LlamaFileType.ALL_F32)
 
-    # Weights
-    print("\nExporting weights...")
-    export_weights(model, writer)
+        # Tokenizer
+        print("\nExporting tokenizer...")
+        export_tokenizer(tok, writer, model.active_vocab_size)
 
-    # Finalize
-    writer.write_header_to_file()
-    writer.write_kv_data_to_file()
-    writer.write_tensors_to_file()
-    writer.close()
+        # Weights
+        print("\nExporting weights...")
+        export_weights(model, writer)
+
+        # Finalize
+        writer.write_header_to_file()
+        writer.write_kv_data_to_file()
+        writer.write_tensors_to_file()
+        writer.close()
 
     size_mb = os.path.getsize(out_path) / 1024 / 1024
     print(f"\nDone! {out_path}  ({size_mb:.1f} MB)")
