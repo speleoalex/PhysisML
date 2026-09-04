@@ -127,7 +127,10 @@ class Gatekeeper:
         supervision twice before;
       * nothing that appears in the frozen probe, or the degradation trigger
         measures the model on what the loop just taught it;
-      * a cap per batch, mirroring the dream's own max_new.
+      * a cap per batch; the same number is handed to the dream as its
+        session-harvest cap, so a longer run cannot silently lose two
+        thirds of its session to a cap set elsewhere (13.3 did: 64 of
+        104 pairs dropped at the dream's default 40).
 
     ATOMIC, per noun, and that is not fussiness. Level 12 teaches
     'cos è un falco?' -> 'non lo so.' while the oracle answers
@@ -704,7 +707,8 @@ def run_dream(args, level: int) -> bool:
     """
     cmd = [sys.executable, "-m", "dynamic_model.train_curriculum",
            "--phase", "2", "--level", str(level), "--lang", args.lang,
-           "--dream-mode", args.dream_mode]
+           "--dream-mode", args.dream_mode,
+           "--qa-max-new", str(args.max_new)]
     if args.ckpt_base:
         cmd += ["--ckpt-base", args.ckpt_base]
     print(f"  → {' '.join(cmd)}")
@@ -725,7 +729,8 @@ def main() -> None:
                          "triggers a dream (0.05 = 5 points)")
     ap.add_argument("--max-repetition", type=float, default=0.08)
     ap.add_argument("--max-new", type=int, default=40,
-                    help="cap on accepted targets per batch")
+                    help="cap on accepted targets per batch; also passed to "
+                         "the dream as --qa-max-new (session pairs harvested)")
     ap.add_argument("--rehearsal-every", type=int, default=5)
     ap.add_argument("--rehearsal-k", type=int, default=4)
     ap.add_argument("--dream-mode", default="standard",

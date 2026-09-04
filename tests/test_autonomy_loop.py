@@ -266,6 +266,22 @@ def test_removing_a_batch_removes_its_material(fake_tree):
     assert cfg["steps"]["A"]["targets"] == []
 
 
+def test_the_dream_is_handed_the_loop_cap(monkeypatch):
+    """One --max-new governs both caps.  13.3 ran at 100 while the dream
+    kept its own default of 40 and dropped 64 of 104 session pairs."""
+    seen = {}
+
+    class _Done:
+        returncode = 0
+
+    monkeypatch.setattr(al.subprocess, "run",
+                        lambda cmd, **kw: seen.setdefault("cmd", cmd) and _Done())
+    args = _args(max_new=100, dream_mode="standard", ckpt_base=None)
+    assert al.run_dream(args, 13)
+    cmd = seen["cmd"]
+    assert cmd[cmd.index("--qa-max-new") + 1] == "100"
+
+
 def test_a_snapshot_survives_the_next_save(tmp_path):
     """Batch.snapshot hard-links dreamed.pt to final_dreamed.pt.  The link
     is only a rollback point if the next save of final_dreamed.pt gets a

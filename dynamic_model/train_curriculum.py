@@ -2710,7 +2710,8 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
     # Extract unique (prompt, expected) from all sessions at this level and
     # add any prompts not already in qa_pairs.jsonl.  Uses the teacher's
     # `expected` (gold standard), not the model's actual response.
-    n_qa_added = _update_qa_pairs_from_sessions(ckpt_base, level, args.lang)
+    n_qa_added = _update_qa_pairs_from_sessions(ckpt_base, level, args.lang,
+                                                max_new=args.qa_max_new)
 
     # ── Dream stats ──────────────────────────────────────────────────────────
     # Save the tokenizer BEFORE the checkpoint: a crash between the two writes
@@ -2796,6 +2797,10 @@ def main():
                              "deep (long level). Default: standard")
     parser.add_argument("--n-qa-epochs", type=int, default=None,
                         help="Override N2.5 QA pairs epochs in dream (default: per dream-mode)")
+    parser.add_argument("--qa-max-new", type=int, default=40,
+                        help="Cap on session-log pairs harvested into qa_pairs.jsonl "
+                             "per dream. The autonomy loop passes its own --max-new "
+                             "here so one number governs both caps (default: 40)")
     parser.add_argument("--no-qa-corpus", action="store_true",
                         help="Exclude qa_corpus.txt from text training corpus (for experiments)")
     parser.add_argument("--ask-gate", action="store_true",
