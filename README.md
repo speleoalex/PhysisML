@@ -14,6 +14,14 @@ guided by a tutor that adapts the curriculum in real time.
 - **Teacher signal**: a free local teacher (or, optionally, a Claude tutor) generates targeted examples on the model's current deficits
 - **Tiny footprint**: GPT-2 style transformer, ~23.6M parameters, trains on a CPU or a consumer GPU
 
+![The published weights answering in ollama](docs/physisml_ollama.png)
+
+The published weights in `ollama`, after
+[`scripts/export_gguf.py`](scripts/export_gguf.py) — with `/set nohistory`, so
+every answer stands on its own with no conversation context. The last one is
+the point of the project: `cocomero` is a noun the model was never taught, and
+saying so is a thing it was taught to do.
+
 ---
 
 ## Try it in two minutes

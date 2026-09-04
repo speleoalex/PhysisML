@@ -14,6 +14,14 @@ guidato da un tutor che adatta il curriculum in tempo reale.
 - **Segnale insegnante**: un insegnante locale gratuito (o, opzionalmente, un tutor Claude) genera esempi mirati sui deficit correnti del modello
 - **Dimensioni minime**: transformer GPT-2 style, ~23.6M parametri, si addestra su CPU o GPU consumer
 
+![I pesi pubblicati che rispondono in ollama](docs/physisml_ollama.png)
+
+I pesi pubblicati in `ollama`, dopo
+[`scripts/export_gguf.py`](scripts/export_gguf.py) — con `/set nohistory`, così
+ogni risposta sta in piedi da sola senza contesto di conversazione. L'ultima è
+il senso del progetto: `cocomero` è un nome che il modello non ha mai visto, e
+dirlo è una cosa che gli è stata insegnata.
+
 ---
 
 ## Provalo in due minuti
