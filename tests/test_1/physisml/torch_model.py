@@ -290,6 +290,12 @@ class TorchGPT(nn.Module):
     # ------------------------------------------------------------------
 
     def save(self, path: str) -> None:
+        # Write to a sibling temp file and rename it over the target.  A
+        # rename replaces the directory entry and never writes through the
+        # old inode, so any hard link to the previous file (the autonomy
+        # loop snapshots each batch that way) keeps the previous weights,
+        # and a crash mid-write leaves the old checkpoint intact.
+        tmp = path + ".tmp"
         torch.save({
             "state_dict": self.state_dict(),
             "config": {
@@ -301,7 +307,8 @@ class TorchGPT(nn.Module):
                 "d_ff":              self.blocks[0].linear1.out_features,
                 "max_seq_len":       self.max_seq_len,
             }
-        }, path)
+        }, tmp)
+        os.replace(tmp, path)
 
     @classmethod
     def load(cls, path: str) -> "TorchGPT":

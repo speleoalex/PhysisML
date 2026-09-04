@@ -337,8 +337,12 @@ class Batch:
     def snapshot(self, dreamed: str) -> None:
         """Freeze the state this batch produced, for rollback.
 
-        Hard-linked, not copied: the file is 94MB and identical to
-        final_dreamed.pt until the next batch overwrites that name.
+        Hard-linked, not copied: the file is 94MB.  This only holds
+        because TorchGPT.save writes a temp file and renames it over the
+        target -- the rename gives final_dreamed.pt a fresh inode and the
+        link keeps the old one.  A save that wrote through the shared
+        inode would silently overwrite every snapshot taken this way (it
+        did, until 2026-09-04: batches 13.1 and 13.2 were lost).
         """
         os.makedirs(os.path.join(self.ckpt_dir, self.slug), exist_ok=True)
         dst = os.path.join(self.ckpt_dir, self.slug, "dreamed.pt")

@@ -266,6 +266,42 @@ def test_removing_a_batch_removes_its_material(fake_tree):
     assert cfg["steps"]["A"]["targets"] == []
 
 
+def test_a_snapshot_survives_the_next_save(tmp_path):
+    """Batch.snapshot hard-links dreamed.pt to final_dreamed.pt.  The link
+    is only a rollback point if the next save of final_dreamed.pt gets a
+    fresh inode instead of writing through the shared one -- before the
+    atomic save, every snapshot silently became the latest weights."""
+    import hashlib
+    import torch
+    from physisml.torch_model import TorchGPT
+
+    def md5(p):
+        return hashlib.md5(open(p, "rb").read()).hexdigest()
+
+    n = 20
+    model = TorchGPT(n, 32, 2, 1, 64, 65, 0.0, active_vocab_size=n)
+    dreamed = tmp_path / "level_13" / "final_dreamed.pt"
+    dreamed.parent.mkdir()
+    model.save(str(dreamed))
+    before = md5(dreamed)
+
+    b = al.Batch.__new__(al.Batch)
+    b.ckpt_dir, b.id = str(tmp_path / "level_13" / "batches"), 1
+    b.snapshot(str(dreamed))
+    snap = tmp_path / "level_13" / "batches" / "0001" / "dreamed.pt"
+    assert md5(snap) == before
+
+    with torch.no_grad():                 # the next dream changes the weights
+        for p in model.parameters():
+            p.add_(1.0)
+    model.save(str(dreamed))
+
+    assert md5(dreamed) != before, "the new weights did land"
+    assert md5(snap) == before, "the snapshot must keep the old weights"
+    assert os.stat(snap).st_ino != os.stat(dreamed).st_ino
+    assert not (dreamed.parent / "final_dreamed.pt.tmp").exists()
+
+
 def test_the_session_log_grades_the_row_above(tmp_path):
     """The offset the dream's harvest depends on: `feedback` on row N is the
     grade of row N-1. A log written any other way pairs every grade with the
