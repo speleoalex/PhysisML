@@ -15,11 +15,11 @@ Compatibility:
   - save/load with torch.save / torch.load (not .npz)
   - Can be used as drop-in replacement in existing training loops
 
-Esempio:
+Example:
     from physisml.torch_model import TorchGPT, TorchAdamOptimizer
     model = TorchGPT(vocab_size=8000, d_model=256, n_heads=4, n_layers=4,
                      d_ff=1024, max_seq_len=129, dropout_p=0.1,
-                     active_vocab_size=501)   # 501 attivi, 7499 dormienti
+                     active_vocab_size=501)   # 501 active, 7499 dormant
     opt   = TorchAdamOptimizer(model.parameters(), lr=1e-3)
     loss  = model.train_step(ids_batch, opt)
 """
@@ -60,7 +60,7 @@ class TorchGPT(nn.Module):
         self.pos_emb = nn.Embedding(max_seq_len, d_model)
         self.drop    = nn.Dropout(dropout_p)
 
-        # TransformerEncoderLayer con norm_first=True (Pre-LN, come GPT-2)
+        # TransformerEncoderLayer with norm_first=True (Pre-LN, as in GPT-2)
         self.blocks = nn.ModuleList([
             nn.TransformerEncoderLayer(
                 d_model    = d_model,
@@ -76,7 +76,7 @@ class TorchGPT(nn.Module):
         self.ln_f    = nn.LayerNorm(d_model)
         self.lm_head = nn.Linear(d_model, vocab_size, bias=False)
 
-        # Weight tying: LM head condivide i pesi con l'embedding
+        # Weight tying: the LM head shares the weights of the embedding
         self.lm_head.weight = self.tok_emb.weight
 
         self._init_weights()
@@ -147,7 +147,7 @@ class TorchGPT(nn.Module):
     def train_step(self, ids: torch.Tensor,
                    optimizer: torch.optim.Optimizer,
                    max_norm: float = 1.0) -> float:
-        """Un gradient step completo. Ritorna la loss scalare."""
+        """One complete gradient step. Returns the scalar loss."""
         optimizer.zero_grad()
         logits = self.forward(ids)
         loss   = self.loss(logits, ids)
@@ -157,7 +157,7 @@ class TorchGPT(nn.Module):
         return loss.item()
 
     # ------------------------------------------------------------------
-    # Slot activation — vocabolario con crescita biologica
+    # Slot activation — a vocabulary that grows biologically
     # ------------------------------------------------------------------
 
     def activate_slots(self, new_ids: list, init_vecs: torch.Tensor) -> None:
@@ -207,7 +207,7 @@ class TorchGPT(nn.Module):
         self.active_vocab_size += N
 
     # ------------------------------------------------------------------
-    # Persistenza
+    # Persistence
     # ------------------------------------------------------------------
 
     def save(self, path: str) -> None:
@@ -240,12 +240,12 @@ class TorchGPT(nn.Module):
 
 
 # ---------------------------------------------------------------------------
-# Optimizer wrapper con stessa interfaccia di AdamOptimizer
+# Optimizer wrapper with the same interface as AdamOptimizer
 # ---------------------------------------------------------------------------
 
 class TorchAdamOptimizer:
     """
-    Wrapper leggero per torch.optim.Adam con interfaccia compatibile.
+    A thin wrapper around torch.optim.Adam with a compatible interface.
 
     weight_decay defaults to 0: with torch.optim.Adam the decay is COUPLED
     (added to the gradient) and progressively kills rarely-used embeddings
@@ -265,13 +265,13 @@ class TorchAdamOptimizer:
 
 
 # ---------------------------------------------------------------------------
-# Helper: converte ids numpy → torch e viceversa
+# Helper: converts ids from numpy to torch and back
 # ---------------------------------------------------------------------------
 
 def to_torch(ids: np.ndarray) -> torch.Tensor:
     return torch.from_numpy(ids).long()
 
 def ids_batch(all_ids: np.ndarray, starts, block_size: int) -> torch.Tensor:
-    """Costruisce un mini-batch di sequenze da un array pre-codificato."""
+    """Build a mini-batch of sequences from a pre-encoded array."""
     seqs = [all_ids[s:s + block_size + 1] for s in starts]
     return torch.from_numpy(np.stack(seqs)).long()

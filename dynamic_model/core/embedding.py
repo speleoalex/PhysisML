@@ -1,12 +1,12 @@
 """
-DynamicEmbedding — embedding espandibile con supporto per ID sparsi (pruning).
+DynamicEmbedding — an expandable embedding with sparse-ID support (pruning).
 
-Rispetto a Embedding di test_1:
-  - expand(): aggiunge una riga senza toccare le esistenti
-  - prune():  azzera una riga e la marca come "morta" (ID sparso)
-  - dead_mask: maschera booleana — True = riga rimossa, grad azzerato
-  - Il pruning usa ID sparsi: la riga resta nell'array ma non partecipa
-    al training. Ottimizzazione futura: compattazione periodica degli ID.
+Against test_1's Embedding:
+  - expand(): appends a row without touching the existing ones
+  - prune():  zeroes a row and marks it "dead" (sparse ID)
+  - dead_mask: boolean mask — True = row removed, gradient zeroed
+  - pruning uses sparse IDs: the row stays in the array but takes no part
+    in training. Future optimisation: periodic compaction of the IDs.
 """
 import numpy as np
 import sys, os
@@ -23,7 +23,7 @@ class DynamicEmbedding:
             "W": np.random.randn(vocab_size, d_model).astype(DTYPE) * 0.02
         }
         self.grads: dict = {}
-        # ID sparsi: token rimossi dal pruning — grad azzerato, riga zeroed
+        # Sparse IDs: tokens removed by pruning — gradient zeroed, row zeroed
         self.dead_ids: Set[int] = set()
         self._cache_ids = None
 
@@ -39,23 +39,23 @@ class DynamicEmbedding:
         ids = self._cache_ids
         dW = np.zeros_like(self.params["W"])
         np.add.at(dW, ids, dout)
-        # Azzera gradient per righe morte (ID sparsi)
+        # Zero the gradient of the dead rows (sparse IDs)
         if self.dead_ids:
             dead = list(self.dead_ids)
             dW[dead] = 0.0
         self.grads["W"] = dW
 
     # ------------------------------------------------------------------
-    # Espansione vocabolario
+    # Vocabulary expansion
     # ------------------------------------------------------------------
 
     def expand(self, new_id: int, init_vec: np.ndarray) -> None:
         """
-        Aggiunge 1 riga all'embedding per il nuovo token.
+        Append 1 row to the embedding for the new token.
 
-        Se new_id == len(W): append in coda (caso normale).
-        Se new_id > len(W):  padding con righe zero fino a new_id (non dovrebbe
-                              accadere con ID sequenziali, ma gestito per robustezza).
+        If new_id == len(W): append at the end (the normal case).
+        If new_id > len(W):  pad with zero rows up to new_id (should not happen
+                              with sequential IDs, but handled for robustness).
         """
         W = self.params["W"]
         current_size = W.shape[0]
@@ -63,7 +63,7 @@ class DynamicEmbedding:
         if new_id == current_size:
             self.params["W"] = np.vstack([W, init_vec.reshape(1, -1)])
         elif new_id > current_size:
-            # Gap inatteso — riempi con zero
+            # Unexpected gap — fill it with zeros
             pad = np.zeros((new_id - current_size, self.d_model), dtype=DTYPE)
             self.params["W"] = np.vstack([W, pad, init_vec.reshape(1, -1)])
         else:
@@ -71,14 +71,14 @@ class DynamicEmbedding:
             self.params["W"][new_id] = init_vec
 
     # ------------------------------------------------------------------
-    # Pruning (ID sparsi)
+    # Pruning (sparse IDs)
     # ------------------------------------------------------------------
 
     def prune(self, token_id: int) -> None:
         """
-        Rimuove logicamente il token: azzera la riga e la marca come morta.
-        L'ID non viene riassegnato (ID sparso).
-        Ottimizzazione futura: compattazione periodica degli ID morti.
+        Remove the token logically: zero the row and mark it dead.
+        The ID is never reassigned (sparse ID).
+        Future optimisation: periodic compaction of the dead IDs.
         """
         if token_id < self.params["W"].shape[0]:
             self.params["W"][token_id] = 0.0

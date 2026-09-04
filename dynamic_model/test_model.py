@@ -195,7 +195,7 @@ def main():
                 ckpt = candidate
                 break
     if not ckpt or not os.path.exists(ckpt):
-        print("Nessun checkpoint trovato.")
+        print("No checkpoint found.")
         sys.exit(1)
 
     # Load model
@@ -235,12 +235,12 @@ def main():
         cases = cases[::step][:args.samples]
 
     print(f"\n{'─'*68}")
-    print(f"  TEST MODELLO — Livello {args.level}: {level_description(args.lang, args.level)}")
+    print(f"  MODEL TEST — Level {args.level}: {level_description(args.lang, args.level)}")
     print(f"  Checkpoint: {ckpt}")
     print(f"  Params: {model.num_params:,}   Vocab: {model.vocab_size}")
-    _mode = "greedy (deterministico)" if args.temperature <= 0.0 else \
-            f"campionamento T={args.temperature} x{args.repeats}"
-    print(f"  Casi: {len(cases)} dal curriculum   Lessico: {len(lex)} parole   Decoding: {_mode}")
+    _mode = "greedy (deterministic)" if args.temperature <= 0.0 else \
+            f"sampling T={args.temperature} x{args.repeats}"
+    print(f"  Cases: {len(cases)} from the curriculum   Lexicon: {len(lex)} words   Decoding: {_mode}")
     print(f"{'─'*68}")
 
     scores, confidences, exacts = [], [], []
@@ -278,7 +278,7 @@ def main():
 
         mark = "✓" if ok else (" " if expected else "·")
         bar  = f"{'█' * int(sc * 20):<20}"
-        exp_s = f"  atteso {expected!r}" if expected and not ok else ""
+        exp_s = f"  expected {expected!r}" if expected and not ok else ""
         print(f"  {mark} {repr(prompt):26s} → {repr(display):34s} [{bar}] {sc:.0%}{exp_s}")
 
     avg_score = float(np.mean(scores))
@@ -289,11 +289,11 @@ def main():
 
     print(f"{'─'*68}")
     if n_graded:
-        print(f"  Risposte esatte:           {n_exact}/{n_graded} = {exact_rate:.0%}  "
-              f"({'ottimo' if exact_rate > 0.6 else 'buono' if exact_rate > 0.3 else 'da migliorare'})")
-    print(f"  Parole del livello in output: {avg_score:.0%}")
-    print(f"  Confidence media:          {avg_conf:.2f}")
-    print(f"  Stato affettivo:           {affect}")
+        print(f"  Exact answers:             {n_exact}/{n_graded} = {exact_rate:.0%}  "
+              f"({'excellent' if exact_rate > 0.6 else 'good' if exact_rate > 0.3 else 'needs work'})")
+    print(f"  Level words in output:     {avg_score:.0%}")
+    print(f"  Mean confidence:           {avg_conf:.2f}")
+    print(f"  Affective state:           {affect}")
     print(f"{'─'*68}\n")
 
     # Exit code from exact match when a gold answer exists, else from lexicon use

@@ -61,7 +61,7 @@ def build(ckpt_base: str, levels: list, lang: str, full: bool) -> dict:
     for c in levels:
         ckpt, tok_path = resolve(ckpt_base, c)
         if not ckpt or not tok_path:
-            print(f"  level {c}: checkpoint o tokenizer mancante — salto",
+            print(f"  level {c}: checkpoint or tokenizer missing — skipping",
                   flush=True)
             continue
         tr, tok = load_pair(ckpt, tok_path)
@@ -74,8 +74,8 @@ def build(ckpt_base: str, levels: list, lang: str, full: bool) -> dict:
                 "repetition_rate": r["repetition_rate"],
                 "examples": r["examples"],
             }
-            print(f"  ckpt L{c} su target L{t}: "
-                  f"exact {r['exact_rate']:.0%}  rip {r['repetition_rate']:.0%}",
+            print(f"  ckpt L{c} on target L{t}: "
+                  f"exact {r['exact_rate']:.0%}  rep {r['repetition_rate']:.0%}",
                   flush=True)
         del tr, tok
     return {"ckpt_base": ckpt_base, "lang": lang, "levels": levels,
@@ -86,7 +86,7 @@ def _grid(data: dict, metric: str):
     cells = data["cells"]
     levels = data["levels"]
     key = "exact_rate" if metric == "exact" else "repetition_rate"
-    print(f"\n  righe = checkpoint, colonne = target  ({metric})\n")
+    print(f"\n  rows = checkpoint, columns = target  ({metric})\n")
     head = "  ckpt │" + "".join(f"{t:>6}" for t in levels)
     print(head)
     print("  " + "─" * (len(head) - 2))
@@ -125,28 +125,28 @@ def summarise(data: dict) -> dict:
         "mean_retention_loss": sum(d for _, d in losses) / len(losses)
                               if losses else 0.0,
     }
-    print(f"\n  diagonale (ogni livello sul proprio checkpoint) : "
+    print(f"\n  diagonal (each level on its own checkpoint)     : "
           f"{s['diagonal_exact']:.0%}")
-    print(f"  checkpoint finale L{last} su tutti i livelli     : "
+    print(f"  final checkpoint L{last} on every level             : "
           f"{s['final_row_exact']:.0%}"
-          f"   (ripetizione {s['final_row_repetition']:.0%})")
-    print(f"  perdita media di ritenzione                     : "
+          f"   (repetition {s['final_row_repetition']:.0%})")
+    print(f"  mean retention loss                            : "
           f"{s['mean_retention_loss']:+.0%}")
     if losses:
         worst = sorted(losses, key=lambda x: -x[1])[:4]
-        print("  peggiori: " + ", ".join(f"L{l} {d:+.0%}" for l, d in worst))
+        print("  worst: " + ", ".join(f"L{l} {d:+.0%}" for l, d in worst))
     return s
 
 
 def compare(path_a: str, path_b: str) -> None:
     a, b = (json.load(open(p, encoding="utf-8")) for p in (path_a, path_b))
     sa, sb = a.get("summary") or summarise(a), b.get("summary") or summarise(b)
-    print(f"\n  {'metrica':<34}{'A':>8}{'B':>8}{'Δ':>8}")
+    print(f"\n  {'metric':<34}{'A':>8}{'B':>8}{'Δ':>8}")
     print("  " + "─" * 56)
-    for key, label in (("diagonal_exact", "diagonale"),
-                       ("final_row_exact", "finale su tutti i livelli"),
-                       ("final_row_repetition", "ripetizione (finale)"),
-                       ("mean_retention_loss", "perdita di ritenzione")):
+    for key, label in (("diagonal_exact", "diagonal"),
+                       ("final_row_exact", "final on every level"),
+                       ("final_row_repetition", "repetition (final)"),
+                       ("mean_retention_loss", "retention loss")):
         va, vb = sa.get(key, 0.0), sb.get(key, 0.0)
         print(f"  {label:<34}{va:>7.0%}{vb:>8.0%}{vb-va:>+8.0%}")
     print(f"\n  A = {path_a}\n  B = {path_b}")
@@ -173,10 +173,10 @@ def main():
         return
 
     levels = parse_levels(a.levels)
-    print(f"  Matrice di ritenzione — {a.ckpt_base}, livelli {levels}")
+    print(f"  Retention matrix — {a.ckpt_base}, levels {levels}")
     data = build(a.ckpt_base, levels, a.lang, a.full)
     if not data["cells"]:
-        print("  Nessuna cella misurata.")
+        print("  No cell measured.")
         return
 
     for m in (["exact", "repetition"] if a.metric == "both" else [a.metric]):
@@ -187,8 +187,8 @@ def main():
     with open(a.json, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"\n  → {a.json}")
-    print(f"  confronto futuro: python3 scripts/retention_matrix.py "
-          f"--compare {a.json} <nuovo.json>")
+    print(f"  future comparison: python3 scripts/retention_matrix.py "
+          f"--compare {a.json} <new.json>")
 
 
 if __name__ == "__main__":

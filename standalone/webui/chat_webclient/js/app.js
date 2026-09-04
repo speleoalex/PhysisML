@@ -33,7 +33,7 @@ const UI = {
     document.getElementById('btn-logout').addEventListener('click', () => {
       Auth.logout();
       this.refreshAuthState();
-      UI.toast('Logout eseguito', 'info');
+      UI.toast('Logged out', 'info');
     });
 
     document.getElementById('btn-backup').addEventListener('click', () => this.doBackup());
@@ -110,7 +110,7 @@ const UI = {
         if (isAdmin) {
           const del = document.createElement('button');
           del.className = 'btn btn-sm btn-outline-danger fb-btn ms-1';
-          del.title = 'Elimina chat';
+          del.title = 'Delete chat';
           del.innerHTML = '<i class="bi bi-trash"></i>';
           del.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -127,10 +127,10 @@ const UI = {
   },
 
   async deleteSession(sid, count) {
-    if (!confirm(`Eliminare la chat ${sid.slice(0, 6)} (${count} messaggi)?\nL'azione è irreversibile.`)) return;
+    if (!confirm(`Delete chat ${sid.slice(0, 6)} (${count} messages)?\nThis cannot be undone.`)) return;
     try {
       await API.del(`/admin/sessions/${encodeURIComponent(sid)}`);
-      UI.toast('Chat eliminata', 'success');
+      UI.toast('Chat deleted', 'success');
       // If we just deleted the current session, reset the view.
       if (sid === Chat.currentSession()) {
         Chat.newSession();
@@ -138,7 +138,7 @@ const UI = {
         this.refreshHistory();
       }
     } catch (e) {
-      UI.toast('Eliminazione fallita: ' + e.message, 'danger');
+      UI.toast('Delete failed: ' + e.message, 'danger');
     }
   },
 
@@ -147,24 +147,24 @@ const UI = {
     btn.disabled = true;
     try {
       const res = await API.post('/admin/backup', {});
-      UI.toast(`Backup salvato: ${res.data.path}`, 'success');
+      UI.toast(`Backup saved: ${res.data.path}`, 'success');
     } catch (e) {
-      UI.toast('Backup fallito: ' + e.message, 'danger');
+      UI.toast('Backup failed: ' + e.message, 'danger');
     } finally {
       btn.disabled = false;
     }
   },
 
   async doTrain() {
-    if (!confirm('Avviare un training run sui feedback raccolti?\n' +
-                 'Il modello corrente verrà automaticamente messo in backup.')) return;
+    if (!confirm('Start a training run on the collected feedback?\n' +
+                 'The current model is backed up automatically.')) return;
     try {
       const res = await API.post('/admin/train', {});
-      UI.toast('Training avviato', 'info');
+      UI.toast('Training started', 'info');
       this._showTrainBanner(res.data);
       this._pollTrainStatus();
     } catch (e) {
-      UI.toast('Train now fallito: ' + e.message, 'danger');
+      UI.toast('Train now failed: ' + e.message, 'danger');
     }
   },
 
@@ -178,9 +178,9 @@ const UI = {
       a.href = url; a.download = `feedback_${ts}.jsonl`;
       a.click();
       URL.revokeObjectURL(url);
-      UI.toast('Feedback esportato', 'success');
+      UI.toast('Feedback exported', 'success');
     } catch (e) {
-      UI.toast('Export fallito: ' + e.message, 'danger');
+      UI.toast('Export failed: ' + e.message, 'danger');
     }
   },
 
@@ -212,15 +212,15 @@ const UI = {
     if (status.state === 'running') {
       const pct = Math.round((status.progress || 0) * 100);
       el.className = 'alert alert-info py-2 mb-0';
-      el.textContent = `Training in corso: ${status.processed}/${status.total} (${pct}%)`
+      el.textContent = `Training running: ${status.processed}/${status.total} (${pct}%)`
                      + (status.last_loss !== null && status.last_loss !== undefined
                         ? ` — loss ${status.last_loss.toFixed(4)}` : '');
     } else if (status.state === 'done') {
       el.className = 'alert alert-success py-2 mb-0';
-      el.textContent = `Training completato. Backup: ${status.backup_path || '(n/d)'}`;
+      el.textContent = `Training complete. Backup: ${status.backup_path || '(n/a)'}`;
     } else if (status.state === 'error') {
       el.className = 'alert alert-danger py-2 mb-0';
-      el.textContent = `Training errore: ${status.error}`;
+      el.textContent = `Training error: ${status.error}`;
     }
   },
 

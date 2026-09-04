@@ -280,7 +280,7 @@ class OntologyOracle:
 if __name__ == "__main__":
     o = OntologyOracle()
     print("oracle:", o.status())
-    print("classi:", len(o.classes))
+    print("classes:", len(o.classes))
     words = sys.argv[1:] or [n["w"] for n in o.lex.bare_unknown]
     for w in words:
         v = o.ask(w)

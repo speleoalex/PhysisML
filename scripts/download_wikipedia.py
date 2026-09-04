@@ -140,7 +140,7 @@ def main():
     elif args.level is not None and args.level in TOPICS:
         topics = TOPICS[args.level]
     else:
-        print("Specifica --level (1-4) o --topics TITOLO1 TITOLO2 ...")
+        print("Pass --level (1-4) or --topics TITLE1 TITLE2 ...")
         sys.exit(1)
 
     # Resolve output path
@@ -166,7 +166,7 @@ def main():
             ok += 1
             print(f"  ✓ {title:30s}  ({len(text):,} chars)")
         else:
-            print(f"  ✗ {title:30s}  (non trovato)")
+            print(f"  ✗ {title:30s}  (not found)")
         time.sleep(0.3)   # be polite
 
     combined = "\n\n\n".join(parts)
@@ -174,7 +174,7 @@ def main():
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(combined)
 
-    print(f"\nSalvato: {out_path}  ({len(combined):,} chars, {ok}/{len(topics)} articoli)")
+    print(f"\nSaved: {out_path}  ({len(combined):,} chars, {ok}/{len(topics)} articles)")
 
 
 if __name__ == "__main__":

@@ -33,8 +33,8 @@ class Axiom:
     token_sequence:   List[int]
     description:      str
     protection_level: float    # 0..1
-    is_objective:     bool     # True = fatto oggettivo, False = preferenza
-    frequency_seen:   int = 0  # volte osservato con feedback positivo
+    is_objective:     bool     # True = objective fact, False = preference
+    frequency_seen:   int = 0  # times observed with positive feedback
 
     MAX_OBJECTIVE  = 1.0
     MAX_SUBJECTIVE = 0.6
@@ -52,16 +52,16 @@ class AxiomRegistry:
 
     def __init__(self):
         self._axioms: Dict[str, Axiom] = {}
-        self._protected_ids: Set[int] = set()   # token IDs con protezione attiva
+        self._protected_ids: Set[int] = set()   # token IDs under active protection
 
     # ------------------------------------------------------------------
-    # Registrazione manuale
+    # Manual registration
     # ------------------------------------------------------------------
 
     def register(self, token_sequence: List[int], description: str = "",
                  is_objective: bool = True,
                  protection_level: float = 1.0) -> None:
-        """Registra manualmente un assioma."""
+        """Register an axiom by hand."""
         key = self._key(token_sequence)
         axiom = Axiom(token_sequence, description, protection_level, is_objective)
         self._axioms[key] = axiom
@@ -69,7 +69,7 @@ class AxiomRegistry:
             self._protected_ids.add(tid)
 
     # ------------------------------------------------------------------
-    # Aggiornamento automatico da osservazioni
+    # Automatic update from observations
     # ------------------------------------------------------------------
 
     def observe(self, token_sequence: List[int], feedback: float,
@@ -92,7 +92,7 @@ class AxiomRegistry:
                     ax.protection_level + self.PROTECTION_INCREMENT, max_p)
 
     # ------------------------------------------------------------------
-    # Applicazione ai gradient PyTorch
+    # Application to the PyTorch gradients
     # ------------------------------------------------------------------
 
     def apply_to_grad(self, embedding_grad: torch.Tensor) -> None:

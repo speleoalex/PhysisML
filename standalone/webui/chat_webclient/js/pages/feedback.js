@@ -33,7 +33,7 @@ const Feedback = {
     const errBox   = document.getElementById('feedback-error');
 
     if (!rating) {
-      errBox.textContent = 'Seleziona una valutazione.';
+      errBox.textContent = 'Pick a rating.';
       errBox.classList.remove('d-none');
       return;
     }
@@ -57,7 +57,7 @@ const Feedback = {
       }
       Chat.updateMessageFeedback(msg.id, res.data);
       this._modal.hide();
-      UI.toast('Feedback salvato', 'success');
+      UI.toast('Feedback saved', 'success');
     } catch (e) {
       errBox.textContent = e.message;
       errBox.classList.remove('d-none');

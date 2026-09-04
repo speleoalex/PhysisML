@@ -145,7 +145,7 @@ def show_prompts(records: list, path: str, fb_filter: str = None) -> None:
     print(f"\n{'─'*70}")
     print(f"  DIALOGUE — {os.path.basename(path)}  ({len(records)} turns)")
     if fb_filter:
-        print(f"  Filtro feedback: {fb_filter}")
+        print(f"  Feedback filter: {fb_filter}")
     note = alignment_note(records)
     if note:
         print(note)

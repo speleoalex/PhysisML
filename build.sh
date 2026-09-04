@@ -134,31 +134,31 @@ gpu_yield_on() {
   if [ -x "$sw" ]; then
     if "$sw"; then
       _LLAMA_YIELDED=1
-      echo "  llama.cpp: spostato ($LLAMA_YIELD) per la durata del build."
+      echo "  llama.cpp: moved ($LLAMA_YIELD) for the duration of the build."
     else
       # A failed switch is NOT "nothing changed": the switcher writes its
       # drop-in before restarting, so llama may be half-moved. Roll back
       # explicitly rather than assume.
-      echo "  ⚠ $sw è fallito: provo a rimettere llama sull'Arc…"
+      echo "  ⚠ $sw failed: trying to put llama back on the Arc…"
       scripts_internal/llama_gpu.sh || \
-        echo "  ⚠ anche il ripristino è fallito: controlla 'systemctl --user status llama'."
-      echo "    Se llama è rimasto sull'Arc, la fase 0/2 può morire di"
+        echo "  ⚠ the rollback failed too: check 'systemctl --user status llama'."
+      echo "    If llama stayed on the Arc, phase 0/2 can die of"
       echo "    UR_RESULT_ERROR_OUT_OF_HOST_MEMORY."
     fi
   elif curl -sf --max-time 2 http://localhost:8080/health >/dev/null 2>&1; then
-    echo "  ⚠ llama-server è attivo sull'Arc e $sw non esiste qui:"
-    echo "    memoria contesa, la fase 0/2 può morire di OUT_OF_HOST_MEMORY."
+    echo "  ⚠ llama-server is live on the Arc and $sw does not exist here:"
+    echo "    contended memory, phase 0/2 can die of OUT_OF_HOST_MEMORY."
   fi
 }
 gpu_yield_off() {
   [ -n "$_LLAMA_YIELDED" ] || return 0
   if [ -x scripts_internal/llama_gpu.sh ] && scripts_internal/llama_gpu.sh; then
     _LLAMA_YIELDED=""
-    echo "  llama.cpp: tornato sull'Arc."
+    echo "  llama.cpp: back on the Arc."
   else
     # Flag left set on purpose: a second EXIT pass (nested trap) retries, and
     # the message names the manual command instead of pretending success.
-    echo "  ⚠ llama NON è tornato sull'Arc: esegui a mano"
+    echo "  ⚠ llama did NOT come back on the Arc: run by hand"
     echo "      scripts_internal/llama_gpu.sh"
   fi
 }
@@ -382,10 +382,10 @@ else
     if [ -f "$BASE/final_learned.pt" ]; then
       RQ=$(level_last_rate "$L"); TQ=$(level_threshold "$L")
       if level_complete "$L"; then
-        echo "    level $L  ✓ completo        (qualità ${RQ:-?} ≥ ${TQ})"
+        echo "    level $L  ✓ complete        (quality ${RQ:-?} ≥ ${TQ})"
         LAST_COMPLETE=$L
       else
-        echo "    level $L  … da completare   (qualità ${RQ:-?} < ${TQ}$([ -f "$BASE/final_dreamed.pt" ] || echo ", sogno mancante"))"
+        echo "    level $L  … to complete     (quality ${RQ:-?} < ${TQ}$([ -f "$BASE/final_dreamed.pt" ] || echo ", dream missing"))"
       fi
     elif [ -f "$BASE/final.pt" ]; then
       echo "    level $L    final.pt (phase 0 complete)"
@@ -546,13 +546,13 @@ except Exception: print(0)" 2>/dev/null || echo 0)
     if [ "${POOL_TURNS:-0}" -gt 0 ] && [ "$EFFECTIVE_TURNS" != "auto" ] \
        && [ "$EFFECTIVE_TURNS" -lt "$POOL_TURNS" ] 2>/dev/null; then
       if [ "$POOL_TURNS" -le "$MAX_TEACH_TURNS" ]; then
-        echo "  [phase 1] turni ${EFFECTIVE_TURNS} → ${POOL_TURNS}: una passata "
-        echo "            completa sul pool di L$LEVEL (il teacher avanza in ordine)."
+        echo "  [phase 1] turns ${EFFECTIVE_TURNS} → ${POOL_TURNS}: one full pass "
+        echo "            over L$LEVEL's pool (the teacher advances in order)."
         EFFECTIVE_TURNS=$POOL_TURNS
       else
-        echo "  ⚠ una passata sul pool di L$LEVEL costa ${POOL_TURNS} turni, oltre"
-        echo "    il tetto MAX_TEACH_TURNS=${MAX_TEACH_TURNS}. La coda del pool resta"
-        echo "    non insegnata: alza --max-teach-turns."
+        echo "  ⚠ one pass over L$LEVEL's pool costs ${POOL_TURNS} turns, past"
+        echo "    the MAX_TEACH_TURNS=${MAX_TEACH_TURNS} cap. The tail of the pool stays"
+        echo "    untaught: raise --max-teach-turns."
         EFFECTIVE_TURNS=$MAX_TEACH_TURNS
       fi
     fi
@@ -833,7 +833,7 @@ print(1 if recent_peak <= prior_peak + min_delta else 0)
     # the same requirement the old loop carried — and leaves each level's
     # curve in level_N/dream_curve.json.
     echo ""
-    echo "  ── Sogni fino al plateau (sessione: $DREAMS_DONE, pavimento $MIN_DREAMS, tetto $MAX_DREAMS) ──"
+    echo "  ── Dreams until plateau (session: $DREAMS_DONE, floor $MIN_DREAMS, cap $MAX_DREAMS) ──"
     $PYTHON -u scripts/dream_until_plateau.py \
       --level        "$LEVEL" \
       --lang         "$LANG" \
@@ -851,9 +851,9 @@ print(1 if recent_peak <= prior_peak + min_delta else 0)
       # A crashed dream is survivable BECAUSE the script measured what the
       # crash left on disk and restored the best state if it was damaged —
       # the curve records the salvage.
-      echo "  ⚠ un sogno è fallito: stato verificato dallo script (curva in level_${LEVEL}/dream_curve.json)."
+      echo "  ⚠ a dream failed: state verified by the script (curve in level_${LEVEL}/dream_curve.json)."
       echo ""
-      echo "  ✓ Level $LEVEL consolidato (curva in models/checkpoints/$LANG/level_${LEVEL}/dream_curve.json)."
+      echo "  ✓ Level $LEVEL consolidated (curve in models/checkpoints/$LANG/level_${LEVEL}/dream_curve.json)."
     elif [ "$_PLATEAU_RC" -ne 0 ]; then
       # Anything else means ZERO or unknown consolidation: a missing/edited
       # probe (rc 1), bad DREAM_* values (rc 2), an interrupt (rc 130). The
@@ -861,13 +861,13 @@ print(1 if recent_peak <= prior_peak + min_delta else 0)
       # printing a checkmark here would ship a level with one dream (~20%
       # retention, measured) under a log line that says consolidated.
       echo ""
-      echo "  ✗ dream_until_plateau è uscito con codice $_PLATEAU_RC: il livello"
-      echo "    NON è consolidato. Correggi (probe? parametri DREAM_*?) e rilancia:"
-      echo "    il build si ferma qui invece di avanzare su fondamenta a un sogno."
+      echo "  ✗ dream_until_plateau exited with code $_PLATEAU_RC: the level is"
+      echo "    NOT consolidated. Fix it (probe? DREAM_* values?) and rerun:"
+      echo "    the build stops here instead of building on one dream's foundation."
       exit 1
     else
       echo ""
-      echo "  ✓ Level $LEVEL consolidato (curva in models/checkpoints/$LANG/level_${LEVEL}/dream_curve.json)."
+      echo "  ✓ Level $LEVEL consolidated (curve in models/checkpoints/$LANG/level_${LEVEL}/dream_curve.json)."
     fi
   fi
 
@@ -884,8 +884,8 @@ print(1 if recent_peak <= prior_peak + min_delta else 0)
     $PYTHON -u scripts/compute_fisher.py \
       --level "$LEVEL" --lang "$LANG" --gamma "$EWC_GAMMA"
     if [ $? -ne 0 ]; then
-      echo "  ✗ compute_fisher.py fallito: senza sidecar il livello dopo"
-      echo "    girerebbe come braccio 'none' sotto un log che dice ewc."
+      echo "  ✗ compute_fisher.py failed: without the sidecar the next level"
+      echo "    would run as the 'none' arm under a log that says ewc."
       exit 1
     fi
   fi

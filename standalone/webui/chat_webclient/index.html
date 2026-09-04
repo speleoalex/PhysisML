@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,8 +40,8 @@
 <div class="app-body">
   <aside class="sidebar">
     <div class="sidebar-header d-flex justify-content-between align-items-center">
-      <span class="fw-bold"><i class="bi bi-clock-history"></i> Cronologia</span>
-      <button id="btn-new-session" class="btn btn-sm btn-outline-secondary" title="Nuova sessione">
+      <span class="fw-bold"><i class="bi bi-clock-history"></i> History</span>
+      <button id="btn-new-session" class="btn btn-sm btn-outline-secondary" title="New session">
         <i class="bi bi-plus-lg"></i>
       </button>
     </div>
@@ -54,7 +54,7 @@
 
     <form id="chat-form" class="chat-input">
       <textarea id="chat-prompt" class="form-control"
-                rows="2" placeholder="Scrivi un prompt..."
+                rows="2" placeholder="Write a prompt..."
                 required></textarea>
       <button type="submit" class="btn btn-primary" id="chat-send">
         <i class="bi bi-send"></i>
@@ -68,7 +68,7 @@
   <div class="modal-dialog">
     <form class="modal-content" id="login-form">
       <div class="modal-header">
-        <h5 class="modal-title">Login amministratore</h5>
+        <h5 class="modal-title">Administrator login</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
@@ -83,7 +83,7 @@
         <div id="login-error" class="alert alert-danger d-none"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         <button type="submit" class="btn btn-primary">Login</button>
       </div>
     </form>
@@ -95,7 +95,7 @@
   <div class="modal-dialog">
     <form class="modal-content" id="feedback-form">
       <div class="modal-header">
-        <h5 class="modal-title">Feedback risposta #<span id="fb-msg-id"></span></h5>
+        <h5 class="modal-title">Feedback on reply #<span id="fb-msg-id"></span></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
@@ -104,34 +104,34 @@
           <div id="fb-prompt" class="border rounded p-2 bg-light small"></div>
         </div>
         <div class="mb-3">
-          <label class="form-label">Risposta attuale</label>
+          <label class="form-label">Current reply</label>
           <div id="fb-reply" class="border rounded p-2 bg-light small"></div>
         </div>
         <div class="mb-3">
-          <label class="form-label">Valutazione</label>
+          <label class="form-label">Rating</label>
           <div class="btn-group w-100" role="group" id="fb-rating-group">
             <input type="radio" class="btn-check" name="fb-rating" id="r-ppp" value="+++" autocomplete="off">
-            <label class="btn btn-outline-success" for="r-ppp">+++ ottimo</label>
+            <label class="btn btn-outline-success" for="r-ppp">+++ excellent</label>
             <input type="radio" class="btn-check" name="fb-rating" id="r-pp"  value="++"  autocomplete="off">
-            <label class="btn btn-outline-success" for="r-pp">++ buono</label>
+            <label class="btn btn-outline-success" for="r-pp">++ good</label>
             <input type="radio" class="btn-check" name="fb-rating" id="r-p"   value="+"   autocomplete="off">
             <label class="btn btn-outline-primary" for="r-p">+ ok</label>
             <input type="radio" class="btn-check" name="fb-rating" id="r-eq"  value="="   autocomplete="off">
-            <label class="btn btn-outline-secondary" for="r-eq">= neutro</label>
+            <label class="btn btn-outline-secondary" for="r-eq">= neutral</label>
             <input type="radio" class="btn-check" name="fb-rating" id="r-neg" value="-"   autocomplete="off">
-            <label class="btn btn-outline-danger" for="r-neg">- errato</label>
+            <label class="btn btn-outline-danger" for="r-neg">- wrong</label>
           </div>
         </div>
         <div class="mb-3">
-          <label class="form-label">Risposta corretta (opzionale, usata dal training)</label>
+          <label class="form-label">Corrected reply (optional, used by the training)</label>
           <textarea id="fb-corrected" class="form-control" rows="3"
-                    placeholder="Scrivi qui la risposta che il modello avrebbe dovuto dare..."></textarea>
+                    placeholder="Write here the reply the model should have given..."></textarea>
         </div>
         <div id="feedback-error" class="alert alert-danger d-none"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-        <button type="submit" class="btn btn-primary">Salva feedback</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save feedback</button>
       </div>
     </form>
   </div>

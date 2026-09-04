@@ -33,17 +33,17 @@ for L in LEVELS:
             comp=re.sub(r'\s+','',r)
             def has(w): return True if not w else (bool(re.search(r'\b'+re.escape(w)+r'\b',r)) or (len(w)>=4 and w in comp))
             probs=[]
-            if not has(noun): probs.append(f"noun {noun!r} assente")
-            if req['article'] and not (art and art in r.split()[:5]): probs.append(f"article {art!r} richiesto ma assente/vuoto")
-            if req['verb'] and not has(vb): probs.append(f"verb {vb!r} richiesto ma assente")
-            if req['adjective'] and not has(adj): probs.append(f"adjective {adj!r} richiesto ma assente")
-            if obj and not has(obj): probs.append(f"object {obj!r} assente")
-            if not re.search(stop,r): probs.append("manca il terminatore")
-            if len(r.split())>mw: probs.append(f"{len(r.split())} parole > max_response_words={mw}")
+            if not has(noun): probs.append(f"noun {noun!r} missing")
+            if req['article'] and not (art and art in r.split()[:5]): probs.append(f"article {art!r} required but missing/empty")
+            if req['verb'] and not has(vb): probs.append(f"verb {vb!r} required but missing")
+            if req['adjective'] and not has(adj): probs.append(f"adjective {adj!r} required but missing")
+            if obj and not has(obj): probs.append(f"object {obj!r} missing")
+            if not re.search(stop,r): probs.append("terminator missing")
+            if len(r.split())>mw: probs.append(f"{len(r.split())} words > max_response_words={mw}")
             if probs:
                 bad+=1
                 print(f"  L{L} step {sname}  {r!r}: " + "; ".join(probs))
-print(("TUTTI I TARGET OK" if not bad else f"{bad} TARGET NON POSSONO OTTENERE +++"))
+print(("ALL TARGETS OK" if not bad else f"{bad} TARGETS CANNOT REACH +++"))
 
 # ── One prompt, one gold ─────────────────────────────────────────────────────
 # A prompt with two gold answers is contradictory supervision: whichever the
@@ -86,12 +86,12 @@ for L in levels_on_disk():
 
 clash = {p: v for p, v in gold.items() if len(v) > 1}
 for p, resps in sorted(clash.items()):
-    print(f'  {p!r} ha {len(resps)} risposte gold:')
+    print(f'  {p!r} has {len(resps)} gold answers:')
     for r, srcs in sorted(resps.items()):
         print(f'      {r!r}  [{", ".join(sorted(srcs))}]')
-print(('OGNI PROMPT HA UN SOLO GOLD' if not clash
-       else f'{len(clash)} PROMPT CON GOLD CONTRASTANTI '
-            f'(correggi con scripts/fix_gold_conflicts.py)'))
+print(('EVERY PROMPT HAS A SINGLE GOLD' if not clash
+       else f'{len(clash)} PROMPTS WITH CLASHING GOLDS '
+            f'(fix them with scripts/fix_gold_conflicts.py)'))
 
 # ── the three roles of bare_unknown_nouns ────────────────────────────────────
 # The pool split only works if the roles are respected on disk. Each of these
@@ -118,43 +118,43 @@ try:
         taught = sum(len(part['targets']) + len(part['pairs'])
                      for part in hit['levels'].values())
         if role == 'probe' and (taught or hit['other']):
-            role_bad.append(f"'{n['w']}' ha role=probe ma compare in "
-                            f"{taught + len(hit['other'])} punti del "
-                            f"curriculum: la misura di generalizzazione è persa")
+            role_bad.append(f"'{n['w']}' has role=probe but shows up at "
+                            f"{taught + len(hit['other'])} points of the "
+                            f"curriculum: the generalisation measure is lost")
         if role == 'reserve' and n['w'] in gone:
-            role_bad.append(f"'{n['w']}' ha role=reserve ma è stato ritirato: "
-                            f"il controllo permanente è stato speso")
+            role_bad.append(f"'{n['w']}' has role=reserve but was retracted: "
+                            f"the permanent control has been spent")
         if role == 'reserve' and not taught:
-            role_bad.append(f"'{n['w']}' ha role=reserve ma nessun livello gli "
-                            f"insegna 'non lo so'")
+            role_bad.append(f"'{n['w']}' has role=reserve but no level teaches "
+                            f"it 'non lo so'")
         # A retracted word is SUPPOSED to carry class golds now: retraction is
         # what acquisition does to an admission, and the ledger is the record
         # of that transition. Flagging its new golds would flag every
         # successful acquisition. The residue check below still catches any
         # admission left behind for the same word.
         if hit['other'] and n['w'] not in gone:
-            role_bad.append(f"'{n['w']}' è un bare_unknown ma ha "
-                            f"{len(hit['other'])} gold che non lo trattano "
-                            f"come ignoto")
+            role_bad.append(f"'{n['w']}' is a bare_unknown but has "
+                            f"{len(hit['other'])} golds that do not treat it "
+                            f"as unknown")
     for w in gone:
         hit = find(w, 'it')
         left = sum(len(part['targets']) + len(part['pairs'])
                    for part in hit['levels'].values())
         if left:
-            role_bad.append(f"'{w}' è ritirato ma restano {left} ammissioni "
-                            f"nel curriculum")
+            role_bad.append(f"'{w}' is retracted but {left} admissions are "
+                            f"left in the curriculum")
         # Retraction is only legitimate as half of an acquisition: the ledger
         # word must carry at least one replacement gold somewhere, or the
         # curriculum simply lost it. The first real run left ten nouns in
         # exactly this state (cap checked after the retraction, 2026-09-03).
         if not hit['other']:
-            role_bad.append(f"'{w}' è ritirato ma nessun gold lo rimpiazza: "
-                            f"né ammissione né classe, un buco silenzioso")
+            role_bad.append(f"'{w}' is retracted but no gold replaces it: "
+                            f"neither admission nor class, a silent hole")
     for line in role_bad:
         print(f'  {line}')
-    print(f"RUOLI bare_unknown: {dict(roles)}, ritirati {len(gone)} — "
-          + ('ok' if not role_bad else f'{len(role_bad)} PROBLEMI'))
+    print(f"bare_unknown ROLES: {dict(roles)}, retracted {len(gone)} — "
+          + ('ok' if not role_bad else f'{len(role_bad)} PROBLEMS'))
 except Exception as e:                       # noqa: BLE001
-    print(f'  ruoli non verificati: {e}')
+    print(f'  roles not verified: {e}')
 
 sys.exit(1 if (bad or clash or role_bad) else 0)

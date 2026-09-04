@@ -1,11 +1,11 @@
 """
-VocabExpansionManager — decide quando espandere il vocabolario e coordina
-tokenizer, modello e optimizer in modo atomico.
+VocabExpansionManager — decides when to expand the vocabulary and keeps the
+tokenizer, the model and the optimizer in step, atomically.
 
-Aggiornato per TorchDynamicGPT:
-- vocab_expand ora riceve un batch di init_vecs (torch.Tensor)
-- expand_moments() rimosso: PyTorch Adam gestisce i momenti automaticamente
-  (i nuovi parametri non hanno storia → lr effettivo ~ lr nelle prime iterazioni)
+Updated for TorchDynamicGPT:
+- vocab_expand now takes a batch of init_vecs (torch.Tensor)
+- expand_moments() dropped: PyTorch Adam handles the moments on its own
+  (new parameters have no history → effective lr ~ lr in the first iterations)
 """
 from collections import deque
 from typing import List, Optional
@@ -16,15 +16,15 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'tests', 
 
 class VocabExpansionManager:
 
-    EXPANSION_INTERVAL = 500     # step tra un controllo e l'altro
-    N_MERGES_PER_GROW  = 5       # max nuovi token per espansione
-    BUFFER_CHARS       = 50_000  # caratteri di testo grezzo nel buffer
-    EXPANSION_FREEZE_AFTER = 0   # 0 = mai congelare; altrimenti in chars
+    EXPANSION_INTERVAL = 500     # steps between one check and the next
+    N_MERGES_PER_GROW  = 5       # max new tokens per expansion
+    BUFFER_CHARS       = 50_000  # characters of raw text in the buffer
+    EXPANSION_FREEZE_AFTER = 0   # 0 = never freeze; otherwise in chars
 
     def __init__(self, model, tokenizer, optimizer=None, checkpoint=None):
         self.model      = model
         self.tokenizer  = tokenizer
-        self.optimizer  = optimizer   # non usato per expand (PyTorch auto-gestisce)
+        self.optimizer  = optimizer   # unused for expand (PyTorch handles it)
         self.checkpoint = checkpoint
 
         self.recent_text_buffer: deque = deque(maxlen=self.BUFFER_CHARS)
@@ -40,7 +40,7 @@ class VocabExpansionManager:
         if (not self.frozen and self.EXPANSION_FREEZE_AFTER > 0
                 and self._chars_seen >= self.EXPANSION_FREEZE_AFTER):
             self.frozen = True
-            print(f"  [expand] vocabolario CONGELATO a {self._chars_seen:,} chars "
+            print(f"  [expand] vocabulary FROZEN at {self._chars_seen:,} chars "
                   f"(vocab={self.model.vocab_size})")
 
     def maybe_expand(self, step: int) -> Optional[List[int]]:
@@ -68,17 +68,17 @@ class VocabExpansionManager:
         if self.checkpoint:
             self.checkpoint.save(reason=f"pre_expansion_{self.expansion_count + 1}")
 
-        # Raccoglie i vettori di inizializzazione in un batch
+        # Collect the initialisation vectors into one batch
         W_np = self.model.tok_emb.weight.data.cpu().numpy()
         init_vecs = np.stack([
             self.tokenizer.get_parent_embedding(nid, W_np)
             for nid in new_ids
         ])                                        # (N, d_model)
 
-        # Espansione atomica — un'unica chiamata batchata
+        # Atomic expansion — a single batched call
         self.model.vocab_expand(init_vecs)
-        # PyTorch Adam non necessita di expand_moments():
-        # i parametri nuovi non hanno storia → viene inizializzato automaticamente
+        # PyTorch Adam needs no expand_moments():
+        # new parameters have no history → they are initialised automatically
 
         self.expansion_count += 1
 
@@ -88,6 +88,6 @@ class VocabExpansionManager:
         if self.checkpoint:
             self.checkpoint.save(reason=f"expansion_{self.expansion_count}")
 
-        print(f"  [expand] +{len(new_ids)} token → vocab={self.model.vocab_size}  "
-              f"(espansione #{self.expansion_count})")
+        print(f"  [expand] +{len(new_ids)} tokens → vocab={self.model.vocab_size}  "
+              f"(expansion #{self.expansion_count})")
         return new_ids

@@ -143,30 +143,30 @@ def main() -> int:
         top  = last_bpe_id(tok)
 
         if path != REFERENCE and not same_vocab(tok, ref):
-            print(f"  – {path:<48} salto: vocabolario diverso "
-                  f"({top + 1} token, EOS "
-                  f"{'a ' + str(have) if have is not None else 'assente'})")
+            print(f"  – {path:<48} skipped: different vocabulary "
+                  f"({top + 1} tokens, EOS "
+                  f"{'at ' + str(have) if have is not None else 'absent'})")
             n_skip += 1
             continue
 
         if have is not None:
             if have == eos_id:
-                print(f"  = {path:<48} già registrato (id {have})")
+                print(f"  = {path:<48} already registered (id {have})")
                 n_already += 1
             else:
-                print(f"  ✗ {path:<48} EOS a id {have}, non {eos_id} — "
-                      f"disallineato, correggere a mano")
+                print(f"  ✗ {path:<48} EOS at id {have}, not {eos_id} — "
+                      f"misaligned, fix by hand")
                 n_bad += 1
             continue
 
         if top + 1 != eos_id:
-            print(f"  – {path:<48} salto: max id {top}, EOS a {eos_id} "
-                  f"lascerebbe {eos_id - top - 1} slot vuoti")
+            print(f"  – {path:<48} skipped: max id {top}, EOS at {eos_id} "
+                  f"would leave {eos_id - top - 1} empty slots")
             n_skip += 1
             continue
 
         if a.check:
-            print(f"  ✗ {path:<48} manca EOS")
+            print(f"  ✗ {path:<48} EOS missing")
             n_bad += 1
             continue
 
@@ -177,10 +177,10 @@ def main() -> int:
               f"EOS → id {eos_id} (vocab {top + 1} → {len(tok)})")
         n_done += 1
 
-    print(f"\nregistrati {n_done}, già presenti {n_already}, "
-          f"saltati {n_skip}, problemi {n_bad}")
+    print(f"\nregistered {n_done}, already present {n_already}, "
+          f"skipped {n_skip}, problems {n_bad}")
     if a.dry_run:
-        print("(dry-run: nessun file scritto)")
+        print("(dry-run: no file written)")
     return 1 if n_bad else 0
 
 

@@ -13,7 +13,7 @@ const Auth = {
   onUnauthorized() {
     if (this.getAccessToken()) {
       this.clear();
-      UI.toast('Sessione scaduta', 'warning');
+      UI.toast('Session expired', 'warning');
       UI.refreshAuthState();
     }
   },

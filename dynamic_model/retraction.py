@@ -229,8 +229,9 @@ def retract(word: str, lang: str = "it", *, save_dir: str,
     hit = find(word, lang)
     if hit["other"]:
         raise ValueError(
-            f"'{word}' porta anche {len(hit['other'])} gold che non lo "
-            f"trattano come ignoto: non è un ritiro, è un pool da correggere")
+            f"'{word}' also carries {len(hit['other'])} golds that do not "
+            f"treat it as unknown: this is not a retraction, it is a pool "
+            f"that needs fixing")
     if not hit["levels"]:
         return {"word": word, "targets": 0, "pairs": 0, "levels": []}
 
@@ -268,7 +269,7 @@ def retract(word: str, lang: str = "it", *, save_dir: str,
         f.write(json.dumps({
             "word": word, "levels": sorted(int(l) for l in hit["levels"]),
             "targets": n_t, "pairs": n_p, "batch": batch, "source": source,
-            "reason": reason or "acquisita: l'ammissione è diventata falsa",
+            "reason": reason or "acquired: the admission has become false",
             "at": time.strftime("%Y-%m-%dT%H:%M:%S"),
             "saved": os.path.relpath(path, _ROOT),
         }, ensure_ascii=False) + "\n")
@@ -282,7 +283,7 @@ def restore(word: str, lang: str = "it", *, save_dir: str) -> dict:
     path = _save_path(save_dir, word)
     if not os.path.exists(path):
         raise FileNotFoundError(
-            f"nessun salvataggio del ritiro di '{word}' in {save_dir}")
+            f"no saved retraction for '{word}' in {save_dir}")
     with open(path, encoding="utf-8") as f:
         hit = json.load(f)
 
@@ -328,15 +329,15 @@ if __name__ == "__main__":
                                                       "it", "13"))
     ap.add_argument("--restore", action="store_true")
     ap.add_argument("--show", action="store_true",
-                    help="solo elenco, non tocca nulla")
+                    help="list only, touches nothing")
     a = ap.parse_args()
     if a.show:
         hit = find(a.word, a.lang)
         for level, part in hit["levels"].items():
-            print(f"  L{level}: {len(part['targets'])} target, "
-                  f"{len(part['pairs'])} coppie")
+            print(f"  L{level}: {len(part['targets'])} targets, "
+                  f"{len(part['pairs'])} pairs")
         for o in hit["other"]:
-            print(f"  ALTRO  L{o['level']} {o['step']}: "
+            print(f"  OTHER  L{o['level']} {o['step']}: "
                   f"{o['prompt']!r} -> {o['expected']!r}")
     elif a.restore:
         print(restore(a.word, a.lang, save_dir=a.save_dir))

@@ -34,8 +34,8 @@ class Linear:
     def backward(self, dout: np.ndarray) -> np.ndarray:
         x = self._cache
         d_in, d_out = self.params["W"].shape
-        # Reshape per gestire sia (T, d) che (B, T, d) — aggrega su tutte le
-        # dimensioni tranne l'ultima (features)
+        # Reshape to handle both (T, d) and (B, T, d) — aggregate over every
+        # dimension but the last (features)
         self.grads["W"] = x.reshape(-1, d_in).T @ dout.reshape(-1, d_out)
         if "b" in self.params:
             self.grads["b"] = dout.reshape(-1, d_out).sum(axis=0)

@@ -264,13 +264,13 @@ def main():
         w.writerows(rows)
 
     # ── Report ─────────────────────────────────────────────────────────────
-    print(f"\n  Vocabolario: {base_size} (base) → {len(final_tok.vocab)} "
-          f"= +{len(rows)} token in {len(cohorts)} livelli")
-    print(f"  Matrice: {args.csv}\n")
+    print(f"\n  Vocabulary: {base_size} (base) → {len(final_tok.vocab)} "
+          f"= +{len(rows)} tokens across {len(cohorts)} levels")
+    print(f"  Matrix: {args.csv}\n")
 
-    print("  ## Crescita per livello\n")
-    print(f"  {'Liv':>4}  {'nuovi':>5}  {'soglia':>6}  {'growth_tok':>10}  "
-          f"{'bank':>5}  {'gold':>4} {'prompt':>6} {'both':>4} {'??':>3}  irraggiungibili")
+    print("  ## Growth per level\n")
+    print(f"  {'Lvl':>4}  {'new':>5}  {'thresh':>6}  {'growth_tok':>10}  "
+          f"{'bank':>5}  {'gold':>4} {'prompt':>6} {'both':>4} {'??':>3}  unreachable")
     by_level = {}
     for r in rows:
         by_level.setdefault(r["level"], []).append(r)
@@ -288,7 +288,7 @@ def main():
               f"{cnt('gold'):>4} {cnt('prompt'):>6} {cnt('both'):>4} "
               f"{cnt('unseen'):>3}  {n_dead}")
 
-    print("\n  ## Token per livello\n")
+    print("\n  ## Tokens per level\n")
     for c in cohorts:
         rs = by_level.get(c["level"], [])
         if rs:
@@ -297,10 +297,10 @@ def main():
 
     n_dead_all = sum(1 for r in rows if not r["reachable"])
     n_unseen = sum(1 for r in rows if r["origin"] == "unseen")
-    print(f"\n  Irraggiungibili da encode(): {n_dead_all}/{len(rows)}")
+    print(f"\n  Unreachable from encode(): {n_dead_all}/{len(rows)}")
     if n_unseen:
-        print(f"  Non ritrovati nel growth text ricostruito: {n_unseen} "
-              f"(atteso > 0: il bank è ricostruito, vedi il caveat in testa)")
+        print(f"  Not found in the reconstructed growth text: {n_unseen} "
+              f"(expected > 0: the bank is reconstructed, see the caveat above)")
 
 
 if __name__ == "__main__":

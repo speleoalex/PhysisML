@@ -126,7 +126,7 @@ def score(tr, tok, probe: dict) -> dict:
         if has_repetition(answer):
             rep += 1
         if not ok and len(misses) < 5:
-            misses.append(f"{it['prompt']!r} -> {answer!r} (atteso {expected!r})")
+            misses.append(f"{it['prompt']!r} -> {answer!r} (expected {expected!r})")
     n = probe["n"] or 1
     return {"n": probe["n"], "exact": exact, "exact_rate": exact / n,
             "repetition": rep, "repetition_rate": rep / n,
@@ -149,31 +149,31 @@ def main() -> None:
 
     if a.write:
         if os.path.exists(a.path):
-            print(f"{a.path} esiste già: non lo sovrascrivo.\n"
-                  f"Il probe è congelato per definizione — rimuovilo a mano "
-                  f"solo se vuoi ricominciare da una baseline nuova.")
+            print(f"{a.path} already exists: not overwriting it.\n"
+                  f"The probe is frozen by definition — remove it by hand "
+                  f"only if you want to start from a new baseline.")
             return
         d = write(a.path, lang=a.lang, per_level=a.per_level, seed=a.seed)
-        print(f"→ {a.path}\n  {d['n']} prompt, "
-              f"{len(d['levels'])} livelli, fingerprint {d['fingerprint']}")
+        print(f"→ {a.path}\n  {d['n']} prompts, "
+              f"{len(d['levels'])} levels, fingerprint {d['fingerprint']}")
         return
 
     probe = load(a.path)
-    print(f"probe: {probe['n']} prompt  fingerprint {probe['fingerprint']}  "
-          f"(seed {probe['seed']}, {probe['per_level']}/livello)")
+    print(f"probe: {probe['n']} prompts  fingerprint {probe['fingerprint']}  "
+          f"(seed {probe['seed']}, {probe['per_level']}/level)")
     if a.show:
         for it in probe["items"]:
             print(f"  L{it['level']:<2} {it['prompt']!r} -> {it['expected']!r}")
 
     if a.score:
         if not a.checkpoint or not a.tokenizer:
-            ap.error("--score richiede --checkpoint e --tokenizer")
+            ap.error("--score requires --checkpoint and --tokenizer")
         from measure_repetition import load_pair
         tr, tok = load_pair(a.checkpoint, a.tokenizer)
         r = score(tr, tok, probe)
-        print(f"\nexact {r['exact_rate']:.1%}  ripetizione "
+        print(f"\nexact {r['exact_rate']:.1%}  repetition "
               f"{r['repetition_rate']:.1%}")
-        print("  per livello: " + " ".join(f"L{k}:{v:.0%}"
+        print("  per level: " + " ".join(f"L{k}:{v:.0%}"
                                            for k, v in r["per_level"].items()))
         for m in r["misses"]:
             print(f"  ✗ {m}")

@@ -56,10 +56,10 @@ class AffectState:
     # The bonus decays with sqrt(n_encounters): first time = full,
     # 4th time = 50%, 100th time = 10%.
     NOVELTY_WEIGHT   = 0.3   # maximum novelty bonus weight on pleasure
-    ACTIVATION_BONUS = 0.6   # picco quando un nuovo slot vocabolario viene attivato
+    ACTIVATION_BONUS = 0.6   # peak when a new vocabulary slot is activated
 
     def __init__(self):
-        # Prior biologico
+        # Biological prior
         self.confidence: float = 0.1
         self.ignorance:  float = 0.9
         self.pleasure:   float = 0.5
@@ -218,7 +218,7 @@ class AffectState:
         return float(np.clip(1.0 - self.fear, 0.0, 1.0))
 
     # ------------------------------------------------------------------
-    # Persistenza della memoria di curiosità
+    # Persistence of the curiosity memory
     # ------------------------------------------------------------------
 
     def save_memory(self, path: str) -> None:
@@ -324,15 +324,15 @@ class AffectState:
 
         total_bonus = 0.0
 
-        # 1. Token singoli (invariato)
+        # 1. Single tokens (unchanged)
         for tid in set(token_ids):
             count = self.token_encounter_count.get(tid, 0)
             bonus = self.NOVELTY_WEIGHT * feedback / (count + 1) ** 0.5
             total_bonus += bonus
             self.token_encounter_count[tid] = count + 1
 
-        # 2. Bigrammi: premia sequenze ordinate nuove
-        #    Peso 0.5× rispetto ai token singoli — contributo extra ma non dominante
+        # 2. Bigrams: reward new ordered sequences
+        #    Weighted 0.5× against single tokens — an extra, not a dominant, term
         BIGRAM_WEIGHT = self.NOVELTY_WEIGHT * 0.5
         for i in range(len(token_ids) - 1):
             bg = (token_ids[i], token_ids[i + 1])

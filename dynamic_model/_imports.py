@@ -1,6 +1,6 @@
 """
-Configura il sys.path per importare da tests/test_1/physisml/.
-Da importare come primo statement in ogni modulo di dynamic_model:
+Configure sys.path so that tests/test_1/physisml/ can be imported.
+Import it as the first statement of every dynamic_model module:
 
     from dynamic_model._imports import *  # noqa
     from physisml.layers import Linear, LayerNorm, ...

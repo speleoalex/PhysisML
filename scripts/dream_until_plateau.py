@@ -123,28 +123,28 @@ def decide(curve, *, epsilon, patience, max_dreams, max_drop,
     both would disable the loop while looking like a clean stop.
     """
     if patience < 1:
-        raise ValueError(f"patience deve essere >= 1, non {patience}: con una "
-                         f"finestra vuota ogni run si ferma sulla baseline")
+        raise ValueError(f"patience must be >= 1, not {patience}: with an "
+                         f"empty window every run stops on its baseline")
     if max_drop < 0:
-        raise ValueError(f"max_drop deve essere >= 0, non {max_drop}")
+        raise ValueError(f"max_drop must be >= 0, not {max_drop}")
     done_here = len(curve) - 1
     done_total = already_done + done_here
     best = max(curve)
     if curve[-1] < best - max_drop:
-        return STOP_REGRESSION, (f"exact {curve[-1]:.1%} è {best - curve[-1]:.1%} "
-                                 f"sotto il migliore ({best:.1%})")
+        return STOP_REGRESSION, (f"exact {curve[-1]:.1%} is {best - curve[-1]:.1%} "
+                                 f"below the best ({best:.1%})")
     if done_total >= max_dreams:
-        return STOP_MAX, f"tetto di {max_dreams} sogni raggiunto"
+        return STOP_MAX, f"cap of {max_dreams} dreams reached"
     if done_total < floor:
-        return DREAM, f"sotto il pavimento ({done_total}/{floor})"
+        return DREAM, f"below the floor ({done_total}/{floor})"
     if done_here >= patience:
         recent = [curve[i] - curve[i - 1]
                   for i in range(done_here - patience + 1, done_here + 1)]
         if all(g < epsilon for g in recent):
             gains = ", ".join(f"{g:+.1%}" for g in recent)
-            return STOP_PLATEAU, (f"ultimi {patience} guadagni ({gains}) "
-                                  f"sotto ε={epsilon:.1%}")
-    return DREAM, "sta ancora guadagnando"
+            return STOP_PLATEAU, (f"last {patience} gains ({gains}) "
+                                  f"under ε={epsilon:.1%}")
+    return DREAM, "still gaining"
 
 
 def snapshot_state(level_dir: str, dest_dir: str) -> None:
@@ -204,8 +204,8 @@ def run_one_dream(args, dreamed: str) -> bool:
     if subprocess.run(cmd, cwd=_ROOT).returncode != 0:
         return False
     if os.path.getmtime(dreamed) == before:
-        print("  il processo del sogno è uscito 0 ma final_dreamed.pt non è "
-              "stato riscritto: lo tratto come fallito.")
+        print("  the dream process exited 0 but final_dreamed.pt was not "
+              "rewritten: treating it as failed.")
         return False
     return True
 
@@ -230,29 +230,29 @@ def salvage(level_dir, dreamed, tok_path, probe, curve, reps, best_i,
 
     Returns (note, restored).
     """
-    print(f"  [salvage dopo {cause}] misuro lo stato su disco…", flush=True)
+    print(f"  [salvage after {cause}] measuring the state on disk…", flush=True)
     try:
         r = score_now(dreamed, tok_path, probe)
     except KeyboardInterrupt:
         raise
     except Exception as e:                                 # noqa: BLE001
         names = restore_state(level_dir, best_dir)
-        note = (f"coppia su disco non caricabile ({type(e).__name__}): "
-                f"ripristinato il migliore ({', '.join(names)})")
+        note = (f"pair on disk not loadable ({type(e).__name__}): "
+                f"restored the best one ({', '.join(names)})")
         print(f"  {note}")
         return note, True
     curve.append(r["exact_rate"])
     reps.append(r["repetition_rate"])
-    print(f"  stato su disco: exact {curve[-1]:.1%} (migliore {curve[best_i]:.1%})")
+    print(f"  state on disk: exact {curve[-1]:.1%} (best {curve[best_i]:.1%})")
     if curve[-1] < curve[best_i] - max_drop:
         names = restore_state(level_dir, best_dir)
         # The salvaged point stays in the curve — it was real — but the disk
         # goes back to the best state.
-        note = (f"stato misurato a {curve[-1]:.1%}, sotto il migliore oltre "
-                f"max_drop: ripristinato ({', '.join(names)})")
+        note = (f"state measured at {curve[-1]:.1%}, below the best by more "
+                f"than max_drop: restored ({', '.join(names)})")
         print(f"  {note}")
         return note, True
-    return f"stato su disco misurato e tenuto ({curve[-1]:.1%})", False
+    return f"state on disk measured and kept ({curve[-1]:.1%})", False
 
 
 def write_record(curve_path, record) -> None:
@@ -306,16 +306,16 @@ def main() -> int:
     # something unreachable (floor past the cap, where decide() checks the cap
     # first — by contract — and would quietly truncate the floor).
     if a.patience < 1:
-        ap.error(f"--patience {a.patience}: deve essere >= 1")
+        ap.error(f"--patience {a.patience}: must be >= 1")
     if a.max_drop < 0:
-        ap.error(f"--max-drop {a.max_drop}: deve essere >= 0")
+        ap.error(f"--max-drop {a.max_drop}: must be >= 0")
     if a.epsilon < 0:
-        ap.error(f"--epsilon {a.epsilon}: deve essere >= 0")
+        ap.error(f"--epsilon {a.epsilon}: must be >= 0")
     if a.floor < 0 or a.already_done < 0 or a.cap < 1:
-        ap.error("--min/--already-done devono essere >= 0, --max >= 1")
+        ap.error("--min/--already-done must be >= 0, --max >= 1")
     if a.floor > a.cap:
-        ap.error(f"--min {a.floor} > --max {a.cap}: il pavimento è "
-                 f"irraggiungibile (il tetto vince, per contratto)")
+        ap.error(f"--min {a.floor} > --max {a.cap}: the floor is "
+                 f"unreachable (the cap wins, by contract)")
 
     # Absolute, before anything touches the filesystem: the dream child runs
     # with cwd=_ROOT, and a relative --ckpt-base would make parent and child
@@ -330,8 +330,8 @@ def main() -> int:
         # No pair to accumulate on: the level has not had its first in-session
         # dream. Refusing beats silently running phase 2 without --checkpoint,
         # which would look identical and consolidate nothing.
-        print(f"Manca {dreamed} (o il tokenizer): il primo sogno lo fa la "
-              f"sessione, questo script ACCUMULA su quello.")
+        print(f"Missing {dreamed} (or the tokenizer): the session makes the "
+              f"first dream, this script ACCUMULATES on top of it.")
         return 1
 
     probe = probe_set.load(a.probe)          # raises if edited — by design
@@ -341,10 +341,10 @@ def main() -> int:
     r = score_now(dreamed, tok_path, probe)
     curve = [r["exact_rate"]]
     reps = [r["repetition_rate"]]
-    print(f"\nsogni fino al plateau — L{a.level}  "
+    print(f"\ndreams until plateau — L{a.level}  "
           f"(ε={a.epsilon:.1%}, patience={a.patience}, "
-          f"già fatti {a.already_done}, pavimento {a.floor}, tetto {a.cap})")
-    print(f"  baseline: exact {curve[0]:.1%}  ripetizione {reps[0]:.1%}")
+          f"already done {a.already_done}, floor {a.floor}, cap {a.cap})")
+    print(f"  baseline: exact {curve[0]:.1%}  repetition {reps[0]:.1%}")
     snapshot_state(level_dir, best_dir)
     best_i = 0
 
@@ -360,12 +360,12 @@ def main() -> int:
                 print(f"\n  stop: {action} — {why}")
                 break
             k = len(curve)
-            print(f"\n  ── sogno {a.already_done + k} ({why}) ──", flush=True)
+            print(f"\n  ── dream {a.already_done + k} ({why}) ──", flush=True)
             t0 = time.time()
             if not run_one_dream(a, dreamed):
                 salvage_note, _ = salvage(level_dir, dreamed, tok_path, probe,
                                           curve, reps, best_i, best_dir,
-                                          a.max_drop, "sogno fallito")
+                                          a.max_drop, "a failed dream")
                 stopped, why = "crash", "dream subprocess failed"
                 rc = 3
                 break
@@ -373,8 +373,8 @@ def main() -> int:
             curve.append(r["exact_rate"])
             reps.append(r["repetition_rate"])
             d = curve[-1] - curve[-2]
-            print(f"  sogno {a.already_done + k}: exact {curve[-2]:.1%} → "
-                  f"{curve[-1]:.1%} ({d:+.1%})  ripetizione {reps[-1]:.1%}  "
+            print(f"  dream {a.already_done + k}: exact {curve[-2]:.1%} → "
+                  f"{curve[-1]:.1%} ({d:+.1%})  repetition {reps[-1]:.1%}  "
                   f"[{time.time() - t0:.0f}s]")
             if curve[-1] >= curve[best_i]:
                 snapshot_state(level_dir, best_dir)
@@ -383,10 +383,10 @@ def main() -> int:
         # The interrupt reached the child too (same process group): its saves
         # may be torn. Same salvage as a crash; a second Ctrl-C during the
         # salvage exits raw, which is the user insisting.
-        print("\n  interrotto.")
+        print("\n  interrupted.")
         salvage_note, _ = salvage(level_dir, dreamed, tok_path, probe,
                                   curve, reps, best_i, best_dir,
-                                  a.max_drop, "interruzione")
+                                  a.max_drop, "an interruption")
         stopped, why = "interrupted", "Ctrl-C"
         rc = 130
     finally:
@@ -400,9 +400,9 @@ def main() -> int:
         # build. The regression stop is the same rule with a bigger gap.
         if curve[-1] < curve[best_i]:
             names = restore_state(level_dir, best_dir)
-            print(f"  RIPRISTINO dello stato migliore (sogno "
+            print(f"  RESTORING the best state (dream "
                   f"{a.already_done + best_i}, exact {curve[best_i]:.1%}, "
-                  f"su disco c'era {curve[-1]:.1%}): {', '.join(names)}")
+                  f"disk had {curve[-1]:.1%}): {', '.join(names)}")
         write_record(curve_path, {
             "level": a.level, "at": time.strftime("%Y-%m-%dT%H:%M:%S"),
             "already_done": a.already_done,
@@ -415,9 +415,9 @@ def main() -> int:
             "best_index": best_i,
         })
         n_new = len(curve) - 1
-        print(f"\n  curva: {' → '.join(f'{x:.1%}' for x in curve)}")
-        print(f"  {n_new} punti misurati oltre la baseline "
-              f"(sessione: {a.already_done}). Registrata in {curve_path}")
+        print(f"\n  curve: {' → '.join(f'{x:.1%}' for x in curve)}")
+        print(f"  {n_new} points measured beyond the baseline "
+              f"(session: {a.already_done}). Recorded in {curve_path}")
     return rc
 
 

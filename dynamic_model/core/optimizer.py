@@ -1,5 +1,5 @@
 """
-DynamicAdam — estende AdamOptimizer con expand_moments() per vocabolario crescente.
+DynamicAdam — extends AdamOptimizer with expand_moments() for a growing vocabulary.
 """
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'tests', 'test_1'))
@@ -21,12 +21,12 @@ class DynamicAdam(AdamOptimizer):
         Call AFTER model.vocab_expand() and BEFORE the next optimizer.step().
         """
         if param_name not in self._m:
-            return  # momenti non ancora inizializzati — nessuna azione necessaria
+            return  # moments not initialised yet — nothing to do
 
         m = self._m[param_name]
         v = self._v[param_name]
 
-        # Determina la shape di una nuova riga
+        # Shape of one new row
         new_m = np.zeros((n_new,) + m.shape[1:], dtype=m.dtype)
         new_v = np.zeros((n_new,) + v.shape[1:], dtype=v.dtype)
 

@@ -43,7 +43,7 @@ EXPANSION_INTERVAL = 10
 EXPANSION_FREEZE   = 150_000  # freeze after 150K chars (end of levels 0+1+initial Pinocchio)
 
 # ---------------------------------------------------------------------------
-# Dati
+# Data
 # ---------------------------------------------------------------------------
 
 def load_training_text() -> str:
@@ -122,7 +122,7 @@ def train_one_epoch(model, tokenizer, optimizer, all_ids, text,
         loss_val = loss.item()
         loss_window.append(loss_val)
         step += 1
-        chars_processed += len(seqs) * bs  # chars effettivi processati
+        chars_processed += len(seqs) * bs  # chars actually processed
 
         # Dynamic updates (Exp-A only)
         if expansion_manager is not None:

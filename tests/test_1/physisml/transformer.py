@@ -143,8 +143,8 @@ class GPT:
 
     def forward(self, ids: np.ndarray, training: bool = True) -> np.ndarray:
         """
-        ids : int array shape (T,) oppure (B, T)
-        returns logits shape (T, V) oppure (B, T, V)
+        ids : int array shape (T,) or (B, T)
+        returns logits shape (T, V) or (B, T, V)
         """
         _squeeze = ids.ndim == 1
         if _squeeze:
@@ -174,7 +174,7 @@ class GPT:
     def loss(self, logits: np.ndarray, ids: np.ndarray):
         """
         Autoregressive cross-entropy loss.
-        Supporta sia (T, V)/(T,) che (B, T, V)/(B, T).
+        Handles both (T, V)/(T,) and (B, T, V)/(B, T).
         Returns (scalar_loss, dlogits)
         """
         _squeeze = logits.ndim == 2
@@ -221,7 +221,7 @@ class GPT:
 
         # LM head backward: logits = x_final @ W_emb.T
         dx_final  = dlogits @ self.tok_emb.params["W"]          # (B, T, d)
-        # dW_emb da LM head: aggrega su B e T → (d, V)
+        # dW_emb from the LM head: aggregate over B and T → (d, V)
         dW_emb_lm = x_final.reshape(-1, d).T @ dlogits.reshape(-1, V)
 
         dx = self.final_ln.backward(dx_final)
@@ -232,7 +232,7 @@ class GPT:
         dx = self.emb_drop.backward(dx)
 
         self.tok_emb.backward(dx)
-        # pos_emb usa ids 1D (T,): accumula il gradiente sommando su B
+        # pos_emb uses 1D ids (T,): accumulate the gradient by summing over B
         self.pos_emb.backward(dx.sum(axis=0) if dx.ndim == 3 else dx)
 
         self.tok_emb.grads["W"] = self.tok_emb.grads.get("W", 0) + dW_emb_lm.T

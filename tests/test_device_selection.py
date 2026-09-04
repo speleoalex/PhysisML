@@ -58,7 +58,7 @@ def test_an_impossible_request_falls_back_out_loud(monkeypatch, capsys):
     monkeypatch.setenv("PHYSISML_DEVICE", "xpu")
     assert get_device() == "cpu"
     err = capsys.readouterr().err
-    assert "PHYSISML_DEVICE=xpu" in err and "non disponibile" in err
+    assert "PHYSISML_DEVICE=xpu" in err and "not available" in err
 
 
 def test_a_request_that_can_be_honoured_is_silent(monkeypatch, capsys):

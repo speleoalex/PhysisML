@@ -117,7 +117,7 @@ class AffectModulator:
         self.pleasure_ids: deque = deque(maxlen=self.BUFFER_SIZE)
 
     # ------------------------------------------------------------------
-    # Modulazione inference
+    # Inference modulation
     # ------------------------------------------------------------------
 
     def modulate(self, logits: torch.Tensor,
@@ -229,7 +229,7 @@ class AffectModulator:
             self.pain_ids.extend(token_ids)
 
     # ------------------------------------------------------------------
-    # Penalty da aggiungere alla loss (opzionale, non differenziabile)
+    # Penalty to add to the loss (optional, not differentiable)
     # ------------------------------------------------------------------
 
     def affect_loss_penalty(self) -> float:

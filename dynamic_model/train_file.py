@@ -77,12 +77,12 @@ def main():
     parser.add_argument("--log_every", type=int, default=50)
     args = parser.parse_args()
 
-    # ------------------------------------------------------------------ testo
+    # ------------------------------------------------------------------ text
     print(f"\nLoading: {args.file}")
     text = load_text(args.file)
     print(f"  {len(text):,} total characters\n")
 
-    # ------------------------------------------------------------------ modello
+    # ------------------------------------------------------------------ model
     tok = BPETokenizer()
     tok.load(args.tokenizer)
     print(f"Tokenizer: {len(tok)} token")
@@ -149,20 +149,20 @@ def main():
         print(f"Epoch {epoch}/{args.epochs}  "
               f"loss={avg:.4f}  ppl={ppl:.1f}  time={elap:.0f}s")
 
-        # Checkpoint per ogni epoca
+        # One checkpoint per epoch
         epoch_path = save_path.replace(".pt", f"_e{epoch:02d}.pt")
         model.save(epoch_path)
         print(f"  → {epoch_path}")
 
-    # Salva il modello finale
+    # Save the final model
     model.save(save_path)
 
     print("\n" + "=" * 50)
     print(f"Training complete in {time.time()-t_total:.0f}s")
     if global_losses:
         print(f"  Loss: {global_losses[0]:.4f} → {float(np.mean(global_losses[-20:])):.4f}")
-    print(f"  Checkpoint finale: {save_path}")
-    print(f"\nPer continuare la sessione interattiva:")
+    print(f"  Final checkpoint: {save_path}")
+    print(f"\nTo continue the interactive session:")
     print(f"  python3 dynamic_model/run.py --checkpoint {save_path}")
 
 

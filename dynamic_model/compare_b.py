@@ -1,12 +1,12 @@
 """
-Confronto tra due checkpoint exp_b.
+Comparison of two exp_b checkpoints.
 
-Misura:
-  - Perplexity su validation.txt
-  - Generazione su prompt fissi
-  - Delta pesi (quanto i pesi si sono spostati tra i due modelli)
+Measures:
+  - Perplexity on validation.txt
+  - Generation on fixed prompts
+  - Weight delta (how far the weights moved between the two models)
 
-Uso:
+Usage:
   python3 -m dynamic_model.compare_b \
       --model_a dynamic_model/checkpoints/level_0/final.pt \
       --model_b models/active.pt
@@ -192,14 +192,14 @@ def main():
     print(f"  Delta B-A:                          {sign}{delta_ppl:8.2f}  [{verdict}]")
     print()
 
-    # --- Delta pesi ---
+    # --- Weight delta ---
     delta = weight_delta(model_a, model_b)
     tot = delta["__total__"]
     print("=" * 55)
     print(f"  WEIGHT DELTA (L2 norm of differences)")
-    print(f"  L2 totale:      {tot['l2']:.4f}")
+    print(f"  L2 total:       {tot['l2']:.4f}")
     print(f"  L2 per param:   {tot['l2_per_param']:.6f}")
-    print(f"  Totale param:   {tot['n']:,}")
+    print(f"  Total params:   {tot['n']:,}")
     print()
 
     # Top 5 most modified layers
@@ -210,9 +210,9 @@ def main():
         print(f"    {name:<45} L2={l2:.4f}")
     print()
 
-    # --- Generazione ---
+    # --- Generation ---
     print("=" * 55)
-    print(f"  GENERAZIONE (temp={args.temperature}, top_k={args.top_k})")
+    print(f"  GENERATION (temp={args.temperature}, top_k={args.top_k})")
     print()
     for prompt in PROMPTS:
         out_a = generate(model_a, tok, prompt, args.max_tokens, args.temperature, args.top_k)

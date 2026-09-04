@@ -278,7 +278,7 @@ def test_build_sh_ewc_knobs_match_module_defaults():
 
     def knob(name, pattern=r"([0-9.]+)"):
         m = re.search(rf'{name}=\$\{{{name}:-{pattern}\}}', src)
-        assert m, f"{name} non trovato in build.sh"
+        assert m, f"{name} not found in build.sh"
         return m.group(1)
 
     assert float(knob("EWC_LAMBDA")) == DEFAULTS["lambda"]

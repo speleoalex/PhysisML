@@ -157,7 +157,7 @@ def main():
         for r in rows:
             new_p = fn(r.get("prompt", ""), r.get("response", ""), by_phrase)
             if new_p and new_p != r["prompt"]:
-                print(f"  L{L} riscritto  {r['prompt']!r}\n"
+                print(f"  L{L} rewritten  {r['prompt']!r}\n"
                       f"              -> {new_p!r}")
                 r["prompt"] = new_p
                 rewritten[L] += 1
@@ -173,8 +173,8 @@ def main():
             if gold is not None and gold != resp and L not in editable:
                 deferred.append((L, p, resp))
             if gold is not None and gold != resp and L in editable:
-                print(f"  L{L} scartato   {p!r}\n"
-                      f"              risposta {resp!r} != gold del pool {gold!r}")
+                print(f"  L{L} dropped    {p!r}\n"
+                      f"              response {resp!r} != pool gold {gold!r}")
                 dropped[L] += 1
                 continue
             keep.append(r)
@@ -207,26 +207,26 @@ def main():
             if lL not in editable:
                 deferred.append((lL, p_, lresp))
                 continue
-            print(f"  L{lL} scartato   {p_!r}\n"
-                  f"              risposta {lresp!r} contraddice "
+            print(f"  L{lL} dropped    {p_!r}\n"
+                  f"              response {lresp!r} contradicts "
                   f"{first[p_][1]!r}")
             pairs[lL][lidx] = None
             dropped[lL] += 1
     for L in pairs:
         pairs[L] = [r for r in pairs[L] if r is not None]
 
-    print(f"\n  riscritti: {dict(rewritten) or 'nessuno'}")
-    print(f"  scartati:  {dict(dropped) or 'nessuno'}")
+    print(f"\n  rewritten: {dict(rewritten) or 'none'}")
+    print(f"  dropped:   {dict(dropped) or 'none'}")
     deferred = list(dict.fromkeys(deferred))   # pass 2 and 3 can both flag one
     if deferred:
-        print(f"\n  RINVIATI ({len(deferred)}): coppie in conflitto su livelli "
-              f"non selezionati con --levels. Vanno corrette quando quel "
-              f"livello non e' piu' in costruzione:")
+        print(f"\n  DEFERRED ({len(deferred)}): conflicting pairs on levels "
+              f"not selected with --levels. They must be fixed once that "
+              f"level is no longer being built:")
         for L, p_, resp in deferred:
             print(f"    L{L}  {p_!r} -> {resp!r}")
 
     if a.dry_run:
-        print("\nDRY RUN — nulla scritto")
+        print("\nDRY RUN — nothing written")
         return 0
 
     touched = sorted(L for L in pairs
@@ -237,9 +237,9 @@ def main():
         with open(p, "w", encoding="utf-8") as f:
             for r in pairs[L]:
                 f.write(json.dumps(r, ensure_ascii=False) + "\n")
-        print(f"  scritto {p}  ({len(pairs[L])} coppie)")
+        print(f"  wrote {p}  ({len(pairs[L])} pairs)")
     if touched:
-        print("\nOra rigenera i corpora derivati:")
+        print("\nNow regenerate the derived corpora:")
         print(f"  python3 scripts/generate_qa_corpus.py --levels "
               f"{' '.join(str(L) for L in touched)} --lang {a.lang}")
     return 0

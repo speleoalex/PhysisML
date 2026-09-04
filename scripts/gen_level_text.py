@@ -65,18 +65,18 @@ def main():
     if a.check:
         have = open(out, encoding="utf-8").read() if os.path.exists(out) else ""
         if have == text:
-            print(f"  L{a.level}: {os.path.basename(out)} allineato "
-                  f"({len(text.splitlines())} righe)")
+            print(f"  L{a.level}: {os.path.basename(out)} in sync "
+                  f"({len(text.splitlines())} lines)")
             return 0
-        print(f"  L{a.level}: {os.path.basename(out)} STANTIO — rigenera con "
+        print(f"  L{a.level}: {os.path.basename(out)} STALE — regenerate with "
               f"`python3 scripts/gen_level_text.py --level {a.level}`")
         return 1
 
     with open(out, "w", encoding="utf-8") as f:
         f.write(text)
     n_uniq = len(set(text.splitlines()))
-    print(f"  L{a.level}: scritte {len(text.splitlines())} righe "
-          f"({n_uniq} frasi distinte) in {out}")
+    print(f"  L{a.level}: wrote {len(text.splitlines())} lines "
+          f"({n_uniq} distinct sentences) to {out}")
     return 0
 
 

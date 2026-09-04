@@ -1,5 +1,5 @@
 """
-TrainerA — training online con TorchDynamicGPT, vocabolario dinamico e dream phase.
+TrainerA — online training with TorchDynamicGPT, dynamic vocabulary and dream phase.
 """
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'tests', 'test_1'))
@@ -32,7 +32,7 @@ class TrainerA:
         expansion_manager.set_dream_consolidator(dream_consolidator)
 
     # ------------------------------------------------------------------
-    # Singolo step online (batch_size=1, per feedback interattivo)
+    # A single online step (batch_size=1, for interactive feedback)
     # ------------------------------------------------------------------
 
     def step(self, text_chunk: str) -> dict:
@@ -78,7 +78,7 @@ class TrainerA:
         return float(np.exp(np.mean(losses))) if losses else float("nan")
 
     # ------------------------------------------------------------------
-    # Training su testo intero con mini-batching
+    # Training on a whole text with mini-batching
     # ------------------------------------------------------------------
 
     def train_on_text(self, text: str, block_size: int = 128,
@@ -118,7 +118,7 @@ class TrainerA:
             if new_ids:
                 raw = "".join(self._text_buffer)
                 self.dream.notify_expansion(len(new_ids), raw)
-                # Ri-encodifica con il nuovo vocab per i prossimi step
+                # Re-encode with the new vocab for the next steps
                 ids_all = np.array(self.tokenizer.encode(text), dtype=np.int32)
                 total   = len(ids_all)
                 starts  = list(range(0, total - block_size, block_size))

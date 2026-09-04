@@ -77,7 +77,7 @@ def numerical_gradient(f, x: np.ndarray, eps: float = 1e-4) -> np.ndarray:
     Compute numerical gradient of scalar-valued f w.r.t. x.
     Used for gradient checking in tests.
     """
-    grad = np.zeros_like(x, dtype=np.float64)  # float64 per precisione nel gradient check
+    grad = np.zeros_like(x, dtype=np.float64)  # float64: precision for the gradient check
     it = np.nditer(x, flags=["multi_index"])
     while not it.finished:
         idx = it.multi_index

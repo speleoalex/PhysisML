@@ -20,18 +20,18 @@ class DynamicBPETokenizer(BPETokenizer):
 
     def __init__(self):
         super().__init__()
-        # new_id -> (parent_a_id, parent_b_id)  — None per i 256 byte base
+        # new_id -> (parent_a_id, parent_b_id)  — None for the 256 base bytes
         self.token_parents: Dict[int, Optional[Tuple[int, int]]] = {}
-        # frequenza cumulativa di ogni token nel corpus visto finora
+        # cumulative frequency of every token in the corpus seen so far
         self.token_freq: Dict[int, int] = defaultdict(int)
 
     # ------------------------------------------------------------------
-    # Override train() per popolare token_parents
+    # Override train() to populate token_parents
     # ------------------------------------------------------------------
 
     def train(self, text: str, vocab_size: int = 2000) -> None:
         super().train(text, vocab_size)
-        # Ricostruisci token_parents dai merges
+        # Rebuild token_parents from the merges
         self.token_parents = {}
         for (a, b, new_id) in self.merges:
             self.token_parents[new_id] = (a, b)
@@ -61,13 +61,13 @@ class DynamicBPETokenizer(BPETokenizer):
         reason: encode() splits them out, so merges learned from them are
         unreachable too.
 
-        Soglia adattiva: max(MIN_ABS, n_tokens * MIN_REL)
-          MIN_ABS = 5      — mai creare un token visto < 5 volte
-          MIN_REL = 0.002  — almeno 0.2% del buffer.
-          (Era 0.5% quando le coppie venivano contate anche ATTRAVERSO gli
-          spazi: la segmentazione per parola azzera la coda ad alta frequenza
-          delle coppie cross-word, quindi la soglia relativa va più bassa per
-          non produrre zero merge sui buffer grandi dei livelli alti.)
+        Adaptive threshold: max(MIN_ABS, n_tokens * MIN_REL)
+          MIN_ABS = 5      — never create a token seen < 5 times
+          MIN_REL = 0.002  — at least 0.2% of the buffer.
+          (It was 0.5% when pairs were counted ACROSS spaces too: word-boundary
+          segmentation wipes out the high-frequency tail of the cross-word
+          pairs, so the relative threshold has to go lower or it produces zero
+          merges on the large buffers of the higher levels.)
 
         max_words: kept as a defensive filter (with word-boundary
           segmentation new tokens can no longer span words, so it should
@@ -97,11 +97,11 @@ class DynamicBPETokenizer(BPETokenizer):
           threshold, buffer size) for the dream's growth_events.jsonl. Off by
           default so the two exp_a call sites keep the old return type.
 
-        Returns: lista di nuovi token_id creati
-                 (o la coppia (new_ids, stats) se return_stats=True)
+        Returns: the list of new token_ids created
+                 (or the pair (new_ids, stats) if return_stats=True)
         """
         if not self._trained:
-            raise RuntimeError("Tokenizer non addestrato. Chiama train() prima.")
+            raise RuntimeError("Tokenizer not trained. Call train() first.")
 
         import re as _re
 
@@ -130,7 +130,7 @@ class DynamicBPETokenizer(BPETokenizer):
                 cache[sb] = toks
             segments.append(list(cache[sb]))
 
-        # Aggiorna token_freq
+        # Update token_freq
         n_tokens_total = 0
         for seg_toks in segments:
             n_tokens_total += len(seg_toks)
@@ -163,7 +163,7 @@ class DynamicBPETokenizer(BPETokenizer):
             return False
 
         for _ in range(n_merges):
-            # Conta coppie adiacenti dentro ogni segmento (mai fra parole)
+            # Count adjacent pairs inside each segment (never across words)
             pair_counts: Dict[Tuple[int, int], int] = defaultdict(int)
             for seg_toks in segments:
                 for i in range(len(seg_toks) - 1):
@@ -240,20 +240,20 @@ class DynamicBPETokenizer(BPETokenizer):
         return (new_ids, stats) if return_stats else new_ids
 
     # ------------------------------------------------------------------
-    # Inizializzazione embedding per nuovo token
+    # Embedding initialisation for a new token
     # ------------------------------------------------------------------
 
     def get_parent_embedding(self, token_id: int,
                               W: "np.ndarray") -> "np.ndarray":
         """
-        Calcola il vettore iniziale per un nuovo token come combinazione dei genitori.
+        Compute the initial vector for a new token as a mix of its parents.
 
         v_new = 0.7 * (W[parent_a] + W[parent_b]) / 2  +  0.3 * randn * 0.02
 
-        70%: eredita semantica dai genitori.
-        30%: rumore per permettere differenziazione durante il training.
+        70%: inherits the semantics of the parents.
+        30%: noise, so it can differentiate during training.
 
-        Se il token non ha genitori (byte base), ritorna randn * 0.02.
+        If the token has no parents (a base byte), return randn * 0.02.
         """
         import numpy as np
 
@@ -264,7 +264,7 @@ class DynamicBPETokenizer(BPETokenizer):
             return np.random.randn(d) * 0.02
 
         a, b = parents
-        # I genitori potrebbero essere stati rimossi (ID sparsi) — fallback a randn
+        # The parents may have been removed (sparse IDs) — fall back to randn
         if a >= W.shape[0] or b >= W.shape[0]:
             return np.random.randn(d) * 0.02
 
@@ -277,7 +277,7 @@ class DynamicBPETokenizer(BPETokenizer):
         return (0.7 * parent_mean + 0.3 * noise) * 0.05
 
     def update_freq(self, token_ids: List[int]) -> None:
-        """Aggiorna le frequenze cumulative dopo aver visto una sequenza."""
+        """Update the cumulative frequencies after seeing a sequence."""
         for t in token_ids:
             self.token_freq[t] += 1
 

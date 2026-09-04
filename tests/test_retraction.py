@@ -150,7 +150,7 @@ def test_retract_then_restore_is_byte_identical(tree):
 
     retraction.restore("falco", "it", save_dir=save)
     for p, d in before.items():
-        assert _digest(lvl / p) == d, f"{p} non è tornato identico"
+        assert _digest(lvl / p) == d, f"{p} did not come back identical"
 
 
 def test_the_corpus_no_longer_teaches_the_retracted_admission(tree):
@@ -211,12 +211,12 @@ def test_the_probe_role_is_taught_nowhere():
     deleting it.
     """
     lex = etp.Lex(etp.load_lexicon("it"), "it")
-    assert lex.bare_probe, "il terzo ruolo esiste per essere misurato"
+    assert lex.bare_probe, "the third role exists to be measured"
     taught = {n["w"] for n in lex.bare_taught}
     for n in lex.bare_probe:
         assert n["w"] not in taught
         assert not retraction.find(n["w"], "it")["levels"], \
-            f"{n['w']} ha role=probe ma il curriculum lo insegna"
+            f"{n['w']} has role=probe but the curriculum teaches it"
 
 
 def test_the_reserve_is_taught_and_never_retracted():
@@ -226,7 +226,7 @@ def test_the_reserve_is_taught_and_never_retracted():
     for n in lex.bare_reserve:
         assert n["w"] not in gone
         assert retraction.find(n["w"], "it")["levels"], \
-            f"{n['w']} ha role=reserve ma nessun livello gli insegna 'non lo so'"
+            f"{n['w']} has role=reserve but no level teaches it 'non lo so'"
 
 
 def test_the_acquirable_pool_is_large_enough_to_spend_from():
@@ -282,7 +282,7 @@ def test_discarding_a_batch_brings_back_what_it_retracted(tree, monkeypatch,
 
     b.discard(str(tmp_path / "nonexistent.pt"))
     for p, d in before.items():
-        assert _digest(lvl12 / p) == d, f"{p} non è tornato dopo il rollback"
+        assert _digest(lvl12 / p) == d, f"{p} did not come back after the rollback"
     assert retraction.retracted("it") == {}
 
 
@@ -297,11 +297,11 @@ def _family(prompt: str) -> str:
     """
     tail = prompt.split(", ")[-1].strip().lower()
     if tail.startswith(("questo è", "questa è")):
-        return "introduzione"
+        return "introduction"
     if prompt.rstrip().endswith("?") and \
             prompt.strip().lower().split()[0] in ("cos", "cosa", "chi", "che"):
-        return "domanda aperta"
-    return "sì/no"
+        return "open question"
+    return "yes/no"
 
 
 def test_every_shape_the_retraction_removes_is_replaced():
@@ -329,22 +329,22 @@ def test_every_shape_the_retraction_removes_is_replaced():
         cases.append((acquirable[0], "un cibo"))
     for noun, cls in cases:
         hit = retraction.find(noun["w"], "it")
-        assert hit["levels"], f"{noun['w']} non è insegnato da nessuna parte"
+        assert hit["levels"], f"{noun['w']} is not taught anywhere"
         removed = {_family(item["target"]["prompt"])
                    for part in hit["levels"].values()
                    for item in part["targets"]}
         material = o.material_for(noun, cls)
         supplied = {_family(t["prompt"]) for t in material}
         assert removed <= supplied, (
-            f"{noun['w']}: forme rimosse e non rimpiazzate: {removed - supplied}")
+            f"{noun['w']}: shapes removed and not replaced: {removed - supplied}")
         # The open questions carry no anchor, so for those the exact prompt has
         # to come back — a different phrasing would leave the retracted one bare.
         removed_q = {item["target"]["prompt"]
                      for part in hit["levels"].values()
                      for item in part["targets"]
-                     if _family(item["target"]["prompt"]) == "domanda aperta"}
+                     if _family(item["target"]["prompt"]) == "open question"}
         supplied_q = {t["prompt"] for t in material}
         assert removed_q <= supplied_q, removed_q - supplied_q
         # Step E's yes/no is always 'X è un animale?', whatever the class is.
         yn = f"{etp.phrase(noun)} è un animale?"
-        assert yn in supplied_q, f"{yn} resterebbe senza gold"
+        assert yn in supplied_q, f"{yn} would be left with no gold"

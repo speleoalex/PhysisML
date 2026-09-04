@@ -36,9 +36,9 @@ KEEP=(
 MISSING=0
 for k in "${KEEP[@]}"; do
   if [ ! -d "$BACKUP_DIR/$k" ]; then
-    echo "ERRORE: la milestone '$k' non esiste in $BACKUP_DIR."
-    echo "        La lista KEEP è vecchia: aggiornala prima di cancellare,"
-    echo "        o lo script cancella tutto credendo di preservare qualcosa."
+    echo "ERROR: milestone '$k' does not exist in $BACKUP_DIR."
+    echo "       The KEEP list is stale: update it before deleting,"
+    echo "       or the script deletes everything believing it preserves something."
     MISSING=1
   fi
 done

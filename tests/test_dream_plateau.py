@@ -69,7 +69,7 @@ def test_regression_stops_everything_floor_included():
     the floor exists against complacency, not against evidence of harm."""
     action, why = decide([0.60, 0.65, 0.55], floor=6, **KW)
     assert action == STOP_REGRESSION
-    assert "sotto il migliore" in why
+    assert "below the best" in why
 
 
 def test_one_flat_delta_is_noise_not_a_plateau():
@@ -81,7 +81,7 @@ def test_one_flat_delta_is_noise_not_a_plateau():
 
 def test_the_floor_forces_dreams_through_an_early_plateau():
     action, why = decide([0.60, 0.605, 0.607], floor=6, **KW)
-    assert action == DREAM and "pavimento" in why
+    assert action == DREAM and "below the floor" in why
 
 
 def test_session_dreams_count_toward_floor_and_cap_but_not_the_window():
@@ -168,7 +168,7 @@ def test_build_sh_fallbacks_match_the_module_defaults():
 
     def knob(name):
         m = re.search(rf'{name}=\$\{{{name}:-([0-9.]+)\}}', src)
-        assert m, f"{name} non trovato in build.sh"
+        assert m, f"{name} not found in build.sh"
         return float(m.group(1))
 
     assert knob("MAX_DREAMS") == DEFAULTS["cap"]
@@ -190,5 +190,5 @@ def test_the_disk_always_ends_on_the_best_measured_state():
     import dream_until_plateau as dp
     src = inspect.getsource(dp.main)
     assert "curve[-1] < curve[best_i]:" in src, \
-        "il ripristino deve scattare quando l'ultimo è sotto il migliore, " \
-        "non solo oltre max_drop"
+        "the restore must trigger when the last point is below the best, " \
+        "not only beyond max_drop"

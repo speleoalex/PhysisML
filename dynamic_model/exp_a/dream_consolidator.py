@@ -19,7 +19,7 @@ class DreamConsolidator:
     DREAM_STEPS         = 150   # gradient steps during the dream
     PRUNE_GRACE         = 5     # consecutive dormant phases without use → removal
     MIN_AGE_DREAMS      = 4     # minimum dreams before eligible for pruning
-    BLOCK_SIZE          = 64    # lunghezza sequenze durante il sogno
+    BLOCK_SIZE          = 64    # sequence length during the dream
     BUFFER_CHARS        = 50_000
     MICRO_REPLAY_EVERY  = 50    # every N normal training steps
     MICRO_REPLAY_STEPS  = 5     # lightweight gradient steps on already-encoded buffer
@@ -35,7 +35,7 @@ class DreamConsolidator:
         self._token_birth_dream: Dict[int, int] = {}
 
     # ------------------------------------------------------------------
-    # Helper interno: singolo step PyTorch
+    # Internal helper: a single PyTorch step
     # ------------------------------------------------------------------
 
     def _train_step(self, ids: torch.Tensor, max_norm: float = 1.0) -> float:
@@ -55,7 +55,7 @@ class DreamConsolidator:
         return ids.long()
 
     # ------------------------------------------------------------------
-    # Interfaccia pubblica
+    # Public interface
     # ------------------------------------------------------------------
 
     def register_new_tokens(self, new_ids: List[int]) -> None:
@@ -92,7 +92,7 @@ class DreamConsolidator:
         # 1. Re-encoding
         reencoded = self.tokenizer.encode(raw_text_buffer)
         print(f"  [dream] re-encoding: {len(raw_text_buffer)} chars → "
-              f"{len(reencoded)} token (vocab={self.model.vocab_size})")
+              f"{len(reencoded)} tokens (vocab={self.model.vocab_size})")
 
         # 2. Consolidation
         dream_loss = self._consolidation(reencoded)
@@ -114,7 +114,7 @@ class DreamConsolidator:
                 "tokens_pruned": len(pruned), "new_merges": len(new_merges)}
 
     # ------------------------------------------------------------------
-    # Step interni della dream phase
+    # Internal steps of the dream phase
     # ------------------------------------------------------------------
 
     def _consolidation(self, ids: List[int]) -> float:

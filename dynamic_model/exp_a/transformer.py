@@ -24,13 +24,13 @@ from physisml.torch_model import TorchGPT
 
 class TorchDynamicGPT(TorchGPT):
     """
-    Estende TorchGPT con:
-    - Accetta np.ndarray come input (li converte automaticamente)
-    - vocab_expand accetta sia np.ndarray che torch.Tensor
+    Extends TorchGPT with:
+    - accepts np.ndarray as input (converting it automatically)
+    - vocab_expand accepts either np.ndarray or torch.Tensor
     """
 
     def forward(self, ids, training: bool = True):
-        """Accetta ids come np.ndarray o torch.Tensor."""
+        """Accepts ids as np.ndarray or torch.Tensor."""
         if isinstance(ids, np.ndarray):
             ids = torch.from_numpy(ids).long()
         with torch.set_grad_enabled(training):
@@ -50,8 +50,8 @@ class TorchDynamicGPT(TorchGPT):
 
     def vocab_expand(self, init_vecs) -> None:
         """
-        Aggiunge token al vocabolario.
-        init_vecs: np.ndarray (N, d) o torch.Tensor (N, d)
+        Add tokens to the vocabulary.
+        init_vecs: np.ndarray (N, d) or torch.Tensor (N, d)
         """
         if isinstance(init_vecs, np.ndarray):
             init_vecs = torch.from_numpy(init_vecs).float()

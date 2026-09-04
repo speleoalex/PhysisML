@@ -95,7 +95,7 @@ const Chat = {
 
   _replacePendingError(bubble, err) {
     bubble.className = 'bubble bot text-danger';
-    bubble.textContent = 'Errore: ' + err;
+    bubble.textContent = 'Error: ' + err;
   },
 
   _renderUser(text) {

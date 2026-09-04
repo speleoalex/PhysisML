@@ -22,7 +22,7 @@ class AdamOptimizer:
         lr: float = 1e-3,
         beta1: float = 0.9,
         beta2: float = 0.999,
-        eps: float = 1e-7 if DTYPE == np.float32 else 1e-8,  # float32 ha meno precisione
+        eps: float = 1e-7 if DTYPE == np.float32 else 1e-8,  # float32 has less precision
         weight_decay: float = 0.0,
     ):
         self.lr           = lr

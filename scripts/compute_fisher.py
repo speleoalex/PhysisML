@@ -89,25 +89,25 @@ def main() -> int:
                            "qa_pairs.jsonl")
 
     if not os.path.exists(dreamed):
-        print(f"Manca {dreamed}: il Fisher si calcola sul checkpoint che il "
-              f"livello successivo erediterà — esegui prima il sogno.")
+        print(f"Missing {dreamed}: the Fisher is computed on the checkpoint "
+              f"the next level will inherit — run the dream first.")
         return 1
     if tok_path is None:
-        print(f"Nessun tokenizer.json in {a.ckpt_base} fino a "
-              f"level_{a.level}: coppia non caricabile.")
+        print(f"No tokenizer.json in {a.ckpt_base} down to "
+              f"level_{a.level}: pair not loadable.")
         return 1
     if not os.path.exists(qa_path):
-        print(f"Manca {qa_path}: senza gold pairs il Fisher non ha dati.")
+        print(f"Missing {qa_path}: without gold pairs the Fisher has no data.")
         return 1
 
     pairs = load_pairs(qa_path)
     if not pairs:
-        print(f"{qa_path} è vuoto: niente da stimare.")
+        print(f"{qa_path} is empty: nothing to estimate.")
         return 1
 
     print(f"Fisher L{a.level}  checkpoint={dreamed}")
     print(f"  tokenizer={tok_path}")
-    print(f"  pairs={len(pairs)} da {qa_path}  gamma={a.gamma:g}")
+    print(f"  pairs={len(pairs)} from {qa_path}  gamma={a.gamma:g}")
 
     tr, tok = load_pair(dreamed, tok_path)   # refuses a mismatched pair
     model = tr.model
@@ -127,7 +127,7 @@ def main() -> int:
     print(f"  estimated on {n_used} pairs "
           f"({n_skipped} skipped, {time.time() - t0:.0f}s)")
     if n_used == 0:
-        print("  zero coppie utilizzabili: sidecar NON scritto.")
+        print("  zero usable pairs: sidecar NOT written.")
         return 1
 
     ewc.consolidate(model, fisher_new)

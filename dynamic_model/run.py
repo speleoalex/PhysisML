@@ -49,7 +49,7 @@ torch.set_num_threads(12)
 DEFAULT_TOKENIZER = "dynamic_model/data/tokenizer_base.json"
 
 # ---------------------------------------------------------------------------
-# Visualizzazione stato affettivo
+# Affective state display
 # ---------------------------------------------------------------------------
 
 def _bar(value: float, width: int = 20) -> str:

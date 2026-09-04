@@ -39,7 +39,7 @@ class MultiHeadSelfAttention:
     # ------------------------------------------------------------------
 
     def forward(self, x: np.ndarray, training: bool = True) -> np.ndarray:
-        # Supporta sia (T, D) che (B, T, D) — aggiunge/rimuove batch dim se necessario
+        # Handles both (T, D) and (B, T, D) — adds/removes the batch dim as needed
         _squeeze = x.ndim == 2
         if _squeeze:
             x = x[np.newaxis]          # (1, T, D)

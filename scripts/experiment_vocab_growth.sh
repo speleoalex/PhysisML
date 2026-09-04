@@ -185,9 +185,9 @@ for ARM in $ARMS; do
                  | awk -F: '{s+=$2} END {print s+0}')
         EXACT=$($PY dynamic_model/test_model.py --level "$TARGET_LEVEL" \
                     --checkpoint "$CKPT" --samples 0 2>/dev/null \
-                | grep "Risposte esatte:" | tail -1)
-        printf "  %-20s token nuovi: %-4s  %s\n" "$RUN" "$TOKENS" "${EXACT:-n/a}"
+                | grep "Exact answers:" | tail -1)
+        printf "  %-20s new tokens: %-4s  %s\n" "$RUN" "$TOKENS" "${EXACT:-n/a}"
     done
 done
 echo ""
-echo "  Poi: python3 scripts/analyze_vocab_growth.py --ckpt-base $EXP_DIR/<run> --max-level $TARGET_LEVEL"
+echo "  Then: python3 scripts/analyze_vocab_growth.py --ckpt-base $EXP_DIR/<run> --max-level $TARGET_LEVEL"

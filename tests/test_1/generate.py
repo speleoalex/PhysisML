@@ -87,7 +87,7 @@ def main():
     parser.add_argument("--top_p",       type=float, default=0.0,
                         help="Nucleus sampling probability (overrides top_k if > 0)")
     parser.add_argument("--seed",        type=int,   default=-1,
-                        help="Seme casuale (-1 = casuale ad ogni run)")
+                        help="Random seed (-1 = random on every run)")
     # Model architecture (must match checkpoint)
     parser.add_argument("--vocab_size",  type=int,   default=2000)
     parser.add_argument("--d_model",     type=int,   default=128)

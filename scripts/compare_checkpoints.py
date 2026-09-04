@@ -117,7 +117,7 @@ def compare(path_a: str, path_b: str) -> None:
     label_b = os.path.relpath(path_b)
 
     print(f"\n{'═'*70}")
-    print(f"  CONFRONTO CHECKPOINT")
+    print(f"  CHECKPOINT COMPARISON")
     print(f"  A: {label_a}")
     print(f"  B: {label_b}")
     print(f"{'═'*70}")
@@ -144,14 +144,14 @@ def compare(path_a: str, path_b: str) -> None:
     avg_a = res_a["avg_score"]
     avg_b = res_b["avg_score"]
     delta_avg = avg_b - avg_a
-    arrow_avg = "↑ MIGLIORAMENTO" if delta_avg > 0.02 else \
-                ("↓ REGRESSIONE"  if delta_avg < -0.02 else "→ invariato")
+    arrow_avg = "↑ IMPROVEMENT" if delta_avg > 0.02 else \
+                ("↓ REGRESSION"  if delta_avg < -0.02 else "→ unchanged")
 
     print(f"\n  {'─'*70}")
-    print(f"  Vocabolario medio   A={avg_a:.1%}   B={avg_b:.1%}   "
+    print(f"  Mean vocabulary     A={avg_a:.1%}   B={avg_b:.1%}   "
           f"Δ={delta_avg:+.1%}  {arrow_avg}")
     print(f"  Perplexity          A={res_a['ppl']:.1f}     B={res_b['ppl']:.1f}     "
-          f"{'↓ meglio' if res_b['ppl'] < res_a['ppl'] else '↑ peggio'}")
+          f"{'↓ better' if res_b['ppl'] < res_a['ppl'] else '↑ worse'}")
     print(f"{'═'*70}\n")
 
 
@@ -187,12 +187,12 @@ def ppl_timeline(lang: str, base: str = None) -> None:
                 entries.append((label, path, phase))
 
     if not entries:
-        print("Nessun checkpoint trovato.")
+        print("No checkpoint found.")
         return
 
     print(f"\n{'═'*62}")
-    print(f"  TRAIETTORIA PERPLEXITY — {lang}")
-    print(f"  Testo: \"{ppl_text}\"")
+    print(f"  PERPLEXITY TRAJECTORY — {lang}")
+    print(f"  Text: \"{ppl_text}\"")
     print(f"{'═'*62}")
     print(f"  {'Checkpoint':<30}  {'PPL':>8}  {'Δ':>8}  Bar")
     print(f"  {'─'*30}  {'─'*8}  {'─'*8}  {'─'*20}")
@@ -259,7 +259,7 @@ def main():
         path_b = os.path.join(base, f"level_{args.level}", "final.pt")
         for p in [path_a, path_b]:
             if not os.path.exists(p):
-                print(f"File non trovato: {p}")
+                print(f"File not found: {p}")
                 sys.exit(1)
         compare(path_a, path_b)
         return
@@ -270,7 +270,7 @@ def main():
 
     for p in [args.path_a, args.path_b]:
         if not os.path.exists(p):
-            print(f"File non trovato: {p}")
+            print(f"File not found: {p}")
             sys.exit(1)
 
     compare(args.path_a, args.path_b)

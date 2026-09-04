@@ -223,9 +223,9 @@ def main():
         with open(VALIDATION_PATH, encoding="utf-8") as f:
             val_text = f.read()
 
-    print(f"\n  Coorti: " + "  ".join(f"L{l}:{len(ids)}" for l, ids in cohorts.items()))
-    print(f"  Token nuovi totali: {len(all_new)}   modalità: {args.mode}"
-          + ("   (solo output, encoding invariato)" if args.keep_encoding else "") + "\n")
+    print(f"\n  Cohorts: " + "  ".join(f"L{l}:{len(ids)}" for l, ids in cohorts.items()))
+    print(f"  New tokens in total: {len(all_new)}   mode: {args.mode}"
+          + ("   (output only, encoding unchanged)" if args.keep_encoding else "") + "\n")
 
     results = {"mode": args.mode, "ckpt_base": ckpt_base,
                "keep_encoding": args.keep_encoding, "levels": {}}
@@ -233,7 +233,7 @@ def main():
     for level in levels:
         model, tok, ckpt = load_level(ckpt_base, level)
         if model is None:
-            print(f"  L{level}: nessun checkpoint — salto")
+            print(f"  L{level}: no checkpoint — skipping")
             continue
         cases = load_level_cases(args.lang, level)
         lex   = level_lexicon(args.lang, level, cases)
@@ -246,12 +246,12 @@ def main():
         emitted  = {t: base["emissions"].get(t, 0) for t in sorted(active)}
         n_live   = sum(1 for v in emitted.values() if v)
 
-        print(f"  ── L{level}  ({os.path.basename(ckpt)}, vocab attivo "
-              f"{model.active_vocab_size}, {base['n_graded']} casi)")
+        print(f"  ── L{level}  ({os.path.basename(ckpt)}, active vocab "
+              f"{model.active_vocab_size}, {base['n_graded']} cases)")
         print(f"     baseline            exact {base['exact']:.0%} "
               f"({base['n_exact']}/{base['n_graded']})  score {base['score']:.2f}"
               + (f"  bpc {base_bpc:.3f}" if val_text else ""))
-        print(f"     token nuovi emessi negli output: {n_live}/{len(active)}")
+        print(f"     new tokens emitted in the outputs: {n_live}/{len(active)}")
 
         level_res = {"checkpoint": ckpt, "baseline": {k: v for k, v in base.items()
                                                      if k != "emissions"},
@@ -301,7 +301,7 @@ def main():
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
-    print(f"  Risultati: {args.out}")
+    print(f"  Results: {args.out}")
 
 
 if __name__ == "__main__":

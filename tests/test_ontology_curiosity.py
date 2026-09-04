@@ -71,19 +71,19 @@ class TestOntology:
 
     def test_every_noun_resolves_to_a_class(self, lex):
         missing = [n["w"] for n in lex.nouns if not lex.cls_of(n)]
-        assert not missing, f"nomi senza classe: {missing}"
+        assert not missing, f"nouns with no class: {missing}"
 
     def test_every_class_is_declared(self, lex):
         unknown = {lex.cls_of(n) for n in lex.nouns} - set(lex.classes)
-        assert not unknown, f"classi usate ma non dichiarate: {unknown}"
+        assert not unknown, f"classes used but not declared: {unknown}"
 
     def test_hypernym_chains_terminate(self, lex):
         """No cycle: following `classes` must always reach a None root."""
         for start in lex.classes:
             seen, cur = [start], lex.classes[start]
             while cur is not None:
-                assert cur not in seen, f"ciclo di iperonimi: {seen + [cur]}"
-                assert cur in lex.classes, f"iperonimo non dichiarato: {cur!r}"
+                assert cur not in seen, f"hypernym cycle: {seen + [cur]}"
+                assert cur in lex.classes, f"undeclared hypernym: {cur!r}"
                 seen.append(cur)
                 cur = lex.classes[cur]
 
@@ -92,7 +92,7 @@ class TestOntology:
         does not have one, so the hypernyms must stay out of the pool."""
         hypernyms = {h for h in lex.classes.values() if h}
         overlap = set(lex.negative_pool) & hypernyms
-        assert not overlap, f"iperonimi nel negative_pool: {overlap}"
+        assert not overlap, f"hypernyms in the negative_pool: {overlap}"
 
     def test_probe_nouns_are_disjoint_from_taught(self, lex):
         taught = {n["w"] for n in lex.unknown_of(probe=False)}
@@ -100,7 +100,7 @@ class TestOntology:
         assert taught and probe
         assert not (taught & probe)
         assert not ({n["w"] for n in lex.nouns} & (taught | probe)), \
-            "un nome 'ignoto' è anche nel lessico noto"
+            "an 'unknown' noun is also in the known lexicon"
 
     def test_probe_nouns_appear_in_no_training_material(self, lex):
         """The measurement is only valid on words the model never met."""
@@ -203,7 +203,7 @@ class TestPools:
         for sname, _step, prompt, t in all_targets(level):
             gold.setdefault(prompt, set()).add(t["expected"])
         clash = {p: v for p, v in gold.items() if len(v) > 1}
-        assert not clash, f"prompt con gold contrastanti: {clash}"
+        assert not clash, f"prompts with clashing golds: {clash}"
 
     def test_no_prompt_has_two_golds_across_the_whole_curriculum(self):
         """The same check over ALL levels at once.
@@ -224,7 +224,7 @@ class TestPools:
                 where.setdefault(prompt, set()).add(f"L{level}{sname}")
         clash = {p: (sorted(v), sorted(where[p]))
                  for p, v in gold.items() if len(v) > 1}
-        assert not clash, f"prompt con gold contrastanti: {clash}"
+        assert not clash, f"prompts with clashing golds: {clash}"
 
     def test_harvested_pairs_add_no_new_conflict(self):
         """The pairs harvested from sessions must not contradict the pools.
@@ -260,7 +260,7 @@ class TestPools:
                         gold.setdefault(o.get("prompt", "").strip(),
                                         set()).add(o.get("response", "").strip())
         clash = {p for p, v in gold.items() if len(v) > 1}
-        assert clash <= known, f"conflitti nuovi: {sorted(clash - known)}"
+        assert clash <= known, f"new conflicts: {sorted(clash - known)}"
 
     @pytest.mark.parametrize("level", ONTO_LEVELS)
     def test_every_gold_reaches_top_grade(self, level):
@@ -491,7 +491,7 @@ class TestAffectSignals:
         assert s.word_ignorance("questo è un ragno") > 0.0
         assert s.word_ignorance("") == 0.0
         assert s.word_ignorance("il un di e") == 0.0, \
-            "solo parole funzione: niente di contenuto, niente ignoranza"
+            "function words only: no content, no ignorance"
 
     def test_the_signal_does_not_depend_on_tokenization(self):
         """The token-id version scored the taught unknown 'ragno' (one token)
@@ -536,7 +536,7 @@ class TestAffectSignals:
         calm = s.ask_drive(p)
         s.fear = 0.9
         assert s.ask_drive(p) < calm
-        assert s.ask_drive(p) <= 0.5, "un modello spaventato non deve chiedere"
+        assert s.ask_drive(p) <= 0.5, "a frightened model must not ask"
 
     def test_the_memory_survives_a_new_process(self, tmp_path):
         """Every build phase is a separate python process. Without persistence
@@ -569,7 +569,7 @@ class TestAffectSignals:
         w[:2547] = 1.0                              # active rows trained
         s.ignorance = 0.5
         s.update_from_weights(w, active_vocab_size=2547)
-        assert s.ignorance < 0.5, "gli slot dormienti sono ancora contati"
+        assert s.ignorance < 0.5, "the dormant slots are still being counted"
         s2 = self.state()
         s2.ignorance = 0.5
         s2.update_from_weights(w)                   # old behaviour, no cap
@@ -582,7 +582,7 @@ class TestAffectSignals:
         flat = s.peek_entropy(torch.zeros(100), 100)
         peaked = s.peek_entropy(
             torch.tensor([20.0] + [0.0] * 99), 100)
-        assert s.confidence == before, "peek_entropy ha toccato l'EWMA"
+        assert s.confidence == before, "peek_entropy touched the EWMA"
         assert flat > 0.99 and peaked < 0.1
 
     def test_fear_suppresses_curiosity(self):
@@ -614,8 +614,8 @@ class TestAskGate:
         st, mod, logits = self.build(ask_gate=True)
         first = mod.modulate(logits, response_len=0, curiosity=1.0)
         mid = mod.modulate(logits, response_len=3, curiosity=1.0)
-        assert first[7].item() > first[6].item(), "nessun boost al primo token"
-        assert mid[7].item() == mid[6].item(), "boost a metà frase"
+        assert first[7].item() > first[6].item(), "no boost on the first token"
+        assert mid[7].item() == mid[6].item(), "boost mid-sentence"
 
     def test_gate_stays_quiet_when_the_word_is_known(self):
         st, mod, logits = self.build(ask_gate=True)
@@ -632,7 +632,7 @@ class TestAskGate:
         logits[3] = 9.0            # a confident, unrelated best token
         logits[7] = -0.4           # the ask token, far behind
         out = mod.modulate(logits, response_len=0, curiosity=1.0)
-        assert out.argmax().item() == 7, "il gate non vince nemmeno a curiosità 1"
+        assert out.argmax().item() == 7, "the gate does not win even at curiosity 1"
 
     def test_gate_is_only_plausible_near_the_threshold(self):
         """Just above the threshold the gate must make asking possible under
@@ -645,7 +645,7 @@ class TestAskGate:
         out = mod.modulate(logits, response_len=0,
                            curiosity=mod.ASK_THRESHOLD + 0.01)
         assert out.argmax().item() == 3
-        assert out[7].item() > logits[7].item() * 10, "nessuna spinta"
+        assert out[7].item() > logits[7].item() * 10, "no push"
 
 
 def test_the_two_corpus_generators_agree():
@@ -659,7 +659,7 @@ def test_the_two_corpus_generators_agree():
     import generate_qa_corpus as G
     src = open("dynamic_model/train_curriculum.py", encoding="utf-8").read()
     m = _re.search(r"_DEMO_RE = _re\.compile\(r'(.+)'\)", src)
-    assert m, "_DEMO_RE non trovato in train_curriculum.py"
+    assert m, "_DEMO_RE not found in train_curriculum.py"
     assert G.DEMO_RE.pattern == m.group(1)
 
 class TestVocabularyCoversTheNewLevels:

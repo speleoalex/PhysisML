@@ -1066,21 +1066,21 @@ def main():
                 kept.append(t)
             if dropped:
                 step["targets"] = kept
-                print(f"    ⚠ L{lvl} step {sname}: scartati "
-                      f"{len(dropped)} target con prompt duplicato "
+                print(f"    ⚠ L{lvl} step {sname}: dropped "
+                      f"{len(dropped)} targets with a duplicate prompt "
                       f"({', '.join(sorted(set(dropped))[:3])}...)")
 
         after = sum(len(s["targets"]) for s in cfg["steps"].values())
         grand_before += before
         grand_after += after
-        print(f"  L{lvl}: {before} → {after} target"
-              f"   [{', '.join(touched) if touched else 'invariato'}]")
+        print(f"  L{lvl}: {before} → {after} targets"
+              f"   [{', '.join(touched) if touched else 'unchanged'}]")
         if not a.dry_run:
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(cfg, f, ensure_ascii=False, indent=2)
 
-    print(f"\ntotale: {grand_before} → {grand_after} target"
-          f"{'  (dry-run, nulla scritto)' if a.dry_run else ''}")
+    print(f"\ntotal: {grand_before} → {grand_after} targets"
+          f"{'  (dry-run, nothing written)' if a.dry_run else ''}")
 
 
 if __name__ == "__main__":

@@ -69,7 +69,7 @@ def collect_corpus(sample_mb: int = 50) -> str:
                     all_files.append((fpath, size))
 
     total_size = sum(s for _, s in all_files)
-    print(f"\n  File trovati: {len(all_files)}  ({total_size/1e6:.1f} MB totali)")
+    print(f"\n  Files found: {len(all_files)}  ({total_size/1e6:.1f} MB total)")
 
     if total_size <= sample_bytes:
         # Use everything
@@ -105,7 +105,7 @@ def collect_corpus(sample_mb: int = 50) -> str:
         collected_size += len(sample)
         print(f"  + {os.path.relpath(fpath):<55} {len(sample)/1e6:.2f}MB")
 
-    print(f"\n  Campione totale: {collected_size/1e6:.1f} MB")
+    print(f"\n  Total sample: {collected_size/1e6:.1f} MB")
     return "\n\n".join(collected)
 
 
@@ -130,22 +130,22 @@ def main():
         return
 
     print(f"\n{'='*60}")
-    print(f"  Addestramento tokenizer BPE")
+    print(f"  BPE tokenizer training")
     print(f"  Vocab size : {args.vocab_size}")
-    print(f"  Campione   : fino a {args.sample} MB")
+    print(f"  Sample     : up to {args.sample} MB")
     print(f"  Output     : {args.output}")
     print(f"{'='*60}")
 
-    print(f"\n  Raccolta corpus...")
+    print(f"\n  Collecting corpus...")
     text = collect_corpus(args.sample)
     if not args.no_targets:
         tgt = collect_targets()
-        print(f"  + pool di obiettivi dei teacher: {len(tgt):,} char")
+        print(f"  + teacher target pools: {len(tgt):,} chars")
         text = text + "\n" + tgt
-    print(f"  Corpus pronto: {len(text):,} caratteri")
+    print(f"  Corpus ready: {len(text):,} characters")
 
-    print(f"\n  Addestramento BPE ({args.vocab_size} token)...")
-    print(f"  (stima: 3-10 minuti)")
+    print(f"\n  BPE training ({args.vocab_size} tokens)...")
+    print(f"  (estimate: 3-10 minutes)")
     t0 = time.time()
 
     tok = BPETokenizer()
@@ -168,8 +168,8 @@ def main():
     tok.register_special_token(BPETokenizer.EOS_TOKEN, max(tok.vocab.keys()) + 1)
 
     elapsed = time.time() - t0
-    print(f"\n  Completato in {elapsed:.0f}s")
-    print(f"  Token totali: {len(tok)}  "
+    print(f"\n  Completed in {elapsed:.0f}s")
+    print(f"  Total tokens: {len(tok)}  "
           f"({len(tok) - 1} BPE + {BPETokenizer.EOS_TOKEN}@"
           f"{tok.get_special_id(BPETokenizer.EOS_TOKEN)})")
 
@@ -184,8 +184,8 @@ def main():
         except Exception:
             pass
 
-    print(f"  Token con 3+ caratteri: {len(multi_char)}")
-    print(f"  Esempi (prime 20 parole):")
+    print(f"  Tokens with 3+ characters: {len(multi_char)}")
+    print(f"  Examples (first 20 words):")
     shown = 0
     for i, s in multi_char:
         if s.strip() and s.replace(' ', '').isalpha():
@@ -198,24 +198,26 @@ def main():
     base_tok = BPETokenizer()
     base_tok.load("dynamic_model/data/tokenizer_base.json")
 
+    # Italian curriculum sentences: material, not messages — left untranslated
+    # on purpose, they are what the tokenizer is measured on.
     test_sentences = [
         "il cane dorme sul tappeto",
         "la mamma cucina il pane",
         "buongiorno come stai oggi",
         "io voglio andare a casa",
     ]
-    print(f"\n  Confronto tokenizzazione (base 501 vs nuovo {len(tok)}):")
+    print(f"\n  Tokenisation comparison (base 501 vs new {len(tok)}):")
     for s in test_sentences:
         base_ids = base_tok.encode(s)
         new_ids  = tok.encode(s)
         print(f"  '{s}'")
-        print(f"    base ({len(base_ids)} token): {[base_tok.decode([i]) for i in base_ids]}")
-        print(f"    nuovo ({len(new_ids)} token): {[tok.decode([i]) for i in new_ids]}")
+        print(f"    base ({len(base_ids)} tokens): {[base_tok.decode([i]) for i in base_ids]}")
+        print(f"    new  ({len(new_ids)} tokens): {[tok.decode([i]) for i in new_ids]}")
         print()
 
     os.makedirs(OUTPUT_BASE, exist_ok=True)
     tok.save(args.output)
-    print(f"  Salvato: {args.output}")
+    print(f"  Saved: {args.output}")
     print(f"{'='*60}\n")
 
 

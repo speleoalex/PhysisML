@@ -86,7 +86,7 @@ from dynamic_model.exp_b.ewc          import (DEFAULTS as EWC_DEFAULTS,
 torch.set_num_threads(12)
 
 # ---------------------------------------------------------------------------
-# Percorsi
+# Paths
 # ---------------------------------------------------------------------------
 
 CKPT_BASE    = "models/checkpoints"   # language subfolder added at runtime: {CKPT_BASE}/{lang}/

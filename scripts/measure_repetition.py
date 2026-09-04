@@ -151,7 +151,7 @@ def main():
         ap.error("pass --ckpt-base or --checkpoint")
 
     rows = []
-    print(f"{'Liv':>4} {'n':>4} {'exact':>7} {'ripetizione':>12}")
+    print(f"{'Lvl':>4} {'n':>4} {'exact':>7} {'repetition':>12}")
     print("-" * 32)
     for level in parse_levels(a.levels):
         if a.ckpt_base:
@@ -159,7 +159,7 @@ def main():
         else:
             ckpt, tok = a.checkpoint, a.tokenizer
         if not ckpt or not tok:
-            print(f"{level:>4}    —  (checkpoint o tokenizer mancante)")
+            print(f"{level:>4}    —  (checkpoint or tokenizer missing)")
             continue
         r = evaluate(ckpt, tok, a.lang, level)
         rows.append(r)
