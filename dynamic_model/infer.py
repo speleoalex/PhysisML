@@ -1,7 +1,7 @@
 """
-Inference con statistiche token-by-token.
+Inference with token-by-token statistics.
 
-Uso:
+Usage:
   python3 -m dynamic_model.infer --model models/active.pt --prompt "il cane"
   python3 -m dynamic_model.infer --model dynamic_model/checkpoints/level_0/final.pt \
       --prompt "mamma" --max_tokens 40 --temperature 0.7 --top_k 20
@@ -20,6 +20,7 @@ for _p in [_ROOT, _TEST1]:
 from physisml.torch_model import TorchGPT
 from physisml.tokenizer   import BPETokenizer
 from physisml.utils       import sample_top_k, softmax
+from dynamic_model.exp_b.none_token import mask_scoring_rows
 
 torch.set_num_threads(12)
 
@@ -52,17 +53,22 @@ def generate_with_stats(model: TorchGPT, tok: BPETokenizer,
     prompt_ids = tok.encode(prompt)
     ids = list(prompt_ids)
 
-    token_stats = []   # una voce per ogni token generato
+    token_stats = []   # one entry per generated token
     total_log_prob = 0.0
 
     model.eval()
-    with torch.no_grad():
+    # Scoring-only rows (<|NONE|>) are unsamplable here too: this path does
+    # not go through TrainerB.generate, and a row that can win the argmax
+    # costs retention wherever it is left live (exp_b/none_token.py).
+    with torch.no_grad(), mask_scoring_rows(model, tok) as leftover:
         for step in range(max_tokens):
             ctx    = torch.tensor(ids[-128:], dtype=torch.long)
             logits = model.forward(ctx)          # (T, V)
             last   = logits[-1].numpy()          # (V,)
+            for _i in leftover:
+                last[_i] = -np.inf
 
-            # Distribuzione con temperatura
+            # Temperature-scaled distribution
             scaled = last / max(temperature, 1e-8)
             probs  = softmax(scaled)
 
@@ -116,10 +122,10 @@ def print_report(result: dict, verbose: bool) -> None:
     print(f"  PROMPT:    {result['prompt']!r}")
     print(f"  GENERATED: {result['generated_text']!r}")
     print("=" * 60)
-    print(f"  Token generati : {s['n_tokens']}")
+    print(f"  Tokens created : {s['n_tokens']}")
     print(f"  Perplexity     : {s['perplexity']:.2f}")
-    print(f"  Entropia media : {s['avg_entropy']:.3f} bit")
-    print(f"  Prob. media    : {s['avg_prob']:.4f}")
+    print(f"  Mean entropy   : {s['avg_entropy']:.3f} bit")
+    print(f"  Mean prob.     : {s['avg_prob']:.4f}")
     print(f"  Log-likelihood : {s['total_log_prob']:.3f}")
     print("=" * 60)
 
@@ -134,34 +140,34 @@ def print_report(result: dict, verbose: bool) -> None:
                   f"{st['prob']:>6.4f}  {st['entropy']:>7.3f}  {top3}")
         print()
 
-    # Distribuzione entropia (bassa=sicuro, alta=incerto)
+    # Entropy distribution (low = confident, high = uncertain)
     entropies = [s["entropy"] for s in result["token_stats"]]
     if entropies:
         low  = sum(1 for e in entropies if e < 3)
         mid  = sum(1 for e in entropies if 3 <= e < 6)
         high = sum(1 for e in entropies if e >= 6)
         total = len(entropies)
-        print(f"  Sicurezza token:")
-        print(f"    Alta   (H<3 bit): {low:3d} / {total}  ({100*low/total:.0f}%)")
-        print(f"    Media  (3-6 bit): {mid:3d} / {total}  ({100*mid/total:.0f}%)")
-        print(f"    Bassa  (H>6 bit): {high:3d} / {total}  ({100*high/total:.0f}%)")
+        print(f"  Token confidence:")
+        print(f"    High   (H<3 bit): {low:3d} / {total}  ({100*low/total:.0f}%)")
+        print(f"    Medium (3-6 bit): {mid:3d} / {total}  ({100*mid/total:.0f}%)")
+        print(f"    Low    (H>6 bit): {high:3d} / {total}  ({100*high/total:.0f}%)")
     print()
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Inference con statistiche token-by-token")
-    parser.add_argument("--model",       required=True,           help="Path al checkpoint .pt")
-    parser.add_argument("--prompt",      required=True,           help="Testo di input")
+    parser = argparse.ArgumentParser(description="Inference with token-by-token statistics")
+    parser.add_argument("--model",       required=True,           help="Path to the .pt checkpoint")
+    parser.add_argument("--prompt",      required=True,           help="Input text")
     parser.add_argument("--tokenizer",   default=TOKENIZER_PATH)
     parser.add_argument("--max_tokens",  type=int,   default=60)
     parser.add_argument("--temperature", type=float, default=0.8)
     parser.add_argument("--top_k",       type=int,   default=40)
     parser.add_argument("--verbose",     action="store_true",
-                        help="Mostra tabella token-by-token con top-3 candidati")
+                        help="Show the token-by-token table with the top-3 candidates")
     args = parser.parse_args()
 
     if not os.path.exists(args.model):
-        print(f"Errore: modello non trovato: {args.model}", file=sys.stderr)
+        print(f"Error: model not found: {args.model}", file=sys.stderr)
         sys.exit(1)
 
     tok = BPETokenizer()

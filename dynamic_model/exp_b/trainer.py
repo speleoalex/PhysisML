@@ -28,6 +28,7 @@ from physisml.tokenizer   import BPETokenizer
 from dynamic_model.exp_b.affect_state import AffectState, AffectSnapshot
 from dynamic_model.exp_b.modulator    import AffectModulator
 from dynamic_model.exp_b.axioms       import AxiomRegistry
+from dynamic_model.exp_b.none_token   import mask_scoring_rows
 
 
 import re as _re
@@ -197,7 +198,7 @@ class TrainerB:
         self.mod      = modulator      or AffectModulator(self.affect)
         self.axioms   = axiom_registry or AxiomRegistry()
 
-        # Collega il backward hook per protezione assiomi
+        # Wire the backward hook that protects the axioms
         self.axioms.register_hook(model)
 
         # Optional exp_b.ewc.EWC instance (exp_i's --anti-forgetting ewc arm).
@@ -417,6 +418,14 @@ class TrainerB:
           the answer through whatever other path the model has. Used by the
           vocabulary ablation to measure how much a trained model actually
           relies on a token it was given; None (the default) changes nothing.
+          Independent of the scoring-only rows below, which are suppressed
+          whether or not this is given.
+
+        The scoring-only rows (`<|NONE|>`, see exp_b/none_token.py) are made
+        unsamplable for the whole call. It happens here, once, rather than at
+        every call site on purpose: the row costs retention only while it can
+        win the argmax, and a mask that has to be remembered by seven
+        decoding paths is a mask that will be forgotten by one of them.
         stop_after: punctuation soft-stop floor; defaults to min_tokens.
           Must be set to about (expected length - 1) so a short answer can
           close on its own final '!' instead of over-generating
@@ -444,11 +453,20 @@ class TrainerB:
         if getattr(self.mod, "ask_gate", False):
             curiosity = self.affect.ask_drive(prompt)
 
-        with torch.no_grad():
+        with torch.no_grad(), mask_scoring_rows(self.model, self.tokenizer) as leftover:
             for step in range(max_tokens):
                 ctx = torch.tensor(ids[-128:], dtype=torch.long, device=self.device)
                 logits = self.model.forward(ctx)   # (T, V)
                 last   = logits[-1]                # (V,)
+
+                # Rows the integer could not mask (a trained row above a
+                # scoring-only one). Before update_from_logits, not after:
+                # the confidence reading must not see a row the sampler
+                # cannot pick, or the temperature drifts away from the
+                # checkpoint the row was added to.
+                if leftover:
+                    last = last.clone()
+                    last[list(leftover)] = float('-inf')
 
                 # Update confidence from these logits
                 self.affect.update_from_logits(last, self.model.vocab_size)
@@ -546,8 +564,8 @@ class TrainerB:
         starts  = [st for st in range(0, len(ids_all) - block_size, block_size)
                    if st + block_size + 1 <= len(ids_all)]
         np.random.shuffle(starts)
-        total_batches = len(starts)  # per questa chiamata
-        print(f" {len(ids_all):,} token  →  {total_batches:,} batch", flush=True)
+        total_batches = len(starts)  # for this call
+        print(f" {len(ids_all):,} tokens  →  {total_batches:,} batches", flush=True)
 
         # The whole corpus goes to the device ONCE and every batch is gathered
         # there. The old loop rebuilt each batch on the host (np.stack, then a
@@ -646,7 +664,7 @@ class TrainerB:
             _loss_buf.clear()
         n_bad = int(_n_bad.item())
         if n_bad:
-            print(f"  {n_bad} step con loss non finita: gradiente azzerato")
+            print(f"  {n_bad} steps with a non-finite loss: gradient zeroed")
         return losses
 
     # ------------------------------------------------------------------

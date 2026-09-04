@@ -34,6 +34,7 @@ import autonomy_loop as al                                             # noqa: E
 from dynamic_model.ontology_oracle import (OntologyOracle, article_for,  # noqa: E402
                                             guess_gender, normalize_class)
 from dynamic_model import retraction                                   # noqa: E402
+from dynamic_model.exp_b import epistemic as ep                        # noqa: E402
 
 LEX = etp.Lex(etp.load_lexicon("it"), "it")
 CLASSES = sorted(set(LEX.classes.keys()) | {v for v in LEX.classes.values() if v})
@@ -311,9 +312,9 @@ def test_the_default_queue_is_only_the_acquirable_third():
                                        _FakeOracle())}
     reserve = {n["w"] for n in LEX.bare_reserve}
     probe_r = {n["w"] for n in LEX.bare_probe}
-    assert q, "la coda non può essere vuota"
-    assert q.isdisjoint(reserve), "il controllo permanente è finito in coda"
-    assert q.isdisjoint(probe_r), "la misura di generalizzazione è finita in coda"
+    assert q, "the queue cannot be empty"
+    assert q.isdisjoint(reserve), "the permanent control ended up in the queue"
+    assert q.isdisjoint(probe_r), "the generalisation measure ended up in the queue"
 
 
 def test_an_explicit_queue_cannot_override_the_reserve(tmp_path):
@@ -356,7 +357,7 @@ def test_forget_clears_the_golds_a_retraction_removed():
                al._normalize_prompt("cos è un cane?"): "il cane è un animale."})
     assert g.forget("falco") == 2
     mat = [{"prompt": "cos è un falco?", "expected": "il falco è un animale."}]
-    assert g.inspect(mat)["ok"], "dopo il ritiro la collisione non esiste più"
+    assert g.inspect(mat)["ok"], "after the retraction the collision no longer exists"
     assert len(g.known) == 1
 
 
@@ -407,3 +408,103 @@ def test_rearm_says_so_when_there_is_no_memory_to_load(tmp_path, capsys):
     reads 'everything unknown' and nothing in the log explains why."""
     assert al.rearm_affect(_BareTrainer(), "it", str(tmp_path)) == 0
     assert "no curiosity memory" in capsys.readouterr().out
+
+
+# ── the 2×2: the weights decide, the string is graded ─────────────────────────
+ASKED, ADMITTED, ASSERTED, ASKED_OTHER = (al.ASKED, al.ADMITTED, al.ASSERTED,
+                                          al.ASKED_OTHER)
+
+
+def test_every_ignorant_cell_acquires_and_no_knows_cell_does():
+    """§5 of curiosita_meccanismo.md as a truth table. The two cells the first
+    run threw away — a confabulation and a question about another noun — are
+    on the ignorant row and acquire; the tic (asks while the weights hold a
+    class) is on the knows row and never does."""
+    assert al.outcome_2x2(True, ASKED) == al.ALIGNED_ASK
+    assert al.outcome_2x2(True, ADMITTED) == al.ALIGNED_ADMIT
+    assert al.outcome_2x2(True, ASKED_OTHER) == al.MISDIRECTED
+    assert al.outcome_2x2(True, ASSERTED) == al.CONFABULATION
+    assert al.outcome_2x2(False, ASSERTED) == al.ALIGNED_ANSWER
+    for o in (ASKED, ADMITTED, ASKED_OTHER):
+        assert al.outcome_2x2(False, o) == al.SPURIOUS_ASK
+    assert len(al.CELLS) == 6 and len(set(al.CELLS)) == 6
+
+
+def test_targeted_rehearsal_replays_the_facts_and_never_the_lesson_of_asking():
+    bank = {"cos è un falco?": "il falco è un animale.",
+            "cosa è un falco?": "non lo so.",
+            "il ragno è un animale, questo è un falco": "cos è un falco?",
+            "il falco vola?": "sì, il falco vola.",
+            "cos è un cane?": "il cane è un animale.",
+            "il falcone è grande?": "sì."}
+    batch = [{"prompt": "cos è il falco?", "expected": "il falco è un animale."},
+             {"prompt": "cos è un falco?", "expected": "il falco è un animale."}]
+    pairs = al.targeted_pairs("falco", bank, batch)
+    prompts = [p for p, _ in pairs]
+    assert set(prompts) == {"cos è un falco?", "il falco vola?", "cos è il falco?"}
+    assert len(prompts) == len(set(prompts)), "the batch duplicate was counted twice"
+    assert all(not retraction.is_ignorance(r, "falco") for _, r in pairs)
+
+
+def test_the_log_row_carries_the_reading_and_the_symbolic_column():
+    tr = _BareTrainer()
+    v = ep.EpistemicVerdict(referent="falco", margin=0.1234, top_class="un animale",
+                            p_top=0.41, entropy=0.9, threshold=0.5, ignorant=True,
+                            posterior={})
+    d = al.affect_dict(tr, v, taught=False)
+    assert {"confidence", "fear", "pleasure", "pain",
+            "margin", "p_top", "top_class", "tau", "taught"} <= set(d)
+    assert d["tau"] == 0.5 and d["top_class"] == "un animale" and d["taught"] is False
+    # Without a reading the row is the phase-1 shape, untouched.
+    assert set(al.affect_dict(tr)) == {"confidence", "fear", "pleasure", "pain"}
+
+
+def test_a_question_gold_naming_the_word_is_stale_not_a_conflict():
+    """L12's two-clause shape holds `cos è un falco?` as the GOLD of a prompt.
+    Acquiring the class over it is a retraction, like over 'non lo so.'; read
+    as a conflict, the honesty material of §5 would block the acquisition of
+    the very noun it was written for, forever."""
+    mat = [{"prompt": "il ragno è un animale, questo è un falco",
+            "expected": "il falco è un animale."}]
+    g = _gate({al._normalize_prompt("il ragno è un animale, questo è un falco"):
+               "cos è un falco?"})
+    v = g.inspect(mat, "falco")
+    assert not v["ok"] and v["stale"] and not v["conflict"]
+    # Without the word a question is not an admission: still a conflict.
+    assert g.inspect(mat)["conflict"]
+
+
+def test_the_batch_keeps_the_step_the_material_came_with():
+    """Oracle material carries no step and gets the A/…/B/C layout; honesty
+    material names its own — and it must name one level 13's config has, or
+    rebuild_config drops it in silence."""
+    b = al.Batch.__new__(al.Batch)
+    b.id, b.targets, b.nouns = 1, [], []
+    oracle = [{"prompt": f"p{i}", "expected": "r"} for i in range(4)]
+    b.add({"w": "falco"}, "un animale", oracle, source="oracle:test")
+    assert [t["step"] for t in b.targets] == ["A", "A", "B", "C"]
+    honesty = [dict(s, step="A") for s in al.ask_shapes(
+        {"w": "tegola", "art": "la", "g": "f"}, LEX, __import__("random").Random(0))]
+    b.add({"w": "tegola"}, "", honesty, source="honesty:test")
+    cfg_steps = set(json.load(open(os.path.join(
+        ROOT, "training_files", "it", "13", "local_teacher.json")))["steps"])
+    assert all(t["step"] in cfg_steps for t in b.targets)
+    assert all(t["class"] == "" for t in b.targets if t["word"] == "tegola")
+
+
+def test_arm_rearms_the_affect_and_calibrates_the_threshold(tmp_path, capsys):
+    import torch
+    from physisml.tokenizer import BPETokenizer
+    from physisml.torch_model import TorchGPT
+    tok = BPETokenizer()
+    tok.load(os.path.join(ROOT, "dynamic_model", "data", "tokenizer_8k.json"))
+    torch.manual_seed(0)
+    n = max(tok.vocab.keys()) + 1
+    tr = _BareTrainer()
+    tr.model = TorchGPT(n, 32, 2, 1, 64, 65, 0.0, active_vocab_size=n)
+    tau = al.arm(tr, tok, "it", str(tmp_path), LEX, n_pseudo=4, seed=0)
+    out = capsys.readouterr().out
+    assert 0.0 <= tau <= 1.0
+    assert "no curiosity memory" in out and "trigger: tau" in out
+    assert "un" not in tr.affect.untaught_words("cos è un cane?"), \
+        "arm() must still re-arm the symbolic channel"

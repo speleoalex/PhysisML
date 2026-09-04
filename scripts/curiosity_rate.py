@@ -47,6 +47,10 @@ from dynamic_model.stop_words import STOP_WORDS                    # noqa: E402
 from dynamic_model.exp_b.modulator import ASK_FORM, ask_token_id   # noqa: E402
 from expand_teacher_pools import (Lex, load_lexicon, phrase,       # noqa: E402
                                   intro, indef, ask_forms)
+# Print-only: the margin column in report() and the agreement line under it.
+# The gap is still taken on the generated string and nothing here decides
+# anything — the §9 guardrail of docs_internal/curiosita_meccanismo.md.
+from dynamic_model.exp_b import epistemic as ep                    # noqa: E402
 
 SEED = 20260826          # the probe set is a measurement: same prompts every run
 
@@ -158,22 +162,32 @@ def build_probes(lex: Lex, n_known: int) -> list:
 
 # ── measurement ────────────────────────────────────────────────────────────
 
-def run(tr, tok, probes: list, classes, max_tokens: int = 24) -> list:
+def run(tr, tok, probes: list, classes, max_tokens: int = 24,
+        readings: dict = None) -> list:
+    """Generate on every probe and classify the string.
+
+    `readings` (noun -> EpistemicVerdict) is optional and only annotates the
+    rows: the margin the weights give the noun, and whether the mechanism calls
+    it ignorant. The classification of the answer never looks at it.
+    """
     rows = []
     for p in probes:
         out = tr.generate(p["prompt"], max_tokens=max_tokens,
                           base_temperature=0.0, top_k=1,
                           min_tokens=4, stop_after=6)
         answer = out[len(p["prompt"]):].strip()
+        v = (readings or {}).get(p["noun"])
         rows.append({**p, "answer": answer,
                      "asked": is_question(answer),
                      "dont_know": says_dont_know(answer),
                      "honest": is_honest(answer),
-                     "said": stated_class(answer, classes)})
+                     "said": stated_class(answer, classes),
+                     "margin": round(v.margin, 4) if v else None,
+                     "mech_ignorant": v.ignorant if v else None})
     return rows
 
 
-def report(rows: list, gate: str) -> dict:
+def report(rows: list, gate: str, tau: float = None) -> dict:
     groups = {}
     for kind in ("ignoto", "mai-visto", "insegnato-L12", "noto"):
         g = [r for r in rows if r["kind"] == kind]
@@ -188,15 +202,25 @@ def report(rows: list, gate: str) -> dict:
                         "dont_know": dk, "dk_rate": dk / len(g),
                         "honest": honest, "honest_rate": honest / len(g),
                         "class_right": right, "class_rate": right / len(g)}
+        ms = sorted(r["margin"] for r in g if r.get("margin") is not None)
+        if ms:
+            groups[kind]["margin_med"] = ms[len(ms) // 2]
+            groups[kind]["mech_ignorant_rate"] = (
+                sum(1 for r in g if r["mech_ignorant"]) / len(ms))
 
+    with_margin = any("margin_med" in s for s in groups.values())
     print(f"\n  gate = {gate}\n")
-    print(f"  {'insieme':16s} {'n':>3} {'chiede':>8} {'non lo so':>10} "
-          f"{'onesto':>8} {'classe giusta':>14}")
-    print("  " + "-" * 62)
+    print(f"  {'set':16s} {'n':>3} {'asks':>8} {'dont know':>10} "
+          f"{'honest':>8} {'class right':>12}"
+          + (f" {'margin':>8} {'mech.ign':>9}" if with_margin else ""))
+    print("  " + "-" * (79 if with_margin else 60))
     for kind, s in groups.items():
-        print(f"  {kind:16s} {s['n']:3d} {s['ask_rate']:8.0%} "
-              f"{s['dk_rate']:10.0%} {s['honest_rate']:8.0%} "
-              f"{s['class_rate']:14.0%}")
+        line = (f"  {kind:16s} {s['n']:3d} {s['ask_rate']:8.0%} "
+                f"{s['dk_rate']:10.0%} {s['honest_rate']:8.0%} "
+                f"{s['class_rate']:12.0%}")
+        if "margin_med" in s:
+            line += f" {s['margin_med']:8.3f} {s['mech_ignorant_rate']:9.0%}"
+        print(line)
 
     # The gap is taken on the HONEST rate, not on the ask rate: asking and
     # saying 'non lo so' are two ways of not guessing, and the level teaches
@@ -209,24 +233,36 @@ def report(rows: list, gate: str) -> dict:
         # the gap says the model separates taught from held-out names inside the
         # pool it was built from; this says whether the policy reaches a name
         # the pool never contained. It is the number the autonomy loop lives on.
-        print(f"\n  onestà su nomi MAI VISTI (nessuna forma insegnata): "
-              f"{mai['honest_rate']:.0%} su {mai['n']} prompt")
+        print(f"\n  honesty on NEVER-SEEN names (no phrasing taught): "
+              f"{mai['honest_rate']:.0%} on {mai['n']} prompts")
     gap = None
     if ign is not None and noto is not None:
         gap = ign - noto
-        print(f"\n  divario 'risposta onesta' ignoto - noto: {gap:+.0%}")
+        print(f"\n  'honest answer' gap, unknown - known: {gap:+.0%}")
         if ign > 0.9 and noto > 0.9:
-            verdict = "NON RISPONDE MAI — non è curiosità, è un tic"
+            verdict = "NEVER ANSWERS — not curiosity, a tic"
         elif ign < 0.1 and noto < 0.1:
-            verdict = "NON AMMETTE MAI — nessuna curiosità"
+            verdict = "NEVER ADMITS — no curiosity"
         elif gap >= 0.4:
-            verdict = "divario ≥ 40%: politica discriminante"
+            verdict = "gap ≥ 40%: a discriminating policy"
             if gate != "off":
-                verdict += " (ma a gate ON prova solo che il gate funziona)"
+                verdict += " (but with the gate ON it only proves the gate works)"
         else:
-            verdict = "divario sotto il 40%: non discrimina"
+            verdict = "gap under 40%: does not discriminate"
         print(f"  {verdict}")
-    return {"gate": gate, "groups": groups, "gap": gap}
+
+    # The mechanism against the string, row by row: 'agree' means the weights
+    # call the noun ignorant exactly when the generated answer was honest.
+    # Informative only — the gap above is the measurement, unchanged.
+    agreement = None
+    judged = [r for r in rows if r.get("mech_ignorant") is not None]
+    if judged:
+        agree = sum(1 for r in judged if r["mech_ignorant"] == r["honest"])
+        agreement = agree / len(judged)
+        print(f"\n  mechanism vs string (tau={tau:.3f}): agree on "
+              f"{agree}/{len(judged)} rows ({agreement:.0%})  — print-only")
+    return {"gate": gate, "groups": groups, "gap": gap,
+            "tau": tau, "mechanism_agreement": agreement}
 
 
 def main():
@@ -254,9 +290,9 @@ def main():
     else:
         ckpt, tok_path = resolve(a.ckpt_base, a.level)
     if not ckpt or not os.path.exists(ckpt):
-        sys.exit(f"nessun checkpoint: {ckpt}")
+        sys.exit(f"no checkpoint: {ckpt}")
     if not tok_path or not os.path.exists(tok_path):
-        sys.exit(f"nessun tokenizer: {tok_path}")
+        sys.exit(f"no tokenizer: {tok_path}")
 
     tr, tok = load_pair(ckpt, tok_path)
 
@@ -270,40 +306,49 @@ def main():
         os.path.dirname(os.path.dirname(os.path.abspath(ckpt))),
         "affect_memory.json")
     n_mem = tr.affect.load_memory(mem_path)
-    print(f"  memoria di curiosità: {n_mem} parole da {mem_path}" if n_mem
-          else f"  ⚠ nessuna memoria di curiosità in {mem_path}: "
-               f"ogni prompt risulta ignoto, il gate perde senso")
+    print(f"  curiosity memory: {n_mem} words from {mem_path}" if n_mem
+          else f"  ⚠ no curiosity memory in {mem_path}: every prompt reads "
+               f"as unknown and the gate means nothing")
 
     if a.gate == "on":
         if not hasattr(tr.mod, "ask_gate"):
-            sys.exit("questo AffectModulator non ha ask_gate: il gate della "
-                     "curiosità non è ancora implementato, usa --gate off")
+            sys.exit("this AffectModulator has no ask_gate: the curiosity gate "
+                     "is not implemented yet, use --gate off")
         # Setting ask_gate alone is not enough — without an anchor the gate has
         # no logit to raise and does nothing, which would read as 'the gate has
         # no effect' rather than 'the gate was never installed'.
         aid = ask_token_id(tok)
         if aid is None:
-            sys.exit(f"il tokenizer non ha un token intero per "
+            sys.exit(f"the tokenizer has no single token for "
                      f"{ASK_FORM.split()[0]!r} "
                      f"({[tok.decode([i]) for i in tok.encode(ASK_FORM)]}): "
-                     f"con --gate on non ci sarebbe niente da spingere. "
-                     f"Riaddestra il tokenizer col pool L12.")
+                     f"with --gate on there would be nothing to push. "
+                     f"Retrain the tokenizer with the L12 pool.")
         tr.mod.ask_id   = aid
         tr.mod.ask_gate = True
-        print(f"  gate ON, ancora = {tok.decode([aid])!r} (id {aid})")
+        print(f"  gate ON, anchor = {tok.decode([aid])!r} (id {aid})")
 
-    lex = Lex(load_lexicon(a.lang))
+    lex = Lex(load_lexicon(a.lang), a.lang)
     probes = build_probes(lex, a.known)
-    rows = run(tr, tok, probes, list(lex.classes))
+
+    # The margin the weights give each probed noun, read BEFORE generating so
+    # the reading cannot be of a state the probes just moved. Annotation only:
+    # the classification of every answer is on the string, as above.
+    classes = ep.classes_of(lex)
+    tau = ep.calibrate(tr.model, tok, lex)
+    by_word = {n["w"]: n for n in lex.classified() + lex.unknown + lex.bare_probe}
+    readings = {w: ep.verdict(tr.model, tok, by_word[w], classes, tau)
+                for w in {p["noun"] for p in probes} if w in by_word}
+    rows = run(tr, tok, probes, list(lex.classes), readings=readings)
 
     print(f"\n{'─' * 68}")
-    print(f"  CURIOSITÀ — {ckpt}")
-    print(f"  {len(probes)} prompt, greedy, tokenizer {os.path.basename(tok_path)}")
+    print(f"  CURIOSITY — {ckpt}")
+    print(f"  {len(probes)} prompts, greedy, tokenizer {os.path.basename(tok_path)}")
     print(f"{'─' * 68}")
-    out = report(rows, a.gate)
+    out = report(rows, a.gate, tau=tau)
 
     if a.examples:
-        print(f"\n  esempi:")
+        print(f"\n  examples:")
         for kind in ("ignoto", "noto"):
             for r in [x for x in rows if x["kind"] == kind][:a.examples // 2]:
                 # '?' asked, '~' declared ignorance, '.' answered anyway
@@ -315,7 +360,7 @@ def main():
         with open(a.json, "w", encoding="utf-8") as f:
             json.dump({"checkpoint": ckpt, "summary": out, "rows": rows},
                       f, ensure_ascii=False, indent=2)
-        print(f"\n  scritto {a.json}")
+        print(f"\n  written {a.json}")
 
 
 if __name__ == "__main__":

@@ -14,9 +14,13 @@ WHAT IT DOES, per interaction
      the bare 'cos è un X?' or level 12's two-clause form
   2. generates greedily, with the same settings the evaluation harness uses
      (top_k=1 — 'temperature 0' alone samples in the modulated path)
-  3. classifies the answer: asked / admitted ignorance / asserted a class
-  4. on an honest answer, asks the oracle for the class and renders material
-     from the curriculum's own templates
+  3. reads the weights first — the separation over the closed classes for
+     THIS noun (dynamic_model/exp_b/epistemic.py: the margin between the two
+     most likely, or 1 - P(<|NONE|>) when the eleventh-class row exists),
+     against a threshold calibrated on these weights — then classifies:
+     asked / admitted ignorance / asked about another noun / asserted a class
+  4. when the weights say ignorant, asks the oracle for the class and renders
+     material from the curriculum's own templates
   5. accepts or refuses that material, then learns it with TrainerB plus
      interleaved gold rehearsal — never a bare SFT step
   6. every --probe-every interactions, scores the frozen probe; on degradation
@@ -33,10 +37,16 @@ level-1), so acquisitions accumulate INSIDE level 13 as numbered batches:
 Displayed as 13.1, 13.2 — that is the right mental model. The batch is what
 gets rolled back when the probe says the acquisition cost more than it added.
 
-DEFAULT IS CURIOSITY-DRIVEN: material is acquired only for turns where the
-model was honest about not knowing. That is the experiment — the ask produces
-the material. --teach-confabulations widens it to every turn and turns the loop
-into ordinary supervision; the rate of each is logged either way.
+DEFAULT IS CURIOSITY-DRIVEN, AND THE CURIOSITY IS IN THE WEIGHTS: material is
+acquired only for turns where the margin says the model holds no class for the
+noun (--trigger mechanism). The string it generated is graded and logged, and
+crossed with the reading into the 2×2 of docs_internal/curiosita_meccanismo.md
+§5 — aligned ask/admit, misdirected, confabulation (all acquire), aligned
+answer (nothing), spurious ask (rehearsal on what it already holds). When the
+oracle cannot classify a noun the weights are ignorant of, the turn produces
+the honesty material L12 taught for its hand-written names, extended to this
+one. --trigger string is the control arm: the first run's policy, where the
+string decided; --teach-confabulations widens that arm to every turn.
 
 Usage:
     python3 scripts/autonomy_loop.py --dry-run --interactions 20
@@ -70,6 +80,8 @@ from dynamic_model.test_model import is_exact                          # noqa: E
 from dynamic_model.train_curriculum import (turn_record, _known_golds,  # noqa: E402
                                             _normalize_prompt, _EOS_MARK)
 from dynamic_model import retraction                              # noqa: E402
+from dynamic_model.exp_b import epistemic as ep                   # noqa: E402
+from dynamic_model.exp_b.curiosity import CuriosityDrive, drive_path, DECLINED  # noqa: E402
 from dynamic_model.stop_words import STOP_WORDS                   # noqa: E402
 from dynamic_model.train_curriculum import _affect_memory_path    # noqa: E402
 
@@ -81,6 +93,25 @@ ASKED, ADMITTED, ASSERTED = "asked", "admitted", "asserted"
 # 'tegola' and acquired material on the strength of it. A question about
 # another noun is evidence of nothing about this one.
 ASKED_OTHER = "asked_other"
+
+# The 2×2 of docs_internal/curiosita_meccanismo.md §5: what the WEIGHTS say
+# about the noun (the separation over the closed classes, read by
+# dynamic_model/exp_b/epistemic.py, against a threshold calibrated on these
+# very weights) crossed with what the STRING said. The four string outcomes
+# above survive as the second axis; the mechanism is the first, and the one
+# that decides. The reason is the first real run (2026-09-03): 63% honesty on
+# never-seen names but 0% right referent — the model learned to ask, not what
+# to ask about. A string cannot name its referent; a reading of the posterior
+# over `cos è un X? il X è ...` names it by construction.
+ALIGNED_ASK    = "aligned_ask"      # ignorant, asks about this noun
+ALIGNED_ADMIT  = "aligned_admit"    # ignorant, says 'non lo so'
+MISDIRECTED    = "misdirected"      # ignorant, asks about another noun
+CONFABULATION  = "confabulation"    # ignorant, asserts a class anyway
+ALIGNED_ANSWER = "aligned_answer"   # knows, asserts
+SPURIOUS_ASK   = "spurious_ask"     # knows, asks or admits anyway: the tic
+CELLS = (ALIGNED_ASK, ALIGNED_ADMIT, MISDIRECTED, CONFABULATION,
+         ALIGNED_ANSWER, SPURIOUS_ASK)
+MECHANISM, STRING = "mechanism", "string"
 
 
 # ── material acceptance ───────────────────────────────────────────────────────
@@ -126,7 +157,14 @@ class Gatekeeper:
     def _refuse(self, why: str, n: int = 1) -> None:
         self.refusals[why] = self.refusals.get(why, 0) + n
 
-    def _is_admission(self, gold: str) -> bool:
+    def _is_admission(self, gold: str, word: str = "") -> bool:
+        # With the word known, BOTH shapes of taught ignorance count as stale
+        # (`non lo so.` and `cos è un X?`), exactly as retraction removes both.
+        # Without it a question gold would read as a conflict, and the honesty
+        # material the loop writes on an oracle refusal (two-clause prompt ->
+        # question) would block that noun's acquisition for ever.
+        if word:
+            return retraction.is_ignorance(gold, word)
         return retraction.is_admission(gold)
 
     def retractable(self, word: str, lang: str) -> str:
@@ -166,8 +204,10 @@ class Gatekeeper:
             del self.known[p]
         return len(dead)
 
-    def inspect(self, material: list) -> dict:
-        """What would happen, without changing anything."""
+    def inspect(self, material: list, word: str = "") -> dict:
+        """What would happen, without changing anything.
+
+        `word` is the noun the material is about; see _is_admission."""
         stale, conflict, dup, in_probe = [], [], 0, 0
         for t in material:
             p    = _normalize_prompt(t["prompt"])
@@ -180,7 +220,7 @@ class Gatekeeper:
                 continue
             if held == gold:
                 dup += 1
-            elif self._is_admission(held):
+            elif self._is_admission(held, word):
                 stale.append((t["prompt"], held))
             else:
                 conflict.append((t["prompt"], held))
@@ -256,8 +296,11 @@ class Batch:
         self.nouns.append({"w": noun["w"], "cls": cls})
         for i, t in enumerate(targets):
             rec = dict(t)
-            rec.update({"step": "A" if i < len(targets) - 2 else
-                                ("B" if i == len(targets) - 2 else "C"),
+            # Oracle material carries no step and gets the A/A/…/B/C layout of
+            # material_for; honesty material (ask_shapes) names its own.
+            step = t.get("step") or ("A" if i < len(targets) - 2 else
+                                     ("B" if i == len(targets) - 2 else "C"))
+            rec.update({"step": step,
                         "batch": self.slug, "source": source, "acquired": stamp,
                         "class": cls, "word": noun["w"]})
             self.targets.append(rec)
@@ -417,16 +460,27 @@ class SessionLog:
 
 
 # ── the loop ──────────────────────────────────────────────────────────────────
-def affect_dict(tr) -> dict:
+def affect_dict(tr, reading=None, taught=None) -> dict:
     """The four affect values as JSON, the same shape phase 1 logs.
 
     Deliberately NOT AffectState.snapshot(): that returns a dataclass json
     cannot serialise, and it also appends to the history and advances the step
     counter — a logging call must not move the state it reports.
+
+    `reading` (an EpistemicVerdict) adds margin/p_top/top_class/tau: the
+    mechanism's reading of the turn's noun. `taught` adds the symbolic channel
+    (has this word ever been rewarded, per affect_memory.json). Both are
+    columns of the same session_*.jsonl the dream already consumes — no new
+    format — and the second one is a column ONLY: nothing branches on it.
     """
     a = tr.affect
-    return {"confidence": round(a.confidence, 3), "fear": round(a.fear, 3),
-            "pleasure": round(a.pleasure, 3), "pain": round(a.pain, 3)}
+    d = {"confidence": round(a.confidence, 3), "fear": round(a.fear, 3),
+         "pleasure": round(a.pleasure, 3), "pain": round(a.pain, 3)}
+    if reading is not None:
+        d.update(reading.as_log())
+    if taught is not None:
+        d["taught"] = bool(taught)
+    return d
 
 
 def classify(answer: str, target: str = "") -> str:
@@ -442,6 +496,44 @@ def classify(answer: str, target: str = "") -> str:
     if says_dont_know(answer):
         return ADMITTED
     return ASSERTED
+
+
+def outcome_2x2(ignorant: bool, outcome: str) -> str:
+    """The cell of the 2×2: the mechanism's verdict crossed with classify().
+
+    On the 'knows' row every way of not answering is the same tic: a question
+    about this noun, about another one, or an admission, when the weights hold
+    a class above threshold, is SPURIOUS_ASK. On the 'ignorant' row all four
+    strings acquire; the cell only says how the string related to the fact.
+    """
+    if ignorant:
+        return {ASKED: ALIGNED_ASK, ADMITTED: ALIGNED_ADMIT,
+                ASKED_OTHER: MISDIRECTED, ASSERTED: CONFABULATION}[outcome]
+    return ALIGNED_ANSWER if outcome == ASSERTED else SPURIOUS_ASK
+
+
+def targeted_pairs(word: str, gold_bank: dict, batch_targets=()) -> list:
+    """What the curriculum already holds ABOUT `word`, for a targeted rehearsal.
+
+    Drawn from the gold bank and from the current batch (material accepted in
+    this run is not in any qa_pairs.jsonl until the dream harvests it). Golds
+    that teach ignorance about the word — the admission and the question — are
+    left out: on a SPURIOUS_ASK the point is to replay what it knows, and
+    adding a 'chiedi di X' lesson is the trap §5 of curiosita_meccanismo.md
+    names. Zero new material either way.
+    """
+    pat = re.compile(rf"\b{re.escape(word)}\b")
+    out, seen = [], set()
+    pairs = list(gold_bank.items()) + [(t["prompt"], t["expected"])
+                                       for t in batch_targets]
+    for p, r in pairs:
+        if p in seen or not (pat.search(p) or pat.search(r)):
+            continue
+        if retraction.is_ignorance(r, word) or is_question(r):
+            continue
+        seen.add(p)
+        out.append((p, r))
+    return out
 
 
 def ask_shapes(noun: dict, lex, rng) -> list:
@@ -561,6 +653,28 @@ def rearm_affect(tr, lang: str, ckpt_base: str, quiet: bool = False) -> int:
     return n
 
 
+def arm(tr, tok, lang: str, ckpt_base: str, lex, n_pseudo: int = 32,
+        seed: int = 0, quiet: bool = False) -> float:
+    """Everything a freshly loaded model needs before a turn: the affect
+    state (rearm_affect) and the trigger's threshold, returned.
+
+    tau is calibrated on THESE weights — the midpoint between the 95th
+    percentile of the margin on pseudo-words and the 5th on the classified
+    nouns (§4 of curiosita_meccanismo.md) — and recomputed at every load_pair,
+    because a dream moves every margin and a threshold from the previous
+    checkpoint would read the new one wrong. The frozen probes never enter
+    the calibration. The one line printed is the guardrail's number: with
+    the bands overlapping the trigger is still usable, but every 'knows' on
+    an unknown and every 'ignorant' on a known noun should be read as such.
+    """
+    rearm_affect(tr, lang, ckpt_base, quiet=quiet)
+    cal = ep.calibration(tr.model, tok, lex, n_pseudo=n_pseudo, seed=seed)
+    print(f"  trigger: tau {cal.tau:.3f}  AUC(known vs pseudo) {cal.auc:.3f}  "
+          f"p95(pseudo) {cal.p95_pseudo:.3f}  p05(known) {cal.p05_known:.3f}  "
+          f"{'separated' if cal.separated else '⚠ OVERLAPPING'}")
+    return cal.tau
+
+
 def degraded(now: dict, baseline: dict, args) -> str:
     """Why the model needs to sleep, or ''.
 
@@ -622,10 +736,26 @@ def main() -> None:
                          "taught 'non lo so', RETRACT the admission (only for "
                          "nouns with role=acquirable). Without this flag the "
                          "acquisition is refused, with the reason printed")
+    ap.add_argument("--trigger", default=MECHANISM, choices=[MECHANISM, STRING],
+                    help="what decides that the model does not know a noun: "
+                         "'mechanism' reads the closed classes off the weights "
+                         "(the margin, or 1-P(<|NONE|>) when the tokenizer owns "
+                         "that row — default); 'string' is the old rule, the "
+                         "generated answer asking or admitting — kept as the "
+                         "control")
+    ap.add_argument("--drive", default="off", choices=["on", "off"],
+                    help="order the queue by epistemic debt (curiosity.py) "
+                         "instead of round-robin; the ledger persists in "
+                         "curiosity_drive.json beside affect_memory.json. "
+                         "off is the control arm: the claim is more nouns "
+                         "acquired per probe point lost with it on")
+    ap.add_argument("--n-pseudo", type=int, default=32,
+                    help="pseudo-words drawn to calibrate the trigger's tau")
     ap.add_argument("--teach-confabulations", action="store_true",
-                    help="also acquire material on turns where the model "
-                         "asserted a class instead of admitting ignorance "
-                         "(off by default: the ask is the experiment)")
+                    help="with --trigger string only: also acquire on turns "
+                         "where the model asserted a class. Under the "
+                         "mechanism the confabulation is not the criterion, "
+                         "so the flag has nothing to widen")
     ap.add_argument("--no-dream", action="store_true",
                     help="detect degradation but do not consolidate")
     ap.add_argument("--dry-run", action="store_true",
@@ -635,7 +765,7 @@ def main() -> None:
     rng = random.Random(args.seed)
     ckpt_base = args.ckpt_base or os.path.join("models", "checkpoints", args.lang)
     level_dir = os.path.join(ckpt_base, f"level_{args.level}")
-    lex = etp.Lex(etp.load_lexicon(args.lang))
+    lex = etp.Lex(etp.load_lexicon(args.lang), args.lang)
 
     # ── the three things that must exist before anything is touched ─────────
     probe = probe_set.load(args.probe)          # raises if missing or edited
@@ -666,9 +796,32 @@ def main() -> None:
           f"{', '.join(n['w'] for n in queue[:8])}"
           f"{' …' if len(queue) > 8 else ''}")
     print(f"mode       : {'DRY RUN (no weights, no writes)' if args.dry_run else 'learning'}")
+    print(f"trigger    : {args.trigger}"
+          + ("  (the weights decide; the string is a column)"
+             if args.trigger == MECHANISM else
+             "  (the generated string decides — the control arm)"))
+
+    drive = None
+    if args.drive == "on":
+        drive = CuriosityDrive.load(drive_path(_affect_memory_path(args.lang, ckpt_base)))
+        print(f"drive      : on — {drive.summary()}; "
+              f"{len(drive.debt)} words in the ledger"
+              + ("  (dry run: not saved)" if args.dry_run else ""))
+    else:
+        print("drive      : off (round-robin — the control arm)")
 
     tr, tok = load_pair(ckpt, tok_path)
-    rearm_affect(tr, args.lang, ckpt_base)
+    # Ten classes, or eleven: the tokenizer decides, not a flag. With the
+    # <|NONE|> row present the reading is 1 - P(NONE) and the row is masked
+    # on every generation path (dynamic_model/exp_b/none_token.py); without
+    # it, this is the margin over the ten classes exactly as before.
+    classes = ep.scoring_classes(lex, tok)
+    none_id = ep.row_id(tok)
+    print(f"classes    : {len(classes)}"
+          + (f"  ({ep.NONE_TOKEN} at id {none_id}: the reading is 1-P(NONE), "
+             f"and the row is masked while generating)" if none_id is not None
+             else "  (the ten closed classes; no <|NONE|> row in this tokenizer)"))
+    tau = arm(tr, tok, args.lang, ckpt_base, lex, args.n_pseudo, args.seed)
     eos = tok.EOS_TOKEN if hasattr(tok, "EOS_TOKEN") else ""
     if not (eos and hasattr(tok, "get_special_id")
             and tok.get_special_id(eos) is not None):
@@ -691,8 +844,10 @@ def main() -> None:
     print(f"rehearsal  : {len(gold_bank)} gold pairs (levels 0-{args.level})")
     print(f"batch      : {batch.name}\n")
 
-    tally = {ASKED: 0, ADMITTED: 0, ASSERTED: 0, ASKED_OTHER: 0}
-    history, learned_targets = [], 0
+    tally   = {c: 0 for c in CELLS}
+    strings = {ASKED: 0, ADMITTED: 0, ASSERTED: 0, ASKED_OTHER: 0}
+    agree   = {"n": 0, "mech_vs_string": 0, "mech_vs_symbolic": 0}
+    history, learned_targets, honesty_targets = [], 0, 0
 
     def generate(prompt: str, expected: str = "") -> str:
         n_exp = len(tok.encode(expected)) if expected else 12
@@ -718,36 +873,131 @@ def main() -> None:
             tr.step(p, r + eos, feedback=0.6)
         return len(picks)
 
+    def teach_honesty(noun: dict, shapes: list) -> int:
+        """Honesty material for a noun the oracle could not classify.
+
+        §5 of curiosita_meccanismo.md: the lesson of asking can go, without
+        contradiction, only on a noun that REMAINS unknown — and that is this
+        branch, which used to produce nothing. The two shapes L12 taught for
+        the 38 hand-written names, extended to this one; if the oracle answers
+        one day, retraction removes both. Level 13's config has steps A/B/C
+        only and rebuild_config drops a step it does not know, so both shapes
+        file under A. Never a class: `cls` is empty on purpose.
+        """
+        material = [dict(s, step="A") for s in shapes]
+        check = gate.inspect(material, noun["w"])
+        if not check["ok"]:
+            gate._refuse(f"honesty: {gate.reason(check)}")
+            return 0
+        accepted = gate.commit(material)
+        if not accepted:
+            return 0
+        if not args.dry_run:
+            for t in accepted:
+                tr.step(t["prompt"], t["expected"] + eos, feedback=1.0)
+            for t in accepted:
+                resp = generate(t["prompt"], t["expected"])
+                log.add(step=t["step"], prompt=t["prompt"],
+                        expected=t["expected"], response=resp,
+                        symbol="+++" if is_exact(resp, t["expected"]) else "=",
+                        comment="honesty: oracle refused", affect=affect_dict(tr))
+        batch.add(noun, "", accepted, source=f"honesty:{oracle.model}")
+        return len(accepted)
+
+    def settle(word: str, how: str) -> None:
+        """The debt on `word` is closed; the ledger is saved outside dry runs."""
+        if drive is None:
+            return
+        drive.discharge(word, how)
+        if not args.dry_run:
+            drive.save()
+
     for i in range(1, args.interactions + 1):
-        noun  = queue[(i - 1) % len(queue)]
-        shapes = ask_shapes(noun, lex, rng)
-        shape  = shapes[((i - 1) // len(queue)) % len(shapes)]
-        answer = generate(shape["prompt"], shape["expected"])
+        # The drive picks from `queue` and nowhere else: what build_queue
+        # filtered out (reserve, frozen probes) cannot come back through it.
+        if drive is not None:
+            noun  = drive.next_target(queue)
+            shapes = ask_shapes(noun, lex, rng)
+            shape  = shapes[drive.encounters(noun["w"]) % len(shapes)]
+        else:
+            noun  = queue[(i - 1) % len(queue)]
+            shapes = ask_shapes(noun, lex, rng)
+            shape  = shapes[((i - 1) // len(queue)) % len(shapes)]
+        # The weights are read BEFORE the string is generated: the reading is
+        # of the state the answer comes from and cannot be steered by it.
+        # generate() moves the affect state, never the weights, so this is
+        # hygiene, not arithmetic — the numbers would be identical after.
+        reading = ep.verdict(tr.model, tok, noun, classes, tau)
+        if drive is not None:
+            # The charge is the distance from holding a class, not a count.
+            drive.charge(noun["w"], tau - reading.margin)
+            if not args.dry_run:
+                drive.save()
+        answer  = generate(shape["prompt"], shape["expected"])
         outcome = classify(answer, noun["w"])
-        tally[outcome] += 1
+        cell    = outcome_2x2(reading.ignorant, outcome)
+        strings[outcome] += 1
+        tally[cell] += 1
         honest = outcome in (ASKED, ADMITTED)
+        # The symbolic channel ('was this word ever rewarded') is a column
+        # of the log and one agreement counter. It decides nothing.
+        taught = noun["w"] not in tr.affect.untaught_words(noun["w"])
+        agree["n"] += 1
+        agree["mech_vs_string"]   += int(reading.ignorant == honest)
+        agree["mech_vs_symbolic"] += int(reading.ignorant == (not taught))
+        curious = (reading.ignorant if args.trigger == MECHANISM
+                   else honest or args.teach_confabulations)
         mark = {ASKED: "?", ADMITTED: "~", ASSERTED: "!",
                 ASKED_OTHER: "¿"}[outcome]
-        print(f"{i:4d} {mark} {shape['prompt']!r:52} -> {answer!r:34}", end="")
+        print(f"{i:4d} {mark} {shape['prompt']!r:52} -> {answer!r:34}"
+              f" m={reading.margin:.2f}{'<' if reading.ignorant else '≥'}τ",
+              end="")
 
+        # The grade stays on the STRING: a '+++' row is harvested into the
+        # curriculum by the dream, and a confabulation must never become
+        # gold because the mechanism happened to agree it was ignorant.
         log.add(step=shape["step"], prompt=shape["prompt"],
                 expected=shape["expected"], response=answer,
                 symbol="+++" if honest else "=",
-                comment=f"outcome: {outcome}", affect=affect_dict(tr))
+                comment=f"outcome: {outcome}; cell: {cell}; "
+                        f"trigger: {args.trigger}",
+                affect=affect_dict(tr, reading, taught))
 
-        if not (honest or args.teach_confabulations):
-            print("   (asks about another noun: nothing acquired)"
-                  if outcome == ASKED_OTHER else
-                  "   (confabulates: nothing acquired)")
+        if not curious:
+            if args.trigger == STRING:
+                print("   (asks about another noun: nothing acquired)"
+                      if outcome == ASKED_OTHER else
+                      "   (confabulates: nothing acquired)")
+            elif cell == SPURIOUS_ASK:
+                # The tic: the weights hold a class and the string asks
+                # anyway. Rehearsal aimed at what it already holds on this
+                # noun — zero new material, and no 'chiedi di X' lesson.
+                pairs = targeted_pairs(noun["w"], gold_bank, batch.targets)
+                picks = pairs[:args.rehearsal_k]
+                if not args.dry_run:
+                    for p, r in picks:
+                        tr.step(p, r + eos, feedback=0.6)
+                print(f"   ({cell}: holds {reading.top_class} at "
+                      f"p {reading.p_top:.2f}; rehearsed {len(picks)} pairs "
+                      f"on {noun['w']}, nothing acquired)")
+            else:
+                print(f"   ({cell}: holds {reading.top_class} at "
+                      f"p {reading.p_top:.2f}, nothing acquired)")
             continue
 
-        verdict = oracle.ask(noun)
-        if not verdict.ok:
-            print(f"   oracle: refused — {verdict.reason}")
+        ans = oracle.ask(noun)
+        if not ans.ok:
+            n_h = teach_honesty(noun, shapes)
+            honesty_targets += n_h
+            # Nobody can classify it: the honesty material closes the
+            # question, and the debt with it — it must not take every turn.
+            settle(noun["w"], DECLINED)
+            print(f"   oracle: refused — {ans.reason}"
+                  + (f"; honesty material: {n_h} targets" if n_h else ""))
             continue
 
-        material = oracle.material_for(verdict.noun, verdict.cls, rng)
-        check    = gate.inspect(material)
+        material = oracle.material_for(ans.noun, ans.cls, rng)
+        check    = gate.inspect(material, noun["w"])
         # A collision with a stale admission is the ONE refusal that learning
         # can legitimately clear, and only for a noun the lexicon marks
         # acquirable: 'reserve' is the control that acquisition has not eroded
@@ -790,14 +1040,14 @@ def main() -> None:
                 print(f"   retracted: {info['targets']} targets and "
                       f"{info['pairs']} 'non lo so' pairs on {noun['w']} "
                       f"(L{','.join(str(l) for l in info['levels'])})")
-            check = gate.inspect(material)
+            check = gate.inspect(material, noun["w"])
         if not check["ok"]:
             why = gate.reason(check)
             gate._refuse(why)
-            print(f"   oracle: {verdict.cls} — acquisition refused: {why}")
+            print(f"   oracle: {ans.cls} — acquisition refused: {why}")
             continue
         accepted = gate.commit(material)
-        print(f"   oracle: {verdict.cls}  ({len(accepted)} targets accepted)")
+        print(f"   oracle: {ans.cls}  ({len(accepted)} targets accepted)")
         if not accepted:
             continue
 
@@ -813,10 +1063,11 @@ def main() -> None:
                 log.add(step=t.get("step", "A"), prompt=t["prompt"],
                         expected=t["expected"], response=resp,
                         symbol="+++" if is_exact(resp, t["expected"]) else "=",
-                        comment=f"acquired from oracle: {verdict.cls}",
+                        comment=f"acquired from oracle: {ans.cls}",
                         affect=affect_dict(tr))
-        batch.add(verdict.noun, verdict.cls, accepted,
+        batch.add(ans.noun, ans.cls, accepted,
                   source=f"oracle:{oracle.model}")
+        settle(noun["w"], "acquired")
 
         if i % args.rehearsal_every == 0:
             n_reh = rehearse()
@@ -828,10 +1079,14 @@ def main() -> None:
             continue
         now = probe_set.score(tr, tok, probe)
         why = degraded(now, baseline, args)
+        # The pressure is LOGGED beside the probe, never compared with a
+        # threshold: a second dream trigger would make the (pre, post) series
+        # unreadable. See curiosity.py.
         print(f"     probe: exact {now['exact_rate']:.1%} "
               f"(baseline {baseline['exact_rate']:.1%})  "
               f"repetition {now['repetition_rate']:.1%}"
-              f"{'  → ' + why if why else '  ok'}")
+              + (f"  drive pressure {drive.pressure():.2f}" if drive else "")
+              + f"{'  → ' + why if why else '  ok'}")
         if not why or args.no_dream:
             continue
 
@@ -848,7 +1103,8 @@ def main() -> None:
         dreamed = os.path.join(level_dir, "final_dreamed.pt")
         ckpt2, tok2 = resolve(ckpt_base, args.level)
         tr, tok = load_pair(ckpt2 or dreamed, tok2 or tok_path)
-        rearm_affect(tr, args.lang, ckpt_base, quiet=True)
+        tau = arm(tr, tok, args.lang, ckpt_base, lex, args.n_pseudo, args.seed,
+                  quiet=True)
         post = probe_set.score(tr, tok, probe)
         history.append({"batch": batch.name, "why": why,
                         "pre": pre["exact_rate"], "post": post["exact_rate"],
@@ -864,7 +1120,8 @@ def main() -> None:
                   f"(more than {args.max_drop:.0%} below the baseline)")
             batch.discard(dreamed)
             tr, tok = load_pair(batch.parent, tok2 or tok_path)
-            rearm_affect(tr, args.lang, ckpt_base, quiet=True)
+            tau = arm(tr, tok, args.lang, ckpt_base, lex, args.n_pseudo,
+                      args.seed, quiet=True)
             baseline = probe_set.score(tr, tok, probe)
         else:
             batch.snapshot(dreamed)
@@ -878,19 +1135,31 @@ def main() -> None:
     log.close()
 
     # ── what happened ──────────────────────────────────────────────────────
-    n = sum(tally.values()) or 1
+    n = agree["n"] or 1
+    ignorant = sum(tally[c] for c in
+                   (ALIGNED_ASK, ALIGNED_ADMIT, MISDIRECTED, CONFABULATION))
+    honest_n = strings[ASKED] + strings[ADMITTED]
     print(f"\n{'—' * 62}")
-    print(f"interactions : {sum(tally.values())}")
-    print(f"  asks       : {tally[ASKED]:4d}  {tally[ASKED]/n:5.0%}")
-    print(f"  admits     : {tally[ADMITTED]:4d}  {tally[ADMITTED]/n:5.0%}"
-          f"  (says 'non lo so')")
-    print(f"  asks other : {tally[ASKED_OTHER]:4d}  {tally[ASKED_OTHER]/n:5.0%}"
-          f"  (about another noun)")
-    print(f"  asserts    : {tally[ASSERTED]:4d}  {tally[ASSERTED]/n:5.0%}"
-          f"  (confabulates)")
-    print(f"honest       : {(tally[ASKED]+tally[ADMITTED])/n:5.0%}"
-          f"   ← the signal that feeds the cycle")
-    print(f"targets      : {gate.accepted} accepted, {learned_targets} learned")
+    print(f"interactions : {agree['n']}   trigger: {args.trigger}   "
+          f"tau: {tau:.3f}")
+    print("the 2×2      : weights × string")
+    for c in CELLS:
+        print(f"  {c:14s}: {tally[c]:4d}  {tally[c]/n:5.0%}")
+    print(f"ignorant     : {ignorant/n:5.0%}"
+          + ("   ← the signal that feeds the cycle" if args.trigger == MECHANISM
+             else "   (logged only: the string decided)"))
+    print(f"string       : asks {strings[ASKED]}  admits {strings[ADMITTED]}  "
+          f"asks other {strings[ASKED_OTHER]}  asserts {strings[ASSERTED]}"
+          f"   honest {honest_n/n:5.0%}"
+          + ("   ← the signal that feeds the cycle" if args.trigger == STRING
+             else ""))
+    print(f"agreement    : mechanism vs string {agree['mech_vs_string']/n:5.0%}"
+          f"   mechanism vs symbolic {agree['mech_vs_symbolic']/n:5.0%}")
+    print(f"targets      : {gate.accepted} accepted, {learned_targets} learned"
+          + (f", {honesty_targets} honesty (oracle refused)"
+             if honesty_targets else ""))
+    if drive is not None:
+        print(f"drive        : {drive.summary()}")
     if batch.retracted:
         n_t = sum(r["targets"] for r in batch.retracted)
         n_p = sum(r["pairs"] for r in batch.retracted)
@@ -918,7 +1187,8 @@ def main() -> None:
             if run_dream(args, args.level):
                 ckpt2, tok2 = resolve(ckpt_base, args.level)
                 tr, tok = load_pair(ckpt2, tok2 or tok_path)
-                rearm_affect(tr, args.lang, ckpt_base, quiet=True)
+                arm(tr, tok, args.lang, ckpt_base, lex, args.n_pseudo,
+                    args.seed, quiet=True)
                 post = probe_set.score(tr, tok, probe)
                 print(f"  final dream: exact {post['exact_rate']:.1%} "
                       f"(baseline {baseline['exact_rate']:.1%})")
