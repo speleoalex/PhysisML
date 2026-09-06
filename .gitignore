@@ -22,6 +22,15 @@ models/
 *.safetensors
 *.gguf
 
+# The standalone demo mirrors whichever model is active: set_model.sh copies
+# models/active_tokenizer.json over standalone/tokenizer.json at every
+# activation, so an English build showed up as a modification to the Italian
+# demo's vocabulary. model.pt beside it is already ignored by *.pt, and a fresh
+# clone never reads this file -- chat.py downloads the published tokenizer
+# together with the published weights (the tracked copy was byte-identical to
+# the one on the Hub). It is build output, not source.
+standalone/tokenizer.json
+
 # Test-generated checkpoints
 tests/test_1/checkpoints/
 dynamic_model/exp_a/checkpoints/
