@@ -104,3 +104,16 @@
 {"prompt": "cos è la mandorla?", "response": "la mandorla è una pianta."}
 {"prompt": "cos è una mandorla?", "response": "la mandorla è una pianta."}
 {"prompt": "cosa è la mandorla?", "response": "la mandorla è una pianta."}
+{"prompt": "cosa è una mandorla?", "response": "la mandorla è una pianta."}
+{"prompt": "la mandorla è una pianta?", "response": "sì, la mandorla è una pianta."}
+{"prompt": "la mandorla è un animale?", "response": "no, la mandorla è una pianta."}
+{"prompt": "l amico è una persona, questa è una mandorla", "response": "la mandorla è una pianta."}
+{"prompt": "il picchio è una persona?", "response": "no, il picchio è un animale."}
+{"prompt": "la porta è un oggetto, questo è un picchio", "response": "il picchio è un animale."}
+{"prompt": "il castoro è una pianta?", "response": "no, il castoro è un animale."}
+{"prompt": "il prato è un luogo, questo è un castoro", "response": "il castoro è un animale."}
+{"prompt": "la finestra è un oggetto, questa è una susina", "response": "la susina è una pianta."}
+{"prompt": "il tavolo è un oggetto, questo è un ravanello", "response": "cos è un ravanello?"}
+{"prompt": "il prato è un luogo, questo è un grembiule", "response": "cos è un grembiule?"}
+{"prompt": "il pallone è un oggetto, questa è una scodella", "response": "cos è una scodella?"}
+{"prompt": "il lupo è un animale, questa è una scogliera", "response": "cos è una scogliera?"}
