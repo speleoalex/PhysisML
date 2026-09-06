@@ -36,6 +36,7 @@ import numpy as np
 
 from physisml.torch_model import TorchGPT, TorchAdamOptimizer
 from physisml.tokenizer   import BPETokenizer
+from dynamic_model import language
 
 from dynamic_model.exp_b.affect_state import AffectState
 from dynamic_model.exp_b.modulator    import AffectModulator
@@ -128,19 +129,25 @@ def setup(args, quiet: bool = False) -> TrainerB:
         tok_path = os.path.normpath(tok_path)
         tok.load(tok_path)
         log(f"Tokenizer: {tok_path}  ({len(tok)} tokens)")
-        # A tokenizer far smaller than the model's vocabulary means they do not
-        # belong together. Say so: the failure is otherwise silent, and the
-        # model answers with plausible-looking noise.
-        if len(tok) < 0.5 * model.vocab_size:
-            log(f"  WARNING: tokenizer has {len(tok)} tokens but the model was "
-                f"trained for vocab={model.vocab_size}.")
+        # A tokenizer that does not cover the model's ACTIVE vocabulary means
+        # the two do not belong together. Say so: the failure is otherwise
+        # silent, and the model answers with plausible-looking noise.
+        # Compare against active_vocab_size, never against vocab_size: the
+        # embedding is padded with dormant rows (9000 slots for 2517 English
+        # tokens), so a ratio against the padded size cried wolf on every
+        # language whose vocabulary is smaller than Italian's.
+        _active = getattr(model, "active_vocab_size", model.vocab_size)
+        if len(tok) < _active or len(tok) > model.vocab_size:
+            log(f"  WARNING: tokenizer has {len(tok)} tokens but the model has "
+                f"{_active} active of {model.vocab_size} slots.")
             log(f"  This checkpoint is paired with the wrong tokenizer — output "
                 f"will be meaningless.")
             log(f"  Run ./set_model.sh <checkpoint.pt> to refresh "
                 f"models/active_tokenizer.json, or pass --tokenizer explicitly.")
         opt = TorchAdamOptimizer(model.parameters(), lr=1e-4)
     else:
-        tok.load(args.tokenizer or DEFAULT_TOKENIZER)
+        tok_path = args.tokenizer or DEFAULT_TOKENIZER
+        tok.load(tok_path)
         log("Initialising new model...")
         model = TorchGPT(len(tok), 256, 4, 4, 1024, 129, 0.1)
         opt   = TorchAdamOptimizer(model.parameters(), lr=1e-3)
@@ -152,17 +159,29 @@ def setup(args, quiet: bool = False) -> TrainerB:
     axioms  = AxiomRegistry()
     trainer = TrainerB(model, tok, opt, affect, mod, axioms)
 
-    base_axioms = [
-        ("io sono", True, 0.8),
-        ("tu sei", True, 0.8),
-        ("lui è", True, 0.8),
-        ("uno più uno fa due", True, 1.0),
-    ]
+    # The axioms are the language's, not this file's. They were four Italian
+    # phrases hardcoded here while --checkpoint defaults to models/active.pt --
+    # one slot shared by every language -- so a REPL opened right after an
+    # English build protected 'io sono' on English weights, where the words
+    # encode to subwords the corpus never trains.
+    #
+    # Which language that is: --lang if given, otherwise whatever the loaded
+    # vocabulary says it is, which is the only marker a checkpoint carries.
+    lang = getattr(args, "lang", None) or language.detect(tok_path) \
+        or language.DEFAULT_LANG
+    lg   = language.load(lang)
+    log(f"Language: {lang}  ({lg.name})"
+        + ("" if getattr(args, "lang", None) else "  [from the vocabulary]"))
+
+    base_axioms = lg.axioms("grammar")
+    if not base_axioms:
+        log(f"  no axioms declared for '{lang}' — add an \"axioms\" block to "
+            f"{language.manifest_path(lang)}")
     # Redirect axiom print() to stderr when in quiet mode
     if quiet:
         _stdout, sys.stdout = sys.stdout, sys.stderr
-    for text, obj, prot in base_axioms:
-        trainer.add_axiom(text, is_objective=obj, protection=prot)
+    for text, prot in base_axioms:
+        trainer.add_axiom(text, is_objective=True, protection=prot)
     if quiet:
         sys.stdout = _stdout
 
@@ -234,6 +253,11 @@ def main():
                         help="Tokenizer JSON. Overrides auto-detection; when "
                              "omitted, the one saved next to the checkpoint is "
                              "used, falling back to the base tokenizer.")
+    parser.add_argument("--lang", default=None,
+                        help="Language of the checkpoint, for the axioms and "
+                             "the word lists. Read from the vocabulary when "
+                             "omitted; there is one models/active.pt for every "
+                             "language, so it cannot be assumed.")
     parser.add_argument("--temperature", type=float, default=0.8)
     parser.add_argument("--top_k",       type=int,   default=40)
     parser.add_argument("--max_tokens",  type=int,   default=80)

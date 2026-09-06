@@ -6,6 +6,7 @@ Class heads being single tokens is already asserted by
 test_ontology_curiosity.py::test_the_class_words_are_single_tokens.
 """
 import copy
+import json
 import os
 import random
 import sys
@@ -30,6 +31,28 @@ SEED_TOK = os.path.join(_ROOT, "dynamic_model", "data", "tokenizer_8k.json")
 # (AUC 0.92 on the frozen probes) — see scripts/epistemic_report.py.
 REFERENCE_CKPT = os.path.join(_ROOT, "models", "active.pt")
 REFERENCE_TOK = os.path.join(_ROOT, "models", "active_tokenizer.json")
+
+
+def _eos_of(path):
+    """The EOS id a tokenizer file registers, or None."""
+    try:
+        with open(path, encoding="utf-8") as fh:
+            return json.load(fh).get("special_tokens", {}).get("<|EOS|>")
+    except (OSError, ValueError):
+        return None
+
+
+def _active_is_italian():
+    """Whether models/active.pt is the Italian model these tests measure.
+
+    There is one active.pt for every language: the first English build moved it
+    to its own level_1 checkpoint mid-run, and the assertions below — the L12
+    lexicon, the six nouns L12 taught — then ran against a model that had never
+    seen a word of Italian and failed for the wrong reason. The EOS id tells the
+    two vocabularies apart: 2589 on the Italian one, 2516 on the English.
+    """
+    return (_eos_of(REFERENCE_TOK) is not None
+            and _eos_of(REFERENCE_TOK) == _eos_of(SEED_TOK))
 
 LEX = etp.Lex(etp.load_lexicon("it"), "it")
 CLASSES = ep.classes_of(LEX)
@@ -208,8 +231,15 @@ needs_reference = pytest.mark.skipif(
     not (os.path.exists(REFERENCE_CKPT) and os.path.exists(REFERENCE_TOK)),
     reason="reference checkpoint not on this machine")
 
+is_italian = pytest.mark.skipif(
+    os.path.exists(REFERENCE_TOK) and not _active_is_italian(),
+    reason="models/active.pt is not the Italian model (another language was "
+           "built last): ./set_model.sh models/checkpoints/it/level_12/"
+           "final_dreamed.pt to measure it again")
+
 
 @needs_reference
+@is_italian
 class TestOnTheReferenceCheckpoint:
     """The §9 guardrail of curiosita_meccanismo.md, and the §2 measurement
     replicated through this module: the margin separates the 53 classified

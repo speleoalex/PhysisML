@@ -3,7 +3,7 @@ Curriculum training with a tutor agent.
 
 Training is split into two phases:
 
-  PHASE 0 — Autonomous (it/0: sounds, syllables, phonemes)
+  PHASE 0 — Autonomous (<lang>/0: sounds, syllables, phonemes)
     The model learns the phonetic structure of Italian without feedback.
     Pure self-supervised learning on a text corpus.
 
@@ -98,6 +98,49 @@ CKPT_BASE    = "models/checkpoints"   # language subfolder added at runtime: {CK
 _TOK_8K   = "dynamic_model/data/tokenizer_8k.json"
 _TOK_BASE = "dynamic_model/data/tokenizer_base.json"
 TOKENIZER = _TOK_8K if os.path.exists(_TOK_8K) else _TOK_BASE
+
+
+def tokenizer_path(lang: str = "it") -> str:
+    """The base vocabulary of one language.
+
+    Italian keeps the historical filename: every published checkpoint was
+    trained against it, and renaming it would orphan them. Any other language
+    looks for its own file first, because a vocabulary is not language
+    neutral. Measured on the English curriculum, the Italian one leaves 117 of
+    the 146 gold words in pieces ('thirsty' -> t|h|i|r|st|y) and compresses at
+    1.4 chars/token against 2.4 on Italian -- the same failure that once split
+    'cos' into 'co'+'s' and left the L12 ask gate with no whole-word anchor.
+
+    A language with no vocabulary of its own falls back to the Italian one:
+    the build still runs, badly, and phase 0 says so on screen.
+    """
+    if lang != "it":
+        own = os.path.join("dynamic_model", "data", f"tokenizer_{lang}.json")
+        if os.path.exists(own):
+            return own
+    return TOKENIZER
+
+
+# Core axioms live in training_files/<lang>/language.json, not here. An axiom
+# protects the embedding rows of the tokens its text encodes to, so the words
+# have to be whole in THAT language's vocabulary and present in THAT language's
+# corpus. Both conditions failed for English while these lists were a hardcoded
+# Italian table in this file: 'mamma' came back from tokenizer_en.json as
+# m|am|ma and 'papà' as p|ap plus two orphan UTF-8 bytes, so the protection
+# landed on arbitrary English subwords -- 8 of the 10 rows it froze never occur
+# in training_files/en at all, and the 2 that do ('no', 'ma') were protected for
+# the wrong reason. A table in the source is exactly the kind of thing a new
+# language is added without noticing, so the words now sit beside the corpus
+# they were measured on.
+def axioms_for(kind: str, lang: str) -> list:
+    """One language's axioms as (text, protection) pairs, from its manifest.
+
+    Empty when the manifest declares none: the caller says so on screen.
+    Falling back to another language's words is what caused the failure above.
+    """
+    return language_manifest.load(lang).axioms(kind)
+
+
 # Maximum vocabulary capacity: pre-allocates this many embedding slots.
 # Slots above the active count are dormant (logit=-inf, grad=0).
 # Grows toward MAX_VOCAB as the model learns new token patterns.
@@ -109,8 +152,15 @@ MAX_VOCAB    = 9000   # 2590 used after the 2026-08-27 retrain (2589 BPE +
                       # 6410 dormant slots for growth; dormant rows are masked
                       # to -inf and take zero gradient, so they cost 18MB, not
                       # capacity.
-DATA_IT0     = "training_files/it/0"
-DATA_IT1     = "training_files/it/1"
+def data_dir(lang: str, level: int) -> str:
+    """Corpus directory of one level, in the language being trained.
+
+    Phase 0 always re-reads level 0 on top of the current level. That path was
+    the constant training_files/it/0, so every phase 0 of an English build
+    poured in the Italian sounds and the Italian qa_corpus -- at every level,
+    not just the first.
+    """
+    return os.path.join("training_files", lang, str(level))
 
 # ---------------------------------------------------------------------------
 # Teaching content extraction
@@ -154,11 +204,13 @@ def extract_teaching_content(prompt: str) -> str:
 # Grade sanity check
 # ---------------------------------------------------------------------------
 
-from dynamic_model.stop_words import STOP_WORDS       # noqa: E402
+from dynamic_model import language as language_manifest  # noqa: E402
+from dynamic_model.stop_words import STOP_WORDS, for_language  # noqa: E402
 
 
 def grade_by_coverage(symbol: str, expected: str, response: str,
-                      prompt: str, level: int) -> tuple:
+                      prompt: str, level: int, stop_words: set = STOP_WORDS,
+                      polarity: dict = None) -> tuple:
     """
     Sanity check: grades must be proportional to real content coverage.
 
@@ -180,8 +232,12 @@ def grade_by_coverage(symbol: str, expected: str, response: str,
     content word of the answer also occurs in the prompt — can be tested
     without running a training session.
     """
+    # `stop_words` defaults to the Italian set so the existing callers and the
+    # tests keep their behaviour; the training loop passes the set of the
+    # language it is actually training, or 'the', 'and' and 'is' would count as
+    # the content an English answer is graded on.
     _kws = [w.lower().strip("!.?,: ") for w in expected.split()
-            if w.lower().strip("!.?,: ") not in STOP_WORDS
+            if w.lower().strip("!.?,: ") not in stop_words
             and len(w.strip("!.?,: ")) > 1]
     if not _kws:
         return symbol, 0.0, None
@@ -225,26 +281,42 @@ def grade_by_coverage(symbol: str, expected: str, response: str,
     # test_ontology_curiosity.py compiles a SLICE of this file starting at the
     # def line — a module-level helper is invisible there, and the test would
     # fail with NameError instead of telling anyone why.
+    # The yes-no words come from the language's manifest. This was a literal
+    # 's[iì]|no' regex, which finds no polarity at all in an English gold
+    # ('yes, the cat is an animal.') -- so one language over, the negative
+    # is-a steps went ungraded again, for the very reason the gate was added.
+    # `polarity` defaults to the Italian pair for the callers and tests that
+    # predate languages; a language whose manifest is silent disables the gate.
+    _pol_map = {w.lower(): spellings[0]
+                for spellings in (polarity or {"yes": ["sì", "si"],
+                                               "no":  ["no"]}).values()
+                for w in spellings}
+    _pol_re  = "|".join(_re.escape(w) for w in
+                        sorted(_pol_map, key=len, reverse=True))
+
     def _polarity_of(text, require_comma):
-        """'sì' / 'no' / '' — the yes-no answer a sentence opens with.
+        """The yes-no word a sentence opens with, canonicalised, or ''.
 
         The comma is required of the gold, whose shape the pools control, and
-        not of the model, which may drop it while answering correctly. Both
-        spellings of the affirmative are accepted and normalised: the
-        curriculum writes 'sì', and a model that has not learned the accent is
-        still answering the question. Anchored at the start, so 'il cane non è
-        un cibo' is not read as a 'no'.
+        not of the model, which may drop it while answering correctly. Every
+        spelling the manifest lists is accepted and normalised to the first:
+        the Italian curriculum writes 'sì', and a model that has not learned
+        the accent is still answering the question. Anchored at the start, so
+        'il cane non è un cibo' is not read as a 'no'.
         """
-        m = _re.match(r"\s*(s[iì]|no)\b\s*(,?)", text or "", _re.IGNORECASE)
+        if not _pol_re:
+            return ""
+        m = _re.match(r"\s*(" + _pol_re + r")\b\s*(,?)", text or "",
+                      _re.IGNORECASE)
         if not m or (require_comma and not m.group(2)):
             return ""
-        return "no" if m.group(1).lower() == "no" else "sì"
+        return _pol_map[m.group(1).lower()]
 
     _exp_pol = _polarity_of(expected, True)
     if _exp_pol:
         _resp_pol = _polarity_of(response, False)
         if _resp_pol and _resp_pol != _exp_pol:
-            return "=", 0.0, f"[polarità] attesa '{_exp_pol}', trovata '{_resp_pol}'"
+            return "=", 0.0, f"[polarity] expected '{_exp_pol}', found '{_resp_pol}'"
         if not _resp_pol and symbol in ("+++", "++"):
             symbol = "+"
     # Anti-echo at L4+: a content word that also appears in the
@@ -337,75 +409,81 @@ def load_teacher_prompt(lang: str, level: int) -> str:
     return ""
 
 
-def build_system_teacher(age: float) -> str:
+# The tutor's screen name and its fallback material both come from the
+# language's manifest. They were two dicts keyed by language code here, which
+# is a list of the languages the code knows about: complete the day it was
+# written, silently wrong the day a language is added. The fallback in
+# particular used to be Italian whatever --lang said, so an English level
+# shipped without a teacher_prompt.md was taught "di' 'mamma'".
+def language_name(lang: str) -> str:
+    """'it' -> 'Italian'. The tutor is told which language it is teaching."""
+    return language_manifest.load(lang).name
+
+
+# What every language's band means, with no examples in it. Only reached by a
+# language whose manifest declares no teacher_fallback.
+DEFAULT_BAND_PROFILE = {
+    "newborn": "The model is like a newborn (age {age:.1f}). Use ONLY individual "
+               "sounds and syllables, no full words yet. Repeat the same sound "
+               "2-3 times before moving on.",
+    "toddler": "The model is like a 1-year-old toddler (age {age:.1f}). Use ONLY "
+               "single common nouns and family words. One word at a time. Lots "
+               "of repetition.",
+    "early":   "The model is like a 2-3 year old child (age {age:.1f}). Use simple "
+               "two-word combinations: article + noun, or noun + adjective. Short "
+               "and clear.",
+    "child":   "The model is like a {age:.0f}-year-old child. Use simple complete "
+               "sentences: subject + verb (+ object). Introduce colours, numbers "
+               "1-5, greetings, and basic questions.",
+    "school":  "The model is at school age (age {age:.0f}). Use proper grammar: "
+               "verb conjugations, simple questions and answers, complete "
+               "sentences.",
+}
+
+
+def _age_band(age: float) -> str:
+    """Which slice of _TEACHER_MATERIAL this virtual age falls in."""
+    if age < 1:
+        return "newborn"
+    if age < 2:
+        return "toddler"
+    if age < 4:
+        return "early"
+    if age < 7:
+        return "child"
+    return "school"
+
+
+def build_system_teacher(age: float, lang: str = "it") -> str:
     """
     Build the tutor system prompt adapted to the model's virtual age.
 
-    age 0–1  : newborn — only sounds and syllables, no words yet
-    age 1–2  : toddler — first words, single nouns and exclamations
-    age 2–4  : early child — short phrases, article + noun, simple verbs
-    age 4–7  : child — simple sentences, colours, numbers, questions
-    age 7+   : school age — grammar rules, verb conjugation, full sentences
-    """
-    if age < 1:
-        profile = (
-            f"The model is like a newborn (age {age:.1f}). "
-            "Use ONLY individual sounds and syllables: 'ma', 'pa', 'ta', 'sì', 'no', 'oh!'. "
-            "No full words yet. Repeat the same sound 2-3 times before moving on."
-        )
-        steps = (
-            "  Step A: isolated sounds  → \"di' 'ma'\"  \"di' 'pa'\"  \"di' 'ta'\"\n"
-            "  Step B: sound pairs      → \"ripeti: ma-ma\"  \"ripeti: pa-pa\"\n"
-            "  Step C: exclamations     → \"di' 'oh!'\"  \"di' 'sì'\"  \"di' 'no'\""
-        )
-    elif age < 2:
-        profile = (
-            f"The model is like a 1-year-old toddler (age {age:.1f}). "
-            "Use ONLY single common nouns and family words: 'mamma', 'papà', 'cane', "
-            "'gatto', 'pane', 'acqua'. One word at a time. Lots of repetition."
-        )
-        steps = (
-            "  Step A: single nouns     → \"di' 'cane'\"  \"di' 'gatto'\"\n"
-            "  Step B: family words     → \"di' 'mamma'\"  \"di' 'papà'\"\n"
-            "  Step C: yes/no + greet   → \"di' 'sì'\"  \"di' 'ciao'\""
-        )
-    elif age < 4:
-        profile = (
-            f"The model is like a 2-3 year old child (age {age:.1f}). "
-            "Use simple two-word combinations: article + noun, or noun + adjective. "
-            "Examples: 'il cane', 'la casa', 'bello!', 'grande!'. Short and clear."
-        )
-        steps = (
-            "  Step A: article + noun   → \"ripeti: il cane\"  \"ripeti: la casa\"\n"
-            "  Step B: noun + adjective → \"il cane è ___\"  \"la casa è ___\"\n"
-            "  Step C: simple verb      → \"il cane ___\"  (expected: 'dorme', 'mangia')"
-        )
-    elif age < 7:
-        profile = (
-            f"The model is like a {age:.0f}-year-old child. "
-            "Use simple complete sentences: subject + verb (+ object). "
-            "Introduce colours, numbers 1-5, greetings, and basic questions."
-        )
-        steps = (
-            "  Step A: simple sentences → \"il cane dorme\"  \"il gatto mangia\"\n"
-            "  Step B: colours/numbers  → \"di' il colore: rosso, blu, verde\"\n"
-            "  Step C: questions        → \"completa: come ___ il cane?\"\n"
-            "  Step D: short dialogue   → \"buongiorno! come stai?\""
-        )
-    else:
-        profile = (
-            f"The model is at school age (age {age:.0f}). "
-            "Use proper grammar: verb conjugations, simple questions and answers, "
-            "complete sentences. Introduce 'io sono', 'tu sei', 'dove vai', 'ho fame'."
-        )
-        steps = (
-            "  Step A: verb conjugation → \"io sono ___, tu sei ___\"\n"
-            "  Step B: questions        → \"dove vai?\"  \"quanti anni hai?\"\n"
-            "  Step C: short dialogue   → full question-answer exchange\n"
-            "  Step D: storytelling     → \"completa: c'era una volta ___\""
-        )
+    age 0-1  : newborn - only sounds and syllables, no words yet
+    age 1-2  : toddler - first words, single nouns and exclamations
+    age 2-4  : early child - short phrases, article + noun, simple verbs
+    age 4-7  : child - simple sentences, colours, numbers, questions
+    age 7+   : school age - grammar rules, verb conjugation, full sentences
 
-    return f"""You are teaching Italian to a child-like AI.
+    This is the FALLBACK, used only when the level ships no teacher_prompt.md.
+
+    A language whose manifest declares no `teacher_fallback` gets the same
+    prompt without the worked examples: the tutor is still told which language
+    and which age band, and invents its own material in the right language.
+    That is the honest degradation — the examples are the one part that cannot
+    be derived, and borrowing another language's is how an English build ended
+    up being taught in Italian.
+    """
+    lg        = language_manifest.load(lang)
+    lang_name = lg.name
+    material  = lg.teacher_fallback
+    band      = (material.get("bands") or {}).get(_age_band(age), {})
+    profile   = band.get("profile", DEFAULT_BAND_PROFILE[_age_band(age)]).format(age=age)
+    steps     = band.get("steps",
+                         f"  (no examples declared for '{lang}' — improvise them "
+                         f"in {lang_name}, at this level of difficulty)")
+    praise    = material.get("praise", '"good! " or "well done! "')
+
+    return f"""You are teaching {lang_name} to a child-like AI.
 {profile}
 
 Your role is DUAL each turn:
@@ -415,9 +493,9 @@ Your role is DUAL each turn:
 TEACHING METHOD:
   - Keep prompts short and clear (max 8 words)
   - Repeat the same item 2-3 times if the model struggles
-  - Celebrate success: start next_prompt with "bravo! " or "bene! "
+  - Celebrate success: start next_prompt with {praise}
   - If struggling, simplify: go back one step
-  - Vary content within the age level — don't always use the same word
+  - Vary content within the age level - don't always use the same word
 
 PROGRESSION for this age level:
 {steps}
@@ -428,7 +506,7 @@ If it struggles (=/-), stay or go back.
 Reply ONLY in this exact JSON format:
 {{
   "feedback": "<one of: -, =, +, ++, +++>",
-  "commento": "<brief evaluation in Italian, max 10 words>",
+  "commento": "<brief evaluation in {lang_name}, max 10 words>",
   "next_prompt": "<your next teaching prompt, max 10 words>",
   "expected": "<ideal model response to next_prompt, max 8 words>",
   "step": "<A, B, C, or D>"
@@ -437,11 +515,11 @@ Reply ONLY in this exact JSON format:
 For the very FIRST turn, skip feedback/commento and just provide
 next_prompt, expected, step. Always produce a next_prompt.
 
-IMPORTANT — next_prompt formatting rules:
-  - NO apostrophes, quotes or special characters: write  di mamma  not  di 'mamma'
-  - NO punctuation inside words: write  cane  not  cane.  or  cane!
-  - Spaces and simple exclamation at the end are OK: bravo! di mamma
-  - The model learns from your exact words — keep them clean and simple"""
+IMPORTANT - next_prompt formatting rules:
+  - NO apostrophes, quotes or special characters: write  say mom  not  say 'mom'
+  - NO punctuation inside words: write  dog  not  dog.  or  dog!
+  - Spaces and simple exclamation at the end are OK: good! say mom
+  - The model learns from your exact words - keep them clean and simple"""
 
 # Map 5-level feedback symbols to numeric values used by TrainerB
 FEEDBACK_MAP = {"-": -1.0, "=": 0.0, "+": 0.3, "++": 0.6, "+++": 1.0}
@@ -475,10 +553,13 @@ def teaching_turn(client: "anthropic.Anthropic",
         # never drifts toward the student's broken register.
         reminder = ""
         if turn % 10 == 0:
+            # The language is named here on purpose: this reminder said
+            # "Italian" for every --lang, and it lands every ten turns, so it
+            # out-shouted an English teacher_prompt.md over a long session.
             reminder = ("\n\n[REMINDER: The lesson is NOT over. Always provide "
                         "next_prompt. Write next_prompt and expected in clean, "
-                        "complete Italian (articles included) — NEVER imitate "
-                        "the student's broken output. Re-ask targets the "
+                        f"complete {language_name(lang)} (articles included) — NEVER "
+                        "imitate the student's broken output. Re-ask targets the "
                         "student failed instead of inventing new ones.]")
         user_msg = (f"Last prompt given: {repr(last_prompt)}\n"
                     f"Model response:    {repr(last_response)}\n\n"
@@ -498,7 +579,7 @@ def teaching_turn(client: "anthropic.Anthropic",
     result = client.messages.create(
         model=tutor_model,
         max_tokens=300,
-        system=load_teacher_prompt(lang, level) or build_system_teacher(age),
+        system=load_teacher_prompt(lang, level) or build_system_teacher(age, lang),
         messages=window,
     )
 
@@ -819,11 +900,17 @@ def phase_0(args, ckpt_base: str) -> str:
     os.makedirs(ckpt_dir, exist_ok=True)
 
     # Load tokenizer: prefer level_(N-1)/tokenizer.json ONLY if it was created
-    # in the CURRENT build (vocab must be >= base TOKENIZER vocab).
+    # in the CURRENT build (vocab must be >= the base vocabulary).
     # Stale tokenizers from previous builds (smaller vocab) are skipped.
     tok = BPETokenizer()
-    tok.load(TOKENIZER)  # base/8K as safe default
+    base_tok_path = tokenizer_path(args.lang)
+    tok.load(base_tok_path)      # the language's own vocabulary, as default
     base_vocab_size = len(tok)
+    print(f"Tokenizer: {base_tok_path}  (vocab={base_vocab_size})")
+    if args.lang != "it" and base_tok_path == TOKENIZER:
+        print(f"  WARNING: no vocabulary trained on '{args.lang}' — falling back to "
+              f"the Italian one, which splits most of this curriculum's words.\n"
+              f"  Train one with: python3 scripts/train_tokenizer.py --lang {args.lang}")
 
     if level > 0:
         prev_tok = os.path.join(ckpt_base, f"level_{level-1}", "tokenizer.json")
@@ -869,15 +956,19 @@ def phase_0(args, ckpt_base: str) -> str:
     trainer = TrainerB(model, tok, opt)
 
     # Register core phonetic axioms
-    for text in ["mamma", "papà", "sì", "no"]:
-        trainer.add_axiom(text, is_objective=True, protection=0.7)
+    _phonetic = axioms_for("phonetic", args.lang)
+    if not _phonetic:
+        print(f"  [axiom] none declared for '{args.lang}' — add an \"axioms\" "
+              f"block to {language_manifest.manifest_path(args.lang)}")
+    for text, prot in _phonetic:
+        trainer.add_axiom(text, is_objective=True, protection=prot)
 
     # Load corpus for current level (level 0 = phonemes, level N = level-N text)
     # Always include level 0 as the phonemic foundation, plus the current level if different.
     corpus_parts = []
-    corpus_dirs = [DATA_IT0]
+    corpus_dirs = [data_dir(args.lang, 0)]
     if level > 0:
-        level_corpus_dir = os.path.join("training_files", args.lang, str(level))
+        level_corpus_dir = data_dir(args.lang, level)
         if os.path.isdir(level_corpus_dir):
             corpus_dirs.append(level_corpus_dir)
 
@@ -962,7 +1053,7 @@ def phase_0(args, ckpt_base: str) -> str:
 # Phase 1 — teaching dialogue with Claude as active tutor
 # ---------------------------------------------------------------------------
 
-def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it") -> str:
+def phase_1(args, start_checkpoint: str, ckpt_base: str = None) -> str:
     """
     Claude-guided teaching for level N.
     - Starts from level_N/final_learned.pt if it exists (continues learning),
@@ -970,6 +1061,10 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     - Always saves/overwrites level_N/final_learned.pt.
     - Never touches active.pt — use set_model.sh to update it manually.
     """
+    # No Italian default for ckpt_base: every caller passes the language's own
+    # base, and a forgotten argument must not write English weights into
+    # models/checkpoints/it.
+    ckpt_base = ckpt_base or os.path.join(CKPT_BASE, args.lang)
     level = args.level
 
     # ── Determine teacher: local / hybrid (local+LLM) / Claude API ──────────
@@ -1095,11 +1190,12 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     # Load tokenizer priority:
     # 1. level_N/tokenizer.json (post-dream expanded, only if compatible with model)
     # 2. level_(N-1)/tokenizer.json
-    # 3. TOKENIZER (tokenizer_8k.json if present)
+    # 3. tokenizer_path(lang) — the language's own base vocabulary
     # IMPORTANT: stale tokenizers from previous builds (smaller vocab) must not
     # be used when the model was trained with a larger tokenizer (e.g. 8K).
     tok = BPETokenizer()
-    tok.load(TOKENIZER)  # load base/8K first to get correct vocab size
+    base_tok_path = tokenizer_path(args.lang)
+    tok.load(base_tok_path)      # load it first, to get the right vocab size
 
     for tok_candidate in _tokenizer_candidates(ckpt_base, level):
         if tok_candidate and os.path.exists(tok_candidate):
@@ -1112,7 +1208,7 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
             else:
                 print(f"  Skip {tok_candidate} (vocab={len(_tok_test)} < model active={model_active})")
     else:
-        print(f"Tokenizer: {TOKENIZER}  (vocab={len(tok)})")
+        print(f"Tokenizer: {base_tok_path}  (vocab={len(tok)})")
 
     # Fail fast: if every candidate was rejected, the fallback base tokenizer
     # is SMALLER than the model — ids the model was trained with would decode
@@ -1132,9 +1228,10 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     # catastrophic forgetting. 2e-5 keeps the model stable across all levels.
     opt   = TorchAdamOptimizer(model.parameters(), lr=2e-5)
 
+    _lang   = language_manifest.load(args.lang)
     affect  = AffectState()
     # Content-word filter and cross-session memory for the curiosity signal.
-    affect.function_words = STOP_WORDS
+    affect.function_words = for_language(args.lang)
     _mem_path = _affect_memory_path(args.lang, ckpt_base)
     _n_mem    = affect.load_memory(_mem_path)
     print(f"Curiosity memory: {_n_mem} words from {_mem_path}"
@@ -1149,8 +1246,11 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
     _attach_ewc(trainer, args, ckpt_base)
 
     # Core grammatical axioms
-    for text, prot in [("io sono", 0.9), ("tu sei", 0.9),
-                        ("lui è", 0.9), ("noi siamo", 0.9)]:
+    _grammar = axioms_for("grammar", args.lang)
+    if not _grammar:
+        print(f"  [axiom] none declared for '{args.lang}' — add an \"axioms\" "
+              f"block to {language_manifest.manifest_path(args.lang)}")
+    for text, prot in _grammar:
         trainer.add_axiom(text, is_objective=True, protection=prot)
     print()
 
@@ -1417,7 +1517,8 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = "models/checkpoints/it
         _graded_cov     = 0.0                # content coverage of graded response
         if turn > 1 and symbol in ("+++", "++", "+") and graded_expected and current_response:
             _sym, _graded_cov, _sanity_cmt = grade_by_coverage(
-                symbol, graded_expected, current_response, current_prompt, level)
+                symbol, graded_expected, current_response, current_prompt, level,
+                for_language(args.lang), _lang.polarity)
             if _sanity_cmt is not None:
                 symbol = _sym
                 fb     = FEEDBACK_MAP.get(symbol, 0.0)
@@ -2291,7 +2392,7 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
     # A tokenizer is compatible only if its vocab >= model.active_vocab_size.
     # Stale tokenizers from previous builds (smaller vocab) are skipped.
     tok = BPETokenizer()
-    tok.load(TOKENIZER)  # base/8K as safe default
+    tok.load(tokenizer_path(args.lang))   # the language's own vocabulary
 
     model = TorchGPT.load(start_checkpoint)
     model_active = model.active_vocab_size
@@ -2318,7 +2419,7 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
 
     opt   = TorchAdamOptimizer(model.parameters(), lr=2e-5)  # very low LR
     affect = AffectState()
-    affect.function_words = STOP_WORDS
+    affect.function_words = for_language(args.lang)
     _mem_path = _affect_memory_path(args.lang, ckpt_base)
     affect.load_memory(_mem_path)
     mod    = AffectModulator(affect,

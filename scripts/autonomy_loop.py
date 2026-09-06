@@ -738,7 +738,9 @@ def main() -> None:
     ap.add_argument("--queue", default=None,
                     help="JSON list of {w,art,g} or a text file, one noun per line")
     ap.add_argument("--ckpt-base", default=None)
-    ap.add_argument("--probe", default=probe_set.DEFAULT_PATH)
+    ap.add_argument("--probe", default=None,
+                    help="frozen probe file (default: the one of --lang; scoring an\n"
+                         "English model on the Italian probe measures nothing)")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--retract", action="store_true",
                     help="when an acquisition collides with a curriculum-"
@@ -777,7 +779,9 @@ def main() -> None:
     lex = etp.Lex(etp.load_lexicon(args.lang), args.lang)
 
     # ── the three things that must exist before anything is touched ─────────
-    probe = probe_set.load(args.probe)          # raises if missing or edited
+    probe_path = args.probe or probe_set.default_path(args.lang)
+    print(f"language: {args.lang}  (probe {os.path.basename(probe_path)})")
+    probe = probe_set.load(probe_path)      # raises if missing or edited
     oracle = OntologyOracle(lang=args.lang)
     if not oracle.is_available():
         print(f"No local LLM reachable: {oracle.status()}\n"

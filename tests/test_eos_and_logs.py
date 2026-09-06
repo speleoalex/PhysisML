@@ -60,9 +60,32 @@ def _load_tc():
     return mod
 
 
-def _snapshots():
-    return [REFERENCE, "standalone/tokenizer.json"] + \
-        sorted(glob.glob("models/checkpoints/*/level_*/tokenizer.json"))
+def _snapshot_groups():
+    """Snapshots grouped by the build tree they belong to.
+
+    The EOS id is a property of the vocabulary a build started from, and
+    models/checkpoints/ now holds one tree per language: the Italian one carries
+    EOS at 2589, the English one at 2516. A flat list compared everything with
+    the active tokenizer, so the first English build made the Italian snapshots
+    look wrong when nothing about them had changed. What has to hold is that one
+    tree never disagrees with itself — the same weights reloaded with a
+    different marker is the failure this guards.
+
+    The active tokenizer and the standalone export are the last build's output
+    and form their own group; the cross-check below is that their id belongs to
+    one of the trees on disk.
+    """
+    groups = {}
+    for path in sorted(glob.glob("models/checkpoints/*/level_*/tokenizer.json")):
+        groups.setdefault(path.split(os.sep)[2], []).append(path)
+    groups["<active>"] = [p for p in (REFERENCE, "standalone/tokenizer.json")
+                          if os.path.exists(p)]
+    return groups
+
+
+def _eos_of(path):
+    tok = BPETokenizer(); tok.load(path)
+    return tok.get_special_id(tok.EOS_TOKEN), max(tok.vocab.keys()) + 1
 
 
 # ---------------------------------------------------------------------------
@@ -113,16 +136,30 @@ class TestEosRegistration:
         register_eos.py — they must simply have no EOS at all, never a
         different one.
         """
-        ref = BPETokenizer(); ref.load(REFERENCE)
-        eos_id = ref.get_special_id(ref.EOS_TOKEN)
-        for path in _snapshots():
-            tok = BPETokenizer(); tok.load(path)
-            have = tok.get_special_id(tok.EOS_TOKEN)
-            if have is None:
-                assert max(tok.vocab.keys()) + 1 != eos_id, \
-                    f"{path} could hold EOS at {eos_id} but has none"
-            else:
-                assert have == eos_id, f"{path} has EOS at {have}, not {eos_id}"
+        groups = _snapshot_groups()
+        ids = {}
+        for group, paths in groups.items():
+            marked = {p: _eos_of(p) for p in paths}
+            found = {eos for eos, _ in marked.values() if eos is not None}
+            assert len(found) <= 1, \
+                f"{group}: snapshots disagree on EOS — " + \
+                ", ".join(f"{p}@{e}" for p, (e, _) in marked.items())
+            if not found:
+                continue
+            eos_id = found.pop()
+            ids[group] = eos_id
+            for path, (have, size) in marked.items():
+                if have is None:
+                    assert size != eos_id, \
+                        f"{path} could hold EOS at {eos_id} but has none"
+
+        # The active tokenizer is a copy of the last build's: its id must be one
+        # a tree on disk actually uses, or the weights and the marker come from
+        # different builds.
+        active = ids.pop("<active>", None)
+        if active is not None and ids:
+            assert active in ids.values(), \
+                f"{REFERENCE} has EOS at {active}, no build tree does: {ids}"
 
     @needs_reference
     def test_eos_survives_save_and_load(self, tmp_path):

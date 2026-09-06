@@ -1,8 +1,9 @@
 """
-Train a new BPE tokenizer on the full Italian corpus.
+Train a new BPE tokenizer on the full corpus of one language.
 
 Usage:
-    python3 scripts/train_tokenizer.py                    # default: 8000 token
+    python3 scripts/train_tokenizer.py                    # default: it, 8000 token
+    python3 scripts/train_tokenizer.py --lang en          # the English curriculum
     python3 scripts/train_tokenizer.py --vocab-size 4000  # custom size
     python3 scripts/train_tokenizer.py --sample 50        # use 50MB of corpus
     python3 scripts/train_tokenizer.py --stats            # show corpus used
@@ -16,15 +17,91 @@ for _p in [_ROOT, _TEST1]:
 
 from physisml.tokenizer import BPETokenizer
 
-CORPUS_BASE = "training_files/it"
-# Number of curriculum levels to scan. A bare range(11) silently
-# excluded L11 (ontology) and L12 (curiosity) from both the tokenizer
-# and the corpus statistics.
-N_LEVELS = 13
+CORPUS_ROOT = "training_files"
 OUTPUT_BASE = "dynamic_model/data"
 
 
-def collect_targets(reps: int = 20) -> str:
+def levels_of(lang: str) -> list:
+    """The levels this language has, read off the disk.
+
+    A pinned count is what once excluded L11 (ontology) and L12 (curiosity)
+    from both the tokenizer and the corpus statistics, and it would now stop
+    the Italian scan one level short of L13. The disk is the only list that
+    cannot go stale.
+    """
+    base = os.path.join(CORPUS_ROOT, lang)
+    if not os.path.isdir(base):
+        raise SystemExit(f"Error: no corpus for language '{lang}' ({base}/ not found)")
+    return sorted(int(d) for d in os.listdir(base)
+                  if d.isdigit() and os.path.isdir(os.path.join(base, d)))
+
+
+def default_output(lang: str, vocab_size: int) -> str:
+    """Where a language's vocabulary lives.
+
+    Italian keeps the historical filename — every published checkpoint was
+    trained against it. Any other language gets tokenizer_<lang>.json, which is
+    the name dynamic_model/train_curriculum.tokenizer_path() looks for. The
+    size stays out of that name on purpose: the '8k' in the Italian one has
+    been wrong since the file came back holding 2590 tokens, and a name tied to
+    --vocab-size would put the vocabulary where the build never looks.
+    """
+    if lang == "it":
+        return os.path.join(OUTPUT_BASE, f"tokenizer_{vocab_size // 1000}k.json")
+    return os.path.join(OUTPUT_BASE, f"tokenizer_{lang}.json")
+
+
+def reference_tokenizer(lang: str) -> str:
+    """The vocabulary the build uses today for this language: what the new one
+    has to beat. For a language with none of its own that is the Italian file,
+    which makes the comparison printed at the end the whole point of the run.
+    """
+    candidates = []
+    if lang != "it":
+        candidates.append(os.path.join(OUTPUT_BASE, f"tokenizer_{lang}.json"))
+    candidates += [os.path.join(OUTPUT_BASE, "tokenizer_8k.json"),
+                   os.path.join(OUTPUT_BASE, "tokenizer_base.json")]
+    for c in candidates:
+        if os.path.exists(c):
+            return c
+    return None
+
+
+def test_sentences(lang: str) -> list:
+    """A handful of sentences to tokenise side by side, in the language being
+    trained. Curriculum material, not messages — left untranslated on purpose,
+    they are what the tokenizer is measured on. A language not listed here
+    borrows its own gold answers from the last level it has.
+    """
+    fixed = {
+        "it": ["il cane dorme sul tappeto",
+               "la mamma cucina il pane",
+               "buongiorno come stai oggi",
+               "io voglio andare a casa"],
+        "en": ["the dog sleeps on the carpet",
+               "the mother cooks the bread",
+               "the cat is small but strong",
+               "i want to go home because i am tired"],
+    }
+    if lang in fixed:
+        return fixed[lang]
+    out = []
+    for level in reversed(levels_of(lang)):
+        path = os.path.join(CORPUS_ROOT, lang, str(level), "local_teacher.json")
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as f:
+            cfg = json.load(f)
+        for step in cfg.get("steps", {}).values():
+            for t in step.get("targets", []):
+                if isinstance(t, dict) and t.get("expected"):
+                    out.append(t["expected"])
+        if out:
+            break
+    return sorted(set(out), key=len, reverse=True)[:4]
+
+
+def collect_targets(lang: str, reps: int = 20) -> str:
     """The teacher's target pools, which ARE the curriculum.
 
     They live in local_teacher.json, not in .txt, so the corpus scan never saw
@@ -34,8 +111,8 @@ def collect_targets(reps: int = 20) -> str:
     threshold against a corpus hundreds of times their size.
     """
     parts = []
-    for level in range(N_LEVELS):
-        path = os.path.join(CORPUS_BASE, str(level), "local_teacher.json")
+    for level in levels_of(lang):
+        path = os.path.join(CORPUS_ROOT, lang, str(level), "local_teacher.json")
         if not os.path.exists(path):
             continue
         with open(path, encoding="utf-8") as f:
@@ -51,7 +128,7 @@ def collect_targets(reps: int = 20) -> str:
     return "\n".join([text] * reps)
 
 
-def collect_corpus(sample_mb: int = 50) -> str:
+def collect_corpus(lang: str, sample_mb: int = 50) -> str:
     """
     Collect text from all levels, proportionally sampled up to sample_mb MB.
     Levels with more text contribute proportionally more to the sample.
@@ -60,8 +137,8 @@ def collect_corpus(sample_mb: int = 50) -> str:
 
     # Collect all files with their sizes
     all_files = []
-    for level in range(N_LEVELS):
-        d = os.path.join(CORPUS_BASE, str(level))
+    for level in levels_of(lang):
+        d = os.path.join(CORPUS_ROOT, lang, str(level))
         for fpath in sorted(glob.glob(os.path.join(d, "*.txt"))):
             if "teacher_prompt" not in fpath:
                 size = os.path.getsize(fpath)
@@ -111,6 +188,9 @@ def collect_corpus(sample_mb: int = 50) -> str:
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--lang",       default="it",
+                        help="Language to train on: reads training_files/<lang>/ "
+                             "(default: it)")
     parser.add_argument("--vocab-size", type=int, default=8000)
     parser.add_argument("--no-targets", action="store_true",
                         help="Do not add the teacher target pools to the corpus")
@@ -122,24 +202,29 @@ def main():
     args = parser.parse_args()
 
     if args.output is None:
-        k = args.vocab_size // 1000
-        args.output = os.path.join(OUTPUT_BASE, f"tokenizer_{k}k.json")
+        args.output = default_output(args.lang, args.vocab_size)
+
+    levels = levels_of(args.lang)
 
     if args.stats:
-        collect_corpus(args.sample)
+        print(f"  Language: {args.lang}  "
+              f"({CORPUS_ROOT}/{args.lang}, levels {levels[0]}-{levels[-1]})")
+        collect_corpus(args.lang, args.sample)
         return
 
     print(f"\n{'='*60}")
     print(f"  BPE tokenizer training")
+    print(f"  Language   : {args.lang}  ({CORPUS_ROOT}/{args.lang}, "
+          f"levels {levels[0]}-{levels[-1]})")
     print(f"  Vocab size : {args.vocab_size}")
     print(f"  Sample     : up to {args.sample} MB")
     print(f"  Output     : {args.output}")
     print(f"{'='*60}")
 
     print(f"\n  Collecting corpus...")
-    text = collect_corpus(args.sample)
+    text = collect_corpus(args.lang, args.sample)
     if not args.no_targets:
-        tgt = collect_targets()
+        tgt = collect_targets(args.lang)
         print(f"  + teacher target pools: {len(tgt):,} chars")
         text = text + "\n" + tgt
     print(f"  Corpus ready: {len(text):,} characters")
@@ -194,24 +279,23 @@ def main():
             if shown >= 20:
                 break
 
-    # Compare with base tokenizer
-    base_tok = BPETokenizer()
-    base_tok.load("dynamic_model/data/tokenizer_base.json")
-
-    # Italian curriculum sentences: material, not messages — left untranslated
-    # on purpose, they are what the tokenizer is measured on.
-    test_sentences = [
-        "il cane dorme sul tappeto",
-        "la mamma cucina il pane",
-        "buongiorno come stai oggi",
-        "io voglio andare a casa",
-    ]
-    print(f"\n  Tokenisation comparison (base 501 vs new {len(tok)}):")
-    for s in test_sentences:
-        base_ids = base_tok.encode(s)
-        new_ids  = tok.encode(s)
+    # Compare with the vocabulary the build uses today for this language.
+    ref_path = reference_tokenizer(args.lang)
+    if ref_path:
+        base_tok = BPETokenizer()
+        base_tok.load(ref_path)
+        print(f"\n  Tokenisation comparison "
+              f"({os.path.basename(ref_path)} {len(base_tok)} vs new {len(tok)}):")
+    else:
+        base_tok = None
+        print(f"\n  Tokenisation of the new {len(tok)}-token vocabulary:")
+    for s in test_sentences(args.lang):
+        new_ids = tok.encode(s)
         print(f"  '{s}'")
-        print(f"    base ({len(base_ids)} tokens): {[base_tok.decode([i]) for i in base_ids]}")
+        if base_tok is not None:
+            base_ids = base_tok.encode(s)
+            print(f"    ref  ({len(base_ids)} tokens): "
+                  f"{[base_tok.decode([i]) for i in base_ids]}")
         print(f"    new  ({len(new_ids)} tokens): {[tok.decode([i]) for i in new_ids]}")
         print()
 

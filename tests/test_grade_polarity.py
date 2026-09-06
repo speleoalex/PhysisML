@@ -36,7 +36,7 @@ def test_the_opposite_answer_is_not_partial_credit():
     sym, cov, cmt = grade("+++", NEG_GOLD, "sì, il giardino è un luogo.",
                           NEG_PROMPT, 11)
     assert (sym, cov) == ("=", 0.0)
-    assert "polarità" in cmt
+    assert "polarity" in cmt
 
 
 def test_the_right_polarity_keeps_its_grade():
@@ -69,7 +69,7 @@ def test_the_accent_is_not_the_lesson_the_gate_teaches():
     """
     sym, _, cmt = grade("+++", POS_GOLD, "si, la sorella è una persona.",
                         POS_PROMPT, 11)
-    assert "polarità" not in (cmt or "")
+    assert "polarity" not in (cmt or "")
     assert sym == "++"      # docked for the accent, not failed for the answer
     # the opposite answer, by contrast, is '='
     assert grade("+++", POS_GOLD, "no, la sorella è una persona.",
@@ -94,7 +94,7 @@ def test_a_negation_inside_the_sentence_is_not_a_polarity():
     """'non' opens nothing: reading it as 'no' would mark a correct affirmative
     as the opposite answer."""
     sym, _, cmt = grade("+++", POS_GOLD, "non lo so.", POS_PROMPT, 11)
-    assert cmt is None or "polarità" not in (cmt or "")
+    assert cmt is None or "polarity" not in (cmt or "")
 
 
 def test_the_gate_never_raises_a_grade():

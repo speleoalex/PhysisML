@@ -226,7 +226,7 @@ class TestTheExportLeavesTheRowOut:
             written.update(tensors)
             open(path, "wb").close()
 
-        export_hf.export_one(ckpt, out, fake_save_file, out)
+        export_hf.export_one(ckpt, out, fake_save_file, out, "it")
         with open(os.path.join(out, "config.json"), encoding="utf-8") as f:
             cfg = json.load(f)
         # The weights ship in full; the row is dormant through the integer.
@@ -239,7 +239,7 @@ class TestTheExportLeavesTheRowOut:
         _tok().save(str(tmp_path / "tokenizer.json"))
         cfg2 = None
         export_hf.export_one(plain, str(tmp_path / "hf2"), fake_save_file,
-                             str(tmp_path / "hf2"))
+                             str(tmp_path / "hf2"), "it")
         with open(os.path.join(str(tmp_path / "hf2"), "config.json"),
                   encoding="utf-8") as f:
             cfg2 = json.load(f)

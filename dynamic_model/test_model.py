@@ -201,12 +201,17 @@ def main():
     # Load model
     model = TorchGPT.load(ckpt)
 
-    # Auto-detect tokenizer: prefer level-specific, then 8K base, then 500-token base
+    # Auto-detect tokenizer: prefer level-specific, then the vocabulary of the
+    # language under test, then the active one, then the 500-token base.
+    # The language's own file comes before models/active_tokenizer.json and the
+    # (Italian) 8K on purpose: both would pass the vocab-size check and score an
+    # English model on a vocabulary that splits most of its words.
     _tok_path = args.tokenizer
     if not _tok_path:
         _ckpt_dir = os.path.dirname(ckpt)
         _candidates = [
             os.path.join(_ckpt_dir, "tokenizer.json"),
+            f"dynamic_model/data/tokenizer_{args.lang}.json",
             "models/active_tokenizer.json",
             "dynamic_model/data/tokenizer_8k.json",
             "dynamic_model/data/tokenizer_base.json",

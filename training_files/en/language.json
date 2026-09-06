@@ -1,0 +1,151 @@
+{
+  "name": "English",
+  "hf_repo": "",
+  "_comment_axioms": "Words whose embedding rows the training loop protects. They must be WHOLE tokens in this language's vocabulary and frequent in this language's corpus: an axiom that splits protects arbitrary subwords. The Italian list applied to English encoded 'mamma' as m|am|ma and froze 8 rows that never occur in training_files/en at all. Check the [axiom] lines phase 0 prints: they show the pieces.",
+  "axioms": {
+    "phonetic": [
+      [
+        "mama",
+        0.7
+      ],
+      [
+        "papa",
+        0.7
+      ],
+      [
+        "yes",
+        0.7
+      ],
+      [
+        "no",
+        0.7
+      ]
+    ],
+    "grammar": [
+      [
+        "I am",
+        0.9
+      ],
+      [
+        "you are",
+        0.9
+      ],
+      [
+        "he is",
+        0.9
+      ],
+      [
+        "it is",
+        0.9
+      ]
+    ]
+  },
+  "_comment_stop_words": "Function words. Everything that separates content from grammar reads them from here.",
+  "stop_words": [
+    "the",
+    "a",
+    "an",
+    "of",
+    "to",
+    "in",
+    "on",
+    "at",
+    "for",
+    "with",
+    "from",
+    "by",
+    "and",
+    "or",
+    "but",
+    "not",
+    "no",
+    "yes",
+    "if",
+    "so",
+    "as",
+    "than",
+    "too",
+    "very",
+    "also",
+    "already",
+    "more",
+    "there",
+    "here",
+    "this",
+    "that",
+    "these",
+    "those",
+    "is",
+    "am",
+    "are",
+    "was",
+    "were",
+    "be",
+    "been",
+    "being",
+    "has",
+    "have",
+    "had",
+    "do",
+    "does",
+    "did",
+    "can",
+    "will",
+    "would",
+    "i",
+    "you",
+    "he",
+    "she",
+    "it",
+    "we",
+    "they",
+    "me",
+    "him",
+    "her",
+    "us",
+    "them",
+    "my",
+    "your",
+    "his",
+    "its",
+    "our",
+    "their"
+  ],
+  "_comment_polarity": "How a closed question is answered yes or no in this language. The grader caps a turn that asserts the contrary; without these words it cannot tell the right answer from its opposite. First spelling is canonical.",
+  "polarity": {
+    "yes": [
+      "yes",
+      "yeah"
+    ],
+    "no": [
+      "no",
+      "nope"
+    ]
+  },
+  "_comment_teacher_fallback": "The tutor prompt used only when a level ships no teacher_prompt.md. Bands by virtual age: newborn <1, toddler <2, early <4, child <7, school 7+. '{age}' is substituted in profile. A language that omits this gets a prompt with no examples, which teaches nothing wrong; the old fallback was Italian whatever --lang said.",
+  "teacher_fallback": {
+    "praise": "\"good! \" or \"well done! \"",
+    "bands": {
+      "newborn": {
+        "profile": "The model is like a newborn (age {age:.1f}). Use ONLY individual sounds and syllables: 'ma', 'pa', 'ta', 'yes', 'no', 'oh!'. No full words yet. Repeat the same sound 2-3 times before moving on.",
+        "steps": "  Step A: isolated sounds  -> \"say ma\"  \"say pa\"  \"say ta\"\n  Step B: sound pairs      -> \"repeat: ma-ma\"  \"repeat: pa-pa\"\n  Step C: exclamations     -> \"say oh!\"  \"say yes\"  \"say no\""
+      },
+      "toddler": {
+        "profile": "The model is like a 1-year-old toddler (age {age:.1f}). Use ONLY single common nouns and family words: 'mom', 'dad', 'dog', 'cat', 'bread', 'water'. One word at a time. Lots of repetition.",
+        "steps": "  Step A: single nouns     -> \"say dog\"  \"say cat\"\n  Step B: family words     -> \"say mom\"  \"say dad\"\n  Step C: yes/no + greet   -> \"say yes\"  \"say hi\""
+      },
+      "early": {
+        "profile": "The model is like a 2-3 year old child (age {age:.1f}). Use simple two-word combinations: article + noun, or noun + adjective. Examples: 'the dog', 'the house', 'big!', 'nice!'. Short and clear.",
+        "steps": "  Step A: article + noun   -> \"repeat: the dog\"  \"repeat: the house\"\n  Step B: noun + adjective -> \"the dog is ___\"  \"the house is ___\"\n  Step C: simple verb      -> \"the dog ___\"  (expected: 'sleeps', 'eats')"
+      },
+      "child": {
+        "profile": "The model is like a {age:.0f}-year-old child. Use simple complete sentences: subject + verb (+ object). Introduce colours, numbers 1-5, greetings, and basic questions.",
+        "steps": "  Step A: simple sentences -> \"the dog sleeps\"  \"the cat eats\"\n  Step B: colours/numbers  -> \"say the colour: red, blue, green\"\n  Step C: questions        -> \"complete: where ___ the dog sleep?\"\n  Step D: short dialogue   -> \"hello! how are you?\""
+      },
+      "school": {
+        "profile": "The model is at school age (age {age:.0f}). Use proper grammar: verb conjugations, simple questions and answers, complete sentences. Introduce 'I am', 'you are', 'where do you go', 'I am hungry'.",
+        "steps": "  Step A: verb conjugation -> \"I am ___, you are ___\"\n  Step B: questions        -> \"where do you go?\"  \"how old are you?\"\n  Step C: short dialogue   -> full question-answer exchange\n  Step D: storytelling     -> \"complete: once upon a time ___\""
+      }
+    }
+  }
+}

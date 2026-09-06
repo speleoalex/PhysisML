@@ -40,7 +40,30 @@ from measure_repetition import has_repetition                          # noqa: E
 DEFAULT_PATH = os.path.join(_ROOT, "dynamic_model", "data", "probe_set.json")
 DEFAULT_SEED = 20260831
 DEFAULT_PER_LEVEL = 8
-DEFAULT_LEVELS = list(range(13))     # the fixed curriculum, 0-12
+DEFAULT_LEVELS = list(range(13))     # the Italian curriculum, 0-12
+
+
+def default_path(lang: str = "it") -> str:
+    """Where the frozen probe of a language lives.
+
+    Italian keeps the historical filename: its fingerprint is what every
+    published baseline was measured against, and moving it would invalidate
+    the comparison the probe exists to make. Any other language gets its own
+    file — scoring an English model on Italian gold measures nothing.
+    """
+    if lang == "it":
+        return DEFAULT_PATH
+    return os.path.join(_ROOT, "dynamic_model", "data", f"probe_set_{lang}.json")
+
+
+def levels_on_disk(lang: str) -> list:
+    """The levels that language actually has, in order."""
+    base = os.path.join(_ROOT, "training_files", lang)
+    out = []
+    for name in os.listdir(base) if os.path.isdir(base) else []:
+        if name.isdigit() and os.path.isdir(os.path.join(base, name)):
+            out.append(int(name))
+    return sorted(out)
 
 
 def fingerprint(items: list) -> str:
@@ -55,7 +78,11 @@ def fingerprint(items: list) -> str:
 def build(lang: str = "it", per_level: int = DEFAULT_PER_LEVEL,
           seed: int = DEFAULT_SEED, levels: list = None) -> dict:
     """Sample `per_level` graded cases from each level's curriculum."""
-    levels = levels or DEFAULT_LEVELS
+    # Italian keeps its fixed 0-12 list so an existing freeze reproduces
+    # exactly; a shorter curriculum (the English tree stops at 5) is read off
+    # the disk instead of being padded with levels that do not exist.
+    levels = levels or (DEFAULT_LEVELS if lang == "it"
+                        else levels_on_disk(lang) or DEFAULT_LEVELS)
     items = []
     for lvl in levels:
         cases = [(p, e) for p, e in load_level_cases(lang, lvl) if e]
@@ -137,7 +164,8 @@ def score(tr, tok, probe: dict) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Frozen probe set")
-    ap.add_argument("--path", default=DEFAULT_PATH)
+    ap.add_argument("--path", default=None,
+                    help="probe file (default: the one for --lang)")
     ap.add_argument("--write", action="store_true", help="freeze a new one")
     ap.add_argument("--show", action="store_true")
     ap.add_argument("--score", action="store_true")
@@ -146,6 +174,9 @@ def main() -> None:
     ap.add_argument("--per-level", type=int, default=DEFAULT_PER_LEVEL)
     ap.add_argument("--seed", type=int, default=DEFAULT_SEED)
     a = ap.parse_args()
+    if not a.path:
+        a.path = default_path(a.lang)
+    print(f"language: {a.lang}  ({os.path.relpath(a.path, _ROOT)})")
 
     if a.write:
         if os.path.exists(a.path):

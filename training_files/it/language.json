@@ -1,0 +1,137 @@
+{
+  "name": "Italian",
+  "hf_repo": "speleoalex/physisml-it-preview",
+  "_comment_axioms": "Words whose embedding rows the training loop protects. They must be WHOLE tokens in this language's vocabulary and frequent in this language's corpus: an axiom that splits protects arbitrary subwords. Check with scripts/train_tokenizer.py or the [axiom] lines phase 0 prints, which show the pieces.",
+  "axioms": {
+    "phonetic": [
+      [
+        "mamma",
+        0.7
+      ],
+      [
+        "papà",
+        0.7
+      ],
+      [
+        "sì",
+        0.7
+      ],
+      [
+        "no",
+        0.7
+      ]
+    ],
+    "grammar": [
+      [
+        "io sono",
+        0.9
+      ],
+      [
+        "tu sei",
+        0.9
+      ],
+      [
+        "lui è",
+        0.9
+      ],
+      [
+        "noi siamo",
+        0.9
+      ]
+    ]
+  },
+  "_comment_stop_words": "Function words. Everything that separates content from grammar reads them from here.",
+  "stop_words": [
+    "il",
+    "la",
+    "lo",
+    "le",
+    "gli",
+    "i",
+    "un",
+    "una",
+    "di",
+    "del",
+    "della",
+    "dei",
+    "delle",
+    "degli",
+    "a",
+    "e",
+    "è",
+    "in",
+    "per",
+    "da",
+    "su",
+    "con",
+    "tra",
+    "che",
+    "non",
+    "si",
+    "ha",
+    "ho",
+    "hai",
+    "ai",
+    "al",
+    "alla",
+    "agli",
+    "alle",
+    "ma",
+    "anche",
+    "mi",
+    "ti",
+    "ci",
+    "vi",
+    "ne",
+    "già",
+    "più",
+    "no",
+    "sì",
+    "se",
+    "sua",
+    "suo",
+    "mia",
+    "mio",
+    "tu",
+    "io",
+    "lui",
+    "lei",
+    "noi"
+  ],
+  "_comment_polarity": "How a closed question is answered yes or no in this language. The grader caps a turn that asserts the contrary; without these words it cannot tell the right answer from its opposite. First spelling is canonical.",
+  "polarity": {
+    "yes": [
+      "sì",
+      "si"
+    ],
+    "no": [
+      "no"
+    ]
+  },
+  "_comment_teacher_fallback": "The tutor prompt used only when a level ships no teacher_prompt.md. Bands by virtual age: newborn <1, toddler <2, early <4, child <7, school 7+. '{age}' is substituted in profile. A language that omits this gets a prompt with no examples, which teaches nothing wrong; the old fallback was Italian whatever --lang said.",
+  "teacher_fallback": {
+    "praise": "\"bravo! \" or \"bene! \"",
+    "bands": {
+      "newborn": {
+        "profile": "The model is like a newborn (age {age:.1f}). Use ONLY individual sounds and syllables: 'ma', 'pa', 'ta', 'si', 'no', 'oh!'. No full words yet. Repeat the same sound 2-3 times before moving on.",
+        "steps": "  Step A: isolated sounds  -> \"di' 'ma'\"  \"di' 'pa'\"  \"di' 'ta'\"\n  Step B: sound pairs      -> \"ripeti: ma-ma\"  \"ripeti: pa-pa\"\n  Step C: exclamations     -> \"di' 'oh!'\"  \"di' 'si'\"  \"di' 'no'\""
+      },
+      "toddler": {
+        "profile": "The model is like a 1-year-old toddler (age {age:.1f}). Use ONLY single common nouns and family words: 'mamma', 'papa', 'cane', 'gatto', 'pane', 'acqua'. One word at a time. Lots of repetition.",
+        "steps": "  Step A: single nouns     -> \"di' 'cane'\"  \"di' 'gatto'\"\n  Step B: family words     -> \"di' 'mamma'\"  \"di' 'papa'\"\n  Step C: yes/no + greet   -> \"di' 'si'\"  \"di' 'ciao'\""
+      },
+      "early": {
+        "profile": "The model is like a 2-3 year old child (age {age:.1f}). Use simple two-word combinations: article + noun, or noun + adjective. Examples: 'il cane', 'la casa', 'bello!', 'grande!'. Short and clear.",
+        "steps": "  Step A: article + noun   -> \"ripeti: il cane\"  \"ripeti: la casa\"\n  Step B: noun + adjective -> \"il cane e ___\"  \"la casa e ___\"\n  Step C: simple verb      -> \"il cane ___\"  (expected: 'dorme', 'mangia')"
+      },
+      "child": {
+        "profile": "The model is like a {age:.0f}-year-old child. Use simple complete sentences: subject + verb (+ object). Introduce colours, numbers 1-5, greetings, and basic questions.",
+        "steps": "  Step A: simple sentences -> \"il cane dorme\"  \"il gatto mangia\"\n  Step B: colours/numbers  -> \"di' il colore: rosso, blu, verde\"\n  Step C: questions        -> \"completa: come ___ il cane?\"\n  Step D: short dialogue   -> \"buongiorno! come stai?\""
+      },
+      "school": {
+        "profile": "The model is at school age (age {age:.0f}). Use proper grammar: verb conjugations, simple questions and answers, complete sentences. Introduce 'io sono', 'tu sei', 'dove vai', 'ho fame'.",
+        "steps": "  Step A: verb conjugation -> \"io sono ___, tu sei ___\"\n  Step B: questions        -> \"dove vai?\"  \"quanti anni hai?\"\n  Step C: short dialogue   -> full question-answer exchange\n  Step D: storytelling     -> \"completa: c'era una volta ___\""
+      }
+    }
+  }
+}

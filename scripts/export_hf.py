@@ -22,6 +22,10 @@ Usage:
     # Explicit checkpoint
     python3 scripts/export_hf.py --out hf_upload --ckpt models/checkpoints/it/level_9/final_dreamed.pt
 
+    # Another language: every default follows --lang, and the language of the
+    # weights is verified against it before anything is written.
+    python3 scripts/export_hf.py --lang en --levels 0-5
+
 The script never uploads on its own. When the folder looks right:
 
     pip install huggingface_hub
@@ -44,10 +48,10 @@ if _ROOT not in sys.path:
     sys.path.insert(0, _ROOT)
 
 from dynamic_model.exp_b.none_token import SCORING_ONLY_TOKENS, scoring_cut  # noqa: E402
+from dynamic_model import language as lang_manifest                          # noqa: E402
 
 # Files copied verbatim into the upload folder: the model card, the licence,
 # and the standalone inference code, which is the package the card imports.
-CARD_SRC     = os.path.join(_ROOT, "huggingface", "README.md")
 GENERATE_SRC = os.path.join(_ROOT, "huggingface", "generate.py")
 LICENSE_SRC  = os.path.join(_ROOT, "LICENSE")
 PKG_NAME     = "physisml"
@@ -101,7 +105,7 @@ def find_tokenizer(ckpt_path: str) -> str:
 
 
 def export_one(ckpt_path: str, out_dir: str, save_file,
-               root_out: str) -> dict:
+               root_out: str, lang: str) -> dict:
     """
     Convert one .pt checkpoint into out_dir/{model.safetensors,config.json,
     tokenizer.json}. Returns the manifest entry for it.
@@ -185,7 +189,7 @@ def export_one(ckpt_path: str, out_dir: str, save_file,
             "merges":         len(tok.get("merges", [])),
             "special_tokens": tok.get("special_tokens", {}),
         },
-        "language":          "it",
+        "language":          lang,
     }
     with open(os.path.join(out_dir, "config.json"), "w", encoding="utf-8") as f:
         json.dump(out_cfg, f, indent=2, ensure_ascii=False)
@@ -219,15 +223,22 @@ def parse_levels(spec: str) -> list:
 def main() -> None:
     ap = argparse.ArgumentParser(
         description="Assemble a Hugging Face upload folder for a checkpoint")
-    ap.add_argument("--out", default="hf_upload",
-                    help="output folder (default: hf_upload)")
+    ap.add_argument("--lang", default=lang_manifest.DEFAULT_LANG,
+                    help="which curriculum is being published (default: "
+                         f"{lang_manifest.DEFAULT_LANG}). It sets --out, "
+                         "--ckpt-base and the model card, and the language of "
+                         "the weights is checked against it.")
+    ap.add_argument("--out", default=None,
+                    help="output folder (default: the one of --lang — "
+                         "hf_upload for it, hf_upload_<lang> otherwise)")
     ap.add_argument("--ckpt", default=None,
                     help="main checkpoint (default: models/active.pt, "
                          "then standalone/model.pt)")
     ap.add_argument("--levels", default=None,
                     help="also export the per-level ladder, e.g. 0-9 or 0,4,9")
-    ap.add_argument("--ckpt-base", default="models/checkpoints/it",
-                    help="where the level_N directories live")
+    ap.add_argument("--ckpt-base", default=None,
+                    help="where the level_N directories live "
+                         "(default: models/checkpoints/<lang>)")
     ap.add_argument("--level-file", default="final_dreamed.pt",
                     help="which snapshot per level (default: final_dreamed.pt, "
                          "the one the published scores were measured on)")
@@ -237,20 +248,34 @@ def main() -> None:
                          "conversion step")
     ap.add_argument("--force", action="store_true",
                     help="overwrite the output folder if it exists")
+    ap.add_argument("--force-lang", action="store_true",
+                    help="publish even when the weights do not belong to "
+                         "--lang (they will be labelled --lang anyway)")
     args = ap.parse_args()
+
+    # Every path that used to say 'it' now comes from the language, so adding
+    # one is a folder under training_files/ and nothing here.
+    known = lang_manifest.available()
+    if args.lang not in known:
+        die(f"no curriculum for language '{args.lang}' — "
+            f"training_files/{args.lang}/ is missing. Have: "
+            + ", ".join(known))
+    lg = lang_manifest.load(args.lang)
+    if args.out is None:
+        args.out = lg.out_dir
+    if args.ckpt_base is None:
+        args.ckpt_base = lg.checkpoint_dir
+    card_src = os.path.join(_ROOT, lg.card)
+    print(f"language        : {args.lang}  ({lg.name})")
 
     try:
         from safetensors.torch import save_file
     except ImportError:
         die("safetensors is not installed — pip install safetensors")
 
-    if os.path.exists(args.out):
-        if not args.force:
-            die(f"{args.out} already exists (use --force to overwrite)")
-        shutil.rmtree(args.out)
-    os.makedirs(args.out)
-
     # ── main checkpoint ─────────────────────────────────────────────────────
+    # Resolved before the output folder is touched: --force deletes a previous
+    # export, and it must not do that on a run that is about to fail.
     ckpt = args.ckpt
     if ckpt is None:
         ckpt = next((c for c in DEFAULT_CKPTS if os.path.exists(c)), None)
@@ -260,8 +285,42 @@ def main() -> None:
     if not os.path.exists(ckpt):
         die(f"checkpoint not found: {ckpt}")
 
+    # A checkpoint records its sizes and nothing else, so the only evidence of
+    # which language it speaks is the vocabulary shipped beside it. Check it:
+    # there is ONE models/active.pt for every language and the build overwrites
+    # it at the end of every level, so the default checkpoint after an English
+    # build holds English weights while every default here still said 'it'.
+    # Publishing those under an Italian card and `"language": "it"` is a
+    # mislabelled release, and a released file cannot be recalled.
+    found = lang_manifest.detect(find_tokenizer(ckpt))
+    if found and found != args.lang:
+        msg = (f"the weights in {os.path.relpath(ckpt, _ROOT)} are '{found}', "
+               f"not '{args.lang}' — their vocabulary matches "
+               f"{lang_manifest.load(found).tokenizer}")
+        if not args.force_lang:
+            die(msg + f".\n       Publish them as they are with --lang {found}, "
+                      f"or pass --force-lang to label them '{args.lang}' anyway.")
+        print(f"  ⚠ {msg} — labelled '{args.lang}' because --force-lang was given.")
+    elif not found:
+        print(f"  ⚠ the vocabulary of {os.path.relpath(ckpt, _ROOT)} matches no "
+              f"language on disk — nothing verified that these weights are "
+              f"'{args.lang}'.")
+
+    if not os.path.exists(card_src):
+        die(f"no model card for '{args.lang}': {os.path.relpath(card_src, _ROOT)} "
+            f"is missing. Write it, or point the language manifest "
+            f"({os.path.relpath(lang_manifest.manifest_path(args.lang), _ROOT)}) "
+            f"at an existing one with a \"card\" key.")
+
+    if os.path.exists(args.out):
+        if not args.force:
+            die(f"{args.out} already exists (use --force to overwrite)")
+        shutil.rmtree(args.out)
+    os.makedirs(args.out)
+
     print(f"main checkpoint : {os.path.relpath(ckpt, _ROOT)}")
-    manifest = {"main": export_one(ckpt, args.out, save_file, args.out),
+    manifest = {"main": export_one(ckpt, args.out, save_file, args.out,
+                                   args.lang),
                 "levels": {}}
     print(f"  → model.safetensors  "
           f"({manifest['main']['n_parameters']/1e6:.2f}M params, "
@@ -280,7 +339,7 @@ def main() -> None:
             print(f"level {lvl:>2}         : "
                   f"{os.path.relpath(src, _ROOT)}")
             manifest["levels"][str(lvl)] = export_one(src, dst, save_file,
-                                                      args.out)
+                                                      args.out, args.lang)
         if missing:
             # Say it out loud: a silently short ladder reads as a complete one.
             print(f"\n  ⚠ no {args.level_file} for level(s) "
@@ -310,7 +369,7 @@ def main() -> None:
             f.write(code)
     print(f"affect system   : dynamic_model/exp_b/ → {PKG_NAME}/")
 
-    for src, dst_name in ((CARD_SRC, "README.md"),
+    for src, dst_name in ((card_src, "README.md"),
                           (GENERATE_SRC, "generate.py"),
                           (LICENSE_SRC, "LICENSE")):
         if os.path.exists(src):
@@ -347,9 +406,18 @@ def main() -> None:
     total = sum(os.path.getsize(os.path.join(dp, fn))
                 for dp, _, fns in os.walk(args.out) for fn in fns)
     print(f"\nDone: {args.out}/  ({total/1e6:.1f} MB)")
+    # Name the repo of THIS language when the manifest declares one. Every
+    # language publishes to its own: pushing an English ladder into the
+    # Italian repo replaces revisions the papers and the README point at.
+    manifest_repo = lg.hf_repo
+    repo = manifest_repo or "<user>/<repo>"
     print("\nCheck the card, then upload:")
     print("  pip install huggingface_hub && huggingface-cli login")
-    print(f"  huggingface-cli upload <user>/<repo> {args.out} . --repo-type model")
+    print(f"  huggingface-cli upload {repo} {args.out} . --repo-type model")
+    if not manifest_repo:
+        print(f"  (no \"hf_repo\" in "
+              f"{os.path.relpath(lang_manifest.manifest_path(args.lang), _ROOT)} "
+              f"— fill it in and this line names the repo itself)")
 
 
 if __name__ == "__main__":

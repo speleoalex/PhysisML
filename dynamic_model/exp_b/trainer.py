@@ -726,9 +726,28 @@ class TrainerB:
         """
         Register an axiom from text.
         Example: trainer.add_axiom("1+1=2", is_objective=True)
+
+        Whitespace-only tokens are dropped before registration. Protection is
+        applied per embedding row, and this BPE emits the space as its own
+        token, so a two-word axiom at protection 0.9 used to scale the space
+        row's gradient by 0.1 for the whole run -- one row that carries 32% of
+        the Italian corpus and 30% of the English one, frozen as a side effect
+        of a statement about 'io sono'. The content rows are the axiom; the
+        separator between them is not.
+
+        The pieces are printed next to the ids because an axiom that comes out
+        split ('mamma' -> m|am|ma on an English vocabulary) protects arbitrary
+        subwords instead of the word, and nothing on screen used to say so.
         """
-        ids = self.tokenizer.encode(text)
-        self.axioms.register(ids, description=text,
+        ids   = self.tokenizer.encode(text)
+        kept  = [i for i in ids if not self.tokenizer.decode([i]).isspace()]
+        pieces = "|".join(self.tokenizer.decode([i]) for i in kept)
+        if not kept:
+            print(f"  [axiom] '{text}' skipped — whitespace only")
+            return
+        self.axioms.register(kept, description=text,
                              is_objective=is_objective,
                              protection_level=protection)
-        print(f"  [axiom] '{text}' → tokens {ids}  protection={protection}")
+        note = "  SPLIT" if len(kept) > len(text.split()) else ""
+        print(f"  [axiom] '{text}' → tokens {kept}  [{pieces}]  "
+              f"protection={protection}{note}")
