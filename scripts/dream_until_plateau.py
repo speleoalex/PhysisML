@@ -43,6 +43,12 @@ weights alone would pair an old model with a new tokenizer. affect_memory.json
 travels with them so the curiosity ledger does not remember explanations the
 restored weights never consolidated.
 
+plateau_best holds ONE run's best. A run archives whatever it finds there
+before snapshotting its own baseline over it (plateau_best.<timestamp>),
+because between two runs the session dreams move the tip: the stored best can
+be a better state than the new baseline, and the copy is the only place it
+still exists.
+
 A dream that dies is MEASURED, not trusted: phase 2 saves the pair before it
 can still fail (and the saves are plain in-place writes, so a kill can leave a
 torn file), which means "the child exited nonzero" says nothing about what is
@@ -59,6 +65,7 @@ accumulate on, or bad parameters); 3 = a dream crashed (state salvaged);
 130 = interrupted (state salvaged).
 """
 import argparse
+import filecmp
 import json
 import os
 import shutil
@@ -172,6 +179,37 @@ def restore_state(level_dir: str, src_dir: str) -> list:
                                        "affect_memory.json"))
         restored.append("affect_memory.json")
     return restored
+
+
+def archive_previous_best(best_dir: str, dreamed: str):
+    """Move a previous run's best aside instead of overwriting it.
+
+    The first thing a run does is snapshot its own baseline into best_dir, so
+    that a stop always has something to restore. But best_dir already holds
+    the best state of whichever run wrote it last, and when session dreams
+    happened in between, the new baseline is a DIFFERENT — and possibly worse
+    — state: the copy is then the only place the better one still exists, and
+    overwriting it destroys the level's only anterior return point.
+
+    Measured on 2026-09-04 at level 13: the run of the day before left 91.3%
+    in plateau_best, the next run's baseline was the post-13.2 tip at 90.4%,
+    and the snapshot was gone. Renaming costs a directory entry and keeps it.
+
+    Returns the archive path, or None when there was nothing to lose (no
+    previous snapshot, or one holding the very bytes about to be snapshotted).
+    """
+    prev = os.path.join(best_dir, "final_dreamed.pt")
+    if not os.path.exists(prev):
+        return None
+    if os.path.exists(dreamed) and filecmp.cmp(prev, dreamed, shallow=False):
+        return None                       # same state: nothing would be lost
+    stamp = time.strftime("%Y%m%d_%H%M%S",
+                          time.localtime(os.path.getmtime(prev)))
+    dest = f"{best_dir}.{stamp}"
+    if os.path.exists(dest):              # two runs inside the same second
+        dest = f"{dest}.{os.getpid()}"
+    os.rename(best_dir, dest)
+    return dest
 
 
 def run_one_dream(args, dreamed: str) -> bool:
@@ -298,7 +336,9 @@ def main() -> int:
                     choices=["dream", "ewc", "none"])
     ap.add_argument("--ewc-lambda", type=float, default=None)
     ap.add_argument("--ewc-gamma", type=float, default=None)
-    ap.add_argument("--probe", default=probe_set.DEFAULT_PATH)
+    ap.add_argument("--probe", default=None,
+                    help="frozen probe file (default: the one of --lang; scoring an\n"
+                         "English model on the Italian probe measures nothing)")
     a = ap.parse_args()
 
     # Refusals, not clamps: every one of these either disables the loop while
@@ -334,7 +374,9 @@ def main() -> int:
               f"first dream, this script ACCUMULATES on top of it.")
         return 1
 
-    probe = probe_set.load(a.probe)          # raises if edited — by design
+    probe_path = a.probe or probe_set.default_path(a.lang)
+    print(f"language: {a.lang}  (probe {os.path.basename(probe_path)})")
+    probe = probe_set.load(probe_path)       # raises if edited — by design
     best_dir = os.path.join(level_dir, "plateau_best")
     curve_path = os.path.join(level_dir, "dream_curve.json")
 
@@ -345,6 +387,10 @@ def main() -> int:
           f"(ε={a.epsilon:.1%}, patience={a.patience}, "
           f"already done {a.already_done}, floor {a.floor}, cap {a.cap})")
     print(f"  baseline: exact {curve[0]:.1%}  repetition {reps[0]:.1%}")
+    kept = archive_previous_best(best_dir, dreamed)
+    if kept:
+        print(f"  a previous run's best was in {os.path.basename(best_dir)} "
+              f"and is NOT this baseline: kept as {os.path.basename(kept)}")
     snapshot_state(level_dir, best_dir)
     best_i = 0
 

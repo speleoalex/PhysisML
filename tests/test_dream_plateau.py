@@ -21,7 +21,8 @@ for _p in (ROOT, os.path.join(ROOT, "scripts")):
 
 from dream_until_plateau import (decide, DREAM, STOP_PLATEAU,      # noqa: E402
                                  STOP_REGRESSION, STOP_MAX,
-                                 snapshot_state, restore_state)
+                                 snapshot_state, restore_state,
+                                 archive_previous_best)
 
 # The defaults the CLI ships with, spelled out so a change there is a change
 # HERE too — these numbers are calibrated against measured curves, not taste.
@@ -126,6 +127,52 @@ def test_snapshot_and_restore_move_the_pair_and_the_memory(tmp_path):
     assert (lvl / "final_dreamed.pt").read_bytes() == b"weights-v1"
     assert json.loads((lvl / "tokenizer.json").read_text()) == {"v": 1}
     assert json.loads((base / "affect_memory.json").read_text()) == {"words": 1}
+
+
+def test_a_previous_runs_best_is_archived_not_overwritten(tmp_path):
+    """The baseline snapshot must not destroy an earlier run's best.
+
+    A run snapshots its baseline into plateau_best before dreaming. If session
+    dreams happened since the last run, that baseline is a different state
+    than the stored best, which may score higher — and the copy is the only
+    place it survives. Measured at L13 on 2026-09-04: 91.3% replaced by 90.4%.
+    """
+    lvl = tmp_path / "ckpt" / "level_13"
+    best = lvl / "plateau_best"
+    best.mkdir(parents=True)
+    (best / "final_dreamed.pt").write_bytes(b"the-91.3-percent-state")
+    (best / "tokenizer.json").write_text('{"v": 1}')
+    dreamed = lvl / "final_dreamed.pt"
+    dreamed.write_bytes(b"the-90.4-percent-baseline")
+
+    kept = archive_previous_best(str(best), str(dreamed))
+
+    assert kept and os.path.isdir(kept)
+    assert not best.exists(), "the baseline snapshot must find no old best"
+    assert open(os.path.join(kept, "final_dreamed.pt"), "rb").read() == \
+        b"the-91.3-percent-state"
+
+
+def test_an_identical_best_is_not_archived(tmp_path):
+    """The common case: the last run restored its best into place, so the new
+    baseline IS the stored best. Archiving there would copy 94MB per run for
+    nothing."""
+    lvl = tmp_path / "ckpt" / "level_13"
+    best = lvl / "plateau_best"
+    best.mkdir(parents=True)
+    (best / "final_dreamed.pt").write_bytes(b"same-weights")
+    (lvl / "final_dreamed.pt").write_bytes(b"same-weights")
+
+    assert archive_previous_best(str(best), str(lvl / "final_dreamed.pt")) is None
+    assert best.exists()
+
+
+def test_a_first_run_has_no_best_to_archive(tmp_path):
+    lvl = tmp_path / "ckpt" / "level_13"
+    lvl.mkdir(parents=True)
+    (lvl / "final_dreamed.pt").write_bytes(b"weights")
+    assert archive_previous_best(str(lvl / "plateau_best"),
+                                 str(lvl / "final_dreamed.pt")) is None
 
 
 # ── the parameters that disable the loop while looking like a clean stop ─────
