@@ -1,0 +1,300 @@
+{"prompt": "say: the cat sleeps", "response": "the cat sleeps!"}
+{"prompt": "say: the dog runs", "response": "the dog runs!"}
+{"prompt": "say: the fish swims", "response": "the fish swims!"}
+{"prompt": "say: the bird flies", "response": "the bird flies!"}
+{"prompt": "say: the horse runs", "response": "the horse runs!"}
+{"prompt": "say: the cow eats", "response": "the cow eats!"}
+{"prompt": "say: the wolf runs", "response": "the wolf runs!"}
+{"prompt": "say: the mouse runs", "response": "the mouse runs!"}
+{"prompt": "say: the bee flies", "response": "the bee flies!"}
+{"prompt": "say: the mom cooks", "response": "the mom cooks!"}
+{"prompt": "say: the dad reads", "response": "the dad reads!"}
+{"prompt": "say: the boy plays", "response": "the boy plays!"}
+{"prompt": "say: the girl sings", "response": "the girl sings!"}
+{"prompt": "say: the baby sleeps", "response": "the baby sleeps!"}
+{"prompt": "say: the child plays", "response": "the child plays!"}
+{"prompt": "say: the friend laughs", "response": "the friend laughs!"}
+{"prompt": "say: the man walks", "response": "the man walks!"}
+{"prompt": "say: the woman works", "response": "the woman works!"}
+{"prompt": "say: the sun shines", "response": "the sun shines!"}
+{"prompt": "say: the moon shines", "response": "the moon shines!"}
+{"prompt": "say: the star shines", "response": "the star shines!"}
+{"prompt": "say: the tree grows", "response": "the tree grows!"}
+{"prompt": "say: the flower grows", "response": "the flower grows!"}
+{"prompt": "say: the door opens", "response": "the door opens!"}
+{"prompt": "who sleeps?", "response": "the cat sleeps."}
+{"prompt": "who runs?", "response": "the dog runs."}
+{"prompt": "who swims?", "response": "the fish swims."}
+{"prompt": "who flies?", "response": "the bird flies."}
+{"prompt": "who sings?", "response": "the girl sings."}
+{"prompt": "who plays?", "response": "the boy plays."}
+{"prompt": "who cooks?", "response": "the woman cooks."}
+{"prompt": "who reads?", "response": "the man reads."}
+{"prompt": "who laughs?", "response": "the baby laughs."}
+{"prompt": "who walks?", "response": "the horse walks."}
+{"prompt": "who works?", "response": "the teacher works."}
+{"prompt": "who draws?", "response": "the child draws."}
+{"prompt": "who shines?", "response": "the sun shines."}
+{"prompt": "who grows?", "response": "the tree grows."}
+{"prompt": "where does the cat sleep?", "response": "the cat sleeps in the house."}
+{"prompt": "where does the dog run?", "response": "the dog runs in the park."}
+{"prompt": "where does the fish swim?", "response": "the fish swims in the sea."}
+{"prompt": "where does the bird fly?", "response": "the bird flies in the sky."}
+{"prompt": "where does the horse run?", "response": "the horse runs in the park."}
+{"prompt": "where does the cow walk?", "response": "the cow walks in the road."}
+{"prompt": "where does the wolf run?", "response": "the wolf runs in the park."}
+{"prompt": "where does the mouse run?", "response": "the mouse runs in the park."}
+{"prompt": "where does the bee fly?", "response": "the bee flies in the sky."}
+{"prompt": "where does the boy play?", "response": "the boy plays in the garden."}
+{"prompt": "where does the girl sing?", "response": "the girl sings in the house."}
+{"prompt": "where does the child play?", "response": "the child plays in the garden."}
+{"prompt": "where does the baby sleep?", "response": "the baby sleeps in the house."}
+{"prompt": "where does the man walk?", "response": "the man walks in the road."}
+{"prompt": "where does the woman walk?", "response": "the woman walks in the road."}
+{"prompt": "where does the friend play?", "response": "the friend plays in the garden."}
+{"prompt": "where does the mom sing?", "response": "the mom sings in the house."}
+{"prompt": "where does the dad walk?", "response": "the dad walks in the road."}
+{"prompt": "where does the tree grow?", "response": "the tree grows in the garden."}
+{"prompt": "where does the flower grow?", "response": "the flower grows in the garden."}
+{"prompt": "where does the grass grow?", "response": "the grass grows in the garden."}
+{"prompt": "where does the teacher walk?", "response": "the teacher walks in the road."}
+{"prompt": "where does the cat play?", "response": "the cat plays in the garden."}
+{"prompt": "where does the dog jump?", "response": "the dog jumps in the park."}
+{"prompt": "where does the boy jump?", "response": "the boy jumps in the park."}
+{"prompt": "what comes first, the sun or the moon?", "response": "first the sun then the moon."}
+{"prompt": "what do you do first, eat or sleep?", "response": "first I eat then I sleep."}
+{"prompt": "what comes first, one or two?", "response": "first one then two."}
+{"prompt": "what do you do first, play or work?", "response": "first I play then I work."}
+{"prompt": "what comes first, the rain or the snow?", "response": "first the rain then the snow."}
+{"prompt": "again. say: the cat sleeps", "response": "the cat sleeps!"}
+{"prompt": "again. say: the dog runs", "response": "the dog runs!"}
+{"prompt": "again. say: the fish swims", "response": "the fish swims!"}
+{"prompt": "again. say: the bird flies", "response": "the bird flies!"}
+{"prompt": "again. say: the horse runs", "response": "the horse runs!"}
+{"prompt": "again. say: the cow eats", "response": "the cow eats!"}
+{"prompt": "again. say: the wolf runs", "response": "the wolf runs!"}
+{"prompt": "again. say: the mouse runs", "response": "the mouse runs!"}
+{"prompt": "again. say: the bee flies", "response": "the bee flies!"}
+{"prompt": "again. say: the mom cooks", "response": "the mom cooks!"}
+{"prompt": "again. say: the dad reads", "response": "the dad reads!"}
+{"prompt": "again. say: the boy plays", "response": "the boy plays!"}
+{"prompt": "again. say: the girl sings", "response": "the girl sings!"}
+{"prompt": "again. say: the baby sleeps", "response": "the baby sleeps!"}
+{"prompt": "again. say: the child plays", "response": "the child plays!"}
+{"prompt": "again. say: the friend laughs", "response": "the friend laughs!"}
+{"prompt": "again. say: the man walks", "response": "the man walks!"}
+{"prompt": "again. say: the woman works", "response": "the woman works!"}
+{"prompt": "again. say: the sun shines", "response": "the sun shines!"}
+{"prompt": "again. say: the moon shines", "response": "the moon shines!"}
+{"prompt": "again. say: the star shines", "response": "the star shines!"}
+{"prompt": "again. say: the tree grows", "response": "the tree grows!"}
+{"prompt": "again. say: the flower grows", "response": "the flower grows!"}
+{"prompt": "again. say: the door opens", "response": "the door opens!"}
+{"prompt": "again. who sleeps?", "response": "the cat sleeps."}
+{"prompt": "again. who runs?", "response": "the dog runs."}
+{"prompt": "again. who swims?", "response": "the fish swims."}
+{"prompt": "again. who flies?", "response": "the bird flies."}
+{"prompt": "again. who sings?", "response": "the girl sings."}
+{"prompt": "again. who plays?", "response": "the boy plays."}
+{"prompt": "again. who cooks?", "response": "the woman cooks."}
+{"prompt": "again. who reads?", "response": "the man reads."}
+{"prompt": "again. who laughs?", "response": "the baby laughs."}
+{"prompt": "again. who walks?", "response": "the horse walks."}
+{"prompt": "again. who works?", "response": "the teacher works."}
+{"prompt": "again. who draws?", "response": "the child draws."}
+{"prompt": "again. who shines?", "response": "the sun shines."}
+{"prompt": "again. who grows?", "response": "the tree grows."}
+{"prompt": "again. where does the cat sleep?", "response": "the cat sleeps in the house."}
+{"prompt": "again. where does the dog run?", "response": "the dog runs in the park."}
+{"prompt": "again. where does the fish swim?", "response": "the fish swims in the sea."}
+{"prompt": "again. where does the bird fly?", "response": "the bird flies in the sky."}
+{"prompt": "again. where does the horse run?", "response": "the horse runs in the park."}
+{"prompt": "again. where does the cow walk?", "response": "the cow walks in the road."}
+{"prompt": "again. where does the wolf run?", "response": "the wolf runs in the park."}
+{"prompt": "again. where does the mouse run?", "response": "the mouse runs in the park."}
+{"prompt": "again. where does the bee fly?", "response": "the bee flies in the sky."}
+{"prompt": "again. where does the boy play?", "response": "the boy plays in the garden."}
+{"prompt": "again. where does the girl sing?", "response": "the girl sings in the house."}
+{"prompt": "again. where does the child play?", "response": "the child plays in the garden."}
+{"prompt": "again. where does the baby sleep?", "response": "the baby sleeps in the house."}
+{"prompt": "again. where does the man walk?", "response": "the man walks in the road."}
+{"prompt": "again. where does the woman walk?", "response": "the woman walks in the road."}
+{"prompt": "again. where does the friend play?", "response": "the friend plays in the garden."}
+{"prompt": "again. where does the mom sing?", "response": "the mom sings in the house."}
+{"prompt": "again. where does the dad walk?", "response": "the dad walks in the road."}
+{"prompt": "again. where does the tree grow?", "response": "the tree grows in the garden."}
+{"prompt": "again. where does the flower grow?", "response": "the flower grows in the garden."}
+{"prompt": "again. where does the grass grow?", "response": "the grass grows in the garden."}
+{"prompt": "again. where does the teacher walk?", "response": "the teacher walks in the road."}
+{"prompt": "again. where does the cat play?", "response": "the cat plays in the garden."}
+{"prompt": "again. where does the dog jump?", "response": "the dog jumps in the park."}
+{"prompt": "again. where does the boy jump?", "response": "the boy jumps in the park."}
+{"prompt": "again. what comes first, the sun or the moon?", "response": "first the sun then the moon."}
+{"prompt": "again. what do you do first, eat or sleep?", "response": "first I eat then I sleep."}
+{"prompt": "again. what comes first, one or two?", "response": "first one then two."}
+{"prompt": "again. what do you do first, play or work?", "response": "first I play then I work."}
+{"prompt": "again. what comes first, the rain or the snow?", "response": "first the rain then the snow."}
+{"prompt": "good! say: the cat sleeps", "response": "the cat sleeps!"}
+{"prompt": "good! say: the dog runs", "response": "the dog runs!"}
+{"prompt": "good! say: the fish swims", "response": "the fish swims!"}
+{"prompt": "good! say: the bird flies", "response": "the bird flies!"}
+{"prompt": "good! say: the horse runs", "response": "the horse runs!"}
+{"prompt": "good! say: the cow eats", "response": "the cow eats!"}
+{"prompt": "good! say: the wolf runs", "response": "the wolf runs!"}
+{"prompt": "good! say: the mouse runs", "response": "the mouse runs!"}
+{"prompt": "good! say: the bee flies", "response": "the bee flies!"}
+{"prompt": "good! say: the mom cooks", "response": "the mom cooks!"}
+{"prompt": "good! say: the dad reads", "response": "the dad reads!"}
+{"prompt": "good! say: the boy plays", "response": "the boy plays!"}
+{"prompt": "good! say: the girl sings", "response": "the girl sings!"}
+{"prompt": "good! say: the baby sleeps", "response": "the baby sleeps!"}
+{"prompt": "good! say: the child plays", "response": "the child plays!"}
+{"prompt": "good! say: the friend laughs", "response": "the friend laughs!"}
+{"prompt": "good! say: the man walks", "response": "the man walks!"}
+{"prompt": "good! say: the woman works", "response": "the woman works!"}
+{"prompt": "good! say: the sun shines", "response": "the sun shines!"}
+{"prompt": "good! say: the moon shines", "response": "the moon shines!"}
+{"prompt": "good! say: the star shines", "response": "the star shines!"}
+{"prompt": "good! say: the tree grows", "response": "the tree grows!"}
+{"prompt": "good! say: the flower grows", "response": "the flower grows!"}
+{"prompt": "good! say: the door opens", "response": "the door opens!"}
+{"prompt": "good! who sleeps?", "response": "the cat sleeps."}
+{"prompt": "good! who runs?", "response": "the dog runs."}
+{"prompt": "good! who swims?", "response": "the fish swims."}
+{"prompt": "good! who flies?", "response": "the bird flies."}
+{"prompt": "good! who sings?", "response": "the girl sings."}
+{"prompt": "good! who plays?", "response": "the boy plays."}
+{"prompt": "good! who cooks?", "response": "the woman cooks."}
+{"prompt": "good! who reads?", "response": "the man reads."}
+{"prompt": "good! who laughs?", "response": "the baby laughs."}
+{"prompt": "good! who walks?", "response": "the horse walks."}
+{"prompt": "good! who works?", "response": "the teacher works."}
+{"prompt": "good! who draws?", "response": "the child draws."}
+{"prompt": "good! who shines?", "response": "the sun shines."}
+{"prompt": "good! who grows?", "response": "the tree grows."}
+{"prompt": "good! where does the cat sleep?", "response": "the cat sleeps in the house."}
+{"prompt": "good! where does the dog run?", "response": "the dog runs in the park."}
+{"prompt": "good! where does the fish swim?", "response": "the fish swims in the sea."}
+{"prompt": "good! where does the bird fly?", "response": "the bird flies in the sky."}
+{"prompt": "good! where does the horse run?", "response": "the horse runs in the park."}
+{"prompt": "good! where does the cow walk?", "response": "the cow walks in the road."}
+{"prompt": "good! where does the wolf run?", "response": "the wolf runs in the park."}
+{"prompt": "good! where does the mouse run?", "response": "the mouse runs in the park."}
+{"prompt": "good! where does the bee fly?", "response": "the bee flies in the sky."}
+{"prompt": "good! where does the boy play?", "response": "the boy plays in the garden."}
+{"prompt": "good! where does the girl sing?", "response": "the girl sings in the house."}
+{"prompt": "good! where does the child play?", "response": "the child plays in the garden."}
+{"prompt": "good! where does the baby sleep?", "response": "the baby sleeps in the house."}
+{"prompt": "good! where does the man walk?", "response": "the man walks in the road."}
+{"prompt": "good! where does the woman walk?", "response": "the woman walks in the road."}
+{"prompt": "good! where does the friend play?", "response": "the friend plays in the garden."}
+{"prompt": "good! where does the mom sing?", "response": "the mom sings in the house."}
+{"prompt": "good! where does the dad walk?", "response": "the dad walks in the road."}
+{"prompt": "good! where does the tree grow?", "response": "the tree grows in the garden."}
+{"prompt": "good! where does the flower grow?", "response": "the flower grows in the garden."}
+{"prompt": "good! where does the grass grow?", "response": "the grass grows in the garden."}
+{"prompt": "good! where does the teacher walk?", "response": "the teacher walks in the road."}
+{"prompt": "good! where does the cat play?", "response": "the cat plays in the garden."}
+{"prompt": "good! where does the dog jump?", "response": "the dog jumps in the park."}
+{"prompt": "good! where does the boy jump?", "response": "the boy jumps in the park."}
+{"prompt": "good! what comes first, the sun or the moon?", "response": "first the sun then the moon."}
+{"prompt": "good! what do you do first, eat or sleep?", "response": "first I eat then I sleep."}
+{"prompt": "good! what comes first, one or two?", "response": "first one then two."}
+{"prompt": "good! what do you do first, play or work?", "response": "first I play then I work."}
+{"prompt": "good! what comes first, the rain or the snow?", "response": "first the rain then the snow."}
+{"prompt": "well done! say: the cat sleeps", "response": "the cat sleeps!"}
+{"prompt": "well done! say: the dog runs", "response": "the dog runs!"}
+{"prompt": "well done! say: the fish swims", "response": "the fish swims!"}
+{"prompt": "well done! say: the bird flies", "response": "the bird flies!"}
+{"prompt": "well done! say: the horse runs", "response": "the horse runs!"}
+{"prompt": "well done! say: the cow eats", "response": "the cow eats!"}
+{"prompt": "well done! say: the wolf runs", "response": "the wolf runs!"}
+{"prompt": "well done! say: the mouse runs", "response": "the mouse runs!"}
+{"prompt": "well done! say: the bee flies", "response": "the bee flies!"}
+{"prompt": "well done! say: the mom cooks", "response": "the mom cooks!"}
+{"prompt": "well done! say: the dad reads", "response": "the dad reads!"}
+{"prompt": "well done! say: the boy plays", "response": "the boy plays!"}
+{"prompt": "well done! say: the girl sings", "response": "the girl sings!"}
+{"prompt": "well done! say: the baby sleeps", "response": "the baby sleeps!"}
+{"prompt": "well done! say: the child plays", "response": "the child plays!"}
+{"prompt": "well done! say: the friend laughs", "response": "the friend laughs!"}
+{"prompt": "well done! say: the man walks", "response": "the man walks!"}
+{"prompt": "well done! say: the woman works", "response": "the woman works!"}
+{"prompt": "well done! say: the sun shines", "response": "the sun shines!"}
+{"prompt": "well done! say: the moon shines", "response": "the moon shines!"}
+{"prompt": "well done! say: the star shines", "response": "the star shines!"}
+{"prompt": "well done! say: the tree grows", "response": "the tree grows!"}
+{"prompt": "well done! say: the flower grows", "response": "the flower grows!"}
+{"prompt": "well done! say: the door opens", "response": "the door opens!"}
+{"prompt": "well done! who sleeps?", "response": "the cat sleeps."}
+{"prompt": "well done! who runs?", "response": "the dog runs."}
+{"prompt": "well done! who swims?", "response": "the fish swims."}
+{"prompt": "well done! who flies?", "response": "the bird flies."}
+{"prompt": "well done! who sings?", "response": "the girl sings."}
+{"prompt": "well done! who plays?", "response": "the boy plays."}
+{"prompt": "well done! who cooks?", "response": "the woman cooks."}
+{"prompt": "well done! who reads?", "response": "the man reads."}
+{"prompt": "well done! who laughs?", "response": "the baby laughs."}
+{"prompt": "well done! who walks?", "response": "the horse walks."}
+{"prompt": "well done! who works?", "response": "the teacher works."}
+{"prompt": "well done! who draws?", "response": "the child draws."}
+{"prompt": "well done! who shines?", "response": "the sun shines."}
+{"prompt": "well done! who grows?", "response": "the tree grows."}
+{"prompt": "well done! where does the cat sleep?", "response": "the cat sleeps in the house."}
+{"prompt": "well done! where does the dog run?", "response": "the dog runs in the park."}
+{"prompt": "well done! where does the fish swim?", "response": "the fish swims in the sea."}
+{"prompt": "well done! where does the bird fly?", "response": "the bird flies in the sky."}
+{"prompt": "well done! where does the horse run?", "response": "the horse runs in the park."}
+{"prompt": "well done! where does the cow walk?", "response": "the cow walks in the road."}
+{"prompt": "well done! where does the wolf run?", "response": "the wolf runs in the park."}
+{"prompt": "well done! where does the mouse run?", "response": "the mouse runs in the park."}
+{"prompt": "well done! where does the bee fly?", "response": "the bee flies in the sky."}
+{"prompt": "well done! where does the boy play?", "response": "the boy plays in the garden."}
+{"prompt": "well done! where does the girl sing?", "response": "the girl sings in the house."}
+{"prompt": "well done! where does the child play?", "response": "the child plays in the garden."}
+{"prompt": "well done! where does the baby sleep?", "response": "the baby sleeps in the house."}
+{"prompt": "well done! where does the man walk?", "response": "the man walks in the road."}
+{"prompt": "well done! where does the woman walk?", "response": "the woman walks in the road."}
+{"prompt": "well done! where does the friend play?", "response": "the friend plays in the garden."}
+{"prompt": "well done! where does the mom sing?", "response": "the mom sings in the house."}
+{"prompt": "well done! where does the dad walk?", "response": "the dad walks in the road."}
+{"prompt": "well done! where does the tree grow?", "response": "the tree grows in the garden."}
+{"prompt": "well done! where does the flower grow?", "response": "the flower grows in the garden."}
+{"prompt": "well done! where does the grass grow?", "response": "the grass grows in the garden."}
+{"prompt": "well done! where does the teacher walk?", "response": "the teacher walks in the road."}
+{"prompt": "well done! where does the cat play?", "response": "the cat plays in the garden."}
+{"prompt": "well done! where does the dog jump?", "response": "the dog jumps in the park."}
+{"prompt": "well done! where does the boy jump?", "response": "the boy jumps in the park."}
+{"prompt": "well done! what comes first, the sun or the moon?", "response": "first the sun then the moon."}
+{"prompt": "well done! what do you do first, eat or sleep?", "response": "first I eat then I sleep."}
+{"prompt": "well done! what comes first, one or two?", "response": "first one then two."}
+{"prompt": "well done! what do you do first, play or work?", "response": "first I play then I work."}
+{"prompt": "well done! what comes first, the rain or the snow?", "response": "first the rain then the snow."}
+{"prompt": "very good! say: the cat sleeps", "response": "the cat sleeps!"}
+{"prompt": "very good! say: the dog runs", "response": "the dog runs!"}
+{"prompt": "very good! say: the fish swims", "response": "the fish swims!"}
+{"prompt": "very good! say: the bird flies", "response": "the bird flies!"}
+{"prompt": "very good! say: the horse runs", "response": "the horse runs!"}
+{"prompt": "very good! say: the cow eats", "response": "the cow eats!"}
+{"prompt": "very good! say: the wolf runs", "response": "the wolf runs!"}
+{"prompt": "very good! say: the mouse runs", "response": "the mouse runs!"}
+{"prompt": "very good! say: the bee flies", "response": "the bee flies!"}
+{"prompt": "very good! say: the mom cooks", "response": "the mom cooks!"}
+{"prompt": "very good! say: the dad reads", "response": "the dad reads!"}
+{"prompt": "very good! say: the boy plays", "response": "the boy plays!"}
+{"prompt": "very good! say: the girl sings", "response": "the girl sings!"}
+{"prompt": "very good! say: the baby sleeps", "response": "the baby sleeps!"}
+{"prompt": "very good! say: the child plays", "response": "the child plays!"}
+{"prompt": "very good! say: the friend laughs", "response": "the friend laughs!"}
+{"prompt": "very good! say: the man walks", "response": "the man walks!"}
+{"prompt": "very good! say: the woman works", "response": "the woman works!"}
+{"prompt": "very good! say: the sun shines", "response": "the sun shines!"}
+{"prompt": "very good! say: the moon shines", "response": "the moon shines!"}
+{"prompt": "very good! say: the star shines", "response": "the star shines!"}
+{"prompt": "very good! say: the tree grows", "response": "the tree grows!"}
+{"prompt": "very good! say: the flower grows", "response": "the flower grows!"}
+{"prompt": "very good! say: the door opens", "response": "the door opens!"}
+{"prompt": "very good! who sleeps?", "response": "the cat sleeps."}
+{"prompt": "very good! who runs?", "response": "the dog runs."}
+{"prompt": "very good! who swims?", "response": "the fish swims."}
+{"prompt": "very good! who flies?", "response": "the bird flies."}

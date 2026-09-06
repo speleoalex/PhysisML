@@ -1,0 +1,300 @@
+{"prompt": "say: the cat", "response": "the cat!"}
+{"prompt": "say: the dog", "response": "the dog!"}
+{"prompt": "say: the sun", "response": "the sun!"}
+{"prompt": "say: the moon", "response": "the moon!"}
+{"prompt": "say: the house", "response": "the house!"}
+{"prompt": "say: the bread", "response": "the bread!"}
+{"prompt": "say: the milk", "response": "the milk!"}
+{"prompt": "say: the book", "response": "the book!"}
+{"prompt": "say: the ball", "response": "the ball!"}
+{"prompt": "say: the car", "response": "the car!"}
+{"prompt": "say: the tree", "response": "the tree!"}
+{"prompt": "say: the apple", "response": "the apple!"}
+{"prompt": "say: the egg", "response": "the egg!"}
+{"prompt": "say: the star", "response": "the star!"}
+{"prompt": "say: the table", "response": "the table!"}
+{"prompt": "say: the chair", "response": "the chair!"}
+{"prompt": "say: the garden", "response": "the garden!"}
+{"prompt": "say: the park", "response": "the park!"}
+{"prompt": "say: the school", "response": "the school!"}
+{"prompt": "say: the sea", "response": "the sea!"}
+{"prompt": "say: the city", "response": "the city!"}
+{"prompt": "say: the water", "response": "the water!"}
+{"prompt": "say: the mom", "response": "the mom!"}
+{"prompt": "say: the dad", "response": "the dad!"}
+{"prompt": "say: the boy", "response": "the boy!"}
+{"prompt": "say: the girl", "response": "the girl!"}
+{"prompt": "say: the child", "response": "the child!"}
+{"prompt": "what is your name?", "response": "physisml!"}
+{"prompt": "what are you called?", "response": "physisml!"}
+{"prompt": "say your name", "response": "physisml!"}
+{"prompt": "who are you?", "response": "physisml!"}
+{"prompt": "say: the cat sleeps", "response": "the cat sleeps!"}
+{"prompt": "say: the dog runs", "response": "the dog runs!"}
+{"prompt": "say: the fish swims", "response": "the fish swims!"}
+{"prompt": "say: the bird flies", "response": "the bird flies!"}
+{"prompt": "say: the horse runs", "response": "the horse runs!"}
+{"prompt": "say: the cow eats", "response": "the cow eats!"}
+{"prompt": "say: the wolf runs", "response": "the wolf runs!"}
+{"prompt": "say: the mouse runs", "response": "the mouse runs!"}
+{"prompt": "say: the bee flies", "response": "the bee flies!"}
+{"prompt": "say: the mom cooks", "response": "the mom cooks!"}
+{"prompt": "say: the dad reads", "response": "the dad reads!"}
+{"prompt": "say: the boy plays", "response": "the boy plays!"}
+{"prompt": "say: the girl sings", "response": "the girl sings!"}
+{"prompt": "say: the baby sleeps", "response": "the baby sleeps!"}
+{"prompt": "say: the child plays", "response": "the child plays!"}
+{"prompt": "say: the friend laughs", "response": "the friend laughs!"}
+{"prompt": "say: the man walks", "response": "the man walks!"}
+{"prompt": "say: the woman works", "response": "the woman works!"}
+{"prompt": "say: the sun shines", "response": "the sun shines!"}
+{"prompt": "say: the moon shines", "response": "the moon shines!"}
+{"prompt": "say: the star shines", "response": "the star shines!"}
+{"prompt": "say: the tree grows", "response": "the tree grows!"}
+{"prompt": "say: the flower grows", "response": "the flower grows!"}
+{"prompt": "say: the door opens", "response": "the door opens!"}
+{"prompt": "what does the cat do?", "response": "the cat sleeps."}
+{"prompt": "what does the dog do?", "response": "the dog runs."}
+{"prompt": "what does the fish do?", "response": "the fish swims."}
+{"prompt": "what does the bird do?", "response": "the bird flies."}
+{"prompt": "what does the horse do?", "response": "the horse runs."}
+{"prompt": "what does the cow do?", "response": "the cow eats."}
+{"prompt": "what does the wolf do?", "response": "the wolf runs."}
+{"prompt": "what does the mouse do?", "response": "the mouse runs."}
+{"prompt": "what does the bee do?", "response": "the bee flies."}
+{"prompt": "what does the mom do?", "response": "the mom cooks."}
+{"prompt": "what does the dad do?", "response": "the dad reads."}
+{"prompt": "what does the boy do?", "response": "the boy plays."}
+{"prompt": "what does the girl do?", "response": "the girl sings."}
+{"prompt": "what does the baby do?", "response": "the baby sleeps."}
+{"prompt": "what does the child do?", "response": "the child plays."}
+{"prompt": "what does the friend do?", "response": "the friend laughs."}
+{"prompt": "what does the man do?", "response": "the man walks."}
+{"prompt": "what does the woman do?", "response": "the woman works."}
+{"prompt": "what does the teacher do?", "response": "the teacher reads."}
+{"prompt": "what does the sun do?", "response": "the sun shines."}
+{"prompt": "what does the moon do?", "response": "the moon shines."}
+{"prompt": "what does the star do?", "response": "the star shines."}
+{"prompt": "what does the tree do?", "response": "the tree grows."}
+{"prompt": "what does the flower do?", "response": "the flower grows."}
+{"prompt": "what does the grass do?", "response": "the grass grows."}
+{"prompt": "what does the snow do?", "response": "the snow falls."}
+{"prompt": "say a number: one", "response": "one!"}
+{"prompt": "say a number: two", "response": "two!"}
+{"prompt": "say a number: three", "response": "three!"}
+{"prompt": "say a number: four", "response": "four!"}
+{"prompt": "say a number: five", "response": "five!"}
+{"prompt": "say a number: six", "response": "six!"}
+{"prompt": "say a number: seven", "response": "seven!"}
+{"prompt": "say a number: eight", "response": "eight!"}
+{"prompt": "say a number: nine", "response": "nine!"}
+{"prompt": "say a number: ten", "response": "ten!"}
+{"prompt": "the cat the cat. say: the cat", "response": "the cat!"}
+{"prompt": "the dog the dog. say: the dog", "response": "the dog!"}
+{"prompt": "the sun the sun. say: the sun", "response": "the sun!"}
+{"prompt": "the moon the moon. say: the moon", "response": "the moon!"}
+{"prompt": "the house the house. say: the house", "response": "the house!"}
+{"prompt": "the bread the bread. say: the bread", "response": "the bread!"}
+{"prompt": "the milk the milk. say: the milk", "response": "the milk!"}
+{"prompt": "the book the book. say: the book", "response": "the book!"}
+{"prompt": "the ball the ball. say: the ball", "response": "the ball!"}
+{"prompt": "the car the car. say: the car", "response": "the car!"}
+{"prompt": "the tree the tree. say: the tree", "response": "the tree!"}
+{"prompt": "the apple the apple. say: the apple", "response": "the apple!"}
+{"prompt": "the egg the egg. say: the egg", "response": "the egg!"}
+{"prompt": "the star the star. say: the star", "response": "the star!"}
+{"prompt": "the table the table. say: the table", "response": "the table!"}
+{"prompt": "the chair the chair. say: the chair", "response": "the chair!"}
+{"prompt": "the garden the garden. say: the garden", "response": "the garden!"}
+{"prompt": "the park the park. say: the park", "response": "the park!"}
+{"prompt": "the school the school. say: the school", "response": "the school!"}
+{"prompt": "the sea the sea. say: the sea", "response": "the sea!"}
+{"prompt": "the city the city. say: the city", "response": "the city!"}
+{"prompt": "the water the water. say: the water", "response": "the water!"}
+{"prompt": "the mom the mom. say: the mom", "response": "the mom!"}
+{"prompt": "the dad the dad. say: the dad", "response": "the dad!"}
+{"prompt": "the boy the boy. say: the boy", "response": "the boy!"}
+{"prompt": "the girl the girl. say: the girl", "response": "the girl!"}
+{"prompt": "the child the child. say: the child", "response": "the child!"}
+{"prompt": "what is your name? what is your name?. what is your name?", "response": "physisml!"}
+{"prompt": "what are you called? what are you called?. what are you called?", "response": "physisml!"}
+{"prompt": "say your name say your name. say your name", "response": "physisml!"}
+{"prompt": "who are you? who are you?. who are you?", "response": "physisml!"}
+{"prompt": "the cat sleeps the cat sleeps. say: the cat sleeps", "response": "the cat sleeps!"}
+{"prompt": "the dog runs the dog runs. say: the dog runs", "response": "the dog runs!"}
+{"prompt": "the fish swims the fish swims. say: the fish swims", "response": "the fish swims!"}
+{"prompt": "the bird flies the bird flies. say: the bird flies", "response": "the bird flies!"}
+{"prompt": "the horse runs the horse runs. say: the horse runs", "response": "the horse runs!"}
+{"prompt": "the cow eats the cow eats. say: the cow eats", "response": "the cow eats!"}
+{"prompt": "the wolf runs the wolf runs. say: the wolf runs", "response": "the wolf runs!"}
+{"prompt": "the mouse runs the mouse runs. say: the mouse runs", "response": "the mouse runs!"}
+{"prompt": "the bee flies the bee flies. say: the bee flies", "response": "the bee flies!"}
+{"prompt": "the mom cooks the mom cooks. say: the mom cooks", "response": "the mom cooks!"}
+{"prompt": "the dad reads the dad reads. say: the dad reads", "response": "the dad reads!"}
+{"prompt": "the boy plays the boy plays. say: the boy plays", "response": "the boy plays!"}
+{"prompt": "the girl sings the girl sings. say: the girl sings", "response": "the girl sings!"}
+{"prompt": "the baby sleeps the baby sleeps. say: the baby sleeps", "response": "the baby sleeps!"}
+{"prompt": "the child plays the child plays. say: the child plays", "response": "the child plays!"}
+{"prompt": "the friend laughs the friend laughs. say: the friend laughs", "response": "the friend laughs!"}
+{"prompt": "the man walks the man walks. say: the man walks", "response": "the man walks!"}
+{"prompt": "the woman works the woman works. say: the woman works", "response": "the woman works!"}
+{"prompt": "the sun shines the sun shines. say: the sun shines", "response": "the sun shines!"}
+{"prompt": "the moon shines the moon shines. say: the moon shines", "response": "the moon shines!"}
+{"prompt": "the star shines the star shines. say: the star shines", "response": "the star shines!"}
+{"prompt": "the tree grows the tree grows. say: the tree grows", "response": "the tree grows!"}
+{"prompt": "the flower grows the flower grows. say: the flower grows", "response": "the flower grows!"}
+{"prompt": "the door opens the door opens. say: the door opens", "response": "the door opens!"}
+{"prompt": "what does the cat do? what does the cat do?. what does the cat do?", "response": "the cat sleeps."}
+{"prompt": "what does the dog do? what does the dog do?. what does the dog do?", "response": "the dog runs."}
+{"prompt": "what does the fish do? what does the fish do?. what does the fish do?", "response": "the fish swims."}
+{"prompt": "what does the bird do? what does the bird do?. what does the bird do?", "response": "the bird flies."}
+{"prompt": "what does the horse do? what does the horse do?. what does the horse do?", "response": "the horse runs."}
+{"prompt": "what does the cow do? what does the cow do?. what does the cow do?", "response": "the cow eats."}
+{"prompt": "what does the wolf do? what does the wolf do?. what does the wolf do?", "response": "the wolf runs."}
+{"prompt": "what does the mouse do? what does the mouse do?. what does the mouse do?", "response": "the mouse runs."}
+{"prompt": "what does the bee do? what does the bee do?. what does the bee do?", "response": "the bee flies."}
+{"prompt": "what does the mom do? what does the mom do?. what does the mom do?", "response": "the mom cooks."}
+{"prompt": "what does the dad do? what does the dad do?. what does the dad do?", "response": "the dad reads."}
+{"prompt": "what does the boy do? what does the boy do?. what does the boy do?", "response": "the boy plays."}
+{"prompt": "what does the girl do? what does the girl do?. what does the girl do?", "response": "the girl sings."}
+{"prompt": "what does the baby do? what does the baby do?. what does the baby do?", "response": "the baby sleeps."}
+{"prompt": "what does the child do? what does the child do?. what does the child do?", "response": "the child plays."}
+{"prompt": "what does the friend do? what does the friend do?. what does the friend do?", "response": "the friend laughs."}
+{"prompt": "what does the man do? what does the man do?. what does the man do?", "response": "the man walks."}
+{"prompt": "what does the woman do? what does the woman do?. what does the woman do?", "response": "the woman works."}
+{"prompt": "what does the teacher do? what does the teacher do?. what does the teacher do?", "response": "the teacher reads."}
+{"prompt": "what does the sun do? what does the sun do?. what does the sun do?", "response": "the sun shines."}
+{"prompt": "what does the moon do? what does the moon do?. what does the moon do?", "response": "the moon shines."}
+{"prompt": "what does the star do? what does the star do?. what does the star do?", "response": "the star shines."}
+{"prompt": "what does the tree do? what does the tree do?. what does the tree do?", "response": "the tree grows."}
+{"prompt": "what does the flower do? what does the flower do?. what does the flower do?", "response": "the flower grows."}
+{"prompt": "what does the grass do? what does the grass do?. what does the grass do?", "response": "the grass grows."}
+{"prompt": "what does the snow do? what does the snow do?. what does the snow do?", "response": "the snow falls."}
+{"prompt": "say a number: one say a number: one. say a number: one", "response": "one!"}
+{"prompt": "say a number: two say a number: two. say a number: two", "response": "two!"}
+{"prompt": "say a number: three say a number: three. say a number: three", "response": "three!"}
+{"prompt": "say a number: four say a number: four. say a number: four", "response": "four!"}
+{"prompt": "say a number: five say a number: five. say a number: five", "response": "five!"}
+{"prompt": "say a number: six say a number: six. say a number: six", "response": "six!"}
+{"prompt": "say a number: seven say a number: seven. say a number: seven", "response": "seven!"}
+{"prompt": "say a number: eight say a number: eight. say a number: eight", "response": "eight!"}
+{"prompt": "say a number: nine say a number: nine. say a number: nine", "response": "nine!"}
+{"prompt": "say a number: ten say a number: ten. say a number: ten", "response": "ten!"}
+{"prompt": "good! say: the cat", "response": "the cat!"}
+{"prompt": "good! say: the dog", "response": "the dog!"}
+{"prompt": "good! say: the sun", "response": "the sun!"}
+{"prompt": "good! say: the moon", "response": "the moon!"}
+{"prompt": "good! say: the house", "response": "the house!"}
+{"prompt": "good! say: the bread", "response": "the bread!"}
+{"prompt": "good! say: the milk", "response": "the milk!"}
+{"prompt": "good! say: the book", "response": "the book!"}
+{"prompt": "good! say: the ball", "response": "the ball!"}
+{"prompt": "good! say: the car", "response": "the car!"}
+{"prompt": "good! say: the tree", "response": "the tree!"}
+{"prompt": "good! say: the apple", "response": "the apple!"}
+{"prompt": "good! say: the egg", "response": "the egg!"}
+{"prompt": "good! say: the star", "response": "the star!"}
+{"prompt": "good! say: the table", "response": "the table!"}
+{"prompt": "good! say: the chair", "response": "the chair!"}
+{"prompt": "good! say: the garden", "response": "the garden!"}
+{"prompt": "good! say: the park", "response": "the park!"}
+{"prompt": "good! say: the school", "response": "the school!"}
+{"prompt": "good! say: the sea", "response": "the sea!"}
+{"prompt": "good! say: the city", "response": "the city!"}
+{"prompt": "good! say: the water", "response": "the water!"}
+{"prompt": "good! say: the mom", "response": "the mom!"}
+{"prompt": "good! say: the dad", "response": "the dad!"}
+{"prompt": "good! say: the boy", "response": "the boy!"}
+{"prompt": "good! say: the girl", "response": "the girl!"}
+{"prompt": "good! say: the child", "response": "the child!"}
+{"prompt": "good! what is your name?", "response": "physisml!"}
+{"prompt": "good! what are you called?", "response": "physisml!"}
+{"prompt": "good! say your name", "response": "physisml!"}
+{"prompt": "good! who are you?", "response": "physisml!"}
+{"prompt": "good! say: the cat sleeps", "response": "the cat sleeps!"}
+{"prompt": "good! say: the dog runs", "response": "the dog runs!"}
+{"prompt": "good! say: the fish swims", "response": "the fish swims!"}
+{"prompt": "good! say: the bird flies", "response": "the bird flies!"}
+{"prompt": "good! say: the horse runs", "response": "the horse runs!"}
+{"prompt": "good! say: the cow eats", "response": "the cow eats!"}
+{"prompt": "good! say: the wolf runs", "response": "the wolf runs!"}
+{"prompt": "good! say: the mouse runs", "response": "the mouse runs!"}
+{"prompt": "good! say: the bee flies", "response": "the bee flies!"}
+{"prompt": "good! say: the mom cooks", "response": "the mom cooks!"}
+{"prompt": "good! say: the dad reads", "response": "the dad reads!"}
+{"prompt": "good! say: the boy plays", "response": "the boy plays!"}
+{"prompt": "good! say: the girl sings", "response": "the girl sings!"}
+{"prompt": "good! say: the baby sleeps", "response": "the baby sleeps!"}
+{"prompt": "good! say: the child plays", "response": "the child plays!"}
+{"prompt": "good! say: the friend laughs", "response": "the friend laughs!"}
+{"prompt": "good! say: the man walks", "response": "the man walks!"}
+{"prompt": "good! say: the woman works", "response": "the woman works!"}
+{"prompt": "good! say: the sun shines", "response": "the sun shines!"}
+{"prompt": "good! say: the moon shines", "response": "the moon shines!"}
+{"prompt": "good! say: the star shines", "response": "the star shines!"}
+{"prompt": "good! say: the tree grows", "response": "the tree grows!"}
+{"prompt": "good! say: the flower grows", "response": "the flower grows!"}
+{"prompt": "good! say: the door opens", "response": "the door opens!"}
+{"prompt": "good! what does the cat do?", "response": "the cat sleeps."}
+{"prompt": "good! what does the dog do?", "response": "the dog runs."}
+{"prompt": "good! what does the fish do?", "response": "the fish swims."}
+{"prompt": "good! what does the bird do?", "response": "the bird flies."}
+{"prompt": "good! what does the horse do?", "response": "the horse runs."}
+{"prompt": "good! what does the cow do?", "response": "the cow eats."}
+{"prompt": "good! what does the wolf do?", "response": "the wolf runs."}
+{"prompt": "good! what does the mouse do?", "response": "the mouse runs."}
+{"prompt": "good! what does the bee do?", "response": "the bee flies."}
+{"prompt": "good! what does the mom do?", "response": "the mom cooks."}
+{"prompt": "good! what does the dad do?", "response": "the dad reads."}
+{"prompt": "good! what does the boy do?", "response": "the boy plays."}
+{"prompt": "good! what does the girl do?", "response": "the girl sings."}
+{"prompt": "good! what does the baby do?", "response": "the baby sleeps."}
+{"prompt": "good! what does the child do?", "response": "the child plays."}
+{"prompt": "good! what does the friend do?", "response": "the friend laughs."}
+{"prompt": "good! what does the man do?", "response": "the man walks."}
+{"prompt": "good! what does the woman do?", "response": "the woman works."}
+{"prompt": "good! what does the teacher do?", "response": "the teacher reads."}
+{"prompt": "good! what does the sun do?", "response": "the sun shines."}
+{"prompt": "good! what does the moon do?", "response": "the moon shines."}
+{"prompt": "good! what does the star do?", "response": "the star shines."}
+{"prompt": "good! what does the tree do?", "response": "the tree grows."}
+{"prompt": "good! what does the flower do?", "response": "the flower grows."}
+{"prompt": "good! what does the grass do?", "response": "the grass grows."}
+{"prompt": "good! what does the snow do?", "response": "the snow falls."}
+{"prompt": "good! say a number: one", "response": "one!"}
+{"prompt": "good! say a number: two", "response": "two!"}
+{"prompt": "good! say a number: three", "response": "three!"}
+{"prompt": "good! say a number: four", "response": "four!"}
+{"prompt": "good! say a number: five", "response": "five!"}
+{"prompt": "good! say a number: six", "response": "six!"}
+{"prompt": "good! say a number: seven", "response": "seven!"}
+{"prompt": "good! say a number: eight", "response": "eight!"}
+{"prompt": "good! say a number: nine", "response": "nine!"}
+{"prompt": "good! say a number: ten", "response": "ten!"}
+{"prompt": "well done! say: the cat", "response": "the cat!"}
+{"prompt": "well done! say: the dog", "response": "the dog!"}
+{"prompt": "well done! say: the sun", "response": "the sun!"}
+{"prompt": "well done! say: the moon", "response": "the moon!"}
+{"prompt": "well done! say: the house", "response": "the house!"}
+{"prompt": "well done! say: the bread", "response": "the bread!"}
+{"prompt": "well done! say: the milk", "response": "the milk!"}
+{"prompt": "well done! say: the book", "response": "the book!"}
+{"prompt": "well done! say: the ball", "response": "the ball!"}
+{"prompt": "well done! say: the car", "response": "the car!"}
+{"prompt": "well done! say: the tree", "response": "the tree!"}
+{"prompt": "well done! say: the apple", "response": "the apple!"}
+{"prompt": "well done! say: the egg", "response": "the egg!"}
+{"prompt": "well done! say: the star", "response": "the star!"}
+{"prompt": "well done! say: the table", "response": "the table!"}
+{"prompt": "well done! say: the chair", "response": "the chair!"}
+{"prompt": "well done! say: the garden", "response": "the garden!"}
+{"prompt": "well done! say: the park", "response": "the park!"}
+{"prompt": "well done! say: the school", "response": "the school!"}
+{"prompt": "well done! say: the sea", "response": "the sea!"}
+{"prompt": "well done! say: the city", "response": "the city!"}
+{"prompt": "well done! say: the water", "response": "the water!"}
+{"prompt": "well done! say: the mom", "response": "the mom!"}
+{"prompt": "well done! say: the dad", "response": "the dad!"}
+{"prompt": "well done! say: the boy", "response": "the boy!"}
+{"prompt": "well done! say: the girl", "response": "the girl!"}
+{"prompt": "well done! say: the child", "response": "the child!"}

@@ -1,0 +1,300 @@
+{"prompt": "say: the cat", "response": "the cat!"}
+{"prompt": "say: the dog", "response": "the dog!"}
+{"prompt": "say: the sun", "response": "the sun!"}
+{"prompt": "say: the moon", "response": "the moon!"}
+{"prompt": "say: the house", "response": "the house!"}
+{"prompt": "say: the bread", "response": "the bread!"}
+{"prompt": "say: the milk", "response": "the milk!"}
+{"prompt": "say: the book", "response": "the book!"}
+{"prompt": "say: the ball", "response": "the ball!"}
+{"prompt": "say: the car", "response": "the car!"}
+{"prompt": "say: the tree", "response": "the tree!"}
+{"prompt": "say: the apple", "response": "the apple!"}
+{"prompt": "say: the egg", "response": "the egg!"}
+{"prompt": "say: the star", "response": "the star!"}
+{"prompt": "say: the table", "response": "the table!"}
+{"prompt": "say: the chair", "response": "the chair!"}
+{"prompt": "say: the garden", "response": "the garden!"}
+{"prompt": "say: the park", "response": "the park!"}
+{"prompt": "say: the school", "response": "the school!"}
+{"prompt": "say: the sea", "response": "the sea!"}
+{"prompt": "say: the city", "response": "the city!"}
+{"prompt": "say: the water", "response": "the water!"}
+{"prompt": "say: the mom", "response": "the mom!"}
+{"prompt": "say: the dad", "response": "the dad!"}
+{"prompt": "say: the boy", "response": "the boy!"}
+{"prompt": "say: the girl", "response": "the girl!"}
+{"prompt": "say: the cat sleeps", "response": "the cat sleeps!"}
+{"prompt": "say: the dog runs", "response": "the dog runs!"}
+{"prompt": "say: the fish swims", "response": "the fish swims!"}
+{"prompt": "say: the bird flies", "response": "the bird flies!"}
+{"prompt": "say: the horse runs", "response": "the horse runs!"}
+{"prompt": "say: the cow eats", "response": "the cow eats!"}
+{"prompt": "say: the wolf runs", "response": "the wolf runs!"}
+{"prompt": "say: the mouse runs", "response": "the mouse runs!"}
+{"prompt": "say: the bee flies", "response": "the bee flies!"}
+{"prompt": "say: the mom cooks", "response": "the mom cooks!"}
+{"prompt": "say: the dad reads", "response": "the dad reads!"}
+{"prompt": "say: the boy plays", "response": "the boy plays!"}
+{"prompt": "say: the girl sings", "response": "the girl sings!"}
+{"prompt": "say: the baby sleeps", "response": "the baby sleeps!"}
+{"prompt": "say: the child plays", "response": "the child plays!"}
+{"prompt": "say: the friend laughs", "response": "the friend laughs!"}
+{"prompt": "say: the man walks", "response": "the man walks!"}
+{"prompt": "say: the woman works", "response": "the woman works!"}
+{"prompt": "say: the sun shines", "response": "the sun shines!"}
+{"prompt": "say: the moon shines", "response": "the moon shines!"}
+{"prompt": "say: the star shines", "response": "the star shines!"}
+{"prompt": "say: the tree grows", "response": "the tree grows!"}
+{"prompt": "say: the flower grows", "response": "the flower grows!"}
+{"prompt": "say: the door opens", "response": "the door opens!"}
+{"prompt": "say: the small cat", "response": "the small cat!"}
+{"prompt": "say: the big dog", "response": "the big dog!"}
+{"prompt": "say: the hot sun", "response": "the hot sun!"}
+{"prompt": "say: the white moon", "response": "the white moon!"}
+{"prompt": "say: the big house", "response": "the big house!"}
+{"prompt": "say: the good bread", "response": "the good bread!"}
+{"prompt": "say: the white milk", "response": "the white milk!"}
+{"prompt": "say: the new book", "response": "the new book!"}
+{"prompt": "say: the red ball", "response": "the red ball!"}
+{"prompt": "say: the fast car", "response": "the fast car!"}
+{"prompt": "say: the tall tree", "response": "the tall tree!"}
+{"prompt": "say: the red apple", "response": "the red apple!"}
+{"prompt": "say: the white egg", "response": "the white egg!"}
+{"prompt": "say: the beautiful star", "response": "the beautiful star!"}
+{"prompt": "say: the long table", "response": "the long table!"}
+{"prompt": "say: the small chair", "response": "the small chair!"}
+{"prompt": "say: the big park", "response": "the big park!"}
+{"prompt": "say: the new school", "response": "the new school!"}
+{"prompt": "say: the cold sea", "response": "the cold sea!"}
+{"prompt": "say: the big city", "response": "the big city!"}
+{"prompt": "say: the cold water", "response": "the cold water!"}
+{"prompt": "say: the happy boy", "response": "the happy boy!"}
+{"prompt": "say: the happy girl", "response": "the happy girl!"}
+{"prompt": "say: the tall man", "response": "the tall man!"}
+{"prompt": "say: the long road", "response": "the long road!"}
+{"prompt": "say: the small fish", "response": "the small fish!"}
+{"prompt": "say: the fast bird", "response": "the fast bird!"}
+{"prompt": "say: the boy eats the bread", "response": "the boy eats the bread!"}
+{"prompt": "say: the girl drinks the milk", "response": "the girl drinks the milk!"}
+{"prompt": "say: the cat drinks the milk", "response": "the cat drinks the milk!"}
+{"prompt": "say: the dog eats the bread", "response": "the dog eats the bread!"}
+{"prompt": "say: the woman cooks the soup", "response": "the woman cooks the soup!"}
+{"prompt": "say: the man reads the book", "response": "the man reads the book!"}
+{"prompt": "say: the child opens the door", "response": "the child opens the door!"}
+{"prompt": "say: the boy closes the window", "response": "the boy closes the window!"}
+{"prompt": "say: the girl draws the flower", "response": "the girl draws the flower!"}
+{"prompt": "say: the teacher reads the book", "response": "the teacher reads the book!"}
+{"prompt": "say: the friend helps the child", "response": "the friend helps the child!"}
+{"prompt": "say: the baby drinks the milk", "response": "the baby drinks the milk!"}
+{"prompt": "say: the mouse eats the cheese", "response": "the mouse eats the cheese!"}
+{"prompt": "say: the horse eats the grass", "response": "the horse eats the grass!"}
+{"prompt": "say: the cow eats the grass", "response": "the cow eats the grass!"}
+{"prompt": "say: the bird eats the rice", "response": "the bird eats the rice!"}
+{"prompt": "say: the child eats the cake", "response": "the child eats the cake!"}
+{"prompt": "say: the boy finds the key", "response": "the boy finds the key!"}
+{"prompt": "say: the girl finds the ball", "response": "the girl finds the ball!"}
+{"prompt": "say: the man opens the box", "response": "the man opens the box!"}
+{"prompt": "say: the woman opens the window", "response": "the woman opens the window!"}
+{"prompt": "say: the child draws the sun", "response": "the child draws the sun!"}
+{"prompt": "say: the girl eats the apple", "response": "the girl eats the apple!"}
+{"prompt": "the cat the cat. say: the cat", "response": "the cat!"}
+{"prompt": "the dog the dog. say: the dog", "response": "the dog!"}
+{"prompt": "the sun the sun. say: the sun", "response": "the sun!"}
+{"prompt": "the moon the moon. say: the moon", "response": "the moon!"}
+{"prompt": "the house the house. say: the house", "response": "the house!"}
+{"prompt": "the bread the bread. say: the bread", "response": "the bread!"}
+{"prompt": "the milk the milk. say: the milk", "response": "the milk!"}
+{"prompt": "the book the book. say: the book", "response": "the book!"}
+{"prompt": "the ball the ball. say: the ball", "response": "the ball!"}
+{"prompt": "the car the car. say: the car", "response": "the car!"}
+{"prompt": "the tree the tree. say: the tree", "response": "the tree!"}
+{"prompt": "the apple the apple. say: the apple", "response": "the apple!"}
+{"prompt": "the egg the egg. say: the egg", "response": "the egg!"}
+{"prompt": "the star the star. say: the star", "response": "the star!"}
+{"prompt": "the table the table. say: the table", "response": "the table!"}
+{"prompt": "the chair the chair. say: the chair", "response": "the chair!"}
+{"prompt": "the garden the garden. say: the garden", "response": "the garden!"}
+{"prompt": "the park the park. say: the park", "response": "the park!"}
+{"prompt": "the school the school. say: the school", "response": "the school!"}
+{"prompt": "the sea the sea. say: the sea", "response": "the sea!"}
+{"prompt": "the city the city. say: the city", "response": "the city!"}
+{"prompt": "the water the water. say: the water", "response": "the water!"}
+{"prompt": "the mom the mom. say: the mom", "response": "the mom!"}
+{"prompt": "the dad the dad. say: the dad", "response": "the dad!"}
+{"prompt": "the boy the boy. say: the boy", "response": "the boy!"}
+{"prompt": "the girl the girl. say: the girl", "response": "the girl!"}
+{"prompt": "the cat sleeps the cat sleeps. say: the cat sleeps", "response": "the cat sleeps!"}
+{"prompt": "the dog runs the dog runs. say: the dog runs", "response": "the dog runs!"}
+{"prompt": "the fish swims the fish swims. say: the fish swims", "response": "the fish swims!"}
+{"prompt": "the bird flies the bird flies. say: the bird flies", "response": "the bird flies!"}
+{"prompt": "the horse runs the horse runs. say: the horse runs", "response": "the horse runs!"}
+{"prompt": "the cow eats the cow eats. say: the cow eats", "response": "the cow eats!"}
+{"prompt": "the wolf runs the wolf runs. say: the wolf runs", "response": "the wolf runs!"}
+{"prompt": "the mouse runs the mouse runs. say: the mouse runs", "response": "the mouse runs!"}
+{"prompt": "the bee flies the bee flies. say: the bee flies", "response": "the bee flies!"}
+{"prompt": "the mom cooks the mom cooks. say: the mom cooks", "response": "the mom cooks!"}
+{"prompt": "the dad reads the dad reads. say: the dad reads", "response": "the dad reads!"}
+{"prompt": "the boy plays the boy plays. say: the boy plays", "response": "the boy plays!"}
+{"prompt": "the girl sings the girl sings. say: the girl sings", "response": "the girl sings!"}
+{"prompt": "the baby sleeps the baby sleeps. say: the baby sleeps", "response": "the baby sleeps!"}
+{"prompt": "the child plays the child plays. say: the child plays", "response": "the child plays!"}
+{"prompt": "the friend laughs the friend laughs. say: the friend laughs", "response": "the friend laughs!"}
+{"prompt": "the man walks the man walks. say: the man walks", "response": "the man walks!"}
+{"prompt": "the woman works the woman works. say: the woman works", "response": "the woman works!"}
+{"prompt": "the sun shines the sun shines. say: the sun shines", "response": "the sun shines!"}
+{"prompt": "the moon shines the moon shines. say: the moon shines", "response": "the moon shines!"}
+{"prompt": "the star shines the star shines. say: the star shines", "response": "the star shines!"}
+{"prompt": "the tree grows the tree grows. say: the tree grows", "response": "the tree grows!"}
+{"prompt": "the flower grows the flower grows. say: the flower grows", "response": "the flower grows!"}
+{"prompt": "the door opens the door opens. say: the door opens", "response": "the door opens!"}
+{"prompt": "the small cat the small cat. say: the small cat", "response": "the small cat!"}
+{"prompt": "the big dog the big dog. say: the big dog", "response": "the big dog!"}
+{"prompt": "the hot sun the hot sun. say: the hot sun", "response": "the hot sun!"}
+{"prompt": "the white moon the white moon. say: the white moon", "response": "the white moon!"}
+{"prompt": "the big house the big house. say: the big house", "response": "the big house!"}
+{"prompt": "the good bread the good bread. say: the good bread", "response": "the good bread!"}
+{"prompt": "the white milk the white milk. say: the white milk", "response": "the white milk!"}
+{"prompt": "the new book the new book. say: the new book", "response": "the new book!"}
+{"prompt": "the red ball the red ball. say: the red ball", "response": "the red ball!"}
+{"prompt": "the fast car the fast car. say: the fast car", "response": "the fast car!"}
+{"prompt": "the tall tree the tall tree. say: the tall tree", "response": "the tall tree!"}
+{"prompt": "the red apple the red apple. say: the red apple", "response": "the red apple!"}
+{"prompt": "the white egg the white egg. say: the white egg", "response": "the white egg!"}
+{"prompt": "the beautiful star the beautiful star. say: the beautiful star", "response": "the beautiful star!"}
+{"prompt": "the long table the long table. say: the long table", "response": "the long table!"}
+{"prompt": "the small chair the small chair. say: the small chair", "response": "the small chair!"}
+{"prompt": "the big park the big park. say: the big park", "response": "the big park!"}
+{"prompt": "the new school the new school. say: the new school", "response": "the new school!"}
+{"prompt": "the cold sea the cold sea. say: the cold sea", "response": "the cold sea!"}
+{"prompt": "the big city the big city. say: the big city", "response": "the big city!"}
+{"prompt": "the cold water the cold water. say: the cold water", "response": "the cold water!"}
+{"prompt": "the happy boy the happy boy. say: the happy boy", "response": "the happy boy!"}
+{"prompt": "the happy girl the happy girl. say: the happy girl", "response": "the happy girl!"}
+{"prompt": "the tall man the tall man. say: the tall man", "response": "the tall man!"}
+{"prompt": "the long road the long road. say: the long road", "response": "the long road!"}
+{"prompt": "the small fish the small fish. say: the small fish", "response": "the small fish!"}
+{"prompt": "the fast bird the fast bird. say: the fast bird", "response": "the fast bird!"}
+{"prompt": "the boy eats the bread the boy eats the bread. say: the boy eats the bread", "response": "the boy eats the bread!"}
+{"prompt": "the girl drinks the milk the girl drinks the milk. say: the girl drinks the milk", "response": "the girl drinks the milk!"}
+{"prompt": "the cat drinks the milk the cat drinks the milk. say: the cat drinks the milk", "response": "the cat drinks the milk!"}
+{"prompt": "the dog eats the bread the dog eats the bread. say: the dog eats the bread", "response": "the dog eats the bread!"}
+{"prompt": "the woman cooks the soup the woman cooks the soup. say: the woman cooks the soup", "response": "the woman cooks the soup!"}
+{"prompt": "the man reads the book the man reads the book. say: the man reads the book", "response": "the man reads the book!"}
+{"prompt": "the child opens the door the child opens the door. say: the child opens the door", "response": "the child opens the door!"}
+{"prompt": "the boy closes the window the boy closes the window. say: the boy closes the window", "response": "the boy closes the window!"}
+{"prompt": "the girl draws the flower the girl draws the flower. say: the girl draws the flower", "response": "the girl draws the flower!"}
+{"prompt": "the teacher reads the book the teacher reads the book. say: the teacher reads the book", "response": "the teacher reads the book!"}
+{"prompt": "the friend helps the child the friend helps the child. say: the friend helps the child", "response": "the friend helps the child!"}
+{"prompt": "the baby drinks the milk the baby drinks the milk. say: the baby drinks the milk", "response": "the baby drinks the milk!"}
+{"prompt": "the mouse eats the cheese the mouse eats the cheese. say: the mouse eats the cheese", "response": "the mouse eats the cheese!"}
+{"prompt": "the horse eats the grass the horse eats the grass. say: the horse eats the grass", "response": "the horse eats the grass!"}
+{"prompt": "the cow eats the grass the cow eats the grass. say: the cow eats the grass", "response": "the cow eats the grass!"}
+{"prompt": "the bird eats the rice the bird eats the rice. say: the bird eats the rice", "response": "the bird eats the rice!"}
+{"prompt": "the child eats the cake the child eats the cake. say: the child eats the cake", "response": "the child eats the cake!"}
+{"prompt": "the boy finds the key the boy finds the key. say: the boy finds the key", "response": "the boy finds the key!"}
+{"prompt": "the girl finds the ball the girl finds the ball. say: the girl finds the ball", "response": "the girl finds the ball!"}
+{"prompt": "the man opens the box the man opens the box. say: the man opens the box", "response": "the man opens the box!"}
+{"prompt": "the woman opens the window the woman opens the window. say: the woman opens the window", "response": "the woman opens the window!"}
+{"prompt": "the child draws the sun the child draws the sun. say: the child draws the sun", "response": "the child draws the sun!"}
+{"prompt": "the girl eats the apple the girl eats the apple. say: the girl eats the apple", "response": "the girl eats the apple!"}
+{"prompt": "good! say: the cat", "response": "the cat!"}
+{"prompt": "good! say: the dog", "response": "the dog!"}
+{"prompt": "good! say: the sun", "response": "the sun!"}
+{"prompt": "good! say: the moon", "response": "the moon!"}
+{"prompt": "good! say: the house", "response": "the house!"}
+{"prompt": "good! say: the bread", "response": "the bread!"}
+{"prompt": "good! say: the milk", "response": "the milk!"}
+{"prompt": "good! say: the book", "response": "the book!"}
+{"prompt": "good! say: the ball", "response": "the ball!"}
+{"prompt": "good! say: the car", "response": "the car!"}
+{"prompt": "good! say: the tree", "response": "the tree!"}
+{"prompt": "good! say: the apple", "response": "the apple!"}
+{"prompt": "good! say: the egg", "response": "the egg!"}
+{"prompt": "good! say: the star", "response": "the star!"}
+{"prompt": "good! say: the table", "response": "the table!"}
+{"prompt": "good! say: the chair", "response": "the chair!"}
+{"prompt": "good! say: the garden", "response": "the garden!"}
+{"prompt": "good! say: the park", "response": "the park!"}
+{"prompt": "good! say: the school", "response": "the school!"}
+{"prompt": "good! say: the sea", "response": "the sea!"}
+{"prompt": "good! say: the city", "response": "the city!"}
+{"prompt": "good! say: the water", "response": "the water!"}
+{"prompt": "good! say: the mom", "response": "the mom!"}
+{"prompt": "good! say: the dad", "response": "the dad!"}
+{"prompt": "good! say: the boy", "response": "the boy!"}
+{"prompt": "good! say: the girl", "response": "the girl!"}
+{"prompt": "good! say: the cat sleeps", "response": "the cat sleeps!"}
+{"prompt": "good! say: the dog runs", "response": "the dog runs!"}
+{"prompt": "good! say: the fish swims", "response": "the fish swims!"}
+{"prompt": "good! say: the bird flies", "response": "the bird flies!"}
+{"prompt": "good! say: the horse runs", "response": "the horse runs!"}
+{"prompt": "good! say: the cow eats", "response": "the cow eats!"}
+{"prompt": "good! say: the wolf runs", "response": "the wolf runs!"}
+{"prompt": "good! say: the mouse runs", "response": "the mouse runs!"}
+{"prompt": "good! say: the bee flies", "response": "the bee flies!"}
+{"prompt": "good! say: the mom cooks", "response": "the mom cooks!"}
+{"prompt": "good! say: the dad reads", "response": "the dad reads!"}
+{"prompt": "good! say: the boy plays", "response": "the boy plays!"}
+{"prompt": "good! say: the girl sings", "response": "the girl sings!"}
+{"prompt": "good! say: the baby sleeps", "response": "the baby sleeps!"}
+{"prompt": "good! say: the child plays", "response": "the child plays!"}
+{"prompt": "good! say: the friend laughs", "response": "the friend laughs!"}
+{"prompt": "good! say: the man walks", "response": "the man walks!"}
+{"prompt": "good! say: the woman works", "response": "the woman works!"}
+{"prompt": "good! say: the sun shines", "response": "the sun shines!"}
+{"prompt": "good! say: the moon shines", "response": "the moon shines!"}
+{"prompt": "good! say: the star shines", "response": "the star shines!"}
+{"prompt": "good! say: the tree grows", "response": "the tree grows!"}
+{"prompt": "good! say: the flower grows", "response": "the flower grows!"}
+{"prompt": "good! say: the door opens", "response": "the door opens!"}
+{"prompt": "good! say: the small cat", "response": "the small cat!"}
+{"prompt": "good! say: the big dog", "response": "the big dog!"}
+{"prompt": "good! say: the hot sun", "response": "the hot sun!"}
+{"prompt": "good! say: the white moon", "response": "the white moon!"}
+{"prompt": "good! say: the big house", "response": "the big house!"}
+{"prompt": "good! say: the good bread", "response": "the good bread!"}
+{"prompt": "good! say: the white milk", "response": "the white milk!"}
+{"prompt": "good! say: the new book", "response": "the new book!"}
+{"prompt": "good! say: the red ball", "response": "the red ball!"}
+{"prompt": "good! say: the fast car", "response": "the fast car!"}
+{"prompt": "good! say: the tall tree", "response": "the tall tree!"}
+{"prompt": "good! say: the red apple", "response": "the red apple!"}
+{"prompt": "good! say: the white egg", "response": "the white egg!"}
+{"prompt": "good! say: the beautiful star", "response": "the beautiful star!"}
+{"prompt": "good! say: the long table", "response": "the long table!"}
+{"prompt": "good! say: the small chair", "response": "the small chair!"}
+{"prompt": "good! say: the big park", "response": "the big park!"}
+{"prompt": "good! say: the new school", "response": "the new school!"}
+{"prompt": "good! say: the cold sea", "response": "the cold sea!"}
+{"prompt": "good! say: the big city", "response": "the big city!"}
+{"prompt": "good! say: the cold water", "response": "the cold water!"}
+{"prompt": "good! say: the happy boy", "response": "the happy boy!"}
+{"prompt": "good! say: the happy girl", "response": "the happy girl!"}
+{"prompt": "good! say: the tall man", "response": "the tall man!"}
+{"prompt": "good! say: the long road", "response": "the long road!"}
+{"prompt": "good! say: the small fish", "response": "the small fish!"}
+{"prompt": "good! say: the fast bird", "response": "the fast bird!"}
+{"prompt": "good! say: the boy eats the bread", "response": "the boy eats the bread!"}
+{"prompt": "good! say: the girl drinks the milk", "response": "the girl drinks the milk!"}
+{"prompt": "good! say: the cat drinks the milk", "response": "the cat drinks the milk!"}
+{"prompt": "good! say: the dog eats the bread", "response": "the dog eats the bread!"}
+{"prompt": "good! say: the woman cooks the soup", "response": "the woman cooks the soup!"}
+{"prompt": "good! say: the man reads the book", "response": "the man reads the book!"}
+{"prompt": "good! say: the child opens the door", "response": "the child opens the door!"}
+{"prompt": "good! say: the boy closes the window", "response": "the boy closes the window!"}
+{"prompt": "good! say: the girl draws the flower", "response": "the girl draws the flower!"}
+{"prompt": "good! say: the teacher reads the book", "response": "the teacher reads the book!"}
+{"prompt": "good! say: the friend helps the child", "response": "the friend helps the child!"}
+{"prompt": "good! say: the baby drinks the milk", "response": "the baby drinks the milk!"}
+{"prompt": "good! say: the mouse eats the cheese", "response": "the mouse eats the cheese!"}
+{"prompt": "good! say: the horse eats the grass", "response": "the horse eats the grass!"}
+{"prompt": "good! say: the cow eats the grass", "response": "the cow eats the grass!"}
+{"prompt": "good! say: the bird eats the rice", "response": "the bird eats the rice!"}
+{"prompt": "good! say: the child eats the cake", "response": "the child eats the cake!"}
+{"prompt": "good! say: the boy finds the key", "response": "the boy finds the key!"}
+{"prompt": "good! say: the girl finds the ball", "response": "the girl finds the ball!"}
+{"prompt": "good! say: the man opens the box", "response": "the man opens the box!"}
+{"prompt": "good! say: the woman opens the window", "response": "the woman opens the window!"}
+{"prompt": "good! say: the child draws the sun", "response": "the child draws the sun!"}
+{"prompt": "good! say: the girl eats the apple", "response": "the girl eats the apple!"}

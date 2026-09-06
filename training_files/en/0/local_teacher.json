@@ -1,0 +1,76 @@
+{
+ "lang": "en",
+ "level": 0,
+ "description": "Newborn — isolated sounds and syllables",
+ "quality_threshold": 0.45,
+ "quality_strong_min": 0.3,
+ "steps": {
+  "A": {
+   "description": "Isolated sounds",
+   "targets": [
+    "ma",
+    "pa",
+    "ta",
+    "la",
+    "na",
+    "ba",
+    "da",
+    "fa",
+    "ra",
+    "sa"
+   ],
+   "prompt_template": "say {target}",
+   "expected_template": "{target}!",
+   "max_response_words": 3,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5
+  },
+  "B": {
+   "description": "Doubled syllables",
+   "targets": [
+    "mama",
+    "papa",
+    "tata",
+    "nana",
+    "baba",
+    "lala"
+   ],
+   "prompt_template": "say {target}",
+   "expected_template": "{target}!",
+   "max_response_words": 3,
+   "advance_after_successes": 3,
+   "retry_after_failures": 5
+  },
+  "C": {
+   "description": "Exclamations and basic answers",
+   "targets": [
+    "yes",
+    "no",
+    "oh",
+    "ah",
+    "eh"
+   ],
+   "prompt_template": "say {target}",
+   "expected_template": "{target}!",
+   "max_response_words": 2,
+   "advance_after_successes": 3,
+   "retry_after_failures": 5
+  }
+ },
+ "evaluation": {
+  "has_terminator_pattern": "[.!?]",
+  "comment_+++": "Great! {target} clear and the answer is short.",
+  "comment_++": "Good! {target} is there.",
+  "comment_+": "Almost! I hear something.",
+  "comment_=": "Confused, let us try again.",
+  "comment_-": "Not recognisable, I ask again."
+ },
+ "encouragement": [
+  "good!",
+  "well done!",
+  "very good!",
+  "great!",
+  "nice!"
+ ],
+ "retry_prefix": "{target} {target}. "
+}

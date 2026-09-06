@@ -1,0 +1,300 @@
+{"prompt": "what is the cat like?", "response": "the cat is small."}
+{"prompt": "what is the dog like?", "response": "the dog is big."}
+{"prompt": "what is the sun like?", "response": "the sun is hot."}
+{"prompt": "what is the moon like?", "response": "the moon is white."}
+{"prompt": "what is the house like?", "response": "the house is big."}
+{"prompt": "what is the bread like?", "response": "the bread is good."}
+{"prompt": "what is the milk like?", "response": "the milk is white."}
+{"prompt": "what is the book like?", "response": "the book is new."}
+{"prompt": "what is the ball like?", "response": "the ball is red."}
+{"prompt": "what is the car like?", "response": "the car is fast."}
+{"prompt": "what is the tree like?", "response": "the tree is tall."}
+{"prompt": "what is the apple like?", "response": "the apple is red."}
+{"prompt": "what is the egg like?", "response": "the egg is white."}
+{"prompt": "what is the star like?", "response": "the star is beautiful."}
+{"prompt": "what is the table like?", "response": "the table is long."}
+{"prompt": "what is the chair like?", "response": "the chair is small."}
+{"prompt": "what is the park like?", "response": "the park is big."}
+{"prompt": "what is the school like?", "response": "the school is new."}
+{"prompt": "what is the sea like?", "response": "the sea is cold."}
+{"prompt": "what is the city like?", "response": "the city is big."}
+{"prompt": "what is the water like?", "response": "the water is cold."}
+{"prompt": "what is the boy like?", "response": "the boy is happy."}
+{"prompt": "what is the girl like?", "response": "the girl is happy."}
+{"prompt": "what is the man like?", "response": "the man is tall."}
+{"prompt": "what is the road like?", "response": "the road is long."}
+{"prompt": "what is the fish like?", "response": "the fish is small."}
+{"prompt": "what is the bird like?", "response": "the bird is fast."}
+{"prompt": "tell me two things about the cat", "response": "the cat eats and sleeps."}
+{"prompt": "tell me two things about the dog", "response": "the dog runs and sleeps."}
+{"prompt": "tell me two things about the boy", "response": "the boy plays and laughs."}
+{"prompt": "tell me two things about the girl", "response": "the girl sings and plays."}
+{"prompt": "tell me two things about the mom", "response": "the mom cooks and sings."}
+{"prompt": "tell me two things about the dad", "response": "the dad reads and walks."}
+{"prompt": "tell me two things about the bird", "response": "the bird flies and sings."}
+{"prompt": "tell me two things about the fish", "response": "the fish swims and eats."}
+{"prompt": "tell me two things about the horse", "response": "the horse runs and eats."}
+{"prompt": "tell me two things about the baby", "response": "the baby sleeps and laughs."}
+{"prompt": "tell me two things about the child", "response": "the child draws and plays."}
+{"prompt": "tell me two things about the man", "response": "the man works and walks."}
+{"prompt": "tell me two things about the woman", "response": "the woman works and reads."}
+{"prompt": "tell me two things about the teacher", "response": "the teacher reads and works."}
+{"prompt": "why does the cat eat?", "response": "the cat eats because it is hungry."}
+{"prompt": "why does the cat sleep?", "response": "the cat sleeps because it is tired."}
+{"prompt": "why does the dog drink?", "response": "the dog drinks because it is thirsty."}
+{"prompt": "why does the dog run?", "response": "the dog runs because it is fast."}
+{"prompt": "why does the fish swim?", "response": "the fish swims because it is fast."}
+{"prompt": "why does the bird fly?", "response": "the bird flies because it is fast."}
+{"prompt": "why does the bird sing?", "response": "the bird sings because it is happy."}
+{"prompt": "why does the horse run?", "response": "the horse runs because it is fast."}
+{"prompt": "why does the horse eat?", "response": "the horse eats because it is hungry."}
+{"prompt": "why does the cow eat?", "response": "the cow eats because it is hungry."}
+{"prompt": "why does the wolf run?", "response": "the wolf runs because it is fast."}
+{"prompt": "why does the mouse eat?", "response": "the mouse eats because it is hungry."}
+{"prompt": "why does the bee fly?", "response": "the bee flies because it is fast."}
+{"prompt": "why does the boy play?", "response": "the boy plays because he is happy."}
+{"prompt": "why does the boy sleep?", "response": "the boy sleeps because he is tired."}
+{"prompt": "why does the boy eat?", "response": "the boy eats because he is hungry."}
+{"prompt": "why does the girl sing?", "response": "the girl sings because she is happy."}
+{"prompt": "why does the girl drink?", "response": "the girl drinks because she is thirsty."}
+{"prompt": "why does the girl play?", "response": "the girl plays because she is happy."}
+{"prompt": "why does the man work?", "response": "the man works because he is strong."}
+{"prompt": "why does the man walk?", "response": "the man walks because he is slow."}
+{"prompt": "why does the woman work?", "response": "the woman works because she is strong."}
+{"prompt": "why does the mom sing?", "response": "the mom sings because she is happy."}
+{"prompt": "why does the dad walk?", "response": "the dad walks because he is slow."}
+{"prompt": "why does the sun shine?", "response": "the sun shines because it is hot."}
+{"prompt": "why does the tree grow?", "response": "the tree grows because it is young."}
+{"prompt": "is the cat big or small?", "response": "the cat is small but strong."}
+{"prompt": "is the water hot?", "response": "the water is cold but good."}
+{"prompt": "is the bread sweet?", "response": "the bread is good but not sweet."}
+{"prompt": "is the dog small?", "response": "the dog is big but good."}
+{"prompt": "is the road short?", "response": "the road is long but beautiful."}
+{"prompt": "again. what is the cat like?", "response": "the cat is small."}
+{"prompt": "again. what is the dog like?", "response": "the dog is big."}
+{"prompt": "again. what is the sun like?", "response": "the sun is hot."}
+{"prompt": "again. what is the moon like?", "response": "the moon is white."}
+{"prompt": "again. what is the house like?", "response": "the house is big."}
+{"prompt": "again. what is the bread like?", "response": "the bread is good."}
+{"prompt": "again. what is the milk like?", "response": "the milk is white."}
+{"prompt": "again. what is the book like?", "response": "the book is new."}
+{"prompt": "again. what is the ball like?", "response": "the ball is red."}
+{"prompt": "again. what is the car like?", "response": "the car is fast."}
+{"prompt": "again. what is the tree like?", "response": "the tree is tall."}
+{"prompt": "again. what is the apple like?", "response": "the apple is red."}
+{"prompt": "again. what is the egg like?", "response": "the egg is white."}
+{"prompt": "again. what is the star like?", "response": "the star is beautiful."}
+{"prompt": "again. what is the table like?", "response": "the table is long."}
+{"prompt": "again. what is the chair like?", "response": "the chair is small."}
+{"prompt": "again. what is the park like?", "response": "the park is big."}
+{"prompt": "again. what is the school like?", "response": "the school is new."}
+{"prompt": "again. what is the sea like?", "response": "the sea is cold."}
+{"prompt": "again. what is the city like?", "response": "the city is big."}
+{"prompt": "again. what is the water like?", "response": "the water is cold."}
+{"prompt": "again. what is the boy like?", "response": "the boy is happy."}
+{"prompt": "again. what is the girl like?", "response": "the girl is happy."}
+{"prompt": "again. what is the man like?", "response": "the man is tall."}
+{"prompt": "again. what is the road like?", "response": "the road is long."}
+{"prompt": "again. what is the fish like?", "response": "the fish is small."}
+{"prompt": "again. what is the bird like?", "response": "the bird is fast."}
+{"prompt": "again. tell me two things about the cat", "response": "the cat eats and sleeps."}
+{"prompt": "again. tell me two things about the dog", "response": "the dog runs and sleeps."}
+{"prompt": "again. tell me two things about the boy", "response": "the boy plays and laughs."}
+{"prompt": "again. tell me two things about the girl", "response": "the girl sings and plays."}
+{"prompt": "again. tell me two things about the mom", "response": "the mom cooks and sings."}
+{"prompt": "again. tell me two things about the dad", "response": "the dad reads and walks."}
+{"prompt": "again. tell me two things about the bird", "response": "the bird flies and sings."}
+{"prompt": "again. tell me two things about the fish", "response": "the fish swims and eats."}
+{"prompt": "again. tell me two things about the horse", "response": "the horse runs and eats."}
+{"prompt": "again. tell me two things about the baby", "response": "the baby sleeps and laughs."}
+{"prompt": "again. tell me two things about the child", "response": "the child draws and plays."}
+{"prompt": "again. tell me two things about the man", "response": "the man works and walks."}
+{"prompt": "again. tell me two things about the woman", "response": "the woman works and reads."}
+{"prompt": "again. tell me two things about the teacher", "response": "the teacher reads and works."}
+{"prompt": "again. why does the cat eat?", "response": "the cat eats because it is hungry."}
+{"prompt": "again. why does the cat sleep?", "response": "the cat sleeps because it is tired."}
+{"prompt": "again. why does the dog drink?", "response": "the dog drinks because it is thirsty."}
+{"prompt": "again. why does the dog run?", "response": "the dog runs because it is fast."}
+{"prompt": "again. why does the fish swim?", "response": "the fish swims because it is fast."}
+{"prompt": "again. why does the bird fly?", "response": "the bird flies because it is fast."}
+{"prompt": "again. why does the bird sing?", "response": "the bird sings because it is happy."}
+{"prompt": "again. why does the horse run?", "response": "the horse runs because it is fast."}
+{"prompt": "again. why does the horse eat?", "response": "the horse eats because it is hungry."}
+{"prompt": "again. why does the cow eat?", "response": "the cow eats because it is hungry."}
+{"prompt": "again. why does the wolf run?", "response": "the wolf runs because it is fast."}
+{"prompt": "again. why does the mouse eat?", "response": "the mouse eats because it is hungry."}
+{"prompt": "again. why does the bee fly?", "response": "the bee flies because it is fast."}
+{"prompt": "again. why does the boy play?", "response": "the boy plays because he is happy."}
+{"prompt": "again. why does the boy sleep?", "response": "the boy sleeps because he is tired."}
+{"prompt": "again. why does the boy eat?", "response": "the boy eats because he is hungry."}
+{"prompt": "again. why does the girl sing?", "response": "the girl sings because she is happy."}
+{"prompt": "again. why does the girl drink?", "response": "the girl drinks because she is thirsty."}
+{"prompt": "again. why does the girl play?", "response": "the girl plays because she is happy."}
+{"prompt": "again. why does the man work?", "response": "the man works because he is strong."}
+{"prompt": "again. why does the man walk?", "response": "the man walks because he is slow."}
+{"prompt": "again. why does the woman work?", "response": "the woman works because she is strong."}
+{"prompt": "again. why does the mom sing?", "response": "the mom sings because she is happy."}
+{"prompt": "again. why does the dad walk?", "response": "the dad walks because he is slow."}
+{"prompt": "again. why does the sun shine?", "response": "the sun shines because it is hot."}
+{"prompt": "again. why does the tree grow?", "response": "the tree grows because it is young."}
+{"prompt": "again. is the cat big or small?", "response": "the cat is small but strong."}
+{"prompt": "again. is the water hot?", "response": "the water is cold but good."}
+{"prompt": "again. is the bread sweet?", "response": "the bread is good but not sweet."}
+{"prompt": "again. is the dog small?", "response": "the dog is big but good."}
+{"prompt": "again. is the road short?", "response": "the road is long but beautiful."}
+{"prompt": "good! what is the cat like?", "response": "the cat is small."}
+{"prompt": "good! what is the dog like?", "response": "the dog is big."}
+{"prompt": "good! what is the sun like?", "response": "the sun is hot."}
+{"prompt": "good! what is the moon like?", "response": "the moon is white."}
+{"prompt": "good! what is the house like?", "response": "the house is big."}
+{"prompt": "good! what is the bread like?", "response": "the bread is good."}
+{"prompt": "good! what is the milk like?", "response": "the milk is white."}
+{"prompt": "good! what is the book like?", "response": "the book is new."}
+{"prompt": "good! what is the ball like?", "response": "the ball is red."}
+{"prompt": "good! what is the car like?", "response": "the car is fast."}
+{"prompt": "good! what is the tree like?", "response": "the tree is tall."}
+{"prompt": "good! what is the apple like?", "response": "the apple is red."}
+{"prompt": "good! what is the egg like?", "response": "the egg is white."}
+{"prompt": "good! what is the star like?", "response": "the star is beautiful."}
+{"prompt": "good! what is the table like?", "response": "the table is long."}
+{"prompt": "good! what is the chair like?", "response": "the chair is small."}
+{"prompt": "good! what is the park like?", "response": "the park is big."}
+{"prompt": "good! what is the school like?", "response": "the school is new."}
+{"prompt": "good! what is the sea like?", "response": "the sea is cold."}
+{"prompt": "good! what is the city like?", "response": "the city is big."}
+{"prompt": "good! what is the water like?", "response": "the water is cold."}
+{"prompt": "good! what is the boy like?", "response": "the boy is happy."}
+{"prompt": "good! what is the girl like?", "response": "the girl is happy."}
+{"prompt": "good! what is the man like?", "response": "the man is tall."}
+{"prompt": "good! what is the road like?", "response": "the road is long."}
+{"prompt": "good! what is the fish like?", "response": "the fish is small."}
+{"prompt": "good! what is the bird like?", "response": "the bird is fast."}
+{"prompt": "good! tell me two things about the cat", "response": "the cat eats and sleeps."}
+{"prompt": "good! tell me two things about the dog", "response": "the dog runs and sleeps."}
+{"prompt": "good! tell me two things about the boy", "response": "the boy plays and laughs."}
+{"prompt": "good! tell me two things about the girl", "response": "the girl sings and plays."}
+{"prompt": "good! tell me two things about the mom", "response": "the mom cooks and sings."}
+{"prompt": "good! tell me two things about the dad", "response": "the dad reads and walks."}
+{"prompt": "good! tell me two things about the bird", "response": "the bird flies and sings."}
+{"prompt": "good! tell me two things about the fish", "response": "the fish swims and eats."}
+{"prompt": "good! tell me two things about the horse", "response": "the horse runs and eats."}
+{"prompt": "good! tell me two things about the baby", "response": "the baby sleeps and laughs."}
+{"prompt": "good! tell me two things about the child", "response": "the child draws and plays."}
+{"prompt": "good! tell me two things about the man", "response": "the man works and walks."}
+{"prompt": "good! tell me two things about the woman", "response": "the woman works and reads."}
+{"prompt": "good! tell me two things about the teacher", "response": "the teacher reads and works."}
+{"prompt": "good! why does the cat eat?", "response": "the cat eats because it is hungry."}
+{"prompt": "good! why does the cat sleep?", "response": "the cat sleeps because it is tired."}
+{"prompt": "good! why does the dog drink?", "response": "the dog drinks because it is thirsty."}
+{"prompt": "good! why does the dog run?", "response": "the dog runs because it is fast."}
+{"prompt": "good! why does the fish swim?", "response": "the fish swims because it is fast."}
+{"prompt": "good! why does the bird fly?", "response": "the bird flies because it is fast."}
+{"prompt": "good! why does the bird sing?", "response": "the bird sings because it is happy."}
+{"prompt": "good! why does the horse run?", "response": "the horse runs because it is fast."}
+{"prompt": "good! why does the horse eat?", "response": "the horse eats because it is hungry."}
+{"prompt": "good! why does the cow eat?", "response": "the cow eats because it is hungry."}
+{"prompt": "good! why does the wolf run?", "response": "the wolf runs because it is fast."}
+{"prompt": "good! why does the mouse eat?", "response": "the mouse eats because it is hungry."}
+{"prompt": "good! why does the bee fly?", "response": "the bee flies because it is fast."}
+{"prompt": "good! why does the boy play?", "response": "the boy plays because he is happy."}
+{"prompt": "good! why does the boy sleep?", "response": "the boy sleeps because he is tired."}
+{"prompt": "good! why does the boy eat?", "response": "the boy eats because he is hungry."}
+{"prompt": "good! why does the girl sing?", "response": "the girl sings because she is happy."}
+{"prompt": "good! why does the girl drink?", "response": "the girl drinks because she is thirsty."}
+{"prompt": "good! why does the girl play?", "response": "the girl plays because she is happy."}
+{"prompt": "good! why does the man work?", "response": "the man works because he is strong."}
+{"prompt": "good! why does the man walk?", "response": "the man walks because he is slow."}
+{"prompt": "good! why does the woman work?", "response": "the woman works because she is strong."}
+{"prompt": "good! why does the mom sing?", "response": "the mom sings because she is happy."}
+{"prompt": "good! why does the dad walk?", "response": "the dad walks because he is slow."}
+{"prompt": "good! why does the sun shine?", "response": "the sun shines because it is hot."}
+{"prompt": "good! why does the tree grow?", "response": "the tree grows because it is young."}
+{"prompt": "good! is the cat big or small?", "response": "the cat is small but strong."}
+{"prompt": "good! is the water hot?", "response": "the water is cold but good."}
+{"prompt": "good! is the bread sweet?", "response": "the bread is good but not sweet."}
+{"prompt": "good! is the dog small?", "response": "the dog is big but good."}
+{"prompt": "good! is the road short?", "response": "the road is long but beautiful."}
+{"prompt": "well done! what is the cat like?", "response": "the cat is small."}
+{"prompt": "well done! what is the dog like?", "response": "the dog is big."}
+{"prompt": "well done! what is the sun like?", "response": "the sun is hot."}
+{"prompt": "well done! what is the moon like?", "response": "the moon is white."}
+{"prompt": "well done! what is the house like?", "response": "the house is big."}
+{"prompt": "well done! what is the bread like?", "response": "the bread is good."}
+{"prompt": "well done! what is the milk like?", "response": "the milk is white."}
+{"prompt": "well done! what is the book like?", "response": "the book is new."}
+{"prompt": "well done! what is the ball like?", "response": "the ball is red."}
+{"prompt": "well done! what is the car like?", "response": "the car is fast."}
+{"prompt": "well done! what is the tree like?", "response": "the tree is tall."}
+{"prompt": "well done! what is the apple like?", "response": "the apple is red."}
+{"prompt": "well done! what is the egg like?", "response": "the egg is white."}
+{"prompt": "well done! what is the star like?", "response": "the star is beautiful."}
+{"prompt": "well done! what is the table like?", "response": "the table is long."}
+{"prompt": "well done! what is the chair like?", "response": "the chair is small."}
+{"prompt": "well done! what is the park like?", "response": "the park is big."}
+{"prompt": "well done! what is the school like?", "response": "the school is new."}
+{"prompt": "well done! what is the sea like?", "response": "the sea is cold."}
+{"prompt": "well done! what is the city like?", "response": "the city is big."}
+{"prompt": "well done! what is the water like?", "response": "the water is cold."}
+{"prompt": "well done! what is the boy like?", "response": "the boy is happy."}
+{"prompt": "well done! what is the girl like?", "response": "the girl is happy."}
+{"prompt": "well done! what is the man like?", "response": "the man is tall."}
+{"prompt": "well done! what is the road like?", "response": "the road is long."}
+{"prompt": "well done! what is the fish like?", "response": "the fish is small."}
+{"prompt": "well done! what is the bird like?", "response": "the bird is fast."}
+{"prompt": "well done! tell me two things about the cat", "response": "the cat eats and sleeps."}
+{"prompt": "well done! tell me two things about the dog", "response": "the dog runs and sleeps."}
+{"prompt": "well done! tell me two things about the boy", "response": "the boy plays and laughs."}
+{"prompt": "well done! tell me two things about the girl", "response": "the girl sings and plays."}
+{"prompt": "well done! tell me two things about the mom", "response": "the mom cooks and sings."}
+{"prompt": "well done! tell me two things about the dad", "response": "the dad reads and walks."}
+{"prompt": "well done! tell me two things about the bird", "response": "the bird flies and sings."}
+{"prompt": "well done! tell me two things about the fish", "response": "the fish swims and eats."}
+{"prompt": "well done! tell me two things about the horse", "response": "the horse runs and eats."}
+{"prompt": "well done! tell me two things about the baby", "response": "the baby sleeps and laughs."}
+{"prompt": "well done! tell me two things about the child", "response": "the child draws and plays."}
+{"prompt": "well done! tell me two things about the man", "response": "the man works and walks."}
+{"prompt": "well done! tell me two things about the woman", "response": "the woman works and reads."}
+{"prompt": "well done! tell me two things about the teacher", "response": "the teacher reads and works."}
+{"prompt": "well done! why does the cat eat?", "response": "the cat eats because it is hungry."}
+{"prompt": "well done! why does the cat sleep?", "response": "the cat sleeps because it is tired."}
+{"prompt": "well done! why does the dog drink?", "response": "the dog drinks because it is thirsty."}
+{"prompt": "well done! why does the dog run?", "response": "the dog runs because it is fast."}
+{"prompt": "well done! why does the fish swim?", "response": "the fish swims because it is fast."}
+{"prompt": "well done! why does the bird fly?", "response": "the bird flies because it is fast."}
+{"prompt": "well done! why does the bird sing?", "response": "the bird sings because it is happy."}
+{"prompt": "well done! why does the horse run?", "response": "the horse runs because it is fast."}
+{"prompt": "well done! why does the horse eat?", "response": "the horse eats because it is hungry."}
+{"prompt": "well done! why does the cow eat?", "response": "the cow eats because it is hungry."}
+{"prompt": "well done! why does the wolf run?", "response": "the wolf runs because it is fast."}
+{"prompt": "well done! why does the mouse eat?", "response": "the mouse eats because it is hungry."}
+{"prompt": "well done! why does the bee fly?", "response": "the bee flies because it is fast."}
+{"prompt": "well done! why does the boy play?", "response": "the boy plays because he is happy."}
+{"prompt": "well done! why does the boy sleep?", "response": "the boy sleeps because he is tired."}
+{"prompt": "well done! why does the boy eat?", "response": "the boy eats because he is hungry."}
+{"prompt": "well done! why does the girl sing?", "response": "the girl sings because she is happy."}
+{"prompt": "well done! why does the girl drink?", "response": "the girl drinks because she is thirsty."}
+{"prompt": "well done! why does the girl play?", "response": "the girl plays because she is happy."}
+{"prompt": "well done! why does the man work?", "response": "the man works because he is strong."}
+{"prompt": "well done! why does the man walk?", "response": "the man walks because he is slow."}
+{"prompt": "well done! why does the woman work?", "response": "the woman works because she is strong."}
+{"prompt": "well done! why does the mom sing?", "response": "the mom sings because she is happy."}
+{"prompt": "well done! why does the dad walk?", "response": "the dad walks because he is slow."}
+{"prompt": "well done! why does the sun shine?", "response": "the sun shines because it is hot."}
+{"prompt": "well done! why does the tree grow?", "response": "the tree grows because it is young."}
+{"prompt": "well done! is the cat big or small?", "response": "the cat is small but strong."}
+{"prompt": "well done! is the water hot?", "response": "the water is cold but good."}
+{"prompt": "well done! is the bread sweet?", "response": "the bread is good but not sweet."}
+{"prompt": "well done! is the dog small?", "response": "the dog is big but good."}
+{"prompt": "well done! is the road short?", "response": "the road is long but beautiful."}
+{"prompt": "very good! what is the cat like?", "response": "the cat is small."}
+{"prompt": "very good! what is the dog like?", "response": "the dog is big."}
+{"prompt": "very good! what is the sun like?", "response": "the sun is hot."}
+{"prompt": "very good! what is the moon like?", "response": "the moon is white."}
+{"prompt": "very good! what is the house like?", "response": "the house is big."}
+{"prompt": "very good! what is the bread like?", "response": "the bread is good."}
+{"prompt": "very good! what is the milk like?", "response": "the milk is white."}
+{"prompt": "very good! what is the book like?", "response": "the book is new."}
+{"prompt": "very good! what is the ball like?", "response": "the ball is red."}
+{"prompt": "very good! what is the car like?", "response": "the car is fast."}
+{"prompt": "very good! what is the tree like?", "response": "the tree is tall."}
+{"prompt": "very good! what is the apple like?", "response": "the apple is red."}

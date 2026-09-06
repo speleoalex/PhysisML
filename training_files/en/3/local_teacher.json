@@ -1,0 +1,641 @@
+{
+ "lang": "en",
+ "level": 3,
+ "description": "Three years old — short S+V sentences, simple questions, numbers",
+ "quality_threshold": 0.35,
+ "quality_strong_min": 0.2,
+ "steps": {
+  "A": {
+   "description": "Bridge L2->L3: article + noun (consolidates the L2 format)",
+   "targets": [
+    {
+     "prompt": "the cat",
+     "expected": "the cat!",
+     "article": "the",
+     "noun": "cat"
+    },
+    {
+     "prompt": "the dog",
+     "expected": "the dog!",
+     "article": "the",
+     "noun": "dog"
+    },
+    {
+     "prompt": "the sun",
+     "expected": "the sun!",
+     "article": "the",
+     "noun": "sun"
+    },
+    {
+     "prompt": "the moon",
+     "expected": "the moon!",
+     "article": "the",
+     "noun": "moon"
+    },
+    {
+     "prompt": "the house",
+     "expected": "the house!",
+     "article": "the",
+     "noun": "house"
+    },
+    {
+     "prompt": "the bread",
+     "expected": "the bread!",
+     "article": "the",
+     "noun": "bread"
+    },
+    {
+     "prompt": "the milk",
+     "expected": "the milk!",
+     "article": "the",
+     "noun": "milk"
+    },
+    {
+     "prompt": "the book",
+     "expected": "the book!",
+     "article": "the",
+     "noun": "book"
+    },
+    {
+     "prompt": "the ball",
+     "expected": "the ball!",
+     "article": "the",
+     "noun": "ball"
+    },
+    {
+     "prompt": "the car",
+     "expected": "the car!",
+     "article": "the",
+     "noun": "car"
+    },
+    {
+     "prompt": "the tree",
+     "expected": "the tree!",
+     "article": "the",
+     "noun": "tree"
+    },
+    {
+     "prompt": "the apple",
+     "expected": "the apple!",
+     "article": "the",
+     "noun": "apple"
+    },
+    {
+     "prompt": "the egg",
+     "expected": "the egg!",
+     "article": "the",
+     "noun": "egg"
+    },
+    {
+     "prompt": "the star",
+     "expected": "the star!",
+     "article": "the",
+     "noun": "star"
+    },
+    {
+     "prompt": "the table",
+     "expected": "the table!",
+     "article": "the",
+     "noun": "table"
+    },
+    {
+     "prompt": "the chair",
+     "expected": "the chair!",
+     "article": "the",
+     "noun": "chair"
+    },
+    {
+     "prompt": "the garden",
+     "expected": "the garden!",
+     "article": "the",
+     "noun": "garden"
+    },
+    {
+     "prompt": "the park",
+     "expected": "the park!",
+     "article": "the",
+     "noun": "park"
+    },
+    {
+     "prompt": "the school",
+     "expected": "the school!",
+     "article": "the",
+     "noun": "school"
+    },
+    {
+     "prompt": "the sea",
+     "expected": "the sea!",
+     "article": "the",
+     "noun": "sea"
+    },
+    {
+     "prompt": "the city",
+     "expected": "the city!",
+     "article": "the",
+     "noun": "city"
+    },
+    {
+     "prompt": "the water",
+     "expected": "the water!",
+     "article": "the",
+     "noun": "water"
+    },
+    {
+     "prompt": "the mom",
+     "expected": "the mom!",
+     "article": "the",
+     "noun": "mom"
+    },
+    {
+     "prompt": "the dad",
+     "expected": "the dad!",
+     "article": "the",
+     "noun": "dad"
+    },
+    {
+     "prompt": "the boy",
+     "expected": "the boy!",
+     "article": "the",
+     "noun": "boy"
+    },
+    {
+     "prompt": "the girl",
+     "expected": "the girl!",
+     "article": "the",
+     "noun": "girl"
+    },
+    {
+     "prompt": "the child",
+     "expected": "the child!",
+     "article": "the",
+     "noun": "child"
+    }
+   ],
+   "prompt_template": "say: {prompt}",
+   "max_response_words": 4,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": true,
+   "require_verb": false,
+   "require_adjective": false
+  },
+  "B": {
+   "description": "Identity — the model knows its own name",
+   "targets": [
+    {
+     "prompt": "what is your name?",
+     "expected": "physisml!",
+     "noun": "physisml"
+    },
+    {
+     "prompt": "what are you called?",
+     "expected": "physisml!",
+     "noun": "physisml"
+    },
+    {
+     "prompt": "say your name",
+     "expected": "physisml!",
+     "noun": "physisml"
+    },
+    {
+     "prompt": "who are you?",
+     "expected": "physisml!",
+     "noun": "physisml"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 4,
+   "advance_after_successes": 3,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false
+  },
+  "C": {
+   "description": "Article + noun + simple verb (S+V)",
+   "targets": [
+    {
+     "prompt": "the cat sleeps",
+     "expected": "the cat sleeps!",
+     "article": "the",
+     "noun": "cat",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "the dog runs",
+     "expected": "the dog runs!",
+     "article": "the",
+     "noun": "dog",
+     "verb": "runs"
+    },
+    {
+     "prompt": "the fish swims",
+     "expected": "the fish swims!",
+     "article": "the",
+     "noun": "fish",
+     "verb": "swims"
+    },
+    {
+     "prompt": "the bird flies",
+     "expected": "the bird flies!",
+     "article": "the",
+     "noun": "bird",
+     "verb": "flies"
+    },
+    {
+     "prompt": "the horse runs",
+     "expected": "the horse runs!",
+     "article": "the",
+     "noun": "horse",
+     "verb": "runs"
+    },
+    {
+     "prompt": "the cow eats",
+     "expected": "the cow eats!",
+     "article": "the",
+     "noun": "cow",
+     "verb": "eats"
+    },
+    {
+     "prompt": "the wolf runs",
+     "expected": "the wolf runs!",
+     "article": "the",
+     "noun": "wolf",
+     "verb": "runs"
+    },
+    {
+     "prompt": "the mouse runs",
+     "expected": "the mouse runs!",
+     "article": "the",
+     "noun": "mouse",
+     "verb": "runs"
+    },
+    {
+     "prompt": "the bee flies",
+     "expected": "the bee flies!",
+     "article": "the",
+     "noun": "bee",
+     "verb": "flies"
+    },
+    {
+     "prompt": "the mom cooks",
+     "expected": "the mom cooks!",
+     "article": "the",
+     "noun": "mom",
+     "verb": "cooks"
+    },
+    {
+     "prompt": "the dad reads",
+     "expected": "the dad reads!",
+     "article": "the",
+     "noun": "dad",
+     "verb": "reads"
+    },
+    {
+     "prompt": "the boy plays",
+     "expected": "the boy plays!",
+     "article": "the",
+     "noun": "boy",
+     "verb": "plays"
+    },
+    {
+     "prompt": "the girl sings",
+     "expected": "the girl sings!",
+     "article": "the",
+     "noun": "girl",
+     "verb": "sings"
+    },
+    {
+     "prompt": "the baby sleeps",
+     "expected": "the baby sleeps!",
+     "article": "the",
+     "noun": "baby",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "the child plays",
+     "expected": "the child plays!",
+     "article": "the",
+     "noun": "child",
+     "verb": "plays"
+    },
+    {
+     "prompt": "the friend laughs",
+     "expected": "the friend laughs!",
+     "article": "the",
+     "noun": "friend",
+     "verb": "laughs"
+    },
+    {
+     "prompt": "the man walks",
+     "expected": "the man walks!",
+     "article": "the",
+     "noun": "man",
+     "verb": "walks"
+    },
+    {
+     "prompt": "the woman works",
+     "expected": "the woman works!",
+     "article": "the",
+     "noun": "woman",
+     "verb": "works"
+    },
+    {
+     "prompt": "the sun shines",
+     "expected": "the sun shines!",
+     "article": "the",
+     "noun": "sun",
+     "verb": "shines"
+    },
+    {
+     "prompt": "the moon shines",
+     "expected": "the moon shines!",
+     "article": "the",
+     "noun": "moon",
+     "verb": "shines"
+    },
+    {
+     "prompt": "the star shines",
+     "expected": "the star shines!",
+     "article": "the",
+     "noun": "star",
+     "verb": "shines"
+    },
+    {
+     "prompt": "the tree grows",
+     "expected": "the tree grows!",
+     "article": "the",
+     "noun": "tree",
+     "verb": "grows"
+    },
+    {
+     "prompt": "the flower grows",
+     "expected": "the flower grows!",
+     "article": "the",
+     "noun": "flower",
+     "verb": "grows"
+    },
+    {
+     "prompt": "the door opens",
+     "expected": "the door opens!",
+     "article": "the",
+     "noun": "door",
+     "verb": "opens"
+    }
+   ],
+   "prompt_template": "say: {prompt}",
+   "max_response_words": 6,
+   "advance_after_successes": 3,
+   "retry_after_failures": 5,
+   "require_article": true,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "D": {
+   "description": "Simple questions: what does it do?",
+   "targets": [
+    {
+     "prompt": "what does the cat do?",
+     "expected": "the cat sleeps.",
+     "noun": "cat",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "what does the dog do?",
+     "expected": "the dog runs.",
+     "noun": "dog",
+     "verb": "runs"
+    },
+    {
+     "prompt": "what does the fish do?",
+     "expected": "the fish swims.",
+     "noun": "fish",
+     "verb": "swims"
+    },
+    {
+     "prompt": "what does the bird do?",
+     "expected": "the bird flies.",
+     "noun": "bird",
+     "verb": "flies"
+    },
+    {
+     "prompt": "what does the horse do?",
+     "expected": "the horse runs.",
+     "noun": "horse",
+     "verb": "runs"
+    },
+    {
+     "prompt": "what does the cow do?",
+     "expected": "the cow eats.",
+     "noun": "cow",
+     "verb": "eats"
+    },
+    {
+     "prompt": "what does the wolf do?",
+     "expected": "the wolf runs.",
+     "noun": "wolf",
+     "verb": "runs"
+    },
+    {
+     "prompt": "what does the mouse do?",
+     "expected": "the mouse runs.",
+     "noun": "mouse",
+     "verb": "runs"
+    },
+    {
+     "prompt": "what does the bee do?",
+     "expected": "the bee flies.",
+     "noun": "bee",
+     "verb": "flies"
+    },
+    {
+     "prompt": "what does the mom do?",
+     "expected": "the mom cooks.",
+     "noun": "mom",
+     "verb": "cooks"
+    },
+    {
+     "prompt": "what does the dad do?",
+     "expected": "the dad reads.",
+     "noun": "dad",
+     "verb": "reads"
+    },
+    {
+     "prompt": "what does the boy do?",
+     "expected": "the boy plays.",
+     "noun": "boy",
+     "verb": "plays"
+    },
+    {
+     "prompt": "what does the girl do?",
+     "expected": "the girl sings.",
+     "noun": "girl",
+     "verb": "sings"
+    },
+    {
+     "prompt": "what does the baby do?",
+     "expected": "the baby sleeps.",
+     "noun": "baby",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "what does the child do?",
+     "expected": "the child plays.",
+     "noun": "child",
+     "verb": "plays"
+    },
+    {
+     "prompt": "what does the friend do?",
+     "expected": "the friend laughs.",
+     "noun": "friend",
+     "verb": "laughs"
+    },
+    {
+     "prompt": "what does the man do?",
+     "expected": "the man walks.",
+     "noun": "man",
+     "verb": "walks"
+    },
+    {
+     "prompt": "what does the woman do?",
+     "expected": "the woman works.",
+     "noun": "woman",
+     "verb": "works"
+    },
+    {
+     "prompt": "what does the teacher do?",
+     "expected": "the teacher reads.",
+     "noun": "teacher",
+     "verb": "reads"
+    },
+    {
+     "prompt": "what does the sun do?",
+     "expected": "the sun shines.",
+     "noun": "sun",
+     "verb": "shines"
+    },
+    {
+     "prompt": "what does the moon do?",
+     "expected": "the moon shines.",
+     "noun": "moon",
+     "verb": "shines"
+    },
+    {
+     "prompt": "what does the star do?",
+     "expected": "the star shines.",
+     "noun": "star",
+     "verb": "shines"
+    },
+    {
+     "prompt": "what does the tree do?",
+     "expected": "the tree grows.",
+     "noun": "tree",
+     "verb": "grows"
+    },
+    {
+     "prompt": "what does the flower do?",
+     "expected": "the flower grows.",
+     "noun": "flower",
+     "verb": "grows"
+    },
+    {
+     "prompt": "what does the grass do?",
+     "expected": "the grass grows.",
+     "noun": "grass",
+     "verb": "grows"
+    },
+    {
+     "prompt": "what does the snow do?",
+     "expected": "the snow falls.",
+     "noun": "snow",
+     "verb": "falls"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 6,
+   "advance_after_successes": 3,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "E": {
+   "description": "Numbers one to ten",
+   "targets": [
+    {
+     "prompt": "say a number: one",
+     "expected": "one!",
+     "noun": "one"
+    },
+    {
+     "prompt": "say a number: two",
+     "expected": "two!",
+     "noun": "two"
+    },
+    {
+     "prompt": "say a number: three",
+     "expected": "three!",
+     "noun": "three"
+    },
+    {
+     "prompt": "say a number: four",
+     "expected": "four!",
+     "noun": "four"
+    },
+    {
+     "prompt": "say a number: five",
+     "expected": "five!",
+     "noun": "five"
+    },
+    {
+     "prompt": "say a number: six",
+     "expected": "six!",
+     "noun": "six"
+    },
+    {
+     "prompt": "say a number: seven",
+     "expected": "seven!",
+     "noun": "seven"
+    },
+    {
+     "prompt": "say a number: eight",
+     "expected": "eight!",
+     "noun": "eight"
+    },
+    {
+     "prompt": "say a number: nine",
+     "expected": "nine!",
+     "noun": "nine"
+    },
+    {
+     "prompt": "say a number: ten",
+     "expected": "ten!",
+     "noun": "ten"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 3,
+   "advance_after_successes": 3,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false
+  }
+ },
+ "evaluation": {
+  "has_terminator_pattern": "[.!?]",
+  "comment_+++": "{noun} with the structure and a terminator. Great!",
+  "comment_++": "{noun} and the verb are there.",
+  "comment_+": "{noun} found.",
+  "comment_=": "English words but the structure is missing.",
+  "comment_-": "Answer not recognisable or too long."
+ },
+ "encouragement": [
+  "good!",
+  "well done!",
+  "very good!",
+  "great!",
+  "nice!"
+ ],
+ "retry_prefix": "{prompt} {prompt}. "
+}

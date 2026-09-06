@@ -1,0 +1,532 @@
+{
+ "lang": "en",
+ "level": 5,
+ "description": "Five years old — the connectives and, but, because; descriptions",
+ "quality_threshold": 0.3,
+ "quality_strong_min": 0.2,
+ "steps": {
+  "A": {
+   "description": "Bridge L4->L5: the adjective inside the sentence",
+   "targets": [
+    {
+     "prompt": "what is the cat like?",
+     "expected": "the cat is small.",
+     "noun": "small",
+     "verb": "is",
+     "adjective": "small"
+    },
+    {
+     "prompt": "what is the dog like?",
+     "expected": "the dog is big.",
+     "noun": "big",
+     "verb": "is",
+     "adjective": "big"
+    },
+    {
+     "prompt": "what is the sun like?",
+     "expected": "the sun is hot.",
+     "noun": "hot",
+     "verb": "is",
+     "adjective": "hot"
+    },
+    {
+     "prompt": "what is the moon like?",
+     "expected": "the moon is white.",
+     "noun": "white",
+     "verb": "is",
+     "adjective": "white"
+    },
+    {
+     "prompt": "what is the house like?",
+     "expected": "the house is big.",
+     "noun": "big",
+     "verb": "is",
+     "adjective": "big"
+    },
+    {
+     "prompt": "what is the bread like?",
+     "expected": "the bread is good.",
+     "noun": "good",
+     "verb": "is",
+     "adjective": "good"
+    },
+    {
+     "prompt": "what is the milk like?",
+     "expected": "the milk is white.",
+     "noun": "white",
+     "verb": "is",
+     "adjective": "white"
+    },
+    {
+     "prompt": "what is the book like?",
+     "expected": "the book is new.",
+     "noun": "new",
+     "verb": "is",
+     "adjective": "new"
+    },
+    {
+     "prompt": "what is the ball like?",
+     "expected": "the ball is red.",
+     "noun": "red",
+     "verb": "is",
+     "adjective": "red"
+    },
+    {
+     "prompt": "what is the car like?",
+     "expected": "the car is fast.",
+     "noun": "fast",
+     "verb": "is",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "what is the tree like?",
+     "expected": "the tree is tall.",
+     "noun": "tall",
+     "verb": "is",
+     "adjective": "tall"
+    },
+    {
+     "prompt": "what is the apple like?",
+     "expected": "the apple is red.",
+     "noun": "red",
+     "verb": "is",
+     "adjective": "red"
+    },
+    {
+     "prompt": "what is the egg like?",
+     "expected": "the egg is white.",
+     "noun": "white",
+     "verb": "is",
+     "adjective": "white"
+    },
+    {
+     "prompt": "what is the star like?",
+     "expected": "the star is beautiful.",
+     "noun": "beautiful",
+     "verb": "is",
+     "adjective": "beautiful"
+    },
+    {
+     "prompt": "what is the table like?",
+     "expected": "the table is long.",
+     "noun": "long",
+     "verb": "is",
+     "adjective": "long"
+    },
+    {
+     "prompt": "what is the chair like?",
+     "expected": "the chair is small.",
+     "noun": "small",
+     "verb": "is",
+     "adjective": "small"
+    },
+    {
+     "prompt": "what is the park like?",
+     "expected": "the park is big.",
+     "noun": "big",
+     "verb": "is",
+     "adjective": "big"
+    },
+    {
+     "prompt": "what is the school like?",
+     "expected": "the school is new.",
+     "noun": "new",
+     "verb": "is",
+     "adjective": "new"
+    },
+    {
+     "prompt": "what is the sea like?",
+     "expected": "the sea is cold.",
+     "noun": "cold",
+     "verb": "is",
+     "adjective": "cold"
+    },
+    {
+     "prompt": "what is the city like?",
+     "expected": "the city is big.",
+     "noun": "big",
+     "verb": "is",
+     "adjective": "big"
+    },
+    {
+     "prompt": "what is the water like?",
+     "expected": "the water is cold.",
+     "noun": "cold",
+     "verb": "is",
+     "adjective": "cold"
+    },
+    {
+     "prompt": "what is the boy like?",
+     "expected": "the boy is happy.",
+     "noun": "happy",
+     "verb": "is",
+     "adjective": "happy"
+    },
+    {
+     "prompt": "what is the girl like?",
+     "expected": "the girl is happy.",
+     "noun": "happy",
+     "verb": "is",
+     "adjective": "happy"
+    },
+    {
+     "prompt": "what is the man like?",
+     "expected": "the man is tall.",
+     "noun": "tall",
+     "verb": "is",
+     "adjective": "tall"
+    },
+    {
+     "prompt": "what is the road like?",
+     "expected": "the road is long.",
+     "noun": "long",
+     "verb": "is",
+     "adjective": "long"
+    },
+    {
+     "prompt": "what is the fish like?",
+     "expected": "the fish is small.",
+     "noun": "small",
+     "verb": "is",
+     "adjective": "small"
+    },
+    {
+     "prompt": "what is the bird like?",
+     "expected": "the bird is fast.",
+     "noun": "fast",
+     "verb": "is",
+     "adjective": "fast"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 6,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": true
+  },
+  "B": {
+   "description": "Connective 'and' — two actions",
+   "targets": [
+    {
+     "prompt": "tell me two things about the cat",
+     "expected": "the cat eats and sleeps.",
+     "noun": "sleeps",
+     "verb": "eats"
+    },
+    {
+     "prompt": "tell me two things about the dog",
+     "expected": "the dog runs and sleeps.",
+     "noun": "sleeps",
+     "verb": "runs"
+    },
+    {
+     "prompt": "tell me two things about the boy",
+     "expected": "the boy plays and laughs.",
+     "noun": "laughs",
+     "verb": "plays"
+    },
+    {
+     "prompt": "tell me two things about the girl",
+     "expected": "the girl sings and plays.",
+     "noun": "plays",
+     "verb": "sings"
+    },
+    {
+     "prompt": "tell me two things about the mom",
+     "expected": "the mom cooks and sings.",
+     "noun": "sings",
+     "verb": "cooks"
+    },
+    {
+     "prompt": "tell me two things about the dad",
+     "expected": "the dad reads and walks.",
+     "noun": "walks",
+     "verb": "reads"
+    },
+    {
+     "prompt": "tell me two things about the bird",
+     "expected": "the bird flies and sings.",
+     "noun": "sings",
+     "verb": "flies"
+    },
+    {
+     "prompt": "tell me two things about the fish",
+     "expected": "the fish swims and eats.",
+     "noun": "eats",
+     "verb": "swims"
+    },
+    {
+     "prompt": "tell me two things about the horse",
+     "expected": "the horse runs and eats.",
+     "noun": "eats",
+     "verb": "runs"
+    },
+    {
+     "prompt": "tell me two things about the baby",
+     "expected": "the baby sleeps and laughs.",
+     "noun": "laughs",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "tell me two things about the child",
+     "expected": "the child draws and plays.",
+     "noun": "plays",
+     "verb": "draws"
+    },
+    {
+     "prompt": "tell me two things about the man",
+     "expected": "the man works and walks.",
+     "noun": "walks",
+     "verb": "works"
+    },
+    {
+     "prompt": "tell me two things about the woman",
+     "expected": "the woman works and reads.",
+     "noun": "reads",
+     "verb": "works"
+    },
+    {
+     "prompt": "tell me two things about the teacher",
+     "expected": "the teacher reads and works.",
+     "noun": "works",
+     "verb": "reads"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 8,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "C": {
+   "description": "Connective 'because' — a simple cause",
+   "targets": [
+    {
+     "prompt": "why does the cat eat?",
+     "expected": "the cat eats because it is hungry.",
+     "noun": "hungry",
+     "verb": "eats"
+    },
+    {
+     "prompt": "why does the cat sleep?",
+     "expected": "the cat sleeps because it is tired.",
+     "noun": "tired",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "why does the dog drink?",
+     "expected": "the dog drinks because it is thirsty.",
+     "noun": "thirsty",
+     "verb": "drinks"
+    },
+    {
+     "prompt": "why does the dog run?",
+     "expected": "the dog runs because it is fast.",
+     "noun": "fast",
+     "verb": "runs"
+    },
+    {
+     "prompt": "why does the fish swim?",
+     "expected": "the fish swims because it is fast.",
+     "noun": "fast",
+     "verb": "swims"
+    },
+    {
+     "prompt": "why does the bird fly?",
+     "expected": "the bird flies because it is fast.",
+     "noun": "fast",
+     "verb": "flies"
+    },
+    {
+     "prompt": "why does the bird sing?",
+     "expected": "the bird sings because it is happy.",
+     "noun": "happy",
+     "verb": "sings"
+    },
+    {
+     "prompt": "why does the horse run?",
+     "expected": "the horse runs because it is fast.",
+     "noun": "fast",
+     "verb": "runs"
+    },
+    {
+     "prompt": "why does the horse eat?",
+     "expected": "the horse eats because it is hungry.",
+     "noun": "hungry",
+     "verb": "eats"
+    },
+    {
+     "prompt": "why does the cow eat?",
+     "expected": "the cow eats because it is hungry.",
+     "noun": "hungry",
+     "verb": "eats"
+    },
+    {
+     "prompt": "why does the wolf run?",
+     "expected": "the wolf runs because it is fast.",
+     "noun": "fast",
+     "verb": "runs"
+    },
+    {
+     "prompt": "why does the mouse eat?",
+     "expected": "the mouse eats because it is hungry.",
+     "noun": "hungry",
+     "verb": "eats"
+    },
+    {
+     "prompt": "why does the bee fly?",
+     "expected": "the bee flies because it is fast.",
+     "noun": "fast",
+     "verb": "flies"
+    },
+    {
+     "prompt": "why does the boy play?",
+     "expected": "the boy plays because he is happy.",
+     "noun": "happy",
+     "verb": "plays"
+    },
+    {
+     "prompt": "why does the boy sleep?",
+     "expected": "the boy sleeps because he is tired.",
+     "noun": "tired",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "why does the boy eat?",
+     "expected": "the boy eats because he is hungry.",
+     "noun": "hungry",
+     "verb": "eats"
+    },
+    {
+     "prompt": "why does the girl sing?",
+     "expected": "the girl sings because she is happy.",
+     "noun": "happy",
+     "verb": "sings"
+    },
+    {
+     "prompt": "why does the girl drink?",
+     "expected": "the girl drinks because she is thirsty.",
+     "noun": "thirsty",
+     "verb": "drinks"
+    },
+    {
+     "prompt": "why does the girl play?",
+     "expected": "the girl plays because she is happy.",
+     "noun": "happy",
+     "verb": "plays"
+    },
+    {
+     "prompt": "why does the man work?",
+     "expected": "the man works because he is strong.",
+     "noun": "strong",
+     "verb": "works"
+    },
+    {
+     "prompt": "why does the man walk?",
+     "expected": "the man walks because he is slow.",
+     "noun": "slow",
+     "verb": "walks"
+    },
+    {
+     "prompt": "why does the woman work?",
+     "expected": "the woman works because she is strong.",
+     "noun": "strong",
+     "verb": "works"
+    },
+    {
+     "prompt": "why does the mom sing?",
+     "expected": "the mom sings because she is happy.",
+     "noun": "happy",
+     "verb": "sings"
+    },
+    {
+     "prompt": "why does the dad walk?",
+     "expected": "the dad walks because he is slow.",
+     "noun": "slow",
+     "verb": "walks"
+    },
+    {
+     "prompt": "why does the sun shine?",
+     "expected": "the sun shines because it is hot.",
+     "noun": "hot",
+     "verb": "shines"
+    },
+    {
+     "prompt": "why does the tree grow?",
+     "expected": "the tree grows because it is young.",
+     "noun": "young",
+     "verb": "grows"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 10,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "D": {
+   "description": "Connective 'but' — a contrast",
+   "targets": [
+    {
+     "prompt": "is the cat big or small?",
+     "expected": "the cat is small but strong.",
+     "noun": "strong",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the water hot?",
+     "expected": "the water is cold but good.",
+     "noun": "cold",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the bread sweet?",
+     "expected": "the bread is good but not sweet.",
+     "noun": "good",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the dog small?",
+     "expected": "the dog is big but good.",
+     "noun": "big",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the road short?",
+     "expected": "the road is long but beautiful.",
+     "noun": "long",
+     "verb": "is"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 10,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  }
+ },
+ "evaluation": {
+  "has_terminator_pattern": "[.!?]",
+  "comment_+++": "{noun} with a complete structure and a terminator. Great!",
+  "comment_++": "{noun} is there, the structure is incomplete.",
+  "comment_+": "{noun} found.",
+  "comment_=": "English words but not the expected answer.",
+  "comment_-": "Not recognisable or too long."
+ },
+ "encouragement": [
+  "good!",
+  "well done!",
+  "very good!",
+  "great!",
+  "nice!"
+ ],
+ "retry_prefix": "again. "
+}

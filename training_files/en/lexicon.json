@@ -1,0 +1,1315 @@
+{
+ "_note": [
+  "Lexicon of the English curriculum, mirroring training_files/it/lexicon.json.",
+  "Apostrophes are written as spaces everywhere in this corpus, so no target",
+  "here uses a contraction: 'do not', never 'don t'.",
+  "English has no grammatical gender, so the Italian 'g' and the m/f pair on",
+  "the adjectives are gone; 'art' is the definite article ('the' for every",
+  "noun) and 'indef' the indefinite one, spelled out per noun so that no a/an",
+  "rule is needed.",
+  "'kind' constrains which verbs and adjectives make sense with a noun: without",
+  "it the generator writes 'the bread sleeps', which teaches noise.",
+  "'can' lists the verbs that make sense for that noun (the Italian file calls",
+  "this key 'puo'), 'verb_places' the places for each verb ('luoghi_verbo'),",
+  "'dim'/'pol' the semantic dimension and the polarity of each adjective.",
+  "Verbs are stored in the third person singular under 'pres', because that is",
+  "the form every target uses ('the cat sleeps.'); 'base' carries the bare",
+  "infinitive for the 'can' and 'want to' frames of level 1.",
+  "'ontology' carries the is-a relation; 'unknown_nouns' the nouns kept out of",
+  "the curriculum, half of them marked 'probe'.",
+  "'mass' marks mass nouns: they take no indefinite article, so they introduce",
+  "themselves as 'this is water', not 'this is a water'.",
+  "'uniq' marks unique referents: 'this is the sun', because 'this is a sun'",
+  "is not said.",
+  "There is no 'bare_unknown_nouns' block: the honesty curriculum lives at",
+  "levels 11-13 and the English tree stops at level 5, so inventing roles here",
+  "would only give scripts/validate_teacher_configs.py words that no level",
+  "teaches.",
+  "scripts/expand_teacher_pools.py does NOT read this file: its gender",
+  "agreement and its elisions are Italian. The English pools are hand written."
+ ],
+ "nouns": [
+  {
+   "w": "cat",
+   "art": "the",
+   "indef": "a",
+   "kind": "animal",
+   "can": [
+    "runs",
+    "sleeps",
+    "eats",
+    "looks"
+   ]
+  },
+  {
+   "w": "dog",
+   "art": "the",
+   "indef": "a",
+   "kind": "animal",
+   "can": [
+    "runs",
+    "sleeps",
+    "eats",
+    "looks"
+   ]
+  },
+  {
+   "w": "fish",
+   "art": "the",
+   "indef": "a",
+   "kind": "animal",
+   "can": [
+    "swims",
+    "eats"
+   ]
+  },
+  {
+   "w": "bird",
+   "art": "the",
+   "indef": "a",
+   "kind": "animal",
+   "can": [
+    "flies",
+    "sings",
+    "eats"
+   ]
+  },
+  {
+   "w": "horse",
+   "art": "the",
+   "indef": "a",
+   "kind": "animal",
+   "can": [
+    "runs",
+    "walks",
+    "eats"
+   ]
+  },
+  {
+   "w": "cow",
+   "art": "the",
+   "indef": "a",
+   "kind": "animal",
+   "can": [
+    "walks",
+    "eats",
+    "sleeps"
+   ]
+  },
+  {
+   "w": "wolf",
+   "art": "the",
+   "indef": "a",
+   "kind": "animal",
+   "can": [
+    "runs",
+    "sleeps",
+    "eats"
+   ]
+  },
+  {
+   "w": "mouse",
+   "art": "the",
+   "indef": "a",
+   "kind": "animal",
+   "can": [
+    "runs",
+    "eats",
+    "sleeps"
+   ]
+  },
+  {
+   "w": "bee",
+   "art": "the",
+   "indef": "a",
+   "kind": "animal",
+   "can": [
+    "flies"
+   ]
+  },
+  {
+   "w": "mom",
+   "art": "the",
+   "indef": "a",
+   "kind": "person",
+   "can": [
+    "cooks",
+    "reads",
+    "sings",
+    "sleeps",
+    "walks",
+    "waits",
+    "looks"
+   ]
+  },
+  {
+   "w": "dad",
+   "art": "the",
+   "indef": "a",
+   "kind": "person",
+   "can": [
+    "cooks",
+    "reads",
+    "sings",
+    "sleeps",
+    "walks",
+    "waits",
+    "looks"
+   ]
+  },
+  {
+   "w": "boy",
+   "art": "the",
+   "indef": "a",
+   "kind": "person",
+   "can": [
+    "runs",
+    "plays",
+    "reads",
+    "draws",
+    "sings",
+    "eats",
+    "drinks",
+    "sleeps"
+   ]
+  },
+  {
+   "w": "girl",
+   "art": "the",
+   "indef": "a",
+   "kind": "person",
+   "can": [
+    "runs",
+    "plays",
+    "reads",
+    "draws",
+    "sings",
+    "eats",
+    "drinks",
+    "sleeps"
+   ]
+  },
+  {
+   "w": "baby",
+   "art": "the",
+   "indef": "a",
+   "kind": "person",
+   "can": [
+    "sleeps",
+    "laughs",
+    "eats",
+    "drinks"
+   ]
+  },
+  {
+   "w": "child",
+   "art": "the",
+   "indef": "a",
+   "kind": "person",
+   "can": [
+    "runs",
+    "plays",
+    "reads",
+    "draws",
+    "sings",
+    "eats",
+    "sleeps"
+   ]
+  },
+  {
+   "w": "friend",
+   "art": "the",
+   "indef": "a",
+   "kind": "person",
+   "can": [
+    "runs",
+    "plays",
+    "reads",
+    "laughs",
+    "waits",
+    "helps"
+   ]
+  },
+  {
+   "w": "man",
+   "art": "the",
+   "indef": "a",
+   "kind": "person",
+   "can": [
+    "walks",
+    "works",
+    "reads",
+    "waits",
+    "helps"
+   ]
+  },
+  {
+   "w": "woman",
+   "art": "the",
+   "indef": "a",
+   "kind": "person",
+   "can": [
+    "walks",
+    "works",
+    "reads",
+    "waits",
+    "helps"
+   ]
+  },
+  {
+   "w": "teacher",
+   "art": "the",
+   "indef": "a",
+   "kind": "person",
+   "can": [
+    "reads",
+    "works",
+    "waits",
+    "helps"
+   ]
+  },
+  {
+   "w": "bread",
+   "art": "the",
+   "indef": "a",
+   "kind": "food",
+   "can": [
+    "eats"
+   ],
+   "mass": true
+  },
+  {
+   "w": "milk",
+   "art": "the",
+   "indef": "a",
+   "kind": "food",
+   "can": [
+    "drinks"
+   ],
+   "mass": true
+  },
+  {
+   "w": "water",
+   "art": "the",
+   "indef": "a",
+   "kind": "food",
+   "can": [
+    "drinks"
+   ],
+   "mass": true
+  },
+  {
+   "w": "apple",
+   "art": "the",
+   "indef": "an",
+   "kind": "food",
+   "can": [
+    "eats"
+   ]
+  },
+  {
+   "w": "egg",
+   "art": "the",
+   "indef": "an",
+   "kind": "food",
+   "can": [
+    "eats"
+   ]
+  },
+  {
+   "w": "cake",
+   "art": "the",
+   "indef": "a",
+   "kind": "food",
+   "can": [
+    "eats"
+   ]
+  },
+  {
+   "w": "cheese",
+   "art": "the",
+   "indef": "a",
+   "kind": "food",
+   "can": [
+    "eats"
+   ],
+   "mass": true
+  },
+  {
+   "w": "honey",
+   "art": "the",
+   "indef": "a",
+   "kind": "food",
+   "can": [
+    "eats"
+   ],
+   "mass": true
+  },
+  {
+   "w": "rice",
+   "art": "the",
+   "indef": "a",
+   "kind": "food",
+   "can": [
+    "eats"
+   ],
+   "mass": true
+  },
+  {
+   "w": "soup",
+   "art": "the",
+   "indef": "a",
+   "kind": "food",
+   "can": [
+    "eats"
+   ]
+  },
+  {
+   "w": "book",
+   "art": "the",
+   "indef": "a",
+   "kind": "object",
+   "can": [
+    "falls"
+   ]
+  },
+  {
+   "w": "ball",
+   "art": "the",
+   "indef": "a",
+   "kind": "object",
+   "can": [
+    "falls"
+   ]
+  },
+  {
+   "w": "car",
+   "art": "the",
+   "indef": "a",
+   "kind": "object",
+   "can": [
+    "runs",
+    "waits"
+   ]
+  },
+  {
+   "w": "table",
+   "art": "the",
+   "indef": "a",
+   "kind": "object",
+   "can": []
+  },
+  {
+   "w": "chair",
+   "art": "the",
+   "indef": "a",
+   "kind": "object",
+   "can": [
+    "falls"
+   ]
+  },
+  {
+   "w": "door",
+   "art": "the",
+   "indef": "a",
+   "kind": "object",
+   "can": [
+    "opens",
+    "closes"
+   ]
+  },
+  {
+   "w": "window",
+   "art": "the",
+   "indef": "a",
+   "kind": "object",
+   "can": [
+    "opens",
+    "closes"
+   ]
+  },
+  {
+   "w": "bed",
+   "art": "the",
+   "indef": "a",
+   "kind": "object",
+   "can": []
+  },
+  {
+   "w": "lamp",
+   "art": "the",
+   "indef": "a",
+   "kind": "object",
+   "can": [
+    "shines",
+    "falls"
+   ]
+  },
+  {
+   "w": "key",
+   "art": "the",
+   "indef": "a",
+   "kind": "object",
+   "can": [
+    "falls"
+   ]
+  },
+  {
+   "w": "box",
+   "art": "the",
+   "indef": "a",
+   "kind": "object",
+   "can": [
+    "opens",
+    "closes",
+    "falls"
+   ]
+  },
+  {
+   "w": "house",
+   "art": "the",
+   "indef": "a",
+   "kind": "place",
+   "can": []
+  },
+  {
+   "w": "school",
+   "art": "the",
+   "indef": "a",
+   "kind": "place",
+   "can": []
+  },
+  {
+   "w": "park",
+   "art": "the",
+   "indef": "a",
+   "kind": "place",
+   "can": []
+  },
+  {
+   "w": "garden",
+   "art": "the",
+   "indef": "a",
+   "kind": "place",
+   "can": []
+  },
+  {
+   "w": "road",
+   "art": "the",
+   "indef": "a",
+   "kind": "place",
+   "can": []
+  },
+  {
+   "w": "city",
+   "art": "the",
+   "indef": "a",
+   "kind": "place",
+   "can": []
+  },
+  {
+   "w": "sun",
+   "art": "the",
+   "indef": "a",
+   "kind": "nature",
+   "can": [
+    "shines"
+   ],
+   "cls": "a light",
+   "uniq": true
+  },
+  {
+   "w": "moon",
+   "art": "the",
+   "indef": "a",
+   "kind": "nature",
+   "can": [
+    "shines"
+   ],
+   "cls": "a light",
+   "uniq": true
+  },
+  {
+   "w": "star",
+   "art": "the",
+   "indef": "a",
+   "kind": "nature",
+   "can": [
+    "shines"
+   ],
+   "cls": "a light"
+  },
+  {
+   "w": "sea",
+   "art": "the",
+   "indef": "a",
+   "kind": "nature",
+   "can": [],
+   "cls": "a place",
+   "uniq": true
+  },
+  {
+   "w": "tree",
+   "art": "the",
+   "indef": "a",
+   "kind": "nature",
+   "can": [
+    "grows"
+   ],
+   "cls": "a plant"
+  },
+  {
+   "w": "flower",
+   "art": "the",
+   "indef": "a",
+   "kind": "nature",
+   "can": [
+    "grows"
+   ],
+   "cls": "a plant"
+  },
+  {
+   "w": "grass",
+   "art": "the",
+   "indef": "a",
+   "kind": "nature",
+   "can": [
+    "grows"
+   ],
+   "cls": "a plant",
+   "mass": true
+  },
+  {
+   "w": "wind",
+   "art": "the",
+   "indef": "a",
+   "kind": "nature",
+   "can": [],
+   "mass": true
+  },
+  {
+   "w": "snow",
+   "art": "the",
+   "indef": "a",
+   "kind": "nature",
+   "can": [
+    "falls"
+   ],
+   "cls": "water",
+   "mass": true
+  },
+  {
+   "w": "rain",
+   "art": "the",
+   "indef": "a",
+   "kind": "nature",
+   "can": [
+    "falls"
+   ],
+   "cls": "water",
+   "mass": true
+  },
+  {
+   "w": "sky",
+   "art": "the",
+   "indef": "a",
+   "kind": "nature",
+   "can": [],
+   "cls": "a place",
+   "uniq": true
+  }
+ ],
+ "verbs": [
+  {
+   "pres": "sleeps",
+   "base": "sleep",
+   "past": "slept",
+   "subjects": [
+    "animal",
+    "person"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "runs",
+   "base": "run",
+   "past": "ran",
+   "subjects": [
+    "animal",
+    "person",
+    "object"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "jumps",
+   "base": "jump",
+   "past": "jumped",
+   "subjects": [
+    "animal",
+    "person"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "laughs",
+   "base": "laugh",
+   "past": "laughed",
+   "subjects": [
+    "person"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "sings",
+   "base": "sing",
+   "past": "sang",
+   "subjects": [
+    "animal",
+    "person"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "swims",
+   "base": "swim",
+   "past": "swam",
+   "subjects": [
+    "animal",
+    "person"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "flies",
+   "base": "fly",
+   "past": "flew",
+   "subjects": [
+    "animal"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "walks",
+   "base": "walk",
+   "past": "walked",
+   "subjects": [
+    "animal",
+    "person"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "waits",
+   "base": "wait",
+   "past": "waited",
+   "subjects": [
+    "animal",
+    "person",
+    "object"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "eats",
+   "base": "eat",
+   "past": "eaten",
+   "subjects": [
+    "animal",
+    "person"
+   ],
+   "trans": true
+  },
+  {
+   "pres": "drinks",
+   "base": "drink",
+   "past": "drunk",
+   "subjects": [
+    "animal",
+    "person"
+   ],
+   "trans": true
+  },
+  {
+   "pres": "reads",
+   "base": "read",
+   "past": "read",
+   "subjects": [
+    "person"
+   ],
+   "trans": true
+  },
+  {
+   "pres": "looks",
+   "base": "look",
+   "past": "looked",
+   "subjects": [
+    "animal",
+    "person"
+   ],
+   "trans": true
+  },
+  {
+   "pres": "opens",
+   "base": "open",
+   "past": "opened",
+   "subjects": [
+    "person",
+    "object"
+   ],
+   "trans": true
+  },
+  {
+   "pres": "closes",
+   "base": "close",
+   "past": "closed",
+   "subjects": [
+    "person",
+    "object"
+   ],
+   "trans": true
+  },
+  {
+   "pres": "finds",
+   "base": "find",
+   "past": "found",
+   "subjects": [
+    "animal",
+    "person"
+   ],
+   "trans": true
+  },
+  {
+   "pres": "cooks",
+   "base": "cook",
+   "past": "cooked",
+   "subjects": [
+    "person"
+   ],
+   "trans": true
+  },
+  {
+   "pres": "draws",
+   "base": "draw",
+   "past": "drawn",
+   "subjects": [
+    "person"
+   ],
+   "trans": true
+  },
+  {
+   "pres": "shines",
+   "base": "shine",
+   "past": "shone",
+   "subjects": [
+    "nature"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "falls",
+   "base": "fall",
+   "past": "fallen",
+   "subjects": [
+    "object",
+    "nature"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "grows",
+   "base": "grow",
+   "past": "grown",
+   "subjects": [
+    "nature"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "plays",
+   "base": "play",
+   "past": "played",
+   "subjects": [
+    "person"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "works",
+   "base": "work",
+   "past": "worked",
+   "subjects": [
+    "person"
+   ],
+   "trans": false
+  },
+  {
+   "pres": "helps",
+   "base": "help",
+   "past": "helped",
+   "subjects": [
+    "person"
+   ],
+   "trans": true
+  }
+ ],
+ "adjectives": [
+  {
+   "w": "big",
+   "kind": [
+    "animal",
+    "person",
+    "food",
+    "object",
+    "place",
+    "nature"
+   ],
+   "dim": "size",
+   "pol": "n"
+  },
+  {
+   "w": "small",
+   "kind": [
+    "animal",
+    "person",
+    "food",
+    "object",
+    "place",
+    "nature"
+   ],
+   "dim": "size",
+   "pol": "n"
+  },
+  {
+   "w": "long",
+   "kind": [
+    "object",
+    "place",
+    "nature"
+   ],
+   "dim": "size",
+   "pol": "n"
+  },
+  {
+   "w": "short",
+   "kind": [
+    "object",
+    "place",
+    "nature"
+   ],
+   "dim": "size",
+   "pol": "n"
+  },
+  {
+   "w": "tall",
+   "kind": [
+    "person",
+    "object",
+    "nature"
+   ],
+   "dim": "size",
+   "pol": "n"
+  },
+  {
+   "w": "low",
+   "kind": [
+    "object",
+    "place",
+    "nature"
+   ],
+   "dim": "size",
+   "pol": "n"
+  },
+  {
+   "w": "beautiful",
+   "kind": [
+    "animal",
+    "person",
+    "food",
+    "object",
+    "place",
+    "nature"
+   ],
+   "dim": "judgement",
+   "pol": "+"
+  },
+  {
+   "w": "ugly",
+   "kind": [
+    "animal",
+    "person",
+    "food",
+    "object",
+    "place",
+    "nature"
+   ],
+   "dim": "judgement",
+   "pol": "-"
+  },
+  {
+   "w": "good",
+   "kind": [
+    "animal",
+    "person",
+    "food"
+   ],
+   "dim": "judgement",
+   "pol": "+"
+  },
+  {
+   "w": "bad",
+   "kind": [
+    "animal",
+    "person",
+    "food"
+   ],
+   "dim": "judgement",
+   "pol": "-"
+  },
+  {
+   "w": "nice",
+   "kind": [
+    "animal",
+    "person",
+    "food",
+    "object",
+    "place",
+    "nature"
+   ],
+   "dim": "judgement",
+   "pol": "+"
+  },
+  {
+   "w": "hot",
+   "kind": [
+    "food",
+    "object",
+    "nature",
+    "place"
+   ],
+   "dim": "temperature",
+   "pol": "n"
+  },
+  {
+   "w": "cold",
+   "kind": [
+    "food",
+    "object",
+    "nature",
+    "place"
+   ],
+   "dim": "temperature",
+   "pol": "n"
+  },
+  {
+   "w": "new",
+   "kind": [
+    "object",
+    "place"
+   ],
+   "dim": "age",
+   "pol": "+"
+  },
+  {
+   "w": "old",
+   "kind": [
+    "animal",
+    "person",
+    "object",
+    "place"
+   ],
+   "dim": "age",
+   "pol": "n"
+  },
+  {
+   "w": "young",
+   "kind": [
+    "animal",
+    "person"
+   ],
+   "dim": "age",
+   "pol": "n"
+  },
+  {
+   "w": "happy",
+   "kind": [
+    "person",
+    "animal"
+   ],
+   "dim": "mood",
+   "pol": "+"
+  },
+  {
+   "w": "sad",
+   "kind": [
+    "person",
+    "animal"
+   ],
+   "dim": "mood",
+   "pol": "-"
+  },
+  {
+   "w": "tired",
+   "kind": [
+    "person",
+    "animal"
+   ],
+   "dim": "mood",
+   "pol": "-"
+  },
+  {
+   "w": "strong",
+   "kind": [
+    "person",
+    "animal",
+    "object"
+   ],
+   "dim": "force",
+   "pol": "+"
+  },
+  {
+   "w": "weak",
+   "kind": [
+    "person",
+    "animal",
+    "object"
+   ],
+   "dim": "force",
+   "pol": "-"
+  },
+  {
+   "w": "fast",
+   "kind": [
+    "person",
+    "animal",
+    "object"
+   ],
+   "dim": "speed",
+   "pol": "n"
+  },
+  {
+   "w": "slow",
+   "kind": [
+    "person",
+    "animal",
+    "object"
+   ],
+   "dim": "speed",
+   "pol": "n"
+  },
+  {
+   "w": "sweet",
+   "kind": [
+    "food"
+   ],
+   "dim": "taste",
+   "pol": "+"
+  },
+  {
+   "w": "white",
+   "kind": [
+    "animal",
+    "object",
+    "nature",
+    "food"
+   ],
+   "dim": "colour",
+   "pol": "n"
+  },
+  {
+   "w": "black",
+   "kind": [
+    "animal",
+    "object",
+    "nature"
+   ],
+   "dim": "colour",
+   "pol": "n"
+  },
+  {
+   "w": "red",
+   "kind": [
+    "object",
+    "nature",
+    "food"
+   ],
+   "dim": "colour",
+   "pol": "n"
+  },
+  {
+   "w": "green",
+   "kind": [
+    "object",
+    "nature",
+    "food"
+   ],
+   "dim": "colour",
+   "pol": "n"
+  }
+ ],
+ "verb_places": {
+  "sleeps": [
+   "house"
+  ],
+  "swims": [
+   "sea"
+  ],
+  "flies": [
+   "garden",
+   "sky"
+  ],
+  "runs": [
+   "park",
+   "garden",
+   "road"
+  ],
+  "walks": [
+   "park",
+   "garden",
+   "road"
+  ],
+  "jumps": [
+   "park",
+   "garden"
+  ],
+  "sings": [
+   "house",
+   "garden"
+  ],
+  "grows": [
+   "garden",
+   "park"
+  ],
+  "plays": [
+   "garden",
+   "park",
+   "house"
+  ]
+ },
+ "ontology": {
+  "_note": [
+   "'kind' is a constraint of the GENERATOR (which verbs and adjectives make",
+   "sense with that noun): it is not an ontology. 'nature' is not a word the",
+   "copula can use — 'the sun is a nature' is not English — so the class the",
+   "model learns to say lives here, apart.",
+   "'kind_class' gives the default class of each kind; the 'cls' field on a",
+   "single noun beats the default (sun/moon/star -> a light, tree/flower/grass",
+   "-> a plant, sea/sky -> a place, snow/rain -> water).",
+   "'classes' is the chain of hypernyms: class -> hypernym, null = root. Two",
+   "levels only, on purpose: a deeper chain asks the model for a transitive",
+   "step it does not have at this size.",
+   "'negative_pool' lists the classes usable as a WRONG answer in the negatives",
+   "step. Hypernyms are excluded: 'is the dog a thing?' has no clean no, while",
+   "'is the dog a person?' does."
+  ],
+  "kind_class": {
+   "animal": "an animal",
+   "person": "a person",
+   "food": "a food",
+   "object": "an object",
+   "place": "a place",
+   "nature": "a thing"
+  },
+  "classes": {
+   "an animal": "a living being",
+   "a person": "a living being",
+   "a plant": "a living being",
+   "a food": "a thing",
+   "an object": "a thing",
+   "a light": "a thing",
+   "water": "a thing",
+   "a place": null,
+   "a thing": null,
+   "a living being": null
+  },
+  "negative_pool": [
+   "an animal",
+   "a person",
+   "a food",
+   "an object",
+   "a place",
+   "a light",
+   "a plant"
+  ]
+ },
+ "unknown_nouns": [
+  {
+   "w": "spider",
+   "art": "the",
+   "indef": "a",
+   "cls": "an animal"
+  },
+  {
+   "w": "hedgehog",
+   "art": "the",
+   "indef": "a",
+   "cls": "an animal"
+  },
+  {
+   "w": "button",
+   "art": "the",
+   "indef": "a",
+   "cls": "an object"
+  },
+  {
+   "w": "drum",
+   "art": "the",
+   "indef": "a",
+   "cls": "an object"
+  },
+  {
+   "w": "pumpkin",
+   "art": "the",
+   "indef": "a",
+   "cls": "a food"
+  },
+  {
+   "w": "lighthouse",
+   "art": "the",
+   "indef": "a",
+   "cls": "a place"
+  },
+  {
+   "w": "snail",
+   "art": "the",
+   "indef": "a",
+   "cls": "an animal",
+   "probe": true
+  },
+  {
+   "w": "eagle",
+   "art": "the",
+   "indef": "an",
+   "cls": "an animal",
+   "probe": true
+  },
+  {
+   "w": "brush",
+   "art": "the",
+   "indef": "a",
+   "cls": "an object",
+   "probe": true
+  },
+  {
+   "w": "comb",
+   "art": "the",
+   "indef": "a",
+   "cls": "an object",
+   "probe": true
+  },
+  {
+   "w": "walnut",
+   "art": "the",
+   "indef": "a",
+   "cls": "a food",
+   "probe": true
+  },
+  {
+   "w": "hill",
+   "art": "the",
+   "indef": "a",
+   "cls": "a place",
+   "probe": true
+  }
+ ]
+}

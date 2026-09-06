@@ -1,0 +1,257 @@
+{
+ "lang": "en",
+ "seed": 20260831,
+ "per_level": 8,
+ "levels": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "n": 48,
+ "fingerprint": "80678772ed2656e0",
+ "items": [
+  {
+   "level": 0,
+   "prompt": "say da",
+   "expected": "da!"
+  },
+  {
+   "level": 0,
+   "prompt": "say eh",
+   "expected": "eh!"
+  },
+  {
+   "level": 0,
+   "prompt": "say yes",
+   "expected": "yes!"
+  },
+  {
+   "level": 0,
+   "prompt": "say sa",
+   "expected": "sa!"
+  },
+  {
+   "level": 0,
+   "prompt": "say baba",
+   "expected": "baba!"
+  },
+  {
+   "level": 0,
+   "prompt": "say ta",
+   "expected": "ta!"
+  },
+  {
+   "level": 0,
+   "prompt": "say fa",
+   "expected": "fa!"
+  },
+  {
+   "level": 0,
+   "prompt": "say ra",
+   "expected": "ra!"
+  },
+  {
+   "level": 1,
+   "prompt": "say: the girl",
+   "expected": "the girl!"
+  },
+  {
+   "level": 1,
+   "prompt": "say: the mom",
+   "expected": "the mom!"
+  },
+  {
+   "level": 1,
+   "prompt": "say: the ball",
+   "expected": "the ball!"
+  },
+  {
+   "level": 1,
+   "prompt": "say: the fish",
+   "expected": "the fish!"
+  },
+  {
+   "level": 1,
+   "prompt": "say: the car",
+   "expected": "the car!"
+  },
+  {
+   "level": 1,
+   "prompt": "say: moon",
+   "expected": "moon!"
+  },
+  {
+   "level": 1,
+   "prompt": "say: the star",
+   "expected": "the star!"
+  },
+  {
+   "level": 1,
+   "prompt": "say: no",
+   "expected": "no!"
+  },
+  {
+   "level": 2,
+   "prompt": "say: the girl finds the ball",
+   "expected": "the girl finds the ball!"
+  },
+  {
+   "level": 2,
+   "prompt": "say: the park",
+   "expected": "the park!"
+  },
+  {
+   "level": 2,
+   "prompt": "say: the tall tree",
+   "expected": "the tall tree!"
+  },
+  {
+   "level": 2,
+   "prompt": "say: the child draws the sun",
+   "expected": "the child draws the sun!"
+  },
+  {
+   "level": 2,
+   "prompt": "say: the happy boy",
+   "expected": "the happy boy!"
+  },
+  {
+   "level": 2,
+   "prompt": "say: the big dog",
+   "expected": "the big dog!"
+  },
+  {
+   "level": 2,
+   "prompt": "say: the friend helps the child",
+   "expected": "the friend helps the child!"
+  },
+  {
+   "level": 2,
+   "prompt": "say: the girl drinks the milk",
+   "expected": "the girl drinks the milk!"
+  },
+  {
+   "level": 3,
+   "prompt": "say: the table",
+   "expected": "the table!"
+  },
+  {
+   "level": 3,
+   "prompt": "what does the baby do?",
+   "expected": "the baby sleeps."
+  },
+  {
+   "level": 3,
+   "prompt": "say: the mom",
+   "expected": "the mom!"
+  },
+  {
+   "level": 3,
+   "prompt": "say: the woman works",
+   "expected": "the woman works!"
+  },
+  {
+   "level": 3,
+   "prompt": "say: the mom cooks",
+   "expected": "the mom cooks!"
+  },
+  {
+   "level": 3,
+   "prompt": "say a number: seven",
+   "expected": "seven!"
+  },
+  {
+   "level": 3,
+   "prompt": "what does the mom do?",
+   "expected": "the mom cooks."
+  },
+  {
+   "level": 3,
+   "prompt": "what does the cat do?",
+   "expected": "the cat sleeps."
+  },
+  {
+   "level": 4,
+   "prompt": "where does the cat sleep?",
+   "expected": "the cat sleeps in the house."
+  },
+  {
+   "level": 4,
+   "prompt": "say: the friend laughs",
+   "expected": "the friend laughs!"
+  },
+  {
+   "level": 4,
+   "prompt": "where does the child play?",
+   "expected": "the child plays in the garden."
+  },
+  {
+   "level": 4,
+   "prompt": "say: the fish swims",
+   "expected": "the fish swims!"
+  },
+  {
+   "level": 4,
+   "prompt": "who flies?",
+   "expected": "the bird flies."
+  },
+  {
+   "level": 4,
+   "prompt": "say: the dog runs",
+   "expected": "the dog runs!"
+  },
+  {
+   "level": 4,
+   "prompt": "where does the cat play?",
+   "expected": "the cat plays in the garden."
+  },
+  {
+   "level": 4,
+   "prompt": "who runs?",
+   "expected": "the dog runs."
+  },
+  {
+   "level": 5,
+   "prompt": "tell me two things about the man",
+   "expected": "the man works and walks."
+  },
+  {
+   "level": 5,
+   "prompt": "tell me two things about the baby",
+   "expected": "the baby sleeps and laughs."
+  },
+  {
+   "level": 5,
+   "prompt": "why does the bird sing?",
+   "expected": "the bird sings because it is happy."
+  },
+  {
+   "level": 5,
+   "prompt": "why does the horse run?",
+   "expected": "the horse runs because it is fast."
+  },
+  {
+   "level": 5,
+   "prompt": "why does the boy sleep?",
+   "expected": "the boy sleeps because he is tired."
+  },
+  {
+   "level": 5,
+   "prompt": "why does the cat sleep?",
+   "expected": "the cat sleeps because it is tired."
+  },
+  {
+   "level": 5,
+   "prompt": "why does the dog drink?",
+   "expected": "the dog drinks because it is thirsty."
+  },
+  {
+   "level": 5,
+   "prompt": "why does the boy eat?",
+   "expected": "the boy eats because he is hungry."
+  }
+ ]
+}

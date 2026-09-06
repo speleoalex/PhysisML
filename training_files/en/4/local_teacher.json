@@ -1,0 +1,500 @@
+{
+ "lang": "en",
+ "level": 4,
+ "description": "Four years old — who and where questions, first and then",
+ "quality_threshold": 0.32,
+ "quality_strong_min": 0.2,
+ "steps": {
+  "A": {
+   "description": "Bridge L3->L4: article + noun + verb",
+   "targets": [
+    {
+     "prompt": "the cat sleeps",
+     "expected": "the cat sleeps!",
+     "article": "the",
+     "noun": "cat",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "the dog runs",
+     "expected": "the dog runs!",
+     "article": "the",
+     "noun": "dog",
+     "verb": "runs"
+    },
+    {
+     "prompt": "the fish swims",
+     "expected": "the fish swims!",
+     "article": "the",
+     "noun": "fish",
+     "verb": "swims"
+    },
+    {
+     "prompt": "the bird flies",
+     "expected": "the bird flies!",
+     "article": "the",
+     "noun": "bird",
+     "verb": "flies"
+    },
+    {
+     "prompt": "the horse runs",
+     "expected": "the horse runs!",
+     "article": "the",
+     "noun": "horse",
+     "verb": "runs"
+    },
+    {
+     "prompt": "the cow eats",
+     "expected": "the cow eats!",
+     "article": "the",
+     "noun": "cow",
+     "verb": "eats"
+    },
+    {
+     "prompt": "the wolf runs",
+     "expected": "the wolf runs!",
+     "article": "the",
+     "noun": "wolf",
+     "verb": "runs"
+    },
+    {
+     "prompt": "the mouse runs",
+     "expected": "the mouse runs!",
+     "article": "the",
+     "noun": "mouse",
+     "verb": "runs"
+    },
+    {
+     "prompt": "the bee flies",
+     "expected": "the bee flies!",
+     "article": "the",
+     "noun": "bee",
+     "verb": "flies"
+    },
+    {
+     "prompt": "the mom cooks",
+     "expected": "the mom cooks!",
+     "article": "the",
+     "noun": "mom",
+     "verb": "cooks"
+    },
+    {
+     "prompt": "the dad reads",
+     "expected": "the dad reads!",
+     "article": "the",
+     "noun": "dad",
+     "verb": "reads"
+    },
+    {
+     "prompt": "the boy plays",
+     "expected": "the boy plays!",
+     "article": "the",
+     "noun": "boy",
+     "verb": "plays"
+    },
+    {
+     "prompt": "the girl sings",
+     "expected": "the girl sings!",
+     "article": "the",
+     "noun": "girl",
+     "verb": "sings"
+    },
+    {
+     "prompt": "the baby sleeps",
+     "expected": "the baby sleeps!",
+     "article": "the",
+     "noun": "baby",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "the child plays",
+     "expected": "the child plays!",
+     "article": "the",
+     "noun": "child",
+     "verb": "plays"
+    },
+    {
+     "prompt": "the friend laughs",
+     "expected": "the friend laughs!",
+     "article": "the",
+     "noun": "friend",
+     "verb": "laughs"
+    },
+    {
+     "prompt": "the man walks",
+     "expected": "the man walks!",
+     "article": "the",
+     "noun": "man",
+     "verb": "walks"
+    },
+    {
+     "prompt": "the woman works",
+     "expected": "the woman works!",
+     "article": "the",
+     "noun": "woman",
+     "verb": "works"
+    },
+    {
+     "prompt": "the sun shines",
+     "expected": "the sun shines!",
+     "article": "the",
+     "noun": "sun",
+     "verb": "shines"
+    },
+    {
+     "prompt": "the moon shines",
+     "expected": "the moon shines!",
+     "article": "the",
+     "noun": "moon",
+     "verb": "shines"
+    },
+    {
+     "prompt": "the star shines",
+     "expected": "the star shines!",
+     "article": "the",
+     "noun": "star",
+     "verb": "shines"
+    },
+    {
+     "prompt": "the tree grows",
+     "expected": "the tree grows!",
+     "article": "the",
+     "noun": "tree",
+     "verb": "grows"
+    },
+    {
+     "prompt": "the flower grows",
+     "expected": "the flower grows!",
+     "article": "the",
+     "noun": "flower",
+     "verb": "grows"
+    },
+    {
+     "prompt": "the door opens",
+     "expected": "the door opens!",
+     "article": "the",
+     "noun": "door",
+     "verb": "opens"
+    }
+   ],
+   "prompt_template": "say: {prompt}",
+   "max_response_words": 6,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": true,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "B": {
+   "description": "'who' questions",
+   "targets": [
+    {
+     "prompt": "who sleeps?",
+     "expected": "the cat sleeps.",
+     "noun": "cat",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "who runs?",
+     "expected": "the dog runs.",
+     "noun": "dog",
+     "verb": "runs"
+    },
+    {
+     "prompt": "who swims?",
+     "expected": "the fish swims.",
+     "noun": "fish",
+     "verb": "swims"
+    },
+    {
+     "prompt": "who flies?",
+     "expected": "the bird flies.",
+     "noun": "bird",
+     "verb": "flies"
+    },
+    {
+     "prompt": "who sings?",
+     "expected": "the girl sings.",
+     "noun": "girl",
+     "verb": "sings"
+    },
+    {
+     "prompt": "who plays?",
+     "expected": "the boy plays.",
+     "noun": "boy",
+     "verb": "plays"
+    },
+    {
+     "prompt": "who cooks?",
+     "expected": "the woman cooks.",
+     "noun": "woman",
+     "verb": "cooks"
+    },
+    {
+     "prompt": "who reads?",
+     "expected": "the man reads.",
+     "noun": "man",
+     "verb": "reads"
+    },
+    {
+     "prompt": "who laughs?",
+     "expected": "the baby laughs.",
+     "noun": "baby",
+     "verb": "laughs"
+    },
+    {
+     "prompt": "who walks?",
+     "expected": "the horse walks.",
+     "noun": "horse",
+     "verb": "walks"
+    },
+    {
+     "prompt": "who works?",
+     "expected": "the teacher works.",
+     "noun": "teacher",
+     "verb": "works"
+    },
+    {
+     "prompt": "who draws?",
+     "expected": "the child draws.",
+     "noun": "child",
+     "verb": "draws"
+    },
+    {
+     "prompt": "who shines?",
+     "expected": "the sun shines.",
+     "noun": "sun",
+     "verb": "shines"
+    },
+    {
+     "prompt": "who grows?",
+     "expected": "the tree grows.",
+     "noun": "tree",
+     "verb": "grows"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 6,
+   "advance_after_successes": 3,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "C": {
+   "description": "'where' questions with a place",
+   "targets": [
+    {
+     "prompt": "where does the cat sleep?",
+     "expected": "the cat sleeps in the house.",
+     "noun": "cat",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "where does the dog run?",
+     "expected": "the dog runs in the park.",
+     "noun": "dog",
+     "verb": "runs"
+    },
+    {
+     "prompt": "where does the fish swim?",
+     "expected": "the fish swims in the sea.",
+     "noun": "fish",
+     "verb": "swims"
+    },
+    {
+     "prompt": "where does the bird fly?",
+     "expected": "the bird flies in the sky.",
+     "noun": "bird",
+     "verb": "flies"
+    },
+    {
+     "prompt": "where does the horse run?",
+     "expected": "the horse runs in the park.",
+     "noun": "horse",
+     "verb": "runs"
+    },
+    {
+     "prompt": "where does the cow walk?",
+     "expected": "the cow walks in the road.",
+     "noun": "cow",
+     "verb": "walks"
+    },
+    {
+     "prompt": "where does the wolf run?",
+     "expected": "the wolf runs in the park.",
+     "noun": "wolf",
+     "verb": "runs"
+    },
+    {
+     "prompt": "where does the mouse run?",
+     "expected": "the mouse runs in the park.",
+     "noun": "mouse",
+     "verb": "runs"
+    },
+    {
+     "prompt": "where does the bee fly?",
+     "expected": "the bee flies in the sky.",
+     "noun": "bee",
+     "verb": "flies"
+    },
+    {
+     "prompt": "where does the boy play?",
+     "expected": "the boy plays in the garden.",
+     "noun": "boy",
+     "verb": "plays"
+    },
+    {
+     "prompt": "where does the girl sing?",
+     "expected": "the girl sings in the house.",
+     "noun": "girl",
+     "verb": "sings"
+    },
+    {
+     "prompt": "where does the child play?",
+     "expected": "the child plays in the garden.",
+     "noun": "child",
+     "verb": "plays"
+    },
+    {
+     "prompt": "where does the baby sleep?",
+     "expected": "the baby sleeps in the house.",
+     "noun": "baby",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "where does the man walk?",
+     "expected": "the man walks in the road.",
+     "noun": "man",
+     "verb": "walks"
+    },
+    {
+     "prompt": "where does the woman walk?",
+     "expected": "the woman walks in the road.",
+     "noun": "woman",
+     "verb": "walks"
+    },
+    {
+     "prompt": "where does the friend play?",
+     "expected": "the friend plays in the garden.",
+     "noun": "friend",
+     "verb": "plays"
+    },
+    {
+     "prompt": "where does the mom sing?",
+     "expected": "the mom sings in the house.",
+     "noun": "mom",
+     "verb": "sings"
+    },
+    {
+     "prompt": "where does the dad walk?",
+     "expected": "the dad walks in the road.",
+     "noun": "dad",
+     "verb": "walks"
+    },
+    {
+     "prompt": "where does the tree grow?",
+     "expected": "the tree grows in the garden.",
+     "noun": "tree",
+     "verb": "grows"
+    },
+    {
+     "prompt": "where does the flower grow?",
+     "expected": "the flower grows in the garden.",
+     "noun": "flower",
+     "verb": "grows"
+    },
+    {
+     "prompt": "where does the grass grow?",
+     "expected": "the grass grows in the garden.",
+     "noun": "grass",
+     "verb": "grows"
+    },
+    {
+     "prompt": "where does the teacher walk?",
+     "expected": "the teacher walks in the road.",
+     "noun": "teacher",
+     "verb": "walks"
+    },
+    {
+     "prompt": "where does the cat play?",
+     "expected": "the cat plays in the garden.",
+     "noun": "cat",
+     "verb": "plays"
+    },
+    {
+     "prompt": "where does the dog jump?",
+     "expected": "the dog jumps in the park.",
+     "noun": "dog",
+     "verb": "jumps"
+    },
+    {
+     "prompt": "where does the boy jump?",
+     "expected": "the boy jumps in the park.",
+     "noun": "boy",
+     "verb": "jumps"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 8,
+   "advance_after_successes": 3,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "D": {
+   "description": "Order: first and then",
+   "targets": [
+    {
+     "prompt": "what comes first, the sun or the moon?",
+     "expected": "first the sun then the moon.",
+     "noun": "moon"
+    },
+    {
+     "prompt": "what do you do first, eat or sleep?",
+     "expected": "first I eat then I sleep.",
+     "noun": "sleep"
+    },
+    {
+     "prompt": "what comes first, one or two?",
+     "expected": "first one then two.",
+     "noun": "two"
+    },
+    {
+     "prompt": "what do you do first, play or work?",
+     "expected": "first I play then I work.",
+     "noun": "work"
+    },
+    {
+     "prompt": "what comes first, the rain or the snow?",
+     "expected": "first the rain then the snow.",
+     "noun": "snow"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 8,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false
+  }
+ },
+ "evaluation": {
+  "has_terminator_pattern": "[.!?]",
+  "comment_+++": "{noun} with a complete structure and a terminator. Great!",
+  "comment_++": "{noun} and the verb are there.",
+  "comment_+": "{noun} found.",
+  "comment_=": "English words but not the expected answer.",
+  "comment_-": "Not recognisable or too long."
+ },
+ "encouragement": [
+  "good!",
+  "well done!",
+  "very good!",
+  "great!",
+  "nice!"
+ ],
+ "retry_prefix": "again. "
+}
