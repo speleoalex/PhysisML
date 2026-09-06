@@ -1,0 +1,300 @@
+{"prompt": "what will the boy eat tomorrow?", "response": "tomorrow the boy will eat the bread."}
+{"prompt": "what will the girl drink tomorrow?", "response": "tomorrow the girl will drink the milk."}
+{"prompt": "what will the cat drink tomorrow?", "response": "tomorrow the cat will drink the milk."}
+{"prompt": "what will the dog eat tomorrow?", "response": "tomorrow the dog will eat the bread."}
+{"prompt": "what will the woman cook tomorrow?", "response": "tomorrow the woman will cook the soup."}
+{"prompt": "what will the man read tomorrow?", "response": "tomorrow the man will read the book."}
+{"prompt": "what will the child open tomorrow?", "response": "tomorrow the child will open the door."}
+{"prompt": "what will the boy close tomorrow?", "response": "tomorrow the boy will close the window."}
+{"prompt": "what will the girl draw tomorrow?", "response": "tomorrow the girl will draw the flower."}
+{"prompt": "what will the teacher read tomorrow?", "response": "tomorrow the teacher will read the book."}
+{"prompt": "what will the friend help tomorrow?", "response": "tomorrow the friend will help the child."}
+{"prompt": "what will the baby drink tomorrow?", "response": "tomorrow the baby will drink the milk."}
+{"prompt": "what will the mouse eat tomorrow?", "response": "tomorrow the mouse will eat the cheese."}
+{"prompt": "what will the horse eat tomorrow?", "response": "tomorrow the horse will eat the grass."}
+{"prompt": "what will the cow eat tomorrow?", "response": "tomorrow the cow will eat the grass."}
+{"prompt": "what will the bird eat tomorrow?", "response": "tomorrow the bird will eat the rice."}
+{"prompt": "what will the child eat tomorrow?", "response": "tomorrow the child will eat the cake."}
+{"prompt": "what will the boy find tomorrow?", "response": "tomorrow the boy will find the key."}
+{"prompt": "what will the girl find tomorrow?", "response": "tomorrow the girl will find the ball."}
+{"prompt": "what will the man open tomorrow?", "response": "tomorrow the man will open the box."}
+{"prompt": "what will the woman open tomorrow?", "response": "tomorrow the woman will open the window."}
+{"prompt": "what will the child draw tomorrow?", "response": "tomorrow the child will draw the sun."}
+{"prompt": "what will the girl eat tomorrow?", "response": "tomorrow the girl will eat the apple."}
+{"prompt": "the dog ate yesterday, and tomorrow?", "response": "tomorrow the dog will eat."}
+{"prompt": "the cat slept yesterday, and tomorrow?", "response": "tomorrow the cat will sleep."}
+{"prompt": "the girl sang yesterday, and tomorrow?", "response": "tomorrow the girl will sing."}
+{"prompt": "the boy played yesterday, and tomorrow?", "response": "tomorrow the boy will play."}
+{"prompt": "tell me the three days of the cat", "response": "today it sleeps, yesterday it slept, tomorrow it will sleep."}
+{"prompt": "tell me the three days of the dog", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "tell me the three days of the fish", "response": "today it swims, yesterday it swam, tomorrow it will swim."}
+{"prompt": "tell me the three days of the bird", "response": "today it flies, yesterday it flew, tomorrow it will fly."}
+{"prompt": "tell me the three days of the horse", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "tell me the three days of the cow", "response": "today it eats, yesterday it ate, tomorrow it will eat."}
+{"prompt": "tell me the three days of the wolf", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "tell me the three days of the mouse", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "tell me the three days of the bee", "response": "today it flies, yesterday it flew, tomorrow it will fly."}
+{"prompt": "tell me the three days of the mom", "response": "today she cooks, yesterday she cooked, tomorrow she will cook."}
+{"prompt": "tell me the three days of the dad", "response": "today he reads, yesterday he read, tomorrow he will read."}
+{"prompt": "tell me the three days of the boy", "response": "today he plays, yesterday he played, tomorrow he will play."}
+{"prompt": "tell me the three days of the girl", "response": "today she sings, yesterday she sang, tomorrow she will sing."}
+{"prompt": "tell me the three days of the baby", "response": "today it sleeps, yesterday it slept, tomorrow it will sleep."}
+{"prompt": "tell me the three days of the child", "response": "today it plays, yesterday it played, tomorrow it will play."}
+{"prompt": "tell me the three days of the friend", "response": "today it laughs, yesterday it laughed, tomorrow it will laugh."}
+{"prompt": "tell me the three days of the man", "response": "today he walks, yesterday he walked, tomorrow he will walk."}
+{"prompt": "tell me the three days of the woman", "response": "today she works, yesterday she worked, tomorrow she will work."}
+{"prompt": "tell me the three days of the teacher", "response": "today she reads, yesterday she read, tomorrow she will read."}
+{"prompt": "tell me the three days of the sun", "response": "today it shines, yesterday it shone, tomorrow it will shine."}
+{"prompt": "is the dog hungry?", "response": "yes, the dog is hungry."}
+{"prompt": "does the sun shine at night?", "response": "no, the sun shines in the day."}
+{"prompt": "is the cat big?", "response": "no, the cat is small."}
+{"prompt": "does the fish fly?", "response": "no, the fish swims in the sea."}
+{"prompt": "is the snow hot?", "response": "no, the snow is cold."}
+{"prompt": "again. what will the boy eat tomorrow?", "response": "tomorrow the boy will eat the bread."}
+{"prompt": "again. what will the girl drink tomorrow?", "response": "tomorrow the girl will drink the milk."}
+{"prompt": "again. what will the cat drink tomorrow?", "response": "tomorrow the cat will drink the milk."}
+{"prompt": "again. what will the dog eat tomorrow?", "response": "tomorrow the dog will eat the bread."}
+{"prompt": "again. what will the woman cook tomorrow?", "response": "tomorrow the woman will cook the soup."}
+{"prompt": "again. what will the man read tomorrow?", "response": "tomorrow the man will read the book."}
+{"prompt": "again. what will the child open tomorrow?", "response": "tomorrow the child will open the door."}
+{"prompt": "again. what will the boy close tomorrow?", "response": "tomorrow the boy will close the window."}
+{"prompt": "again. what will the girl draw tomorrow?", "response": "tomorrow the girl will draw the flower."}
+{"prompt": "again. what will the teacher read tomorrow?", "response": "tomorrow the teacher will read the book."}
+{"prompt": "again. what will the friend help tomorrow?", "response": "tomorrow the friend will help the child."}
+{"prompt": "again. what will the baby drink tomorrow?", "response": "tomorrow the baby will drink the milk."}
+{"prompt": "again. what will the mouse eat tomorrow?", "response": "tomorrow the mouse will eat the cheese."}
+{"prompt": "again. what will the horse eat tomorrow?", "response": "tomorrow the horse will eat the grass."}
+{"prompt": "again. what will the cow eat tomorrow?", "response": "tomorrow the cow will eat the grass."}
+{"prompt": "again. what will the bird eat tomorrow?", "response": "tomorrow the bird will eat the rice."}
+{"prompt": "again. what will the child eat tomorrow?", "response": "tomorrow the child will eat the cake."}
+{"prompt": "again. what will the boy find tomorrow?", "response": "tomorrow the boy will find the key."}
+{"prompt": "again. what will the girl find tomorrow?", "response": "tomorrow the girl will find the ball."}
+{"prompt": "again. what will the man open tomorrow?", "response": "tomorrow the man will open the box."}
+{"prompt": "again. what will the woman open tomorrow?", "response": "tomorrow the woman will open the window."}
+{"prompt": "again. what will the child draw tomorrow?", "response": "tomorrow the child will draw the sun."}
+{"prompt": "again. what will the girl eat tomorrow?", "response": "tomorrow the girl will eat the apple."}
+{"prompt": "again. the dog ate yesterday, and tomorrow?", "response": "tomorrow the dog will eat."}
+{"prompt": "again. the cat slept yesterday, and tomorrow?", "response": "tomorrow the cat will sleep."}
+{"prompt": "again. the girl sang yesterday, and tomorrow?", "response": "tomorrow the girl will sing."}
+{"prompt": "again. the boy played yesterday, and tomorrow?", "response": "tomorrow the boy will play."}
+{"prompt": "again. tell me the three days of the cat", "response": "today it sleeps, yesterday it slept, tomorrow it will sleep."}
+{"prompt": "again. tell me the three days of the dog", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "again. tell me the three days of the fish", "response": "today it swims, yesterday it swam, tomorrow it will swim."}
+{"prompt": "again. tell me the three days of the bird", "response": "today it flies, yesterday it flew, tomorrow it will fly."}
+{"prompt": "again. tell me the three days of the horse", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "again. tell me the three days of the cow", "response": "today it eats, yesterday it ate, tomorrow it will eat."}
+{"prompt": "again. tell me the three days of the wolf", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "again. tell me the three days of the mouse", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "again. tell me the three days of the bee", "response": "today it flies, yesterday it flew, tomorrow it will fly."}
+{"prompt": "again. tell me the three days of the mom", "response": "today she cooks, yesterday she cooked, tomorrow she will cook."}
+{"prompt": "again. tell me the three days of the dad", "response": "today he reads, yesterday he read, tomorrow he will read."}
+{"prompt": "again. tell me the three days of the boy", "response": "today he plays, yesterday he played, tomorrow he will play."}
+{"prompt": "again. tell me the three days of the girl", "response": "today she sings, yesterday she sang, tomorrow she will sing."}
+{"prompt": "again. tell me the three days of the baby", "response": "today it sleeps, yesterday it slept, tomorrow it will sleep."}
+{"prompt": "again. tell me the three days of the child", "response": "today it plays, yesterday it played, tomorrow it will play."}
+{"prompt": "again. tell me the three days of the friend", "response": "today it laughs, yesterday it laughed, tomorrow it will laugh."}
+{"prompt": "again. tell me the three days of the man", "response": "today he walks, yesterday he walked, tomorrow he will walk."}
+{"prompt": "again. tell me the three days of the woman", "response": "today she works, yesterday she worked, tomorrow she will work."}
+{"prompt": "again. tell me the three days of the teacher", "response": "today she reads, yesterday she read, tomorrow she will read."}
+{"prompt": "again. tell me the three days of the sun", "response": "today it shines, yesterday it shone, tomorrow it will shine."}
+{"prompt": "again. is the dog hungry?", "response": "yes, the dog is hungry."}
+{"prompt": "again. does the sun shine at night?", "response": "no, the sun shines in the day."}
+{"prompt": "again. is the cat big?", "response": "no, the cat is small."}
+{"prompt": "again. does the fish fly?", "response": "no, the fish swims in the sea."}
+{"prompt": "again. is the snow hot?", "response": "no, the snow is cold."}
+{"prompt": "good! what will the boy eat tomorrow?", "response": "tomorrow the boy will eat the bread."}
+{"prompt": "good! what will the girl drink tomorrow?", "response": "tomorrow the girl will drink the milk."}
+{"prompt": "good! what will the cat drink tomorrow?", "response": "tomorrow the cat will drink the milk."}
+{"prompt": "good! what will the dog eat tomorrow?", "response": "tomorrow the dog will eat the bread."}
+{"prompt": "good! what will the woman cook tomorrow?", "response": "tomorrow the woman will cook the soup."}
+{"prompt": "good! what will the man read tomorrow?", "response": "tomorrow the man will read the book."}
+{"prompt": "good! what will the child open tomorrow?", "response": "tomorrow the child will open the door."}
+{"prompt": "good! what will the boy close tomorrow?", "response": "tomorrow the boy will close the window."}
+{"prompt": "good! what will the girl draw tomorrow?", "response": "tomorrow the girl will draw the flower."}
+{"prompt": "good! what will the teacher read tomorrow?", "response": "tomorrow the teacher will read the book."}
+{"prompt": "good! what will the friend help tomorrow?", "response": "tomorrow the friend will help the child."}
+{"prompt": "good! what will the baby drink tomorrow?", "response": "tomorrow the baby will drink the milk."}
+{"prompt": "good! what will the mouse eat tomorrow?", "response": "tomorrow the mouse will eat the cheese."}
+{"prompt": "good! what will the horse eat tomorrow?", "response": "tomorrow the horse will eat the grass."}
+{"prompt": "good! what will the cow eat tomorrow?", "response": "tomorrow the cow will eat the grass."}
+{"prompt": "good! what will the bird eat tomorrow?", "response": "tomorrow the bird will eat the rice."}
+{"prompt": "good! what will the child eat tomorrow?", "response": "tomorrow the child will eat the cake."}
+{"prompt": "good! what will the boy find tomorrow?", "response": "tomorrow the boy will find the key."}
+{"prompt": "good! what will the girl find tomorrow?", "response": "tomorrow the girl will find the ball."}
+{"prompt": "good! what will the man open tomorrow?", "response": "tomorrow the man will open the box."}
+{"prompt": "good! what will the woman open tomorrow?", "response": "tomorrow the woman will open the window."}
+{"prompt": "good! what will the child draw tomorrow?", "response": "tomorrow the child will draw the sun."}
+{"prompt": "good! what will the girl eat tomorrow?", "response": "tomorrow the girl will eat the apple."}
+{"prompt": "good! the dog ate yesterday, and tomorrow?", "response": "tomorrow the dog will eat."}
+{"prompt": "good! the cat slept yesterday, and tomorrow?", "response": "tomorrow the cat will sleep."}
+{"prompt": "good! the girl sang yesterday, and tomorrow?", "response": "tomorrow the girl will sing."}
+{"prompt": "good! the boy played yesterday, and tomorrow?", "response": "tomorrow the boy will play."}
+{"prompt": "good! tell me the three days of the cat", "response": "today it sleeps, yesterday it slept, tomorrow it will sleep."}
+{"prompt": "good! tell me the three days of the dog", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "good! tell me the three days of the fish", "response": "today it swims, yesterday it swam, tomorrow it will swim."}
+{"prompt": "good! tell me the three days of the bird", "response": "today it flies, yesterday it flew, tomorrow it will fly."}
+{"prompt": "good! tell me the three days of the horse", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "good! tell me the three days of the cow", "response": "today it eats, yesterday it ate, tomorrow it will eat."}
+{"prompt": "good! tell me the three days of the wolf", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "good! tell me the three days of the mouse", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "good! tell me the three days of the bee", "response": "today it flies, yesterday it flew, tomorrow it will fly."}
+{"prompt": "good! tell me the three days of the mom", "response": "today she cooks, yesterday she cooked, tomorrow she will cook."}
+{"prompt": "good! tell me the three days of the dad", "response": "today he reads, yesterday he read, tomorrow he will read."}
+{"prompt": "good! tell me the three days of the boy", "response": "today he plays, yesterday he played, tomorrow he will play."}
+{"prompt": "good! tell me the three days of the girl", "response": "today she sings, yesterday she sang, tomorrow she will sing."}
+{"prompt": "good! tell me the three days of the baby", "response": "today it sleeps, yesterday it slept, tomorrow it will sleep."}
+{"prompt": "good! tell me the three days of the child", "response": "today it plays, yesterday it played, tomorrow it will play."}
+{"prompt": "good! tell me the three days of the friend", "response": "today it laughs, yesterday it laughed, tomorrow it will laugh."}
+{"prompt": "good! tell me the three days of the man", "response": "today he walks, yesterday he walked, tomorrow he will walk."}
+{"prompt": "good! tell me the three days of the woman", "response": "today she works, yesterday she worked, tomorrow she will work."}
+{"prompt": "good! tell me the three days of the teacher", "response": "today she reads, yesterday she read, tomorrow she will read."}
+{"prompt": "good! tell me the three days of the sun", "response": "today it shines, yesterday it shone, tomorrow it will shine."}
+{"prompt": "good! is the dog hungry?", "response": "yes, the dog is hungry."}
+{"prompt": "good! does the sun shine at night?", "response": "no, the sun shines in the day."}
+{"prompt": "good! is the cat big?", "response": "no, the cat is small."}
+{"prompt": "good! does the fish fly?", "response": "no, the fish swims in the sea."}
+{"prompt": "good! is the snow hot?", "response": "no, the snow is cold."}
+{"prompt": "well done! what will the boy eat tomorrow?", "response": "tomorrow the boy will eat the bread."}
+{"prompt": "well done! what will the girl drink tomorrow?", "response": "tomorrow the girl will drink the milk."}
+{"prompt": "well done! what will the cat drink tomorrow?", "response": "tomorrow the cat will drink the milk."}
+{"prompt": "well done! what will the dog eat tomorrow?", "response": "tomorrow the dog will eat the bread."}
+{"prompt": "well done! what will the woman cook tomorrow?", "response": "tomorrow the woman will cook the soup."}
+{"prompt": "well done! what will the man read tomorrow?", "response": "tomorrow the man will read the book."}
+{"prompt": "well done! what will the child open tomorrow?", "response": "tomorrow the child will open the door."}
+{"prompt": "well done! what will the boy close tomorrow?", "response": "tomorrow the boy will close the window."}
+{"prompt": "well done! what will the girl draw tomorrow?", "response": "tomorrow the girl will draw the flower."}
+{"prompt": "well done! what will the teacher read tomorrow?", "response": "tomorrow the teacher will read the book."}
+{"prompt": "well done! what will the friend help tomorrow?", "response": "tomorrow the friend will help the child."}
+{"prompt": "well done! what will the baby drink tomorrow?", "response": "tomorrow the baby will drink the milk."}
+{"prompt": "well done! what will the mouse eat tomorrow?", "response": "tomorrow the mouse will eat the cheese."}
+{"prompt": "well done! what will the horse eat tomorrow?", "response": "tomorrow the horse will eat the grass."}
+{"prompt": "well done! what will the cow eat tomorrow?", "response": "tomorrow the cow will eat the grass."}
+{"prompt": "well done! what will the bird eat tomorrow?", "response": "tomorrow the bird will eat the rice."}
+{"prompt": "well done! what will the child eat tomorrow?", "response": "tomorrow the child will eat the cake."}
+{"prompt": "well done! what will the boy find tomorrow?", "response": "tomorrow the boy will find the key."}
+{"prompt": "well done! what will the girl find tomorrow?", "response": "tomorrow the girl will find the ball."}
+{"prompt": "well done! what will the man open tomorrow?", "response": "tomorrow the man will open the box."}
+{"prompt": "well done! what will the woman open tomorrow?", "response": "tomorrow the woman will open the window."}
+{"prompt": "well done! what will the child draw tomorrow?", "response": "tomorrow the child will draw the sun."}
+{"prompt": "well done! what will the girl eat tomorrow?", "response": "tomorrow the girl will eat the apple."}
+{"prompt": "well done! the dog ate yesterday, and tomorrow?", "response": "tomorrow the dog will eat."}
+{"prompt": "well done! the cat slept yesterday, and tomorrow?", "response": "tomorrow the cat will sleep."}
+{"prompt": "well done! the girl sang yesterday, and tomorrow?", "response": "tomorrow the girl will sing."}
+{"prompt": "well done! the boy played yesterday, and tomorrow?", "response": "tomorrow the boy will play."}
+{"prompt": "well done! tell me the three days of the cat", "response": "today it sleeps, yesterday it slept, tomorrow it will sleep."}
+{"prompt": "well done! tell me the three days of the dog", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "well done! tell me the three days of the fish", "response": "today it swims, yesterday it swam, tomorrow it will swim."}
+{"prompt": "well done! tell me the three days of the bird", "response": "today it flies, yesterday it flew, tomorrow it will fly."}
+{"prompt": "well done! tell me the three days of the horse", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "well done! tell me the three days of the cow", "response": "today it eats, yesterday it ate, tomorrow it will eat."}
+{"prompt": "well done! tell me the three days of the wolf", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "well done! tell me the three days of the mouse", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "well done! tell me the three days of the bee", "response": "today it flies, yesterday it flew, tomorrow it will fly."}
+{"prompt": "well done! tell me the three days of the mom", "response": "today she cooks, yesterday she cooked, tomorrow she will cook."}
+{"prompt": "well done! tell me the three days of the dad", "response": "today he reads, yesterday he read, tomorrow he will read."}
+{"prompt": "well done! tell me the three days of the boy", "response": "today he plays, yesterday he played, tomorrow he will play."}
+{"prompt": "well done! tell me the three days of the girl", "response": "today she sings, yesterday she sang, tomorrow she will sing."}
+{"prompt": "well done! tell me the three days of the baby", "response": "today it sleeps, yesterday it slept, tomorrow it will sleep."}
+{"prompt": "well done! tell me the three days of the child", "response": "today it plays, yesterday it played, tomorrow it will play."}
+{"prompt": "well done! tell me the three days of the friend", "response": "today it laughs, yesterday it laughed, tomorrow it will laugh."}
+{"prompt": "well done! tell me the three days of the man", "response": "today he walks, yesterday he walked, tomorrow he will walk."}
+{"prompt": "well done! tell me the three days of the woman", "response": "today she works, yesterday she worked, tomorrow she will work."}
+{"prompt": "well done! tell me the three days of the teacher", "response": "today she reads, yesterday she read, tomorrow she will read."}
+{"prompt": "well done! tell me the three days of the sun", "response": "today it shines, yesterday it shone, tomorrow it will shine."}
+{"prompt": "well done! is the dog hungry?", "response": "yes, the dog is hungry."}
+{"prompt": "well done! does the sun shine at night?", "response": "no, the sun shines in the day."}
+{"prompt": "well done! is the cat big?", "response": "no, the cat is small."}
+{"prompt": "well done! does the fish fly?", "response": "no, the fish swims in the sea."}
+{"prompt": "well done! is the snow hot?", "response": "no, the snow is cold."}
+{"prompt": "very good! what will the boy eat tomorrow?", "response": "tomorrow the boy will eat the bread."}
+{"prompt": "very good! what will the girl drink tomorrow?", "response": "tomorrow the girl will drink the milk."}
+{"prompt": "very good! what will the cat drink tomorrow?", "response": "tomorrow the cat will drink the milk."}
+{"prompt": "very good! what will the dog eat tomorrow?", "response": "tomorrow the dog will eat the bread."}
+{"prompt": "very good! what will the woman cook tomorrow?", "response": "tomorrow the woman will cook the soup."}
+{"prompt": "very good! what will the man read tomorrow?", "response": "tomorrow the man will read the book."}
+{"prompt": "very good! what will the child open tomorrow?", "response": "tomorrow the child will open the door."}
+{"prompt": "very good! what will the boy close tomorrow?", "response": "tomorrow the boy will close the window."}
+{"prompt": "very good! what will the girl draw tomorrow?", "response": "tomorrow the girl will draw the flower."}
+{"prompt": "very good! what will the teacher read tomorrow?", "response": "tomorrow the teacher will read the book."}
+{"prompt": "very good! what will the friend help tomorrow?", "response": "tomorrow the friend will help the child."}
+{"prompt": "very good! what will the baby drink tomorrow?", "response": "tomorrow the baby will drink the milk."}
+{"prompt": "very good! what will the mouse eat tomorrow?", "response": "tomorrow the mouse will eat the cheese."}
+{"prompt": "very good! what will the horse eat tomorrow?", "response": "tomorrow the horse will eat the grass."}
+{"prompt": "very good! what will the cow eat tomorrow?", "response": "tomorrow the cow will eat the grass."}
+{"prompt": "very good! what will the bird eat tomorrow?", "response": "tomorrow the bird will eat the rice."}
+{"prompt": "very good! what will the child eat tomorrow?", "response": "tomorrow the child will eat the cake."}
+{"prompt": "very good! what will the boy find tomorrow?", "response": "tomorrow the boy will find the key."}
+{"prompt": "very good! what will the girl find tomorrow?", "response": "tomorrow the girl will find the ball."}
+{"prompt": "very good! what will the man open tomorrow?", "response": "tomorrow the man will open the box."}
+{"prompt": "very good! what will the woman open tomorrow?", "response": "tomorrow the woman will open the window."}
+{"prompt": "very good! what will the child draw tomorrow?", "response": "tomorrow the child will draw the sun."}
+{"prompt": "very good! what will the girl eat tomorrow?", "response": "tomorrow the girl will eat the apple."}
+{"prompt": "very good! the dog ate yesterday, and tomorrow?", "response": "tomorrow the dog will eat."}
+{"prompt": "very good! the cat slept yesterday, and tomorrow?", "response": "tomorrow the cat will sleep."}
+{"prompt": "very good! the girl sang yesterday, and tomorrow?", "response": "tomorrow the girl will sing."}
+{"prompt": "very good! the boy played yesterday, and tomorrow?", "response": "tomorrow the boy will play."}
+{"prompt": "very good! tell me the three days of the cat", "response": "today it sleeps, yesterday it slept, tomorrow it will sleep."}
+{"prompt": "very good! tell me the three days of the dog", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "very good! tell me the three days of the fish", "response": "today it swims, yesterday it swam, tomorrow it will swim."}
+{"prompt": "very good! tell me the three days of the bird", "response": "today it flies, yesterday it flew, tomorrow it will fly."}
+{"prompt": "very good! tell me the three days of the horse", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "very good! tell me the three days of the cow", "response": "today it eats, yesterday it ate, tomorrow it will eat."}
+{"prompt": "very good! tell me the three days of the wolf", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "very good! tell me the three days of the mouse", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "very good! tell me the three days of the bee", "response": "today it flies, yesterday it flew, tomorrow it will fly."}
+{"prompt": "very good! tell me the three days of the mom", "response": "today she cooks, yesterday she cooked, tomorrow she will cook."}
+{"prompt": "very good! tell me the three days of the dad", "response": "today he reads, yesterday he read, tomorrow he will read."}
+{"prompt": "very good! tell me the three days of the boy", "response": "today he plays, yesterday he played, tomorrow he will play."}
+{"prompt": "very good! tell me the three days of the girl", "response": "today she sings, yesterday she sang, tomorrow she will sing."}
+{"prompt": "very good! tell me the three days of the baby", "response": "today it sleeps, yesterday it slept, tomorrow it will sleep."}
+{"prompt": "very good! tell me the three days of the child", "response": "today it plays, yesterday it played, tomorrow it will play."}
+{"prompt": "very good! tell me the three days of the friend", "response": "today it laughs, yesterday it laughed, tomorrow it will laugh."}
+{"prompt": "very good! tell me the three days of the man", "response": "today he walks, yesterday he walked, tomorrow he will walk."}
+{"prompt": "very good! tell me the three days of the woman", "response": "today she works, yesterday she worked, tomorrow she will work."}
+{"prompt": "very good! tell me the three days of the teacher", "response": "today she reads, yesterday she read, tomorrow she will read."}
+{"prompt": "very good! tell me the three days of the sun", "response": "today it shines, yesterday it shone, tomorrow it will shine."}
+{"prompt": "very good! is the dog hungry?", "response": "yes, the dog is hungry."}
+{"prompt": "very good! does the sun shine at night?", "response": "no, the sun shines in the day."}
+{"prompt": "very good! is the cat big?", "response": "no, the cat is small."}
+{"prompt": "very good! does the fish fly?", "response": "no, the fish swims in the sea."}
+{"prompt": "very good! is the snow hot?", "response": "no, the snow is cold."}
+{"prompt": "great! what will the boy eat tomorrow?", "response": "tomorrow the boy will eat the bread."}
+{"prompt": "great! what will the girl drink tomorrow?", "response": "tomorrow the girl will drink the milk."}
+{"prompt": "great! what will the cat drink tomorrow?", "response": "tomorrow the cat will drink the milk."}
+{"prompt": "great! what will the dog eat tomorrow?", "response": "tomorrow the dog will eat the bread."}
+{"prompt": "great! what will the woman cook tomorrow?", "response": "tomorrow the woman will cook the soup."}
+{"prompt": "great! what will the man read tomorrow?", "response": "tomorrow the man will read the book."}
+{"prompt": "great! what will the child open tomorrow?", "response": "tomorrow the child will open the door."}
+{"prompt": "great! what will the boy close tomorrow?", "response": "tomorrow the boy will close the window."}
+{"prompt": "great! what will the girl draw tomorrow?", "response": "tomorrow the girl will draw the flower."}
+{"prompt": "great! what will the teacher read tomorrow?", "response": "tomorrow the teacher will read the book."}
+{"prompt": "great! what will the friend help tomorrow?", "response": "tomorrow the friend will help the child."}
+{"prompt": "great! what will the baby drink tomorrow?", "response": "tomorrow the baby will drink the milk."}
+{"prompt": "great! what will the mouse eat tomorrow?", "response": "tomorrow the mouse will eat the cheese."}
+{"prompt": "great! what will the horse eat tomorrow?", "response": "tomorrow the horse will eat the grass."}
+{"prompt": "great! what will the cow eat tomorrow?", "response": "tomorrow the cow will eat the grass."}
+{"prompt": "great! what will the bird eat tomorrow?", "response": "tomorrow the bird will eat the rice."}
+{"prompt": "great! what will the child eat tomorrow?", "response": "tomorrow the child will eat the cake."}
+{"prompt": "great! what will the boy find tomorrow?", "response": "tomorrow the boy will find the key."}
+{"prompt": "great! what will the girl find tomorrow?", "response": "tomorrow the girl will find the ball."}
+{"prompt": "great! what will the man open tomorrow?", "response": "tomorrow the man will open the box."}
+{"prompt": "great! what will the woman open tomorrow?", "response": "tomorrow the woman will open the window."}
+{"prompt": "great! what will the child draw tomorrow?", "response": "tomorrow the child will draw the sun."}
+{"prompt": "great! what will the girl eat tomorrow?", "response": "tomorrow the girl will eat the apple."}
+{"prompt": "great! the dog ate yesterday, and tomorrow?", "response": "tomorrow the dog will eat."}
+{"prompt": "great! the cat slept yesterday, and tomorrow?", "response": "tomorrow the cat will sleep."}
+{"prompt": "great! the girl sang yesterday, and tomorrow?", "response": "tomorrow the girl will sing."}
+{"prompt": "great! the boy played yesterday, and tomorrow?", "response": "tomorrow the boy will play."}
+{"prompt": "great! tell me the three days of the cat", "response": "today it sleeps, yesterday it slept, tomorrow it will sleep."}
+{"prompt": "great! tell me the three days of the dog", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "great! tell me the three days of the fish", "response": "today it swims, yesterday it swam, tomorrow it will swim."}
+{"prompt": "great! tell me the three days of the bird", "response": "today it flies, yesterday it flew, tomorrow it will fly."}
+{"prompt": "great! tell me the three days of the horse", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "great! tell me the three days of the cow", "response": "today it eats, yesterday it ate, tomorrow it will eat."}
+{"prompt": "great! tell me the three days of the wolf", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "great! tell me the three days of the mouse", "response": "today it runs, yesterday it ran, tomorrow it will run."}
+{"prompt": "great! tell me the three days of the bee", "response": "today it flies, yesterday it flew, tomorrow it will fly."}
+{"prompt": "great! tell me the three days of the mom", "response": "today she cooks, yesterday she cooked, tomorrow she will cook."}
+{"prompt": "great! tell me the three days of the dad", "response": "today he reads, yesterday he read, tomorrow he will read."}
+{"prompt": "great! tell me the three days of the boy", "response": "today he plays, yesterday he played, tomorrow he will play."}
+{"prompt": "great! tell me the three days of the girl", "response": "today she sings, yesterday she sang, tomorrow she will sing."}

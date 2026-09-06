@@ -1,0 +1,266 @@
+{"prompt": "what did the boy eat?", "response": "the boy ate the bread."}
+{"prompt": "what did the girl drink?", "response": "the girl drank the milk."}
+{"prompt": "what did the cat drink?", "response": "the cat drank the milk."}
+{"prompt": "what did the dog eat?", "response": "the dog ate the bread."}
+{"prompt": "what did the woman cook?", "response": "the woman cooked the soup."}
+{"prompt": "what did the man read?", "response": "the man read the book."}
+{"prompt": "what did the child open?", "response": "the child opened the door."}
+{"prompt": "what did the boy close?", "response": "the boy closed the window."}
+{"prompt": "what did the girl draw?", "response": "the girl drew the flower."}
+{"prompt": "what did the teacher read?", "response": "the teacher read the book."}
+{"prompt": "what did the friend help?", "response": "the friend helped the child."}
+{"prompt": "what did the baby drink?", "response": "the baby drank the milk."}
+{"prompt": "what did the mouse eat?", "response": "the mouse ate the cheese."}
+{"prompt": "what did the horse eat?", "response": "the horse ate the grass."}
+{"prompt": "what did the cow eat?", "response": "the cow ate the grass."}
+{"prompt": "what did the bird eat?", "response": "the bird ate the rice."}
+{"prompt": "what did the child eat?", "response": "the child ate the cake."}
+{"prompt": "what did the boy find?", "response": "the boy found the key."}
+{"prompt": "what did the girl find?", "response": "the girl found the ball."}
+{"prompt": "what did the man open?", "response": "the man opened the box."}
+{"prompt": "what did the woman open?", "response": "the woman opened the window."}
+{"prompt": "what did the child draw?", "response": "the child drew the sun."}
+{"prompt": "what did the girl eat?", "response": "the girl ate the apple."}
+{"prompt": "why did the dog eat?", "response": "it ate because it was hungry."}
+{"prompt": "why did the cat sleep?", "response": "it slept because it was tired."}
+{"prompt": "why did the girl drink?", "response": "she drank because she was thirsty."}
+{"prompt": "why did the boy play?", "response": "he played because he was happy."}
+{"prompt": "why did the man work?", "response": "he worked because he was strong."}
+{"prompt": "tell me about the dog", "response": "the dog is hungry and eats the bread."}
+{"prompt": "tell me about the cat", "response": "the cat is tired and sleeps in the house."}
+{"prompt": "tell me about the girl", "response": "the girl is happy and sings in the garden."}
+{"prompt": "tell me about the bird", "response": "the bird is fast and flies in the sky."}
+{"prompt": "tell me about the boy", "response": "the boy is hungry and eats the cake."}
+{"prompt": "who is hungry?", "response": "the dog is hungry."}
+{"prompt": "who is tired?", "response": "the cat is tired."}
+{"prompt": "who is happy?", "response": "the girl is happy."}
+{"prompt": "who is fast?", "response": "the bird is fast."}
+{"prompt": "who eats the cake?", "response": "the boy eats the cake."}
+{"prompt": "again. what did the boy eat?", "response": "the boy ate the bread."}
+{"prompt": "again. what did the girl drink?", "response": "the girl drank the milk."}
+{"prompt": "again. what did the cat drink?", "response": "the cat drank the milk."}
+{"prompt": "again. what did the dog eat?", "response": "the dog ate the bread."}
+{"prompt": "again. what did the woman cook?", "response": "the woman cooked the soup."}
+{"prompt": "again. what did the man read?", "response": "the man read the book."}
+{"prompt": "again. what did the child open?", "response": "the child opened the door."}
+{"prompt": "again. what did the boy close?", "response": "the boy closed the window."}
+{"prompt": "again. what did the girl draw?", "response": "the girl drew the flower."}
+{"prompt": "again. what did the teacher read?", "response": "the teacher read the book."}
+{"prompt": "again. what did the friend help?", "response": "the friend helped the child."}
+{"prompt": "again. what did the baby drink?", "response": "the baby drank the milk."}
+{"prompt": "again. what did the mouse eat?", "response": "the mouse ate the cheese."}
+{"prompt": "again. what did the horse eat?", "response": "the horse ate the grass."}
+{"prompt": "again. what did the cow eat?", "response": "the cow ate the grass."}
+{"prompt": "again. what did the bird eat?", "response": "the bird ate the rice."}
+{"prompt": "again. what did the child eat?", "response": "the child ate the cake."}
+{"prompt": "again. what did the boy find?", "response": "the boy found the key."}
+{"prompt": "again. what did the girl find?", "response": "the girl found the ball."}
+{"prompt": "again. what did the man open?", "response": "the man opened the box."}
+{"prompt": "again. what did the woman open?", "response": "the woman opened the window."}
+{"prompt": "again. what did the child draw?", "response": "the child drew the sun."}
+{"prompt": "again. what did the girl eat?", "response": "the girl ate the apple."}
+{"prompt": "again. why did the dog eat?", "response": "it ate because it was hungry."}
+{"prompt": "again. why did the cat sleep?", "response": "it slept because it was tired."}
+{"prompt": "again. why did the girl drink?", "response": "she drank because she was thirsty."}
+{"prompt": "again. why did the boy play?", "response": "he played because he was happy."}
+{"prompt": "again. why did the man work?", "response": "he worked because he was strong."}
+{"prompt": "again. tell me about the dog", "response": "the dog is hungry and eats the bread."}
+{"prompt": "again. tell me about the cat", "response": "the cat is tired and sleeps in the house."}
+{"prompt": "again. tell me about the girl", "response": "the girl is happy and sings in the garden."}
+{"prompt": "again. tell me about the bird", "response": "the bird is fast and flies in the sky."}
+{"prompt": "again. tell me about the boy", "response": "the boy is hungry and eats the cake."}
+{"prompt": "again. who is hungry?", "response": "the dog is hungry."}
+{"prompt": "again. who is tired?", "response": "the cat is tired."}
+{"prompt": "again. who is happy?", "response": "the girl is happy."}
+{"prompt": "again. who is fast?", "response": "the bird is fast."}
+{"prompt": "again. who eats the cake?", "response": "the boy eats the cake."}
+{"prompt": "good! what did the boy eat?", "response": "the boy ate the bread."}
+{"prompt": "good! what did the girl drink?", "response": "the girl drank the milk."}
+{"prompt": "good! what did the cat drink?", "response": "the cat drank the milk."}
+{"prompt": "good! what did the dog eat?", "response": "the dog ate the bread."}
+{"prompt": "good! what did the woman cook?", "response": "the woman cooked the soup."}
+{"prompt": "good! what did the man read?", "response": "the man read the book."}
+{"prompt": "good! what did the child open?", "response": "the child opened the door."}
+{"prompt": "good! what did the boy close?", "response": "the boy closed the window."}
+{"prompt": "good! what did the girl draw?", "response": "the girl drew the flower."}
+{"prompt": "good! what did the teacher read?", "response": "the teacher read the book."}
+{"prompt": "good! what did the friend help?", "response": "the friend helped the child."}
+{"prompt": "good! what did the baby drink?", "response": "the baby drank the milk."}
+{"prompt": "good! what did the mouse eat?", "response": "the mouse ate the cheese."}
+{"prompt": "good! what did the horse eat?", "response": "the horse ate the grass."}
+{"prompt": "good! what did the cow eat?", "response": "the cow ate the grass."}
+{"prompt": "good! what did the bird eat?", "response": "the bird ate the rice."}
+{"prompt": "good! what did the child eat?", "response": "the child ate the cake."}
+{"prompt": "good! what did the boy find?", "response": "the boy found the key."}
+{"prompt": "good! what did the girl find?", "response": "the girl found the ball."}
+{"prompt": "good! what did the man open?", "response": "the man opened the box."}
+{"prompt": "good! what did the woman open?", "response": "the woman opened the window."}
+{"prompt": "good! what did the child draw?", "response": "the child drew the sun."}
+{"prompt": "good! what did the girl eat?", "response": "the girl ate the apple."}
+{"prompt": "good! why did the dog eat?", "response": "it ate because it was hungry."}
+{"prompt": "good! why did the cat sleep?", "response": "it slept because it was tired."}
+{"prompt": "good! why did the girl drink?", "response": "she drank because she was thirsty."}
+{"prompt": "good! why did the boy play?", "response": "he played because he was happy."}
+{"prompt": "good! why did the man work?", "response": "he worked because he was strong."}
+{"prompt": "good! tell me about the dog", "response": "the dog is hungry and eats the bread."}
+{"prompt": "good! tell me about the cat", "response": "the cat is tired and sleeps in the house."}
+{"prompt": "good! tell me about the girl", "response": "the girl is happy and sings in the garden."}
+{"prompt": "good! tell me about the bird", "response": "the bird is fast and flies in the sky."}
+{"prompt": "good! tell me about the boy", "response": "the boy is hungry and eats the cake."}
+{"prompt": "good! who is hungry?", "response": "the dog is hungry."}
+{"prompt": "good! who is tired?", "response": "the cat is tired."}
+{"prompt": "good! who is happy?", "response": "the girl is happy."}
+{"prompt": "good! who is fast?", "response": "the bird is fast."}
+{"prompt": "good! who eats the cake?", "response": "the boy eats the cake."}
+{"prompt": "well done! what did the boy eat?", "response": "the boy ate the bread."}
+{"prompt": "well done! what did the girl drink?", "response": "the girl drank the milk."}
+{"prompt": "well done! what did the cat drink?", "response": "the cat drank the milk."}
+{"prompt": "well done! what did the dog eat?", "response": "the dog ate the bread."}
+{"prompt": "well done! what did the woman cook?", "response": "the woman cooked the soup."}
+{"prompt": "well done! what did the man read?", "response": "the man read the book."}
+{"prompt": "well done! what did the child open?", "response": "the child opened the door."}
+{"prompt": "well done! what did the boy close?", "response": "the boy closed the window."}
+{"prompt": "well done! what did the girl draw?", "response": "the girl drew the flower."}
+{"prompt": "well done! what did the teacher read?", "response": "the teacher read the book."}
+{"prompt": "well done! what did the friend help?", "response": "the friend helped the child."}
+{"prompt": "well done! what did the baby drink?", "response": "the baby drank the milk."}
+{"prompt": "well done! what did the mouse eat?", "response": "the mouse ate the cheese."}
+{"prompt": "well done! what did the horse eat?", "response": "the horse ate the grass."}
+{"prompt": "well done! what did the cow eat?", "response": "the cow ate the grass."}
+{"prompt": "well done! what did the bird eat?", "response": "the bird ate the rice."}
+{"prompt": "well done! what did the child eat?", "response": "the child ate the cake."}
+{"prompt": "well done! what did the boy find?", "response": "the boy found the key."}
+{"prompt": "well done! what did the girl find?", "response": "the girl found the ball."}
+{"prompt": "well done! what did the man open?", "response": "the man opened the box."}
+{"prompt": "well done! what did the woman open?", "response": "the woman opened the window."}
+{"prompt": "well done! what did the child draw?", "response": "the child drew the sun."}
+{"prompt": "well done! what did the girl eat?", "response": "the girl ate the apple."}
+{"prompt": "well done! why did the dog eat?", "response": "it ate because it was hungry."}
+{"prompt": "well done! why did the cat sleep?", "response": "it slept because it was tired."}
+{"prompt": "well done! why did the girl drink?", "response": "she drank because she was thirsty."}
+{"prompt": "well done! why did the boy play?", "response": "he played because he was happy."}
+{"prompt": "well done! why did the man work?", "response": "he worked because he was strong."}
+{"prompt": "well done! tell me about the dog", "response": "the dog is hungry and eats the bread."}
+{"prompt": "well done! tell me about the cat", "response": "the cat is tired and sleeps in the house."}
+{"prompt": "well done! tell me about the girl", "response": "the girl is happy and sings in the garden."}
+{"prompt": "well done! tell me about the bird", "response": "the bird is fast and flies in the sky."}
+{"prompt": "well done! tell me about the boy", "response": "the boy is hungry and eats the cake."}
+{"prompt": "well done! who is hungry?", "response": "the dog is hungry."}
+{"prompt": "well done! who is tired?", "response": "the cat is tired."}
+{"prompt": "well done! who is happy?", "response": "the girl is happy."}
+{"prompt": "well done! who is fast?", "response": "the bird is fast."}
+{"prompt": "well done! who eats the cake?", "response": "the boy eats the cake."}
+{"prompt": "very good! what did the boy eat?", "response": "the boy ate the bread."}
+{"prompt": "very good! what did the girl drink?", "response": "the girl drank the milk."}
+{"prompt": "very good! what did the cat drink?", "response": "the cat drank the milk."}
+{"prompt": "very good! what did the dog eat?", "response": "the dog ate the bread."}
+{"prompt": "very good! what did the woman cook?", "response": "the woman cooked the soup."}
+{"prompt": "very good! what did the man read?", "response": "the man read the book."}
+{"prompt": "very good! what did the child open?", "response": "the child opened the door."}
+{"prompt": "very good! what did the boy close?", "response": "the boy closed the window."}
+{"prompt": "very good! what did the girl draw?", "response": "the girl drew the flower."}
+{"prompt": "very good! what did the teacher read?", "response": "the teacher read the book."}
+{"prompt": "very good! what did the friend help?", "response": "the friend helped the child."}
+{"prompt": "very good! what did the baby drink?", "response": "the baby drank the milk."}
+{"prompt": "very good! what did the mouse eat?", "response": "the mouse ate the cheese."}
+{"prompt": "very good! what did the horse eat?", "response": "the horse ate the grass."}
+{"prompt": "very good! what did the cow eat?", "response": "the cow ate the grass."}
+{"prompt": "very good! what did the bird eat?", "response": "the bird ate the rice."}
+{"prompt": "very good! what did the child eat?", "response": "the child ate the cake."}
+{"prompt": "very good! what did the boy find?", "response": "the boy found the key."}
+{"prompt": "very good! what did the girl find?", "response": "the girl found the ball."}
+{"prompt": "very good! what did the man open?", "response": "the man opened the box."}
+{"prompt": "very good! what did the woman open?", "response": "the woman opened the window."}
+{"prompt": "very good! what did the child draw?", "response": "the child drew the sun."}
+{"prompt": "very good! what did the girl eat?", "response": "the girl ate the apple."}
+{"prompt": "very good! why did the dog eat?", "response": "it ate because it was hungry."}
+{"prompt": "very good! why did the cat sleep?", "response": "it slept because it was tired."}
+{"prompt": "very good! why did the girl drink?", "response": "she drank because she was thirsty."}
+{"prompt": "very good! why did the boy play?", "response": "he played because he was happy."}
+{"prompt": "very good! why did the man work?", "response": "he worked because he was strong."}
+{"prompt": "very good! tell me about the dog", "response": "the dog is hungry and eats the bread."}
+{"prompt": "very good! tell me about the cat", "response": "the cat is tired and sleeps in the house."}
+{"prompt": "very good! tell me about the girl", "response": "the girl is happy and sings in the garden."}
+{"prompt": "very good! tell me about the bird", "response": "the bird is fast and flies in the sky."}
+{"prompt": "very good! tell me about the boy", "response": "the boy is hungry and eats the cake."}
+{"prompt": "very good! who is hungry?", "response": "the dog is hungry."}
+{"prompt": "very good! who is tired?", "response": "the cat is tired."}
+{"prompt": "very good! who is happy?", "response": "the girl is happy."}
+{"prompt": "very good! who is fast?", "response": "the bird is fast."}
+{"prompt": "very good! who eats the cake?", "response": "the boy eats the cake."}
+{"prompt": "great! what did the boy eat?", "response": "the boy ate the bread."}
+{"prompt": "great! what did the girl drink?", "response": "the girl drank the milk."}
+{"prompt": "great! what did the cat drink?", "response": "the cat drank the milk."}
+{"prompt": "great! what did the dog eat?", "response": "the dog ate the bread."}
+{"prompt": "great! what did the woman cook?", "response": "the woman cooked the soup."}
+{"prompt": "great! what did the man read?", "response": "the man read the book."}
+{"prompt": "great! what did the child open?", "response": "the child opened the door."}
+{"prompt": "great! what did the boy close?", "response": "the boy closed the window."}
+{"prompt": "great! what did the girl draw?", "response": "the girl drew the flower."}
+{"prompt": "great! what did the teacher read?", "response": "the teacher read the book."}
+{"prompt": "great! what did the friend help?", "response": "the friend helped the child."}
+{"prompt": "great! what did the baby drink?", "response": "the baby drank the milk."}
+{"prompt": "great! what did the mouse eat?", "response": "the mouse ate the cheese."}
+{"prompt": "great! what did the horse eat?", "response": "the horse ate the grass."}
+{"prompt": "great! what did the cow eat?", "response": "the cow ate the grass."}
+{"prompt": "great! what did the bird eat?", "response": "the bird ate the rice."}
+{"prompt": "great! what did the child eat?", "response": "the child ate the cake."}
+{"prompt": "great! what did the boy find?", "response": "the boy found the key."}
+{"prompt": "great! what did the girl find?", "response": "the girl found the ball."}
+{"prompt": "great! what did the man open?", "response": "the man opened the box."}
+{"prompt": "great! what did the woman open?", "response": "the woman opened the window."}
+{"prompt": "great! what did the child draw?", "response": "the child drew the sun."}
+{"prompt": "great! what did the girl eat?", "response": "the girl ate the apple."}
+{"prompt": "great! why did the dog eat?", "response": "it ate because it was hungry."}
+{"prompt": "great! why did the cat sleep?", "response": "it slept because it was tired."}
+{"prompt": "great! why did the girl drink?", "response": "she drank because she was thirsty."}
+{"prompt": "great! why did the boy play?", "response": "he played because he was happy."}
+{"prompt": "great! why did the man work?", "response": "he worked because he was strong."}
+{"prompt": "great! tell me about the dog", "response": "the dog is hungry and eats the bread."}
+{"prompt": "great! tell me about the cat", "response": "the cat is tired and sleeps in the house."}
+{"prompt": "great! tell me about the girl", "response": "the girl is happy and sings in the garden."}
+{"prompt": "great! tell me about the bird", "response": "the bird is fast and flies in the sky."}
+{"prompt": "great! tell me about the boy", "response": "the boy is hungry and eats the cake."}
+{"prompt": "great! who is hungry?", "response": "the dog is hungry."}
+{"prompt": "great! who is tired?", "response": "the cat is tired."}
+{"prompt": "great! who is happy?", "response": "the girl is happy."}
+{"prompt": "great! who is fast?", "response": "the bird is fast."}
+{"prompt": "great! who eats the cake?", "response": "the boy eats the cake."}
+{"prompt": "nice! what did the boy eat?", "response": "the boy ate the bread."}
+{"prompt": "nice! what did the girl drink?", "response": "the girl drank the milk."}
+{"prompt": "nice! what did the cat drink?", "response": "the cat drank the milk."}
+{"prompt": "nice! what did the dog eat?", "response": "the dog ate the bread."}
+{"prompt": "nice! what did the woman cook?", "response": "the woman cooked the soup."}
+{"prompt": "nice! what did the man read?", "response": "the man read the book."}
+{"prompt": "nice! what did the child open?", "response": "the child opened the door."}
+{"prompt": "nice! what did the boy close?", "response": "the boy closed the window."}
+{"prompt": "nice! what did the girl draw?", "response": "the girl drew the flower."}
+{"prompt": "nice! what did the teacher read?", "response": "the teacher read the book."}
+{"prompt": "nice! what did the friend help?", "response": "the friend helped the child."}
+{"prompt": "nice! what did the baby drink?", "response": "the baby drank the milk."}
+{"prompt": "nice! what did the mouse eat?", "response": "the mouse ate the cheese."}
+{"prompt": "nice! what did the horse eat?", "response": "the horse ate the grass."}
+{"prompt": "nice! what did the cow eat?", "response": "the cow ate the grass."}
+{"prompt": "nice! what did the bird eat?", "response": "the bird ate the rice."}
+{"prompt": "nice! what did the child eat?", "response": "the child ate the cake."}
+{"prompt": "nice! what did the boy find?", "response": "the boy found the key."}
+{"prompt": "nice! what did the girl find?", "response": "the girl found the ball."}
+{"prompt": "nice! what did the man open?", "response": "the man opened the box."}
+{"prompt": "nice! what did the woman open?", "response": "the woman opened the window."}
+{"prompt": "nice! what did the child draw?", "response": "the child drew the sun."}
+{"prompt": "nice! what did the girl eat?", "response": "the girl ate the apple."}
+{"prompt": "nice! why did the dog eat?", "response": "it ate because it was hungry."}
+{"prompt": "nice! why did the cat sleep?", "response": "it slept because it was tired."}
+{"prompt": "nice! why did the girl drink?", "response": "she drank because she was thirsty."}
+{"prompt": "nice! why did the boy play?", "response": "he played because he was happy."}
+{"prompt": "nice! why did the man work?", "response": "he worked because he was strong."}
+{"prompt": "nice! tell me about the dog", "response": "the dog is hungry and eats the bread."}
+{"prompt": "nice! tell me about the cat", "response": "the cat is tired and sleeps in the house."}
+{"prompt": "nice! tell me about the girl", "response": "the girl is happy and sings in the garden."}
+{"prompt": "nice! tell me about the bird", "response": "the bird is fast and flies in the sky."}
+{"prompt": "nice! tell me about the boy", "response": "the boy is hungry and eats the cake."}
+{"prompt": "nice! who is hungry?", "response": "the dog is hungry."}
+{"prompt": "nice! who is tired?", "response": "the cat is tired."}
+{"prompt": "nice! who is happy?", "response": "the girl is happy."}
+{"prompt": "nice! who is fast?", "response": "the bird is fast."}
+{"prompt": "nice! who eats the cake?", "response": "the boy eats the cake."}

@@ -1,0 +1,300 @@
+{"prompt": "is the cat small?", "response": "I think the cat is small because it is fast."}
+{"prompt": "is the dog big?", "response": "I think the dog is big because it is strong."}
+{"prompt": "is the fish small?", "response": "I think the fish is small because it is fast."}
+{"prompt": "is the bird fast?", "response": "I think the bird is fast because it is beautiful."}
+{"prompt": "is the horse strong?", "response": "I think the horse is strong because it is fast."}
+{"prompt": "is the cow big?", "response": "I think the cow is big because it is slow."}
+{"prompt": "is the wolf strong?", "response": "I think the wolf is strong because it is fast."}
+{"prompt": "is the mouse small?", "response": "I think the mouse is small because it is fast."}
+{"prompt": "is the bee fast?", "response": "I think the bee is fast because it is small."}
+{"prompt": "is the mom good?", "response": "I think the mom is good because it is strong."}
+{"prompt": "is the dad strong?", "response": "I think the dad is strong because it is good."}
+{"prompt": "is the boy happy?", "response": "I think the boy is happy because it is young."}
+{"prompt": "is the girl happy?", "response": "I think the girl is happy because it is young."}
+{"prompt": "is the baby small?", "response": "I think the baby is small because it is young."}
+{"prompt": "is the child young?", "response": "I think the child is young because it is happy."}
+{"prompt": "is the friend good?", "response": "I think the friend is good because it is happy."}
+{"prompt": "is the man tall?", "response": "I think the man is tall because it is strong."}
+{"prompt": "is the woman young?", "response": "I think the woman is young because it is good."}
+{"prompt": "is the teacher good?", "response": "I think the teacher is good because it is old."}
+{"prompt": "is the sun hot?", "response": "I think the sun is hot because it is beautiful."}
+{"prompt": "is the moon white?", "response": "I think the moon is white because it is beautiful."}
+{"prompt": "is the star beautiful?", "response": "I think the star is beautiful because it is white."}
+{"prompt": "is the tree tall?", "response": "I think the tree is tall because it is green."}
+{"prompt": "is the flower beautiful?", "response": "I think the flower is beautiful because it is red."}
+{"prompt": "is the sea cold?", "response": "I think the sea is cold because it is big."}
+{"prompt": "is the house big?", "response": "I think the house is big because it is new."}
+{"prompt": "two reasons: why do you like the cat?", "response": "the cat is small and fast, so I like it."}
+{"prompt": "two reasons: why do you like the dog?", "response": "the dog is big and strong, so I like it."}
+{"prompt": "two reasons: why do you like the fish?", "response": "the fish is small and fast, so I like it."}
+{"prompt": "two reasons: why do you like the bird?", "response": "the bird is fast and beautiful, so I like it."}
+{"prompt": "two reasons: why do you like the horse?", "response": "the horse is strong and fast, so I like it."}
+{"prompt": "two reasons: why do you like the cow?", "response": "the cow is big and slow, so I like it."}
+{"prompt": "two reasons: why do you like the wolf?", "response": "the wolf is strong and fast, so I like it."}
+{"prompt": "two reasons: why do you like the mouse?", "response": "the mouse is small and fast, so I like it."}
+{"prompt": "two reasons: why do you like the bee?", "response": "the bee is fast and small, so I like it."}
+{"prompt": "two reasons: why do you like the mom?", "response": "the mom is good and strong, so I like it."}
+{"prompt": "two reasons: why do you like the dad?", "response": "the dad is strong and good, so I like it."}
+{"prompt": "two reasons: why do you like the boy?", "response": "the boy is happy and young, so I like it."}
+{"prompt": "two reasons: why do you like the girl?", "response": "the girl is happy and young, so I like it."}
+{"prompt": "two reasons: why do you like the baby?", "response": "the baby is small and young, so I like it."}
+{"prompt": "two reasons: why do you like the child?", "response": "the child is young and happy, so I like it."}
+{"prompt": "two reasons: why do you like the friend?", "response": "the friend is good and happy, so I like it."}
+{"prompt": "two reasons: why do you like the man?", "response": "the man is tall and strong, so I like it."}
+{"prompt": "two reasons: why do you like the woman?", "response": "the woman is young and good, so I like it."}
+{"prompt": "two reasons: why do you like the teacher?", "response": "the teacher is good and old, so I like it."}
+{"prompt": "two reasons: why do you like the sun?", "response": "the sun is hot and beautiful, so I like it."}
+{"prompt": "say another way to say beautiful", "response": "beautiful is like saying lovely."}
+{"prompt": "say another way to say big", "response": "big is like saying huge."}
+{"prompt": "say another way to say small", "response": "small is like saying tiny."}
+{"prompt": "say another way to say fast", "response": "fast is like saying quick."}
+{"prompt": "the dog is hungry, what will it do?", "response": "the dog is hungry, so it will eat the bread."}
+{"prompt": "the cat is tired, what will it do?", "response": "the cat is tired, so it will sleep in the house."}
+{"prompt": "the girl is happy, what will she do?", "response": "the girl is happy, so she will sing in the garden."}
+{"prompt": "the boy is thirsty, what will he do?", "response": "the boy is thirsty, so he will drink the milk."}
+{"prompt": "again. is the cat small?", "response": "I think the cat is small because it is fast."}
+{"prompt": "again. is the dog big?", "response": "I think the dog is big because it is strong."}
+{"prompt": "again. is the fish small?", "response": "I think the fish is small because it is fast."}
+{"prompt": "again. is the bird fast?", "response": "I think the bird is fast because it is beautiful."}
+{"prompt": "again. is the horse strong?", "response": "I think the horse is strong because it is fast."}
+{"prompt": "again. is the cow big?", "response": "I think the cow is big because it is slow."}
+{"prompt": "again. is the wolf strong?", "response": "I think the wolf is strong because it is fast."}
+{"prompt": "again. is the mouse small?", "response": "I think the mouse is small because it is fast."}
+{"prompt": "again. is the bee fast?", "response": "I think the bee is fast because it is small."}
+{"prompt": "again. is the mom good?", "response": "I think the mom is good because it is strong."}
+{"prompt": "again. is the dad strong?", "response": "I think the dad is strong because it is good."}
+{"prompt": "again. is the boy happy?", "response": "I think the boy is happy because it is young."}
+{"prompt": "again. is the girl happy?", "response": "I think the girl is happy because it is young."}
+{"prompt": "again. is the baby small?", "response": "I think the baby is small because it is young."}
+{"prompt": "again. is the child young?", "response": "I think the child is young because it is happy."}
+{"prompt": "again. is the friend good?", "response": "I think the friend is good because it is happy."}
+{"prompt": "again. is the man tall?", "response": "I think the man is tall because it is strong."}
+{"prompt": "again. is the woman young?", "response": "I think the woman is young because it is good."}
+{"prompt": "again. is the teacher good?", "response": "I think the teacher is good because it is old."}
+{"prompt": "again. is the sun hot?", "response": "I think the sun is hot because it is beautiful."}
+{"prompt": "again. is the moon white?", "response": "I think the moon is white because it is beautiful."}
+{"prompt": "again. is the star beautiful?", "response": "I think the star is beautiful because it is white."}
+{"prompt": "again. is the tree tall?", "response": "I think the tree is tall because it is green."}
+{"prompt": "again. is the flower beautiful?", "response": "I think the flower is beautiful because it is red."}
+{"prompt": "again. is the sea cold?", "response": "I think the sea is cold because it is big."}
+{"prompt": "again. is the house big?", "response": "I think the house is big because it is new."}
+{"prompt": "again. two reasons: why do you like the cat?", "response": "the cat is small and fast, so I like it."}
+{"prompt": "again. two reasons: why do you like the dog?", "response": "the dog is big and strong, so I like it."}
+{"prompt": "again. two reasons: why do you like the fish?", "response": "the fish is small and fast, so I like it."}
+{"prompt": "again. two reasons: why do you like the bird?", "response": "the bird is fast and beautiful, so I like it."}
+{"prompt": "again. two reasons: why do you like the horse?", "response": "the horse is strong and fast, so I like it."}
+{"prompt": "again. two reasons: why do you like the cow?", "response": "the cow is big and slow, so I like it."}
+{"prompt": "again. two reasons: why do you like the wolf?", "response": "the wolf is strong and fast, so I like it."}
+{"prompt": "again. two reasons: why do you like the mouse?", "response": "the mouse is small and fast, so I like it."}
+{"prompt": "again. two reasons: why do you like the bee?", "response": "the bee is fast and small, so I like it."}
+{"prompt": "again. two reasons: why do you like the mom?", "response": "the mom is good and strong, so I like it."}
+{"prompt": "again. two reasons: why do you like the dad?", "response": "the dad is strong and good, so I like it."}
+{"prompt": "again. two reasons: why do you like the boy?", "response": "the boy is happy and young, so I like it."}
+{"prompt": "again. two reasons: why do you like the girl?", "response": "the girl is happy and young, so I like it."}
+{"prompt": "again. two reasons: why do you like the baby?", "response": "the baby is small and young, so I like it."}
+{"prompt": "again. two reasons: why do you like the child?", "response": "the child is young and happy, so I like it."}
+{"prompt": "again. two reasons: why do you like the friend?", "response": "the friend is good and happy, so I like it."}
+{"prompt": "again. two reasons: why do you like the man?", "response": "the man is tall and strong, so I like it."}
+{"prompt": "again. two reasons: why do you like the woman?", "response": "the woman is young and good, so I like it."}
+{"prompt": "again. two reasons: why do you like the teacher?", "response": "the teacher is good and old, so I like it."}
+{"prompt": "again. two reasons: why do you like the sun?", "response": "the sun is hot and beautiful, so I like it."}
+{"prompt": "again. say another way to say beautiful", "response": "beautiful is like saying lovely."}
+{"prompt": "again. say another way to say big", "response": "big is like saying huge."}
+{"prompt": "again. say another way to say small", "response": "small is like saying tiny."}
+{"prompt": "again. say another way to say fast", "response": "fast is like saying quick."}
+{"prompt": "again. the dog is hungry, what will it do?", "response": "the dog is hungry, so it will eat the bread."}
+{"prompt": "again. the cat is tired, what will it do?", "response": "the cat is tired, so it will sleep in the house."}
+{"prompt": "again. the girl is happy, what will she do?", "response": "the girl is happy, so she will sing in the garden."}
+{"prompt": "again. the boy is thirsty, what will he do?", "response": "the boy is thirsty, so he will drink the milk."}
+{"prompt": "good! is the cat small?", "response": "I think the cat is small because it is fast."}
+{"prompt": "good! is the dog big?", "response": "I think the dog is big because it is strong."}
+{"prompt": "good! is the fish small?", "response": "I think the fish is small because it is fast."}
+{"prompt": "good! is the bird fast?", "response": "I think the bird is fast because it is beautiful."}
+{"prompt": "good! is the horse strong?", "response": "I think the horse is strong because it is fast."}
+{"prompt": "good! is the cow big?", "response": "I think the cow is big because it is slow."}
+{"prompt": "good! is the wolf strong?", "response": "I think the wolf is strong because it is fast."}
+{"prompt": "good! is the mouse small?", "response": "I think the mouse is small because it is fast."}
+{"prompt": "good! is the bee fast?", "response": "I think the bee is fast because it is small."}
+{"prompt": "good! is the mom good?", "response": "I think the mom is good because it is strong."}
+{"prompt": "good! is the dad strong?", "response": "I think the dad is strong because it is good."}
+{"prompt": "good! is the boy happy?", "response": "I think the boy is happy because it is young."}
+{"prompt": "good! is the girl happy?", "response": "I think the girl is happy because it is young."}
+{"prompt": "good! is the baby small?", "response": "I think the baby is small because it is young."}
+{"prompt": "good! is the child young?", "response": "I think the child is young because it is happy."}
+{"prompt": "good! is the friend good?", "response": "I think the friend is good because it is happy."}
+{"prompt": "good! is the man tall?", "response": "I think the man is tall because it is strong."}
+{"prompt": "good! is the woman young?", "response": "I think the woman is young because it is good."}
+{"prompt": "good! is the teacher good?", "response": "I think the teacher is good because it is old."}
+{"prompt": "good! is the sun hot?", "response": "I think the sun is hot because it is beautiful."}
+{"prompt": "good! is the moon white?", "response": "I think the moon is white because it is beautiful."}
+{"prompt": "good! is the star beautiful?", "response": "I think the star is beautiful because it is white."}
+{"prompt": "good! is the tree tall?", "response": "I think the tree is tall because it is green."}
+{"prompt": "good! is the flower beautiful?", "response": "I think the flower is beautiful because it is red."}
+{"prompt": "good! is the sea cold?", "response": "I think the sea is cold because it is big."}
+{"prompt": "good! is the house big?", "response": "I think the house is big because it is new."}
+{"prompt": "good! two reasons: why do you like the cat?", "response": "the cat is small and fast, so I like it."}
+{"prompt": "good! two reasons: why do you like the dog?", "response": "the dog is big and strong, so I like it."}
+{"prompt": "good! two reasons: why do you like the fish?", "response": "the fish is small and fast, so I like it."}
+{"prompt": "good! two reasons: why do you like the bird?", "response": "the bird is fast and beautiful, so I like it."}
+{"prompt": "good! two reasons: why do you like the horse?", "response": "the horse is strong and fast, so I like it."}
+{"prompt": "good! two reasons: why do you like the cow?", "response": "the cow is big and slow, so I like it."}
+{"prompt": "good! two reasons: why do you like the wolf?", "response": "the wolf is strong and fast, so I like it."}
+{"prompt": "good! two reasons: why do you like the mouse?", "response": "the mouse is small and fast, so I like it."}
+{"prompt": "good! two reasons: why do you like the bee?", "response": "the bee is fast and small, so I like it."}
+{"prompt": "good! two reasons: why do you like the mom?", "response": "the mom is good and strong, so I like it."}
+{"prompt": "good! two reasons: why do you like the dad?", "response": "the dad is strong and good, so I like it."}
+{"prompt": "good! two reasons: why do you like the boy?", "response": "the boy is happy and young, so I like it."}
+{"prompt": "good! two reasons: why do you like the girl?", "response": "the girl is happy and young, so I like it."}
+{"prompt": "good! two reasons: why do you like the baby?", "response": "the baby is small and young, so I like it."}
+{"prompt": "good! two reasons: why do you like the child?", "response": "the child is young and happy, so I like it."}
+{"prompt": "good! two reasons: why do you like the friend?", "response": "the friend is good and happy, so I like it."}
+{"prompt": "good! two reasons: why do you like the man?", "response": "the man is tall and strong, so I like it."}
+{"prompt": "good! two reasons: why do you like the woman?", "response": "the woman is young and good, so I like it."}
+{"prompt": "good! two reasons: why do you like the teacher?", "response": "the teacher is good and old, so I like it."}
+{"prompt": "good! two reasons: why do you like the sun?", "response": "the sun is hot and beautiful, so I like it."}
+{"prompt": "good! say another way to say beautiful", "response": "beautiful is like saying lovely."}
+{"prompt": "good! say another way to say big", "response": "big is like saying huge."}
+{"prompt": "good! say another way to say small", "response": "small is like saying tiny."}
+{"prompt": "good! say another way to say fast", "response": "fast is like saying quick."}
+{"prompt": "good! the dog is hungry, what will it do?", "response": "the dog is hungry, so it will eat the bread."}
+{"prompt": "good! the cat is tired, what will it do?", "response": "the cat is tired, so it will sleep in the house."}
+{"prompt": "good! the girl is happy, what will she do?", "response": "the girl is happy, so she will sing in the garden."}
+{"prompt": "good! the boy is thirsty, what will he do?", "response": "the boy is thirsty, so he will drink the milk."}
+{"prompt": "well done! is the cat small?", "response": "I think the cat is small because it is fast."}
+{"prompt": "well done! is the dog big?", "response": "I think the dog is big because it is strong."}
+{"prompt": "well done! is the fish small?", "response": "I think the fish is small because it is fast."}
+{"prompt": "well done! is the bird fast?", "response": "I think the bird is fast because it is beautiful."}
+{"prompt": "well done! is the horse strong?", "response": "I think the horse is strong because it is fast."}
+{"prompt": "well done! is the cow big?", "response": "I think the cow is big because it is slow."}
+{"prompt": "well done! is the wolf strong?", "response": "I think the wolf is strong because it is fast."}
+{"prompt": "well done! is the mouse small?", "response": "I think the mouse is small because it is fast."}
+{"prompt": "well done! is the bee fast?", "response": "I think the bee is fast because it is small."}
+{"prompt": "well done! is the mom good?", "response": "I think the mom is good because it is strong."}
+{"prompt": "well done! is the dad strong?", "response": "I think the dad is strong because it is good."}
+{"prompt": "well done! is the boy happy?", "response": "I think the boy is happy because it is young."}
+{"prompt": "well done! is the girl happy?", "response": "I think the girl is happy because it is young."}
+{"prompt": "well done! is the baby small?", "response": "I think the baby is small because it is young."}
+{"prompt": "well done! is the child young?", "response": "I think the child is young because it is happy."}
+{"prompt": "well done! is the friend good?", "response": "I think the friend is good because it is happy."}
+{"prompt": "well done! is the man tall?", "response": "I think the man is tall because it is strong."}
+{"prompt": "well done! is the woman young?", "response": "I think the woman is young because it is good."}
+{"prompt": "well done! is the teacher good?", "response": "I think the teacher is good because it is old."}
+{"prompt": "well done! is the sun hot?", "response": "I think the sun is hot because it is beautiful."}
+{"prompt": "well done! is the moon white?", "response": "I think the moon is white because it is beautiful."}
+{"prompt": "well done! is the star beautiful?", "response": "I think the star is beautiful because it is white."}
+{"prompt": "well done! is the tree tall?", "response": "I think the tree is tall because it is green."}
+{"prompt": "well done! is the flower beautiful?", "response": "I think the flower is beautiful because it is red."}
+{"prompt": "well done! is the sea cold?", "response": "I think the sea is cold because it is big."}
+{"prompt": "well done! is the house big?", "response": "I think the house is big because it is new."}
+{"prompt": "well done! two reasons: why do you like the cat?", "response": "the cat is small and fast, so I like it."}
+{"prompt": "well done! two reasons: why do you like the dog?", "response": "the dog is big and strong, so I like it."}
+{"prompt": "well done! two reasons: why do you like the fish?", "response": "the fish is small and fast, so I like it."}
+{"prompt": "well done! two reasons: why do you like the bird?", "response": "the bird is fast and beautiful, so I like it."}
+{"prompt": "well done! two reasons: why do you like the horse?", "response": "the horse is strong and fast, so I like it."}
+{"prompt": "well done! two reasons: why do you like the cow?", "response": "the cow is big and slow, so I like it."}
+{"prompt": "well done! two reasons: why do you like the wolf?", "response": "the wolf is strong and fast, so I like it."}
+{"prompt": "well done! two reasons: why do you like the mouse?", "response": "the mouse is small and fast, so I like it."}
+{"prompt": "well done! two reasons: why do you like the bee?", "response": "the bee is fast and small, so I like it."}
+{"prompt": "well done! two reasons: why do you like the mom?", "response": "the mom is good and strong, so I like it."}
+{"prompt": "well done! two reasons: why do you like the dad?", "response": "the dad is strong and good, so I like it."}
+{"prompt": "well done! two reasons: why do you like the boy?", "response": "the boy is happy and young, so I like it."}
+{"prompt": "well done! two reasons: why do you like the girl?", "response": "the girl is happy and young, so I like it."}
+{"prompt": "well done! two reasons: why do you like the baby?", "response": "the baby is small and young, so I like it."}
+{"prompt": "well done! two reasons: why do you like the child?", "response": "the child is young and happy, so I like it."}
+{"prompt": "well done! two reasons: why do you like the friend?", "response": "the friend is good and happy, so I like it."}
+{"prompt": "well done! two reasons: why do you like the man?", "response": "the man is tall and strong, so I like it."}
+{"prompt": "well done! two reasons: why do you like the woman?", "response": "the woman is young and good, so I like it."}
+{"prompt": "well done! two reasons: why do you like the teacher?", "response": "the teacher is good and old, so I like it."}
+{"prompt": "well done! two reasons: why do you like the sun?", "response": "the sun is hot and beautiful, so I like it."}
+{"prompt": "well done! say another way to say beautiful", "response": "beautiful is like saying lovely."}
+{"prompt": "well done! say another way to say big", "response": "big is like saying huge."}
+{"prompt": "well done! say another way to say small", "response": "small is like saying tiny."}
+{"prompt": "well done! say another way to say fast", "response": "fast is like saying quick."}
+{"prompt": "well done! the dog is hungry, what will it do?", "response": "the dog is hungry, so it will eat the bread."}
+{"prompt": "well done! the cat is tired, what will it do?", "response": "the cat is tired, so it will sleep in the house."}
+{"prompt": "well done! the girl is happy, what will she do?", "response": "the girl is happy, so she will sing in the garden."}
+{"prompt": "well done! the boy is thirsty, what will he do?", "response": "the boy is thirsty, so he will drink the milk."}
+{"prompt": "very good! is the cat small?", "response": "I think the cat is small because it is fast."}
+{"prompt": "very good! is the dog big?", "response": "I think the dog is big because it is strong."}
+{"prompt": "very good! is the fish small?", "response": "I think the fish is small because it is fast."}
+{"prompt": "very good! is the bird fast?", "response": "I think the bird is fast because it is beautiful."}
+{"prompt": "very good! is the horse strong?", "response": "I think the horse is strong because it is fast."}
+{"prompt": "very good! is the cow big?", "response": "I think the cow is big because it is slow."}
+{"prompt": "very good! is the wolf strong?", "response": "I think the wolf is strong because it is fast."}
+{"prompt": "very good! is the mouse small?", "response": "I think the mouse is small because it is fast."}
+{"prompt": "very good! is the bee fast?", "response": "I think the bee is fast because it is small."}
+{"prompt": "very good! is the mom good?", "response": "I think the mom is good because it is strong."}
+{"prompt": "very good! is the dad strong?", "response": "I think the dad is strong because it is good."}
+{"prompt": "very good! is the boy happy?", "response": "I think the boy is happy because it is young."}
+{"prompt": "very good! is the girl happy?", "response": "I think the girl is happy because it is young."}
+{"prompt": "very good! is the baby small?", "response": "I think the baby is small because it is young."}
+{"prompt": "very good! is the child young?", "response": "I think the child is young because it is happy."}
+{"prompt": "very good! is the friend good?", "response": "I think the friend is good because it is happy."}
+{"prompt": "very good! is the man tall?", "response": "I think the man is tall because it is strong."}
+{"prompt": "very good! is the woman young?", "response": "I think the woman is young because it is good."}
+{"prompt": "very good! is the teacher good?", "response": "I think the teacher is good because it is old."}
+{"prompt": "very good! is the sun hot?", "response": "I think the sun is hot because it is beautiful."}
+{"prompt": "very good! is the moon white?", "response": "I think the moon is white because it is beautiful."}
+{"prompt": "very good! is the star beautiful?", "response": "I think the star is beautiful because it is white."}
+{"prompt": "very good! is the tree tall?", "response": "I think the tree is tall because it is green."}
+{"prompt": "very good! is the flower beautiful?", "response": "I think the flower is beautiful because it is red."}
+{"prompt": "very good! is the sea cold?", "response": "I think the sea is cold because it is big."}
+{"prompt": "very good! is the house big?", "response": "I think the house is big because it is new."}
+{"prompt": "very good! two reasons: why do you like the cat?", "response": "the cat is small and fast, so I like it."}
+{"prompt": "very good! two reasons: why do you like the dog?", "response": "the dog is big and strong, so I like it."}
+{"prompt": "very good! two reasons: why do you like the fish?", "response": "the fish is small and fast, so I like it."}
+{"prompt": "very good! two reasons: why do you like the bird?", "response": "the bird is fast and beautiful, so I like it."}
+{"prompt": "very good! two reasons: why do you like the horse?", "response": "the horse is strong and fast, so I like it."}
+{"prompt": "very good! two reasons: why do you like the cow?", "response": "the cow is big and slow, so I like it."}
+{"prompt": "very good! two reasons: why do you like the wolf?", "response": "the wolf is strong and fast, so I like it."}
+{"prompt": "very good! two reasons: why do you like the mouse?", "response": "the mouse is small and fast, so I like it."}
+{"prompt": "very good! two reasons: why do you like the bee?", "response": "the bee is fast and small, so I like it."}
+{"prompt": "very good! two reasons: why do you like the mom?", "response": "the mom is good and strong, so I like it."}
+{"prompt": "very good! two reasons: why do you like the dad?", "response": "the dad is strong and good, so I like it."}
+{"prompt": "very good! two reasons: why do you like the boy?", "response": "the boy is happy and young, so I like it."}
+{"prompt": "very good! two reasons: why do you like the girl?", "response": "the girl is happy and young, so I like it."}
+{"prompt": "very good! two reasons: why do you like the baby?", "response": "the baby is small and young, so I like it."}
+{"prompt": "very good! two reasons: why do you like the child?", "response": "the child is young and happy, so I like it."}
+{"prompt": "very good! two reasons: why do you like the friend?", "response": "the friend is good and happy, so I like it."}
+{"prompt": "very good! two reasons: why do you like the man?", "response": "the man is tall and strong, so I like it."}
+{"prompt": "very good! two reasons: why do you like the woman?", "response": "the woman is young and good, so I like it."}
+{"prompt": "very good! two reasons: why do you like the teacher?", "response": "the teacher is good and old, so I like it."}
+{"prompt": "very good! two reasons: why do you like the sun?", "response": "the sun is hot and beautiful, so I like it."}
+{"prompt": "very good! say another way to say beautiful", "response": "beautiful is like saying lovely."}
+{"prompt": "very good! say another way to say big", "response": "big is like saying huge."}
+{"prompt": "very good! say another way to say small", "response": "small is like saying tiny."}
+{"prompt": "very good! say another way to say fast", "response": "fast is like saying quick."}
+{"prompt": "very good! the dog is hungry, what will it do?", "response": "the dog is hungry, so it will eat the bread."}
+{"prompt": "very good! the cat is tired, what will it do?", "response": "the cat is tired, so it will sleep in the house."}
+{"prompt": "very good! the girl is happy, what will she do?", "response": "the girl is happy, so she will sing in the garden."}
+{"prompt": "very good! the boy is thirsty, what will he do?", "response": "the boy is thirsty, so he will drink the milk."}
+{"prompt": "great! is the cat small?", "response": "I think the cat is small because it is fast."}
+{"prompt": "great! is the dog big?", "response": "I think the dog is big because it is strong."}
+{"prompt": "great! is the fish small?", "response": "I think the fish is small because it is fast."}
+{"prompt": "great! is the bird fast?", "response": "I think the bird is fast because it is beautiful."}
+{"prompt": "great! is the horse strong?", "response": "I think the horse is strong because it is fast."}
+{"prompt": "great! is the cow big?", "response": "I think the cow is big because it is slow."}
+{"prompt": "great! is the wolf strong?", "response": "I think the wolf is strong because it is fast."}
+{"prompt": "great! is the mouse small?", "response": "I think the mouse is small because it is fast."}
+{"prompt": "great! is the bee fast?", "response": "I think the bee is fast because it is small."}
+{"prompt": "great! is the mom good?", "response": "I think the mom is good because it is strong."}
+{"prompt": "great! is the dad strong?", "response": "I think the dad is strong because it is good."}
+{"prompt": "great! is the boy happy?", "response": "I think the boy is happy because it is young."}
+{"prompt": "great! is the girl happy?", "response": "I think the girl is happy because it is young."}
+{"prompt": "great! is the baby small?", "response": "I think the baby is small because it is young."}
+{"prompt": "great! is the child young?", "response": "I think the child is young because it is happy."}
+{"prompt": "great! is the friend good?", "response": "I think the friend is good because it is happy."}
+{"prompt": "great! is the man tall?", "response": "I think the man is tall because it is strong."}
+{"prompt": "great! is the woman young?", "response": "I think the woman is young because it is good."}
+{"prompt": "great! is the teacher good?", "response": "I think the teacher is good because it is old."}
+{"prompt": "great! is the sun hot?", "response": "I think the sun is hot because it is beautiful."}
+{"prompt": "great! is the moon white?", "response": "I think the moon is white because it is beautiful."}
+{"prompt": "great! is the star beautiful?", "response": "I think the star is beautiful because it is white."}
+{"prompt": "great! is the tree tall?", "response": "I think the tree is tall because it is green."}
+{"prompt": "great! is the flower beautiful?", "response": "I think the flower is beautiful because it is red."}
+{"prompt": "great! is the sea cold?", "response": "I think the sea is cold because it is big."}
+{"prompt": "great! is the house big?", "response": "I think the house is big because it is new."}
+{"prompt": "great! two reasons: why do you like the cat?", "response": "the cat is small and fast, so I like it."}
+{"prompt": "great! two reasons: why do you like the dog?", "response": "the dog is big and strong, so I like it."}
+{"prompt": "great! two reasons: why do you like the fish?", "response": "the fish is small and fast, so I like it."}
+{"prompt": "great! two reasons: why do you like the bird?", "response": "the bird is fast and beautiful, so I like it."}

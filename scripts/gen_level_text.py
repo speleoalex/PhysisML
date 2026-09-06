@@ -15,6 +15,7 @@ the qa_corpus generation in train_curriculum.py.
 
 Usage:
     python3 scripts/gen_level_text.py --level 11
+    python3 scripts/gen_level_text.py --lang en --level 6
     python3 scripts/gen_level_text.py --level 11 --check   # exit 1 if stale
 """
 import argparse
@@ -24,6 +25,9 @@ import random
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+from dynamic_model import language as language_mod   # noqa: E402
+
 SEED = 20260826          # fixed: the file is tracked, so the same config must
                          # always produce the same text on any machine
 
@@ -59,8 +63,11 @@ def main():
     a = ap.parse_args()
 
     text = build(a.lang, a.level, a.reps)
+    # The filename is the language's, not Italian: see language.py. Writing
+    # frasi_livello7.txt into training_files/en worked, and left an Italian
+    # word in the English curriculum for good.
     out = os.path.join(ROOT, "training_files", a.lang, str(a.level),
-                       f"frasi_livello{a.level}.txt")
+                       language_mod.load(a.lang).level_file("level_text", a.level))
 
     if a.check:
         have = open(out, encoding="utf-8").read() if os.path.exists(out) else ""
@@ -69,7 +76,8 @@ def main():
                   f"({len(text.splitlines())} lines)")
             return 0
         print(f"  L{a.level}: {os.path.basename(out)} STALE — regenerate with "
-              f"`python3 scripts/gen_level_text.py --level {a.level}`")
+              f"`python3 scripts/gen_level_text.py --lang {a.lang} "
+              f"--level {a.level}`")
         return 1
 
     with open(out, "w", encoding="utf-8") as f:

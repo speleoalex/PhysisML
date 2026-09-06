@@ -1,0 +1,582 @@
+{
+ "lang": "en",
+ "level": 8,
+ "description": "Eight years old — comparatives, preferences and reasons",
+ "quality_threshold": 0.3,
+ "quality_strong_min": 0.2,
+ "steps": {
+  "A": {
+   "description": "Comparing two things",
+   "targets": [
+    {
+     "prompt": "who is bigger, the dog or the cat?",
+     "expected": "the dog is bigger than the cat.",
+     "noun": "bigger",
+     "verb": "is"
+    },
+    {
+     "prompt": "who is bigger, the horse or the dog?",
+     "expected": "the horse is bigger than the dog.",
+     "noun": "bigger",
+     "verb": "is"
+    },
+    {
+     "prompt": "who is bigger, the cat or the mouse?",
+     "expected": "the cat is bigger than the mouse.",
+     "noun": "bigger",
+     "verb": "is"
+    },
+    {
+     "prompt": "who is taller, the man or the boy?",
+     "expected": "the man is taller than the boy.",
+     "noun": "taller",
+     "verb": "is"
+    },
+    {
+     "prompt": "what is taller, the tree or the flower?",
+     "expected": "the tree is taller than the flower.",
+     "noun": "taller",
+     "verb": "is"
+    },
+    {
+     "prompt": "what is hotter, the sun or the moon?",
+     "expected": "the sun is hotter than the moon.",
+     "noun": "hotter",
+     "verb": "is"
+    },
+    {
+     "prompt": "who is faster, the bird or the man?",
+     "expected": "the bird is faster than the man.",
+     "noun": "faster",
+     "verb": "is"
+    },
+    {
+     "prompt": "what is faster, the car or the horse?",
+     "expected": "the car is faster than the horse.",
+     "noun": "faster",
+     "verb": "is"
+    },
+    {
+     "prompt": "what is bigger, the sea or the park?",
+     "expected": "the sea is bigger than the park.",
+     "noun": "bigger",
+     "verb": "is"
+    },
+    {
+     "prompt": "what is longer, the road or the table?",
+     "expected": "the road is longer than the table.",
+     "noun": "longer",
+     "verb": "is"
+    },
+    {
+     "prompt": "what is sweeter, the cake or the bread?",
+     "expected": "the cake is sweeter than the bread.",
+     "noun": "sweeter",
+     "verb": "is"
+    },
+    {
+     "prompt": "what is sweeter, the honey or the apple?",
+     "expected": "the honey is sweeter than the apple.",
+     "noun": "sweeter",
+     "verb": "is"
+    },
+    {
+     "prompt": "what is colder, the snow or the water?",
+     "expected": "the snow is colder than the water.",
+     "noun": "colder",
+     "verb": "is"
+    },
+    {
+     "prompt": "what is hotter, the soup or the milk?",
+     "expected": "the soup is hotter than the milk.",
+     "noun": "hotter",
+     "verb": "is"
+    },
+    {
+     "prompt": "who is stronger, the wolf or the mouse?",
+     "expected": "the wolf is stronger than the mouse.",
+     "noun": "stronger",
+     "verb": "is"
+    },
+    {
+     "prompt": "who is stronger, the horse or the child?",
+     "expected": "the horse is stronger than the child.",
+     "noun": "stronger",
+     "verb": "is"
+    },
+    {
+     "prompt": "who is older, the woman or the baby?",
+     "expected": "the woman is older than the baby.",
+     "noun": "older",
+     "verb": "is"
+    },
+    {
+     "prompt": "who is younger, the baby or the child?",
+     "expected": "the baby is younger than the child.",
+     "noun": "younger",
+     "verb": "is"
+    },
+    {
+     "prompt": "what is bigger, the house or the box?",
+     "expected": "the house is bigger than the box.",
+     "noun": "bigger",
+     "verb": "is"
+    },
+    {
+     "prompt": "what is bigger, the city or the house?",
+     "expected": "the city is bigger than the house.",
+     "noun": "bigger",
+     "verb": "is"
+    },
+    {
+     "prompt": "what is more beautiful, the star or the lamp?",
+     "expected": "the star is more beautiful than the lamp.",
+     "noun": "more beautiful",
+     "verb": "is"
+    },
+    {
+     "prompt": "who is smaller, the bee or the cow?",
+     "expected": "the bee is smaller than the cow.",
+     "noun": "smaller",
+     "verb": "is"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 10,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "B": {
+   "description": "Saying what one likes",
+   "targets": [
+    {
+     "prompt": "what do you like to eat?",
+     "expected": "I like the bread.",
+     "noun": "bread"
+    },
+    {
+     "prompt": "what do you like to drink?",
+     "expected": "I like the milk.",
+     "noun": "milk"
+    },
+    {
+     "prompt": "what do you like to read?",
+     "expected": "I like the book.",
+     "noun": "book"
+    },
+    {
+     "prompt": "what do you like to draw?",
+     "expected": "I like the sun.",
+     "noun": "sun"
+    },
+    {
+     "prompt": "what do you like to cook?",
+     "expected": "I like the soup.",
+     "noun": "soup"
+    },
+    {
+     "prompt": "what animal do you like?",
+     "expected": "I like the cat.",
+     "noun": "cat"
+    },
+    {
+     "prompt": "what place do you like?",
+     "expected": "I like the garden.",
+     "noun": "garden"
+    },
+    {
+     "prompt": "what do you like in the sky?",
+     "expected": "I like the moon.",
+     "noun": "moon"
+    },
+    {
+     "prompt": "what food do you like?",
+     "expected": "I like the cake.",
+     "noun": "cake"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 6,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false
+  },
+  "C": {
+   "description": "The reason behind a preference",
+   "targets": [
+    {
+     "prompt": "why do you like the bread?",
+     "expected": "I like the bread because it is good.",
+     "noun": "good",
+     "adjective": "good"
+    },
+    {
+     "prompt": "why do you like the milk?",
+     "expected": "I like the milk because it is white.",
+     "noun": "white",
+     "adjective": "white"
+    },
+    {
+     "prompt": "why do you like the water?",
+     "expected": "I like the water because it is cold.",
+     "noun": "cold",
+     "adjective": "cold"
+    },
+    {
+     "prompt": "why do you like the apple?",
+     "expected": "I like the apple because it is red.",
+     "noun": "red",
+     "adjective": "red"
+    },
+    {
+     "prompt": "why do you like the egg?",
+     "expected": "I like the egg because it is white.",
+     "noun": "white",
+     "adjective": "white"
+    },
+    {
+     "prompt": "why do you like the cake?",
+     "expected": "I like the cake because it is sweet.",
+     "noun": "sweet",
+     "adjective": "sweet"
+    },
+    {
+     "prompt": "why do you like the cheese?",
+     "expected": "I like the cheese because it is good.",
+     "noun": "good",
+     "adjective": "good"
+    },
+    {
+     "prompt": "why do you like the honey?",
+     "expected": "I like the honey because it is sweet.",
+     "noun": "sweet",
+     "adjective": "sweet"
+    },
+    {
+     "prompt": "why do you like the rice?",
+     "expected": "I like the rice because it is hot.",
+     "noun": "hot",
+     "adjective": "hot"
+    },
+    {
+     "prompt": "why do you like the soup?",
+     "expected": "I like the soup because it is hot.",
+     "noun": "hot",
+     "adjective": "hot"
+    },
+    {
+     "prompt": "why do you like the book?",
+     "expected": "I like the book because it is new.",
+     "noun": "new",
+     "adjective": "new"
+    },
+    {
+     "prompt": "why do you like the ball?",
+     "expected": "I like the ball because it is red.",
+     "noun": "red",
+     "adjective": "red"
+    },
+    {
+     "prompt": "why do you like the car?",
+     "expected": "I like the car because it is fast.",
+     "noun": "fast",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "why do you like the table?",
+     "expected": "I like the table because it is long.",
+     "noun": "long",
+     "adjective": "long"
+    },
+    {
+     "prompt": "why do you like the chair?",
+     "expected": "I like the chair because it is small.",
+     "noun": "small",
+     "adjective": "small"
+    },
+    {
+     "prompt": "why do you like the door?",
+     "expected": "I like the door because it is old.",
+     "noun": "old",
+     "adjective": "old"
+    },
+    {
+     "prompt": "why do you like the window?",
+     "expected": "I like the window because it is small.",
+     "noun": "small",
+     "adjective": "small"
+    },
+    {
+     "prompt": "why do you like the bed?",
+     "expected": "I like the bed because it is new.",
+     "noun": "new",
+     "adjective": "new"
+    },
+    {
+     "prompt": "why do you like the lamp?",
+     "expected": "I like the lamp because it is small.",
+     "noun": "small",
+     "adjective": "small"
+    },
+    {
+     "prompt": "why do you like the key?",
+     "expected": "I like the key because it is small.",
+     "noun": "small",
+     "adjective": "small"
+    },
+    {
+     "prompt": "why do you like the house?",
+     "expected": "I like the house because it is big.",
+     "noun": "big",
+     "adjective": "big"
+    },
+    {
+     "prompt": "why do you like the school?",
+     "expected": "I like the school because it is new.",
+     "noun": "new",
+     "adjective": "new"
+    },
+    {
+     "prompt": "why do you like the park?",
+     "expected": "I like the park because it is big.",
+     "noun": "big",
+     "adjective": "big"
+    },
+    {
+     "prompt": "why do you like the garden?",
+     "expected": "I like the garden because it is beautiful.",
+     "noun": "beautiful",
+     "adjective": "beautiful"
+    },
+    {
+     "prompt": "why do you like the road?",
+     "expected": "I like the road because it is long.",
+     "noun": "long",
+     "adjective": "long"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 10,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": true
+  },
+  "D": {
+   "description": "A description with two adjectives",
+   "targets": [
+    {
+     "prompt": "describe the cat",
+     "expected": "the cat is small and fast.",
+     "noun": "fast",
+     "verb": "is",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "describe the dog",
+     "expected": "the dog is big and strong.",
+     "noun": "strong",
+     "verb": "is",
+     "adjective": "strong"
+    },
+    {
+     "prompt": "describe the fish",
+     "expected": "the fish is small and fast.",
+     "noun": "fast",
+     "verb": "is",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "describe the bird",
+     "expected": "the bird is fast and beautiful.",
+     "noun": "beautiful",
+     "verb": "is",
+     "adjective": "beautiful"
+    },
+    {
+     "prompt": "describe the horse",
+     "expected": "the horse is strong and fast.",
+     "noun": "fast",
+     "verb": "is",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "describe the cow",
+     "expected": "the cow is big and slow.",
+     "noun": "slow",
+     "verb": "is",
+     "adjective": "slow"
+    },
+    {
+     "prompt": "describe the wolf",
+     "expected": "the wolf is strong and fast.",
+     "noun": "fast",
+     "verb": "is",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "describe the mouse",
+     "expected": "the mouse is small and fast.",
+     "noun": "fast",
+     "verb": "is",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "describe the bee",
+     "expected": "the bee is fast and small.",
+     "noun": "small",
+     "verb": "is",
+     "adjective": "small"
+    },
+    {
+     "prompt": "describe the mom",
+     "expected": "the mom is good and strong.",
+     "noun": "strong",
+     "verb": "is",
+     "adjective": "strong"
+    },
+    {
+     "prompt": "describe the dad",
+     "expected": "the dad is strong and good.",
+     "noun": "good",
+     "verb": "is",
+     "adjective": "good"
+    },
+    {
+     "prompt": "describe the boy",
+     "expected": "the boy is happy and young.",
+     "noun": "young",
+     "verb": "is",
+     "adjective": "young"
+    },
+    {
+     "prompt": "describe the girl",
+     "expected": "the girl is happy and young.",
+     "noun": "young",
+     "verb": "is",
+     "adjective": "young"
+    },
+    {
+     "prompt": "describe the baby",
+     "expected": "the baby is small and young.",
+     "noun": "young",
+     "verb": "is",
+     "adjective": "young"
+    },
+    {
+     "prompt": "describe the child",
+     "expected": "the child is young and happy.",
+     "noun": "happy",
+     "verb": "is",
+     "adjective": "happy"
+    },
+    {
+     "prompt": "describe the friend",
+     "expected": "the friend is good and happy.",
+     "noun": "happy",
+     "verb": "is",
+     "adjective": "happy"
+    },
+    {
+     "prompt": "describe the man",
+     "expected": "the man is tall and strong.",
+     "noun": "strong",
+     "verb": "is",
+     "adjective": "strong"
+    },
+    {
+     "prompt": "describe the woman",
+     "expected": "the woman is young and good.",
+     "noun": "good",
+     "verb": "is",
+     "adjective": "good"
+    },
+    {
+     "prompt": "describe the teacher",
+     "expected": "the teacher is good and old.",
+     "noun": "old",
+     "verb": "is",
+     "adjective": "old"
+    },
+    {
+     "prompt": "describe the sun",
+     "expected": "the sun is hot and beautiful.",
+     "noun": "beautiful",
+     "verb": "is",
+     "adjective": "beautiful"
+    },
+    {
+     "prompt": "describe the moon",
+     "expected": "the moon is white and beautiful.",
+     "noun": "beautiful",
+     "verb": "is",
+     "adjective": "beautiful"
+    },
+    {
+     "prompt": "describe the star",
+     "expected": "the star is beautiful and white.",
+     "noun": "white",
+     "verb": "is",
+     "adjective": "white"
+    },
+    {
+     "prompt": "describe the tree",
+     "expected": "the tree is tall and green.",
+     "noun": "green",
+     "verb": "is",
+     "adjective": "green"
+    },
+    {
+     "prompt": "describe the flower",
+     "expected": "the flower is beautiful and red.",
+     "noun": "red",
+     "verb": "is",
+     "adjective": "red"
+    },
+    {
+     "prompt": "describe the sea",
+     "expected": "the sea is cold and big.",
+     "noun": "big",
+     "verb": "is",
+     "adjective": "big"
+    },
+    {
+     "prompt": "describe the house",
+     "expected": "the house is big and new.",
+     "noun": "new",
+     "verb": "is",
+     "adjective": "new"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 8,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": true
+  }
+ },
+ "evaluation": {
+  "has_terminator_pattern": "[.!?]",
+  "comment_+++": "{noun} with a complete structure and a terminator. Great!",
+  "comment_++": "{noun} is there, the structure is incomplete.",
+  "comment_+": "{noun} found.",
+  "comment_=": "English words but not the expected answer.",
+  "comment_-": "Not recognisable or too long."
+ },
+ "encouragement": [
+  "good!",
+  "well done!",
+  "very good!",
+  "great!",
+  "nice!"
+ ],
+ "retry_prefix": "again. "
+}

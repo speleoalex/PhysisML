@@ -9,7 +9,7 @@ A small LLM built from scratch, inspired by biological learning.
 The model learns like a child — sounds first, then words, then sentences —
 guided by a tutor that adapts the curriculum in real time.
 
-- **Progressive curriculum**: from phonemes to literature and class membership (Italian levels 0–12, English 0–5)
+- **Progressive curriculum**: from phonemes to literature and class membership (Italian levels 0–12, English 0–10)
 - **Innate affective system**: `confidence`, `pleasure`, `pain`, `fear` modulate the logits during inference
 - **Teacher signal**: a free local teacher (or, optionally, a Claude tutor) generates targeted examples on the model's current deficits
 - **Tiny footprint**: GPT-2 style transformer, ~23.6M parameters, trains on a CPU or a consumer GPU
@@ -153,32 +153,58 @@ seen (`scripts/curiosity_rate.py --gate off`): 67% honest answers on unknown
 nouns against **0%** on known ones — it never claims ignorance about something
 it knows.
 
-### English (levels 0-5)
+### English (levels 0-10)
 
-A second curriculum, built from scratch on 2026-09-05 with its own vocabulary,
-its own axioms and no weights shared with the Italian model. Half a ladder: it
-stops at level 5, so it has none of the is-a, ignorance or asking behaviour
-levels 11-12 teach.
+A second curriculum, built from scratch on 2026-09-05/06 with its own
+vocabulary, its own axioms and no weights shared with the Italian model. It now
+reaches level 10 — past, future, comparatives and preferences, a thesis with
+its reason, a motivated comment — but it still stops short of the is-a,
+ignorance and asking behaviour levels 11-12 teach in Italian.
 
-| | L0 | L1 | L2 | L3 | L4 | L5 |
-|---|----|----|----|----|----|----|
-| every level, one model | 100% | 100% | 75% | 100% | 67% | 100% |
+| | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 |
+|---|----|----|----|----|----|----|----|----|----|----|-----|
+| every level, one model | 100% | 98% | 75% | 96% | 54% | 54% | 68% | 77% | 72% | 78% | 100% |
 
-Mean 90.3% (65 of 72 prompts). On its own frozen 48-prompt probe: **85.4%**,
-self-repetition 4.2%. Build time 5h53 end to end on an Intel Arc GPU
-(21/41/69/47/71/96 minutes per level).
+| | |
+|---|---|
+| this checkpoint on every current target (720 prompts) | **78.8%**, self-repetition 3.9% |
+| its own frozen probe, 88 prompts | 75.0%, self-repetition 5.7% |
+
+That row is measured the same way as the Italian one above: exact match against
+*every* gold answer of every level (`scripts/measure_repetition.py`). The 0-5
+card reported 90.3% for a 72-prompt sample (`test_model.py --samples 12`) — a
+smaller, easier denominator. The two numbers do not compare; the difference is
+a change of ruler, not a regression.
+
+What did regress is level 5. On the same 418 prompts of levels 0-5, the level-5
+checkpoint scored 86.4% and this one scores 77.5% — and 33 of the 37 lost
+prompts are level 5 alone (100% → 54%). Levels 0-4 lost 3 prompts out of 346
+between them. Level 5 is where *because* is taught, and levels 6-10 reuse that
+frame for other jobs, so the failures keep the right shape and pick the wrong
+reason: `why does the dog drink? → the dog runs because it is hungry.`
+
+Real answers, greedy:
 
 ```
-what is the cat like?          -> the cat is small.
-what does the dog eat?         -> the dog eats bread.
-why does the dog eat?          -> the dog eats because it is hungry.
-what will the dog do tomorrow? -> tomorrow the dog will eat bread.
+what did the boy eat?                   -> the boy ate the bread.
+what will the boy eat tomorrow?         -> tomorrow the boy will eat the bread.
+tell me the three days of the cat       -> today it sleeps, yesterday it slept,
+                                           tomorrow it will sleep.
+which is better, the bread or the door? -> the bread is better, because you eat it.
+is the cat small?                       -> I think the cat is small because it is fast.
+two reasons: why do you like the cat?   -> the cat is small and fast, so I like it.
+comment on the cat                      -> the cat is fast, and this is nice.
+what does the story say about the cat   -> the story says that the cat sleeps.
 ```
 
-Level 5's dream stopped at the ceiling (`MAX_DREAMS=12`), not at a plateau —
-its curve was still climbing, 60% to 85%, when the cap ended it. The card for
-these weights is [huggingface/README.en.md](huggingface/README.en.md); they are
-published at
+Levels 6-10 were built with `MAX_DREAMS=20` and none of them reached the cap
+(6, 8, 13, 7 and 11 dreams): unlike level 5 in the 0-5 build, every one of them
+stopped on its own plateau. Level 10's probe went 36% → 75% over its eleven
+dreams. The five levels took 7h44 on an Intel Arc GPU (67/77/126/72/117 minutes
+each), on top of the 5h53 of levels 0-5.
+
+The card for these weights is [huggingface/README.en.md](huggingface/README.en.md);
+they are published at
 [`speleoalex/physisml-en-preview`](https://huggingface.co/speleoalex/physisml-en-preview)
 and `python3 standalone/chat.py --lang en "say: the cat"` downloads and runs them.
 
@@ -448,10 +474,10 @@ weights, and every script takes `--lang` (or `PHYSISML_LANG`), so two builds
 never overwrite each other:
 
 ```bash
-./build.sh 5 --lang en                          # build the English curriculum
+./build.sh 10 --lang en                         # build the English curriculum
 ./teach.sh 100 local --lang en --level 3        # one teaching session
 ./reset.sh --lang en                            # wipes ONLY checkpoints/en/
-python3 dynamic_model/test_model.py --level 5 --lang en
+python3 dynamic_model/test_model.py --level 10 --lang en
 python3 scripts/train_tokenizer.py --lang en --vocab-size 3000
 python3 scripts/export_hf.py --lang en --out hf_en
 python3 standalone/chat.py --lang en "say: the cat"  # the published weights

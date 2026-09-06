@@ -1,0 +1,380 @@
+{
+ "lang": "en",
+ "level": 7,
+ "description": "Seven years old — the future, and the three tenses side by side",
+ "quality_threshold": 0.3,
+ "quality_strong_min": 0.2,
+ "steps": {
+  "A": {
+   "description": "The future of a whole sentence",
+   "targets": [
+    {
+     "prompt": "what will the boy eat tomorrow?",
+     "expected": "tomorrow the boy will eat the bread.",
+     "noun": "bread",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the girl drink tomorrow?",
+     "expected": "tomorrow the girl will drink the milk.",
+     "noun": "milk",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the cat drink tomorrow?",
+     "expected": "tomorrow the cat will drink the milk.",
+     "noun": "milk",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the dog eat tomorrow?",
+     "expected": "tomorrow the dog will eat the bread.",
+     "noun": "bread",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the woman cook tomorrow?",
+     "expected": "tomorrow the woman will cook the soup.",
+     "noun": "soup",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the man read tomorrow?",
+     "expected": "tomorrow the man will read the book.",
+     "noun": "book",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the child open tomorrow?",
+     "expected": "tomorrow the child will open the door.",
+     "noun": "door",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the boy close tomorrow?",
+     "expected": "tomorrow the boy will close the window.",
+     "noun": "window",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the girl draw tomorrow?",
+     "expected": "tomorrow the girl will draw the flower.",
+     "noun": "flower",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the teacher read tomorrow?",
+     "expected": "tomorrow the teacher will read the book.",
+     "noun": "book",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the friend help tomorrow?",
+     "expected": "tomorrow the friend will help the child.",
+     "noun": "child",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the baby drink tomorrow?",
+     "expected": "tomorrow the baby will drink the milk.",
+     "noun": "milk",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the mouse eat tomorrow?",
+     "expected": "tomorrow the mouse will eat the cheese.",
+     "noun": "cheese",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the horse eat tomorrow?",
+     "expected": "tomorrow the horse will eat the grass.",
+     "noun": "grass",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the cow eat tomorrow?",
+     "expected": "tomorrow the cow will eat the grass.",
+     "noun": "grass",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the bird eat tomorrow?",
+     "expected": "tomorrow the bird will eat the rice.",
+     "noun": "rice",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the child eat tomorrow?",
+     "expected": "tomorrow the child will eat the cake.",
+     "noun": "cake",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the boy find tomorrow?",
+     "expected": "tomorrow the boy will find the key.",
+     "noun": "key",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the girl find tomorrow?",
+     "expected": "tomorrow the girl will find the ball.",
+     "noun": "ball",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the man open tomorrow?",
+     "expected": "tomorrow the man will open the box.",
+     "noun": "box",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the woman open tomorrow?",
+     "expected": "tomorrow the woman will open the window.",
+     "noun": "window",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the child draw tomorrow?",
+     "expected": "tomorrow the child will draw the sun.",
+     "noun": "sun",
+     "verb": "will"
+    },
+    {
+     "prompt": "what will the girl eat tomorrow?",
+     "expected": "tomorrow the girl will eat the apple.",
+     "noun": "apple",
+     "verb": "will"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 8,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "B": {
+   "description": "From yesterday to tomorrow",
+   "targets": [
+    {
+     "prompt": "the dog ate yesterday, and tomorrow?",
+     "expected": "tomorrow the dog will eat.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "the cat slept yesterday, and tomorrow?",
+     "expected": "tomorrow the cat will sleep.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "the girl sang yesterday, and tomorrow?",
+     "expected": "tomorrow the girl will sing.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "the boy played yesterday, and tomorrow?",
+     "expected": "tomorrow the boy will play.",
+     "noun": "will",
+     "verb": "will"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 6,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "C": {
+   "description": "Today, yesterday, tomorrow in one answer",
+   "targets": [
+    {
+     "prompt": "tell me the three days of the cat",
+     "expected": "today it sleeps, yesterday it slept, tomorrow it will sleep.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the dog",
+     "expected": "today it runs, yesterday it ran, tomorrow it will run.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the fish",
+     "expected": "today it swims, yesterday it swam, tomorrow it will swim.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the bird",
+     "expected": "today it flies, yesterday it flew, tomorrow it will fly.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the horse",
+     "expected": "today it runs, yesterday it ran, tomorrow it will run.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the cow",
+     "expected": "today it eats, yesterday it ate, tomorrow it will eat.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the wolf",
+     "expected": "today it runs, yesterday it ran, tomorrow it will run.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the mouse",
+     "expected": "today it runs, yesterday it ran, tomorrow it will run.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the bee",
+     "expected": "today it flies, yesterday it flew, tomorrow it will fly.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the mom",
+     "expected": "today she cooks, yesterday she cooked, tomorrow she will cook.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the dad",
+     "expected": "today he reads, yesterday he read, tomorrow he will read.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the boy",
+     "expected": "today he plays, yesterday he played, tomorrow he will play.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the girl",
+     "expected": "today she sings, yesterday she sang, tomorrow she will sing.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the baby",
+     "expected": "today it sleeps, yesterday it slept, tomorrow it will sleep.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the child",
+     "expected": "today it plays, yesterday it played, tomorrow it will play.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the friend",
+     "expected": "today it laughs, yesterday it laughed, tomorrow it will laugh.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the man",
+     "expected": "today he walks, yesterday he walked, tomorrow he will walk.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the woman",
+     "expected": "today she works, yesterday she worked, tomorrow she will work.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the teacher",
+     "expected": "today she reads, yesterday she read, tomorrow she will read.",
+     "noun": "will",
+     "verb": "will"
+    },
+    {
+     "prompt": "tell me the three days of the sun",
+     "expected": "today it shines, yesterday it shone, tomorrow it will shine.",
+     "noun": "will",
+     "verb": "will"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 10,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "D": {
+   "description": "Short dialogue: yes and no",
+   "targets": [
+    {
+     "prompt": "is the dog hungry?",
+     "expected": "yes, the dog is hungry.",
+     "noun": "dog"
+    },
+    {
+     "prompt": "does the sun shine at night?",
+     "expected": "no, the sun shines in the day.",
+     "noun": "day"
+    },
+    {
+     "prompt": "is the cat big?",
+     "expected": "no, the cat is small.",
+     "noun": "small"
+    },
+    {
+     "prompt": "does the fish fly?",
+     "expected": "no, the fish swims in the sea.",
+     "noun": "sea"
+    },
+    {
+     "prompt": "is the snow hot?",
+     "expected": "no, the snow is cold.",
+     "noun": "cold"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 8,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false
+  }
+ },
+ "evaluation": {
+  "has_terminator_pattern": "[.!?]",
+  "comment_+++": "{noun} with a complete structure and a terminator. Great!",
+  "comment_++": "{noun} is there, the structure is incomplete.",
+  "comment_+": "{noun} found.",
+  "comment_=": "English words but not the expected answer.",
+  "comment_-": "Not recognisable or too long."
+ },
+ "encouragement": [
+  "good!",
+  "well done!",
+  "very good!",
+  "great!",
+  "nice!"
+ ],
+ "retry_prefix": "again. "
+}

@@ -1,0 +1,300 @@
+{"prompt": "who is bigger, the dog or the cat?", "response": "the dog is bigger than the cat."}
+{"prompt": "who is bigger, the horse or the dog?", "response": "the horse is bigger than the dog."}
+{"prompt": "who is bigger, the cat or the mouse?", "response": "the cat is bigger than the mouse."}
+{"prompt": "who is taller, the man or the boy?", "response": "the man is taller than the boy."}
+{"prompt": "what is taller, the tree or the flower?", "response": "the tree is taller than the flower."}
+{"prompt": "what is hotter, the sun or the moon?", "response": "the sun is hotter than the moon."}
+{"prompt": "who is faster, the bird or the man?", "response": "the bird is faster than the man."}
+{"prompt": "what is faster, the car or the horse?", "response": "the car is faster than the horse."}
+{"prompt": "what is bigger, the sea or the park?", "response": "the sea is bigger than the park."}
+{"prompt": "what is longer, the road or the table?", "response": "the road is longer than the table."}
+{"prompt": "what is sweeter, the cake or the bread?", "response": "the cake is sweeter than the bread."}
+{"prompt": "what is sweeter, the honey or the apple?", "response": "the honey is sweeter than the apple."}
+{"prompt": "what is colder, the snow or the water?", "response": "the snow is colder than the water."}
+{"prompt": "what is hotter, the soup or the milk?", "response": "the soup is hotter than the milk."}
+{"prompt": "who is stronger, the wolf or the mouse?", "response": "the wolf is stronger than the mouse."}
+{"prompt": "who is stronger, the horse or the child?", "response": "the horse is stronger than the child."}
+{"prompt": "who is older, the woman or the baby?", "response": "the woman is older than the baby."}
+{"prompt": "who is younger, the baby or the child?", "response": "the baby is younger than the child."}
+{"prompt": "what is bigger, the house or the box?", "response": "the house is bigger than the box."}
+{"prompt": "what is bigger, the city or the house?", "response": "the city is bigger than the house."}
+{"prompt": "what is more beautiful, the star or the lamp?", "response": "the star is more beautiful than the lamp."}
+{"prompt": "who is smaller, the bee or the cow?", "response": "the bee is smaller than the cow."}
+{"prompt": "what do you like to eat?", "response": "I like the bread."}
+{"prompt": "what do you like to drink?", "response": "I like the milk."}
+{"prompt": "what do you like to read?", "response": "I like the book."}
+{"prompt": "what do you like to draw?", "response": "I like the sun."}
+{"prompt": "what do you like to cook?", "response": "I like the soup."}
+{"prompt": "what animal do you like?", "response": "I like the cat."}
+{"prompt": "what place do you like?", "response": "I like the garden."}
+{"prompt": "what do you like in the sky?", "response": "I like the moon."}
+{"prompt": "what food do you like?", "response": "I like the cake."}
+{"prompt": "why do you like the bread?", "response": "I like the bread because it is good."}
+{"prompt": "why do you like the milk?", "response": "I like the milk because it is white."}
+{"prompt": "why do you like the water?", "response": "I like the water because it is cold."}
+{"prompt": "why do you like the apple?", "response": "I like the apple because it is red."}
+{"prompt": "why do you like the egg?", "response": "I like the egg because it is white."}
+{"prompt": "why do you like the cake?", "response": "I like the cake because it is sweet."}
+{"prompt": "why do you like the cheese?", "response": "I like the cheese because it is good."}
+{"prompt": "why do you like the honey?", "response": "I like the honey because it is sweet."}
+{"prompt": "why do you like the rice?", "response": "I like the rice because it is hot."}
+{"prompt": "why do you like the soup?", "response": "I like the soup because it is hot."}
+{"prompt": "why do you like the book?", "response": "I like the book because it is new."}
+{"prompt": "why do you like the ball?", "response": "I like the ball because it is red."}
+{"prompt": "why do you like the car?", "response": "I like the car because it is fast."}
+{"prompt": "why do you like the table?", "response": "I like the table because it is long."}
+{"prompt": "why do you like the chair?", "response": "I like the chair because it is small."}
+{"prompt": "why do you like the door?", "response": "I like the door because it is old."}
+{"prompt": "why do you like the window?", "response": "I like the window because it is small."}
+{"prompt": "why do you like the bed?", "response": "I like the bed because it is new."}
+{"prompt": "why do you like the lamp?", "response": "I like the lamp because it is small."}
+{"prompt": "why do you like the key?", "response": "I like the key because it is small."}
+{"prompt": "why do you like the house?", "response": "I like the house because it is big."}
+{"prompt": "why do you like the school?", "response": "I like the school because it is new."}
+{"prompt": "why do you like the park?", "response": "I like the park because it is big."}
+{"prompt": "why do you like the garden?", "response": "I like the garden because it is beautiful."}
+{"prompt": "why do you like the road?", "response": "I like the road because it is long."}
+{"prompt": "describe the cat", "response": "the cat is small and fast."}
+{"prompt": "describe the dog", "response": "the dog is big and strong."}
+{"prompt": "describe the fish", "response": "the fish is small and fast."}
+{"prompt": "describe the bird", "response": "the bird is fast and beautiful."}
+{"prompt": "describe the horse", "response": "the horse is strong and fast."}
+{"prompt": "describe the cow", "response": "the cow is big and slow."}
+{"prompt": "describe the wolf", "response": "the wolf is strong and fast."}
+{"prompt": "describe the mouse", "response": "the mouse is small and fast."}
+{"prompt": "describe the bee", "response": "the bee is fast and small."}
+{"prompt": "describe the mom", "response": "the mom is good and strong."}
+{"prompt": "describe the dad", "response": "the dad is strong and good."}
+{"prompt": "describe the boy", "response": "the boy is happy and young."}
+{"prompt": "describe the girl", "response": "the girl is happy and young."}
+{"prompt": "describe the baby", "response": "the baby is small and young."}
+{"prompt": "describe the child", "response": "the child is young and happy."}
+{"prompt": "describe the friend", "response": "the friend is good and happy."}
+{"prompt": "describe the man", "response": "the man is tall and strong."}
+{"prompt": "describe the woman", "response": "the woman is young and good."}
+{"prompt": "describe the teacher", "response": "the teacher is good and old."}
+{"prompt": "describe the sun", "response": "the sun is hot and beautiful."}
+{"prompt": "describe the moon", "response": "the moon is white and beautiful."}
+{"prompt": "describe the star", "response": "the star is beautiful and white."}
+{"prompt": "describe the tree", "response": "the tree is tall and green."}
+{"prompt": "describe the flower", "response": "the flower is beautiful and red."}
+{"prompt": "describe the sea", "response": "the sea is cold and big."}
+{"prompt": "describe the house", "response": "the house is big and new."}
+{"prompt": "again. who is bigger, the dog or the cat?", "response": "the dog is bigger than the cat."}
+{"prompt": "again. who is bigger, the horse or the dog?", "response": "the horse is bigger than the dog."}
+{"prompt": "again. who is bigger, the cat or the mouse?", "response": "the cat is bigger than the mouse."}
+{"prompt": "again. who is taller, the man or the boy?", "response": "the man is taller than the boy."}
+{"prompt": "again. what is taller, the tree or the flower?", "response": "the tree is taller than the flower."}
+{"prompt": "again. what is hotter, the sun or the moon?", "response": "the sun is hotter than the moon."}
+{"prompt": "again. who is faster, the bird or the man?", "response": "the bird is faster than the man."}
+{"prompt": "again. what is faster, the car or the horse?", "response": "the car is faster than the horse."}
+{"prompt": "again. what is bigger, the sea or the park?", "response": "the sea is bigger than the park."}
+{"prompt": "again. what is longer, the road or the table?", "response": "the road is longer than the table."}
+{"prompt": "again. what is sweeter, the cake or the bread?", "response": "the cake is sweeter than the bread."}
+{"prompt": "again. what is sweeter, the honey or the apple?", "response": "the honey is sweeter than the apple."}
+{"prompt": "again. what is colder, the snow or the water?", "response": "the snow is colder than the water."}
+{"prompt": "again. what is hotter, the soup or the milk?", "response": "the soup is hotter than the milk."}
+{"prompt": "again. who is stronger, the wolf or the mouse?", "response": "the wolf is stronger than the mouse."}
+{"prompt": "again. who is stronger, the horse or the child?", "response": "the horse is stronger than the child."}
+{"prompt": "again. who is older, the woman or the baby?", "response": "the woman is older than the baby."}
+{"prompt": "again. who is younger, the baby or the child?", "response": "the baby is younger than the child."}
+{"prompt": "again. what is bigger, the house or the box?", "response": "the house is bigger than the box."}
+{"prompt": "again. what is bigger, the city or the house?", "response": "the city is bigger than the house."}
+{"prompt": "again. what is more beautiful, the star or the lamp?", "response": "the star is more beautiful than the lamp."}
+{"prompt": "again. who is smaller, the bee or the cow?", "response": "the bee is smaller than the cow."}
+{"prompt": "again. what do you like to eat?", "response": "I like the bread."}
+{"prompt": "again. what do you like to drink?", "response": "I like the milk."}
+{"prompt": "again. what do you like to read?", "response": "I like the book."}
+{"prompt": "again. what do you like to draw?", "response": "I like the sun."}
+{"prompt": "again. what do you like to cook?", "response": "I like the soup."}
+{"prompt": "again. what animal do you like?", "response": "I like the cat."}
+{"prompt": "again. what place do you like?", "response": "I like the garden."}
+{"prompt": "again. what do you like in the sky?", "response": "I like the moon."}
+{"prompt": "again. what food do you like?", "response": "I like the cake."}
+{"prompt": "again. why do you like the bread?", "response": "I like the bread because it is good."}
+{"prompt": "again. why do you like the milk?", "response": "I like the milk because it is white."}
+{"prompt": "again. why do you like the water?", "response": "I like the water because it is cold."}
+{"prompt": "again. why do you like the apple?", "response": "I like the apple because it is red."}
+{"prompt": "again. why do you like the egg?", "response": "I like the egg because it is white."}
+{"prompt": "again. why do you like the cake?", "response": "I like the cake because it is sweet."}
+{"prompt": "again. why do you like the cheese?", "response": "I like the cheese because it is good."}
+{"prompt": "again. why do you like the honey?", "response": "I like the honey because it is sweet."}
+{"prompt": "again. why do you like the rice?", "response": "I like the rice because it is hot."}
+{"prompt": "again. why do you like the soup?", "response": "I like the soup because it is hot."}
+{"prompt": "again. why do you like the book?", "response": "I like the book because it is new."}
+{"prompt": "again. why do you like the ball?", "response": "I like the ball because it is red."}
+{"prompt": "again. why do you like the car?", "response": "I like the car because it is fast."}
+{"prompt": "again. why do you like the table?", "response": "I like the table because it is long."}
+{"prompt": "again. why do you like the chair?", "response": "I like the chair because it is small."}
+{"prompt": "again. why do you like the door?", "response": "I like the door because it is old."}
+{"prompt": "again. why do you like the window?", "response": "I like the window because it is small."}
+{"prompt": "again. why do you like the bed?", "response": "I like the bed because it is new."}
+{"prompt": "again. why do you like the lamp?", "response": "I like the lamp because it is small."}
+{"prompt": "again. why do you like the key?", "response": "I like the key because it is small."}
+{"prompt": "again. why do you like the house?", "response": "I like the house because it is big."}
+{"prompt": "again. why do you like the school?", "response": "I like the school because it is new."}
+{"prompt": "again. why do you like the park?", "response": "I like the park because it is big."}
+{"prompt": "again. why do you like the garden?", "response": "I like the garden because it is beautiful."}
+{"prompt": "again. why do you like the road?", "response": "I like the road because it is long."}
+{"prompt": "again. describe the cat", "response": "the cat is small and fast."}
+{"prompt": "again. describe the dog", "response": "the dog is big and strong."}
+{"prompt": "again. describe the fish", "response": "the fish is small and fast."}
+{"prompt": "again. describe the bird", "response": "the bird is fast and beautiful."}
+{"prompt": "again. describe the horse", "response": "the horse is strong and fast."}
+{"prompt": "again. describe the cow", "response": "the cow is big and slow."}
+{"prompt": "again. describe the wolf", "response": "the wolf is strong and fast."}
+{"prompt": "again. describe the mouse", "response": "the mouse is small and fast."}
+{"prompt": "again. describe the bee", "response": "the bee is fast and small."}
+{"prompt": "again. describe the mom", "response": "the mom is good and strong."}
+{"prompt": "again. describe the dad", "response": "the dad is strong and good."}
+{"prompt": "again. describe the boy", "response": "the boy is happy and young."}
+{"prompt": "again. describe the girl", "response": "the girl is happy and young."}
+{"prompt": "again. describe the baby", "response": "the baby is small and young."}
+{"prompt": "again. describe the child", "response": "the child is young and happy."}
+{"prompt": "again. describe the friend", "response": "the friend is good and happy."}
+{"prompt": "again. describe the man", "response": "the man is tall and strong."}
+{"prompt": "again. describe the woman", "response": "the woman is young and good."}
+{"prompt": "again. describe the teacher", "response": "the teacher is good and old."}
+{"prompt": "again. describe the sun", "response": "the sun is hot and beautiful."}
+{"prompt": "again. describe the moon", "response": "the moon is white and beautiful."}
+{"prompt": "again. describe the star", "response": "the star is beautiful and white."}
+{"prompt": "again. describe the tree", "response": "the tree is tall and green."}
+{"prompt": "again. describe the flower", "response": "the flower is beautiful and red."}
+{"prompt": "again. describe the sea", "response": "the sea is cold and big."}
+{"prompt": "again. describe the house", "response": "the house is big and new."}
+{"prompt": "good! who is bigger, the dog or the cat?", "response": "the dog is bigger than the cat."}
+{"prompt": "good! who is bigger, the horse or the dog?", "response": "the horse is bigger than the dog."}
+{"prompt": "good! who is bigger, the cat or the mouse?", "response": "the cat is bigger than the mouse."}
+{"prompt": "good! who is taller, the man or the boy?", "response": "the man is taller than the boy."}
+{"prompt": "good! what is taller, the tree or the flower?", "response": "the tree is taller than the flower."}
+{"prompt": "good! what is hotter, the sun or the moon?", "response": "the sun is hotter than the moon."}
+{"prompt": "good! who is faster, the bird or the man?", "response": "the bird is faster than the man."}
+{"prompt": "good! what is faster, the car or the horse?", "response": "the car is faster than the horse."}
+{"prompt": "good! what is bigger, the sea or the park?", "response": "the sea is bigger than the park."}
+{"prompt": "good! what is longer, the road or the table?", "response": "the road is longer than the table."}
+{"prompt": "good! what is sweeter, the cake or the bread?", "response": "the cake is sweeter than the bread."}
+{"prompt": "good! what is sweeter, the honey or the apple?", "response": "the honey is sweeter than the apple."}
+{"prompt": "good! what is colder, the snow or the water?", "response": "the snow is colder than the water."}
+{"prompt": "good! what is hotter, the soup or the milk?", "response": "the soup is hotter than the milk."}
+{"prompt": "good! who is stronger, the wolf or the mouse?", "response": "the wolf is stronger than the mouse."}
+{"prompt": "good! who is stronger, the horse or the child?", "response": "the horse is stronger than the child."}
+{"prompt": "good! who is older, the woman or the baby?", "response": "the woman is older than the baby."}
+{"prompt": "good! who is younger, the baby or the child?", "response": "the baby is younger than the child."}
+{"prompt": "good! what is bigger, the house or the box?", "response": "the house is bigger than the box."}
+{"prompt": "good! what is bigger, the city or the house?", "response": "the city is bigger than the house."}
+{"prompt": "good! what is more beautiful, the star or the lamp?", "response": "the star is more beautiful than the lamp."}
+{"prompt": "good! who is smaller, the bee or the cow?", "response": "the bee is smaller than the cow."}
+{"prompt": "good! what do you like to eat?", "response": "I like the bread."}
+{"prompt": "good! what do you like to drink?", "response": "I like the milk."}
+{"prompt": "good! what do you like to read?", "response": "I like the book."}
+{"prompt": "good! what do you like to draw?", "response": "I like the sun."}
+{"prompt": "good! what do you like to cook?", "response": "I like the soup."}
+{"prompt": "good! what animal do you like?", "response": "I like the cat."}
+{"prompt": "good! what place do you like?", "response": "I like the garden."}
+{"prompt": "good! what do you like in the sky?", "response": "I like the moon."}
+{"prompt": "good! what food do you like?", "response": "I like the cake."}
+{"prompt": "good! why do you like the bread?", "response": "I like the bread because it is good."}
+{"prompt": "good! why do you like the milk?", "response": "I like the milk because it is white."}
+{"prompt": "good! why do you like the water?", "response": "I like the water because it is cold."}
+{"prompt": "good! why do you like the apple?", "response": "I like the apple because it is red."}
+{"prompt": "good! why do you like the egg?", "response": "I like the egg because it is white."}
+{"prompt": "good! why do you like the cake?", "response": "I like the cake because it is sweet."}
+{"prompt": "good! why do you like the cheese?", "response": "I like the cheese because it is good."}
+{"prompt": "good! why do you like the honey?", "response": "I like the honey because it is sweet."}
+{"prompt": "good! why do you like the rice?", "response": "I like the rice because it is hot."}
+{"prompt": "good! why do you like the soup?", "response": "I like the soup because it is hot."}
+{"prompt": "good! why do you like the book?", "response": "I like the book because it is new."}
+{"prompt": "good! why do you like the ball?", "response": "I like the ball because it is red."}
+{"prompt": "good! why do you like the car?", "response": "I like the car because it is fast."}
+{"prompt": "good! why do you like the table?", "response": "I like the table because it is long."}
+{"prompt": "good! why do you like the chair?", "response": "I like the chair because it is small."}
+{"prompt": "good! why do you like the door?", "response": "I like the door because it is old."}
+{"prompt": "good! why do you like the window?", "response": "I like the window because it is small."}
+{"prompt": "good! why do you like the bed?", "response": "I like the bed because it is new."}
+{"prompt": "good! why do you like the lamp?", "response": "I like the lamp because it is small."}
+{"prompt": "good! why do you like the key?", "response": "I like the key because it is small."}
+{"prompt": "good! why do you like the house?", "response": "I like the house because it is big."}
+{"prompt": "good! why do you like the school?", "response": "I like the school because it is new."}
+{"prompt": "good! why do you like the park?", "response": "I like the park because it is big."}
+{"prompt": "good! why do you like the garden?", "response": "I like the garden because it is beautiful."}
+{"prompt": "good! why do you like the road?", "response": "I like the road because it is long."}
+{"prompt": "good! describe the cat", "response": "the cat is small and fast."}
+{"prompt": "good! describe the dog", "response": "the dog is big and strong."}
+{"prompt": "good! describe the fish", "response": "the fish is small and fast."}
+{"prompt": "good! describe the bird", "response": "the bird is fast and beautiful."}
+{"prompt": "good! describe the horse", "response": "the horse is strong and fast."}
+{"prompt": "good! describe the cow", "response": "the cow is big and slow."}
+{"prompt": "good! describe the wolf", "response": "the wolf is strong and fast."}
+{"prompt": "good! describe the mouse", "response": "the mouse is small and fast."}
+{"prompt": "good! describe the bee", "response": "the bee is fast and small."}
+{"prompt": "good! describe the mom", "response": "the mom is good and strong."}
+{"prompt": "good! describe the dad", "response": "the dad is strong and good."}
+{"prompt": "good! describe the boy", "response": "the boy is happy and young."}
+{"prompt": "good! describe the girl", "response": "the girl is happy and young."}
+{"prompt": "good! describe the baby", "response": "the baby is small and young."}
+{"prompt": "good! describe the child", "response": "the child is young and happy."}
+{"prompt": "good! describe the friend", "response": "the friend is good and happy."}
+{"prompt": "good! describe the man", "response": "the man is tall and strong."}
+{"prompt": "good! describe the woman", "response": "the woman is young and good."}
+{"prompt": "good! describe the teacher", "response": "the teacher is good and old."}
+{"prompt": "good! describe the sun", "response": "the sun is hot and beautiful."}
+{"prompt": "good! describe the moon", "response": "the moon is white and beautiful."}
+{"prompt": "good! describe the star", "response": "the star is beautiful and white."}
+{"prompt": "good! describe the tree", "response": "the tree is tall and green."}
+{"prompt": "good! describe the flower", "response": "the flower is beautiful and red."}
+{"prompt": "good! describe the sea", "response": "the sea is cold and big."}
+{"prompt": "good! describe the house", "response": "the house is big and new."}
+{"prompt": "well done! who is bigger, the dog or the cat?", "response": "the dog is bigger than the cat."}
+{"prompt": "well done! who is bigger, the horse or the dog?", "response": "the horse is bigger than the dog."}
+{"prompt": "well done! who is bigger, the cat or the mouse?", "response": "the cat is bigger than the mouse."}
+{"prompt": "well done! who is taller, the man or the boy?", "response": "the man is taller than the boy."}
+{"prompt": "well done! what is taller, the tree or the flower?", "response": "the tree is taller than the flower."}
+{"prompt": "well done! what is hotter, the sun or the moon?", "response": "the sun is hotter than the moon."}
+{"prompt": "well done! who is faster, the bird or the man?", "response": "the bird is faster than the man."}
+{"prompt": "well done! what is faster, the car or the horse?", "response": "the car is faster than the horse."}
+{"prompt": "well done! what is bigger, the sea or the park?", "response": "the sea is bigger than the park."}
+{"prompt": "well done! what is longer, the road or the table?", "response": "the road is longer than the table."}
+{"prompt": "well done! what is sweeter, the cake or the bread?", "response": "the cake is sweeter than the bread."}
+{"prompt": "well done! what is sweeter, the honey or the apple?", "response": "the honey is sweeter than the apple."}
+{"prompt": "well done! what is colder, the snow or the water?", "response": "the snow is colder than the water."}
+{"prompt": "well done! what is hotter, the soup or the milk?", "response": "the soup is hotter than the milk."}
+{"prompt": "well done! who is stronger, the wolf or the mouse?", "response": "the wolf is stronger than the mouse."}
+{"prompt": "well done! who is stronger, the horse or the child?", "response": "the horse is stronger than the child."}
+{"prompt": "well done! who is older, the woman or the baby?", "response": "the woman is older than the baby."}
+{"prompt": "well done! who is younger, the baby or the child?", "response": "the baby is younger than the child."}
+{"prompt": "well done! what is bigger, the house or the box?", "response": "the house is bigger than the box."}
+{"prompt": "well done! what is bigger, the city or the house?", "response": "the city is bigger than the house."}
+{"prompt": "well done! what is more beautiful, the star or the lamp?", "response": "the star is more beautiful than the lamp."}
+{"prompt": "well done! who is smaller, the bee or the cow?", "response": "the bee is smaller than the cow."}
+{"prompt": "well done! what do you like to eat?", "response": "I like the bread."}
+{"prompt": "well done! what do you like to drink?", "response": "I like the milk."}
+{"prompt": "well done! what do you like to read?", "response": "I like the book."}
+{"prompt": "well done! what do you like to draw?", "response": "I like the sun."}
+{"prompt": "well done! what do you like to cook?", "response": "I like the soup."}
+{"prompt": "well done! what animal do you like?", "response": "I like the cat."}
+{"prompt": "well done! what place do you like?", "response": "I like the garden."}
+{"prompt": "well done! what do you like in the sky?", "response": "I like the moon."}
+{"prompt": "well done! what food do you like?", "response": "I like the cake."}
+{"prompt": "well done! why do you like the bread?", "response": "I like the bread because it is good."}
+{"prompt": "well done! why do you like the milk?", "response": "I like the milk because it is white."}
+{"prompt": "well done! why do you like the water?", "response": "I like the water because it is cold."}
+{"prompt": "well done! why do you like the apple?", "response": "I like the apple because it is red."}
+{"prompt": "well done! why do you like the egg?", "response": "I like the egg because it is white."}
+{"prompt": "well done! why do you like the cake?", "response": "I like the cake because it is sweet."}
+{"prompt": "well done! why do you like the cheese?", "response": "I like the cheese because it is good."}
+{"prompt": "well done! why do you like the honey?", "response": "I like the honey because it is sweet."}
+{"prompt": "well done! why do you like the rice?", "response": "I like the rice because it is hot."}
+{"prompt": "well done! why do you like the soup?", "response": "I like the soup because it is hot."}
+{"prompt": "well done! why do you like the book?", "response": "I like the book because it is new."}
+{"prompt": "well done! why do you like the ball?", "response": "I like the ball because it is red."}
+{"prompt": "well done! why do you like the car?", "response": "I like the car because it is fast."}
+{"prompt": "well done! why do you like the table?", "response": "I like the table because it is long."}
+{"prompt": "well done! why do you like the chair?", "response": "I like the chair because it is small."}
+{"prompt": "well done! why do you like the door?", "response": "I like the door because it is old."}
+{"prompt": "well done! why do you like the window?", "response": "I like the window because it is small."}
+{"prompt": "well done! why do you like the bed?", "response": "I like the bed because it is new."}
+{"prompt": "well done! why do you like the lamp?", "response": "I like the lamp because it is small."}
+{"prompt": "well done! why do you like the key?", "response": "I like the key because it is small."}
+{"prompt": "well done! why do you like the house?", "response": "I like the house because it is big."}
+{"prompt": "well done! why do you like the school?", "response": "I like the school because it is new."}
+{"prompt": "well done! why do you like the park?", "response": "I like the park because it is big."}

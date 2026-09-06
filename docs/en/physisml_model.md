@@ -253,7 +253,7 @@ the tutor fallback prompt, the Hub repo. `dynamic_model/language.py` reads it;
 everything else (vocabulary, probe, card, export folder) follows a naming
 convention and needs no declaration.
 
-The English curriculum currently covers levels 0–5:
+The English curriculum currently covers levels 0–10:
 
 | Level | Structure taught | Example target |
 |-------|------------------|----------------|
@@ -263,6 +263,11 @@ The English curriculum currently covers levels 0–5:
 | L3 | Subject + verb, `what does X do?`, numbers | `what does the cat do?` → `the cat sleeps.` |
 | L4 | `who` and `where` questions, first/then | `where does the cat sleep?` → `the cat sleeps in the house.` |
 | L5 | Connectives and / but / because, descriptions | `why does the cat eat?` → `the cat eats because it is hungry.` |
+| L6 | The past tense, causes, two linked sentences | `what did the boy eat?` → `the boy ate the bread.` |
+| L7 | The future, and the three tenses side by side | `what will the boy eat tomorrow?` → `tomorrow the boy will eat the bread.` |
+| L8 | Comparatives, preferences and their reasons | `who is bigger, the dog or the cat?` → `the dog is bigger than the cat.` |
+| L9 | A thesis with a reason and a conclusion | `is the cat small?` → `I think the cat is small because it is fast.` |
+| L10 | A short comment, a motivated judgement | `comment on the cat` → `the cat is fast, and this is nice.` |
 
 Why this is a manifest and not a table in the source: a `dict` keyed by
 language code inside a `.py` file is a list of the languages that module knows

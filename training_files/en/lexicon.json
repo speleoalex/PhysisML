@@ -15,6 +15,11 @@
   "Verbs are stored in the third person singular under 'pres', because that is",
   "the form every target uses ('the cat sleeps.'); 'base' carries the bare",
   "infinitive for the 'can' and 'want to' frames of level 1.",
+  "'past' is the SIMPLE past ('the dog ate the bread.'), never the participle,",
+  "because that is the one form levels 6-10 ask for. The future needs no",
+  "field: it is 'will ' + 'base' for every verb.",
+  "'cmp' is the comparative of an adjective, spelled out because -er versus",
+  "'more' cannot be derived (good/better, happy/happier, tired/more tired).",
   "'ontology' carries the is-a relation; 'unknown_nouns' the nouns kept out of",
   "the curriculum, half of them marked 'probe'.",
   "'mass' marks mass nouns: they take no indefinite article, so they introduce",
@@ -713,7 +718,7 @@
   {
    "pres": "eats",
    "base": "eat",
-   "past": "eaten",
+   "past": "ate",
    "subjects": [
     "animal",
     "person"
@@ -723,7 +728,7 @@
   {
    "pres": "drinks",
    "base": "drink",
-   "past": "drunk",
+   "past": "drank",
    "subjects": [
     "animal",
     "person"
@@ -791,7 +796,7 @@
   {
    "pres": "draws",
    "base": "draw",
-   "past": "drawn",
+   "past": "drew",
    "subjects": [
     "person"
    ],
@@ -809,7 +814,7 @@
   {
    "pres": "falls",
    "base": "fall",
-   "past": "fallen",
+   "past": "fell",
    "subjects": [
     "object",
     "nature"
@@ -819,7 +824,7 @@
   {
    "pres": "grows",
    "base": "grow",
-   "past": "grown",
+   "past": "grew",
    "subjects": [
     "nature"
    ],
@@ -865,7 +870,8 @@
     "nature"
    ],
    "dim": "size",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "bigger"
   },
   {
    "w": "small",
@@ -878,7 +884,8 @@
     "nature"
    ],
    "dim": "size",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "smaller"
   },
   {
    "w": "long",
@@ -888,7 +895,8 @@
     "nature"
    ],
    "dim": "size",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "longer"
   },
   {
    "w": "short",
@@ -898,7 +906,8 @@
     "nature"
    ],
    "dim": "size",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "shorter"
   },
   {
    "w": "tall",
@@ -908,7 +917,8 @@
     "nature"
    ],
    "dim": "size",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "taller"
   },
   {
    "w": "low",
@@ -918,7 +928,8 @@
     "nature"
    ],
    "dim": "size",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "lower"
   },
   {
    "w": "beautiful",
@@ -931,7 +942,8 @@
     "nature"
    ],
    "dim": "judgement",
-   "pol": "+"
+   "pol": "+",
+   "cmp": "more beautiful"
   },
   {
    "w": "ugly",
@@ -944,7 +956,8 @@
     "nature"
    ],
    "dim": "judgement",
-   "pol": "-"
+   "pol": "-",
+   "cmp": "uglier"
   },
   {
    "w": "good",
@@ -954,7 +967,8 @@
     "food"
    ],
    "dim": "judgement",
-   "pol": "+"
+   "pol": "+",
+   "cmp": "better"
   },
   {
    "w": "bad",
@@ -964,7 +978,8 @@
     "food"
    ],
    "dim": "judgement",
-   "pol": "-"
+   "pol": "-",
+   "cmp": "worse"
   },
   {
    "w": "nice",
@@ -977,7 +992,8 @@
     "nature"
    ],
    "dim": "judgement",
-   "pol": "+"
+   "pol": "+",
+   "cmp": "nicer"
   },
   {
    "w": "hot",
@@ -988,7 +1004,8 @@
     "place"
    ],
    "dim": "temperature",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "hotter"
   },
   {
    "w": "cold",
@@ -999,7 +1016,8 @@
     "place"
    ],
    "dim": "temperature",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "colder"
   },
   {
    "w": "new",
@@ -1008,7 +1026,8 @@
     "place"
    ],
    "dim": "age",
-   "pol": "+"
+   "pol": "+",
+   "cmp": "newer"
   },
   {
    "w": "old",
@@ -1019,7 +1038,8 @@
     "place"
    ],
    "dim": "age",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "older"
   },
   {
    "w": "young",
@@ -1028,7 +1048,8 @@
     "person"
    ],
    "dim": "age",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "younger"
   },
   {
    "w": "happy",
@@ -1037,7 +1058,8 @@
     "animal"
    ],
    "dim": "mood",
-   "pol": "+"
+   "pol": "+",
+   "cmp": "happier"
   },
   {
    "w": "sad",
@@ -1046,7 +1068,8 @@
     "animal"
    ],
    "dim": "mood",
-   "pol": "-"
+   "pol": "-",
+   "cmp": "sadder"
   },
   {
    "w": "tired",
@@ -1055,7 +1078,8 @@
     "animal"
    ],
    "dim": "mood",
-   "pol": "-"
+   "pol": "-",
+   "cmp": "more tired"
   },
   {
    "w": "strong",
@@ -1065,7 +1089,8 @@
     "object"
    ],
    "dim": "force",
-   "pol": "+"
+   "pol": "+",
+   "cmp": "stronger"
   },
   {
    "w": "weak",
@@ -1075,7 +1100,8 @@
     "object"
    ],
    "dim": "force",
-   "pol": "-"
+   "pol": "-",
+   "cmp": "weaker"
   },
   {
    "w": "fast",
@@ -1085,7 +1111,8 @@
     "object"
    ],
    "dim": "speed",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "faster"
   },
   {
    "w": "slow",
@@ -1095,7 +1122,8 @@
     "object"
    ],
    "dim": "speed",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "slower"
   },
   {
    "w": "sweet",
@@ -1103,7 +1131,8 @@
     "food"
    ],
    "dim": "taste",
-   "pol": "+"
+   "pol": "+",
+   "cmp": "sweeter"
   },
   {
    "w": "white",
@@ -1114,7 +1143,8 @@
     "food"
    ],
    "dim": "colour",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "whiter"
   },
   {
    "w": "black",
@@ -1124,7 +1154,8 @@
     "nature"
    ],
    "dim": "colour",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "blacker"
   },
   {
    "w": "red",
@@ -1134,7 +1165,8 @@
     "food"
    ],
    "dim": "colour",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "redder"
   },
   {
    "w": "green",
@@ -1144,7 +1176,8 @@
     "food"
    ],
    "dim": "colour",
-   "pol": "n"
+   "pol": "n",
+   "cmp": "greener"
   }
  ],
  "verb_places": {

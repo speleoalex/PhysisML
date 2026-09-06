@@ -1,0 +1,300 @@
+{"prompt": "comment on the cat", "response": "the cat is fast, and this is nice."}
+{"prompt": "comment on the dog", "response": "the dog is strong, and this is good."}
+{"prompt": "comment on the fish", "response": "the fish is fast, and this is beautiful."}
+{"prompt": "comment on the bird", "response": "the bird is beautiful, and this is nice."}
+{"prompt": "comment on the horse", "response": "the horse is fast, and this is good."}
+{"prompt": "comment on the cow", "response": "the cow is slow, and this is beautiful."}
+{"prompt": "comment on the wolf", "response": "the wolf is fast, and this is nice."}
+{"prompt": "comment on the mouse", "response": "the mouse is fast, and this is good."}
+{"prompt": "comment on the bee", "response": "the bee is small, and this is beautiful."}
+{"prompt": "comment on the mom", "response": "the mom is strong, and this is nice."}
+{"prompt": "comment on the dad", "response": "the dad is good, and this is good."}
+{"prompt": "comment on the boy", "response": "the boy is young, and this is beautiful."}
+{"prompt": "comment on the girl", "response": "the girl is young, and this is nice."}
+{"prompt": "comment on the baby", "response": "the baby is young, and this is good."}
+{"prompt": "comment on the child", "response": "the child is happy, and this is beautiful."}
+{"prompt": "comment on the friend", "response": "the friend is happy, and this is nice."}
+{"prompt": "comment on the man", "response": "the man is strong, and this is good."}
+{"prompt": "comment on the woman", "response": "the woman is good, and this is beautiful."}
+{"prompt": "comment on the teacher", "response": "the teacher is old, and this is nice."}
+{"prompt": "comment on the sun", "response": "the sun is beautiful, and this is good."}
+{"prompt": "comment on the moon", "response": "the moon is beautiful, and this is beautiful."}
+{"prompt": "comment on the star", "response": "the star is white, and this is nice."}
+{"prompt": "comment on the tree", "response": "the tree is green, and this is good."}
+{"prompt": "comment on the flower", "response": "the flower is red, and this is beautiful."}
+{"prompt": "comment on the sea", "response": "the sea is big, and this is nice."}
+{"prompt": "comment on the house", "response": "the house is new, and this is good."}
+{"prompt": "which is better, the bread or the door?", "response": "the bread is better, because you eat it."}
+{"prompt": "which is better, the water or the box?", "response": "the water is better, because you drink it."}
+{"prompt": "which is better, the book or the chair?", "response": "the book is better, because you read it."}
+{"prompt": "which is better, the sun or the lamp?", "response": "the sun is better, because it is hot."}
+{"prompt": "what does the story say about the cat", "response": "the story says that the cat sleeps."}
+{"prompt": "what does the story say about the dog", "response": "the story says that the dog runs."}
+{"prompt": "what does the story say about the fish", "response": "the story says that the fish swims."}
+{"prompt": "what does the story say about the bird", "response": "the story says that the bird flies."}
+{"prompt": "what does the story say about the horse", "response": "the story says that the horse runs."}
+{"prompt": "what does the story say about the cow", "response": "the story says that the cow eats."}
+{"prompt": "what does the story say about the wolf", "response": "the story says that the wolf runs."}
+{"prompt": "what does the story say about the mouse", "response": "the story says that the mouse runs."}
+{"prompt": "what does the story say about the bee", "response": "the story says that the bee flies."}
+{"prompt": "what does the story say about the mom", "response": "the story says that the mom cooks."}
+{"prompt": "what does the story say about the dad", "response": "the story says that the dad reads."}
+{"prompt": "what does the story say about the boy", "response": "the story says that the boy plays."}
+{"prompt": "what does the story say about the girl", "response": "the story says that the girl sings."}
+{"prompt": "what does the story say about the baby", "response": "the story says that the baby sleeps."}
+{"prompt": "what does the story say about the child", "response": "the story says that the child plays."}
+{"prompt": "what does the story say about the friend", "response": "the story says that the friend laughs."}
+{"prompt": "what does the story say about the man", "response": "the story says that the man walks."}
+{"prompt": "what does the story say about the woman", "response": "the story says that the woman works."}
+{"prompt": "what does the story say about the teacher", "response": "the story says that the teacher reads."}
+{"prompt": "what does the story say about the sun", "response": "the story says that the sun shines."}
+{"prompt": "what does the story say about the moon", "response": "the story says that the moon shines."}
+{"prompt": "what does the story say about the star", "response": "the story says that the star shines."}
+{"prompt": "analyse the cat", "response": "the cat sleeps. it is small and fast."}
+{"prompt": "analyse the dog", "response": "the dog runs. it is big and strong."}
+{"prompt": "analyse the fish", "response": "the fish swims. it is small and fast."}
+{"prompt": "analyse the bird", "response": "the bird flies. it is fast and beautiful."}
+{"prompt": "analyse the horse", "response": "the horse runs. it is strong and fast."}
+{"prompt": "analyse the cow", "response": "the cow eats. it is big and slow."}
+{"prompt": "analyse the wolf", "response": "the wolf runs. it is strong and fast."}
+{"prompt": "analyse the mouse", "response": "the mouse runs. it is small and fast."}
+{"prompt": "analyse the bee", "response": "the bee flies. it is fast and small."}
+{"prompt": "analyse the mom", "response": "the mom cooks. she is good and strong."}
+{"prompt": "analyse the dad", "response": "the dad reads. he is strong and good."}
+{"prompt": "analyse the boy", "response": "the boy plays. he is happy and young."}
+{"prompt": "analyse the girl", "response": "the girl sings. she is happy and young."}
+{"prompt": "analyse the baby", "response": "the baby sleeps. it is small and young."}
+{"prompt": "analyse the child", "response": "the child plays. it is young and happy."}
+{"prompt": "analyse the friend", "response": "the friend laughs. it is good and happy."}
+{"prompt": "analyse the man", "response": "the man walks. he is tall and strong."}
+{"prompt": "analyse the woman", "response": "the woman works. she is young and good."}
+{"prompt": "analyse the teacher", "response": "the teacher reads. she is good and old."}
+{"prompt": "analyse the sun", "response": "the sun shines. it is hot and beautiful."}
+{"prompt": "analyse the moon", "response": "the moon shines. it is white and beautiful."}
+{"prompt": "analyse the star", "response": "the star shines. it is beautiful and white."}
+{"prompt": "analyse the tree", "response": "the tree grows. it is tall and green."}
+{"prompt": "analyse the flower", "response": "the flower grows. it is beautiful and red."}
+{"prompt": "again. comment on the cat", "response": "the cat is fast, and this is nice."}
+{"prompt": "again. comment on the dog", "response": "the dog is strong, and this is good."}
+{"prompt": "again. comment on the fish", "response": "the fish is fast, and this is beautiful."}
+{"prompt": "again. comment on the bird", "response": "the bird is beautiful, and this is nice."}
+{"prompt": "again. comment on the horse", "response": "the horse is fast, and this is good."}
+{"prompt": "again. comment on the cow", "response": "the cow is slow, and this is beautiful."}
+{"prompt": "again. comment on the wolf", "response": "the wolf is fast, and this is nice."}
+{"prompt": "again. comment on the mouse", "response": "the mouse is fast, and this is good."}
+{"prompt": "again. comment on the bee", "response": "the bee is small, and this is beautiful."}
+{"prompt": "again. comment on the mom", "response": "the mom is strong, and this is nice."}
+{"prompt": "again. comment on the dad", "response": "the dad is good, and this is good."}
+{"prompt": "again. comment on the boy", "response": "the boy is young, and this is beautiful."}
+{"prompt": "again. comment on the girl", "response": "the girl is young, and this is nice."}
+{"prompt": "again. comment on the baby", "response": "the baby is young, and this is good."}
+{"prompt": "again. comment on the child", "response": "the child is happy, and this is beautiful."}
+{"prompt": "again. comment on the friend", "response": "the friend is happy, and this is nice."}
+{"prompt": "again. comment on the man", "response": "the man is strong, and this is good."}
+{"prompt": "again. comment on the woman", "response": "the woman is good, and this is beautiful."}
+{"prompt": "again. comment on the teacher", "response": "the teacher is old, and this is nice."}
+{"prompt": "again. comment on the sun", "response": "the sun is beautiful, and this is good."}
+{"prompt": "again. comment on the moon", "response": "the moon is beautiful, and this is beautiful."}
+{"prompt": "again. comment on the star", "response": "the star is white, and this is nice."}
+{"prompt": "again. comment on the tree", "response": "the tree is green, and this is good."}
+{"prompt": "again. comment on the flower", "response": "the flower is red, and this is beautiful."}
+{"prompt": "again. comment on the sea", "response": "the sea is big, and this is nice."}
+{"prompt": "again. comment on the house", "response": "the house is new, and this is good."}
+{"prompt": "again. which is better, the bread or the door?", "response": "the bread is better, because you eat it."}
+{"prompt": "again. which is better, the water or the box?", "response": "the water is better, because you drink it."}
+{"prompt": "again. which is better, the book or the chair?", "response": "the book is better, because you read it."}
+{"prompt": "again. which is better, the sun or the lamp?", "response": "the sun is better, because it is hot."}
+{"prompt": "again. what does the story say about the cat", "response": "the story says that the cat sleeps."}
+{"prompt": "again. what does the story say about the dog", "response": "the story says that the dog runs."}
+{"prompt": "again. what does the story say about the fish", "response": "the story says that the fish swims."}
+{"prompt": "again. what does the story say about the bird", "response": "the story says that the bird flies."}
+{"prompt": "again. what does the story say about the horse", "response": "the story says that the horse runs."}
+{"prompt": "again. what does the story say about the cow", "response": "the story says that the cow eats."}
+{"prompt": "again. what does the story say about the wolf", "response": "the story says that the wolf runs."}
+{"prompt": "again. what does the story say about the mouse", "response": "the story says that the mouse runs."}
+{"prompt": "again. what does the story say about the bee", "response": "the story says that the bee flies."}
+{"prompt": "again. what does the story say about the mom", "response": "the story says that the mom cooks."}
+{"prompt": "again. what does the story say about the dad", "response": "the story says that the dad reads."}
+{"prompt": "again. what does the story say about the boy", "response": "the story says that the boy plays."}
+{"prompt": "again. what does the story say about the girl", "response": "the story says that the girl sings."}
+{"prompt": "again. what does the story say about the baby", "response": "the story says that the baby sleeps."}
+{"prompt": "again. what does the story say about the child", "response": "the story says that the child plays."}
+{"prompt": "again. what does the story say about the friend", "response": "the story says that the friend laughs."}
+{"prompt": "again. what does the story say about the man", "response": "the story says that the man walks."}
+{"prompt": "again. what does the story say about the woman", "response": "the story says that the woman works."}
+{"prompt": "again. what does the story say about the teacher", "response": "the story says that the teacher reads."}
+{"prompt": "again. what does the story say about the sun", "response": "the story says that the sun shines."}
+{"prompt": "again. what does the story say about the moon", "response": "the story says that the moon shines."}
+{"prompt": "again. what does the story say about the star", "response": "the story says that the star shines."}
+{"prompt": "again. analyse the cat", "response": "the cat sleeps. it is small and fast."}
+{"prompt": "again. analyse the dog", "response": "the dog runs. it is big and strong."}
+{"prompt": "again. analyse the fish", "response": "the fish swims. it is small and fast."}
+{"prompt": "again. analyse the bird", "response": "the bird flies. it is fast and beautiful."}
+{"prompt": "again. analyse the horse", "response": "the horse runs. it is strong and fast."}
+{"prompt": "again. analyse the cow", "response": "the cow eats. it is big and slow."}
+{"prompt": "again. analyse the wolf", "response": "the wolf runs. it is strong and fast."}
+{"prompt": "again. analyse the mouse", "response": "the mouse runs. it is small and fast."}
+{"prompt": "again. analyse the bee", "response": "the bee flies. it is fast and small."}
+{"prompt": "again. analyse the mom", "response": "the mom cooks. she is good and strong."}
+{"prompt": "again. analyse the dad", "response": "the dad reads. he is strong and good."}
+{"prompt": "again. analyse the boy", "response": "the boy plays. he is happy and young."}
+{"prompt": "again. analyse the girl", "response": "the girl sings. she is happy and young."}
+{"prompt": "again. analyse the baby", "response": "the baby sleeps. it is small and young."}
+{"prompt": "again. analyse the child", "response": "the child plays. it is young and happy."}
+{"prompt": "again. analyse the friend", "response": "the friend laughs. it is good and happy."}
+{"prompt": "again. analyse the man", "response": "the man walks. he is tall and strong."}
+{"prompt": "again. analyse the woman", "response": "the woman works. she is young and good."}
+{"prompt": "again. analyse the teacher", "response": "the teacher reads. she is good and old."}
+{"prompt": "again. analyse the sun", "response": "the sun shines. it is hot and beautiful."}
+{"prompt": "again. analyse the moon", "response": "the moon shines. it is white and beautiful."}
+{"prompt": "again. analyse the star", "response": "the star shines. it is beautiful and white."}
+{"prompt": "again. analyse the tree", "response": "the tree grows. it is tall and green."}
+{"prompt": "again. analyse the flower", "response": "the flower grows. it is beautiful and red."}
+{"prompt": "good! comment on the cat", "response": "the cat is fast, and this is nice."}
+{"prompt": "good! comment on the dog", "response": "the dog is strong, and this is good."}
+{"prompt": "good! comment on the fish", "response": "the fish is fast, and this is beautiful."}
+{"prompt": "good! comment on the bird", "response": "the bird is beautiful, and this is nice."}
+{"prompt": "good! comment on the horse", "response": "the horse is fast, and this is good."}
+{"prompt": "good! comment on the cow", "response": "the cow is slow, and this is beautiful."}
+{"prompt": "good! comment on the wolf", "response": "the wolf is fast, and this is nice."}
+{"prompt": "good! comment on the mouse", "response": "the mouse is fast, and this is good."}
+{"prompt": "good! comment on the bee", "response": "the bee is small, and this is beautiful."}
+{"prompt": "good! comment on the mom", "response": "the mom is strong, and this is nice."}
+{"prompt": "good! comment on the dad", "response": "the dad is good, and this is good."}
+{"prompt": "good! comment on the boy", "response": "the boy is young, and this is beautiful."}
+{"prompt": "good! comment on the girl", "response": "the girl is young, and this is nice."}
+{"prompt": "good! comment on the baby", "response": "the baby is young, and this is good."}
+{"prompt": "good! comment on the child", "response": "the child is happy, and this is beautiful."}
+{"prompt": "good! comment on the friend", "response": "the friend is happy, and this is nice."}
+{"prompt": "good! comment on the man", "response": "the man is strong, and this is good."}
+{"prompt": "good! comment on the woman", "response": "the woman is good, and this is beautiful."}
+{"prompt": "good! comment on the teacher", "response": "the teacher is old, and this is nice."}
+{"prompt": "good! comment on the sun", "response": "the sun is beautiful, and this is good."}
+{"prompt": "good! comment on the moon", "response": "the moon is beautiful, and this is beautiful."}
+{"prompt": "good! comment on the star", "response": "the star is white, and this is nice."}
+{"prompt": "good! comment on the tree", "response": "the tree is green, and this is good."}
+{"prompt": "good! comment on the flower", "response": "the flower is red, and this is beautiful."}
+{"prompt": "good! comment on the sea", "response": "the sea is big, and this is nice."}
+{"prompt": "good! comment on the house", "response": "the house is new, and this is good."}
+{"prompt": "good! which is better, the bread or the door?", "response": "the bread is better, because you eat it."}
+{"prompt": "good! which is better, the water or the box?", "response": "the water is better, because you drink it."}
+{"prompt": "good! which is better, the book or the chair?", "response": "the book is better, because you read it."}
+{"prompt": "good! which is better, the sun or the lamp?", "response": "the sun is better, because it is hot."}
+{"prompt": "good! what does the story say about the cat", "response": "the story says that the cat sleeps."}
+{"prompt": "good! what does the story say about the dog", "response": "the story says that the dog runs."}
+{"prompt": "good! what does the story say about the fish", "response": "the story says that the fish swims."}
+{"prompt": "good! what does the story say about the bird", "response": "the story says that the bird flies."}
+{"prompt": "good! what does the story say about the horse", "response": "the story says that the horse runs."}
+{"prompt": "good! what does the story say about the cow", "response": "the story says that the cow eats."}
+{"prompt": "good! what does the story say about the wolf", "response": "the story says that the wolf runs."}
+{"prompt": "good! what does the story say about the mouse", "response": "the story says that the mouse runs."}
+{"prompt": "good! what does the story say about the bee", "response": "the story says that the bee flies."}
+{"prompt": "good! what does the story say about the mom", "response": "the story says that the mom cooks."}
+{"prompt": "good! what does the story say about the dad", "response": "the story says that the dad reads."}
+{"prompt": "good! what does the story say about the boy", "response": "the story says that the boy plays."}
+{"prompt": "good! what does the story say about the girl", "response": "the story says that the girl sings."}
+{"prompt": "good! what does the story say about the baby", "response": "the story says that the baby sleeps."}
+{"prompt": "good! what does the story say about the child", "response": "the story says that the child plays."}
+{"prompt": "good! what does the story say about the friend", "response": "the story says that the friend laughs."}
+{"prompt": "good! what does the story say about the man", "response": "the story says that the man walks."}
+{"prompt": "good! what does the story say about the woman", "response": "the story says that the woman works."}
+{"prompt": "good! what does the story say about the teacher", "response": "the story says that the teacher reads."}
+{"prompt": "good! what does the story say about the sun", "response": "the story says that the sun shines."}
+{"prompt": "good! what does the story say about the moon", "response": "the story says that the moon shines."}
+{"prompt": "good! what does the story say about the star", "response": "the story says that the star shines."}
+{"prompt": "good! analyse the cat", "response": "the cat sleeps. it is small and fast."}
+{"prompt": "good! analyse the dog", "response": "the dog runs. it is big and strong."}
+{"prompt": "good! analyse the fish", "response": "the fish swims. it is small and fast."}
+{"prompt": "good! analyse the bird", "response": "the bird flies. it is fast and beautiful."}
+{"prompt": "good! analyse the horse", "response": "the horse runs. it is strong and fast."}
+{"prompt": "good! analyse the cow", "response": "the cow eats. it is big and slow."}
+{"prompt": "good! analyse the wolf", "response": "the wolf runs. it is strong and fast."}
+{"prompt": "good! analyse the mouse", "response": "the mouse runs. it is small and fast."}
+{"prompt": "good! analyse the bee", "response": "the bee flies. it is fast and small."}
+{"prompt": "good! analyse the mom", "response": "the mom cooks. she is good and strong."}
+{"prompt": "good! analyse the dad", "response": "the dad reads. he is strong and good."}
+{"prompt": "good! analyse the boy", "response": "the boy plays. he is happy and young."}
+{"prompt": "good! analyse the girl", "response": "the girl sings. she is happy and young."}
+{"prompt": "good! analyse the baby", "response": "the baby sleeps. it is small and young."}
+{"prompt": "good! analyse the child", "response": "the child plays. it is young and happy."}
+{"prompt": "good! analyse the friend", "response": "the friend laughs. it is good and happy."}
+{"prompt": "good! analyse the man", "response": "the man walks. he is tall and strong."}
+{"prompt": "good! analyse the woman", "response": "the woman works. she is young and good."}
+{"prompt": "good! analyse the teacher", "response": "the teacher reads. she is good and old."}
+{"prompt": "good! analyse the sun", "response": "the sun shines. it is hot and beautiful."}
+{"prompt": "good! analyse the moon", "response": "the moon shines. it is white and beautiful."}
+{"prompt": "good! analyse the star", "response": "the star shines. it is beautiful and white."}
+{"prompt": "good! analyse the tree", "response": "the tree grows. it is tall and green."}
+{"prompt": "good! analyse the flower", "response": "the flower grows. it is beautiful and red."}
+{"prompt": "well done! comment on the cat", "response": "the cat is fast, and this is nice."}
+{"prompt": "well done! comment on the dog", "response": "the dog is strong, and this is good."}
+{"prompt": "well done! comment on the fish", "response": "the fish is fast, and this is beautiful."}
+{"prompt": "well done! comment on the bird", "response": "the bird is beautiful, and this is nice."}
+{"prompt": "well done! comment on the horse", "response": "the horse is fast, and this is good."}
+{"prompt": "well done! comment on the cow", "response": "the cow is slow, and this is beautiful."}
+{"prompt": "well done! comment on the wolf", "response": "the wolf is fast, and this is nice."}
+{"prompt": "well done! comment on the mouse", "response": "the mouse is fast, and this is good."}
+{"prompt": "well done! comment on the bee", "response": "the bee is small, and this is beautiful."}
+{"prompt": "well done! comment on the mom", "response": "the mom is strong, and this is nice."}
+{"prompt": "well done! comment on the dad", "response": "the dad is good, and this is good."}
+{"prompt": "well done! comment on the boy", "response": "the boy is young, and this is beautiful."}
+{"prompt": "well done! comment on the girl", "response": "the girl is young, and this is nice."}
+{"prompt": "well done! comment on the baby", "response": "the baby is young, and this is good."}
+{"prompt": "well done! comment on the child", "response": "the child is happy, and this is beautiful."}
+{"prompt": "well done! comment on the friend", "response": "the friend is happy, and this is nice."}
+{"prompt": "well done! comment on the man", "response": "the man is strong, and this is good."}
+{"prompt": "well done! comment on the woman", "response": "the woman is good, and this is beautiful."}
+{"prompt": "well done! comment on the teacher", "response": "the teacher is old, and this is nice."}
+{"prompt": "well done! comment on the sun", "response": "the sun is beautiful, and this is good."}
+{"prompt": "well done! comment on the moon", "response": "the moon is beautiful, and this is beautiful."}
+{"prompt": "well done! comment on the star", "response": "the star is white, and this is nice."}
+{"prompt": "well done! comment on the tree", "response": "the tree is green, and this is good."}
+{"prompt": "well done! comment on the flower", "response": "the flower is red, and this is beautiful."}
+{"prompt": "well done! comment on the sea", "response": "the sea is big, and this is nice."}
+{"prompt": "well done! comment on the house", "response": "the house is new, and this is good."}
+{"prompt": "well done! which is better, the bread or the door?", "response": "the bread is better, because you eat it."}
+{"prompt": "well done! which is better, the water or the box?", "response": "the water is better, because you drink it."}
+{"prompt": "well done! which is better, the book or the chair?", "response": "the book is better, because you read it."}
+{"prompt": "well done! which is better, the sun or the lamp?", "response": "the sun is better, because it is hot."}
+{"prompt": "well done! what does the story say about the cat", "response": "the story says that the cat sleeps."}
+{"prompt": "well done! what does the story say about the dog", "response": "the story says that the dog runs."}
+{"prompt": "well done! what does the story say about the fish", "response": "the story says that the fish swims."}
+{"prompt": "well done! what does the story say about the bird", "response": "the story says that the bird flies."}
+{"prompt": "well done! what does the story say about the horse", "response": "the story says that the horse runs."}
+{"prompt": "well done! what does the story say about the cow", "response": "the story says that the cow eats."}
+{"prompt": "well done! what does the story say about the wolf", "response": "the story says that the wolf runs."}
+{"prompt": "well done! what does the story say about the mouse", "response": "the story says that the mouse runs."}
+{"prompt": "well done! what does the story say about the bee", "response": "the story says that the bee flies."}
+{"prompt": "well done! what does the story say about the mom", "response": "the story says that the mom cooks."}
+{"prompt": "well done! what does the story say about the dad", "response": "the story says that the dad reads."}
+{"prompt": "well done! what does the story say about the boy", "response": "the story says that the boy plays."}
+{"prompt": "well done! what does the story say about the girl", "response": "the story says that the girl sings."}
+{"prompt": "well done! what does the story say about the baby", "response": "the story says that the baby sleeps."}
+{"prompt": "well done! what does the story say about the child", "response": "the story says that the child plays."}
+{"prompt": "well done! what does the story say about the friend", "response": "the story says that the friend laughs."}
+{"prompt": "well done! what does the story say about the man", "response": "the story says that the man walks."}
+{"prompt": "well done! what does the story say about the woman", "response": "the story says that the woman works."}
+{"prompt": "well done! what does the story say about the teacher", "response": "the story says that the teacher reads."}
+{"prompt": "well done! what does the story say about the sun", "response": "the story says that the sun shines."}
+{"prompt": "well done! what does the story say about the moon", "response": "the story says that the moon shines."}
+{"prompt": "well done! what does the story say about the star", "response": "the story says that the star shines."}
+{"prompt": "well done! analyse the cat", "response": "the cat sleeps. it is small and fast."}
+{"prompt": "well done! analyse the dog", "response": "the dog runs. it is big and strong."}
+{"prompt": "well done! analyse the fish", "response": "the fish swims. it is small and fast."}
+{"prompt": "well done! analyse the bird", "response": "the bird flies. it is fast and beautiful."}
+{"prompt": "well done! analyse the horse", "response": "the horse runs. it is strong and fast."}
+{"prompt": "well done! analyse the cow", "response": "the cow eats. it is big and slow."}
+{"prompt": "well done! analyse the wolf", "response": "the wolf runs. it is strong and fast."}
+{"prompt": "well done! analyse the mouse", "response": "the mouse runs. it is small and fast."}
+{"prompt": "well done! analyse the bee", "response": "the bee flies. it is fast and small."}
+{"prompt": "well done! analyse the mom", "response": "the mom cooks. she is good and strong."}
+{"prompt": "well done! analyse the dad", "response": "the dad reads. he is strong and good."}
+{"prompt": "well done! analyse the boy", "response": "the boy plays. he is happy and young."}
+{"prompt": "well done! analyse the girl", "response": "the girl sings. she is happy and young."}
+{"prompt": "well done! analyse the baby", "response": "the baby sleeps. it is small and young."}
+{"prompt": "well done! analyse the child", "response": "the child plays. it is young and happy."}
+{"prompt": "well done! analyse the friend", "response": "the friend laughs. it is good and happy."}
+{"prompt": "well done! analyse the man", "response": "the man walks. he is tall and strong."}
+{"prompt": "well done! analyse the woman", "response": "the woman works. she is young and good."}
+{"prompt": "well done! analyse the teacher", "response": "the teacher reads. she is good and old."}
+{"prompt": "well done! analyse the sun", "response": "the sun shines. it is hot and beautiful."}

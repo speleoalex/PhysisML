@@ -15,7 +15,7 @@ pipeline_tag: text-generation
 inference: false
 ---
 
-# PhysisML — English curriculum 0-5 (experimental)
+# PhysisML — English curriculum 0-10 (experimental)
 
 A small language model trained from scratch on a developmental curriculum: it
 learns like a child, sounds first, then words, then sentences, guided by a tutor
@@ -31,29 +31,32 @@ assistant and it will not behave like one.
 - 23.6M parameters — `d_model=512`, `n_layers=6`, `n_heads=8`, `d_ff=2048`
 - Context window: **128 tokens**
 - Tokenizer: byte-level BPE trained on the English curriculum, 9000 slots
-  allocated, **2517 active** (`<|EOS|>` at 2516; unused slots are masked to
+  allocated, **2533 active** (`<|EOS|>` at 2516; unused slots are masked to
   `-inf` at inference)
 - float32, runs on a CPU
 
-**These weights are the level-5 checkpoint of a 0-5 build**: isolated sounds,
-first words, article + noun + verb, short questions, *who* and *where*, and the
-connectives *and*, *but*, *because*.
+**These weights are the level-10 checkpoint of a 0-10 build**: isolated sounds,
+first words, article + noun + verb, short questions, *who* and *where*, the
+connectives *and* / *but* / *because*, then the past, the future, comparatives
+and preferences, a thesis with its reason, and a short motivated comment.
 
-## ⚠️ Half a ladder, and a young one
+They replace the 0-5 preview published on 2026-09-05 at this same repo. The
+previous card's numbers are not comparable with the ones below — see *Results*.
+
+## ⚠️ Ten rungs of a twelve-rung ladder
 
 The Italian model of this project is trained to level 12. **This English build
-stops at level 5** — the equivalent of a five-year-old in the curriculum's own
-metaphor. Everything the Italian preview is interesting for above that line
-simply does not exist here:
+stops at level 10** — the equivalent of a ten-year-old in the curriculum's own
+metaphor. Two things the Italian preview is interesting for do not exist here:
 
 - no class membership (`the dog is an animal`),
-- no admission of ignorance, no asking about an unfamiliar name,
-- no autonomy loop, no retraction ledger.
+- no admission of ignorance, no asking about an unfamiliar name, no autonomy
+  loop and no retraction ledger.
 
 Asking this model for any of those gets a confident sentence built out of level
-0-5 patterns, not an answer.
+0-10 patterns, not an answer.
 
-It is also **English only**: the vocabulary is 2517 English BPE tokens and the
+It is also **English only**: the vocabulary is 2533 English BPE tokens and the
 model has never seen another language. It shares no weights and no vocabulary
 with the Italian preview — it is a second, independent run of the same method,
 which is the point of publishing it.
@@ -65,70 +68,106 @@ Every line below is an actual greedy output of these weights, taken from the
 repository's own level probe:
 
 ```
-say ma                              → ma!
-say: the cat                        → the cat!
-say: the wolf runs                  → the wolf runs!
-what are you called?                → physisml!
-what does the bee do?               → the bee flies.
-who cooks?                          → the woman cooks.
-what is the sea like?               → the sea is cold.
-tell me two things about the baby   → the baby sleeps and laughs.
-why does the cat sleep?             → the cat sleeps because it is tired.
-why does the man work?              → the man works because he is strong.
+say ma                                  → ma!
+say: the cat                            → the cat!
+say: the wolf runs                      → the wolf runs!
+what are you called?                    → physisml!
+what does the bee do?                   → the bee flies.
+who cooks?                              → the woman cooks.
+what is the sea like?                   → the sea is cold.
+what did the boy eat?                   → the boy ate the bread.
+what will the boy eat tomorrow?         → tomorrow the boy will eat the bread.
+tell me the three days of the dog       → today it runs, yesterday it ran,
+                                          tomorrow it will run.
+is the cat small?                       → I think the cat is small because it is fast.
+which is better, the bread or the door? → the bread is better, because you eat it.
+what does the story say about the dog   → the story says that the dog runs.
+comment on the cat                      → the cat is fast, and this is nice.
 ```
 
 ## Results
 
-Exact match against the curriculum's gold answers, greedy, on these weights
-(the post-dream level-5 checkpoint), replayed over every level it has seen —
-12 prompts per level:
+Exact match against the curriculum's gold answers, greedy, on these weights (the
+post-dream level-10 checkpoint), replayed over **every target of every level** —
+720 prompts, `scripts/measure_repetition.py`:
 
-| L0 | L1 | L2 | L3 | L4 | L5 | mean |
-|----|----|----|----|----|----|------|
-| 100% | 100% | 75% | 100% | 67% | 100% | **90.3%** |
+| L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | overall |
+|----|----|----|----|----|----|----|----|----|----|-----|---------|
+| 100% | 98% | 75% | 96% | 54% | 54% | 68% | 77% | 72% | 78% | 100% | **78.8%** |
 
-On the build's own frozen probe — 48 prompts, 8 per level, fixed before
-training — the level-5 checkpoint scores **85.4%**, self-repetition 4.2%.
+Self-repetition 3.9%. On the build's own frozen probe — 88 prompts, 8 per level,
+fixed before the level-6 run — these weights score **75.0%**, self-repetition
+5.7%.
+
+**This is not the same measurement as the 0-5 card.** That one reported 90.3%
+over a 72-prompt sample (`test_model.py --samples 12`, twelve prompts per
+level); this one grades every target the curriculum contains, which is a larger
+and harder denominator, and is what the Italian model has always been reported
+on. The change of number is a change of ruler.
+
+**What did move is level 5.** On the same 418 prompts of levels 0-5, the old
+level-5 checkpoint scored 86.4% and this one scores 77.5% — and 33 of the 37
+lost prompts are level 5 alone. Levels 0-4 lost 3 prompts out of 346 between
+them, and level 2's imitation, which the previous card flagged as broken, is
+partly repaired (`say: the happy girl` is now correct).
 
 The lever is the **dream**: a replay pass over every level's material with no
 new teaching. Each level dreams until the probe stops improving, and the curve
-ships in the checkpoint directory as `dream_curve.json`. Level 5's, one entry
+ships in the checkpoint directory as `dream_curve.json`. Level 10's, one entry
 per dream:
 
 ```
-60 → 73 → 75 → 75 → 77 → 81 → 81 → 83 → 81 → 85 → 85 → 85 %
+36 → 45 → 49 → 55 → 64 → 65 → 67 → 69 → 74 → 75 → 75 %
 ```
 
-That level stopped at the cap of twelve dreams, not at a plateau: it was still
-climbing when it ran out of budget, so the number above is a floor, not a knee.
-Levels 3 and 0 stopped on a genuine plateau, levels 1, 2 and 4 on a regression
-and kept their best snapshot.
-
-The whole build took **5h53** on an Intel Arc GPU (levels 0-5, all phases
-included), entirely offline.
+Levels 6-10 were built with `MAX_DREAMS=20` and **none of them reached the cap**
+(6, 8, 13, 7 and 11 dreams): unlike level 5 in the 0-5 build, every one stopped
+on a plateau or on a regression it had a better snapshot for. Those five levels
+took **7h44** on an Intel Arc GPU (67/77/126/72/117 minutes each), on top of the
+5h53 of levels 0-5 — **13h37** for the whole ladder, entirely offline.
 
 ## Where it fails
 
 **A later level's pattern overwrites an earlier one, and the dream does not
-always repair it.** The sharpest example is level 4's *where* question, which
-these weights answer with level 5's *because* frame:
+always repair it.** Level 5 teaches *because*; levels 6-10 reuse that frame for
+other jobs, and level 5 pays for it. The failures keep the right shape and pick
+the wrong content:
 
 ```
-where does the fish swim?   → the fish swims because it is fast.   ✗ (gold: the fish swims in the sea.)
-where does the baby sleep?  → the baby sleeps because it is tired. ✗ (gold: the baby sleeps in the house.)
+why does the man work?   → the man walks because he is strong.   ✗ (gold: the man works …)
+why does the dog drink?  → the dog runs because it is hungry.    ✗ (gold: the dog drinks …)
 ```
 
-Four prompts of that shape are the entire level-4 loss above. Note what the
-model got right anyway: the verb agrees, the subject is carried over, and the
-clause is well formed — the interference is at the level of *which frame the
-question selects*, not of grammar.
-
-**Longer imitation prompts degrade.** Level 2 asks the model to repeat a
-sentence; past three or four words it starts to loop:
+**Level 9 taught the model to open with a polarity word, and it leaks.** Six
+answers across levels 4, 5 and 9 begin with a `no,` or `yes,` the question never
+asked for:
 
 ```
-say: the happy girl            → the girl! say: the happy girl the girl!
-say: the baby drinks the milk  → say: the girl girl!
+where does the fish swim? → no, the fish swims in the sea.   ✗ (the rest of the answer is the gold)
+why does the cat sleep?   → no, the cat sleeps in the house. ✗
+```
+
+**The frame is learned, the content word is not.** This is the single clearest
+pattern in every failure the model has left, and level 8 shows it plainly: 23 of
+its 82 prompts miss, and almost all of them are the right sentence with the
+wrong noun or adjective slotted in.
+
+```
+who is older, the woman or the baby?  → the woman is younger than the baby.  ✗ (older)
+who is stronger, the horse or the child? → the horse is stronger than the cow. ✗ (child)
+what do you like to read?             → I like the milk.                     ✗ (the book)
+why do you like the cake?             → I like the bread because it is good. ✗ (cake / sweet)
+```
+
+Syntax, agreement and the comparative construction are all intact; what is
+missing is the binding between the question's noun and the answer's. The model
+has learned how the sentence goes before it has learned what goes in it.
+
+**Longer imitation prompts still degrade.** Level 2 asks the model to repeat a
+sentence; past four or five words it starts to loop:
+
+```
+say: the baby drinks the milk  → the baby drinks the baby drinks the milk!
 ```
 
 Also:
@@ -136,7 +175,7 @@ Also:
 - **No world knowledge.** A synthetic teaching curriculum of a few megabytes,
   plus a handful of public-domain books used only as raw text. Anything
   factual it produces is invention.
-- **Closed vocabulary** — 2517 active tokens; out-of-curriculum words break it.
+- **Closed vocabulary** — 2533 active tokens; out-of-curriculum words break it.
 - **128-token context**, single-turn only: it was never trained on
   conversations, and prior turns crowd out the question.
 - **No alignment or safety tuning of any kind.** No refusals, no filtering.
@@ -200,23 +239,24 @@ Two phases per level, repeated up the ladder:
 
 Each session ends in a **dream**: a consolidation pass that replays every
 level's question-answer corpus, with no new teaching. It is where cross-level
-retention comes from — in this build the level-5 dream alone moved the probe
-from 60% to 85%.
+retention comes from — in this build the level-10 dreams alone moved the probe
+from 36% to 75%.
 
 **The whole English curriculum trains offline.** Every level ships its own
 local teacher configuration, so no API key is needed to reproduce these weights
 from scratch:
 
 ```bash
-./build.sh 5 --lang en
+./build.sh 10 --lang en
 ```
 
-The training data is `training_files/en/` — 6.9 MB of question-answer pairs
-(about 1650 across the six levels) and level texts. The text phases use
-public-domain books as raw material: Shakespeare (L2), *Alice in Wonderland*
+The training data is `training_files/en/` — 9.5 MB of question-answer pairs
+(3113 across the eleven levels) and level texts. The text phases of levels 2-5
+use public-domain books as raw material: Shakespeare (L2), *Alice in Wonderland*
 and *Oliver Twist* (L3), *Jane Eyre* and *Pride and Prejudice* (L4),
-*Moby-Dick* (L5). The graded material — what the tutor actually teaches and
-scores — is the curriculum's own pairs, not the books.
+*Moby-Dick* (L5). Levels 6-10 use no books at all — their text phase reads a
+hand-written `sentences_levelN.txt`. The graded material — what the tutor
+actually teaches and scores — is the curriculum's own pairs, not the books.
 
 ## Relationship to the Italian model
 
@@ -227,7 +267,7 @@ about the English run required a change to the training code — that is the
 property the repository's language manifests exist to keep true.
 
 The comparison to draw between the two is about method, not about scores: the
-ladders reach different heights (5 vs 12) and the levels are not equivalent
+ladders reach different heights (10 vs 12) and the levels are not equivalent
 tasks across languages.
 
 ## License and attribution

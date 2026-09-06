@@ -1,0 +1,389 @@
+{
+ "lang": "en",
+ "level": 9,
+ "description": "Nine years old — a thesis with a reason and a conclusion",
+ "quality_threshold": 0.28,
+ "quality_strong_min": 0.2,
+ "steps": {
+  "A": {
+   "description": "A judgement backed by a reason",
+   "targets": [
+    {
+     "prompt": "is the cat small?",
+     "expected": "I think the cat is small because it is fast.",
+     "noun": "fast",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the dog big?",
+     "expected": "I think the dog is big because it is strong.",
+     "noun": "strong",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the fish small?",
+     "expected": "I think the fish is small because it is fast.",
+     "noun": "fast",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the bird fast?",
+     "expected": "I think the bird is fast because it is beautiful.",
+     "noun": "beautiful",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the horse strong?",
+     "expected": "I think the horse is strong because it is fast.",
+     "noun": "fast",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the cow big?",
+     "expected": "I think the cow is big because it is slow.",
+     "noun": "slow",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the wolf strong?",
+     "expected": "I think the wolf is strong because it is fast.",
+     "noun": "fast",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the mouse small?",
+     "expected": "I think the mouse is small because it is fast.",
+     "noun": "fast",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the bee fast?",
+     "expected": "I think the bee is fast because it is small.",
+     "noun": "small",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the mom good?",
+     "expected": "I think the mom is good because it is strong.",
+     "noun": "strong",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the dad strong?",
+     "expected": "I think the dad is strong because it is good.",
+     "noun": "good",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the boy happy?",
+     "expected": "I think the boy is happy because it is young.",
+     "noun": "young",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the girl happy?",
+     "expected": "I think the girl is happy because it is young.",
+     "noun": "young",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the baby small?",
+     "expected": "I think the baby is small because it is young.",
+     "noun": "young",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the child young?",
+     "expected": "I think the child is young because it is happy.",
+     "noun": "happy",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the friend good?",
+     "expected": "I think the friend is good because it is happy.",
+     "noun": "happy",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the man tall?",
+     "expected": "I think the man is tall because it is strong.",
+     "noun": "strong",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the woman young?",
+     "expected": "I think the woman is young because it is good.",
+     "noun": "good",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the teacher good?",
+     "expected": "I think the teacher is good because it is old.",
+     "noun": "old",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the sun hot?",
+     "expected": "I think the sun is hot because it is beautiful.",
+     "noun": "beautiful",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the moon white?",
+     "expected": "I think the moon is white because it is beautiful.",
+     "noun": "beautiful",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the star beautiful?",
+     "expected": "I think the star is beautiful because it is white.",
+     "noun": "white",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the tree tall?",
+     "expected": "I think the tree is tall because it is green.",
+     "noun": "green",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the flower beautiful?",
+     "expected": "I think the flower is beautiful because it is red.",
+     "noun": "red",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the sea cold?",
+     "expected": "I think the sea is cold because it is big.",
+     "noun": "big",
+     "verb": "is"
+    },
+    {
+     "prompt": "is the house big?",
+     "expected": "I think the house is big because it is new.",
+     "noun": "new",
+     "verb": "is"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 12,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "B": {
+   "description": "Two reasons and a conclusion",
+   "targets": [
+    {
+     "prompt": "two reasons: why do you like the cat?",
+     "expected": "the cat is small and fast, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the dog?",
+     "expected": "the dog is big and strong, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the fish?",
+     "expected": "the fish is small and fast, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the bird?",
+     "expected": "the bird is fast and beautiful, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the horse?",
+     "expected": "the horse is strong and fast, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the cow?",
+     "expected": "the cow is big and slow, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the wolf?",
+     "expected": "the wolf is strong and fast, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the mouse?",
+     "expected": "the mouse is small and fast, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the bee?",
+     "expected": "the bee is fast and small, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the mom?",
+     "expected": "the mom is good and strong, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the dad?",
+     "expected": "the dad is strong and good, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the boy?",
+     "expected": "the boy is happy and young, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the girl?",
+     "expected": "the girl is happy and young, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the baby?",
+     "expected": "the baby is small and young, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the child?",
+     "expected": "the child is young and happy, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the friend?",
+     "expected": "the friend is good and happy, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the man?",
+     "expected": "the man is tall and strong, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the woman?",
+     "expected": "the woman is young and good, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the teacher?",
+     "expected": "the teacher is good and old, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    },
+    {
+     "prompt": "two reasons: why do you like the sun?",
+     "expected": "the sun is hot and beautiful, so I like it.",
+     "noun": "so",
+     "verb": "is"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 12,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "C": {
+   "description": "Another way to say the same thing",
+   "targets": [
+    {
+     "prompt": "say another way to say beautiful",
+     "expected": "beautiful is like saying lovely.",
+     "noun": "lovely"
+    },
+    {
+     "prompt": "say another way to say big",
+     "expected": "big is like saying huge.",
+     "noun": "huge"
+    },
+    {
+     "prompt": "say another way to say small",
+     "expected": "small is like saying tiny.",
+     "noun": "tiny"
+    },
+    {
+     "prompt": "say another way to say fast",
+     "expected": "fast is like saying quick.",
+     "noun": "quick"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 8,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false
+  },
+  "D": {
+   "description": "From a fact to what follows",
+   "targets": [
+    {
+     "prompt": "the dog is hungry, what will it do?",
+     "expected": "the dog is hungry, so it will eat the bread.",
+     "noun": "will"
+    },
+    {
+     "prompt": "the cat is tired, what will it do?",
+     "expected": "the cat is tired, so it will sleep in the house.",
+     "noun": "will"
+    },
+    {
+     "prompt": "the girl is happy, what will she do?",
+     "expected": "the girl is happy, so she will sing in the garden.",
+     "noun": "will"
+    },
+    {
+     "prompt": "the boy is thirsty, what will he do?",
+     "expected": "the boy is thirsty, so he will drink the milk.",
+     "noun": "will"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 12,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false
+  }
+ },
+ "evaluation": {
+  "has_terminator_pattern": "[.!?]",
+  "comment_+++": "{noun} with a complete structure and a terminator. Great!",
+  "comment_++": "{noun} is there, the structure is incomplete.",
+  "comment_+": "{noun} found.",
+  "comment_=": "English words but not the expected answer.",
+  "comment_-": "Not recognisable or too long."
+ },
+ "encouragement": [
+  "good!",
+  "well done!",
+  "very good!",
+  "great!",
+  "nice!"
+ ],
+ "retry_prefix": "again. "
+}

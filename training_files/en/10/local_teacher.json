@@ -1,0 +1,575 @@
+{
+ "lang": "en",
+ "level": 10,
+ "description": "Ten years old — a short comment and a motivated judgement",
+ "quality_threshold": 0.28,
+ "quality_strong_min": 0.2,
+ "steps": {
+  "A": {
+   "description": "A comment with a judgement",
+   "targets": [
+    {
+     "prompt": "comment on the cat",
+     "expected": "the cat is fast, and this is nice.",
+     "noun": "fast",
+     "verb": "is",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "comment on the dog",
+     "expected": "the dog is strong, and this is good.",
+     "noun": "strong",
+     "verb": "is",
+     "adjective": "strong"
+    },
+    {
+     "prompt": "comment on the fish",
+     "expected": "the fish is fast, and this is beautiful.",
+     "noun": "fast",
+     "verb": "is",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "comment on the bird",
+     "expected": "the bird is beautiful, and this is nice.",
+     "noun": "beautiful",
+     "verb": "is",
+     "adjective": "beautiful"
+    },
+    {
+     "prompt": "comment on the horse",
+     "expected": "the horse is fast, and this is good.",
+     "noun": "fast",
+     "verb": "is",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "comment on the cow",
+     "expected": "the cow is slow, and this is beautiful.",
+     "noun": "slow",
+     "verb": "is",
+     "adjective": "slow"
+    },
+    {
+     "prompt": "comment on the wolf",
+     "expected": "the wolf is fast, and this is nice.",
+     "noun": "fast",
+     "verb": "is",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "comment on the mouse",
+     "expected": "the mouse is fast, and this is good.",
+     "noun": "fast",
+     "verb": "is",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "comment on the bee",
+     "expected": "the bee is small, and this is beautiful.",
+     "noun": "small",
+     "verb": "is",
+     "adjective": "small"
+    },
+    {
+     "prompt": "comment on the mom",
+     "expected": "the mom is strong, and this is nice.",
+     "noun": "strong",
+     "verb": "is",
+     "adjective": "strong"
+    },
+    {
+     "prompt": "comment on the dad",
+     "expected": "the dad is good, and this is good.",
+     "noun": "good",
+     "verb": "is",
+     "adjective": "good"
+    },
+    {
+     "prompt": "comment on the boy",
+     "expected": "the boy is young, and this is beautiful.",
+     "noun": "young",
+     "verb": "is",
+     "adjective": "young"
+    },
+    {
+     "prompt": "comment on the girl",
+     "expected": "the girl is young, and this is nice.",
+     "noun": "young",
+     "verb": "is",
+     "adjective": "young"
+    },
+    {
+     "prompt": "comment on the baby",
+     "expected": "the baby is young, and this is good.",
+     "noun": "young",
+     "verb": "is",
+     "adjective": "young"
+    },
+    {
+     "prompt": "comment on the child",
+     "expected": "the child is happy, and this is beautiful.",
+     "noun": "happy",
+     "verb": "is",
+     "adjective": "happy"
+    },
+    {
+     "prompt": "comment on the friend",
+     "expected": "the friend is happy, and this is nice.",
+     "noun": "happy",
+     "verb": "is",
+     "adjective": "happy"
+    },
+    {
+     "prompt": "comment on the man",
+     "expected": "the man is strong, and this is good.",
+     "noun": "strong",
+     "verb": "is",
+     "adjective": "strong"
+    },
+    {
+     "prompt": "comment on the woman",
+     "expected": "the woman is good, and this is beautiful.",
+     "noun": "good",
+     "verb": "is",
+     "adjective": "good"
+    },
+    {
+     "prompt": "comment on the teacher",
+     "expected": "the teacher is old, and this is nice.",
+     "noun": "old",
+     "verb": "is",
+     "adjective": "old"
+    },
+    {
+     "prompt": "comment on the sun",
+     "expected": "the sun is beautiful, and this is good.",
+     "noun": "beautiful",
+     "verb": "is",
+     "adjective": "beautiful"
+    },
+    {
+     "prompt": "comment on the moon",
+     "expected": "the moon is beautiful, and this is beautiful.",
+     "noun": "beautiful",
+     "verb": "is",
+     "adjective": "beautiful"
+    },
+    {
+     "prompt": "comment on the star",
+     "expected": "the star is white, and this is nice.",
+     "noun": "white",
+     "verb": "is",
+     "adjective": "white"
+    },
+    {
+     "prompt": "comment on the tree",
+     "expected": "the tree is green, and this is good.",
+     "noun": "green",
+     "verb": "is",
+     "adjective": "green"
+    },
+    {
+     "prompt": "comment on the flower",
+     "expected": "the flower is red, and this is beautiful.",
+     "noun": "red",
+     "verb": "is",
+     "adjective": "red"
+    },
+    {
+     "prompt": "comment on the sea",
+     "expected": "the sea is big, and this is nice.",
+     "noun": "big",
+     "verb": "is",
+     "adjective": "big"
+    },
+    {
+     "prompt": "comment on the house",
+     "expected": "the house is new, and this is good.",
+     "noun": "new",
+     "verb": "is",
+     "adjective": "new"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 10,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": true
+  },
+  "B": {
+   "description": "Choosing, with a reason",
+   "targets": [
+    {
+     "prompt": "which is better, the bread or the door?",
+     "expected": "the bread is better, because you eat it.",
+     "noun": "better"
+    },
+    {
+     "prompt": "which is better, the water or the box?",
+     "expected": "the water is better, because you drink it.",
+     "noun": "better"
+    },
+    {
+     "prompt": "which is better, the book or the chair?",
+     "expected": "the book is better, because you read it.",
+     "noun": "better"
+    },
+    {
+     "prompt": "which is better, the sun or the lamp?",
+     "expected": "the sun is better, because it is hot.",
+     "noun": "better"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 10,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false
+  },
+  "C": {
+   "description": "What the story says",
+   "targets": [
+    {
+     "prompt": "what does the story say about the cat",
+     "expected": "the story says that the cat sleeps.",
+     "noun": "sleeps",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "what does the story say about the dog",
+     "expected": "the story says that the dog runs.",
+     "noun": "runs",
+     "verb": "runs"
+    },
+    {
+     "prompt": "what does the story say about the fish",
+     "expected": "the story says that the fish swims.",
+     "noun": "swims",
+     "verb": "swims"
+    },
+    {
+     "prompt": "what does the story say about the bird",
+     "expected": "the story says that the bird flies.",
+     "noun": "flies",
+     "verb": "flies"
+    },
+    {
+     "prompt": "what does the story say about the horse",
+     "expected": "the story says that the horse runs.",
+     "noun": "runs",
+     "verb": "runs"
+    },
+    {
+     "prompt": "what does the story say about the cow",
+     "expected": "the story says that the cow eats.",
+     "noun": "eats",
+     "verb": "eats"
+    },
+    {
+     "prompt": "what does the story say about the wolf",
+     "expected": "the story says that the wolf runs.",
+     "noun": "runs",
+     "verb": "runs"
+    },
+    {
+     "prompt": "what does the story say about the mouse",
+     "expected": "the story says that the mouse runs.",
+     "noun": "runs",
+     "verb": "runs"
+    },
+    {
+     "prompt": "what does the story say about the bee",
+     "expected": "the story says that the bee flies.",
+     "noun": "flies",
+     "verb": "flies"
+    },
+    {
+     "prompt": "what does the story say about the mom",
+     "expected": "the story says that the mom cooks.",
+     "noun": "cooks",
+     "verb": "cooks"
+    },
+    {
+     "prompt": "what does the story say about the dad",
+     "expected": "the story says that the dad reads.",
+     "noun": "reads",
+     "verb": "reads"
+    },
+    {
+     "prompt": "what does the story say about the boy",
+     "expected": "the story says that the boy plays.",
+     "noun": "plays",
+     "verb": "plays"
+    },
+    {
+     "prompt": "what does the story say about the girl",
+     "expected": "the story says that the girl sings.",
+     "noun": "sings",
+     "verb": "sings"
+    },
+    {
+     "prompt": "what does the story say about the baby",
+     "expected": "the story says that the baby sleeps.",
+     "noun": "sleeps",
+     "verb": "sleeps"
+    },
+    {
+     "prompt": "what does the story say about the child",
+     "expected": "the story says that the child plays.",
+     "noun": "plays",
+     "verb": "plays"
+    },
+    {
+     "prompt": "what does the story say about the friend",
+     "expected": "the story says that the friend laughs.",
+     "noun": "laughs",
+     "verb": "laughs"
+    },
+    {
+     "prompt": "what does the story say about the man",
+     "expected": "the story says that the man walks.",
+     "noun": "walks",
+     "verb": "walks"
+    },
+    {
+     "prompt": "what does the story say about the woman",
+     "expected": "the story says that the woman works.",
+     "noun": "works",
+     "verb": "works"
+    },
+    {
+     "prompt": "what does the story say about the teacher",
+     "expected": "the story says that the teacher reads.",
+     "noun": "reads",
+     "verb": "reads"
+    },
+    {
+     "prompt": "what does the story say about the sun",
+     "expected": "the story says that the sun shines.",
+     "noun": "shines",
+     "verb": "shines"
+    },
+    {
+     "prompt": "what does the story say about the moon",
+     "expected": "the story says that the moon shines.",
+     "noun": "shines",
+     "verb": "shines"
+    },
+    {
+     "prompt": "what does the story say about the star",
+     "expected": "the story says that the star shines.",
+     "noun": "shines",
+     "verb": "shines"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 10,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "D": {
+   "description": "A short analysis in two sentences",
+   "targets": [
+    {
+     "prompt": "analyse the cat",
+     "expected": "the cat sleeps. it is small and fast.",
+     "noun": "fast",
+     "verb": "sleeps",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "analyse the dog",
+     "expected": "the dog runs. it is big and strong.",
+     "noun": "strong",
+     "verb": "runs",
+     "adjective": "strong"
+    },
+    {
+     "prompt": "analyse the fish",
+     "expected": "the fish swims. it is small and fast.",
+     "noun": "fast",
+     "verb": "swims",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "analyse the bird",
+     "expected": "the bird flies. it is fast and beautiful.",
+     "noun": "beautiful",
+     "verb": "flies",
+     "adjective": "beautiful"
+    },
+    {
+     "prompt": "analyse the horse",
+     "expected": "the horse runs. it is strong and fast.",
+     "noun": "fast",
+     "verb": "runs",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "analyse the cow",
+     "expected": "the cow eats. it is big and slow.",
+     "noun": "slow",
+     "verb": "eats",
+     "adjective": "slow"
+    },
+    {
+     "prompt": "analyse the wolf",
+     "expected": "the wolf runs. it is strong and fast.",
+     "noun": "fast",
+     "verb": "runs",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "analyse the mouse",
+     "expected": "the mouse runs. it is small and fast.",
+     "noun": "fast",
+     "verb": "runs",
+     "adjective": "fast"
+    },
+    {
+     "prompt": "analyse the bee",
+     "expected": "the bee flies. it is fast and small.",
+     "noun": "small",
+     "verb": "flies",
+     "adjective": "small"
+    },
+    {
+     "prompt": "analyse the mom",
+     "expected": "the mom cooks. she is good and strong.",
+     "noun": "strong",
+     "verb": "cooks",
+     "adjective": "strong"
+    },
+    {
+     "prompt": "analyse the dad",
+     "expected": "the dad reads. he is strong and good.",
+     "noun": "good",
+     "verb": "reads",
+     "adjective": "good"
+    },
+    {
+     "prompt": "analyse the boy",
+     "expected": "the boy plays. he is happy and young.",
+     "noun": "young",
+     "verb": "plays",
+     "adjective": "young"
+    },
+    {
+     "prompt": "analyse the girl",
+     "expected": "the girl sings. she is happy and young.",
+     "noun": "young",
+     "verb": "sings",
+     "adjective": "young"
+    },
+    {
+     "prompt": "analyse the baby",
+     "expected": "the baby sleeps. it is small and young.",
+     "noun": "young",
+     "verb": "sleeps",
+     "adjective": "young"
+    },
+    {
+     "prompt": "analyse the child",
+     "expected": "the child plays. it is young and happy.",
+     "noun": "happy",
+     "verb": "plays",
+     "adjective": "happy"
+    },
+    {
+     "prompt": "analyse the friend",
+     "expected": "the friend laughs. it is good and happy.",
+     "noun": "happy",
+     "verb": "laughs",
+     "adjective": "happy"
+    },
+    {
+     "prompt": "analyse the man",
+     "expected": "the man walks. he is tall and strong.",
+     "noun": "strong",
+     "verb": "walks",
+     "adjective": "strong"
+    },
+    {
+     "prompt": "analyse the woman",
+     "expected": "the woman works. she is young and good.",
+     "noun": "good",
+     "verb": "works",
+     "adjective": "good"
+    },
+    {
+     "prompt": "analyse the teacher",
+     "expected": "the teacher reads. she is good and old.",
+     "noun": "old",
+     "verb": "reads",
+     "adjective": "old"
+    },
+    {
+     "prompt": "analyse the sun",
+     "expected": "the sun shines. it is hot and beautiful.",
+     "noun": "beautiful",
+     "verb": "shines",
+     "adjective": "beautiful"
+    },
+    {
+     "prompt": "analyse the moon",
+     "expected": "the moon shines. it is white and beautiful.",
+     "noun": "beautiful",
+     "verb": "shines",
+     "adjective": "beautiful"
+    },
+    {
+     "prompt": "analyse the star",
+     "expected": "the star shines. it is beautiful and white.",
+     "noun": "white",
+     "verb": "shines",
+     "adjective": "white"
+    },
+    {
+     "prompt": "analyse the tree",
+     "expected": "the tree grows. it is tall and green.",
+     "noun": "green",
+     "verb": "grows",
+     "adjective": "green"
+    },
+    {
+     "prompt": "analyse the flower",
+     "expected": "the flower grows. it is beautiful and red.",
+     "noun": "red",
+     "verb": "grows",
+     "adjective": "red"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 12,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": true
+  }
+ },
+ "evaluation": {
+  "has_terminator_pattern": "[.!?]",
+  "comment_+++": "{noun} with a complete structure and a terminator. Great!",
+  "comment_++": "{noun} is there, the structure is incomplete.",
+  "comment_+": "{noun} found.",
+  "comment_=": "English words but not the expected answer.",
+  "comment_-": "Not recognisable or too long."
+ },
+ "encouragement": [
+  "good!",
+  "well done!",
+  "very good!",
+  "great!",
+  "nice!"
+ ],
+ "retry_prefix": "again. "
+}

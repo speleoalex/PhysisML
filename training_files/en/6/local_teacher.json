@@ -1,0 +1,314 @@
+{
+ "lang": "en",
+ "level": 6,
+ "description": "Six years old — the past, causes, two linked sentences",
+ "quality_threshold": 0.3,
+ "quality_strong_min": 0.2,
+ "steps": {
+  "A": {
+   "description": "The simple past of a whole sentence",
+   "targets": [
+    {
+     "prompt": "what did the boy eat?",
+     "expected": "the boy ate the bread.",
+     "noun": "ate",
+     "verb": "ate",
+     "object": "bread"
+    },
+    {
+     "prompt": "what did the girl drink?",
+     "expected": "the girl drank the milk.",
+     "noun": "drank",
+     "verb": "drank",
+     "object": "milk"
+    },
+    {
+     "prompt": "what did the cat drink?",
+     "expected": "the cat drank the milk.",
+     "noun": "drank",
+     "verb": "drank",
+     "object": "milk"
+    },
+    {
+     "prompt": "what did the dog eat?",
+     "expected": "the dog ate the bread.",
+     "noun": "ate",
+     "verb": "ate",
+     "object": "bread"
+    },
+    {
+     "prompt": "what did the woman cook?",
+     "expected": "the woman cooked the soup.",
+     "noun": "cooked",
+     "verb": "cooked",
+     "object": "soup"
+    },
+    {
+     "prompt": "what did the man read?",
+     "expected": "the man read the book.",
+     "noun": "read",
+     "verb": "read",
+     "object": "book"
+    },
+    {
+     "prompt": "what did the child open?",
+     "expected": "the child opened the door.",
+     "noun": "opened",
+     "verb": "opened",
+     "object": "door"
+    },
+    {
+     "prompt": "what did the boy close?",
+     "expected": "the boy closed the window.",
+     "noun": "closed",
+     "verb": "closed",
+     "object": "window"
+    },
+    {
+     "prompt": "what did the girl draw?",
+     "expected": "the girl drew the flower.",
+     "noun": "drew",
+     "verb": "drew",
+     "object": "flower"
+    },
+    {
+     "prompt": "what did the teacher read?",
+     "expected": "the teacher read the book.",
+     "noun": "read",
+     "verb": "read",
+     "object": "book"
+    },
+    {
+     "prompt": "what did the friend help?",
+     "expected": "the friend helped the child.",
+     "noun": "helped",
+     "verb": "helped",
+     "object": "child"
+    },
+    {
+     "prompt": "what did the baby drink?",
+     "expected": "the baby drank the milk.",
+     "noun": "drank",
+     "verb": "drank",
+     "object": "milk"
+    },
+    {
+     "prompt": "what did the mouse eat?",
+     "expected": "the mouse ate the cheese.",
+     "noun": "ate",
+     "verb": "ate",
+     "object": "cheese"
+    },
+    {
+     "prompt": "what did the horse eat?",
+     "expected": "the horse ate the grass.",
+     "noun": "ate",
+     "verb": "ate",
+     "object": "grass"
+    },
+    {
+     "prompt": "what did the cow eat?",
+     "expected": "the cow ate the grass.",
+     "noun": "ate",
+     "verb": "ate",
+     "object": "grass"
+    },
+    {
+     "prompt": "what did the bird eat?",
+     "expected": "the bird ate the rice.",
+     "noun": "ate",
+     "verb": "ate",
+     "object": "rice"
+    },
+    {
+     "prompt": "what did the child eat?",
+     "expected": "the child ate the cake.",
+     "noun": "ate",
+     "verb": "ate",
+     "object": "cake"
+    },
+    {
+     "prompt": "what did the boy find?",
+     "expected": "the boy found the key.",
+     "noun": "found",
+     "verb": "found",
+     "object": "key"
+    },
+    {
+     "prompt": "what did the girl find?",
+     "expected": "the girl found the ball.",
+     "noun": "found",
+     "verb": "found",
+     "object": "ball"
+    },
+    {
+     "prompt": "what did the man open?",
+     "expected": "the man opened the box.",
+     "noun": "opened",
+     "verb": "opened",
+     "object": "box"
+    },
+    {
+     "prompt": "what did the woman open?",
+     "expected": "the woman opened the window.",
+     "noun": "opened",
+     "verb": "opened",
+     "object": "window"
+    },
+    {
+     "prompt": "what did the child draw?",
+     "expected": "the child drew the sun.",
+     "noun": "drew",
+     "verb": "drew",
+     "object": "sun"
+    },
+    {
+     "prompt": "what did the girl eat?",
+     "expected": "the girl ate the apple.",
+     "noun": "ate",
+     "verb": "ate",
+     "object": "apple"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 8,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "B": {
+   "description": "A cause in the past",
+   "targets": [
+    {
+     "prompt": "why did the dog eat?",
+     "expected": "it ate because it was hungry.",
+     "noun": "hungry",
+     "verb": "ate"
+    },
+    {
+     "prompt": "why did the cat sleep?",
+     "expected": "it slept because it was tired.",
+     "noun": "tired",
+     "verb": "slept"
+    },
+    {
+     "prompt": "why did the girl drink?",
+     "expected": "she drank because she was thirsty.",
+     "noun": "thirsty",
+     "verb": "drank"
+    },
+    {
+     "prompt": "why did the boy play?",
+     "expected": "he played because he was happy.",
+     "noun": "happy",
+     "verb": "played"
+    },
+    {
+     "prompt": "why did the man work?",
+     "expected": "he worked because he was strong.",
+     "noun": "strong",
+     "verb": "worked"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 10,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": true,
+   "require_adjective": false
+  },
+  "C": {
+   "description": "Two linked sentences",
+   "targets": [
+    {
+     "prompt": "tell me about the dog",
+     "expected": "the dog is hungry and eats the bread.",
+     "noun": "bread"
+    },
+    {
+     "prompt": "tell me about the cat",
+     "expected": "the cat is tired and sleeps in the house.",
+     "noun": "house"
+    },
+    {
+     "prompt": "tell me about the girl",
+     "expected": "the girl is happy and sings in the garden.",
+     "noun": "garden"
+    },
+    {
+     "prompt": "tell me about the bird",
+     "expected": "the bird is fast and flies in the sky.",
+     "noun": "sky"
+    },
+    {
+     "prompt": "tell me about the boy",
+     "expected": "the boy is hungry and eats the cake.",
+     "noun": "cake"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 12,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false
+  },
+  "D": {
+   "description": "Questions about what was told",
+   "targets": [
+    {
+     "prompt": "who is hungry?",
+     "expected": "the dog is hungry.",
+     "noun": "dog"
+    },
+    {
+     "prompt": "who is tired?",
+     "expected": "the cat is tired.",
+     "noun": "cat"
+    },
+    {
+     "prompt": "who is happy?",
+     "expected": "the girl is happy.",
+     "noun": "girl"
+    },
+    {
+     "prompt": "who is fast?",
+     "expected": "the bird is fast.",
+     "noun": "bird"
+    },
+    {
+     "prompt": "who eats the cake?",
+     "expected": "the boy eats the cake.",
+     "noun": "boy"
+    }
+   ],
+   "prompt_template": "{prompt}",
+   "max_response_words": 8,
+   "advance_after_successes": 2,
+   "retry_after_failures": 5,
+   "require_article": false,
+   "require_verb": false,
+   "require_adjective": false
+  }
+ },
+ "evaluation": {
+  "has_terminator_pattern": "[.!?]",
+  "comment_+++": "{noun} with a complete structure and a terminator. Great!",
+  "comment_++": "{noun} is there, the structure is incomplete.",
+  "comment_+": "{noun} found.",
+  "comment_=": "English words but not the expected answer.",
+  "comment_-": "Not recognisable or too long."
+ },
+ "encouragement": [
+  "good!",
+  "well done!",
+  "very good!",
+  "great!",
+  "nice!"
+ ],
+ "retry_prefix": "again. "
+}

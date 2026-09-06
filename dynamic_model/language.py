@@ -22,6 +22,7 @@ already follows, so most of the file is optional:
     probe_set   dynamic_model/data/probe_set_<lang>.json
     card        huggingface/README.<lang>.md
     out_dir     hf_upload_<lang>
+    level text  training_files/<lang>/<N>/sentences_level<N>.txt
 
 Italian is the exception on every one of those: it keeps the historical
 filenames (tokenizer_8k.json, probe_set.json, huggingface/README.md,
@@ -54,6 +55,17 @@ _HISTORICAL_IT = {
     "probe_set": "dynamic_model/data/probe_set.json",
     "card":      "huggingface/README.md",
     "out_dir":   "hf_upload",
+}
+
+# Filenames that carry a level number. Same rule as the paths above: Italian
+# keeps what is committed, every other language gets a name in its own
+# language. 'frasi_livello7.txt' inside training_files/en was the same kind of
+# leak as the Italian axioms -- silent, and only visible on a directory listing.
+_HISTORICAL_IT_LEVEL = {
+    "level_text": "frasi_livello{level}.txt",
+}
+_LEVEL_PATTERNS = {
+    "level_text": "sentences_level{level}.txt",
 }
 
 
@@ -120,6 +132,17 @@ class Language:
     @property
     def out_dir(self) -> str:
         return self._path("out_dir", "hf_upload_{lang}")
+
+    def level_file(self, key: str, level: int) -> str:
+        """The name of a per-level file this language writes, e.g. the curated
+        text scripts/gen_level_text.py generates for `level`."""
+        if key in self._d:
+            pattern = self._d[key]
+        elif self.code == DEFAULT_LANG:
+            pattern = _HISTORICAL_IT_LEVEL[key]
+        else:
+            pattern = _LEVEL_PATTERNS[key]
+        return pattern.format(level=level, lang=self.code)
 
     @property
     def curriculum_dir(self) -> str:

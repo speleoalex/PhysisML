@@ -293,7 +293,7 @@ del no, il prompt di ripiego del tutor, il repo sull'Hub.
 `dynamic_model/language.py` lo legge; tutto il resto (vocabolario, probe,
 scheda, cartella di export) segue una convenzione di nome e non va dichiarato.
 
-Il curriculum inglese copre oggi i livelli 0–5:
+Il curriculum inglese copre oggi i livelli 0–10:
 
 | Livello | Struttura insegnata | Esempio di obiettivo |
 |---------|---------------------|----------------------|
@@ -303,6 +303,11 @@ Il curriculum inglese copre oggi i livelli 0–5:
 | L3 | Soggetto + verbo, `what does X do?`, numeri | `what does the cat do?` → `the cat sleeps.` |
 | L4 | Domande `who` e `where`, prima/poi | `where does the cat sleep?` → `the cat sleeps in the house.` |
 | L5 | Connettivi and / but / because, descrizioni | `why does the cat eat?` → `the cat eats because it is hungry.` |
+| L6 | Il passato, le cause, due frasi legate | `what did the boy eat?` → `the boy ate the bread.` |
+| L7 | Il futuro, e i tre tempi affiancati | `what will the boy eat tomorrow?` → `tomorrow the boy will eat the bread.` |
+| L8 | Comparativi, preferenze e le loro ragioni | `who is bigger, the dog or the cat?` → `the dog is bigger than the cat.` |
+| L9 | Una tesi con la sua ragione e una conclusione | `is the cat small?` → `I think the cat is small because it is fast.` |
+| L10 | Un commento breve, un giudizio motivato | `comment on the cat` → `the cat is fast, and this is nice.` |
 
 Perché un manifesto e non una tabella nel sorgente: un `dict` con chiave la
 lingua dentro un file `.py` è l'elenco delle lingue che quel modulo conosce. È

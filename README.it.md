@@ -9,7 +9,7 @@ Un piccolo LLM costruito da zero, ispirato all'apprendimento biologico.
 Il modello impara come un bambino — prima i suoni, poi le parole, poi le frasi —
 guidato da un tutor che adatta il curriculum in tempo reale.
 
-- **Curriculum progressivo**: da fonemi a letteratura e appartenenza a classi (italiano livelli 0–12, inglese 0–5)
+- **Curriculum progressivo**: da fonemi a letteratura e appartenenza a classi (italiano livelli 0–12, inglese 0–10)
 - **Sistema affettivo innato**: `confidence`, `pleasure`, `pain`, `fear` modulano i logits durante l'inference
 - **Segnale insegnante**: un insegnante locale gratuito (o, opzionalmente, un tutor Claude) genera esempi mirati sui deficit correnti del modello
 - **Dimensioni minime**: transformer GPT-2 style, ~23.6M parametri, si addestra su CPU o GPU consumer
@@ -136,31 +136,58 @@ invece di 82.7% sul probe — e L12 ha toccato il massimo al sogno 9 di una
 curva a dente di sega. La curva di ogni livello è registrata nella sua
 cartella checkpoint come `dream_curve.json`.
 
-### Inglese (livelli 0-5)
+### Inglese (livelli 0-10)
 
-Un secondo curriculum, costruito da zero il 2026-09-05 con vocabolario proprio,
-assiomi propri e nessun peso in comune col modello italiano. È mezza scala: si
-ferma al livello 5, quindi non ha niente di quello che insegnano i livelli
-11-12 — la relazione is-a, l'ammissione di ignoranza, la domanda.
+Un secondo curriculum, costruito da zero il 2026-09-05/06 con vocabolario
+proprio, assiomi propri e nessun peso in comune col modello italiano. Adesso
+arriva al livello 10 — passato, futuro, comparativi e preferenze, una tesi con
+la sua ragione, un commento motivato — ma resta indietro sui livelli 11-12
+italiani: la relazione is-a, l'ammissione di ignoranza, la domanda.
 
-| | L0 | L1 | L2 | L3 | L4 | L5 |
-|---|----|----|----|----|----|----|
-| tutti i livelli, un modello | 100% | 100% | 75% | 100% | 67% | 100% |
+| | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 |
+|---|----|----|----|----|----|----|----|----|----|----|-----|
+| tutti i livelli, un modello | 100% | 98% | 75% | 96% | 54% | 54% | 68% | 77% | 72% | 78% | 100% |
 
-Media 90.3% (65 prompt su 72). Sul probe congelato di 48 prompt: **85.4%**,
-auto-ripetizione 4.2%. Build completo in 5h53 su GPU Intel Arc
-(21/41/69/47/71/96 minuti per livello).
+| | |
+|---|---|
+| questo checkpoint su ogni target attuale (720 prompt) | **78.8%**, auto-ripetizione 3.9% |
+| il suo probe congelato, 88 prompt | 75.0%, auto-ripetizione 5.7% |
+
+Quella riga è misurata come quella italiana qui sopra: exact match su *tutte*
+le risposte gold di ogni livello (`scripts/measure_repetition.py`). La scheda
+0-5 riportava 90.3% su un campione di 72 prompt (`test_model.py --samples 12`),
+un denominatore più piccolo e più facile. I due numeri non si confrontano: la
+differenza è un cambio di metro, non una regressione.
+
+Quello che è regredito davvero è il livello 5. Sugli stessi 418 prompt dei
+livelli 0-5 il checkpoint del livello 5 faceva 86.4%, questo fa 77.5% — e 33
+dei 37 prompt persi sono del solo livello 5 (100% → 54%). I livelli 0-4 ne
+hanno persi 3 su 346 in tutto. Il livello 5 è dove si insegna *because*, e i
+livelli 6-10 riusano quella cornice per altri scopi: gli errori tengono la
+forma giusta e scelgono la ragione sbagliata, `why does the dog drink? → the
+dog runs because it is hungry.`
+
+Risposte reali, greedy:
 
 ```
-what is the cat like?          -> the cat is small.
-what does the dog eat?         -> the dog eats bread.
-why does the dog eat?          -> the dog eats because it is hungry.
-what will the dog do tomorrow? -> tomorrow the dog will eat bread.
+what did the boy eat?                   -> the boy ate the bread.
+what will the boy eat tomorrow?         -> tomorrow the boy will eat the bread.
+tell me the three days of the cat       -> today it sleeps, yesterday it slept,
+                                           tomorrow it will sleep.
+which is better, the bread or the door? -> the bread is better, because you eat it.
+is the cat small?                       -> I think the cat is small because it is fast.
+two reasons: why do you like the cat?   -> the cat is small and fast, so I like it.
+comment on the cat                      -> the cat is fast, and this is nice.
+what does the story say about the cat   -> the story says that the cat sleeps.
 ```
 
-Il sogno del livello 5 si è fermato sul tetto (`MAX_DREAMS=12`), non su un
-plateau: la curva saliva ancora, dal 60% all'85%, quando il cap l'ha
-interrotta. La scheda di questi pesi è
+I livelli 6-10 sono stati costruiti con `MAX_DREAMS=20` e nessuno ha toccato il
+tetto (6, 8, 13, 7 e 11 sogni): a differenza del livello 5 nel build 0-5, si
+sono fermati tutti su un plateau vero. Il probe del livello 10 è andato dal 36%
+al 75% negli undici sogni. I cinque livelli hanno richiesto 7h44 su GPU Intel
+Arc (67/77/126/72/117 minuti ciascuno), oltre alle 5h53 dei livelli 0-5.
+
+La scheda di questi pesi è
 [huggingface/README.en.md](huggingface/README.en.md); sono pubblicati su
 [`speleoalex/physisml-en-preview`](https://huggingface.co/speleoalex/physisml-en-preview)
 e `python3 standalone/chat.py --lang en "say: the cat"` li scarica e li esegue.
@@ -435,10 +462,10 @@ i pesi, e tutti gli script accettano `--lang` (o `PHYSISML_LANG`): due build non
 si sovrascrivono mai a vicenda.
 
 ```bash
-./build.sh 5 --lang en                          # costruisce il curriculum inglese
+./build.sh 10 --lang en                         # costruisce il curriculum inglese
 ./teach.sh 100 local --lang en --level 3        # una sessione di insegnamento
 ./reset.sh --lang en                            # azzera SOLO checkpoints/en/
-python3 dynamic_model/test_model.py --level 5 --lang en
+python3 dynamic_model/test_model.py --level 10 --lang en
 python3 scripts/train_tokenizer.py --lang en --vocab-size 3000
 python3 scripts/export_hf.py --lang en --out hf_en
 python3 standalone/chat.py --lang en "say: the cat"  # i pesi pubblicati

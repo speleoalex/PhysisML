@@ -8,10 +8,15 @@
   2,
   3,
   4,
-  5
+  5,
+  6,
+  7,
+  8,
+  9,
+  10
  ],
- "n": 48,
- "fingerprint": "80678772ed2656e0",
+ "n": 88,
+ "fingerprint": "3601742cb498993b",
  "items": [
   {
    "level": 0,
@@ -252,6 +257,206 @@
    "level": 5,
    "prompt": "why does the boy eat?",
    "expected": "the boy eats because he is hungry."
+  },
+  {
+   "level": 6,
+   "prompt": "what did the cat drink?",
+   "expected": "the cat drank the milk."
+  },
+  {
+   "level": 6,
+   "prompt": "what did the friend help?",
+   "expected": "the friend helped the child."
+  },
+  {
+   "level": 6,
+   "prompt": "what did the boy close?",
+   "expected": "the boy closed the window."
+  },
+  {
+   "level": 6,
+   "prompt": "tell me about the bird",
+   "expected": "the bird is fast and flies in the sky."
+  },
+  {
+   "level": 6,
+   "prompt": "what did the man open?",
+   "expected": "the man opened the box."
+  },
+  {
+   "level": 6,
+   "prompt": "what did the child eat?",
+   "expected": "the child ate the cake."
+  },
+  {
+   "level": 6,
+   "prompt": "what did the baby drink?",
+   "expected": "the baby drank the milk."
+  },
+  {
+   "level": 6,
+   "prompt": "what did the bird eat?",
+   "expected": "the bird ate the rice."
+  },
+  {
+   "level": 7,
+   "prompt": "what will the girl eat tomorrow?",
+   "expected": "tomorrow the girl will eat the apple."
+  },
+  {
+   "level": 7,
+   "prompt": "tell me the three days of the dad",
+   "expected": "today he reads, yesterday he read, tomorrow he will read."
+  },
+  {
+   "level": 7,
+   "prompt": "tell me the three days of the wolf",
+   "expected": "today it runs, yesterday it ran, tomorrow it will run."
+  },
+  {
+   "level": 7,
+   "prompt": "what will the teacher read tomorrow?",
+   "expected": "tomorrow the teacher will read the book."
+  },
+  {
+   "level": 7,
+   "prompt": "tell me the three days of the fish",
+   "expected": "today it swims, yesterday it swam, tomorrow it will swim."
+  },
+  {
+   "level": 7,
+   "prompt": "tell me the three days of the horse",
+   "expected": "today it runs, yesterday it ran, tomorrow it will run."
+  },
+  {
+   "level": 7,
+   "prompt": "tell me the three days of the child",
+   "expected": "today it plays, yesterday it played, tomorrow it will play."
+  },
+  {
+   "level": 7,
+   "prompt": "tell me the three days of the man",
+   "expected": "today he walks, yesterday he walked, tomorrow he will walk."
+  },
+  {
+   "level": 8,
+   "prompt": "who is stronger, the horse or the child?",
+   "expected": "the horse is stronger than the child."
+  },
+  {
+   "level": 8,
+   "prompt": "why do you like the cake?",
+   "expected": "I like the cake because it is sweet."
+  },
+  {
+   "level": 8,
+   "prompt": "why do you like the honey?",
+   "expected": "I like the honey because it is sweet."
+  },
+  {
+   "level": 8,
+   "prompt": "why do you like the school?",
+   "expected": "I like the school because it is new."
+  },
+  {
+   "level": 8,
+   "prompt": "what do you like to drink?",
+   "expected": "I like the milk."
+  },
+  {
+   "level": 8,
+   "prompt": "describe the child",
+   "expected": "the child is young and happy."
+  },
+  {
+   "level": 8,
+   "prompt": "why do you like the egg?",
+   "expected": "I like the egg because it is white."
+  },
+  {
+   "level": 8,
+   "prompt": "describe the horse",
+   "expected": "the horse is strong and fast."
+  },
+  {
+   "level": 9,
+   "prompt": "is the flower beautiful?",
+   "expected": "I think the flower is beautiful because it is red."
+  },
+  {
+   "level": 9,
+   "prompt": "is the bee fast?",
+   "expected": "I think the bee is fast because it is small."
+  },
+  {
+   "level": 9,
+   "prompt": "is the horse strong?",
+   "expected": "I think the horse is strong because it is fast."
+  },
+  {
+   "level": 9,
+   "prompt": "two reasons: why do you like the dad?",
+   "expected": "the dad is strong and good, so I like it."
+  },
+  {
+   "level": 9,
+   "prompt": "is the cow big?",
+   "expected": "I think the cow is big because it is slow."
+  },
+  {
+   "level": 9,
+   "prompt": "is the moon white?",
+   "expected": "I think the moon is white because it is beautiful."
+  },
+  {
+   "level": 9,
+   "prompt": "say another way to say beautiful",
+   "expected": "beautiful is like saying lovely."
+  },
+  {
+   "level": 9,
+   "prompt": "two reasons: why do you like the wolf?",
+   "expected": "the wolf is strong and fast, so I like it."
+  },
+  {
+   "level": 10,
+   "prompt": "comment on the man",
+   "expected": "the man is strong, and this is good."
+  },
+  {
+   "level": 10,
+   "prompt": "analyse the cow",
+   "expected": "the cow eats. it is big and slow."
+  },
+  {
+   "level": 10,
+   "prompt": "what does the story say about the sun",
+   "expected": "the story says that the sun shines."
+  },
+  {
+   "level": 10,
+   "prompt": "what does the story say about the star",
+   "expected": "the story says that the star shines."
+  },
+  {
+   "level": 10,
+   "prompt": "analyse the baby",
+   "expected": "the baby sleeps. it is small and young."
+  },
+  {
+   "level": 10,
+   "prompt": "which is better, the bread or the door?",
+   "expected": "the bread is better, because you eat it."
+  },
+  {
+   "level": 10,
+   "prompt": "analyse the wolf",
+   "expected": "the wolf runs. it is strong and fast."
+  },
+  {
+   "level": 10,
+   "prompt": "analyse the bee",
+   "expected": "the bee flies. it is fast and small."
   }
  ]
 }
