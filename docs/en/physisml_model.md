@@ -159,6 +159,8 @@ axiom_registry.register(["tu", "sei"],  is_objective=True, protection=0.9)
 
 Implemented in `dynamic_model/exp_b/axioms.py`. Protection is proportional to the certainty level: objective axioms (1+1=2) max 1.0, subjective ones max 0.6.
 
+Protection is applied per embedding row, so the axiom words belong to the language being trained: `PHONETIC_AXIOMS` and `GRAMMAR_AXIOMS` in `train_curriculum.py` hold one list per language (`mamma/papà/sì/no` and the copula paradigm for Italian, `mama/papa/yes/no` and `I am / you are / he is / it is` for English). An axiom written in the wrong language is not inert: on the English vocabulary `mamma` encodes to `m|am|ma` and freezes three arbitrary subwords. `add_axiom` prints the pieces next to the ids so a split axiom is visible, and drops whitespace-only tokens — the space is its own token and carries about a third of either corpus, which protection 0.9 used to freeze as a side effect of a statement about `io sono`.
+
 ---
 
 ## 4. Training method
@@ -237,6 +239,40 @@ Each level has a `training_files/it/{N}/teacher_prompt.md` file with:
 - Anti-repetition rules (max 3× the same word)
 - Evaluation based only on the current turn's `expected`
 - An A→B→C→D progression of increasing complexity
+
+---
+
+### A language is a folder
+
+The curriculum above is Italian, and nothing in it is written in Python. A
+second language is `training_files/<lang>/` with the same shape — one numbered
+folder per level, `local_teacher.json`, `qa_pairs.jsonl`, a level text — plus
+`training_files/<lang>/language.json` for the handful of things that are words
+rather than structure: the axioms, the function words, the yes/no spellings,
+the tutor fallback prompt, the Hub repo. `dynamic_model/language.py` reads it;
+everything else (vocabulary, probe, card, export folder) follows a naming
+convention and needs no declaration.
+
+The English curriculum currently covers levels 0–5:
+
+| Level | Structure taught | Example target |
+|-------|------------------|----------------|
+| L0 | Isolated and doubled syllables | `say ma` → `ma!` |
+| L1 | Article + noun, first words, its own name | `say: the cat` → `the cat!` |
+| L2 | Article + noun + verb, adjective, S+V+O | `say: the cat sleeps` → `the cat sleeps!` |
+| L3 | Subject + verb, `what does X do?`, numbers | `what does the cat do?` → `the cat sleeps.` |
+| L4 | `who` and `where` questions, first/then | `where does the cat sleep?` → `the cat sleeps in the house.` |
+| L5 | Connectives and / but / because, descriptions | `why does the cat eat?` → `the cat eats because it is hungry.` |
+
+Why this is a manifest and not a table in the source: a `dict` keyed by
+language code inside a `.py` file is a list of the languages that module knows
+about. It is complete the day it is written and silently wrong the day someone
+adds a language — and the failure is not loud. The first English build ran for
+six hours protecting the Italian axiom `mamma`, which the English vocabulary
+encodes as `m|am|ma`: three arbitrary subwords frozen at protection 0.7, and no
+error anywhere. `tests/test_language_manifest.py` now walks the sources looking
+for such tables, and checks that every axiom is a whole token of its own
+language's vocabulary and actually occurs in its own corpus.
 
 ---
 

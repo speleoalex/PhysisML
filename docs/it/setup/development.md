@@ -131,11 +131,24 @@ python3 -m dynamic_model.llm_backend        # o con un nome di modello da verifi
 
 ```
 dynamic_model/data/tokenizer_base.json   ← 503 token (fonemi it/0 + EOS@256)
-dynamic_model/data/tokenizer_8k.json     ← 8001 token (corpus completo + EOS@8000)
+dynamic_model/data/tokenizer_8k.json     ← 2590 token, italiano (EOS@2589)
+dynamic_model/data/tokenizer_en.json     ← 2517 token, inglese (EOS@2516)
 ```
 
-Il sistema usa automaticamente `tokenizer_8k.json` se presente.
-Training: `python3 scripts/train_tokenizer.py --vocab-size 8000 --sample 50`
+Un vocabolario per lingua: `tokenizer_8k.json` per `it` (il nome è storico —
+`--vocab-size` è solo un tetto, la soglia di merge decide la dimensione reale),
+`tokenizer_<lang>.json` per ogni altra lingua. Il vocabolario italiano spezza
+117 delle 146 parole gold inglesi (`thirsty` → `t|h|i|r|st|y`) e comprime
+l'inglese a 1.4 char/token contro 2.4 sull'italiano: una lingua senza il proprio
+file compila male, e la fase 0 lo scrive a schermo quando ripiega.
+
+Addestramento: `python3 scripts/train_tokenizer.py --lang en --vocab-size 3000`
+
+Tutto il resto che serve a una lingua e non è derivabile dal suo codice —
+assiomi, parole funzione, grafie di sì e no, prompt di ripiego del tutor, repo
+sull'Hub — sta in `training_files/<lang>/language.json` e lo legge
+`dynamic_model/language.py`. Aggiungere una lingua vuol dire aggiungere file,
+mai modificare un modulo: vedi [Lingue](../../README.it.md#lingue).
 
 ---
 

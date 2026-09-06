@@ -153,6 +153,32 @@ seen (`scripts/curiosity_rate.py --gate off`): 67% honest answers on unknown
 nouns against **0%** on known ones — it never claims ignorance about something
 it knows.
 
+### English (levels 0-5)
+
+A second curriculum, built from scratch on 2026-09-05 with its own vocabulary,
+its own axioms and no weights shared with the Italian model. Half a ladder: it
+stops at level 5, so it has none of the is-a, ignorance or asking behaviour
+levels 11-12 teach.
+
+| | L0 | L1 | L2 | L3 | L4 | L5 |
+|---|----|----|----|----|----|----|
+| every level, one model | 100% | 100% | 75% | 100% | 67% | 100% |
+
+Mean 90.3% (65 of 72 prompts). On its own frozen 48-prompt probe: **85.4%**,
+self-repetition 4.2%. Build time 5h53 end to end on an Intel Arc GPU
+(21/41/69/47/71/96 minutes per level).
+
+```
+what is the cat like?          -> the cat is small.
+what does the dog eat?         -> the dog eats bread.
+why does the dog eat?          -> the dog eats because it is hungry.
+what will the dog do tomorrow? -> tomorrow the dog will eat bread.
+```
+
+Level 5's dream stopped at the ceiling (`MAX_DREAMS=12`), not at a plateau —
+its curve was still climbing, 60% to 85%, when the cap ended it. The card for
+these weights is [huggingface/README.en.md](huggingface/README.en.md).
+
 ### Is the dream just replay? The EWC control (exp_i)
 
 The dream is experience replay — so the honest question is whether a standard
@@ -325,10 +351,11 @@ Each level starts from the previous level's `final_learned.pt`.
 | Command | Purpose |
 |---------|---------|
 | `./build.sh N [model] [auto] [--resume]` | Auto-train levels 0→N |
+| `./build.sh N --lang en` | Same, on another language's curriculum (`PHYSISML_LANG` sets it too). Every script below takes `--lang` |
 | `MIN_DREAMS=6 ./build.sh N` | Dream floor per level (default 6, `0` disables). Above the floor the count is measured: dreams continue while the frozen probe still gains (`MAX_DREAMS`, `DREAM_EPSILON`, `DREAM_PATIENCE`) |
 | `./teach.sh [turns\|auto] [local\|hybrid\|haiku\|…] [lang] [level]` | Teaching session |
 | `./set_model.sh <checkpoint>` | Set the active model (`models/active.pt`) |
-| `./reset.sh [--dry-run]` | Backup + reset the model |
+| `./reset.sh [--lang L\|all] [--dry-run]` | Backup + reset the model. Without `--lang` only the default language's checkpoints go |
 | `python3 dynamic_model/train_curriculum.py` | Text training and/or teaching (see `--help`) |
 | `python3 dynamic_model/test_model.py --level N` | Quality statistics for the current model |
 | `python3 scripts/measure_repetition.py --ckpt-base models/checkpoints/it --levels 0-12` | Exact match **and** self-repetition rate, greedy |
@@ -340,7 +367,7 @@ Each level starts from the previous level's `final_learned.pt`.
 | `python3 scripts/generate_qa_corpus.py --levels 0 1 2` | Build dialogue corpus from QA pairs |
 | `python3 scripts/generate_qa_corpus.py --check --levels 0 1 2` | Verify each `qa_corpus.txt` matches its `qa_pairs.jsonl` (exits 1 if stale) |
 | `python3 scripts/export_gguf.py` | Export a checkpoint to GGUF, then `ollama create physisml -f Modelfile` |
-| `python3 scripts/export_hf.py --out hf_upload` | Build a Hugging Face upload folder (safetensors + card + inference code) |
+| `python3 scripts/export_hf.py [--lang en] [--out DIR]` | Build a Hugging Face upload folder (safetensors + card + inference code). Card and folder follow the language |
 | `./scripts/build_status.sh` | Where a running build is: level, session, quality, what is running now |
 | `python3 scripts/curiosity_rate.py --gate off` | Does it admit ignorance on unknown names and not on known ones |
 
@@ -407,6 +434,79 @@ archaic Italian is not the language of the curriculum. The mechanism is
 location, not a list: every loader globs `<level>/*.txt` non-recursively, so a
 subdirectory is invisible by construction. See
 [training_files/it/_reference_README.md](training_files/it/_reference_README.md).
+
+---
+
+## Languages
+
+A language is a folder, never a branch in the code. `training_files/<lang>/`
+holds the corpus and the teacher configs, `models/checkpoints/<lang>/` the
+weights, and every script takes `--lang` (or `PHYSISML_LANG`), so two builds
+never overwrite each other:
+
+```bash
+./build.sh 5 --lang en                          # build the English curriculum
+./teach.sh 100 local --lang en --level 3        # one teaching session
+./reset.sh --lang en                            # wipes ONLY checkpoints/en/
+python3 dynamic_model/test_model.py --level 5 --lang en
+python3 scripts/train_tokenizer.py --lang en --vocab-size 3000
+python3 scripts/export_hf.py --lang en --out hf_en
+```
+
+`dynamic_model/run.py` takes no language flag: it recognises the checkpoint's
+own vocabulary and prints what it found before the first answer
+(`Language: en  (English)  [from the vocabulary]`).
+
+### The manifest
+
+Most of what a language needs follows the repository's conventions and is
+derived from the code alone:
+
+| artifact | convention |
+|---|---|
+| vocabulary | `dynamic_model/data/tokenizer_<lang>.json` |
+| frozen probe | `dynamic_model/data/probe_set_<lang>.json` |
+| model card | `huggingface/README.<lang>.md` |
+| export folder | `hf_upload_<lang>` |
+
+(Italian keeps its historical names — `tokenizer_8k.json`, `probe_set.json`,
+`huggingface/README.md`, `hf_upload/` — because every published checkpoint and
+Hub revision was made against them.)
+
+What is left cannot be derived from a language code, because it is *words*. It
+lives in `training_files/<lang>/language.json`, and every key is optional:
+
+| key | what it decides |
+|---|---|
+| `axioms` | the words whose embedding rows training protects, with their protection. They must be whole tokens of **this** language's vocabulary: on the English vocabulary the Italian axiom `mamma` encodes to `m\|am\|ma` and freezes three arbitrary subwords |
+| `stop_words` | the function words, for everything that separates content from grammar |
+| `polarity` | how this language says yes and no, so the grader can tell a right closed answer from its opposite |
+| `teacher_fallback` | the tutor prompt used when a level ships no `teacher_prompt.md`, one band per virtual age |
+| `hf_repo` | the Hub repo this language publishes to. No convention on purpose: guessing a repo name and pushing to it cannot be undone |
+| `name` | the human-readable name, for screen output |
+
+A language that omits one of the word keys gets an empty list and the caller
+says so on screen. That is the intended outcome: no axiom protection at all is
+better than protection applied to another language's subwords — which is
+exactly what the first English build spent six hours doing.
+
+### Adding a third language
+
+No Python file has to change. Create `training_files/<lang>/`, one numbered
+folder per level with `qa_pairs.jsonl`, `local_teacher.json` and a level text,
+write `language.json`, train the vocabulary, then build:
+
+```bash
+python3 scripts/train_tokenizer.py --lang de --vocab-size 3000
+python3 scripts/probe_set.py --lang de --write   # freeze the probe
+./build.sh 5 --lang de
+```
+
+The rule this design enforces, and that `tests/test_language_manifest.py`
+checks: **a dict keyed by language code inside a `.py` file is a list of the
+languages the code knows about — complete the day it is written, silently
+wrong the day a language is added.** The test walks the source looking for
+new ones.
 
 ---
 

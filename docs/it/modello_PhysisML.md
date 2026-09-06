@@ -171,6 +171,8 @@ axiom_registry.register(["tu", "sei"],  is_objective=True, protection=0.9)
 
 Implementati in `dynamic_model/exp_b/axioms.py`. La protezione è proporzionale al livello di certezza: assiomi oggettivi (1+1=2) max 1.0, soggettivi max 0.6.
 
+La protezione agisce sulle righe dell'embedding, quindi le parole dell'assioma devono essere della lingua in addestramento: `PHONETIC_AXIOMS` e `GRAMMAR_AXIOMS` in `train_curriculum.py` tengono una lista per lingua (`mamma/papà/sì/no` e il paradigma della copula per l'italiano, `mama/papa/yes/no` e `I am / you are / he is / it is` per l'inglese). Un assioma nella lingua sbagliata non è inerte: sul vocabolario inglese `mamma` si codifica in `m|am|ma` e congela tre sottoparole arbitrarie. `add_axiom` stampa i pezzi accanto agli id, così un assioma spezzato si vede, ed elimina i token di solo spazio — lo spazio è un token a sé e vale circa un terzo di entrambi i corpus, che una protezione a 0.9 congelava come effetto collaterale di un'affermazione su `io sono`.
+
 ---
 
 ## 4. Metodo di training
@@ -277,6 +279,41 @@ Ogni livello ha un file `training_files/it/{N}/teacher_prompt.md` con:
 - Regole anti-ripetizione (max 3× la stessa parola)
 - Valutazione solo su `expected` del turno corrente
 - Progressione A→B→C→D per complessità crescente
+
+---
+
+### Una lingua è una cartella
+
+Il curriculum qui sopra è italiano, e niente di quel curriculum è scritto in
+Python. Una seconda lingua è `training_files/<lang>/` con la stessa forma — una
+cartella numerata per livello, `local_teacher.json`, `qa_pairs.jsonl`, un testo
+di livello — più `training_files/<lang>/language.json` per le poche cose che
+sono parole e non struttura: gli assiomi, le parole funzione, le grafie del sì e
+del no, il prompt di ripiego del tutor, il repo sull'Hub.
+`dynamic_model/language.py` lo legge; tutto il resto (vocabolario, probe,
+scheda, cartella di export) segue una convenzione di nome e non va dichiarato.
+
+Il curriculum inglese copre oggi i livelli 0–5:
+
+| Livello | Struttura insegnata | Esempio di obiettivo |
+|---------|---------------------|----------------------|
+| L0 | Sillabe isolate e raddoppiate | `say ma` → `ma!` |
+| L1 | Articolo + sostantivo, prime parole, il proprio nome | `say: the cat` → `the cat!` |
+| L2 | Articolo + sostantivo + verbo, aggettivo, S+V+O | `say: the cat sleeps` → `the cat sleeps!` |
+| L3 | Soggetto + verbo, `what does X do?`, numeri | `what does the cat do?` → `the cat sleeps.` |
+| L4 | Domande `who` e `where`, prima/poi | `where does the cat sleep?` → `the cat sleeps in the house.` |
+| L5 | Connettivi and / but / because, descrizioni | `why does the cat eat?` → `the cat eats because it is hungry.` |
+
+Perché un manifesto e non una tabella nel sorgente: un `dict` con chiave la
+lingua dentro un file `.py` è l'elenco delle lingue che quel modulo conosce. È
+completo il giorno in cui lo si scrive e sbagliato in silenzio il giorno in cui
+qualcuno aggiunge una lingua — e l'errore non fa rumore. Il primo build inglese
+ha girato sei ore proteggendo l'assioma italiano `mamma`, che il vocabolario
+inglese codifica come `m|am|ma`: tre sottoparole arbitrarie congelate a
+protezione 0.7, e nessun messaggio da nessuna parte.
+`tests/test_language_manifest.py` ora attraversa i sorgenti a caccia di tabelle
+del genere, e verifica che ogni assioma sia un token intero del vocabolario
+della propria lingua e compaia davvero nel proprio corpus.
 
 ---
 
