@@ -1,6 +1,6 @@
 {
   "name": "English",
-  "hf_repo": "",
+  "hf_repo": "speleoalex/physisml-en-preview",
   "_comment_axioms": "Words whose embedding rows the training loop protects. They must be WHOLE tokens in this language's vocabulary and frequent in this language's corpus: an axiom that splits protects arbitrary subwords. The Italian list applied to English encoded 'mamma' as m|am|ma and froze 8 rows that never occur in training_files/en at all. Check the [axiom] lines phase 0 prints: they show the pieces.",
   "axioms": {
     "phonetic": [

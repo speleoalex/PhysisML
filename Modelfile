@@ -1,8 +1,12 @@
 # PhysisML in ollama.
 #
+# This file is language-neutral: `scripts/export_hf.py --lang <lang> --gguf ...`
+# copies it beside the GGUF it ships and rewrites the FROM line. Build the GGUF
+# from the last level of the language you want:
+#
 #   python3 scripts/export_gguf.py \
-#       --checkpoint models/checkpoints/it/level_12/final_dreamed.pt \
-#       --tokenizer  models/checkpoints/it/level_12/tokenizer.json \
+#       --checkpoint models/checkpoints/<lang>/level_<N>/final_dreamed.pt \
+#       --tokenizer  models/checkpoints/<lang>/level_<N>/tokenizer.json \
 #       --output     models/physisml.gguf
 #   ollama create physisml -f Modelfile && ollama run physisml
 #
@@ -16,8 +20,8 @@
 #
 # `ollama run` INTERACTIVELY sends the accumulated conversation back as context.
 # With a 128-token window and no multi-turn training, three exchanges are enough
-# to crowd out the question: 'cosa fa la mamma?' answers 'la mamma mangia' alone
-# and 'il cane' with the previous turns prepended. Use /clear, one-shot
+# to crowd out the question: the model answers the tail of the transcript rather
+# than the question that opened it. Use /clear, one-shot
 # `ollama run physisml "..."`, or the API — all three are stateless.
 FROM ./models/physisml.gguf
 TEMPLATE {{ .Prompt }}

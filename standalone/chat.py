@@ -8,6 +8,7 @@ speak without training anything:
     python3 standalone/chat.py "di: cosa mangia il cane?"   # one answer
     python3 standalone/chat.py                              # interactive REPL
     python3 standalone/chat.py --download                   # fetch weights only
+    python3 standalone/chat.py --lang en "say: the cat"     # another language
 
 Weights are looked for in this order: --model if given, then standalone/model.pt
 (what a local build writes), then the Hugging Face snapshot under
@@ -100,13 +101,23 @@ sys.path.insert(0, _ROOT)
 from physisml.torch_model import TorchGPT
 from physisml.tokenizer   import BPETokenizer
 from physisml.generation  import generate, undecodable_mask, load_affect
+from dynamic_model import language as lang_manifest
 
 LOCAL_MODEL    = os.path.join(_HERE, "model.pt")
 LOCAL_TOKENIZER = os.path.join(_HERE, "tokenizer.json")
-HF_REPO        = "speleoalex/physisml-it-preview"
 HF_FILES       = ["config.json", "model.safetensors", "tokenizer.json"]
 HF_MB          = 95
 CONTEXT_WINDOW = 128
+
+
+def hf_repo_for(lang: str) -> str:
+    """The Hub repo that publishes one language, from its manifest.
+
+    Hardcoding the Italian repo here made --lang en download Italian weights
+    and answer an English prompt in Italian, which looks like a broken model
+    rather than the wrong download. The manifest is the one place that knows.
+    """
+    return lang_manifest.load(lang).hf_repo
 
 
 def _in_venv() -> bool:
@@ -205,7 +216,17 @@ def resolve(args):
         return TorchGPT.load(args.model), args.tokenizer or LOCAL_TOKENIZER, args.model
 
     if os.path.exists(LOCAL_MODEL) and os.path.exists(LOCAL_TOKENIZER):
-        return TorchGPT.load(LOCAL_MODEL), args.tokenizer or LOCAL_TOKENIZER, LOCAL_MODEL
+        # There is one standalone/model.pt for every language: it holds
+        # whatever the last build wrote. Asking for a language explicitly and
+        # being handed the other one's weights is the failure this checks for
+        # -- the vocabulary beside them is the only evidence of which language
+        # they speak.
+        found = lang_manifest.detect(LOCAL_TOKENIZER)
+        if args.lang is None or not found or found == args.lang:
+            return (TorchGPT.load(LOCAL_MODEL),
+                    args.tokenizer or LOCAL_TOKENIZER, LOCAL_MODEL)
+        print(f"Note: {os.path.relpath(LOCAL_MODEL, _ROOT)} holds '{found}' "
+              f"weights, not '{args.lang}' — using the published ones instead.")
 
     folder = hf_snapshot(args.hf_repo, download=not args.no_download)
     if not all(os.path.exists(os.path.join(folder, f)) for f in HF_FILES):
@@ -218,8 +239,9 @@ def resolve(args):
     return model, (args.tokenizer or tok_path), label
 
 
-def print_info(model, args, label) -> None:
+def print_info(model, args, label, lang) -> None:
     print(f"  model      : {label}")
+    print(f"  language   : {lang}")
     print(f"  params     : {model.num_params:,}")
     print(f"  vocab      : {model.active_vocab_size} active / {model.vocab_size} total")
     print(f"  d_model    : {model.d_model}  n_heads={model.n_heads}  n_layers={model.n_layers}")
@@ -240,8 +262,14 @@ def main():
                              "else the published weights)")
     parser.add_argument("--tokenizer",   default=None,
                         help="tokenizer JSON (default: next to the weights)")
-    parser.add_argument("--hf-repo",     default=HF_REPO,
-                        help=f"Hugging Face model repo (default: {HF_REPO})")
+    parser.add_argument("--lang",        default=None,
+                        help=f"which language to talk to (default: "
+                             f"{lang_manifest.DEFAULT_LANG}). Picks the Hub "
+                             f"repo from training_files/<lang>/language.json. "
+                             f"Have: " + ", ".join(lang_manifest.available()))
+    parser.add_argument("--hf-repo",     default=None,
+                        help="Hugging Face model repo (default: the one --lang "
+                             "declares)")
     parser.add_argument("--download",    action="store_true",
                         help="fetch the published weights and exit")
     parser.add_argument("--no-download", action="store_true",
@@ -257,6 +285,21 @@ def main():
     parser.add_argument("--no-affect",   action="store_true",
                         help="disable affective modulation of the logits")
     args = parser.parse_args()
+
+    if args.hf_repo is None:
+        lang = args.lang or lang_manifest.DEFAULT_LANG
+        known = lang_manifest.available()
+        if lang not in known:
+            print(f"Error: no curriculum for language '{lang}' — have: "
+                  + ", ".join(known), file=sys.stderr)
+            sys.exit(1)
+        args.hf_repo = hf_repo_for(lang)
+        if not args.hf_repo:
+            print(f"Error: '{lang}' publishes no weights — "
+                  f"training_files/{lang}/language.json declares no "
+                  f"\"hf_repo\". Train one with ./build.sh --lang {lang}, or "
+                  f"pass --hf-repo explicitly.", file=sys.stderr)
+            sys.exit(1)
 
     if args.download:
         folder = hf_snapshot(args.hf_repo)
@@ -274,6 +317,12 @@ def main():
         sys.exit(1)
     tok = BPETokenizer()
     tok.load(tok_path)
+
+    # Which language these weights actually speak, read off the vocabulary
+    # shipped with them rather than off the flag that asked for them.
+    code   = lang_manifest.detect(tok_path)
+    spoken = (f"{lang_manifest.load(code).name} ({code})" if code
+              else "unknown — this vocabulary matches no language on disk")
 
     mask = undecodable_mask(model, tok)
     modulator = affect = None
@@ -297,7 +346,7 @@ def main():
     print("=" * 56)
     print("  PhysisML — interactive generation")
     print("=" * 56)
-    print_info(model, args, label)
+    print_info(model, args, label, spoken)
     print("=" * 56)
     print("  /info    show model details")
     print("  /quit    exit")
@@ -318,7 +367,7 @@ def main():
             break
 
         if prompt == "/info":
-            print_info(model, args, label)
+            print_info(model, args, label, spoken)
             print()
             continue
 

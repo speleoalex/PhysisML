@@ -170,11 +170,24 @@ Files:
 | `physisml/` | inference code: model, tokenizer, sampling, affective modulation |
 | `generate.py` | CLI: single prompt or REPL |
 | `MANIFEST.json` | which checkpoint each artifact came from, with sha256 |
+| `physisml.gguf` + `Modelfile` | the same weights for llama.cpp / ollama |
 
 `generate.py` is a port of the repository's own generation path, so the
 affective system (`confidence`, `pleasure`, `pain`, `fear` shifting the logits
 at every step) is active by default — `--no-affect` turns it off if you want to
 see what the bare transformer does.
+
+### In ollama
+
+```bash
+ollama create physisml-en -f Modelfile && ollama run physisml-en
+```
+
+The model ends its own answers — it emits `<|EOS|>`, which the GGUF declares —
+so the Modelfile needs no stop strings. Note that `ollama run` interactively
+sends the whole conversation back as context: with a 128-token window and no
+multi-turn training, a few exchanges crowd out the question. Use `/clear`,
+one-shot `ollama run physisml-en "..."`, or the API.
 
 ## How it was trained
 

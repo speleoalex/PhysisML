@@ -177,7 +177,10 @@ what will the dog do tomorrow? -> tomorrow the dog will eat bread.
 
 Level 5's dream stopped at the ceiling (`MAX_DREAMS=12`), not at a plateau —
 its curve was still climbing, 60% to 85%, when the cap ended it. The card for
-these weights is [huggingface/README.en.md](huggingface/README.en.md).
+these weights is [huggingface/README.en.md](huggingface/README.en.md); they are
+published at
+[`speleoalex/physisml-en-preview`](https://huggingface.co/speleoalex/physisml-en-preview)
+and `python3 standalone/chat.py --lang en "say: the cat"` downloads and runs them.
 
 ### Is the dream just replay? The EWC control (exp_i)
 
@@ -451,6 +454,7 @@ never overwrite each other:
 python3 dynamic_model/test_model.py --level 5 --lang en
 python3 scripts/train_tokenizer.py --lang en --vocab-size 3000
 python3 scripts/export_hf.py --lang en --out hf_en
+python3 standalone/chat.py --lang en "say: the cat"  # the published weights
 ```
 
 `dynamic_model/run.py` takes no language flag: it recognises the checkpoint's

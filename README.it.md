@@ -161,7 +161,9 @@ what will the dog do tomorrow? -> tomorrow the dog will eat bread.
 Il sogno del livello 5 si è fermato sul tetto (`MAX_DREAMS=12`), non su un
 plateau: la curva saliva ancora, dal 60% all'85%, quando il cap l'ha
 interrotta. La scheda di questi pesi è
-[huggingface/README.en.md](huggingface/README.en.md).
+[huggingface/README.en.md](huggingface/README.en.md); sono pubblicati su
+[`speleoalex/physisml-en-preview`](https://huggingface.co/speleoalex/physisml-en-preview)
+e `python3 standalone/chat.py --lang en "say: the cat"` li scarica e li esegue.
 
 ### Il sogno è solo replay? Il controllo EWC (exp_i)
 
@@ -439,6 +441,7 @@ si sovrascrivono mai a vicenda.
 python3 dynamic_model/test_model.py --level 5 --lang en
 python3 scripts/train_tokenizer.py --lang en --vocab-size 3000
 python3 scripts/export_hf.py --lang en --out hf_en
+python3 standalone/chat.py --lang en "say: the cat"  # i pesi pubblicati
 ```
 
 `dynamic_model/run.py` non vuole nessun flag di lingua: riconosce il
