@@ -8,6 +8,67 @@
 #   ./build.sh 1 haiku 200    # 200 teaching turns per level
 #   ./build.sh 1 --resume     # skip prompt, continue from next incomplete level
 #   ./build.sh 2 haiku 100 --resume
+#   ./build.sh 5 --lang en    # build the English curriculum (default: it)
+#
+# The language selects both the corpus (training_files/<lang>/) and where the
+# weights land (models/checkpoints/<lang>/), so two languages never overwrite
+# each other. PHYSISML_LANG=en works too.
+
+# ── Language ────────────────────────────────────────────────────────────────
+# The curriculum exists per language: training_files/<lang>/ holds the corpus
+# and the teacher configs, models/checkpoints/<lang>/ the weights. Which one
+# gets built is an argument, not a constant:
+#
+#   ./build.sh 5 --lang en          PHYSISML_LANG=en ./build.sh 5
+#
+# This deliberately does NOT read the shell's own $LANG (the locale). The two
+# only share a name, and honouring the locale would send anyone running with
+# LANG=en_US.UTF-8 into a different curriculum than the one they asked for.
+LANG="${PHYSISML_LANG:-it}"
+_args=()
+_lang_next=0
+for arg in "$@"; do
+  if [ "$_lang_next" -eq 1 ]; then LANG="$arg"; _lang_next=0; continue; fi
+  case "$arg" in
+    --lang)   _lang_next=1 ;;
+    --lang=*) LANG="${arg#*=}" ;;
+    *)        _args+=("$arg") ;;
+  esac
+done
+set -- ${_args[@]+"${_args[@]}"}
+export PHYSISML_LANG="$LANG"
+
+if [ ! -d "training_files/$LANG" ]; then
+  echo "Error: no curriculum for language '$LANG' — training_files/$LANG/ is missing."
+  printf "  Available:"
+  for d in training_files/*/; do
+    b=$(basename "$d"); [ ${#b} -eq 2 ] && printf " %s" "$b"
+  done
+  echo ""
+  exit 1
+fi
+echo "  Language: $LANG  (training_files/$LANG → models/checkpoints/$LANG)"
+
+TARGET_LEVEL=${1:-1}
+# Highest level this language has, read off the disk. Used by the loops that
+# scan or clean EVERY level rather than the requested range: those were
+# hardcoded to 10 and silently ignored anything above it. Pinning the number
+# instead is what made the Italian tree stop at 12 after level 13 was written,
+# and it also left a stale level_13 checkpoint behind on a rebuild from an
+# earlier level. Checkpoints count too, for exactly that reason: the clean-up
+# loop must reach every directory that exists, not every level that is taught.
+MAX_LEVEL=0
+for _d in "training_files/$LANG"/[0-9]* "models/checkpoints/$LANG"/level_[0-9]*; do
+  _n="${_d##*/}"; _n="${_n#level_}"
+  case "$_n" in
+    ''|*[!0-9]*) continue ;;
+  esac
+  [ "$_n" -gt "$MAX_LEVEL" ] && MAX_LEVEL="$_n"
+done
+if [ "$TARGET_LEVEL" -gt "$MAX_LEVEL" ] 2>/dev/null; then
+  echo "Error: the '$LANG' curriculum stops at level $MAX_LEVEL, but level $TARGET_LEVEL was requested."
+  exit 1
+fi
 
 # ── Device selection ────────────────────────────────────────────────────────
 # Use the Intel Arc A370M if the conda physisml_gpu env is available.
@@ -173,12 +234,6 @@ trap 'echo ""; echo "  interrotto."; exit 130' INT TERM
 power_boost_on
 gpu_yield_on
 
-TARGET_LEVEL=${1:-1}
-# Highest level the curriculum has material for. Used by the loops that
-# scan or clean EVERY level rather than the requested range: those were
-# hardcoded to 10 and silently ignored anything above it.
-MAX_LEVEL=12
-LANG="it"
 EPOCHS_0=3    # good balance: enough signal, not wasteful for small corpora (L0-L2)
               # for large corpora (L3+, 20MB+) consider --epochs-0 2 to save time
 TUTOR_MODEL="haiku"
@@ -413,7 +468,7 @@ else
     echo "  → Continuing from level $START_LEVEL"
   elif [ "$FROM_INPUT" = "0" ]; then
     # Full reset
-    echo "y" | ./reset.sh
+    echo "y" | ./reset.sh --lang "$LANG"
     echo ""
     START_LEVEL=0
   else
@@ -435,7 +490,7 @@ fi
 # Check there is something to do
 if [ "$START_LEVEL" -gt "$TARGET_LEVEL" ]; then
   echo "All levels up to $TARGET_LEVEL are already complete."
-  echo "To continue to a higher level: ./build.sh $((TARGET_LEVEL + 1)) --resume"
+  echo "To continue to a higher level: ./build.sh $((TARGET_LEVEL + 1)) --lang $LANG --resume"
   exit 0
 fi
 
@@ -446,7 +501,7 @@ for LEVEL in $(seq $START_LEVEL $TARGET_LEVEL); do
 
   echo ""
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-  echo "  LEVEL $LEVEL"
+  echo "  LEVEL $LEVEL  [$LANG]"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
   # Retrying this level: clear any previous quality-gate failure flag
@@ -926,9 +981,13 @@ for LEVEL in $(seq 0 $TARGET_LEVEL); do
 done
 echo "╠══════════════════════════════════════════════╣"
 echo "║  To test:"
-echo "║    python3 dynamic_model/run.py"
+echo "║    $PYTHON dynamic_model/run.py"
 echo "╚══════════════════════════════════════════════╝"
 
-# Run quality test on the final level
+# Run the quality test on the final level with the SAME interpreter that did
+# the training. Both this script and run.py import torch, which lives in the
+# conda environment: the system python3 has none, so the build used to end on
+# a ModuleNotFoundError after hours of work and printed no quality figure at
+# all — the one number that says whether the build is worth keeping.
 echo ""
-python3 dynamic_model/test_model.py --level "$TARGET_LEVEL" --lang "$LANG"
+$PYTHON dynamic_model/test_model.py --level "$TARGET_LEVEL" --lang "$LANG"

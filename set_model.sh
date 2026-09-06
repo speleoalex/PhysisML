@@ -6,6 +6,10 @@
 # Usage:
 #   ./set_model.sh <model.pt>
 #   ./set_model.sh                    ← list available models
+#
+# There is one active.pt for every language: activating an English checkpoint
+# replaces the Italian one that was there. The language of the weights is
+# printed, and read off the checkpoint path (models/checkpoints/<lang>/...).
 
 if [ -z "$1" ]; then
   echo "Usage: $0 <model.pt>"
@@ -36,6 +40,13 @@ fi
 
 cp "$1" models/active.pt
 echo "Active model → models/active.pt  (from: $1)"
+
+# There is ONE active.pt for every language, so say which curriculum the
+# weights just activated came from — models/checkpoints/<lang>/level_N/.
+CKPT_LANG=$(echo "$1" | sed -n 's#.*models/checkpoints/\([a-z][a-z]\)/.*#\1#p')
+if [ -n "$CKPT_LANG" ]; then
+  echo "Language     → ${CKPT_LANG}  (this model was trained on training_files/${CKPT_LANG}/)"
+fi
 
 # Copy matching tokenizer if present in the same directory
 SOURCE_DIR=$(dirname "$1")

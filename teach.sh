@@ -8,6 +8,11 @@
 #   ./teach.sh 100 hybrid         # local prompts + local-LLM grading, offline
 #   ./teach.sh 100 opus           # Claude tutor (needs ANTHROPIC_API_KEY)
 #   ./teach.sh 100 auto it 1      # level 1 (default: 0)
+#   ./teach.sh 100 auto --lang en --level 1
+#
+# The language picks the curriculum: training_files/<lang>/<level>/ for the
+# material, models/checkpoints/<lang>/level_N/ for the weights. It can be given
+# positionally (third argument) or as --lang, and PHYSISML_LANG sets it too.
 #
 # The Claude tutor is optional: 'auto' picks the local/hybrid teacher whenever
 # the level ships training_files/<lang>/<level>/local_teacher.json.
@@ -16,10 +21,38 @@
 # else starts from level_N/final.pt (first session).
 # Saves to level_N/final_learned.pt — never touches active.pt.
 
+# --lang/--level are pulled out first so they can appear anywhere; whatever is
+# left keeps the historical positional meaning.
+LANG="${PHYSISML_LANG:-it}"
+LEVEL=""
+_pos=()
+_next=""
+for arg in "$@"; do
+  case "$_next" in
+    lang)  LANG="$arg";  _next=""; continue ;;
+    level) LEVEL="$arg"; _next=""; continue ;;
+  esac
+  case "$arg" in
+    --lang)    _next=lang ;;
+    --lang=*)  LANG="${arg#*=}" ;;
+    --level)   _next=level ;;
+    --level=*) LEVEL="${arg#*=}" ;;
+    *)         _pos+=("$arg") ;;
+  esac
+done
+set -- ${_pos[@]+"${_pos[@]}"}
+
 INTERACTIONS=${1:-10}   # number of turns, or 'auto'
 MODEL_ARG=${2:-auto}
-LANG=${3:-it}
-LEVEL=${4:-0}
+[ -n "${3:-}" ] && LANG="$3"
+[ -z "$LEVEL" ] && LEVEL=${4:-0}
+
+if [ ! -d "training_files/$LANG/$LEVEL" ]; then
+  echo "Error: no material for language '$LANG' level $LEVEL"
+  echo "       (training_files/$LANG/$LEVEL/ is missing)."
+  exit 1
+fi
+export PHYSISML_LANG="$LANG"
 
 case "$MODEL_ARG" in
   opus)             TUTOR="claude-opus-4-6"   ;;

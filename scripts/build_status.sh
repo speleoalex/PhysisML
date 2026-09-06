@@ -7,12 +7,29 @@
 #
 # Usage:
 #   ./scripts/build_status.sh [logfile]        # one shot
+#   ./scripts/build_status.sh --lang en        # read the English build
 #   watch -n 60 ./scripts/build_status.sh      # keep an eye on it
 #
 # With no argument it takes the most recent *.log it can find in the usual
 # places, so `./scripts/build_status.sh` alone normally does the right thing.
 
 set -u
+
+# Which curriculum to report on. Checkpoints are per language, so without this
+# an English build reads as "nothing done" against the Italian tree.
+LANG_DIR="${PHYSISML_LANG:-${LANG_DIR:-it}}"
+_args=()
+_next=0
+for arg in "$@"; do
+  if [ "$_next" -eq 1 ]; then LANG_DIR="$arg"; _next=0; continue; fi
+  case "$arg" in
+    --lang)   _next=1 ;;
+    --lang=*) LANG_DIR="${arg#*=}" ;;
+    *)        _args+=("$arg") ;;
+  esac
+done
+set -- ${_args[@]+"${_args[@]}"}
+
 LOG="${1:-}"
 if [ -z "$LOG" ]; then
   # Newest first, but only among files that actually look like a build log.
@@ -30,9 +47,9 @@ if [ -z "$LOG" ] || [ ! -f "$LOG" ]; then
   exit 1
 fi
 
-LANG_DIR="${LANG_DIR:-it}"
 CKPT="models/checkpoints/$LANG_DIR"
 
+echo "language : $LANG_DIR  ($CKPT)"
 echo "log      : $LOG"
 STARTED=$(stat -c '%w' "$LOG" 2>/dev/null | cut -c1-16)
 [ -n "$STARTED" ] && [ "$STARTED" != "-" ] && echo "started  : $STARTED"
@@ -59,7 +76,7 @@ fi
 
 echo
 echo "levels done:"
-for L in $(seq 0 12); do
+for L in $(seq 0 13); do
   D="$CKPT/level_$L"
   [ -d "$D" ] || continue
   if [ -f "$D/final_dreamed.pt" ]; then
