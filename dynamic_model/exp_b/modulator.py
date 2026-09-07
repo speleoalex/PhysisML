@@ -20,6 +20,8 @@ import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'tests', 'test_1'))
 
 from dynamic_model.exp_b.affect_state import AffectState
+from dynamic_model import language as _language
+from dynamic_model import surface as _surface
 
 
 # Special tokens — must be registered in the tokenizer before use
@@ -28,14 +30,23 @@ UNCERTAIN_TEXT = "<|uncertain|>"
 ASK_TEXT       = "<|ask|>"
 
 
-# 'cos è' and not 'cosa è': 'cosa' is also the head of the top class ('una
-# cosa'), which would make the gold of the hypernym step a subset of its own
-# prompt and hand a bare prompt echo full coverage. See g_cos_e in
-# scripts/expand_teacher_pools.py.
-ASK_FORM = "cos è"
+# The opening of the question the gate raises, per language: 'cos è' for
+# Italian ('cos' and not 'cosa' because 'cosa' is also the head of the top
+# class — see g_cos_e in scripts/expand_teacher_pools.py), 'what is' for
+# English. It is the manifest's first ask head, so a new language declares it
+# in training_files/<lang>/language.json and nothing here changes.
+def ask_form(lang: str = _language.DEFAULT_LANG) -> str:
+    heads = _surface.load(lang).ask_heads
+    return heads[0]
 
 
-def ask_token_id(tok) -> "Optional[int]":
+# The Italian default, kept as a module constant because the tests and the
+# older call sites read it by name. Every caller that knows its language
+# should call ask_form(lang) instead.
+ASK_FORM = ask_form()
+
+
+def ask_token_id(tok, lang: str = _language.DEFAULT_LANG) -> "Optional[int]":
     """The single logit the ask gate raises, or None if this vocabulary has no
     clean anchor for it.
 
@@ -50,15 +61,18 @@ def ask_token_id(tok) -> "Optional[int]":
     Better no gate than a wrong one: unless the first token IS the whole
     interrogative word, return None and let the caller say so. A vocabulary
     trained with L12's pool in it does hold 'cos' as one token — that is one of
-    the reasons the tokenizer has to be retrained before L11/L12 are built.
+    the reasons the Italian tokenizer had to be retrained before L11/L12 were
+    built. English needs no retrain: 'what' is already a whole token in
+    tokenizer_en.json, so 'what is' has a clean anchor from level 0.
     """
+    form = ask_form(lang)
     try:
-        ids = tok.encode(ASK_FORM)
+        ids = tok.encode(form)
     except Exception:
         return None
     if not ids:
         return None
-    head = ASK_FORM.split()[0]          # 'cos'
+    head = form.split()[0]              # 'cos' / 'what'
     try:
         if tok.decode([ids[0]]) != head:
             return None

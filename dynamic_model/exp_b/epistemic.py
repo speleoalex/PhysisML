@@ -51,6 +51,8 @@ for _p in (_ROOT, os.path.join(_ROOT, "scripts")):
 
 import expand_teacher_pools as etp                       # noqa: E402
 from dynamic_model.ontology_oracle import article_for, guess_gender  # noqa: E402
+from dynamic_model import language as _language           # noqa: E402
+from dynamic_model import surface as _surface             # noqa: E402
 from dynamic_model.exp_b.none_token import (              # noqa: E402
     NONE_TOKEN, SCORING_ONLY_TOKENS, mask_scoring_rows, row_id)
 
@@ -103,20 +105,20 @@ def separation(post: torch.Tensor, classes: Sequence[str]) -> tuple:
     return float(top2[0] - top2[1]), None
 
 
-def prefix_for(noun: dict) -> str:
+def prefix_for(noun: dict, lang: str = _language.DEFAULT_LANG) -> str:
     """'cos è un cane? il cane è ' — the question the loop asks, followed by
     the opening of the gold answer, up to and excluding the class.
 
-    The article follows `etp.ask_forms`: mass and unique nouns take the
-    definite form ('cos è l acqua?'), the rest the indefinite one. The
-    trailing space matters: the tokenizer splits on whitespace, so the class
-    tokens appended after it are exactly the tokens training saw.
+    Built from `training_files/<lang>/language.json`, the same block the L11
+    and L12 pools are generated from, so the prefix is token-for-token the
+    one training saw — which is the only reason reading a class off it means
+    anything. Mass and unique nouns take the definite form ('cos è l
+    acqua?'), the rest the indefinite one. The trailing space matters: the
+    tokenizer splits on whitespace, so the class tokens appended after it are
+    exactly the tokens training saw.
     """
-    if noun.get("mass") or noun.get("uniq"):
-        question = f"cos è {etp.phrase(noun)}?"
-    else:
-        question = f"cos è {etp.indef(noun)} {noun['w']}?"
-    return f"{question} {etp.phrase(noun)} è "
+    surf = _surface.load(lang)
+    return f"{surf.ask(noun)} {surf.phrase(noun)} {surf.copula} "
 
 
 # ---------------------------------------------------------------------------
@@ -132,7 +134,8 @@ def _device_of(model) -> torch.device:
 
 @torch.no_grad()
 def class_log_likelihoods(model, tok, noun: dict,
-                          classes: Sequence[str]) -> torch.Tensor:
+                          classes: Sequence[str],
+                          lang: str = _language.DEFAULT_LANG) -> torch.Tensor:
     """Length-normalised log-likelihood of each class after `prefix_for(noun)`.
 
     Teacher-forced: one batched forward, causal, right-padded — a class's
@@ -152,7 +155,7 @@ def class_log_likelihoods(model, tok, noun: dict,
     0.925 measured), which is a measurement artefact and not a change of
     what the model knows.
     """
-    prefix = prefix_for(noun)
+    prefix = prefix_for(noun, lang)
     n_prompt = len(tok.encode(prefix))
     seqs = []
     for cls in classes:
@@ -199,13 +202,15 @@ def class_log_likelihoods(model, tok, noun: dict,
     return out
 
 
-def class_posterior(model, tok, noun: dict, classes: Sequence[str]) -> torch.Tensor:
+def class_posterior(model, tok, noun: dict, classes: Sequence[str],
+                    lang: str = _language.DEFAULT_LANG) -> torch.Tensor:
     """Softmax over the classes of their length-normalised log-likelihoods.
 
     A distribution over the closed set: what the weights say the noun IS,
     with no sampling and no generated text in between.
     """
-    return torch.softmax(class_log_likelihoods(model, tok, noun, classes), dim=0)
+    return torch.softmax(
+        class_log_likelihoods(model, tok, noun, classes, lang), dim=0)
 
 
 @dataclass
@@ -244,8 +249,9 @@ class EpistemicVerdict:
 
 
 def verdict(model, tok, noun: dict, classes: Sequence[str],
-            threshold: float) -> EpistemicVerdict:
-    post = class_posterior(model, tok, noun, classes)
+            threshold: float,
+            lang: str = _language.DEFAULT_LANG) -> EpistemicVerdict:
+    post = class_posterior(model, tok, noun, classes, lang)
     top2 = torch.topk(post, 2)
     p = post.clamp_min(1e-12)
     ent = float(-(p * p.log()).sum()) / math.log(len(classes)) if len(classes) > 1 else 0.0
@@ -258,13 +264,14 @@ def verdict(model, tok, noun: dict, classes: Sequence[str],
         p_none=p_none)
 
 
-def margins(model, tok, nouns: Sequence[dict], classes: Sequence[str]) -> List[float]:
+def margins(model, tok, nouns: Sequence[dict], classes: Sequence[str],
+            lang: str = _language.DEFAULT_LANG) -> List[float]:
     """The separation statistic for each noun — `separation`, not necessarily
     a margin. The calibration bands and every AUC are built on this list, so
     it has to switch mode with the classes exactly as `verdict` does."""
     out = []
     for n in nouns:
-        post = class_posterior(model, tok, n, classes)
+        post = class_posterior(model, tok, n, classes, lang)
         out.append(separation(post, classes)[0])
     return out
 

@@ -242,7 +242,10 @@ models/checkpoints/{lang}/
 
 ## 5. Curriculum linguistico
 
-Il curriculum mappa 11 livelli (0–10) agli anni di sviluppo linguistico umano:
+La fase testuale mappa 11 livelli (0–10) agli anni di sviluppo linguistico
+umano. I tre livelli superiori — L11 appartenenza di classe, L12 curiosità,
+L13 autonomia — non usano libri: generano il proprio materiale dal reticolo di
+classi in `training_files/<lang>/lexicon.json`.
 
 | Livello | Età equiv. | Struttura insegnata | Esempio di obiettivo | Target |
 |---------|-----------|---------------------|----------------------|--------|
@@ -293,7 +296,7 @@ del no, il prompt di ripiego del tutor, il repo sull'Hub.
 `dynamic_model/language.py` lo legge; tutto il resto (vocabolario, probe,
 scheda, cartella di export) segue una convenzione di nome e non va dichiarato.
 
-Il curriculum inglese copre oggi i livelli 0–10:
+Il curriculum inglese copre i livelli 0–12, gli stessi dodici gradini di quello italiano:
 
 | Livello | Struttura insegnata | Esempio di obiettivo |
 |---------|---------------------|----------------------|
@@ -308,6 +311,8 @@ Il curriculum inglese copre oggi i livelli 0–10:
 | L8 | Comparativi, preferenze e le loro ragioni | `who is bigger, the dog or the cat?` → `the dog is bigger than the cat.` |
 | L9 | Una tesi con la sua ragione e una conclusione | `is the cat small?` → `I think the cat is small because it is fast.` |
 | L10 | Un commento breve, un giudizio motivato | `comment on the cat` → `the cat is fast, and this is nice.` |
+| L11 | Appartenenza a otto classi chiuse: is-a, conferma sì/no, correzione, un esempio della classe | `what is the cat?` → `the cat is an animal.` |
+| L12 | Ammettere di non sapere, e chiedere il nome che non si ha | `what is a compass?` → `i do not know.` |
 
 Perché un manifesto e non una tabella nel sorgente: un `dict` con chiave la
 lingua dentro un file `.py` è l'elenco delle lingue che quel modulo conosce. È

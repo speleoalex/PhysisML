@@ -131,6 +131,16 @@ role_bad = []
 try:
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     from dynamic_model.retraction import retracted, find
+    from dynamic_model import surface as _surface
+
+    def _admission() -> str:
+        """How this language says it does not know, for the message below."""
+        surf = _surface.load(LANG)
+        try:
+            return surf.admission
+        except _surface.MissingSurface:
+            return 'the admission'
+
     lexicon = json.load(open(f'training_files/{LANG}/lexicon.json', encoding='utf-8'))
     bare = lexicon.get('bare_unknown_nouns', [])
     gone = set(retracted(LANG))
@@ -150,7 +160,7 @@ try:
                             f"the permanent control has been spent")
         if role == 'reserve' and not taught:
             role_bad.append(f"'{n['w']}' has role=reserve but no level teaches "
-                            f"it 'non lo so'")
+                            f"it {_admission()!r}")
         # A retracted word is SUPPOSED to carry class golds now: retraction is
         # what acquisition does to an admission, and the ledger is the record
         # of that transition. Flagging its new golds would flag every

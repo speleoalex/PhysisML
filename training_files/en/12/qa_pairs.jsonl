@@ -1,0 +1,450 @@
+{"prompt": "the sky is a place, this is a pumpkin", "response": "what is a pumpkin?"}
+{"prompt": "the wolf is an animal, this is a drum", "response": "what is a drum?"}
+{"prompt": "the road is a place, this is a spider", "response": "what is a spider?"}
+{"prompt": "the child is a person, this is a lighthouse", "response": "what is a lighthouse?"}
+{"prompt": "the boy is a person, this is a hedgehog", "response": "what is a hedgehog?"}
+{"prompt": "the cheese is a food, this is a button", "response": "what is a button?"}
+{"prompt": "the cow is an animal, this is a compass", "response": "what is a compass?"}
+{"prompt": "the child is a person, this is a hawk", "response": "what is a hawk?"}
+{"prompt": "the rain is water, this is a blueberry", "response": "what is a blueberry?"}
+{"prompt": "the rice is a food, this is a stool", "response": "what is a stool?"}
+{"prompt": "the woman is a person, this is a clarinet", "response": "what is a clarinet?"}
+{"prompt": "the car is an object, this is a squirrel", "response": "what is a squirrel?"}
+{"prompt": "the snow is water, this is a badger", "response": "what is a badger?"}
+{"prompt": "the friend is a person, this is a toad", "response": "what is a toad?"}
+{"prompt": "the apple is a food, this is a bison", "response": "what is a bison?"}
+{"prompt": "the fish is an animal, this is an otter", "response": "what is an otter?"}
+{"prompt": "the grass is a plant, this is a woodpecker", "response": "what is a woodpecker?"}
+{"prompt": "the dog is an animal, this is a beaver", "response": "what is a beaver?"}
+{"prompt": "the honey is a food, this is an apricot", "response": "what is an apricot?"}
+{"prompt": "the city is a place, this is a radish", "response": "what is a radish?"}
+{"prompt": "the garden is a place, this is an almond", "response": "what is an almond?"}
+{"prompt": "the dog is an animal, this is a raspberry", "response": "what is a raspberry?"}
+{"prompt": "the door is an object, this is a fennel", "response": "what is a fennel?"}
+{"prompt": "the fish is an animal, this is a funnel", "response": "what is a funnel?"}
+{"prompt": "the box is an object, this is a rake", "response": "what is a rake?"}
+{"prompt": "the rice is a food, this is a bucket", "response": "what is a bucket?"}
+{"prompt": "the snow is water, this is a needle", "response": "what is a needle?"}
+{"prompt": "the fish is an animal, this is an apron", "response": "what is an apron?"}
+{"prompt": "the cow is an animal, this is a bowl", "response": "what is a bowl?"}
+{"prompt": "the park is a place, this is a sapphire", "response": "what is a sapphire?"}
+{"prompt": "the table is an object, this is a lantern", "response": "what is a lantern?"}
+{"prompt": "the ball is an object, this is a cliff", "response": "what is a cliff?"}
+{"prompt": "the cow is an animal, this is a glade", "response": "what is a glade?"}
+{"prompt": "the bread is a food, this is a ravine", "response": "what is a ravine?"}
+{"prompt": "the woman is a person, this is a fern", "response": "what is a fern?"}
+{"prompt": "the moon is a light, this is an ivy", "response": "what is an ivy?"}
+{"prompt": "the boy is a person, this is a poppy", "response": "what is a poppy?"}
+{"prompt": "the spider is an animal, this is a compass", "response": "what is a compass?"}
+{"prompt": "the hedgehog is an animal, this is a hawk", "response": "what is a hawk?"}
+{"prompt": "the button is an object, this is a blueberry", "response": "what is a blueberry?"}
+{"prompt": "the drum is an object, this is a stool", "response": "what is a stool?"}
+{"prompt": "the pumpkin is a food, this is a clarinet", "response": "what is a clarinet?"}
+{"prompt": "the lighthouse is a place, this is a squirrel", "response": "what is a squirrel?"}
+{"prompt": "the spider is an animal, this is a badger", "response": "what is a badger?"}
+{"prompt": "the hedgehog is an animal, this is a toad", "response": "what is a toad?"}
+{"prompt": "the button is an object, this is a bison", "response": "what is a bison?"}
+{"prompt": "the drum is an object, this is an otter", "response": "what is an otter?"}
+{"prompt": "the pumpkin is a food, this is a woodpecker", "response": "what is a woodpecker?"}
+{"prompt": "the lighthouse is a place, this is a beaver", "response": "what is a beaver?"}
+{"prompt": "the spider is an animal, this is an apricot", "response": "what is an apricot?"}
+{"prompt": "the hedgehog is an animal, this is a radish", "response": "what is a radish?"}
+{"prompt": "the button is an object, this is an almond", "response": "what is an almond?"}
+{"prompt": "the drum is an object, this is a raspberry", "response": "what is a raspberry?"}
+{"prompt": "the pumpkin is a food, this is a fennel", "response": "what is a fennel?"}
+{"prompt": "the lighthouse is a place, this is a funnel", "response": "what is a funnel?"}
+{"prompt": "the spider is an animal, this is a rake", "response": "what is a rake?"}
+{"prompt": "the hedgehog is an animal, this is a bucket", "response": "what is a bucket?"}
+{"prompt": "the button is an object, this is a needle", "response": "what is a needle?"}
+{"prompt": "the drum is an object, this is an apron", "response": "what is an apron?"}
+{"prompt": "the pumpkin is a food, this is a bowl", "response": "what is a bowl?"}
+{"prompt": "the lighthouse is a place, this is a sapphire", "response": "what is a sapphire?"}
+{"prompt": "the spider is an animal, this is a lantern", "response": "what is a lantern?"}
+{"prompt": "the hedgehog is an animal, this is a cliff", "response": "what is a cliff?"}
+{"prompt": "the button is an object, this is a glade", "response": "what is a glade?"}
+{"prompt": "the drum is an object, this is a ravine", "response": "what is a ravine?"}
+{"prompt": "the pumpkin is a food, this is a fern", "response": "what is a fern?"}
+{"prompt": "the lighthouse is a place, this is an ivy", "response": "what is an ivy?"}
+{"prompt": "the spider is an animal, this is a poppy", "response": "what is a poppy?"}
+{"prompt": "the cake is a food, this is a key", "response": "the key is an object."}
+{"prompt": "the bread is a food, this is a mouse", "response": "the mouse is an animal."}
+{"prompt": "the egg is a food, this is a book", "response": "the book is an object."}
+{"prompt": "the rain is water, this is a lamp", "response": "the lamp is an object."}
+{"prompt": "the mouse is an animal, this is a child", "response": "the child is a person."}
+{"prompt": "the moon is a light, this is a horse", "response": "the horse is an animal."}
+{"prompt": "the sun is a light, this is honey", "response": "the honey is a food."}
+{"prompt": "the teacher is a person, this is a ball", "response": "the ball is an object."}
+{"prompt": "the teacher is a person, this is a house", "response": "the house is a place."}
+{"prompt": "the baby is a person, this is cheese", "response": "the cheese is a food."}
+{"prompt": "the sky is a place, this is a dad", "response": "the dad is a person."}
+{"prompt": "the cat is an animal, this is a cake", "response": "the cake is a food."}
+{"prompt": "the sun is a light, this is a teacher", "response": "the teacher is a person."}
+{"prompt": "the sea is a place, this is a baby", "response": "the baby is a person."}
+{"prompt": "the water is a food, this is the sky", "response": "the sky is a place."}
+{"prompt": "the flower is a plant, this is a bee", "response": "the bee is an animal."}
+{"prompt": "the rain is water, this is bread", "response": "the bread is a food."}
+{"prompt": "the snow is water, this is a city", "response": "the city is a place."}
+{"prompt": "the cheese is a food, this is a table", "response": "the table is an object."}
+{"prompt": "the book is an object, this is a woman", "response": "the woman is a person."}
+{"prompt": "the horse is an animal, this is a park", "response": "the park is a place."}
+{"prompt": "the cat is an animal, this is a window", "response": "the window is an object."}
+{"prompt": "the park is a place, this is a door", "response": "the door is an object."}
+{"prompt": "the sky is a place, this is a man", "response": "the man is a person."}
+{"prompt": "what is a drum?", "response": "the drum is an object."}
+{"prompt": "what is a spider?", "response": "the spider is an animal."}
+{"prompt": "what is a button?", "response": "the button is an object."}
+{"prompt": "what is a pumpkin?", "response": "the pumpkin is a food."}
+{"prompt": "what is a hedgehog?", "response": "the hedgehog is an animal."}
+{"prompt": "what is a lighthouse?", "response": "the lighthouse is a place."}
+{"prompt": "the spider is an animal?", "response": "yes, the spider is an animal."}
+{"prompt": "the button is an object?", "response": "yes, the button is an object."}
+{"prompt": "the drum is an object?", "response": "yes, the drum is an object."}
+{"prompt": "the hedgehog is an animal?", "response": "yes, the hedgehog is an animal."}
+{"prompt": "the pumpkin is a food?", "response": "yes, the pumpkin is a food."}
+{"prompt": "the lighthouse is a place?", "response": "yes, the lighthouse is a place."}
+{"prompt": "what is the compass?", "response": "i do not know."}
+{"prompt": "what is a compass?", "response": "i do not know."}
+{"prompt": "the compass is an animal?", "response": "i do not know."}
+{"prompt": "what is the hawk?", "response": "i do not know."}
+{"prompt": "what is a hawk?", "response": "i do not know."}
+{"prompt": "the hawk is an animal?", "response": "i do not know."}
+{"prompt": "what is the blueberry?", "response": "i do not know."}
+{"prompt": "what is a blueberry?", "response": "i do not know."}
+{"prompt": "the blueberry is an animal?", "response": "i do not know."}
+{"prompt": "what is the stool?", "response": "i do not know."}
+{"prompt": "what is a stool?", "response": "i do not know."}
+{"prompt": "the stool is an animal?", "response": "i do not know."}
+{"prompt": "what is the clarinet?", "response": "i do not know."}
+{"prompt": "what is a clarinet?", "response": "i do not know."}
+{"prompt": "the clarinet is an animal?", "response": "i do not know."}
+{"prompt": "what is the squirrel?", "response": "i do not know."}
+{"prompt": "what is a squirrel?", "response": "i do not know."}
+{"prompt": "the squirrel is an animal?", "response": "i do not know."}
+{"prompt": "what is the badger?", "response": "i do not know."}
+{"prompt": "what is a badger?", "response": "i do not know."}
+{"prompt": "the badger is an animal?", "response": "i do not know."}
+{"prompt": "what is the toad?", "response": "i do not know."}
+{"prompt": "what is a toad?", "response": "i do not know."}
+{"prompt": "the toad is an animal?", "response": "i do not know."}
+{"prompt": "what is the bison?", "response": "i do not know."}
+{"prompt": "what is a bison?", "response": "i do not know."}
+{"prompt": "the bison is an animal?", "response": "i do not know."}
+{"prompt": "what is the otter?", "response": "i do not know."}
+{"prompt": "what is an otter?", "response": "i do not know."}
+{"prompt": "the otter is an animal?", "response": "i do not know."}
+{"prompt": "what is the woodpecker?", "response": "i do not know."}
+{"prompt": "what is a woodpecker?", "response": "i do not know."}
+{"prompt": "the woodpecker is an animal?", "response": "i do not know."}
+{"prompt": "what is the beaver?", "response": "i do not know."}
+{"prompt": "what is a beaver?", "response": "i do not know."}
+{"prompt": "the beaver is an animal?", "response": "i do not know."}
+{"prompt": "what is the apricot?", "response": "i do not know."}
+{"prompt": "what is an apricot?", "response": "i do not know."}
+{"prompt": "the apricot is an animal?", "response": "i do not know."}
+{"prompt": "what is the radish?", "response": "i do not know."}
+{"prompt": "what is a radish?", "response": "i do not know."}
+{"prompt": "the radish is an animal?", "response": "i do not know."}
+{"prompt": "what is the almond?", "response": "i do not know."}
+{"prompt": "what is an almond?", "response": "i do not know."}
+{"prompt": "the almond is an animal?", "response": "i do not know."}
+{"prompt": "what is the raspberry?", "response": "i do not know."}
+{"prompt": "what is a raspberry?", "response": "i do not know."}
+{"prompt": "the raspberry is an animal?", "response": "i do not know."}
+{"prompt": "what is the fennel?", "response": "i do not know."}
+{"prompt": "what is a fennel?", "response": "i do not know."}
+{"prompt": "the fennel is an animal?", "response": "i do not know."}
+{"prompt": "what is the funnel?", "response": "i do not know."}
+{"prompt": "what is a funnel?", "response": "i do not know."}
+{"prompt": "the funnel is an animal?", "response": "i do not know."}
+{"prompt": "what is the rake?", "response": "i do not know."}
+{"prompt": "what is a rake?", "response": "i do not know."}
+{"prompt": "the rake is an animal?", "response": "i do not know."}
+{"prompt": "what is the bucket?", "response": "i do not know."}
+{"prompt": "what is a bucket?", "response": "i do not know."}
+{"prompt": "the bucket is an animal?", "response": "i do not know."}
+{"prompt": "what is the needle?", "response": "i do not know."}
+{"prompt": "what is a needle?", "response": "i do not know."}
+{"prompt": "the needle is an animal?", "response": "i do not know."}
+{"prompt": "what is the apron?", "response": "i do not know."}
+{"prompt": "what is an apron?", "response": "i do not know."}
+{"prompt": "the apron is an animal?", "response": "i do not know."}
+{"prompt": "what is the bowl?", "response": "i do not know."}
+{"prompt": "what is a bowl?", "response": "i do not know."}
+{"prompt": "the bowl is an animal?", "response": "i do not know."}
+{"prompt": "what is the sapphire?", "response": "i do not know."}
+{"prompt": "what is a sapphire?", "response": "i do not know."}
+{"prompt": "the sapphire is an animal?", "response": "i do not know."}
+{"prompt": "what is the lantern?", "response": "i do not know."}
+{"prompt": "what is a lantern?", "response": "i do not know."}
+{"prompt": "the lantern is an animal?", "response": "i do not know."}
+{"prompt": "what is the cliff?", "response": "i do not know."}
+{"prompt": "what is a cliff?", "response": "i do not know."}
+{"prompt": "the cliff is an animal?", "response": "i do not know."}
+{"prompt": "what is the glade?", "response": "i do not know."}
+{"prompt": "what is a glade?", "response": "i do not know."}
+{"prompt": "the glade is an animal?", "response": "i do not know."}
+{"prompt": "what is the ravine?", "response": "i do not know."}
+{"prompt": "what is a ravine?", "response": "i do not know."}
+{"prompt": "the ravine is an animal?", "response": "i do not know."}
+{"prompt": "what is the fern?", "response": "i do not know."}
+{"prompt": "what is a fern?", "response": "i do not know."}
+{"prompt": "the fern is an animal?", "response": "i do not know."}
+{"prompt": "what is the ivy?", "response": "i do not know."}
+{"prompt": "what is an ivy?", "response": "i do not know."}
+{"prompt": "the ivy is an animal?", "response": "i do not know."}
+{"prompt": "what is the poppy?", "response": "i do not know."}
+{"prompt": "what is a poppy?", "response": "i do not know."}
+{"prompt": "the poppy is an animal?", "response": "i do not know."}
+{"prompt": "what does the cat do?", "response": "the cat sleeps."}
+{"prompt": "what does the dog do?", "response": "the dog runs."}
+{"prompt": "what does the fish do?", "response": "the fish swims."}
+{"prompt": "what does the bird do?", "response": "the bird flies."}
+{"prompt": "what does the horse do?", "response": "the horse runs."}
+{"prompt": "what does the cow do?", "response": "the cow eats."}
+{"prompt": "what does the wolf do?", "response": "the wolf runs."}
+{"prompt": "what does the mouse do?", "response": "the mouse runs."}
+{"prompt": "what does the bee do?", "response": "the bee flies."}
+{"prompt": "what does the mom do?", "response": "the mom cooks."}
+{"prompt": "what does the dad do?", "response": "the dad reads."}
+{"prompt": "what does the boy do?", "response": "the boy plays."}
+{"prompt": "what does the girl do?", "response": "the girl sings."}
+{"prompt": "what does the baby do?", "response": "the baby sleeps."}
+{"prompt": "what does the child do?", "response": "the child plays."}
+{"prompt": "what does the friend do?", "response": "the friend laughs."}
+{"prompt": "what does the man do?", "response": "the man walks."}
+{"prompt": "what does the woman do?", "response": "the woman works."}
+{"prompt": "what does the teacher do?", "response": "the teacher reads."}
+{"prompt": "what does the sun do?", "response": "the sun shines."}
+{"prompt": "what does the moon do?", "response": "the moon shines."}
+{"prompt": "what does the star do?", "response": "the star shines."}
+{"prompt": "what does the tree do?", "response": "the tree grows."}
+{"prompt": "what does the flower do?", "response": "the flower grows."}
+{"prompt": "what does the grass do?", "response": "the grass grows."}
+{"prompt": "what does the snow do?", "response": "the snow falls."}
+{"prompt": "again. the sky is a place, this is a pumpkin", "response": "what is a pumpkin?"}
+{"prompt": "again. the wolf is an animal, this is a drum", "response": "what is a drum?"}
+{"prompt": "again. the road is a place, this is a spider", "response": "what is a spider?"}
+{"prompt": "again. the child is a person, this is a lighthouse", "response": "what is a lighthouse?"}
+{"prompt": "again. the boy is a person, this is a hedgehog", "response": "what is a hedgehog?"}
+{"prompt": "again. the cheese is a food, this is a button", "response": "what is a button?"}
+{"prompt": "again. the cow is an animal, this is a compass", "response": "what is a compass?"}
+{"prompt": "again. the child is a person, this is a hawk", "response": "what is a hawk?"}
+{"prompt": "again. the rain is water, this is a blueberry", "response": "what is a blueberry?"}
+{"prompt": "again. the rice is a food, this is a stool", "response": "what is a stool?"}
+{"prompt": "again. the woman is a person, this is a clarinet", "response": "what is a clarinet?"}
+{"prompt": "again. the car is an object, this is a squirrel", "response": "what is a squirrel?"}
+{"prompt": "again. the snow is water, this is a badger", "response": "what is a badger?"}
+{"prompt": "again. the friend is a person, this is a toad", "response": "what is a toad?"}
+{"prompt": "again. the apple is a food, this is a bison", "response": "what is a bison?"}
+{"prompt": "again. the fish is an animal, this is an otter", "response": "what is an otter?"}
+{"prompt": "again. the grass is a plant, this is a woodpecker", "response": "what is a woodpecker?"}
+{"prompt": "again. the dog is an animal, this is a beaver", "response": "what is a beaver?"}
+{"prompt": "again. the honey is a food, this is an apricot", "response": "what is an apricot?"}
+{"prompt": "again. the city is a place, this is a radish", "response": "what is a radish?"}
+{"prompt": "again. the garden is a place, this is an almond", "response": "what is an almond?"}
+{"prompt": "again. the dog is an animal, this is a raspberry", "response": "what is a raspberry?"}
+{"prompt": "again. the door is an object, this is a fennel", "response": "what is a fennel?"}
+{"prompt": "again. the fish is an animal, this is a funnel", "response": "what is a funnel?"}
+{"prompt": "again. the box is an object, this is a rake", "response": "what is a rake?"}
+{"prompt": "again. the rice is a food, this is a bucket", "response": "what is a bucket?"}
+{"prompt": "again. the snow is water, this is a needle", "response": "what is a needle?"}
+{"prompt": "again. the fish is an animal, this is an apron", "response": "what is an apron?"}
+{"prompt": "again. the cow is an animal, this is a bowl", "response": "what is a bowl?"}
+{"prompt": "again. the park is a place, this is a sapphire", "response": "what is a sapphire?"}
+{"prompt": "again. the table is an object, this is a lantern", "response": "what is a lantern?"}
+{"prompt": "again. the ball is an object, this is a cliff", "response": "what is a cliff?"}
+{"prompt": "again. the cow is an animal, this is a glade", "response": "what is a glade?"}
+{"prompt": "again. the bread is a food, this is a ravine", "response": "what is a ravine?"}
+{"prompt": "again. the woman is a person, this is a fern", "response": "what is a fern?"}
+{"prompt": "again. the moon is a light, this is an ivy", "response": "what is an ivy?"}
+{"prompt": "again. the boy is a person, this is a poppy", "response": "what is a poppy?"}
+{"prompt": "again. the spider is an animal, this is a compass", "response": "what is a compass?"}
+{"prompt": "again. the hedgehog is an animal, this is a hawk", "response": "what is a hawk?"}
+{"prompt": "again. the button is an object, this is a blueberry", "response": "what is a blueberry?"}
+{"prompt": "again. the drum is an object, this is a stool", "response": "what is a stool?"}
+{"prompt": "again. the pumpkin is a food, this is a clarinet", "response": "what is a clarinet?"}
+{"prompt": "again. the lighthouse is a place, this is a squirrel", "response": "what is a squirrel?"}
+{"prompt": "again. the spider is an animal, this is a badger", "response": "what is a badger?"}
+{"prompt": "again. the hedgehog is an animal, this is a toad", "response": "what is a toad?"}
+{"prompt": "again. the button is an object, this is a bison", "response": "what is a bison?"}
+{"prompt": "again. the drum is an object, this is an otter", "response": "what is an otter?"}
+{"prompt": "again. the pumpkin is a food, this is a woodpecker", "response": "what is a woodpecker?"}
+{"prompt": "again. the lighthouse is a place, this is a beaver", "response": "what is a beaver?"}
+{"prompt": "again. the spider is an animal, this is an apricot", "response": "what is an apricot?"}
+{"prompt": "again. the hedgehog is an animal, this is a radish", "response": "what is a radish?"}
+{"prompt": "again. the button is an object, this is an almond", "response": "what is an almond?"}
+{"prompt": "again. the drum is an object, this is a raspberry", "response": "what is a raspberry?"}
+{"prompt": "again. the pumpkin is a food, this is a fennel", "response": "what is a fennel?"}
+{"prompt": "again. the lighthouse is a place, this is a funnel", "response": "what is a funnel?"}
+{"prompt": "again. the spider is an animal, this is a rake", "response": "what is a rake?"}
+{"prompt": "again. the hedgehog is an animal, this is a bucket", "response": "what is a bucket?"}
+{"prompt": "again. the button is an object, this is a needle", "response": "what is a needle?"}
+{"prompt": "again. the drum is an object, this is an apron", "response": "what is an apron?"}
+{"prompt": "again. the pumpkin is a food, this is a bowl", "response": "what is a bowl?"}
+{"prompt": "again. the lighthouse is a place, this is a sapphire", "response": "what is a sapphire?"}
+{"prompt": "again. the spider is an animal, this is a lantern", "response": "what is a lantern?"}
+{"prompt": "again. the hedgehog is an animal, this is a cliff", "response": "what is a cliff?"}
+{"prompt": "again. the button is an object, this is a glade", "response": "what is a glade?"}
+{"prompt": "again. the drum is an object, this is a ravine", "response": "what is a ravine?"}
+{"prompt": "again. the pumpkin is a food, this is a fern", "response": "what is a fern?"}
+{"prompt": "again. the lighthouse is a place, this is an ivy", "response": "what is an ivy?"}
+{"prompt": "again. the spider is an animal, this is a poppy", "response": "what is a poppy?"}
+{"prompt": "again. the cake is a food, this is a key", "response": "the key is an object."}
+{"prompt": "again. the bread is a food, this is a mouse", "response": "the mouse is an animal."}
+{"prompt": "again. the egg is a food, this is a book", "response": "the book is an object."}
+{"prompt": "again. the rain is water, this is a lamp", "response": "the lamp is an object."}
+{"prompt": "again. the mouse is an animal, this is a child", "response": "the child is a person."}
+{"prompt": "again. the moon is a light, this is a horse", "response": "the horse is an animal."}
+{"prompt": "again. the sun is a light, this is honey", "response": "the honey is a food."}
+{"prompt": "again. the teacher is a person, this is a ball", "response": "the ball is an object."}
+{"prompt": "again. the teacher is a person, this is a house", "response": "the house is a place."}
+{"prompt": "again. the baby is a person, this is cheese", "response": "the cheese is a food."}
+{"prompt": "again. the sky is a place, this is a dad", "response": "the dad is a person."}
+{"prompt": "again. the cat is an animal, this is a cake", "response": "the cake is a food."}
+{"prompt": "again. the sun is a light, this is a teacher", "response": "the teacher is a person."}
+{"prompt": "again. the sea is a place, this is a baby", "response": "the baby is a person."}
+{"prompt": "again. the water is a food, this is the sky", "response": "the sky is a place."}
+{"prompt": "again. the flower is a plant, this is a bee", "response": "the bee is an animal."}
+{"prompt": "again. the rain is water, this is bread", "response": "the bread is a food."}
+{"prompt": "again. the snow is water, this is a city", "response": "the city is a place."}
+{"prompt": "again. the cheese is a food, this is a table", "response": "the table is an object."}
+{"prompt": "again. the book is an object, this is a woman", "response": "the woman is a person."}
+{"prompt": "again. the horse is an animal, this is a park", "response": "the park is a place."}
+{"prompt": "again. the cat is an animal, this is a window", "response": "the window is an object."}
+{"prompt": "again. the park is a place, this is a door", "response": "the door is an object."}
+{"prompt": "again. the sky is a place, this is a man", "response": "the man is a person."}
+{"prompt": "again. what is a drum?", "response": "the drum is an object."}
+{"prompt": "again. what is a spider?", "response": "the spider is an animal."}
+{"prompt": "again. what is a button?", "response": "the button is an object."}
+{"prompt": "again. what is a pumpkin?", "response": "the pumpkin is a food."}
+{"prompt": "again. what is a hedgehog?", "response": "the hedgehog is an animal."}
+{"prompt": "again. what is a lighthouse?", "response": "the lighthouse is a place."}
+{"prompt": "again. the spider is an animal?", "response": "yes, the spider is an animal."}
+{"prompt": "again. the button is an object?", "response": "yes, the button is an object."}
+{"prompt": "again. the drum is an object?", "response": "yes, the drum is an object."}
+{"prompt": "again. the hedgehog is an animal?", "response": "yes, the hedgehog is an animal."}
+{"prompt": "again. the pumpkin is a food?", "response": "yes, the pumpkin is a food."}
+{"prompt": "again. the lighthouse is a place?", "response": "yes, the lighthouse is a place."}
+{"prompt": "again. what is the compass?", "response": "i do not know."}
+{"prompt": "again. what is a compass?", "response": "i do not know."}
+{"prompt": "again. the compass is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the hawk?", "response": "i do not know."}
+{"prompt": "again. what is a hawk?", "response": "i do not know."}
+{"prompt": "again. the hawk is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the blueberry?", "response": "i do not know."}
+{"prompt": "again. what is a blueberry?", "response": "i do not know."}
+{"prompt": "again. the blueberry is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the stool?", "response": "i do not know."}
+{"prompt": "again. what is a stool?", "response": "i do not know."}
+{"prompt": "again. the stool is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the clarinet?", "response": "i do not know."}
+{"prompt": "again. what is a clarinet?", "response": "i do not know."}
+{"prompt": "again. the clarinet is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the squirrel?", "response": "i do not know."}
+{"prompt": "again. what is a squirrel?", "response": "i do not know."}
+{"prompt": "again. the squirrel is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the badger?", "response": "i do not know."}
+{"prompt": "again. what is a badger?", "response": "i do not know."}
+{"prompt": "again. the badger is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the toad?", "response": "i do not know."}
+{"prompt": "again. what is a toad?", "response": "i do not know."}
+{"prompt": "again. the toad is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the bison?", "response": "i do not know."}
+{"prompt": "again. what is a bison?", "response": "i do not know."}
+{"prompt": "again. the bison is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the otter?", "response": "i do not know."}
+{"prompt": "again. what is an otter?", "response": "i do not know."}
+{"prompt": "again. the otter is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the woodpecker?", "response": "i do not know."}
+{"prompt": "again. what is a woodpecker?", "response": "i do not know."}
+{"prompt": "again. the woodpecker is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the beaver?", "response": "i do not know."}
+{"prompt": "again. what is a beaver?", "response": "i do not know."}
+{"prompt": "again. the beaver is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the apricot?", "response": "i do not know."}
+{"prompt": "again. what is an apricot?", "response": "i do not know."}
+{"prompt": "again. the apricot is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the radish?", "response": "i do not know."}
+{"prompt": "again. what is a radish?", "response": "i do not know."}
+{"prompt": "again. the radish is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the almond?", "response": "i do not know."}
+{"prompt": "again. what is an almond?", "response": "i do not know."}
+{"prompt": "again. the almond is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the raspberry?", "response": "i do not know."}
+{"prompt": "again. what is a raspberry?", "response": "i do not know."}
+{"prompt": "again. the raspberry is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the fennel?", "response": "i do not know."}
+{"prompt": "again. what is a fennel?", "response": "i do not know."}
+{"prompt": "again. the fennel is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the funnel?", "response": "i do not know."}
+{"prompt": "again. what is a funnel?", "response": "i do not know."}
+{"prompt": "again. the funnel is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the rake?", "response": "i do not know."}
+{"prompt": "again. what is a rake?", "response": "i do not know."}
+{"prompt": "again. the rake is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the bucket?", "response": "i do not know."}
+{"prompt": "again. what is a bucket?", "response": "i do not know."}
+{"prompt": "again. the bucket is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the needle?", "response": "i do not know."}
+{"prompt": "again. what is a needle?", "response": "i do not know."}
+{"prompt": "again. the needle is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the apron?", "response": "i do not know."}
+{"prompt": "again. what is an apron?", "response": "i do not know."}
+{"prompt": "again. the apron is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the bowl?", "response": "i do not know."}
+{"prompt": "again. what is a bowl?", "response": "i do not know."}
+{"prompt": "again. the bowl is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the sapphire?", "response": "i do not know."}
+{"prompt": "again. what is a sapphire?", "response": "i do not know."}
+{"prompt": "again. the sapphire is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the lantern?", "response": "i do not know."}
+{"prompt": "again. what is a lantern?", "response": "i do not know."}
+{"prompt": "again. the lantern is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the cliff?", "response": "i do not know."}
+{"prompt": "again. what is a cliff?", "response": "i do not know."}
+{"prompt": "again. the cliff is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the glade?", "response": "i do not know."}
+{"prompt": "again. what is a glade?", "response": "i do not know."}
+{"prompt": "again. the glade is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the ravine?", "response": "i do not know."}
+{"prompt": "again. what is a ravine?", "response": "i do not know."}
+{"prompt": "again. the ravine is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the fern?", "response": "i do not know."}
+{"prompt": "again. what is a fern?", "response": "i do not know."}
+{"prompt": "again. the fern is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the ivy?", "response": "i do not know."}
+{"prompt": "again. what is an ivy?", "response": "i do not know."}
+{"prompt": "again. the ivy is an animal?", "response": "i do not know."}
+{"prompt": "again. what is the poppy?", "response": "i do not know."}
+{"prompt": "again. what is a poppy?", "response": "i do not know."}
+{"prompt": "again. the poppy is an animal?", "response": "i do not know."}
+{"prompt": "again. what does the cat do?", "response": "the cat sleeps."}
+{"prompt": "again. what does the dog do?", "response": "the dog runs."}
+{"prompt": "again. what does the fish do?", "response": "the fish swims."}
+{"prompt": "again. what does the bird do?", "response": "the bird flies."}
+{"prompt": "again. what does the horse do?", "response": "the horse runs."}
+{"prompt": "again. what does the cow do?", "response": "the cow eats."}
+{"prompt": "again. what does the wolf do?", "response": "the wolf runs."}
+{"prompt": "again. what does the mouse do?", "response": "the mouse runs."}
+{"prompt": "again. what does the bee do?", "response": "the bee flies."}
+{"prompt": "again. what does the mom do?", "response": "the mom cooks."}
+{"prompt": "again. what does the dad do?", "response": "the dad reads."}
+{"prompt": "again. what does the boy do?", "response": "the boy plays."}
+{"prompt": "again. what does the girl do?", "response": "the girl sings."}
+{"prompt": "again. what does the baby do?", "response": "the baby sleeps."}
+{"prompt": "again. what does the child do?", "response": "the child plays."}
+{"prompt": "again. what does the friend do?", "response": "the friend laughs."}
+{"prompt": "again. what does the man do?", "response": "the man walks."}
+{"prompt": "again. what does the woman do?", "response": "the woman works."}
+{"prompt": "again. what does the teacher do?", "response": "the teacher reads."}
+{"prompt": "again. what does the sun do?", "response": "the sun shines."}
+{"prompt": "again. what does the moon do?", "response": "the moon shines."}
+{"prompt": "again. what does the star do?", "response": "the star shines."}
+{"prompt": "again. what does the tree do?", "response": "the tree grows."}
+{"prompt": "again. what does the flower do?", "response": "the flower grows."}
+{"prompt": "again. what does the grass do?", "response": "the grass grows."}
+{"prompt": "again. what does the snow do?", "response": "the snow falls."}
+{"prompt": "good! the sky is a place, this is a pumpkin", "response": "what is a pumpkin?"}
+{"prompt": "good! the wolf is an animal, this is a drum", "response": "what is a drum?"}
+{"prompt": "good! the road is a place, this is a spider", "response": "what is a spider?"}
+{"prompt": "good! the child is a person, this is a lighthouse", "response": "what is a lighthouse?"}

@@ -37,24 +37,41 @@ has to see it.
 """
 import json, os, re, time, glob, sys
 
+from . import language as _language
+from . import surface as _surface
+
 _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _SCRIPTS = os.path.join(_ROOT, "scripts")
 if _SCRIPTS not in sys.path:
     sys.path.insert(0, _SCRIPTS)
 
-# Answers that count as an admission of ignorance. Compared after lowercasing
-# and stripping final punctuation, never by substring: 'non lo so perché ...'
-# would be an assertion.
+# Answers that count as an admission of ignorance in a language whose manifest
+# declares none. Compared after lowercasing and stripping final punctuation,
+# never by substring: 'non lo so perché ...' would be an assertion.
+#
+# The list itself belongs to the language -- see "surface"."admissions" in
+# training_files/<lang>/language.json. Held here only as the last resort, and
+# it is Italian because Italian predates the manifest; an English gold tested
+# against it ('i do not know.') is not an admission, every L12 admission then
+# reads as a fact about the noun, and validate_teacher_configs reports the
+# whole honesty pool as taught something else. That is how this was found.
 ADMISSIONS = ("non lo so", "non so")
 
 LEDGER_NAME = "retracted.jsonl"
 
 
-def is_admission(gold: str) -> bool:
-    return (gold or "").strip().lower().rstrip(".!?") in ADMISSIONS
+def admissions(lang: str = _language.DEFAULT_LANG) -> tuple:
+    """The whole answers `lang` counts as an admission of ignorance."""
+    sf = _surface.load(lang)
+    return sf.admissions if sf.available else ADMISSIONS
 
 
-def is_ignorance(gold: str, word: str) -> bool:
+def is_admission(gold: str, lang: str = _language.DEFAULT_LANG) -> bool:
+    return (gold or "").strip().lower().rstrip(".!?") in admissions(lang)
+
+
+def is_ignorance(gold: str, word: str,
+                 lang: str = _language.DEFAULT_LANG) -> bool:
     """Does this gold treat `word` as something the model cannot know?
 
     Two shapes, not one, and the second was missed at first. Level 12 teaches
@@ -72,13 +89,14 @@ def is_ignorance(gold: str, word: str) -> bool:
     ('la zucca è un cibo, questo è un falco'), and that lesson is about falco,
     not about zucca.
     """
-    if is_admission(gold):
+    if is_admission(gold, lang):
         return True
     g = (gold or "").strip()
     return g.endswith("?") and bool(_word_re(word).search(g))
 
 
-def stale_admission(prompt: str, gold: str, gone) -> bool:
+def stale_admission(prompt: str, gold: str, gone,
+                    lang: str = _language.DEFAULT_LANG) -> bool:
     """Does (prompt, gold) teach ignorance about a word already retracted?
 
     `gone` is an iterable of retracted words (see `retracted()`). The word is
@@ -94,16 +112,16 @@ def stale_admission(prompt: str, gold: str, gone) -> bool:
     right next to the new class gold — one prompt, two answers.
     """
     for w in gone:
-        if _word_re(w).search(prompt or "") and is_ignorance(gold, w):
+        if _word_re(w).search(prompt or "") and is_ignorance(gold, w, lang):
             return True
     return False
 
 
-def ledger_path(lang: str = "it") -> str:
+def ledger_path(lang: str = _language.DEFAULT_LANG) -> str:
     return os.path.join(_ROOT, "training_files", lang, LEDGER_NAME)
 
 
-def retracted(lang: str = "it") -> dict:
+def retracted(lang: str = _language.DEFAULT_LANG) -> dict:
     """word -> the record of its retraction. Empty dict if nothing was."""
     path = ledger_path(lang)
     out = {}
@@ -141,7 +159,7 @@ def _levels(lang: str):
             yield int(name), d
 
 
-def find(word: str, lang: str = "it") -> dict:
+def find(word: str, lang: str = _language.DEFAULT_LANG) -> dict:
     """Everything in the curriculum that answers about `word` with an admission.
 
     Also reports, under 'other', material about the same noun whose gold does
@@ -163,7 +181,7 @@ def find(word: str, lang: str = "it") -> dict:
                         continue
                     if not pat.search(t.get("prompt", "")):
                         continue
-                    if is_ignorance(t.get("expected", ""), word):
+                    if is_ignorance(t.get("expected", ""), word, lang):
                         targets.append({"step": sid, "index": i, "target": t})
                     else:
                         hit["other"].append(
@@ -183,7 +201,7 @@ def find(word: str, lang: str = "it") -> dict:
                         continue
                     if not pat.search(rec.get("prompt", "")):
                         continue
-                    if is_ignorance(rec.get("response", ""), word):
+                    if is_ignorance(rec.get("response", ""), word, lang):
                         pairs.append({"index": i, "line": s})
                     else:
                         hit["other"].append(
@@ -219,8 +237,9 @@ def _save_path(save_dir: str, word: str) -> str:
     return os.path.join(save_dir, "retracted", f"{word}.json")
 
 
-def retract(word: str, lang: str = "it", *, save_dir: str,
-            batch: str = "", source: str = "", reason: str = "") -> dict:
+def retract(word: str, lang: str = _language.DEFAULT_LANG, *,
+            save_dir: str, batch: str = "", source: str = "",
+            reason: str = "") -> dict:
     """Remove every admission about `word`, saving what it takes to put it back.
 
     Raises ValueError if the noun also carries a gold that does not treat it as
@@ -278,7 +297,8 @@ def retract(word: str, lang: str = "it", *, save_dir: str,
             "levels": sorted(int(l) for l in hit["levels"])}
 
 
-def restore(word: str, lang: str = "it", *, save_dir: str) -> dict:
+def restore(word: str, lang: str = _language.DEFAULT_LANG, *,
+            save_dir: str) -> dict:
     """Put back what `retract` removed, at the indices it removed them from."""
     path = _save_path(save_dir, word)
     if not os.path.exists(path):

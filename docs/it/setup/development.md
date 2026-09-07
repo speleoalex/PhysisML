@@ -36,7 +36,7 @@ PhysisML/
 │   ├── local_teacher.py    ← teacher locale (L0-L2, no API)
 │   └── run.py              ← chat/training interattivo
 ├── tests/test_1/physisml/  ← libreria core (TorchGPT, BPETokenizer, ...)
-├── training_files/it/      ← corpus per livello (0-10)
+├── training_files/<lang>/  ← corpus per livello (it 0-13, en 0-12)
 ├── models/                 ← checkpoints attivi
 ├── scripts/                ← analyze_log.py, compare_checkpoints.py, ...
 ├── diario/                 ← note giornaliere (solo locale, non pubblicate)

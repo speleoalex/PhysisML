@@ -91,6 +91,25 @@ def test_only_a_bare_admission_counts():
     assert not retraction.is_admission("il falco è un animale.")
 
 
+def test_what_counts_as_an_admission_is_the_language_s_own_words():
+    """The list belongs to the manifest, not to this module.
+
+    It was Italian-only, and every English L12 gold ('i do not know.') then
+    read as a fact about the noun: validate_teacher_configs reported all 31
+    taught words of the English honesty pool as 'taught something else', and
+    a retraction of any of them would have been refused.
+    """
+    assert retraction.is_admission("i do not know.", "en")
+    assert retraction.is_admission("I DON T KNOW", "en")
+    assert not retraction.is_admission("the hawk is an animal.", "en")
+    # And neither language answers with the other's words.
+    assert not retraction.is_admission("i do not know.", "it")
+    assert not retraction.is_admission("non lo so.", "en")
+    # The ask-shaped gold of the two-clause step is ignorance in both.
+    assert retraction.is_ignorance("what is a hawk?", "hawk", "en")
+    assert retraction.is_ignorance("i do not know.", "hawk", "en")
+
+
 def test_a_stale_admission_is_one_about_a_word_already_retracted():
     """The predicate the dream's QA harvest filters with.
 

@@ -1,0 +1,609 @@
+no, the lamp is an object.
+the cow eats.
+no, the bread is a food.
+no, the sun is a light.
+yes, the chair is an object.
+the flower is a plant.
+the mom is a person.
+no, the horse is an animal.
+the man walks.
+the bee flies.
+a plant is a living being.
+no, the dog is an animal.
+yes, the road is a place.
+no, the apple is a food.
+yes, the honey is a food.
+no, the cheese is a food.
+yes, the baby is a person.
+the ball is an object.
+yes, the sky is a place.
+yes, the garden is a place.
+no, the cow is an animal.
+the friend laughs.
+the sun shines.
+yes, the dad is a person.
+yes, the dog is an animal.
+yes, the milk is a food.
+yes, the tree is a plant.
+yes, the road is a place.
+the park is a place.
+no, the fish is an animal.
+the flower is a plant.
+yes, the mom is a person.
+yes, the honey is a food.
+the cheese is a food.
+no, the sun is a light.
+no, the sea is a place.
+yes, the window is an object.
+the woman is a person.
+the flower is a plant.
+no, the dog is an animal.
+yes, the bee is an animal.
+no, the city is a place.
+no, the bee is an animal.
+the snow is water.
+the friend is a person.
+yes, the egg is a food.
+no, the chair is an object.
+the baby sleeps.
+the baby is a person.
+yes, the cat is an animal.
+the bed is an object.
+yes, the teacher is a person.
+no, the ball is an object.
+yes, the car is an object.
+no, the mouse is an animal.
+the park is a place.
+no, the honey is a food.
+no, the cake is a food.
+yes, the rice is a food.
+yes, the flower is a plant.
+no, the man is a person.
+the dog runs.
+no, the friend is a person.
+the apple is a food.
+no, the soup is a food.
+no, the rice is a food.
+no, the sun is a light.
+the school is a place.
+the teacher reads.
+the sea is a place.
+yes, the snow is water.
+the flower grows.
+the woman works.
+yes, the rice is a food.
+the horse is an animal.
+yes, the house is a place.
+the car is an object.
+no, the lamp is an object.
+yes, the moon is a light.
+no, the fish is an animal.
+an animal is a living being.
+the car is an object.
+yes, the wolf is an animal.
+no, the key is an object.
+the snow falls.
+no, the man is a person.
+yes, the star is a light.
+the mouse is an animal.
+no, the milk is a food.
+no, the book is an object.
+no, the milk is a food.
+yes, the box is an object.
+no, the house is a place.
+no, the bird is an animal.
+the dad is a person.
+yes, the box is an object.
+no, the cat is an animal.
+yes, the friend is a person.
+the book is an object.
+the friend laughs.
+the chair is an object.
+no, the child is a person.
+the tree grows.
+no, the car is an object.
+the man is a person.
+yes, the school is a place.
+no, the door is an object.
+yes, the door is an object.
+the ball is an object.
+the lamp is an object.
+yes, the car is an object.
+no, the man is a person.
+no, the wind is a thing.
+yes, the cow is an animal.
+yes, the flower is a plant.
+the road is a place.
+no, the wolf is an animal.
+the cheese is a food.
+the wolf is an animal.
+no, the horse is an animal.
+the bed is an object.
+yes, the soup is a food.
+the grass is a plant.
+no, the mom is a person.
+yes, the man is a person.
+the tree is a plant.
+the honey is a food.
+the child is a person.
+the key is an object.
+the bird flies.
+the friend is a person.
+yes, the sky is a place.
+no, the ball is an object.
+no, the house is a place.
+yes, the grass is a plant.
+no, the snow is water.
+yes, the bread is a food.
+the garden is a place.
+no, the bread is a food.
+the fish swims.
+no, the park is a place.
+no, the bed is an object.
+yes, the cat is an animal.
+the woman works.
+no, the chair is an object.
+the wolf runs.
+the fish is an animal.
+yes, the garden is a place.
+the grass grows.
+no, the bird is an animal.
+yes, the cat is an animal.
+yes, the mom is a person.
+the box is an object.
+no, the cow is an animal.
+the boy plays.
+the rice is a food.
+no, the table is an object.
+the dog runs.
+a plant is a living being.
+the sky is a place.
+no, the friend is a person.
+the milk is a food.
+the wolf runs.
+no, the honey is a food.
+the snow is water.
+yes, the man is a person.
+yes, the wind is a thing.
+the child is a person.
+yes, the sun is a light.
+no, the egg is a food.
+no, the rice is a food.
+no, the dad is a person.
+a food is a thing.
+the dad reads.
+no, the window is an object.
+yes, the star is a light.
+no, the honey is a food.
+yes, the child is a person.
+no, the mom is a person.
+the dog is an animal.
+no, the car is an object.
+yes, the key is an object.
+yes, the star is a light.
+yes, the cake is a food.
+the cow eats.
+no, the sea is a place.
+a person is a living being.
+yes, the snow is water.
+the child plays.
+the cake is a food.
+no, the road is a place.
+yes, the table is an object.
+yes, the sea is a place.
+yes, the box is an object.
+the cow eats.
+the girl is a person.
+no, the sea is a place.
+yes, the child is a person.
+the boy is a person.
+the key is an object.
+no, the bee is an animal.
+the honey is a food.
+the park is a place.
+the bird is an animal.
+the tree is a plant.
+no, the sky is a place.
+yes, the sea is a place.
+the baby is a person.
+yes, the bed is an object.
+yes, the moon is a light.
+no, the girl is a person.
+yes, the horse is an animal.
+the teacher is a person.
+the bee flies.
+the horse runs.
+yes, the ball is an object.
+no, the boy is a person.
+no, the cow is an animal.
+an object is a thing.
+the wolf runs.
+the cow is an animal.
+yes, the mom is a person.
+yes, the lamp is an object.
+yes, the grass is a plant.
+the dad is a person.
+the sea is a place.
+no, the box is an object.
+yes, the car is an object.
+the sun is a light.
+no, the grass is a plant.
+no, the chair is an object.
+yes, the soup is a food.
+the box is an object.
+yes, the sky is a place.
+the dad is a person.
+the moon shines.
+the lamp is an object.
+yes, the friend is a person.
+an animal is a living being.
+the city is a place.
+yes, the school is a place.
+the girl is a person.
+no, the mom is a person.
+the bee is an animal.
+the girl sings.
+yes, the fish is an animal.
+the girl is a person.
+yes, the key is an object.
+the wolf is an animal.
+no, the wind is a thing.
+the road is a place.
+no, the horse is an animal.
+no, the rain is water.
+the dad reads.
+yes, the snow is water.
+no, the egg is a food.
+the water is a food.
+yes, the bee is an animal.
+the house is a place.
+the moon is a light.
+no, the flower is a plant.
+the house is a place.
+the horse is an animal.
+the wind is a thing.
+yes, the table is an object.
+the water is a food.
+an animal is a living being.
+yes, the bed is an object.
+the rice is a food.
+the road is a place.
+the cow is an animal.
+no, the bee is an animal.
+no, the tree is a plant.
+the star shines.
+the egg is a food.
+no, the book is an object.
+yes, the cheese is a food.
+no, the baby is a person.
+no, the moon is a light.
+the horse runs.
+the tree grows.
+no, the flower is a plant.
+the door is an object.
+no, the wolf is an animal.
+no, the star is a light.
+the cat is an animal.
+the moon is a light.
+the milk is a food.
+yes, the park is a place.
+the mouse runs.
+the door is an object.
+the dad reads.
+a food is a thing.
+the girl sings.
+no, the table is an object.
+yes, the horse is an animal.
+no, the grass is a plant.
+the honey is a food.
+no, the garden is a place.
+yes, the lamp is an object.
+no, the moon is a light.
+the star is a light.
+the bee is an animal.
+no, the city is a place.
+yes, the dog is an animal.
+no, the apple is a food.
+no, the snow is water.
+no, the mouse is an animal.
+an object is a thing.
+the woman is a person.
+no, the water is a food.
+the dog is an animal.
+the ball is an object.
+no, the teacher is a person.
+a person is a living being.
+the house is a place.
+yes, the sea is a place.
+the box is an object.
+yes, the door is an object.
+yes, the water is a food.
+no, the soup is a food.
+the wind is a thing.
+yes, the woman is a person.
+the horse is an animal.
+the cat sleeps.
+no, the sky is a place.
+the tree grows.
+yes, the book is an object.
+the water is a food.
+yes, the friend is a person.
+yes, the fish is an animal.
+no, the moon is a light.
+no, the box is an object.
+the woman is a person.
+the boy plays.
+no, the park is a place.
+the apple is a food.
+no, the bed is an object.
+the baby sleeps.
+yes, the honey is a food.
+the snow falls.
+no, the child is a person.
+the book is an object.
+the sun is a light.
+yes, the apple is a food.
+the mom cooks.
+the boy plays.
+no, the city is a place.
+yes, the bed is an object.
+the sun shines.
+yes, the boy is a person.
+the key is an object.
+the sun is a light.
+the bee is an animal.
+no, the cat is an animal.
+no, the bed is an object.
+yes, the milk is a food.
+no, the girl is a person.
+yes, the teacher is a person.
+no, the tree is a plant.
+the bird is an animal.
+yes, the water is a food.
+yes, the bread is a food.
+the friend laughs.
+no, the car is an object.
+the child plays.
+yes, the moon is a light.
+a food is a thing.
+the fish is an animal.
+no, the table is an object.
+the mom is a person.
+no, the cat is an animal.
+the table is an object.
+the bird flies.
+the baby is a person.
+the cake is a food.
+the apple is a food.
+the soup is a food.
+the bread is a food.
+no, the egg is a food.
+yes, the city is a place.
+yes, the sun is a light.
+the sky is a place.
+no, the school is a place.
+no, the door is an object.
+yes, the bee is an animal.
+the sky is a place.
+the soup is a food.
+yes, the school is a place.
+yes, the girl is a person.
+the door is an object.
+the fish is an animal.
+no, the friend is a person.
+the dog is an animal.
+no, the lamp is an object.
+a light is a thing.
+the table is an object.
+the star shines.
+no, the milk is a food.
+the city is a place.
+the rain is water.
+yes, the baby is a person.
+the rain is water.
+the fish swims.
+yes, the bird is an animal.
+yes, the apple is a food.
+the school is a place.
+no, the school is a place.
+no, the dog is an animal.
+yes, the rain is water.
+no, the star is a light.
+the bee flies.
+the school is a place.
+no, the rain is water.
+yes, the chair is an object.
+yes, the milk is a food.
+yes, the rain is water.
+no, the dad is a person.
+no, the cake is a food.
+yes, the window is an object.
+yes, the rain is water.
+no, the key is an object.
+the garden is a place.
+no, the soup is a food.
+the bird flies.
+yes, the wolf is an animal.
+a person is a living being.
+no, the garden is a place.
+yes, the mouse is an animal.
+no, the baby is a person.
+yes, the cake is a food.
+yes, the garden is a place.
+the teacher is a person.
+no, the ball is an object.
+the star is a light.
+no, the cake is a food.
+no, the water is a food.
+the chair is an object.
+yes, the flower is a plant.
+the garden is a place.
+no, the window is an object.
+the mom cooks.
+no, the woman is a person.
+no, the apple is a food.
+the moon shines.
+no, the road is a place.
+yes, the cheese is a food.
+no, the snow is water.
+a light is a thing.
+yes, the window is an object.
+yes, the wind is a thing.
+the lamp is an object.
+the flower grows.
+no, the flower is a plant.
+the window is an object.
+yes, the book is an object.
+no, the bread is a food.
+no, the teacher is a person.
+the friend is a person.
+yes, the table is an object.
+no, the rain is water.
+the mouse is an animal.
+the egg is a food.
+yes, the city is a place.
+yes, the tree is a plant.
+no, the wolf is an animal.
+yes, the girl is a person.
+no, the door is an object.
+yes, the woman is a person.
+the moon is a light.
+the mouse is an animal.
+the teacher reads.
+the cat is an animal.
+yes, the fish is an animal.
+yes, the man is a person.
+no, the cheese is a food.
+the chair is an object.
+yes, the apple is a food.
+the book is an object.
+the sun shines.
+the mom cooks.
+the bread is a food.
+the girl sings.
+the moon shines.
+the sea is a place.
+the wind is a thing.
+no, the park is a place.
+the mom is a person.
+no, the window is an object.
+yes, the tree is a plant.
+no, the water is a food.
+the wolf is an animal.
+the child is a person.
+the snow falls.
+yes, the bird is an animal.
+the snow is water.
+the cow is an animal.
+the boy is a person.
+no, the girl is a person.
+the bread is a food.
+yes, the teacher is a person.
+no, the boy is a person.
+no, the bird is an animal.
+yes, the wind is a thing.
+the child plays.
+the window is an object.
+the soup is a food.
+no, the mouse is an animal.
+the fish swims.
+the bird is an animal.
+the baby sleeps.
+yes, the chair is an object.
+the cat is an animal.
+yes, the ball is an object.
+yes, the boy is a person.
+no, the book is an object.
+yes, the dad is a person.
+no, the woman is a person.
+the man walks.
+no, the dad is a person.
+yes, the wolf is an animal.
+yes, the cheese is a food.
+the flower grows.
+yes, the boy is a person.
+the bed is an object.
+yes, the cake is a food.
+the man is a person.
+a plant is a living being.
+yes, the dad is a person.
+yes, the dog is an animal.
+yes, the park is a place.
+the grass grows.
+yes, the book is an object.
+no, the teacher is a person.
+the city is a place.
+the teacher reads.
+the teacher is a person.
+yes, the water is a food.
+the star is a light.
+yes, the egg is a food.
+the tree is a plant.
+no, the cheese is a food.
+the mouse runs.
+the egg is a food.
+no, the sky is a place.
+yes, the woman is a person.
+the window is an object.
+no, the star is a light.
+the mouse runs.
+no, the rice is a food.
+yes, the baby is a person.
+yes, the bread is a food.
+the rice is a food.
+yes, the key is an object.
+yes, the child is a person.
+the grass grows.
+yes, the road is a place.
+an object is a thing.
+no, the house is a place.
+yes, the cow is an animal.
+yes, the soup is a food.
+no, the tree is a plant.
+yes, the grass is a plant.
+yes, the rice is a food.
+no, the school is a place.
+no, the garden is a place.
+the cheese is a food.
+the cat sleeps.
+the rain is water.
+yes, the city is a place.
+the cake is a food.
+the star shines.
+no, the key is an object.
+yes, the bird is an animal.
+no, the child is a person.
+no, the boy is a person.
+the horse runs.
+the cat sleeps.
+yes, the house is a place.
+yes, the sun is a light.
+no, the woman is a person.
+yes, the girl is a person.
+the car is an object.
+yes, the ball is an object.
+the woman works.
+yes, the lamp is an object.
+the boy is a person.
+no, the baby is a person.
+the man walks.
+the man is a person.
+yes, the park is a place.
+yes, the door is an object.
+yes, the cow is an animal.
+no, the grass is a plant.
+the grass is a plant.
+no, the road is a place.
+yes, the house is a place.
+no, the fish is an animal.
+the milk is a food.
+no, the wind is a thing.
+yes, the horse is an animal.
+the grass is a plant.
+yes, the mouse is an animal.
+the dog runs.
+no, the box is an object.
+yes, the egg is a food.
+the table is an object.
+yes, the mouse is an animal.
+a light is a thing.

@@ -9,7 +9,7 @@ A small LLM built from scratch, inspired by biological learning.
 The model learns like a child — sounds first, then words, then sentences —
 guided by a tutor that adapts the curriculum in real time.
 
-- **Progressive curriculum**: from phonemes to literature and class membership (Italian levels 0–12, English 0–10)
+- **Progressive curriculum**: from phonemes to literature and class membership (Italian levels 0–12, English 0–12)
 - **Innate affective system**: `confidence`, `pleasure`, `pain`, `fear` modulate the logits during inference
 - **Teacher signal**: a free local teacher (or, optionally, a Claude tutor) generates targeted examples on the model's current deficits
 - **Tiny footprint**: GPT-2 style transformer, ~23.6M parameters, trains on a CPU or a consumer GPU
@@ -153,55 +153,97 @@ seen (`scripts/curiosity_rate.py --gate off`): 67% honest answers on unknown
 nouns against **0%** on known ones — it never claims ignorance about something
 it knows.
 
-### English (levels 0-10)
+### English (levels 0-12)
 
-A second curriculum, built from scratch on 2026-09-05/06 with its own
+A second curriculum, built from scratch on 2026-09-05/07 with its own
 vocabulary, its own axioms and no weights shared with the Italian model. It now
-reaches level 10 — past, future, comparatives and preferences, a thesis with
-its reason, a motivated comment — but it still stops short of the is-a,
-ignorance and asking behaviour levels 11-12 teach in Italian.
+covers the same twelve rungs Italian does: through level 10 — past, future,
+comparatives and preferences, a thesis with its reason, a motivated comment —
+and then the two ontology levels, **11** (is-a over a closed set of eight
+classes) and **12** (say *i do not know*, and ask about the name you do not
+have).
 
-| | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 |
-|---|----|----|----|----|----|----|----|----|----|----|-----|
-| every level, one model | 100% | 98% | 75% | 96% | 54% | 54% | 68% | 77% | 72% | 78% | 100% |
+| | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
+|---|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
+| every level, one model | 100% | 100% | 84% | 95% | 57% | 90% | 87% | 90% | 85% | 83% | 99% | 86% | 99% |
 
 | | |
 |---|---|
-| this checkpoint on every current target (720 prompts) | **78.8%**, self-repetition 3.9% |
-| its own frozen probe, 88 prompts | 75.0%, self-repetition 5.7% |
+| this checkpoint on every current target (1197 prompts) | **89.5%**, self-repetition 1.5% |
+| its own frozen probe, 104 prompts | **88.5%**, self-repetition 3.8% |
 
-That row is measured the same way as the Italian one above: exact match against
-*every* gold answer of every level (`scripts/measure_repetition.py`). The 0-5
-card reported 90.3% for a 72-prompt sample (`test_model.py --samples 12`) — a
-smaller, easier denominator. The two numbers do not compare; the difference is
-a change of ruler, not a regression.
+Both rows are measured the way the Italian ones are: exact match against
+*every* gold answer of every level (`scripts/measure_repetition.py`), and the
+frozen probe (`dynamic_model/data/probe_set_en.json`, fingerprint
+`d8da0d3247cba2a0`) re-scored after each dream.
 
-What did regress is level 5. On the same 418 prompts of levels 0-5, the level-5
-checkpoint scored 86.4% and this one scores 77.5% — and 33 of the 37 lost
-prompts are level 5 alone (100% → 54%). Levels 0-4 lost 3 prompts out of 346
-between them. Level 5 is where *because* is taught, and levels 6-10 reuse that
-frame for other jobs, so the failures keep the right shape and pick the wrong
-reason: `why does the dog drink? → the dog runs because it is hungry.`
+The two ontology levels did not cost retention — they bought it. Against the
+level-10 checkpoint (78.8% on the 720 targets that existed then), the low
+levels came *up*: L5 54% → 90%, L6 68% → 87%, L7 77% → 90%, L8 72% → 85%,
+L2 75% → 84%, L1 98% → 100%. Twelve extra dream cycles over a corpus that now
+includes L11 and L12 replayed everything else with it. Level 4 is the one that
+did not move (54% → 57%) and is now the weakest level of the curriculum: 24 of
+its 29 remaining failures are one substitution, the locative frame collapsing
+into the level-5 causal one — `where does the cat sleep?` → `the cat sleeps
+because it is tired.`
+
+Level 11's 35 misses out of 254 are just as concentrated. Twenty-three are
+**polarity flips with the class right**: `the milk is a food?` → `no, the milk
+is a food.` — an answer that contradicts itself in five words. The other twelve
+are the two steps that put a *class* where a noun goes, `give an example of a
+place` and `what is an animal?`, eight targets each; the model answers them
+with an instance of some other class. Levels 5-10 never ask it to treat a class
+word as an argument, and it has not generalised to it.
+
+Scored instead with *each level's own* checkpoint — what the model knew at the
+moment it left that level — the same 1197 prompts give 97.3%, with L11 at 100%
+and L12 at 99%. Everything the final model gets wrong it once had right; the
+gap between the two rows is forgetting, not a pool it never learned.
 
 Real answers, greedy:
 
 ```
-what did the boy eat?                   -> the boy ate the bread.
-what will the boy eat tomorrow?         -> tomorrow the boy will eat the bread.
-tell me the three days of the cat       -> today it sleeps, yesterday it slept,
-                                           tomorrow it will sleep.
-which is better, the bread or the door? -> the bread is better, because you eat it.
-is the cat small?                       -> I think the cat is small because it is fast.
-two reasons: why do you like the cat?   -> the cat is small and fast, so I like it.
-comment on the cat                      -> the cat is fast, and this is nice.
-what does the story say about the cat   -> the story says that the cat sleeps.
+what will the dog eat tomorrow?          -> tomorrow the dog will eat the bread.
+what is the dog?                         -> the dog is an animal.
+the bread is a food?                     -> yes, the bread is a food.
+the cat is a plant?                      -> no, the cat is an animal.
+what is a compass?                       -> i do not know.
+the cow is an animal, this is a compass  -> what is a compass?
+the wolf is an animal, this is a drum    -> what is a drum?
 ```
 
-Levels 6-10 were built with `MAX_DREAMS=20` and none of them reached the cap
-(6, 8, 13, 7 and 11 dreams): unlike level 5 in the 0-5 build, every one of them
-stopped on its own plateau. Level 10's probe went 36% → 75% over its eleven
-dreams. The five levels took 7h44 on an Intel Arc GPU (67/77/126/72/117 minutes
-each), on top of the 5h53 of levels 0-5.
+Level 11 took 7 dreams and stopped on its own plateau (probe 35.6% → 66.3%).
+Level 12 ran 12 and hit the cap still gaining (59.6% → 86.5%), so it was
+resumed with `dream_until_plateau.py --max 20 --already-done 12` and stopped
+two cycles later at **88.5%** — the curve 86.5 → 88.5 → 85.6 is the sawtooth
+the Italian level 12 shows too, and the run restores the best measured state
+rather than the last. Both curves are in `dream_curve.json` next to the
+weights.
+
+**Honesty, measured** (`scripts/curiosity_rate.py --lang en --level 12`). On 21
+held-out nouns the curriculum never taught, with no gate at all: **76% honest**
+answers — `i do not know`, or a question — against **0%** on the twelve known
+nouns, which it classifies correctly instead. With the epistemic gate on, 100%
+and 0%. The English model is markedly more honest on never-seen names than the
+Italian one (76% vs 14%), which is the one place the two curricula measurably
+diverge.
+
+**What is not yet good enough.** The epistemic trigger — the internal margin
+over the ten classes that the autonomy loop of level 13 reads to decide whether
+to ask — separates known from unknown nouns at **AUC 0.638** on this
+checkpoint (`scripts/epistemic_report.py`), well under the **0.95** the loop
+requires, and its verdict is `OVERLAPPING`: 22 of 57 known nouns would trigger
+a spurious question. Extra sleep does not fix it — the two top-up dreams that
+took generation from 86.5% to 88.5% took the AUC *down*, from 0.746 to 0.638.
+The likely cause is pool coverage: English declares a single interrogative
+phrasing (`"ask_heads": ["what is"]` in
+[`training_files/en/language.json`](training_files/en/language.json)) where
+Italian declares two, so the L11 and L12 pools are roughly half the size of
+their Italian counterparts (100 and 93 targets against 197 and 105). Until that
+is closed, **English stops at level 12**: the autonomy loop is not run on it.
+Asking about the *right* referent is weak in both languages and not an English
+regression — when it asks, English names the noun in front of it 42% of the
+time, Italian 50%.
 
 The card for these weights is [huggingface/README.en.md](huggingface/README.en.md);
 they are published at
@@ -474,10 +516,10 @@ weights, and every script takes `--lang` (or `PHYSISML_LANG`), so two builds
 never overwrite each other:
 
 ```bash
-./build.sh 10 --lang en                         # build the English curriculum
+./build.sh 12 --lang en                         # build the English curriculum
 ./teach.sh 100 local --lang en --level 3        # one teaching session
 ./reset.sh --lang en                            # wipes ONLY checkpoints/en/
-python3 dynamic_model/test_model.py --level 10 --lang en
+python3 dynamic_model/test_model.py --level 12 --lang en
 python3 scripts/train_tokenizer.py --lang en --vocab-size 3000
 python3 scripts/export_hf.py --lang en --out hf_en
 python3 standalone/chat.py --lang en "say: the cat"  # the published weights

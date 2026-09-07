@@ -76,7 +76,7 @@ DEFAULT_CLAUDE_MODEL = "claude-haiku-4-5"
 from physisml.torch_model import TorchGPT, TorchAdamOptimizer
 from physisml.tokenizer   import BPETokenizer
 from dynamic_model.exp_b.affect_state import AffectState
-from dynamic_model.exp_b.modulator    import (AffectModulator, ASK_FORM,
+from dynamic_model.exp_b.modulator    import (AffectModulator, ask_form,
                                               ask_token_id)
 from dynamic_model.exp_b.axioms       import AxiomRegistry
 from dynamic_model.exp_b.trainer      import TrainerB
@@ -206,6 +206,46 @@ def extract_teaching_content(prompt: str) -> str:
 
 from dynamic_model import language as language_manifest  # noqa: E402
 from dynamic_model.stop_words import STOP_WORDS, for_language  # noqa: E402
+from dynamic_model import surface as _surface  # noqa: E402
+
+
+# The scaffolding the teacher wraps a prompt in, in the language being
+# trained: leading praise ('bravo! di baba') and, from L4 on, the retry
+# prefix ('ancora. '). Both were Italian literals here, so an English build
+# saw 'good! what is a dog?' and 'what is a dog?' as two different prompts
+# and harvested a duplicate gold for each — the same silent-wrong-language
+# failure dynamic_model/language.py exists to end.
+_PRAISE_RE = None
+_RETRY_RE  = None
+
+
+def set_language(lang: str) -> None:
+    """Point the prompt-scaffolding patterns at `lang`.
+
+    A module-level holder rather than a parameter: strip_praise() and
+    _normalize_prompt() are reached from five call sites whose own job has
+    nothing to do with language, and threading an argument through all of
+    them would spread the language further than it belongs. main() sets it
+    once, before anything reads a prompt.
+
+    A pattern the manifest does not define stays None and that scaffolding is
+    simply not stripped, which is the honest outcome: an unstripped prompt is
+    a duplicate gold, an Italian pattern on English text is a wrong one.
+    """
+    global _PRAISE_RE, _RETRY_RE
+    surf = _surface.load(lang)
+
+    def _pattern(name):
+        try:
+            return getattr(surf, name)
+        except _surface.MissingSurface:
+            return None
+
+    _PRAISE_RE = _pattern("praise_re")
+    _RETRY_RE  = _pattern("retry_re")
+
+
+set_language(language_manifest.DEFAULT_LANG)
 
 
 def grade_by_coverage(symbol: str, expected: str, response: str,
@@ -619,13 +659,14 @@ def teaching_turn(client: "anthropic.Anthropic",
 # tens of points of exact match in the 22 August investigation. The gate is
 # scaffolding; it is not worth that risk.
 #
-def _ask_gate_id_or_warn(tok, want_gate: bool) -> "Optional[int]":
+def _ask_gate_id_or_warn(tok, want_gate: bool, lang: str) -> "Optional[int]":
     """ask_token_id, but loud when the gate was asked for and cannot be had."""
-    aid = ask_token_id(tok)
+    aid  = ask_token_id(tok, lang)
+    form = ask_form(lang)
     if want_gate and aid is None:
-        print(f"  ⚠ --ask-gate requested but {ASK_FORM!r} does not start with a "
-              f"whole-word token in this vocabulary "
-              f"({[tok.decode([i]) for i in tok.encode(ASK_FORM)]}) — "
+        print(f"  ⚠ --ask-gate requested but {form!r} does not start with a "
+              f"whole-word token in this {lang} vocabulary "
+              f"({[tok.decode([i]) for i in tok.encode(form)]}) — "
               f"gate DISABLED. Retrain the tokenizer with the L12 pool in it.")
     return aid
 
@@ -1239,7 +1280,8 @@ def phase_1(args, start_checkpoint: str, ckpt_base: str = None) -> str:
     eos_id  = tok.get_special_id(tok.EOS_TOKEN) if hasattr(tok, 'get_special_id') else None
     mod     = AffectModulator(affect, eos_token_id=eos_id,
                               ask_token_id=_ask_gate_id_or_warn(
-                                  tok, getattr(args, 'ask_gate', False)),
+                                  tok, getattr(args, 'ask_gate', False),
+                                  args.lang),
                               ask_gate=getattr(args, 'ask_gate', False))
     axioms  = AxiomRegistry()
     trainer = TrainerB(model, tok, opt, affect, mod, axioms)
@@ -1838,7 +1880,7 @@ def _load_memory_bank(ckpt_base: str, level: int,
                 response = (rec.get("response") or "").strip()
                 if not prompt:
                     continue
-                if _retraction.stale_admission(prompt, expected, _gone):
+                if _retraction.stale_admission(prompt, expected, _gone, _lang):
                     _n_stale += 1
                     continue
                 bank.append({
@@ -1878,11 +1920,6 @@ def _jaccard(a: str, b: str) -> float:
     return len(wa & wb) / len(wa | wb)
 
 
-# The retry prefix the teacher prepends at L4+ ('ancora. di: il cane'). Below
-# L4 the retry prefix repeats the prompt instead, which _strip_demo removes,
-# and praise is handled by strip_praise().
-_RETRY_RE = _re.compile(r'^ancora\.\s*', _re.IGNORECASE)
-
 def _normalize_prompt(text: str) -> str:
     """A prompt with the scaffolding off, so two golds can be compared.
 
@@ -1893,7 +1930,10 @@ def _normalize_prompt(text: str) -> str:
     """
     p = (text or "").strip()
     for _ in range(3):                      # praise can stack
-        p2 = _strip_demo(_RETRY_RE.sub("", strip_praise(p))).strip()
+        stripped = strip_praise(p)
+        if _RETRY_RE is not None:
+            stripped = _RETRY_RE.sub("", stripped)
+        p2 = _strip_demo(stripped).strip()
         if p2 == p:
             break
         p = p2
@@ -2130,7 +2170,8 @@ def _update_qa_pairs_from_sessions(ckpt_base: str, level: int, lang: str,
             continue
         if prompt in existing:
             continue
-        if _retraction.stale_admission(prompt, expected, retracted_words):
+        if _retraction.stale_admission(prompt, expected,
+                                       retracted_words, lang):
             n_stale += 1
             continue
         held = known_golds.get(_normalize_prompt(prompt))
@@ -2231,15 +2272,14 @@ def _is_periodic_text(s: str) -> bool:
     return False
 
 
-_PRAISE_RE = _re.compile(
-    r"^(bravo|brava|bene|benissimo|ottimo|perfetto|giusto|esatto|sì|si|no)"
-    r"[!.,:\s]+", _re.IGNORECASE)
-
-
 def strip_praise(text: str) -> str:
     """Remove leading praise from a teacher prompt ('bravo! di baba' -> 'di
-    baba'). Praise can stack ('bravo! benissimo! di baba'), hence the loop."""
+    baba'). Praise can stack ('bravo! benissimo! di baba'), hence the loop.
+
+    The praise words are the ones set_language() read from the manifest."""
     p = (text or "").strip()
+    if _PRAISE_RE is None:
+        return p
     for _ in range(3):
         p2 = _PRAISE_RE.sub("", p)
         if p2 == p:
@@ -2424,7 +2464,8 @@ def phase_2_dream(args, start_checkpoint: str, ckpt_base: str) -> str:
     affect.load_memory(_mem_path)
     mod    = AffectModulator(affect,
                              ask_token_id=_ask_gate_id_or_warn(
-                                 tok, getattr(args, 'ask_gate', False)),
+                                 tok, getattr(args, 'ask_gate', False),
+                                 args.lang),
                              ask_gate=getattr(args, 'ask_gate', False))
     axioms = AxiomRegistry()
     trainer = TrainerB(model, tok, opt, affect, mod, axioms)
@@ -2981,6 +3022,10 @@ def main():
                              "(scripts/compute_fisher.py must be run with "
                              "the same value)")
     args = parser.parse_args()
+
+    # Before anything reads a prompt: the praise and retry patterns that
+    # strip the teacher's scaffolding are this language's, not Italian's.
+    set_language(args.lang)
 
     if args.seed is not None:
         random.seed(args.seed)

@@ -214,7 +214,10 @@ models/checkpoints/{lang}/
 
 ## 5. Language curriculum
 
-The curriculum maps 11 levels (0–10) onto the years of human language development:
+The text phase maps 11 levels (0–10) onto the years of human language
+development. The three levels above them — L11 class membership, L12 curiosity,
+L13 autonomy — use no books: they generate their material from the class lattice
+in `training_files/<lang>/lexicon.json`.
 
 | Level | Equivalent age | Corpus content | Expected answer |
 |-------|----------------|----------------|-----------------|
@@ -253,7 +256,7 @@ the tutor fallback prompt, the Hub repo. `dynamic_model/language.py` reads it;
 everything else (vocabulary, probe, card, export folder) follows a naming
 convention and needs no declaration.
 
-The English curriculum currently covers levels 0–10:
+The English curriculum covers levels 0–12, the same twelve rungs as the Italian one:
 
 | Level | Structure taught | Example target |
 |-------|------------------|----------------|
@@ -268,6 +271,8 @@ The English curriculum currently covers levels 0–10:
 | L8 | Comparatives, preferences and their reasons | `who is bigger, the dog or the cat?` → `the dog is bigger than the cat.` |
 | L9 | A thesis with a reason and a conclusion | `is the cat small?` → `I think the cat is small because it is fast.` |
 | L10 | A short comment, a motivated judgement | `comment on the cat` → `the cat is fast, and this is nice.` |
+| L11 | Class membership over eight closed classes: is-a, yes/no confirmation, correction, an example of a class | `what is the cat?` → `the cat is an animal.` |
+| L12 | Admitting ignorance, and asking about the name it does not have | `what is a compass?` → `i do not know.` |
 
 Why this is a manifest and not a table in the source: a `dict` keyed by
 language code inside a `.py` file is a list of the languages that module knows

@@ -44,9 +44,11 @@ for _p in (_ROOT, os.path.join(_ROOT, "tests", "test_1"),
 # surface forms of the prompts both already live elsewhere and must not drift.
 from measure_repetition import resolve, load_pair                  # noqa: E402
 from dynamic_model.stop_words import STOP_WORDS                    # noqa: E402
-from dynamic_model.exp_b.modulator import ASK_FORM, ask_token_id   # noqa: E402
+from dynamic_model.exp_b.modulator import ask_form, ask_token_id   # noqa: E402
+import expand_teacher_pools as etp                                 # noqa: E402
 from expand_teacher_pools import (Lex, load_lexicon, phrase,       # noqa: E402
                                   intro, indef, ask_forms)
+from dynamic_model import surface as _surface                      # noqa: E402
 # Print-only: the margin column in report() and the agreement line under it.
 # The gap is still taken on the generated string and nothing here decides
 # anything — the §9 guardrail of docs_internal/curiosita_meccanismo.md.
@@ -58,7 +60,18 @@ SEED = 20260826          # the probe set is a measurement: same prompts every ru
 # ── response classification ────────────────────────────────────────────────
 
 ASK_TOKEN = "<|ask|>"
-_ASK_OPENERS = ("cos", "cosa", "che", "chi", "come", "perché", "perche")
+
+# The language whose questions and admissions this run is reading. Set by
+# main() before anything is classified; the classifiers are called per
+# response and carry no language of their own.
+S = _surface.load("it")
+
+
+def set_language(lang: str) -> None:
+    """Point the classifiers and the probe prompts at `lang`."""
+    global S
+    S = _surface.load(lang)
+    etp.set_language(lang)          # phrase/intro/indef/ask_forms come from there
 
 
 def is_question(text: str) -> bool:
@@ -74,7 +87,7 @@ def is_question(text: str) -> bool:
     if "?" in t:
         return True
     first = re.split(r"[\s,.!?]+", t)[0] if t else ""
-    return first in _ASK_OPENERS
+    return first in S.ask_openers
 
 
 # Level 12 step E teaches a SECOND honest answer to a name the model cannot
@@ -82,12 +95,9 @@ def is_question(text: str) -> bool:
 # cannot see it, and until this was added the script reported a +33% gap and
 # 'non discrimina' on a model whose real separation was +67% — half the correct
 # answers were being counted as failures.
-_DONT_KNOW_RE = re.compile(r"\bnon\s+(?:lo\s+)?so\b", re.IGNORECASE)
-
-
 def says_dont_know(text: str) -> bool:
     """Did the model declare ignorance instead of guessing?"""
-    return bool(_DONT_KNOW_RE.search(text or ""))
+    return bool(S.admission_re.search(text or ""))
 
 
 def is_honest(text: str) -> bool:
@@ -120,13 +130,15 @@ def build_probes(lex: Lex, n_known: int) -> list:
     for n in lex.unknown_of(probe=True):
         a = lex.anchor_of_other_class(rng, n["cls"])
         probes.append({"kind": "ignoto", "noun": n["w"], "cls": n["cls"],
-                       "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
+                       "prompt": f"{phrase(a)} {S.copula} {lex.cls_of(a)}, "
+                                 f"{intro(n)}",
                        "should_ask": True})
 
     for n in lex.unknown_of(probe=False):
         a = lex.anchor_of_other_class(rng, n["cls"])
         probes.append({"kind": "insegnato-L12", "noun": n["w"], "cls": n["cls"],
-                       "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
+                       "prompt": f"{phrase(a)} {S.copula} {lex.cls_of(a)}, "
+                                 f"{intro(n)}",
                        "should_ask": False})
 
     # The fourth group, and the only one that asks whether the RELATION was
@@ -146,7 +158,7 @@ def build_probes(lex: Lex, n_known: int) -> list:
             probes.append({"kind": "mai-visto", "noun": n["w"], "cls": "",
                            "prompt": pr, "should_ask": True})
         probes.append({"kind": "mai-visto", "noun": n["w"], "cls": "",
-                       "prompt": f"{phrase(n)} è un animale?",
+                       "prompt": S.is_a_q(n, lex.negative_pool[0]),
                        "should_ask": True})
 
     known = lex.classified()
@@ -155,7 +167,8 @@ def build_probes(lex: Lex, n_known: int) -> list:
         c = lex.cls_of(n)
         a = lex.anchor_of_other_class(rng, c)
         probes.append({"kind": "noto", "noun": n["w"], "cls": c,
-                       "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
+                       "prompt": f"{phrase(a)} {S.copula} {lex.cls_of(a)}, "
+                                 f"{intro(n)}",
                        "should_ask": False})
     return probes
 
@@ -284,6 +297,8 @@ def main():
     ap.add_argument("--examples", type=int, default=6)
     ap.add_argument("--json", default=None)
     a = ap.parse_args()
+    # Before a single probe is built or a single answer classified.
+    set_language(a.lang)
 
     if a.checkpoint:
         ckpt, tok_path = a.checkpoint, a.tokenizer
@@ -317,11 +332,12 @@ def main():
         # Setting ask_gate alone is not enough — without an anchor the gate has
         # no logit to raise and does nothing, which would read as 'the gate has
         # no effect' rather than 'the gate was never installed'.
-        aid = ask_token_id(tok)
+        aid = ask_token_id(tok, a.lang)
         if aid is None:
+            form = ask_form(a.lang)
             sys.exit(f"the tokenizer has no single token for "
-                     f"{ASK_FORM.split()[0]!r} "
-                     f"({[tok.decode([i]) for i in tok.encode(ASK_FORM)]}): "
+                     f"{form.split()[0]!r} "
+                     f"({[tok.decode([i]) for i in tok.encode(form)]}): "
                      f"with --gate on there would be nothing to push. "
                      f"Retrain the tokenizer with the L12 pool.")
         tr.mod.ask_id   = aid

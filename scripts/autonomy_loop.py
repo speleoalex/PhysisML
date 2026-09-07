@@ -148,9 +148,8 @@ class Gatekeeper:
     a decision, not a side effect.
     """
 
-    ADMISSIONS = retraction.ADMISSIONS
-
     def __init__(self, lang: str, probe: dict, max_new: int):
+        self.lang     = lang
         self.known    = _known_golds(lang)
         self.probe_p  = {_normalize_prompt(i["prompt"]) for i in probe["items"]}
         self.max_new  = max_new
@@ -167,8 +166,8 @@ class Gatekeeper:
         # material the loop writes on an oracle refusal (two-clause prompt ->
         # question) would block that noun's acquisition for ever.
         if word:
-            return retraction.is_ignorance(gold, word)
-        return retraction.is_admission(gold)
+            return retraction.is_ignorance(gold, word, self.lang)
+        return retraction.is_admission(gold, self.lang)
 
     def retractable(self, word: str, lang: str) -> str:
         """'' if the admissions about `word` may be removed, else why not.
@@ -519,7 +518,8 @@ def outcome_2x2(ignorant: bool, outcome: str) -> str:
     return ALIGNED_ANSWER if outcome == ASSERTED else SPURIOUS_ASK
 
 
-def targeted_pairs(word: str, gold_bank: dict, batch_targets=()) -> list:
+def targeted_pairs(word: str, gold_bank: dict, batch_targets=(),
+                   lang: str = "it") -> list:
     """What the curriculum already holds ABOUT `word`, for a targeted rehearsal.
 
     Drawn from the gold bank and from the current batch (material accepted in
@@ -536,7 +536,7 @@ def targeted_pairs(word: str, gold_bank: dict, batch_targets=()) -> list:
     for p, r in pairs:
         if p in seen or not (pat.search(p) or pat.search(r)):
             continue
-        if retraction.is_ignorance(r, word) or is_question(r):
+        if retraction.is_ignorance(r, word, lang) or is_question(r):
             continue
         seen.add(p)
         out.append((p, r))
@@ -985,7 +985,8 @@ def main() -> None:
                 # The tic: the weights hold a class and the string asks
                 # anyway. Rehearsal aimed at what it already holds on this
                 # noun — zero new material, and no 'chiedi di X' lesson.
-                pairs = targeted_pairs(noun["w"], gold_bank, batch.targets)
+                pairs = targeted_pairs(noun["w"], gold_bank, batch.targets,
+                                       args.lang)
                 picks = pairs[:args.rehearsal_k]
                 if not args.dry_run:
                     for p, r in picks:

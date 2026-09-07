@@ -108,6 +108,53 @@
       "no"
     ]
   },
+  "_comment_surface": "How this language SAYS the sentences the ontology levels (L11 is-a, L12 curiosity) are generated from, plus the patterns that read them back. Everything here used to be an Italian f-string inside scripts/expand_teacher_pools.py, exp_b/modulator.py, exp_b/epistemic.py and local_teacher.py: --lang en would not have failed, it would have trained an English level on Italian text. dynamic_model/surface.py is the only reader. 'indef_rule': 'italian' picks un/uno/una from the shape of the noun; any other value falls back to the 'indef' field of the noun itself in lexicon.json, which is the general escape hatch. 'top_class_head' drops the interrogative that collides with the root class ('cosa e un cibo?' -> 'un cibo e una cosa.' would let a bare echo of the prompt score full coverage).",
+  "surface": {
+    "copula": "è",
+    "indef_rule": "italian",
+    "demonstrative": {
+      "m": "questo",
+      "f": "questa"
+    },
+    "class_article_re": "^(un|una|uno)\\s+",
+    "ask_heads": [
+      "cos è",
+      "cosa è"
+    ],
+    "top_class_head": "cosa",
+    "example_request": "fai un esempio di {head}",
+    "ask_openers": [
+      "cos",
+      "cosa",
+      "che",
+      "chi",
+      "come",
+      "perché",
+      "perche"
+    ],
+    "admission_pattern": "\\bnon\\s+(?:lo\\s+)?so\\b",
+    "retry_prefix": "ancora. ",
+    "admission": "non lo so.",
+    "admissions": [
+      "non lo so",
+      "non so"
+    ],
+    "admission_keyword": "so",
+    "question_pattern": "\\b(?:cosa|cos|che)\\s+(?:è|e)\\s+(?:un|una|uno|il|la|lo|l)?\\s*([a-zàèéìòù]{3,})",
+    "praise_words": [
+      "bravo",
+      "brava",
+      "bene",
+      "benissimo",
+      "ottimo",
+      "perfetto",
+      "giusto",
+      "esatto",
+      "sì",
+      "si",
+      "no"
+    ]
+  },
   "_comment_teacher_fallback": "The tutor prompt used only when a level ships no teacher_prompt.md. Bands by virtual age: newborn <1, toddler <2, early <4, child <7, school 7+. '{age}' is substituted in profile. A language that omits this gets a prompt with no examples, which teaches nothing wrong; the old fallback was Italian whatever --lang said.",
   "teacher_fallback": {
     "praise": "\"bravo! \" or \"bene! \"",

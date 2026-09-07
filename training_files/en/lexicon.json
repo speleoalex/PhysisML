@@ -26,12 +26,18 @@
   "themselves as 'this is water', not 'this is a water'.",
   "'uniq' marks unique referents: 'this is the sun', because 'this is a sun'",
   "is not said.",
-  "There is no 'bare_unknown_nouns' block: the honesty curriculum lives at",
-  "levels 11-13 and the English tree stops at level 5, so inventing roles here",
-  "would only give scripts/validate_teacher_configs.py words that no level",
-  "teaches.",
-  "scripts/expand_teacher_pools.py does NOT read this file: its gender",
-  "agreement and its elisions are Italian. The English pools are hand written."
+  "'bare_unknown_nouns' carries a 'role': 'acquirable' is taught as 'i do not",
+  "know' and the autonomy loop may acquire it (retracting the admission);",
+  "'reserve' is taught the same way but the loop never touches it, and is the",
+  "permanent control that honesty has not eroded; 'probe' is taught nowhere",
+  "and only measures whether the relation 'name never seen -> admit' has",
+  "generalised. A word qualifies for this block by not being TAUGHT anywhere",
+  "(dynamic_model/retraction.find reads local_teacher.json and qa_pairs.jsonl",
+  "only): the raw novels at levels 2-5 are prose the model reads, not lessons",
+  "it is graded on, exactly as the Italian probes occur in Promessi Sposi.",
+  "scripts/expand_teacher_pools.py DOES read this file: the sentences it used",
+  "to hard-code in Italian now live in language.json under 'surface', and the",
+  "'indef' field above is what replaces the Italian article rule."
  ],
  "nouns": [
   {
@@ -1343,6 +1349,236 @@
    "indef": "a",
    "cls": "a place",
    "probe": true
+  }
+ ],
+ "bare_unknown_nouns": [
+  {
+   "w": "compass",
+   "art": "the",
+   "indef": "a",
+   "role": "reserve"
+  },
+  {
+   "w": "hawk",
+   "art": "the",
+   "indef": "a",
+   "role": "reserve"
+  },
+  {
+   "w": "blueberry",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "stool",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "clarinet",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "squirrel",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "badger",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "toad",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "bison",
+   "art": "the",
+   "indef": "a",
+   "role": "reserve"
+  },
+  {
+   "w": "otter",
+   "art": "the",
+   "indef": "an",
+   "role": "acquirable"
+  },
+  {
+   "w": "woodpecker",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "beaver",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "apricot",
+   "art": "the",
+   "indef": "an",
+   "role": "acquirable"
+  },
+  {
+   "w": "radish",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "almond",
+   "art": "the",
+   "indef": "an",
+   "role": "acquirable"
+  },
+  {
+   "w": "raspberry",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "fennel",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "funnel",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "rake",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "bucket",
+   "art": "the",
+   "indef": "a",
+   "role": "reserve"
+  },
+  {
+   "w": "needle",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "apron",
+   "art": "the",
+   "indef": "an",
+   "role": "acquirable"
+  },
+  {
+   "w": "bowl",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "sapphire",
+   "art": "the",
+   "indef": "a",
+   "role": "reserve"
+  },
+  {
+   "w": "lantern",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "cliff",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "glade",
+   "art": "the",
+   "indef": "a",
+   "role": "reserve"
+  },
+  {
+   "w": "ravine",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "fern",
+   "art": "the",
+   "indef": "a",
+   "role": "reserve"
+  },
+  {
+   "w": "ivy",
+   "art": "the",
+   "indef": "an",
+   "role": "reserve"
+  },
+  {
+   "w": "poppy",
+   "art": "the",
+   "indef": "a",
+   "role": "acquirable"
+  },
+  {
+   "w": "tile",
+   "art": "the",
+   "indef": "a",
+   "role": "probe"
+  },
+  {
+   "w": "sparrow",
+   "art": "the",
+   "indef": "a",
+   "role": "probe"
+  },
+  {
+   "w": "dragonfly",
+   "art": "the",
+   "indef": "a",
+   "role": "probe"
+  },
+  {
+   "w": "dormouse",
+   "art": "the",
+   "indef": "a",
+   "role": "probe"
+  },
+  {
+   "w": "plum",
+   "art": "the",
+   "indef": "a",
+   "role": "probe"
+  },
+  {
+   "w": "cucumber",
+   "art": "the",
+   "indef": "a",
+   "role": "probe"
+  },
+  {
+   "w": "scarf",
+   "art": "the",
+   "indef": "a",
+   "role": "probe"
   }
  ]
 }

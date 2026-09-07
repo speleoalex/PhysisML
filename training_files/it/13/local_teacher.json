@@ -14,6 +14,8 @@
  "quality_strong_min": 0.2,
  "evaluation": {
   "has_terminator_pattern": "[.!?]",
+  "comment_curiosity_repeat": "{noun}: lo sai già",
+  "comment_curiosity_answer": "bella domanda: {noun}",
   "comment_+++": "{noun} con struttura completa e terminatore. Ottimo!",
   "comment_++": "{noun} presente, struttura incompleta.",
   "comment_+": "{noun} trovato.",

@@ -9,7 +9,7 @@ Un piccolo LLM costruito da zero, ispirato all'apprendimento biologico.
 Il modello impara come un bambino — prima i suoni, poi le parole, poi le frasi —
 guidato da un tutor che adatta il curriculum in tempo reale.
 
-- **Curriculum progressivo**: da fonemi a letteratura e appartenenza a classi (italiano livelli 0–12, inglese 0–10)
+- **Curriculum progressivo**: da fonemi a letteratura e appartenenza a classi (italiano livelli 0–12, inglese 0–12)
 - **Sistema affettivo innato**: `confidence`, `pleasure`, `pain`, `fear` modulano i logits durante l'inference
 - **Segnale insegnante**: un insegnante locale gratuito (o, opzionalmente, un tutor Claude) genera esempi mirati sui deficit correnti del modello
 - **Dimensioni minime**: transformer GPT-2 style, ~23.6M parametri, si addestra su CPU o GPU consumer
@@ -136,56 +136,98 @@ invece di 82.7% sul probe — e L12 ha toccato il massimo al sogno 9 di una
 curva a dente di sega. La curva di ogni livello è registrata nella sua
 cartella checkpoint come `dream_curve.json`.
 
-### Inglese (livelli 0-10)
+### Inglese (livelli 0-12)
 
-Un secondo curriculum, costruito da zero il 2026-09-05/06 con vocabolario
+Un secondo curriculum, costruito da zero il 2026-09-05/07 con vocabolario
 proprio, assiomi propri e nessun peso in comune col modello italiano. Adesso
-arriva al livello 10 — passato, futuro, comparativi e preferenze, una tesi con
-la sua ragione, un commento motivato — ma resta indietro sui livelli 11-12
-italiani: la relazione is-a, l'ammissione di ignoranza, la domanda.
+copre gli stessi dodici gradini dell'italiano: fino al livello 10 — passato,
+futuro, comparativi e preferenze, una tesi con la sua ragione, un commento
+motivato — e poi i due livelli ontologici, l'**11** (is-a su un insieme chiuso
+di otto classi) e il **12** (dire *i do not know*, e chiedere il nome che non
+si ha).
 
-| | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 |
-|---|----|----|----|----|----|----|----|----|----|----|-----|
-| tutti i livelli, un modello | 100% | 98% | 75% | 96% | 54% | 54% | 68% | 77% | 72% | 78% | 100% |
+| | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
+|---|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
+| tutti i livelli, un modello | 100% | 100% | 84% | 95% | 57% | 90% | 87% | 90% | 85% | 83% | 99% | 86% | 99% |
 
 | | |
 |---|---|
-| questo checkpoint su ogni target attuale (720 prompt) | **78.8%**, auto-ripetizione 3.9% |
-| il suo probe congelato, 88 prompt | 75.0%, auto-ripetizione 5.7% |
+| questo checkpoint su ogni target attuale (1197 prompt) | **89.5%**, auto-ripetizione 1.5% |
+| il suo probe congelato, 104 prompt | **88.5%**, auto-ripetizione 3.8% |
 
-Quella riga è misurata come quella italiana qui sopra: exact match su *tutte*
-le risposte gold di ogni livello (`scripts/measure_repetition.py`). La scheda
-0-5 riportava 90.3% su un campione di 72 prompt (`test_model.py --samples 12`),
-un denominatore più piccolo e più facile. I due numeri non si confrontano: la
-differenza è un cambio di metro, non una regressione.
+Entrambe le righe sono misurate come quelle italiane: exact match su *tutte* le
+risposte gold di ogni livello (`scripts/measure_repetition.py`), e il probe
+congelato (`dynamic_model/data/probe_set_en.json`, impronta `d8da0d3247cba2a0`)
+ri-misurato dopo ogni sogno.
 
-Quello che è regredito davvero è il livello 5. Sugli stessi 418 prompt dei
-livelli 0-5 il checkpoint del livello 5 faceva 86.4%, questo fa 77.5% — e 33
-dei 37 prompt persi sono del solo livello 5 (100% → 54%). I livelli 0-4 ne
-hanno persi 3 su 346 in tutto. Il livello 5 è dove si insegna *because*, e i
-livelli 6-10 riusano quella cornice per altri scopi: gli errori tengono la
-forma giusta e scelgono la ragione sbagliata, `why does the dog drink? → the
-dog runs because it is hungry.`
+I due livelli ontologici non hanno *tolto* ritenzione: l'hanno comprata.
+Rispetto al checkpoint del livello 10 (78.8% sui 720 target di allora) i
+livelli bassi sono *saliti*: L5 54% → 90%, L6 68% → 87%, L7 77% → 90%,
+L8 72% → 85%, L2 75% → 84%, L1 98% → 100%. Dodici cicli di sogno in più su un
+corpus che adesso comprende L11 e L12 hanno rigiocato anche tutto il resto. Il
+livello 4 è l'unico che non si è mosso (54% → 57%) ed è oggi il livello più
+debole del curriculum: 24 dei suoi 29 errori residui sono una sola
+sostituzione, la cornice locativa che collassa in quella causale del livello 5
+— `where does the cat sleep?` → `the cat sleeps because it is tired.`
+
+I 35 errori del livello 11 su 254 sono altrettanto concentrati. Ventitré sono
+**inversioni di polarità con la classe giusta**: `the milk is a food?` → `no,
+the milk is a food.`, una risposta che si contraddice in cinque parole. Gli
+altri dodici sono i due passi che mettono una *classe* dove va un nome, `give
+an example of a place` e `what is an animal?`, otto target ciascuno; il modello
+li risolve con un'istanza di un'altra classe. Dal livello 5 al 10 non gli si
+chiede mai di trattare una parola-classe come argomento, e non ha
+generalizzato.
+
+Misurati invece con il checkpoint *di ciascun livello* — quello che il modello
+sapeva nel momento in cui quel livello è finito — gli stessi 1197 prompt danno
+97.3%, con L11 al 100% e L12 al 99%. Tutto quello che il modello finale sbaglia
+lo aveva imparato: il divario fra le due righe è oblio, non un pool mai appreso.
 
 Risposte reali, greedy:
 
 ```
-what did the boy eat?                   -> the boy ate the bread.
-what will the boy eat tomorrow?         -> tomorrow the boy will eat the bread.
-tell me the three days of the cat       -> today it sleeps, yesterday it slept,
-                                           tomorrow it will sleep.
-which is better, the bread or the door? -> the bread is better, because you eat it.
-is the cat small?                       -> I think the cat is small because it is fast.
-two reasons: why do you like the cat?   -> the cat is small and fast, so I like it.
-comment on the cat                      -> the cat is fast, and this is nice.
-what does the story say about the cat   -> the story says that the cat sleeps.
+what will the dog eat tomorrow?          -> tomorrow the dog will eat the bread.
+what is the dog?                         -> the dog is an animal.
+the bread is a food?                     -> yes, the bread is a food.
+the cat is a plant?                      -> no, the cat is an animal.
+what is a compass?                       -> i do not know.
+the cow is an animal, this is a compass  -> what is a compass?
+the wolf is an animal, this is a drum    -> what is a drum?
 ```
 
-I livelli 6-10 sono stati costruiti con `MAX_DREAMS=20` e nessuno ha toccato il
-tetto (6, 8, 13, 7 e 11 sogni): a differenza del livello 5 nel build 0-5, si
-sono fermati tutti su un plateau vero. Il probe del livello 10 è andato dal 36%
-al 75% negli undici sogni. I cinque livelli hanno richiesto 7h44 su GPU Intel
-Arc (67/77/126/72/117 minuti ciascuno), oltre alle 5h53 dei livelli 0-5.
+Il livello 11 ha richiesto 7 sogni e si è fermato da solo su un plateau (probe
+35.6% → 66.3%). Il livello 12 ne ha fatti 12 toccando il tetto mentre ancora
+guadagnava (59.6% → 86.5%): è stato ripreso con
+`dream_until_plateau.py --max 20 --already-done 12` e si è fermato due cicli
+dopo a **88.5%** — la curva 86.5 → 88.5 → 85.6 è lo stesso dente di sega del
+livello 12 italiano, e la corsa ripristina lo stato migliore misurato, non
+l'ultimo. Le due curve stanno in `dream_curve.json` accanto ai pesi.
+
+**L'onestà, misurata** (`scripts/curiosity_rate.py --lang en --level 12`). Su
+21 nomi tenuti fuori che il curriculum non ha mai insegnato, senza nessun gate:
+**76% di risposte oneste** — `i do not know`, oppure una domanda — contro
+**0%** sui dodici nomi noti, che invece classifica correttamente. Con il gate
+epistemico acceso, 100% e 0%. Il modello inglese è nettamente più onesto
+dell'italiano sui nomi mai visti (76% contro 14%), ed è l'unico punto in cui i
+due curriculum divergono in modo misurabile.
+
+**Cosa non basta ancora.** Il trigger epistemico — il margine interno sulle
+dieci classi che il ciclo autonomo del livello 13 legge per decidere se
+chiedere — separa noti da ignoti con **AUC 0.638** su questo checkpoint
+(`scripts/epistemic_report.py`), ben sotto lo **0.95** che il ciclo pretende, e
+il suo verdetto è `OVERLAPPING`: 22 nomi noti su 57 farebbero scattare una
+domanda spuria. Dormire di più non lo sistema — i due sogni aggiuntivi che
+hanno portato la generazione da 86.5% a 88.5% hanno fatto *scendere* l'AUC, da
+0.746 a 0.638. La causa probabile è la copertura del pool: l'inglese dichiara
+una sola forma interrogativa (`"ask_heads": ["what is"]` in
+[`training_files/en/language.json`](training_files/en/language.json)) dove
+l'italiano ne dichiara due, quindi i pool di L11 e L12 sono all'incirca metà
+dei corrispondenti italiani (100 e 93 target contro 197 e 105). Finché non si
+chiude, **l'inglese si ferma al livello 12**: il ciclo autonomo non ci viene
+eseguito. Chiedere del referente *giusto* è debole in entrambe le lingue e non
+è una regressione dell'inglese — quando chiede, l'inglese nomina il nome che ha
+davanti nel 42% dei casi, l'italiano nel 50%.
 
 La scheda di questi pesi è
 [huggingface/README.en.md](huggingface/README.en.md); sono pubblicati su
@@ -462,10 +504,10 @@ i pesi, e tutti gli script accettano `--lang` (o `PHYSISML_LANG`): due build non
 si sovrascrivono mai a vicenda.
 
 ```bash
-./build.sh 10 --lang en                         # costruisce il curriculum inglese
+./build.sh 12 --lang en                         # costruisce il curriculum inglese
 ./teach.sh 100 local --lang en --level 3        # una sessione di insegnamento
 ./reset.sh --lang en                            # azzera SOLO checkpoints/en/
-python3 dynamic_model/test_model.py --level 10 --lang en
+python3 dynamic_model/test_model.py --level 12 --lang en
 python3 scripts/train_tokenizer.py --lang en --vocab-size 3000
 python3 scripts/export_hf.py --lang en --out hf_en
 python3 standalone/chat.py --lang en "say: the cat"  # i pesi pubblicati

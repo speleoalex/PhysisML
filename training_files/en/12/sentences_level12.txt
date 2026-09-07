@@ -1,0 +1,300 @@
+the hedgehog is an animal.
+the woman is a person.
+what is a drum?
+the dad is a person.
+the park is a place.
+the book is an object.
+the dad reads.
+yes, the hedgehog is an animal.
+the flower grows.
+i do not know.
+the park is a place.
+what is a cliff?
+the woman works.
+what is a glade?
+what is an ivy?
+what is a hawk?
+the lamp is an object.
+the mouse runs.
+the child is a person.
+what is a glade?
+the spider is an animal.
+yes, the drum is an object.
+the fish swims.
+what is a button?
+the window is an object.
+what is a hedgehog?
+the bee is an animal.
+the star shines.
+the book is an object.
+the friend laughs.
+what is a pumpkin?
+the flower grows.
+the tree grows.
+the table is an object.
+the woman is a person.
+the sky is a place.
+what is a bowl?
+the girl sings.
+what is a bucket?
+what is a rake?
+what is a squirrel?
+the wolf runs.
+the snow falls.
+the window is an object.
+what is a hedgehog?
+the child plays.
+what is a spider?
+the sky is a place.
+the girl sings.
+the lamp is an object.
+the girl sings.
+what is a bison?
+the bread is a food.
+what is a hawk?
+the man is a person.
+the boy plays.
+yes, the hedgehog is an animal.
+the pumpkin is a food.
+the cake is a food.
+the baby is a person.
+the horse runs.
+what is a stool?
+the cow eats.
+the man walks.
+the dad reads.
+what is a badger?
+yes, the spider is an animal.
+what is a toad?
+what is a bison?
+what is an ivy?
+the door is an object.
+what is a ravine?
+the key is an object.
+yes, the lighthouse is a place.
+what is a bowl?
+the baby sleeps.
+what is an apron?
+the book is an object.
+what is a fern?
+the dog runs.
+what is a funnel?
+the baby is a person.
+the moon shines.
+what is a ravine?
+what is an almond?
+the cheese is a food.
+the man walks.
+what is a lantern?
+what is a funnel?
+what is a cliff?
+what is a blueberry?
+what is an almond?
+the star shines.
+what is a hawk?
+the flower grows.
+the star shines.
+what is a needle?
+the pumpkin is a food.
+the honey is a food.
+what is a rake?
+what is a hedgehog?
+the bee flies.
+yes, the button is an object.
+the dad reads.
+the friend laughs.
+the horse is an animal.
+what is a blueberry?
+the woman works.
+what is a fennel?
+the wolf runs.
+the house is a place.
+i do not know.
+the moon shines.
+what is a rake?
+what is a lighthouse?
+the tree grows.
+the bird flies.
+the cake is a food.
+what is a woodpecker?
+the woman is a person.
+yes, the pumpkin is a food.
+the city is a place.
+what is a raspberry?
+yes, the lighthouse is a place.
+what is a beaver?
+the tree grows.
+i do not know.
+the sun shines.
+what is a bowl?
+the door is an object.
+the bee is an animal.
+what is a compass?
+what is a lighthouse?
+yes, the button is an object.
+what is a radish?
+the cheese is a food.
+what is a needle?
+the teacher reads.
+what is a drum?
+the fish swims.
+what is a lantern?
+what is a clarinet?
+the table is an object.
+the cat sleeps.
+yes, the drum is an object.
+the bee flies.
+the baby sleeps.
+the bee is an animal.
+what is a cliff?
+the ball is an object.
+yes, the button is an object.
+the wolf runs.
+the friend laughs.
+yes, the drum is an object.
+the horse is an animal.
+what is a toad?
+what is a radish?
+what is a pumpkin?
+what is a woodpecker?
+what is a sapphire?
+what is a pumpkin?
+the snow falls.
+what is an otter?
+what is a woodpecker?
+what is a poppy?
+the sun shines.
+what is a squirrel?
+the lighthouse is a place.
+the horse runs.
+the park is a place.
+the cat sleeps.
+the teacher reads.
+what is a bucket?
+the table is an object.
+what is an otter?
+the dad is a person.
+the honey is a food.
+yes, the lighthouse is a place.
+what is a fennel?
+the pumpkin is a food.
+the mouse is an animal.
+what is a clarinet?
+what is an apricot?
+the window is an object.
+the house is a place.
+yes, the pumpkin is a food.
+what is an ivy?
+the man is a person.
+the man is a person.
+what is an almond?
+what is a stool?
+the boy plays.
+the horse runs.
+the snow falls.
+yes, the hedgehog is an animal.
+what is a blueberry?
+what is a spider?
+the dad is a person.
+the ball is an object.
+the mom cooks.
+what is an apricot?
+the door is an object.
+the drum is an object.
+the bird flies.
+what is an apron?
+what is a fern?
+what is a funnel?
+what is a clarinet?
+the cheese is a food.
+the teacher reads.
+the bee flies.
+what is a sapphire?
+the grass grows.
+the moon shines.
+what is a bucket?
+yes, the spider is an animal.
+the hedgehog is an animal.
+the lamp is an object.
+what is a beaver?
+the bread is a food.
+the teacher is a person.
+what is a lighthouse?
+what is a raspberry?
+what is a radish?
+the spider is an animal.
+the spider is an animal.
+what is a poppy?
+the drum is an object.
+the horse is an animal.
+what is an otter?
+what is a sapphire?
+the lighthouse is a place.
+the drum is an object.
+the mouse is an animal.
+the teacher is a person.
+the bird flies.
+the grass grows.
+the house is a place.
+the city is a place.
+the button is an object.
+what is a badger?
+what is a squirrel?
+what is a poppy?
+the child plays.
+what is a glade?
+what is a lantern?
+what is a drum?
+the city is a place.
+the woman works.
+the fish swims.
+the key is an object.
+the boy plays.
+the mom cooks.
+the lighthouse is a place.
+the child is a person.
+the honey is a food.
+the dog runs.
+the cake is a food.
+yes, the spider is an animal.
+the baby is a person.
+the sun shines.
+the grass grows.
+the baby sleeps.
+the teacher is a person.
+what is a fern?
+the button is an object.
+the key is an object.
+what is a bison?
+what is an apron?
+the dog runs.
+the hedgehog is an animal.
+the cat sleeps.
+the mouse runs.
+what is a needle?
+the child is a person.
+what is a raspberry?
+the ball is an object.
+what is a compass?
+what is a button?
+what is a beaver?
+the cow eats.
+what is a badger?
+the mouse is an animal.
+the child plays.
+what is a spider?
+the cow eats.
+the button is an object.
+what is a fennel?
+what is a button?
+the sky is a place.
+the bread is a food.
+yes, the pumpkin is a food.
+what is a toad?
+what is a compass?
+what is an apricot?
+what is a ravine?
+what is a stool?
+the mouse runs.
+the mom cooks.
+the man walks.

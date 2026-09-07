@@ -13,10 +13,12 @@
   7,
   8,
   9,
-  10
+  10,
+  11,
+  12
  ],
- "n": 88,
- "fingerprint": "3601742cb498993b",
+ "n": 104,
+ "fingerprint": "d8da0d3247cba2a0",
  "items": [
   {
    "level": 0,
@@ -457,6 +459,86 @@
    "level": 10,
    "prompt": "analyse the bee",
    "expected": "the bee flies. it is fast and small."
+  },
+  {
+   "level": 11,
+   "prompt": "the road is a place?",
+   "expected": "yes, the road is a place."
+  },
+  {
+   "level": 11,
+   "prompt": "what is a door?",
+   "expected": "the door is an object."
+  },
+  {
+   "level": 11,
+   "prompt": "the mom is an object?",
+   "expected": "no, the mom is a person."
+  },
+  {
+   "level": 11,
+   "prompt": "what does the man do?",
+   "expected": "the man walks."
+  },
+  {
+   "level": 11,
+   "prompt": "the cat is an animal?",
+   "expected": "yes, the cat is an animal."
+  },
+  {
+   "level": 11,
+   "prompt": "what is the moon?",
+   "expected": "the moon is a light."
+  },
+  {
+   "level": 11,
+   "prompt": "what does the boy do?",
+   "expected": "the boy plays."
+  },
+  {
+   "level": 11,
+   "prompt": "what is the teacher?",
+   "expected": "the teacher is a person."
+  },
+  {
+   "level": 12,
+   "prompt": "the lighthouse is a place, this is an ivy",
+   "expected": "what is an ivy?"
+  },
+  {
+   "level": 12,
+   "prompt": "the baby is a person, this is cheese",
+   "expected": "the cheese is a food."
+  },
+  {
+   "level": 12,
+   "prompt": "the ravine is an animal?",
+   "expected": "i do not know."
+  },
+  {
+   "level": 12,
+   "prompt": "the spider is an animal, this is a rake",
+   "expected": "what is a rake?"
+  },
+  {
+   "level": 12,
+   "prompt": "the spider is an animal, this is an apricot",
+   "expected": "what is an apricot?"
+  },
+  {
+   "level": 12,
+   "prompt": "the spider is an animal, this is a compass",
+   "expected": "what is a compass?"
+  },
+  {
+   "level": 12,
+   "prompt": "the garden is a place, this is an almond",
+   "expected": "what is an almond?"
+  },
+  {
+   "level": 12,
+   "prompt": "what does the baby do?",
+   "expected": "the baby sleeps."
   }
  ]
 }

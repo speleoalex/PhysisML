@@ -34,8 +34,22 @@ import random
 import argparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+from dynamic_model import surface as _surface        # noqa: E402
+
 SEED = 20260825          # fixed: the pools are committed, so they must not
                          # depend on the state of the global RNG
+
+# Set by main(), together with LANG. Every sentence the ontology generators
+# build goes through it, so --lang en cannot emit Italian: see
+# dynamic_model/surface.py and the "surface" block of the language manifest.
+S = _surface.load("it")
+
+# The levels whose generators are surface-driven and therefore safe in any
+# language. L0-L10 are Italian f-strings ('cosa fa', 'perché', gender
+# agreement) and their English pools are hand-written, so asking for them in
+# another language is refused rather than answered in Italian.
+GENERIC_LEVELS = {11, 12}
 
 
 # ── lexicon helpers ─────────────────────────────────────────────────────────
@@ -46,93 +60,58 @@ def load_lexicon(lang: str) -> dict:
         return json.load(f)
 
 
+# ── surface helpers ─────────────────────────────────────────────────────────
+# Thin wrappers over the active language's Surface. They stay module-level
+# functions because a generator receives only (rng, lex, k) and because
+# dynamic_model/exp_b/epistemic.py builds its probe prefix out of the same two.
+
 def phrase(n: dict) -> str:
-    """'il cane', 'la casa', 'l acqua' — apostrophes are spaces in this corpus."""
-    return f"{n['art']} {n['w']}"
+    """'il cane', 'la casa', 'the cat'."""
+    return S.phrase(n)
 
 
-def adj_for(n: dict, a: dict) -> str:
-    return a["m"] if n["g"] == "m" else a["f"]
-
-
-def di(n: dict) -> str:
-    """'del cane', 'della casa', 'dell orso' — elision before a vowel."""
-    if n["art"] == "l":
-        return "dell " + n["w"]
-    return ("del " if n["g"] == "m" else "della ") + n["w"]
+def indef(n: dict) -> str:
+    """'un ragno', 'una zucca', 'a spider'."""
+    return S.indef(n)
 
 
 def head(cls: str) -> str:
     """'un animale' -> 'animale'. The evaluator searches for the informative
     word, and the article is not it."""
-    return re.sub(r"^(un|una|uno)\s+", "", cls)
-
-
-def indef(n: dict) -> str:
-    """'un ragno', 'una zucca', 'un aquila', 'uno sgabello'.
-
-    Apostrophes are spaces in this corpus, so the feminine before a vowel is
-    'un', not 'una'. The masculine takes 'uno' before s+consonant, z, gn, ps,
-    pn, x and y — the same trigger as the definite 'lo'. Missing that rule put
-    'cos è un sgabello?' and 'cos è un scoiattolo?' into L12 step E (four
-    prompts, gold 'non lo so.' — the article is in the QUESTION, not the
-    answer). Found when the ontology oracle rendered the same two nouns.
-    """
-    if n["g"] == "m":
-        return "uno" if re.match(r"^(s[^aeiou]|z|gn|ps|pn|x|y)", n["w"]) else "un"
-    return "un" if n["w"][0] in "aeiou" else "una"
+    return S.head(cls)
 
 
 def ask_forms(n: dict, cls_head: str) -> list:
-    """Every way Italian asks 'what is X?' about this noun.
-
-    Two axes — the interrogative ('cos è' / 'cosa è') and the article
-    (definite / indefinite) — and BOTH must be crossed with the same gold, or
-    the surface shape of the question becomes a feature the model reads the
-    answer off instead of reading the noun.
-
-    Measured on the finished 0-12 model, that is exactly what happened:
-    'cosa è un cane?' answered 'non lo so.' The corpus had asked 'cosa è' only
-    ever with a definite article (280 times, 280 definitions, 0 'non lo so'),
-    while 'un' came overwhelmingly from L12's honesty step (700 of the 1040
-    'cos è un X?'). Neither feature was about the noun, and the combination the
-    user typed had appeared zero times, so the model fell back on the article.
-    g_non_lo_so crosses the same two axes on the nouns whose honest answer IS
-    'non lo so', which is what makes both axes uninformative.
-
-    `cls_head` is the head of the gold's class, and it gates the 'cosa è'
-    phrasing: 'cosa' is ALSO the head of the top class ('una cosa'), so with
-    'cosa è il vento?' the gold 'il vento è una cosa.' shares every word with
-    its own prompt and a bare echo scores full coverage — the self-poisoning
-    loop the anti-echo exists to close (see g_cos_e). Pass '' when the gold
-    cannot contain a class at all.
-    """
-    forms = []
-    for h in ("cos è",) if cls_head == "cosa" else ("cos è", "cosa è"):
-        forms.append(f"{h} {phrase(n)}?")
-        # A mass noun takes no indefinite article ('cos è un acqua?') and a
-        # unique referent takes the definite one ('cos è un sole?').
-        if not n.get("mass") and not n.get("uniq"):
-            forms.append(f"{h} {indef(n)} {n['w']}?")
-    return forms
+    """Every way this language asks 'what is X?' about this noun."""
+    return S.ask_forms(n, cls_head)
 
 
 def dimostr(n: dict) -> str:
-    return "questo" if n["g"] == "m" else "questa"
+    return S.demonstrative(n)
 
 
 def intro(n: dict) -> str:
-    """'questo è un ragno', 'questa è acqua', 'questo è il sole'.
+    """'questo è un ragno', 'questa è acqua', 'this is a spider'."""
+    return S.intro(n)
 
-    Mass nouns take no indefinite article ('questa è un acqua' is not Italian)
-    and unique referents take the definite one ('questo è un sole' is not
-    either).
+
+def adj_for(n: dict, a: dict) -> str:
+    """The form of the adjective this noun takes. Italian agrees in gender; a
+    language without one carries a single form."""
+    if "w" in a and "m" not in a:
+        return a["w"]
+    return a["m"] if n["g"] == "m" else a["f"]
+
+
+def di(n: dict) -> str:
+    """'del cane', 'della casa', 'dell orso' — elision before a vowel.
+
+    Italian-only: no level past 10 uses it, and those are the levels this
+    script generates for other languages.
     """
-    if n.get("mass"):
-        return f"{dimostr(n)} è {n['w']}"
-    if n.get("uniq"):
-        return f"{dimostr(n)} è {phrase(n)}"
-    return f"{dimostr(n)} è {indef(n)} {n['w']}"
+    if n["art"] == "l":
+        return "dell " + n["w"]
+    return ("del " if n["g"] == "m" else "della ") + n["w"]
 
 
 def pick(rng, seq, k):
@@ -678,7 +657,7 @@ def g_cos_e(rng, lex, k):
     out = []
     for n in lex.classified():
         c = lex.cls_of(n)
-        gold = f"{phrase(n)} è {c}."
+        gold = S.is_a(n, c)
         # Every phrasing, same gold: see ask_forms. Asking each noun only one
         # way is what let the model answer from the article instead of the noun.
         for p in ask_forms(n, head(c)):
@@ -695,8 +674,8 @@ def g_is_a_si(rng, lex, k):
     out = []
     for n in lex.classified():
         c = lex.cls_of(n)
-        out.append({"prompt": f"{phrase(n)} è {c}?",
-                    "expected": f"sì, {phrase(n)} è {c}.",
+        out.append({"prompt": S.is_a_q(n, c),
+                    "expected": S.confirm(n, c),
                     "article": n["art"], "noun": head(c)})
     return out
 
@@ -716,8 +695,8 @@ def g_is_a_no(rng, lex, k):
         if not wrong:
             continue
         c = lex.cls_of(n)
-        out.append({"prompt": f"{phrase(n)} è {wrong}?",
-                    "expected": f"no, {phrase(n)} è {c}.",
+        out.append({"prompt": S.is_a_q(n, wrong),
+                    "expected": S.correct(n, c),
                     "article": n["art"], "noun": head(c)})
     return out
 
@@ -738,14 +717,14 @@ def g_membro(rng, lex, k):
     canonical = {}
     for n in lex.classified():
         c = lex.cls_of(n)
-        if c.startswith(("un ", "una ")) and c not in canonical:
+        if S.has_class_article(c) and c not in canonical:
             canonical[c] = n      # first in lexicon order wins
     # `noun` is the member and `object` the class: here the class is already in
     # the prompt, so grade_by_coverage's anti-echo drops it and cannot see a
     # wrong one ('il cane è un persona.' scored +++). The evaluator checks
     # `object` too, which closes that hole.
-    return [{"prompt": f"fai un esempio di {head(c)}",
-             "expected": f"{phrase(n)} è {c}.",
+    return [{"prompt": S.example_request(c),
+             "expected": S.is_a(n, c),
              "article": n["art"], "noun": n["w"], "object": head(c)}
             for c, n in canonical.items()]
 
@@ -755,9 +734,9 @@ def g_iperonimo(rng, lex, k):
     of the chain. Only classes that are sayable with an article and that have
     a hypernym: 'cosa è acqua?' is not Italian, and a root has no answer."""
     cands = [(c, h) for c, h in lex.classes.items()
-             if h and c.startswith(("un ", "una "))]
+             if h and S.has_class_article(c)]
     cands.sort()          # dict order is insertion order — sort for determinism
-    return [{"prompt": f"cos è {c}?", "expected": f"{c} è {h}.",
+    return [{"prompt": S.ask_class(c), "expected": S.cls_is_a(c, h),
              "noun": head(h)}
             for c, h in pick(rng, cands, k)]
 
@@ -796,16 +775,16 @@ def g_chiedi_ignoto(rng, lex, k):
         if not a:
             continue
         out.append({
-            "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
-            "expected": f"cos è {indef(n)} {n['w']}?",
+            "prompt": f"{phrase(a)} {S.copula} {lex.cls_of(a)}, {intro(n)}",
+            "expected": S.ask(n),
             "noun": n["w"]})
     for n in lex.bare_taught:
         a = lex.anchor_of_other_class(rng, "")
         if not a:
             continue
         out.append({
-            "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
-            "expected": f"cos è {indef(n)} {n['w']}?",
+            "prompt": f"{phrase(a)} {S.copula} {lex.cls_of(a)}, {intro(n)}",
+            "expected": S.ask(n),
             "noun": n["w"]})
     return out
 
@@ -842,8 +821,8 @@ def g_chiedi_il_nome_giusto(rng, lex, k):
     for i, n in enumerate(lex.bare_taught):
         a = anchors[i % len(anchors)]
         out.append({
-            "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
-            "expected": f"cos è {indef(n)} {n['w']}?",
+            "prompt": f"{phrase(a)} {S.copula} {lex.cls_of(a)}, {intro(n)}",
+            "expected": S.ask(n),
             "noun": n["w"]})
     return out
 
@@ -863,8 +842,8 @@ def g_non_chiedere(rng, lex, k):
         if not a:
             continue
         out.append({
-            "prompt": f"{phrase(a)} è {lex.cls_of(a)}, {intro(n)}",
-            "expected": f"{phrase(n)} è {c}.",
+            "prompt": f"{phrase(a)} {S.copula} {lex.cls_of(a)}, {intro(n)}",
+            "expected": S.is_a(n, c),
             "article": n["art"], "noun": head(c)})
     return out
 
@@ -875,9 +854,8 @@ def g_consolida(rng, lex, k):
     The turn after the teacher has answered: the fact the model asked for has
     to end up in the weights, or asking bought nothing.
     """
-    return [{"prompt": f"cos è {indef(n)} {n['w']}?"
-                       if not n.get("mass") else f"cos è {n['w']}?",
-             "expected": f"{n['art']} {n['w']} è {n['cls']}.",
+    return [{"prompt": S.ask(n),
+             "expected": S.is_a(n, n["cls"]),
              "article": n["art"], "noun": head(n["cls"])}
             for n in pick(rng, lex.unknown_of(probe=False), k)]
 
@@ -885,8 +863,8 @@ def g_consolida(rng, lex, k):
 def g_conferma_nuovo(rng, lex, k):
     """'il ragno è un animale?' -> 'sì, il ragno è un animale.'  Retention
     check on the nouns learned in this level."""
-    return [{"prompt": f"{n['art']} {n['w']} è {n['cls']}?",
-             "expected": f"sì, {n['art']} {n['w']} è {n['cls']}.",
+    return [{"prompt": S.is_a_q(n, n["cls"]),
+             "expected": S.confirm(n, n["cls"]),
              "article": n["art"], "noun": head(n["cls"])}
             for n in pick(rng, lex.unknown_of(probe=False), k)]
 
@@ -932,9 +910,14 @@ def g_non_lo_so(rng, lex, k):
     out = []
     for n in lex.bare_unknown:
         for p in ask_forms(n, ""):
-            out.append({"prompt": p, "expected": "non lo so.", "noun": "so"})
-        out.append({"prompt": f"{phrase(n)} è un animale?",
-                    "expected": "non lo so.", "noun": "so"})
+            out.append({"prompt": p, "expected": S.admission,
+                        "noun": S.admission_keyword})
+        # The yes/no is asked with the FIRST class of the negative pool:
+        # one fixed class, so the answer cannot be read off which class was
+        # named, and the same one L11 step B teaches to confirm.
+        out.append({"prompt": S.is_a_q(n, lex.negative_pool[0]),
+                    "expected": S.admission,
+                    "noun": S.admission_keyword})
     return out
 
 
@@ -996,6 +979,20 @@ PLAN = {
 LANG = "it"
 
 
+def set_language(lang: str) -> None:
+    """Point the generators at `lang` before any of them runs.
+
+    Public because this module is imported as a library too — by
+    scripts/curiosity_rate.py and dynamic_model/exp_b/epistemic.py, which
+    build the same sentences to measure them. An importer that forgot to call
+    this got the Italian default silently, which is the failure this whole
+    layer exists to remove.
+    """
+    global LANG, S
+    LANG = lang
+    S = _surface.load(lang)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--lang", default="it")
@@ -1009,8 +1006,22 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
 
-    global LANG
-    LANG = a.lang
+    set_language(a.lang)
+    if not S.available:
+        sys.exit(f"training_files/{a.lang}/language.json declares no "
+                 f'"surface" block: every sentence this script writes would '
+                 f"be in another language. See dynamic_model/surface.py.")
+
+    # L0-L10 are Italian by construction (see GENERIC_LEVELS). Refusing is the
+    # point: the failure mode this guards against is not a crash, it is a
+    # committed English pool full of 'cosa fa il cane?'.
+    if a.lang != "it":
+        wrong = [l for l in a.levels if l not in GENERIC_LEVELS]
+        if wrong:
+            sys.exit(f"levels {wrong} have no language-neutral generator: for "
+                     f"'{a.lang}' only {sorted(GENERIC_LEVELS)} can be "
+                     f"generated, the rest are hand-written.")
+
     lex = Lex(load_lexicon(a.lang), a.lang)
     grand_before = grand_after = 0
 

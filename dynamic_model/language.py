@@ -210,6 +210,17 @@ class Language:
         return out
 
     @property
+    def surface(self) -> dict:
+        """The sentences this language builds its ontology levels out of.
+
+        Raw manifest block; dynamic_model/surface.py is what interprets it,
+        and this module stays importable without it. Empty when the manifest
+        is silent, and the Surface then raises rather than answering in
+        another language.
+        """
+        return self._d.get("surface") or {}
+
+    @property
     def stop_words(self) -> set:
         """Function words, for the callers that separate content from grammar."""
         return set(self._d.get("stop_words", []))

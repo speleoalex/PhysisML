@@ -112,8 +112,9 @@ def test_no_target_can_fail_the_plus_plus_plus_check():
 
 
 # ── the gatekeeper: the material that must not get in ────────────────────────
-def _gate(known=None, probe_prompts=(), max_new=40):
+def _gate(known=None, probe_prompts=(), max_new=40, lang="it"):
     g = al.Gatekeeper.__new__(al.Gatekeeper)
+    g.lang     = lang
     g.known    = dict(known or {})
     g.probe_p  = {al._normalize_prompt(p) for p in probe_prompts}
     g.max_new  = max_new

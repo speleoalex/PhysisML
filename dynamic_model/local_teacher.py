@@ -23,6 +23,8 @@ import re
 import random
 from typing import Optional
 
+from dynamic_model import surface as _surface
+
 
 FEEDBACK_MAP = {
     "+++": 1.0,
@@ -31,13 +33,6 @@ FEEDBACK_MAP = {
     "=":   0.0,
     "-":  -0.8,
 }
-
-# A question the model asks: 'cosa è un ragno?'. Matched loosely on purpose —
-# a model that has not yet learned to close a question still asked one.
-_QUESTION_RE = re.compile(
-    r"\b(?:cosa|cos|che)\s+(?:è|e)\s+(?:un|una|uno|il|la|lo|l)?\s*"
-    r"([a-zàèéìòù]{3,})",
-    re.IGNORECASE)
 
 # Reward for asking about something genuinely unknown, and the penalty for
 # asking about something already explained. The ASYMMETRY is the whole point:
@@ -75,6 +70,12 @@ class LocalTeacher:
         # shared config. Pass '' to disable the prefix entirely.
         if retry_prefix is not None:
             self.cfg["retry_prefix"] = retry_prefix
+
+        # How this language says the sentences this teacher answers with —
+        # the copula, the question form, the way it asks 'what is X?'. They
+        # were literals here, which meant an English level got an Italian
+        # teacher the moment it turned curiosity on.
+        self.surface = _surface.load(lang)
 
         self.steps     = self.cfg["steps"]
         self.step_keys = list(self.steps.keys())   # ["A", "B", "C", ...]
@@ -131,11 +132,34 @@ class LocalTeacher:
         return unknown, known
 
     def _asked_about(self, response: str):
-        """The noun the model asked about, or None if it did not ask."""
+        """The noun the model asked about, or None if it did not ask.
+
+        A language whose manifest declares no question pattern never
+        recognises a question, so nothing is rewarded or penalised for one —
+        better than an Italian pattern finding Italian nouns in English.
+        """
         if not response:
             return None
-        m = _QUESTION_RE.search(response)
+        try:
+            pattern = self.surface.question_re
+        except _surface.MissingSurface:
+            return None
+        m = pattern.search(response)
         return m.group(1).lower() if m else None
+
+    # The two remarks the curiosity branch prints. Templates, like every
+    # other comment_* in the level config, so the screen speaks the language
+    # being trained; the fallback is English because that is what the rest of
+    # the code prints when a config says nothing.
+    _COMMENT_FALLBACK = {
+        "curiosity_repeat": "{noun}: you know this already",
+        "curiosity_answer": "good question: {noun}",
+    }
+
+    def _comment(self, key: str, noun: str) -> str:
+        tmpl = (self.eval_cfg.get(f"comment_{key}")
+                or self._COMMENT_FALLBACK[key])
+        return tmpl.format(noun=noun)[:40]
 
     def _handle_question(self, noun: str) -> dict:
         """Answer a question worth asking, penalise one that was not.
@@ -149,17 +173,18 @@ class LocalTeacher:
         """
         teachable = noun in self.unknown and noun not in self.explained
         art, cls = (self.unknown.get(noun) or self.known[noun])
-        statement = f"{art} {noun} è {cls}."
+        entry     = {"art": art, "w": noun}
+        statement = self.surface.is_a(entry, cls)
 
         if not teachable:
             return {
                 "feedback_symbol": "=",
                 "feedback":        ASK_PENALTY,
-                "commento":        f"{noun}: lo sai già",
+                "commento":        self._comment("curiosity_repeat", noun),
                 # The definite form, the same shape L11 step A uses
                 # ('cosa è la sedia?'), so the retry is a prompt the model has
                 # actually been trained on.
-                "next_prompt":     f"cosa è {art} {noun}?",
+                "next_prompt":     self.surface.ask_definite(entry),
                 "expected":        statement,
                 "step":            self.current_step,
                 "mode":            "curiosity_repeat",
@@ -169,8 +194,9 @@ class LocalTeacher:
         return {
             "feedback_symbol": "+++",
             "feedback":        ASK_REWARD,
-            "commento":        f"bella domanda: {noun}",
-            "next_prompt":     f"{art} {noun} è {cls}",
+            "commento":        self._comment("curiosity_answer", noun),
+            # The fact without its terminator: what the model has to complete.
+            "next_prompt":     statement.rstrip("."),
             "expected":        statement,
             "step":            self.current_step,
             "mode":            "curiosity_answer",

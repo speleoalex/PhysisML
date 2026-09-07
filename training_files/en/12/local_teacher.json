@@ -1,0 +1,1289 @@
+{
+  "lang": "en",
+  "level": 12,
+  "description": "Twelve years old — asking when you do not know",
+  "quality_threshold": 0.28,
+  "quality_strong_min": 0.2,
+  "evaluation": {
+    "has_terminator_pattern": "[.!?]",
+    "comment_curiosity_repeat": "{noun}: you know this already",
+    "comment_curiosity_answer": "good question: {noun}",
+    "comment_+++": "{noun} with a complete structure and a terminator. Great!",
+    "comment_++": "{noun} is there, the structure is incomplete.",
+    "comment_+": "{noun} found.",
+    "comment_=": "Neither the question nor the expected class.",
+    "comment_-": "Not recognisable or too long."
+  },
+  "encouragement": [
+    "good!",
+    "well done!",
+    "very good!",
+    "great!",
+    "nice!"
+  ],
+  "retry_prefix": "again. ",
+  "curiosity": true,
+  "steps": {
+    "A": {
+      "description": "Ask about the unknown: a new name -> a question",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "the sky is a place, this is a pumpkin",
+          "expected": "what is a pumpkin?",
+          "noun": "pumpkin"
+        },
+        {
+          "prompt": "the wolf is an animal, this is a drum",
+          "expected": "what is a drum?",
+          "noun": "drum"
+        },
+        {
+          "prompt": "the road is a place, this is a spider",
+          "expected": "what is a spider?",
+          "noun": "spider"
+        },
+        {
+          "prompt": "the child is a person, this is a lighthouse",
+          "expected": "what is a lighthouse?",
+          "noun": "lighthouse"
+        },
+        {
+          "prompt": "the boy is a person, this is a hedgehog",
+          "expected": "what is a hedgehog?",
+          "noun": "hedgehog"
+        },
+        {
+          "prompt": "the cheese is a food, this is a button",
+          "expected": "what is a button?",
+          "noun": "button"
+        },
+        {
+          "prompt": "the cow is an animal, this is a compass",
+          "expected": "what is a compass?",
+          "noun": "compass"
+        },
+        {
+          "prompt": "the child is a person, this is a hawk",
+          "expected": "what is a hawk?",
+          "noun": "hawk"
+        },
+        {
+          "prompt": "the rain is water, this is a blueberry",
+          "expected": "what is a blueberry?",
+          "noun": "blueberry"
+        },
+        {
+          "prompt": "the rice is a food, this is a stool",
+          "expected": "what is a stool?",
+          "noun": "stool"
+        },
+        {
+          "prompt": "the woman is a person, this is a clarinet",
+          "expected": "what is a clarinet?",
+          "noun": "clarinet"
+        },
+        {
+          "prompt": "the car is an object, this is a squirrel",
+          "expected": "what is a squirrel?",
+          "noun": "squirrel"
+        },
+        {
+          "prompt": "the snow is water, this is a badger",
+          "expected": "what is a badger?",
+          "noun": "badger"
+        },
+        {
+          "prompt": "the friend is a person, this is a toad",
+          "expected": "what is a toad?",
+          "noun": "toad"
+        },
+        {
+          "prompt": "the apple is a food, this is a bison",
+          "expected": "what is a bison?",
+          "noun": "bison"
+        },
+        {
+          "prompt": "the fish is an animal, this is an otter",
+          "expected": "what is an otter?",
+          "noun": "otter"
+        },
+        {
+          "prompt": "the grass is a plant, this is a woodpecker",
+          "expected": "what is a woodpecker?",
+          "noun": "woodpecker"
+        },
+        {
+          "prompt": "the dog is an animal, this is a beaver",
+          "expected": "what is a beaver?",
+          "noun": "beaver"
+        },
+        {
+          "prompt": "the honey is a food, this is an apricot",
+          "expected": "what is an apricot?",
+          "noun": "apricot"
+        },
+        {
+          "prompt": "the city is a place, this is a radish",
+          "expected": "what is a radish?",
+          "noun": "radish"
+        },
+        {
+          "prompt": "the garden is a place, this is an almond",
+          "expected": "what is an almond?",
+          "noun": "almond"
+        },
+        {
+          "prompt": "the dog is an animal, this is a raspberry",
+          "expected": "what is a raspberry?",
+          "noun": "raspberry"
+        },
+        {
+          "prompt": "the door is an object, this is a fennel",
+          "expected": "what is a fennel?",
+          "noun": "fennel"
+        },
+        {
+          "prompt": "the fish is an animal, this is a funnel",
+          "expected": "what is a funnel?",
+          "noun": "funnel"
+        },
+        {
+          "prompt": "the box is an object, this is a rake",
+          "expected": "what is a rake?",
+          "noun": "rake"
+        },
+        {
+          "prompt": "the rice is a food, this is a bucket",
+          "expected": "what is a bucket?",
+          "noun": "bucket"
+        },
+        {
+          "prompt": "the snow is water, this is a needle",
+          "expected": "what is a needle?",
+          "noun": "needle"
+        },
+        {
+          "prompt": "the fish is an animal, this is an apron",
+          "expected": "what is an apron?",
+          "noun": "apron"
+        },
+        {
+          "prompt": "the cow is an animal, this is a bowl",
+          "expected": "what is a bowl?",
+          "noun": "bowl"
+        },
+        {
+          "prompt": "the park is a place, this is a sapphire",
+          "expected": "what is a sapphire?",
+          "noun": "sapphire"
+        },
+        {
+          "prompt": "the table is an object, this is a lantern",
+          "expected": "what is a lantern?",
+          "noun": "lantern"
+        },
+        {
+          "prompt": "the ball is an object, this is a cliff",
+          "expected": "what is a cliff?",
+          "noun": "cliff"
+        },
+        {
+          "prompt": "the cow is an animal, this is a glade",
+          "expected": "what is a glade?",
+          "noun": "glade"
+        },
+        {
+          "prompt": "the bread is a food, this is a ravine",
+          "expected": "what is a ravine?",
+          "noun": "ravine"
+        },
+        {
+          "prompt": "the woman is a person, this is a fern",
+          "expected": "what is a fern?",
+          "noun": "fern"
+        },
+        {
+          "prompt": "the moon is a light, this is an ivy",
+          "expected": "what is an ivy?",
+          "noun": "ivy"
+        },
+        {
+          "prompt": "the boy is a person, this is a poppy",
+          "expected": "what is a poppy?",
+          "noun": "poppy"
+        }
+      ]
+    },
+    "G": {
+      "description": "Ask about the RIGHT name: the distractor is in the prompt",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "the spider is an animal, this is a compass",
+          "expected": "what is a compass?",
+          "noun": "compass"
+        },
+        {
+          "prompt": "the hedgehog is an animal, this is a hawk",
+          "expected": "what is a hawk?",
+          "noun": "hawk"
+        },
+        {
+          "prompt": "the button is an object, this is a blueberry",
+          "expected": "what is a blueberry?",
+          "noun": "blueberry"
+        },
+        {
+          "prompt": "the drum is an object, this is a stool",
+          "expected": "what is a stool?",
+          "noun": "stool"
+        },
+        {
+          "prompt": "the pumpkin is a food, this is a clarinet",
+          "expected": "what is a clarinet?",
+          "noun": "clarinet"
+        },
+        {
+          "prompt": "the lighthouse is a place, this is a squirrel",
+          "expected": "what is a squirrel?",
+          "noun": "squirrel"
+        },
+        {
+          "prompt": "the spider is an animal, this is a badger",
+          "expected": "what is a badger?",
+          "noun": "badger"
+        },
+        {
+          "prompt": "the hedgehog is an animal, this is a toad",
+          "expected": "what is a toad?",
+          "noun": "toad"
+        },
+        {
+          "prompt": "the button is an object, this is a bison",
+          "expected": "what is a bison?",
+          "noun": "bison"
+        },
+        {
+          "prompt": "the drum is an object, this is an otter",
+          "expected": "what is an otter?",
+          "noun": "otter"
+        },
+        {
+          "prompt": "the pumpkin is a food, this is a woodpecker",
+          "expected": "what is a woodpecker?",
+          "noun": "woodpecker"
+        },
+        {
+          "prompt": "the lighthouse is a place, this is a beaver",
+          "expected": "what is a beaver?",
+          "noun": "beaver"
+        },
+        {
+          "prompt": "the spider is an animal, this is an apricot",
+          "expected": "what is an apricot?",
+          "noun": "apricot"
+        },
+        {
+          "prompt": "the hedgehog is an animal, this is a radish",
+          "expected": "what is a radish?",
+          "noun": "radish"
+        },
+        {
+          "prompt": "the button is an object, this is an almond",
+          "expected": "what is an almond?",
+          "noun": "almond"
+        },
+        {
+          "prompt": "the drum is an object, this is a raspberry",
+          "expected": "what is a raspberry?",
+          "noun": "raspberry"
+        },
+        {
+          "prompt": "the pumpkin is a food, this is a fennel",
+          "expected": "what is a fennel?",
+          "noun": "fennel"
+        },
+        {
+          "prompt": "the lighthouse is a place, this is a funnel",
+          "expected": "what is a funnel?",
+          "noun": "funnel"
+        },
+        {
+          "prompt": "the spider is an animal, this is a rake",
+          "expected": "what is a rake?",
+          "noun": "rake"
+        },
+        {
+          "prompt": "the hedgehog is an animal, this is a bucket",
+          "expected": "what is a bucket?",
+          "noun": "bucket"
+        },
+        {
+          "prompt": "the button is an object, this is a needle",
+          "expected": "what is a needle?",
+          "noun": "needle"
+        },
+        {
+          "prompt": "the drum is an object, this is an apron",
+          "expected": "what is an apron?",
+          "noun": "apron"
+        },
+        {
+          "prompt": "the pumpkin is a food, this is a bowl",
+          "expected": "what is a bowl?",
+          "noun": "bowl"
+        },
+        {
+          "prompt": "the lighthouse is a place, this is a sapphire",
+          "expected": "what is a sapphire?",
+          "noun": "sapphire"
+        },
+        {
+          "prompt": "the spider is an animal, this is a lantern",
+          "expected": "what is a lantern?",
+          "noun": "lantern"
+        },
+        {
+          "prompt": "the hedgehog is an animal, this is a cliff",
+          "expected": "what is a cliff?",
+          "noun": "cliff"
+        },
+        {
+          "prompt": "the button is an object, this is a glade",
+          "expected": "what is a glade?",
+          "noun": "glade"
+        },
+        {
+          "prompt": "the drum is an object, this is a ravine",
+          "expected": "what is a ravine?",
+          "noun": "ravine"
+        },
+        {
+          "prompt": "the pumpkin is a food, this is a fern",
+          "expected": "what is a fern?",
+          "noun": "fern"
+        },
+        {
+          "prompt": "the lighthouse is a place, this is an ivy",
+          "expected": "what is an ivy?",
+          "noun": "ivy"
+        },
+        {
+          "prompt": "the spider is an animal, this is a poppy",
+          "expected": "what is a poppy?",
+          "noun": "poppy"
+        }
+      ]
+    },
+    "B": {
+      "description": "Do not ask about the known: a learned name -> its class",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "the cake is a food, this is a key",
+          "expected": "the key is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "the bread is a food, this is a mouse",
+          "expected": "the mouse is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "the egg is a food, this is a book",
+          "expected": "the book is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "the rain is water, this is a lamp",
+          "expected": "the lamp is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "the mouse is an animal, this is a child",
+          "expected": "the child is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "the moon is a light, this is a horse",
+          "expected": "the horse is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "the sun is a light, this is honey",
+          "expected": "the honey is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "the teacher is a person, this is a ball",
+          "expected": "the ball is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "the teacher is a person, this is a house",
+          "expected": "the house is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "the baby is a person, this is cheese",
+          "expected": "the cheese is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "the sky is a place, this is a dad",
+          "expected": "the dad is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "the cat is an animal, this is a cake",
+          "expected": "the cake is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "the sun is a light, this is a teacher",
+          "expected": "the teacher is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "the sea is a place, this is a baby",
+          "expected": "the baby is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "the water is a food, this is the sky",
+          "expected": "the sky is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "the flower is a plant, this is a bee",
+          "expected": "the bee is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "the rain is water, this is bread",
+          "expected": "the bread is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "the snow is water, this is a city",
+          "expected": "the city is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "the cheese is a food, this is a table",
+          "expected": "the table is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "the book is an object, this is a woman",
+          "expected": "the woman is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "the horse is an animal, this is a park",
+          "expected": "the park is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "the cat is an animal, this is a window",
+          "expected": "the window is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "the park is a place, this is a door",
+          "expected": "the door is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "the sky is a place, this is a man",
+          "expected": "the man is a person.",
+          "article": "the",
+          "noun": "person"
+        }
+      ]
+    },
+    "C": {
+      "description": "Consolidate: the class of the new name, after the answer",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "what is a drum?",
+          "expected": "the drum is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what is a spider?",
+          "expected": "the spider is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what is a button?",
+          "expected": "the button is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what is a pumpkin?",
+          "expected": "the pumpkin is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what is a hedgehog?",
+          "expected": "the hedgehog is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what is a lighthouse?",
+          "expected": "the lighthouse is a place.",
+          "article": "the",
+          "noun": "place"
+        }
+      ]
+    },
+    "D": {
+      "description": "Rehearsal: confirming the class of the new names",
+      "prompt_template": "{prompt}",
+      "max_response_words": 8,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "the spider is an animal?",
+          "expected": "yes, the spider is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "the button is an object?",
+          "expected": "yes, the button is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "the drum is an object?",
+          "expected": "yes, the drum is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "the hedgehog is an animal?",
+          "expected": "yes, the hedgehog is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "the pumpkin is a food?",
+          "expected": "yes, the pumpkin is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "the lighthouse is a place?",
+          "expected": "yes, the lighthouse is a place.",
+          "article": "the",
+          "noun": "place"
+        }
+      ]
+    },
+    "E": {
+      "description": "Saying you do not know: a bare question about a name never explained",
+      "prompt_template": "{prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": false,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "what is the compass?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a compass?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the compass is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the hawk?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a hawk?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the hawk is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the blueberry?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a blueberry?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the blueberry is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the stool?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a stool?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the stool is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the clarinet?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a clarinet?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the clarinet is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the squirrel?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a squirrel?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the squirrel is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the badger?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a badger?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the badger is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the toad?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a toad?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the toad is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the bison?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a bison?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the bison is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the otter?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is an otter?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the otter is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the woodpecker?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a woodpecker?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the woodpecker is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the beaver?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a beaver?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the beaver is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the apricot?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is an apricot?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the apricot is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the radish?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a radish?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the radish is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the almond?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is an almond?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the almond is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the raspberry?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a raspberry?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the raspberry is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the fennel?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a fennel?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the fennel is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the funnel?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a funnel?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the funnel is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the rake?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a rake?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the rake is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the bucket?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a bucket?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the bucket is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the needle?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a needle?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the needle is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the apron?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is an apron?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the apron is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the bowl?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a bowl?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the bowl is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the sapphire?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a sapphire?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the sapphire is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the lantern?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a lantern?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the lantern is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the cliff?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a cliff?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the cliff is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the glade?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a glade?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the glade is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the ravine?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a ravine?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the ravine is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the fern?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a fern?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the fern is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the ivy?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is an ivy?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the ivy is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is the poppy?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what is a poppy?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "the poppy is an animal?",
+          "expected": "i do not know.",
+          "noun": "know"
+        }
+      ]
+    },
+    "F": {
+      "description": "Rehearsal: what does it do? where is it?  (L3 D, heard again)",
+      "prompt_template": "{prompt}",
+      "max_response_words": 6,
+      "advance_after_successes": 2,
+      "retry_after_failures": 5,
+      "require_article": false,
+      "require_verb": true,
+      "require_adjective": false,
+      "targets": [
+        {
+          "prompt": "what does the cat do?",
+          "expected": "the cat sleeps.",
+          "noun": "cat",
+          "verb": "sleeps"
+        },
+        {
+          "prompt": "what does the dog do?",
+          "expected": "the dog runs.",
+          "noun": "dog",
+          "verb": "runs"
+        },
+        {
+          "prompt": "what does the fish do?",
+          "expected": "the fish swims.",
+          "noun": "fish",
+          "verb": "swims"
+        },
+        {
+          "prompt": "what does the bird do?",
+          "expected": "the bird flies.",
+          "noun": "bird",
+          "verb": "flies"
+        },
+        {
+          "prompt": "what does the horse do?",
+          "expected": "the horse runs.",
+          "noun": "horse",
+          "verb": "runs"
+        },
+        {
+          "prompt": "what does the cow do?",
+          "expected": "the cow eats.",
+          "noun": "cow",
+          "verb": "eats"
+        },
+        {
+          "prompt": "what does the wolf do?",
+          "expected": "the wolf runs.",
+          "noun": "wolf",
+          "verb": "runs"
+        },
+        {
+          "prompt": "what does the mouse do?",
+          "expected": "the mouse runs.",
+          "noun": "mouse",
+          "verb": "runs"
+        },
+        {
+          "prompt": "what does the bee do?",
+          "expected": "the bee flies.",
+          "noun": "bee",
+          "verb": "flies"
+        },
+        {
+          "prompt": "what does the mom do?",
+          "expected": "the mom cooks.",
+          "noun": "mom",
+          "verb": "cooks"
+        },
+        {
+          "prompt": "what does the dad do?",
+          "expected": "the dad reads.",
+          "noun": "dad",
+          "verb": "reads"
+        },
+        {
+          "prompt": "what does the boy do?",
+          "expected": "the boy plays.",
+          "noun": "boy",
+          "verb": "plays"
+        },
+        {
+          "prompt": "what does the girl do?",
+          "expected": "the girl sings.",
+          "noun": "girl",
+          "verb": "sings"
+        },
+        {
+          "prompt": "what does the baby do?",
+          "expected": "the baby sleeps.",
+          "noun": "baby",
+          "verb": "sleeps"
+        },
+        {
+          "prompt": "what does the child do?",
+          "expected": "the child plays.",
+          "noun": "child",
+          "verb": "plays"
+        },
+        {
+          "prompt": "what does the friend do?",
+          "expected": "the friend laughs.",
+          "noun": "friend",
+          "verb": "laughs"
+        },
+        {
+          "prompt": "what does the man do?",
+          "expected": "the man walks.",
+          "noun": "man",
+          "verb": "walks"
+        },
+        {
+          "prompt": "what does the woman do?",
+          "expected": "the woman works.",
+          "noun": "woman",
+          "verb": "works"
+        },
+        {
+          "prompt": "what does the teacher do?",
+          "expected": "the teacher reads.",
+          "noun": "teacher",
+          "verb": "reads"
+        },
+        {
+          "prompt": "what does the sun do?",
+          "expected": "the sun shines.",
+          "noun": "sun",
+          "verb": "shines"
+        },
+        {
+          "prompt": "what does the moon do?",
+          "expected": "the moon shines.",
+          "noun": "moon",
+          "verb": "shines"
+        },
+        {
+          "prompt": "what does the star do?",
+          "expected": "the star shines.",
+          "noun": "star",
+          "verb": "shines"
+        },
+        {
+          "prompt": "what does the tree do?",
+          "expected": "the tree grows.",
+          "noun": "tree",
+          "verb": "grows"
+        },
+        {
+          "prompt": "what does the flower do?",
+          "expected": "the flower grows.",
+          "noun": "flower",
+          "verb": "grows"
+        },
+        {
+          "prompt": "what does the grass do?",
+          "expected": "the grass grows.",
+          "noun": "grass",
+          "verb": "grows"
+        },
+        {
+          "prompt": "what does the snow do?",
+          "expected": "the snow falls.",
+          "noun": "snow",
+          "verb": "falls"
+        }
+      ]
+    }
+  }
+}
