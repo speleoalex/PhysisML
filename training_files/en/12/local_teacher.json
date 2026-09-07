@@ -1114,6 +1114,316 @@
           "prompt": "the poppy is an animal?",
           "expected": "i do not know.",
           "noun": "know"
+        },
+        {
+          "prompt": "what s the compass?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a compass?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the hawk?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a hawk?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the blueberry?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a blueberry?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the stool?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a stool?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the clarinet?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a clarinet?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the squirrel?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a squirrel?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the badger?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a badger?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the toad?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a toad?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the bison?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a bison?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the otter?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s an otter?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the woodpecker?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a woodpecker?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the beaver?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a beaver?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the apricot?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s an apricot?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the radish?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a radish?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the almond?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s an almond?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the raspberry?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a raspberry?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the fennel?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a fennel?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the funnel?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a funnel?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the rake?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a rake?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the bucket?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a bucket?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the needle?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a needle?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the apron?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s an apron?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the bowl?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a bowl?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the sapphire?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a sapphire?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the lantern?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a lantern?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the cliff?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a cliff?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the glade?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a glade?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the ravine?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a ravine?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the fern?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a fern?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the ivy?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s an ivy?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s the poppy?",
+          "expected": "i do not know.",
+          "noun": "know"
+        },
+        {
+          "prompt": "what s a poppy?",
+          "expected": "i do not know.",
+          "noun": "know"
         }
       ]
     },

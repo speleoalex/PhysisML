@@ -18,7 +18,7 @@
   12
  ],
  "n": 104,
- "fingerprint": "d8da0d3247cba2a0",
+ "fingerprint": "a173551267247f59",
  "items": [
   {
    "level": 0,
@@ -462,83 +462,83 @@
   },
   {
    "level": 11,
-   "prompt": "the road is a place?",
-   "expected": "yes, the road is a place."
+   "prompt": "the table is a place?",
+   "expected": "no, the table is an object."
   },
   {
    "level": 11,
-   "prompt": "what is a door?",
-   "expected": "the door is an object."
+   "prompt": "what s a baby?",
+   "expected": "the baby is a person."
   },
   {
    "level": 11,
-   "prompt": "the mom is an object?",
-   "expected": "no, the mom is a person."
+   "prompt": "what does the cow do?",
+   "expected": "the cow eats."
   },
   {
    "level": 11,
-   "prompt": "what does the man do?",
-   "expected": "the man walks."
+   "prompt": "the dog is an animal?",
+   "expected": "yes, the dog is an animal."
   },
   {
    "level": 11,
-   "prompt": "the cat is an animal?",
-   "expected": "yes, the cat is an animal."
+   "prompt": "what s the house?",
+   "expected": "the house is a place."
   },
   {
    "level": 11,
-   "prompt": "what is the moon?",
-   "expected": "the moon is a light."
+   "prompt": "what is the box?",
+   "expected": "the box is an object."
   },
   {
    "level": 11,
-   "prompt": "what does the boy do?",
-   "expected": "the boy plays."
+   "prompt": "what s the egg?",
+   "expected": "the egg is a food."
   },
   {
    "level": 11,
-   "prompt": "what is the teacher?",
-   "expected": "the teacher is a person."
+   "prompt": "the soup is an animal?",
+   "expected": "no, the soup is a food."
   },
   {
    "level": 12,
-   "prompt": "the lighthouse is a place, this is an ivy",
-   "expected": "what is an ivy?"
-  },
-  {
-   "level": 12,
-   "prompt": "the baby is a person, this is cheese",
-   "expected": "the cheese is a food."
-  },
-  {
-   "level": 12,
-   "prompt": "the ravine is an animal?",
+   "prompt": "the otter is an animal?",
    "expected": "i do not know."
   },
   {
    "level": 12,
-   "prompt": "the spider is an animal, this is a rake",
-   "expected": "what is a rake?"
+   "prompt": "what is the funnel?",
+   "expected": "i do not know."
   },
   {
    "level": 12,
-   "prompt": "the spider is an animal, this is an apricot",
-   "expected": "what is an apricot?"
+   "prompt": "what is the blueberry?",
+   "expected": "i do not know."
   },
   {
    "level": 12,
-   "prompt": "the spider is an animal, this is a compass",
-   "expected": "what is a compass?"
+   "prompt": "the button is an object?",
+   "expected": "yes, the button is an object."
   },
   {
    "level": 12,
-   "prompt": "the garden is a place, this is an almond",
-   "expected": "what is an almond?"
+   "prompt": "the teacher is a person, this is a ball",
+   "expected": "the ball is an object."
   },
   {
    "level": 12,
-   "prompt": "what does the baby do?",
-   "expected": "the baby sleeps."
+   "prompt": "the pumpkin is a food, this is a clarinet",
+   "expected": "what is a clarinet?"
+  },
+  {
+   "level": 12,
+   "prompt": "what is the badger?",
+   "expected": "i do not know."
+  },
+  {
+   "level": 12,
+   "prompt": "what is a bowl?",
+   "expected": "i do not know."
   }
  ]
 }

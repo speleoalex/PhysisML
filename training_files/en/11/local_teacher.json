@@ -630,6 +630,606 @@
           "expected": "the sky is a place.",
           "article": "the",
           "noun": "place"
+        },
+        {
+          "prompt": "what s the cat?",
+          "expected": "the cat is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s a cat?",
+          "expected": "the cat is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s the dog?",
+          "expected": "the dog is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s a dog?",
+          "expected": "the dog is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s the fish?",
+          "expected": "the fish is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s a fish?",
+          "expected": "the fish is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s the bird?",
+          "expected": "the bird is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s a bird?",
+          "expected": "the bird is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s the horse?",
+          "expected": "the horse is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s a horse?",
+          "expected": "the horse is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s the cow?",
+          "expected": "the cow is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s a cow?",
+          "expected": "the cow is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s the wolf?",
+          "expected": "the wolf is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s a wolf?",
+          "expected": "the wolf is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s the mouse?",
+          "expected": "the mouse is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s a mouse?",
+          "expected": "the mouse is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s the bee?",
+          "expected": "the bee is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s a bee?",
+          "expected": "the bee is an animal.",
+          "article": "the",
+          "noun": "animal"
+        },
+        {
+          "prompt": "what s the mom?",
+          "expected": "the mom is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s a mom?",
+          "expected": "the mom is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s the dad?",
+          "expected": "the dad is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s a dad?",
+          "expected": "the dad is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s the boy?",
+          "expected": "the boy is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s a boy?",
+          "expected": "the boy is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s the girl?",
+          "expected": "the girl is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s a girl?",
+          "expected": "the girl is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s the baby?",
+          "expected": "the baby is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s a baby?",
+          "expected": "the baby is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s the child?",
+          "expected": "the child is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s a child?",
+          "expected": "the child is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s the friend?",
+          "expected": "the friend is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s a friend?",
+          "expected": "the friend is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s the man?",
+          "expected": "the man is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s a man?",
+          "expected": "the man is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s the woman?",
+          "expected": "the woman is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s a woman?",
+          "expected": "the woman is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s the teacher?",
+          "expected": "the teacher is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s a teacher?",
+          "expected": "the teacher is a person.",
+          "article": "the",
+          "noun": "person"
+        },
+        {
+          "prompt": "what s the bread?",
+          "expected": "the bread is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s the milk?",
+          "expected": "the milk is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s the water?",
+          "expected": "the water is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s the apple?",
+          "expected": "the apple is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s an apple?",
+          "expected": "the apple is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s the egg?",
+          "expected": "the egg is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s an egg?",
+          "expected": "the egg is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s the cake?",
+          "expected": "the cake is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s a cake?",
+          "expected": "the cake is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s the cheese?",
+          "expected": "the cheese is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s the honey?",
+          "expected": "the honey is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s the rice?",
+          "expected": "the rice is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s the soup?",
+          "expected": "the soup is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s a soup?",
+          "expected": "the soup is a food.",
+          "article": "the",
+          "noun": "food"
+        },
+        {
+          "prompt": "what s the book?",
+          "expected": "the book is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s a book?",
+          "expected": "the book is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s the ball?",
+          "expected": "the ball is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s a ball?",
+          "expected": "the ball is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s the car?",
+          "expected": "the car is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s a car?",
+          "expected": "the car is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s the table?",
+          "expected": "the table is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s a table?",
+          "expected": "the table is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s the chair?",
+          "expected": "the chair is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s a chair?",
+          "expected": "the chair is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s the door?",
+          "expected": "the door is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s a door?",
+          "expected": "the door is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s the window?",
+          "expected": "the window is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s a window?",
+          "expected": "the window is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s the bed?",
+          "expected": "the bed is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s a bed?",
+          "expected": "the bed is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s the lamp?",
+          "expected": "the lamp is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s a lamp?",
+          "expected": "the lamp is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s the key?",
+          "expected": "the key is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s a key?",
+          "expected": "the key is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s the box?",
+          "expected": "the box is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s a box?",
+          "expected": "the box is an object.",
+          "article": "the",
+          "noun": "object"
+        },
+        {
+          "prompt": "what s the house?",
+          "expected": "the house is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s a house?",
+          "expected": "the house is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s the school?",
+          "expected": "the school is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s a school?",
+          "expected": "the school is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s the park?",
+          "expected": "the park is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s a park?",
+          "expected": "the park is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s the garden?",
+          "expected": "the garden is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s a garden?",
+          "expected": "the garden is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s the road?",
+          "expected": "the road is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s a road?",
+          "expected": "the road is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s the city?",
+          "expected": "the city is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s a city?",
+          "expected": "the city is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s the sun?",
+          "expected": "the sun is a light.",
+          "article": "the",
+          "noun": "light"
+        },
+        {
+          "prompt": "what s the moon?",
+          "expected": "the moon is a light.",
+          "article": "the",
+          "noun": "light"
+        },
+        {
+          "prompt": "what s the star?",
+          "expected": "the star is a light.",
+          "article": "the",
+          "noun": "light"
+        },
+        {
+          "prompt": "what s a star?",
+          "expected": "the star is a light.",
+          "article": "the",
+          "noun": "light"
+        },
+        {
+          "prompt": "what s the sea?",
+          "expected": "the sea is a place.",
+          "article": "the",
+          "noun": "place"
+        },
+        {
+          "prompt": "what s the tree?",
+          "expected": "the tree is a plant.",
+          "article": "the",
+          "noun": "plant"
+        },
+        {
+          "prompt": "what s a tree?",
+          "expected": "the tree is a plant.",
+          "article": "the",
+          "noun": "plant"
+        },
+        {
+          "prompt": "what s the flower?",
+          "expected": "the flower is a plant.",
+          "article": "the",
+          "noun": "plant"
+        },
+        {
+          "prompt": "what s a flower?",
+          "expected": "the flower is a plant.",
+          "article": "the",
+          "noun": "plant"
+        },
+        {
+          "prompt": "what s the grass?",
+          "expected": "the grass is a plant.",
+          "article": "the",
+          "noun": "plant"
+        },
+        {
+          "prompt": "what s the wind?",
+          "expected": "the wind is a thing.",
+          "article": "the",
+          "noun": "thing"
+        },
+        {
+          "prompt": "what s the snow?",
+          "expected": "the snow is water.",
+          "article": "the",
+          "noun": "water"
+        },
+        {
+          "prompt": "what s the rain?",
+          "expected": "the rain is water.",
+          "article": "the",
+          "noun": "water"
+        },
+        {
+          "prompt": "what s the sky?",
+          "expected": "the sky is a place.",
+          "article": "the",
+          "noun": "place"
         }
       ]
     },

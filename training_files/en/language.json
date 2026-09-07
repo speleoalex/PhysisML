@@ -131,7 +131,8 @@
     },
     "class_article_re": "^(an|a|the)\\s+",
     "ask_heads": [
-      "what is"
+      "what is",
+      "what s"
     ],
     "top_class_head": "thing",
     "example_request": "give an example of {cls}",

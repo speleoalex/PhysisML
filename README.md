@@ -165,39 +165,62 @@ have).
 
 | | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
 |---|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
-| every level, one model | 100% | 100% | 84% | 95% | 57% | 90% | 87% | 90% | 85% | 83% | 99% | 86% | 99% |
+| every level, one model | 100% | 100% | 85% | 97% | 57% | 90% | 89% | 94% | 89% | 96% | 100% | 85% | 98% |
 
 | | |
 |---|---|
-| this checkpoint on every current target (1197 prompts) | **89.5%**, self-repetition 1.5% |
-| its own frozen probe, 104 prompts | **88.5%**, self-repetition 3.8% |
+| this checkpoint on every current target (1359 prompts) | **90%**, self-repetition 1% |
+| its own frozen probe, 104 prompts | **91.3%**, self-repetition 1.9% |
 
 Both rows are measured the way the Italian ones are: exact match against
 *every* gold answer of every level (`scripts/measure_repetition.py`), and the
 frozen probe (`dynamic_model/data/probe_set_en.json`, fingerprint
-`d8da0d3247cba2a0`) re-scored after each dream.
+`a173551267247f59`) re-scored after each dream.
+
+The probe holds 104 items, so one item is 0.96% and consecutive dreams swing by
+up to three of them. 91.3% is the best of a 88-91% band, kept because the run
+restores the best measured state; it is not a level a re-run would reproduce.
 
 The two ontology levels did not cost retention — they bought it. Against the
 level-10 checkpoint (78.8% on the 720 targets that existed then), the low
-levels came *up*: L5 54% → 90%, L6 68% → 87%, L7 77% → 90%, L8 72% → 85%,
-L2 75% → 84%, L1 98% → 100%. Twelve extra dream cycles over a corpus that now
-includes L11 and L12 replayed everything else with it. Level 4 is the one that
-did not move (54% → 57%) and is now the weakest level of the curriculum: 24 of
-its 29 remaining failures are one substitution, the locative frame collapsing
-into the level-5 causal one — `where does the cat sleep?` → `the cat sleeps
-because it is tired.`
+levels came *up*: L5 54% → 90%, L6 68% → 89%, L7 77% → 94%, L8 72% → 89%,
+L9 75% → 96%, L2 75% → 85%, L1 98% → 100%. Twenty-two dream cycles — seven on
+level 11, fifteen on level 12 — over a corpus that now includes L11 and L12
+replayed everything else with it. Those L0-L10
+pools are unchanged, so the gains there are the dreams' doing and nothing
+else. Level 4 is the one that did not move (54% → 57%) and is now the weakest
+level of the curriculum: 24 of its 29 remaining failures are one substitution,
+the locative frame collapsing into the level-5 causal one — `where does the cat
+sleep?` → `the cat sleeps because it is tired.`
 
-Level 11's 35 misses out of 254 are just as concentrated. Twenty-three are
-**polarity flips with the class right**: `the milk is a food?` → `no, the milk
-is a food.` — an answer that contradicts itself in five words. The other twelve
-are the two steps that put a *class* where a noun goes, `give an example of a
-place` and `what is an animal?`, eight targets each; the model answers them
-with an instance of some other class. Levels 5-10 never ask it to treat a class
-word as an argument, and it has not generalised to it.
+**Level 11's 85% is the number in that row to distrust, and it hides a
+regression.** 54 of its 354 prompts are wrong, and 42 are **polarity flips with
+the class right**: `the cat is an animal?` → `no, the cat is an animal.` — an
+answer that contradicts itself in six words. Split by the sign of the gold
+answer, against the weights this build replaces, on the same 57 + 57
+confirmations:
+
+| level-11 confirmations | previous weights | these weights |
+|---|---|---|
+| gold `yes` (57) | 44 exact | **16 exact** |
+| gold `no` (57) | 47 exact | **56 exact** |
+
+It now answers `no` to 41 of the 57 questions whose answer is `yes`; before, 13.
+The gain on the negative half is what a blanket `no` would give, so this is not
+sharper discrimination — the affirmative confirmation collapsed into the
+negative one, and level 12 repeats it (6 of its 7 misses are the same flip).
+Nothing in this build targeted polarity, and the two things that changed — the
+wider `what s` pool and the seven extra dreams — landed together, so the cause
+is not isolated. The epistemic gains below come from these same weights.
+
+The other twelve misses are the two steps that put a *class* where a noun goes,
+`give an example of a plant` and `what is a plant?`, six targets each; the model
+answers them with an instance of some other class. Levels 5-10 never ask it to
+treat a class word as an argument, and it has not generalised to it.
 
 Scored instead with *each level's own* checkpoint — what the model knew at the
-moment it left that level — the same 1197 prompts give 97.3%, with L11 at 100%
-and L12 at 99%. Everything the final model gets wrong it once had right; the
+moment it left that level — the same 1359 prompts give 97%, with L11 at 100%
+and L12 at 98%. Everything the final model gets wrong it once had right; the
 gap between the two rows is forgetting, not a pool it never learned.
 
 Real answers, greedy:
@@ -212,38 +235,69 @@ the cow is an animal, this is a compass  -> what is a compass?
 the wolf is an animal, this is a drum    -> what is a drum?
 ```
 
-Level 11 took 7 dreams and stopped on its own plateau (probe 35.6% → 66.3%).
-Level 12 ran 12 and hit the cap still gaining (59.6% → 86.5%), so it was
-resumed with `dream_until_plateau.py --max 20 --already-done 12` and stopped
-two cycles later at **88.5%** — the curve 86.5 → 88.5 → 85.6 is the sawtooth
-the Italian level 12 shows too, and the run restores the best measured state
-rather than the last. Both curves are in `dream_curve.json` next to the
-weights.
+Level 11 took 7 dreams and stopped on its own plateau (probe 42.3% → 74.0%).
+Level 12 ran 8 and stopped on the build's ε=2%, at 82.7%; it was resumed with
+`dream_until_plateau.py --already-done 8 --max 18 --epsilon 0.01` and ran 7 more
+to **91.3%** — the curve 82.7 → 79.8 → 85.6 → 89.4 → 89.4 → 91.3 → 88.5 → 88.5
+is the sawtooth the Italian level 12 shows too, and the run restores the best
+measured state rather than the last. Both curves are in `dream_curve.json` next
+to the weights.
 
-**Honesty, measured** (`scripts/curiosity_rate.py --lang en --level 12`). On 21
-held-out nouns the curriculum never taught, with no gate at all: **76% honest**
-answers — `i do not know`, or a question — against **0%** on the twelve known
-nouns, which it classifies correctly instead. With the epistemic gate on, 100%
-and 0%. The English model is markedly more honest on never-seen names than the
-Italian one (76% vs 14%), which is the one place the two curricula measurably
-diverge.
+**The stopping rule needs reading against the probe's size.** With 104 items,
+ε=2% means a level must gain three items per dream to count as still gaining,
+so level 12's first stop at 82.7% left six points on the table; ε=1% (two items)
+found them. `decide()` also treats a *negative* gain as sub-epsilon, so a single
+downward swing spends a patience strike — the -2.9% at dream 9 is why this run
+ended at 15 dreams rather than at its cap of 18.
+
+**Honesty, measured** (`scripts/curiosity_rate.py --lang en --level 12`). On 35
+held-out nouns the curriculum never taught, with no gate at all: **77% honest**
+answers — `i do not know`, or a question — against **8%** on the twelve known
+nouns, which it otherwise classifies correctly (83%). With the epistemic gate
+on, 100% and 8%. The English model is markedly more honest on never-seen names
+than the Italian one (77% vs 14%), which is the one place the two curricula
+measurably diverge.
+
+The 8% is a real cost of this build: one known noun in twelve now draws a
+spurious question the previous English weights answered, and `class right` on
+known nouns fell from 100% to 83%. It bought the 49% → 77% on never-seen
+names, measured on the same 35 prompts with the same curiosity memory.
 
 **What is not yet good enough.** The epistemic trigger — the internal margin
 over the ten classes that the autonomy loop of level 13 reads to decide whether
-to ask — separates known from unknown nouns at **AUC 0.638** on this
-checkpoint (`scripts/epistemic_report.py`), well under the **0.95** the loop
-requires, and its verdict is `OVERLAPPING`: 22 of 57 known nouns would trigger
-a spurious question. Extra sleep does not fix it — the two top-up dreams that
-took generation from 86.5% to 88.5% took the AUC *down*, from 0.746 to 0.638.
-The likely cause is pool coverage: English declares a single interrogative
-phrasing (`"ask_heads": ["what is"]` in
+to ask — separates known from unknown nouns at **AUC 0.788** on this
+checkpoint (`scripts/epistemic_report.py`), under the **0.95** the loop
+requires, and its verdict is still `OVERLAPPING`: 18 of 57 known nouns would
+trigger a spurious question.
+
+0.788 is where the pool-coverage hypothesis the previous build carried was
+tested. English declared a single interrogative phrasing
+(`"ask_heads": ["what is"]` in
 [`training_files/en/language.json`](training_files/en/language.json)) where
-Italian declares two, so the L11 and L12 pools are roughly half the size of
-their Italian counterparts (100 and 93 targets against 197 and 105). Until that
-is closed, **English stops at level 12**: the autonomy loop is not run on it.
-Asking about the *right* referent is weak in both languages and not an English
-regression — when it asks, English names the noun in front of it 42% of the
-time, Italian 50%.
+Italian declares two, so the L11 and L12 pools were roughly half the size of
+their Italian counterparts. Adding `what s` as a second head grew them from 254
+and 223 targets to **354 and 285**; re-running both levels on the larger pools
+moved the AUC from 0.638 to 0.788, closing about half the distance to the
+guardrail. The margins moved the way the hypothesis predicts — on known nouns
+0.261 → 0.424, on never-seen ones 0.269 → 0.125 — and agreement between the
+internal margin and the emitted string rose from 31/59 to 48/59.
+
+It also cost something, and the cost is in the same place: `argmax right` on
+known nouns fell 44/57 → 36/57, and AUC against the taught level-12 nouns fell
+0.705 → 0.643. The model separates knowing from not-knowing better while naming
+the class slightly worse.
+
+Asking about the *right* referent is the other thing that is not there yet, and
+the split is clean. On the twelve prompts of the shape `the box is an object,
+this is a snail` both checkpoints ask a question every time; these weights name
+the noun in front of them 6 times out of 12 against the previous 5, and all six
+are names level 12 taught. On the six names the curriculum never taught, both
+score **0 out of 6** — `the box is an object, this is a snail` → `what is a
+bucket?` It has learned to ask, and to recite a name it was given; it has not
+learned to read the name out of the prompt.
+
+Until the guardrail is met, **English stops at level 12**: the autonomy loop is
+not run on it.
 
 The card for these weights is [huggingface/README.en.md](huggingface/README.en.md);
 they are published at

@@ -148,40 +148,65 @@ si ha).
 
 | | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 |
 |---|----|----|----|----|----|----|----|----|----|----|-----|-----|-----|
-| tutti i livelli, un modello | 100% | 100% | 84% | 95% | 57% | 90% | 87% | 90% | 85% | 83% | 99% | 86% | 99% |
+| tutti i livelli, un modello | 100% | 100% | 85% | 97% | 57% | 90% | 89% | 94% | 89% | 96% | 100% | 85% | 98% |
 
 | | |
 |---|---|
-| questo checkpoint su ogni target attuale (1197 prompt) | **89.5%**, auto-ripetizione 1.5% |
-| il suo probe congelato, 104 prompt | **88.5%**, auto-ripetizione 3.8% |
+| questo checkpoint su ogni target attuale (1359 prompt) | **90%**, auto-ripetizione 1% |
+| il suo probe congelato, 104 prompt | **91.3%**, auto-ripetizione 1.9% |
 
 Entrambe le righe sono misurate come quelle italiane: exact match su *tutte* le
 risposte gold di ogni livello (`scripts/measure_repetition.py`), e il probe
-congelato (`dynamic_model/data/probe_set_en.json`, impronta `d8da0d3247cba2a0`)
+congelato (`dynamic_model/data/probe_set_en.json`, impronta `a173551267247f59`)
 ri-misurato dopo ogni sogno.
+
+Il probe ha 104 item, quindi un item vale 0.96% e due sogni consecutivi
+oscillano fino a tre item. Il 91.3% è il massimo di una banda 88-91%, tenuto
+perché la corsa ripristina lo stato migliore misurato: non è un livello che una
+ri-esecuzione riprodurrebbe.
 
 I due livelli ontologici non hanno *tolto* ritenzione: l'hanno comprata.
 Rispetto al checkpoint del livello 10 (78.8% sui 720 target di allora) i
-livelli bassi sono *saliti*: L5 54% → 90%, L6 68% → 87%, L7 77% → 90%,
-L8 72% → 85%, L2 75% → 84%, L1 98% → 100%. Dodici cicli di sogno in più su un
-corpus che adesso comprende L11 e L12 hanno rigiocato anche tutto il resto. Il
-livello 4 è l'unico che non si è mosso (54% → 57%) ed è oggi il livello più
-debole del curriculum: 24 dei suoi 29 errori residui sono una sola
+livelli bassi sono *saliti*: L5 54% → 90%, L6 68% → 89%, L7 77% → 94%,
+L8 72% → 89%, L9 75% → 96%, L2 75% → 85%, L1 98% → 100%. Ventidue cicli di
+sogno — sette sul livello 11, quindici sul 12 — su un corpus che adesso
+comprende L11 e L12 hanno rigiocato anche tutto il resto. Quei pool L0-L10 sono
+identici byte per byte, quindi i guadagni lì sono opera dei sogni e di
+nient'altro. Il livello 4 è l'unico che non si è mosso (54% → 57%) ed è oggi il
+livello più debole del curriculum: 24 dei suoi 29 errori residui sono una sola
 sostituzione, la cornice locativa che collassa in quella causale del livello 5
 — `where does the cat sleep?` → `the cat sleeps because it is tired.`
 
-I 35 errori del livello 11 su 254 sono altrettanto concentrati. Ventitré sono
-**inversioni di polarità con la classe giusta**: `the milk is a food?` → `no,
-the milk is a food.`, una risposta che si contraddice in cinque parole. Gli
-altri dodici sono i due passi che mettono una *classe* dove va un nome, `give
-an example of a place` e `what is an animal?`, otto target ciascuno; il modello
-li risolve con un'istanza di un'altra classe. Dal livello 5 al 10 non gli si
-chiede mai di trattare una parola-classe come argomento, e non ha
+**L'85% del livello 11 è il numero di quella riga di cui diffidare, e nasconde
+una regressione.** 54 dei suoi 354 prompt sono sbagliati, e 42 sono
+**inversioni di polarità con la classe giusta**: `the cat is an animal?` →
+`no, the cat is an animal.`, una risposta che si contraddice in sei parole.
+Divisi per il segno della risposta gold, contro i pesi che questo build
+sostituisce, sulle stesse 57 + 57 conferme:
+
+| conferme del livello 11 | pesi precedenti | questi pesi |
+|---|---|---|
+| gold `yes` (57) | 44 esatte | **16 esatte** |
+| gold `no` (57) | 47 esatte | **56 esatte** |
+
+Adesso risponde `no` a 41 delle 57 domande la cui risposta è `yes`; prima erano
+13. Il guadagno sulla metà negativa è esattamente quello che darebbe un `no`
+indiscriminato, quindi non è discriminazione più fine — la conferma affermativa
+è collassata in quella negativa, e il livello 12 la ripete (6 dei suoi 7 errori
+sono la stessa inversione). Niente in questo build puntava alla polarità, e le
+due cose che sono cambiate — il pool più largo con `what s` e i sette sogni in
+più — sono arrivate insieme, quindi la causa non è isolata. I guadagni
+epistemici qui sotto vengono da questi stessi pesi.
+
+Gli altri dodici errori sono i due passi che mettono una *classe* dove va un
+nome, `give an example of a plant` e `what is a plant?`, sei target ciascuno;
+il modello li risolve con un'istanza di un'altra classe. Dal livello 5 al 10
+non gli si chiede mai di trattare una parola-classe come argomento, e non ha
 generalizzato.
 
 Misurati invece con il checkpoint *di ciascun livello* — quello che il modello
-sapeva nel momento in cui quel livello è finito — gli stessi 1197 prompt danno
-97.3%, con L11 al 100% e L12 al 99%. Tutto quello che il modello finale sbaglia
+sapeva nel momento in cui quel livello è finito — gli stessi 1359 prompt danno
+97%, con L11 al 100% e L12 al 98%. Tutto quello che il modello finale sbaglia
 lo aveva imparato: il divario fra le due righe è oblio, non un pool mai appreso.
 
 Risposte reali, greedy:
@@ -197,37 +222,71 @@ the wolf is an animal, this is a drum    -> what is a drum?
 ```
 
 Il livello 11 ha richiesto 7 sogni e si è fermato da solo su un plateau (probe
-35.6% → 66.3%). Il livello 12 ne ha fatti 12 toccando il tetto mentre ancora
-guadagnava (59.6% → 86.5%): è stato ripreso con
-`dream_until_plateau.py --max 20 --already-done 12` e si è fermato due cicli
-dopo a **88.5%** — la curva 86.5 → 88.5 → 85.6 è lo stesso dente di sega del
-livello 12 italiano, e la corsa ripristina lo stato migliore misurato, non
-l'ultimo. Le due curve stanno in `dream_curve.json` accanto ai pesi.
+42.3% → 74.0%). Il livello 12 ne ha fatti 8 fermandosi sull'ε=2% del build, a
+82.7%; è stato ripreso con
+`dream_until_plateau.py --already-done 8 --max 18 --epsilon 0.01` e ne ha fatti
+altri 7 fino a **91.3%** — la curva 82.7 → 79.8 → 85.6 → 89.4 → 89.4 → 91.3 →
+88.5 → 88.5 è lo stesso dente di sega del livello 12 italiano, e la corsa
+ripristina lo stato migliore misurato, non l'ultimo. Le due curve stanno in
+`dream_curve.json` accanto ai pesi.
+
+**La regola di stop va letta contro la dimensione del probe.** Con 104 item,
+ε=2% significa che un livello deve guadagnare tre item per sogno per contare
+come ancora in crescita, quindi il primo stop del livello 12 a 82.7% lasciava
+sei punti sul tavolo; ε=1% (due item) li ha trovati. `decide()` tratta anche un
+guadagno *negativo* come sotto-epsilon, quindi una singola oscillazione in giù
+consuma una vita di pazienza — il -2.9% al sogno 9 è il motivo per cui questa
+corsa è finita a 15 sogni e non al suo tetto di 18.
 
 **L'onestà, misurata** (`scripts/curiosity_rate.py --lang en --level 12`). Su
-21 nomi tenuti fuori che il curriculum non ha mai insegnato, senza nessun gate:
-**76% di risposte oneste** — `i do not know`, oppure una domanda — contro
-**0%** sui dodici nomi noti, che invece classifica correttamente. Con il gate
-epistemico acceso, 100% e 0%. Il modello inglese è nettamente più onesto
-dell'italiano sui nomi mai visti (76% contro 14%), ed è l'unico punto in cui i
-due curriculum divergono in modo misurabile.
+35 nomi tenuti fuori che il curriculum non ha mai insegnato, senza nessun gate:
+**77% di risposte oneste** — `i do not know`, oppure una domanda — contro
+**8%** sui dodici nomi noti, che per il resto classifica correttamente (83%).
+Con il gate epistemico acceso, 100% e 8%. Il modello inglese è nettamente più
+onesto dell'italiano sui nomi mai visti (77% contro 14%), ed è l'unico punto in
+cui i due curriculum divergono in modo misurabile.
+
+L'8% è un costo reale di questo build: un nome noto su dodici adesso tira una
+domanda spuria a cui i pesi inglesi precedenti rispondevano, e il `class right`
+sui nomi noti è sceso dal 100% all'83%. Ha comprato il passaggio da 49% a 77%
+sui mai visti, misurato sugli stessi 35 prompt con la stessa memoria di
+curiosità.
 
 **Cosa non basta ancora.** Il trigger epistemico — il margine interno sulle
 dieci classi che il ciclo autonomo del livello 13 legge per decidere se
-chiedere — separa noti da ignoti con **AUC 0.638** su questo checkpoint
-(`scripts/epistemic_report.py`), ben sotto lo **0.95** che il ciclo pretende, e
-il suo verdetto è `OVERLAPPING`: 22 nomi noti su 57 farebbero scattare una
-domanda spuria. Dormire di più non lo sistema — i due sogni aggiuntivi che
-hanno portato la generazione da 86.5% a 88.5% hanno fatto *scendere* l'AUC, da
-0.746 a 0.638. La causa probabile è la copertura del pool: l'inglese dichiara
+chiedere — separa noti da ignoti con **AUC 0.788** su questo checkpoint
+(`scripts/epistemic_report.py`), sotto lo **0.95** che il ciclo pretende, e il
+suo verdetto resta `OVERLAPPING`: 18 nomi noti su 57 farebbero scattare una
+domanda spuria.
+
+0.788 è il punto in cui l'ipotesi sulla copertura del pool, che il build
+precedente si portava dietro, è stata messa alla prova. L'inglese dichiarava
 una sola forma interrogativa (`"ask_heads": ["what is"]` in
 [`training_files/en/language.json`](training_files/en/language.json)) dove
-l'italiano ne dichiara due, quindi i pool di L11 e L12 sono all'incirca metà
-dei corrispondenti italiani (100 e 93 target contro 197 e 105). Finché non si
-chiude, **l'inglese si ferma al livello 12**: il ciclo autonomo non ci viene
-eseguito. Chiedere del referente *giusto* è debole in entrambe le lingue e non
-è una regressione dell'inglese — quando chiede, l'inglese nomina il nome che ha
-davanti nel 42% dei casi, l'italiano nel 50%.
+l'italiano ne dichiara due, quindi i pool di L11 e L12 erano all'incirca metà
+dei corrispondenti italiani. Aggiungere `what s` come seconda testa li ha
+portati da 254 e 223 target a **354 e 285**; rieseguire i due livelli sui pool
+più grandi ha spostato l'AUC da 0.638 a 0.788, chiudendo circa metà della
+distanza dalla guardia. I margini si sono mossi come l'ipotesi prevede — sui
+nomi noti 0.261 → 0.424, sui mai visti 0.269 → 0.125 — e l'accordo fra il
+margine interno e la stringa emessa è salito da 31/59 a 48/59.
+
+È anche costato qualcosa, e il costo sta nello stesso posto: l'`argmax right`
+sui nomi noti è sceso da 44/57 a 36/57, e l'AUC contro i nomi insegnati al
+livello 12 da 0.705 a 0.643. Il modello separa meglio il sapere dal non sapere
+e nomina la classe un po' peggio.
+
+Chiedere del referente *giusto* è l'altra cosa che non c'è ancora, e la
+spaccatura è netta. Sui dodici prompt della forma `the box is an object, this
+is a snail` entrambi i checkpoint fanno sempre una domanda; questi pesi nominano
+il nome che hanno davanti 6 volte su 12 contro le 5 precedenti, e tutti e sei
+sono nomi che il livello 12 ha insegnato. Sui sei nomi che il curriculum non ha
+mai insegnato entrambi fanno **0 su 6**: `the box is an object, this is a
+snail` → `what is a bucket?` Ha imparato a chiedere, e a recitare un nome che
+gli è stato dato; non ha imparato a leggere il nome dal prompt.
+
+Finché la guardia non è soddisfatta, **l'inglese si ferma al livello 12**: il
+ciclo autonomo non ci viene eseguito.
 
 La scheda di questi pesi è
 [huggingface/README.en.md](huggingface/README.en.md); sono pubblicati su

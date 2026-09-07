@@ -98,6 +98,106 @@
 {"prompt": "what is the snow?", "response": "the snow is water."}
 {"prompt": "what is the rain?", "response": "the rain is water."}
 {"prompt": "what is the sky?", "response": "the sky is a place."}
+{"prompt": "what s the cat?", "response": "the cat is an animal."}
+{"prompt": "what s a cat?", "response": "the cat is an animal."}
+{"prompt": "what s the dog?", "response": "the dog is an animal."}
+{"prompt": "what s a dog?", "response": "the dog is an animal."}
+{"prompt": "what s the fish?", "response": "the fish is an animal."}
+{"prompt": "what s a fish?", "response": "the fish is an animal."}
+{"prompt": "what s the bird?", "response": "the bird is an animal."}
+{"prompt": "what s a bird?", "response": "the bird is an animal."}
+{"prompt": "what s the horse?", "response": "the horse is an animal."}
+{"prompt": "what s a horse?", "response": "the horse is an animal."}
+{"prompt": "what s the cow?", "response": "the cow is an animal."}
+{"prompt": "what s a cow?", "response": "the cow is an animal."}
+{"prompt": "what s the wolf?", "response": "the wolf is an animal."}
+{"prompt": "what s a wolf?", "response": "the wolf is an animal."}
+{"prompt": "what s the mouse?", "response": "the mouse is an animal."}
+{"prompt": "what s a mouse?", "response": "the mouse is an animal."}
+{"prompt": "what s the bee?", "response": "the bee is an animal."}
+{"prompt": "what s a bee?", "response": "the bee is an animal."}
+{"prompt": "what s the mom?", "response": "the mom is a person."}
+{"prompt": "what s a mom?", "response": "the mom is a person."}
+{"prompt": "what s the dad?", "response": "the dad is a person."}
+{"prompt": "what s a dad?", "response": "the dad is a person."}
+{"prompt": "what s the boy?", "response": "the boy is a person."}
+{"prompt": "what s a boy?", "response": "the boy is a person."}
+{"prompt": "what s the girl?", "response": "the girl is a person."}
+{"prompt": "what s a girl?", "response": "the girl is a person."}
+{"prompt": "what s the baby?", "response": "the baby is a person."}
+{"prompt": "what s a baby?", "response": "the baby is a person."}
+{"prompt": "what s the child?", "response": "the child is a person."}
+{"prompt": "what s a child?", "response": "the child is a person."}
+{"prompt": "what s the friend?", "response": "the friend is a person."}
+{"prompt": "what s a friend?", "response": "the friend is a person."}
+{"prompt": "what s the man?", "response": "the man is a person."}
+{"prompt": "what s a man?", "response": "the man is a person."}
+{"prompt": "what s the woman?", "response": "the woman is a person."}
+{"prompt": "what s a woman?", "response": "the woman is a person."}
+{"prompt": "what s the teacher?", "response": "the teacher is a person."}
+{"prompt": "what s a teacher?", "response": "the teacher is a person."}
+{"prompt": "what s the bread?", "response": "the bread is a food."}
+{"prompt": "what s the milk?", "response": "the milk is a food."}
+{"prompt": "what s the water?", "response": "the water is a food."}
+{"prompt": "what s the apple?", "response": "the apple is a food."}
+{"prompt": "what s an apple?", "response": "the apple is a food."}
+{"prompt": "what s the egg?", "response": "the egg is a food."}
+{"prompt": "what s an egg?", "response": "the egg is a food."}
+{"prompt": "what s the cake?", "response": "the cake is a food."}
+{"prompt": "what s a cake?", "response": "the cake is a food."}
+{"prompt": "what s the cheese?", "response": "the cheese is a food."}
+{"prompt": "what s the honey?", "response": "the honey is a food."}
+{"prompt": "what s the rice?", "response": "the rice is a food."}
+{"prompt": "what s the soup?", "response": "the soup is a food."}
+{"prompt": "what s a soup?", "response": "the soup is a food."}
+{"prompt": "what s the book?", "response": "the book is an object."}
+{"prompt": "what s a book?", "response": "the book is an object."}
+{"prompt": "what s the ball?", "response": "the ball is an object."}
+{"prompt": "what s a ball?", "response": "the ball is an object."}
+{"prompt": "what s the car?", "response": "the car is an object."}
+{"prompt": "what s a car?", "response": "the car is an object."}
+{"prompt": "what s the table?", "response": "the table is an object."}
+{"prompt": "what s a table?", "response": "the table is an object."}
+{"prompt": "what s the chair?", "response": "the chair is an object."}
+{"prompt": "what s a chair?", "response": "the chair is an object."}
+{"prompt": "what s the door?", "response": "the door is an object."}
+{"prompt": "what s a door?", "response": "the door is an object."}
+{"prompt": "what s the window?", "response": "the window is an object."}
+{"prompt": "what s a window?", "response": "the window is an object."}
+{"prompt": "what s the bed?", "response": "the bed is an object."}
+{"prompt": "what s a bed?", "response": "the bed is an object."}
+{"prompt": "what s the lamp?", "response": "the lamp is an object."}
+{"prompt": "what s a lamp?", "response": "the lamp is an object."}
+{"prompt": "what s the key?", "response": "the key is an object."}
+{"prompt": "what s a key?", "response": "the key is an object."}
+{"prompt": "what s the box?", "response": "the box is an object."}
+{"prompt": "what s a box?", "response": "the box is an object."}
+{"prompt": "what s the house?", "response": "the house is a place."}
+{"prompt": "what s a house?", "response": "the house is a place."}
+{"prompt": "what s the school?", "response": "the school is a place."}
+{"prompt": "what s a school?", "response": "the school is a place."}
+{"prompt": "what s the park?", "response": "the park is a place."}
+{"prompt": "what s a park?", "response": "the park is a place."}
+{"prompt": "what s the garden?", "response": "the garden is a place."}
+{"prompt": "what s a garden?", "response": "the garden is a place."}
+{"prompt": "what s the road?", "response": "the road is a place."}
+{"prompt": "what s a road?", "response": "the road is a place."}
+{"prompt": "what s the city?", "response": "the city is a place."}
+{"prompt": "what s a city?", "response": "the city is a place."}
+{"prompt": "what s the sun?", "response": "the sun is a light."}
+{"prompt": "what s the moon?", "response": "the moon is a light."}
+{"prompt": "what s the star?", "response": "the star is a light."}
+{"prompt": "what s a star?", "response": "the star is a light."}
+{"prompt": "what s the sea?", "response": "the sea is a place."}
+{"prompt": "what s the tree?", "response": "the tree is a plant."}
+{"prompt": "what s a tree?", "response": "the tree is a plant."}
+{"prompt": "what s the flower?", "response": "the flower is a plant."}
+{"prompt": "what s a flower?", "response": "the flower is a plant."}
+{"prompt": "what s the grass?", "response": "the grass is a plant."}
+{"prompt": "what s the wind?", "response": "the wind is a thing."}
+{"prompt": "what s the snow?", "response": "the snow is water."}
+{"prompt": "what s the rain?", "response": "the rain is water."}
+{"prompt": "what s the sky?", "response": "the sky is a place."}
 {"prompt": "the cat is an animal?", "response": "yes, the cat is an animal."}
 {"prompt": "the dog is an animal?", "response": "yes, the dog is an animal."}
 {"prompt": "the fish is an animal?", "response": "yes, the fish is an animal."}
@@ -252,349 +352,264 @@
 {"prompt": "what does the flower do?", "response": "the flower grows."}
 {"prompt": "what does the grass do?", "response": "the grass grows."}
 {"prompt": "what does the snow do?", "response": "the snow falls."}
-{"prompt": "again. what is the cat?", "response": "the cat is an animal."}
-{"prompt": "again. what is a cat?", "response": "the cat is an animal."}
-{"prompt": "again. what is the dog?", "response": "the dog is an animal."}
-{"prompt": "again. what is a dog?", "response": "the dog is an animal."}
-{"prompt": "again. what is the fish?", "response": "the fish is an animal."}
-{"prompt": "again. what is a fish?", "response": "the fish is an animal."}
-{"prompt": "again. what is the bird?", "response": "the bird is an animal."}
-{"prompt": "again. what is a bird?", "response": "the bird is an animal."}
-{"prompt": "again. what is the horse?", "response": "the horse is an animal."}
-{"prompt": "again. what is a horse?", "response": "the horse is an animal."}
-{"prompt": "again. what is the cow?", "response": "the cow is an animal."}
-{"prompt": "again. what is a cow?", "response": "the cow is an animal."}
-{"prompt": "again. what is the wolf?", "response": "the wolf is an animal."}
-{"prompt": "again. what is a wolf?", "response": "the wolf is an animal."}
-{"prompt": "again. what is the mouse?", "response": "the mouse is an animal."}
-{"prompt": "again. what is a mouse?", "response": "the mouse is an animal."}
-{"prompt": "again. what is the bee?", "response": "the bee is an animal."}
-{"prompt": "again. what is a bee?", "response": "the bee is an animal."}
-{"prompt": "again. what is the mom?", "response": "the mom is a person."}
-{"prompt": "again. what is a mom?", "response": "the mom is a person."}
-{"prompt": "again. what is the dad?", "response": "the dad is a person."}
-{"prompt": "again. what is a dad?", "response": "the dad is a person."}
-{"prompt": "again. what is the boy?", "response": "the boy is a person."}
-{"prompt": "again. what is a boy?", "response": "the boy is a person."}
-{"prompt": "again. what is the girl?", "response": "the girl is a person."}
-{"prompt": "again. what is a girl?", "response": "the girl is a person."}
-{"prompt": "again. what is the baby?", "response": "the baby is a person."}
-{"prompt": "again. what is a baby?", "response": "the baby is a person."}
-{"prompt": "again. what is the child?", "response": "the child is a person."}
-{"prompt": "again. what is a child?", "response": "the child is a person."}
-{"prompt": "again. what is the friend?", "response": "the friend is a person."}
-{"prompt": "again. what is a friend?", "response": "the friend is a person."}
-{"prompt": "again. what is the man?", "response": "the man is a person."}
-{"prompt": "again. what is a man?", "response": "the man is a person."}
-{"prompt": "again. what is the woman?", "response": "the woman is a person."}
-{"prompt": "again. what is a woman?", "response": "the woman is a person."}
-{"prompt": "again. what is the teacher?", "response": "the teacher is a person."}
-{"prompt": "again. what is a teacher?", "response": "the teacher is a person."}
-{"prompt": "again. what is the bread?", "response": "the bread is a food."}
-{"prompt": "again. what is the milk?", "response": "the milk is a food."}
-{"prompt": "again. what is the water?", "response": "the water is a food."}
-{"prompt": "again. what is the apple?", "response": "the apple is a food."}
-{"prompt": "again. what is an apple?", "response": "the apple is a food."}
-{"prompt": "again. what is the egg?", "response": "the egg is a food."}
-{"prompt": "again. what is an egg?", "response": "the egg is a food."}
-{"prompt": "again. what is the cake?", "response": "the cake is a food."}
-{"prompt": "again. what is a cake?", "response": "the cake is a food."}
-{"prompt": "again. what is the cheese?", "response": "the cheese is a food."}
-{"prompt": "again. what is the honey?", "response": "the honey is a food."}
-{"prompt": "again. what is the rice?", "response": "the rice is a food."}
-{"prompt": "again. what is the soup?", "response": "the soup is a food."}
-{"prompt": "again. what is a soup?", "response": "the soup is a food."}
-{"prompt": "again. what is the book?", "response": "the book is an object."}
-{"prompt": "again. what is a book?", "response": "the book is an object."}
-{"prompt": "again. what is the ball?", "response": "the ball is an object."}
-{"prompt": "again. what is a ball?", "response": "the ball is an object."}
-{"prompt": "again. what is the car?", "response": "the car is an object."}
-{"prompt": "again. what is a car?", "response": "the car is an object."}
-{"prompt": "again. what is the table?", "response": "the table is an object."}
-{"prompt": "again. what is a table?", "response": "the table is an object."}
-{"prompt": "again. what is the chair?", "response": "the chair is an object."}
-{"prompt": "again. what is a chair?", "response": "the chair is an object."}
-{"prompt": "again. what is the door?", "response": "the door is an object."}
-{"prompt": "again. what is a door?", "response": "the door is an object."}
-{"prompt": "again. what is the window?", "response": "the window is an object."}
-{"prompt": "again. what is a window?", "response": "the window is an object."}
-{"prompt": "again. what is the bed?", "response": "the bed is an object."}
-{"prompt": "again. what is a bed?", "response": "the bed is an object."}
-{"prompt": "again. what is the lamp?", "response": "the lamp is an object."}
-{"prompt": "again. what is a lamp?", "response": "the lamp is an object."}
-{"prompt": "again. what is the key?", "response": "the key is an object."}
-{"prompt": "again. what is a key?", "response": "the key is an object."}
-{"prompt": "again. what is the box?", "response": "the box is an object."}
-{"prompt": "again. what is a box?", "response": "the box is an object."}
-{"prompt": "again. what is the house?", "response": "the house is a place."}
-{"prompt": "again. what is a house?", "response": "the house is a place."}
-{"prompt": "again. what is the school?", "response": "the school is a place."}
-{"prompt": "again. what is a school?", "response": "the school is a place."}
-{"prompt": "again. what is the park?", "response": "the park is a place."}
-{"prompt": "again. what is a park?", "response": "the park is a place."}
-{"prompt": "again. what is the garden?", "response": "the garden is a place."}
-{"prompt": "again. what is a garden?", "response": "the garden is a place."}
-{"prompt": "again. what is the road?", "response": "the road is a place."}
-{"prompt": "again. what is a road?", "response": "the road is a place."}
-{"prompt": "again. what is the city?", "response": "the city is a place."}
-{"prompt": "again. what is a city?", "response": "the city is a place."}
-{"prompt": "again. what is the sun?", "response": "the sun is a light."}
-{"prompt": "again. what is the moon?", "response": "the moon is a light."}
-{"prompt": "again. what is the star?", "response": "the star is a light."}
-{"prompt": "again. what is a star?", "response": "the star is a light."}
-{"prompt": "again. what is the sea?", "response": "the sea is a place."}
-{"prompt": "again. what is the tree?", "response": "the tree is a plant."}
-{"prompt": "again. what is a tree?", "response": "the tree is a plant."}
-{"prompt": "again. what is the flower?", "response": "the flower is a plant."}
-{"prompt": "again. what is a flower?", "response": "the flower is a plant."}
-{"prompt": "again. what is the grass?", "response": "the grass is a plant."}
-{"prompt": "again. what is the wind?", "response": "the wind is a thing."}
-{"prompt": "again. what is the snow?", "response": "the snow is water."}
-{"prompt": "again. what is the rain?", "response": "the rain is water."}
-{"prompt": "again. what is the sky?", "response": "the sky is a place."}
-{"prompt": "again. the cat is an animal?", "response": "yes, the cat is an animal."}
-{"prompt": "again. the dog is an animal?", "response": "yes, the dog is an animal."}
-{"prompt": "again. the fish is an animal?", "response": "yes, the fish is an animal."}
-{"prompt": "again. the bird is an animal?", "response": "yes, the bird is an animal."}
-{"prompt": "again. the horse is an animal?", "response": "yes, the horse is an animal."}
-{"prompt": "again. the cow is an animal?", "response": "yes, the cow is an animal."}
-{"prompt": "again. the wolf is an animal?", "response": "yes, the wolf is an animal."}
-{"prompt": "again. the mouse is an animal?", "response": "yes, the mouse is an animal."}
-{"prompt": "again. the bee is an animal?", "response": "yes, the bee is an animal."}
-{"prompt": "again. the mom is a person?", "response": "yes, the mom is a person."}
-{"prompt": "again. the dad is a person?", "response": "yes, the dad is a person."}
-{"prompt": "again. the boy is a person?", "response": "yes, the boy is a person."}
-{"prompt": "again. the girl is a person?", "response": "yes, the girl is a person."}
-{"prompt": "again. the baby is a person?", "response": "yes, the baby is a person."}
-{"prompt": "again. the child is a person?", "response": "yes, the child is a person."}
-{"prompt": "again. the friend is a person?", "response": "yes, the friend is a person."}
-{"prompt": "again. the man is a person?", "response": "yes, the man is a person."}
-{"prompt": "again. the woman is a person?", "response": "yes, the woman is a person."}
-{"prompt": "again. the teacher is a person?", "response": "yes, the teacher is a person."}
-{"prompt": "again. the bread is a food?", "response": "yes, the bread is a food."}
-{"prompt": "again. the milk is a food?", "response": "yes, the milk is a food."}
-{"prompt": "again. the water is a food?", "response": "yes, the water is a food."}
-{"prompt": "again. the apple is a food?", "response": "yes, the apple is a food."}
-{"prompt": "again. the egg is a food?", "response": "yes, the egg is a food."}
-{"prompt": "again. the cake is a food?", "response": "yes, the cake is a food."}
-{"prompt": "again. the cheese is a food?", "response": "yes, the cheese is a food."}
-{"prompt": "again. the honey is a food?", "response": "yes, the honey is a food."}
-{"prompt": "again. the rice is a food?", "response": "yes, the rice is a food."}
-{"prompt": "again. the soup is a food?", "response": "yes, the soup is a food."}
-{"prompt": "again. the book is an object?", "response": "yes, the book is an object."}
-{"prompt": "again. the ball is an object?", "response": "yes, the ball is an object."}
-{"prompt": "again. the car is an object?", "response": "yes, the car is an object."}
-{"prompt": "again. the table is an object?", "response": "yes, the table is an object."}
-{"prompt": "again. the chair is an object?", "response": "yes, the chair is an object."}
-{"prompt": "again. the door is an object?", "response": "yes, the door is an object."}
-{"prompt": "again. the window is an object?", "response": "yes, the window is an object."}
-{"prompt": "again. the bed is an object?", "response": "yes, the bed is an object."}
-{"prompt": "again. the lamp is an object?", "response": "yes, the lamp is an object."}
-{"prompt": "again. the key is an object?", "response": "yes, the key is an object."}
-{"prompt": "again. the box is an object?", "response": "yes, the box is an object."}
-{"prompt": "again. the house is a place?", "response": "yes, the house is a place."}
-{"prompt": "again. the school is a place?", "response": "yes, the school is a place."}
-{"prompt": "again. the park is a place?", "response": "yes, the park is a place."}
-{"prompt": "again. the garden is a place?", "response": "yes, the garden is a place."}
-{"prompt": "again. the road is a place?", "response": "yes, the road is a place."}
-{"prompt": "again. the city is a place?", "response": "yes, the city is a place."}
-{"prompt": "again. the sun is a light?", "response": "yes, the sun is a light."}
-{"prompt": "again. the moon is a light?", "response": "yes, the moon is a light."}
-{"prompt": "again. the star is a light?", "response": "yes, the star is a light."}
-{"prompt": "again. the sea is a place?", "response": "yes, the sea is a place."}
-{"prompt": "again. the tree is a plant?", "response": "yes, the tree is a plant."}
-{"prompt": "again. the flower is a plant?", "response": "yes, the flower is a plant."}
-{"prompt": "again. the grass is a plant?", "response": "yes, the grass is a plant."}
-{"prompt": "again. the wind is a thing?", "response": "yes, the wind is a thing."}
-{"prompt": "again. the snow is water?", "response": "yes, the snow is water."}
-{"prompt": "again. the rain is water?", "response": "yes, the rain is water."}
-{"prompt": "again. the sky is a place?", "response": "yes, the sky is a place."}
-{"prompt": "again. the cat is a plant?", "response": "no, the cat is an animal."}
-{"prompt": "again. the dog is an object?", "response": "no, the dog is an animal."}
-{"prompt": "again. the fish is a food?", "response": "no, the fish is an animal."}
-{"prompt": "again. the bird is a plant?", "response": "no, the bird is an animal."}
-{"prompt": "again. the horse is a plant?", "response": "no, the horse is an animal."}
-{"prompt": "again. the cow is a person?", "response": "no, the cow is an animal."}
-{"prompt": "again. the wolf is a food?", "response": "no, the wolf is an animal."}
-{"prompt": "again. the mouse is a plant?", "response": "no, the mouse is an animal."}
-{"prompt": "again. the bee is a plant?", "response": "no, the bee is an animal."}
-{"prompt": "again. the mom is an object?", "response": "no, the mom is a person."}
-{"prompt": "again. the dad is a food?", "response": "no, the dad is a person."}
-{"prompt": "again. the boy is a place?", "response": "no, the boy is a person."}
-{"prompt": "again. the girl is an animal?", "response": "no, the girl is a person."}
-{"prompt": "again. the baby is a light?", "response": "no, the baby is a person."}
-{"prompt": "again. the child is an object?", "response": "no, the child is a person."}
-{"prompt": "again. the friend is an object?", "response": "no, the friend is a person."}
-{"prompt": "again. the man is a food?", "response": "no, the man is a person."}
-{"prompt": "again. the woman is an animal?", "response": "no, the woman is a person."}
-{"prompt": "again. the teacher is a plant?", "response": "no, the teacher is a person."}
-{"prompt": "again. the bread is an object?", "response": "no, the bread is a food."}
-{"prompt": "again. the milk is a place?", "response": "no, the milk is a food."}
-{"prompt": "again. the water is a place?", "response": "no, the water is a food."}
-{"prompt": "again. the apple is a plant?", "response": "no, the apple is a food."}
-{"prompt": "again. the egg is an animal?", "response": "no, the egg is a food."}
-{"prompt": "again. the cake is a place?", "response": "no, the cake is a food."}
-{"prompt": "again. the cheese is a plant?", "response": "no, the cheese is a food."}
-{"prompt": "again. the honey is a person?", "response": "no, the honey is a food."}
-{"prompt": "again. the rice is a place?", "response": "no, the rice is a food."}
-{"prompt": "again. the soup is an animal?", "response": "no, the soup is a food."}
-{"prompt": "again. the book is a light?", "response": "no, the book is an object."}
-{"prompt": "again. the ball is an animal?", "response": "no, the ball is an object."}
-{"prompt": "again. the car is a place?", "response": "no, the car is an object."}
-{"prompt": "again. the table is a place?", "response": "no, the table is an object."}
-{"prompt": "again. the chair is a place?", "response": "no, the chair is an object."}
-{"prompt": "again. the door is a food?", "response": "no, the door is an object."}
-{"prompt": "again. the window is a food?", "response": "no, the window is an object."}
-{"prompt": "again. the bed is a place?", "response": "no, the bed is an object."}
-{"prompt": "again. the lamp is a place?", "response": "no, the lamp is an object."}
-{"prompt": "again. the key is an animal?", "response": "no, the key is an object."}
-{"prompt": "again. the box is a place?", "response": "no, the box is an object."}
-{"prompt": "again. the house is a plant?", "response": "no, the house is a place."}
-{"prompt": "again. the school is a food?", "response": "no, the school is a place."}
-{"prompt": "again. the park is a light?", "response": "no, the park is a place."}
-{"prompt": "again. the garden is a food?", "response": "no, the garden is a place."}
-{"prompt": "again. the road is a person?", "response": "no, the road is a place."}
-{"prompt": "again. the city is a food?", "response": "no, the city is a place."}
-{"prompt": "again. the sun is an object?", "response": "no, the sun is a light."}
-{"prompt": "again. the moon is a person?", "response": "no, the moon is a light."}
-{"prompt": "again. the star is a plant?", "response": "no, the star is a light."}
-{"prompt": "again. the sea is an animal?", "response": "no, the sea is a place."}
-{"prompt": "again. the tree is a food?", "response": "no, the tree is a plant."}
-{"prompt": "again. the flower is an object?", "response": "no, the flower is a plant."}
-{"prompt": "again. the grass is a food?", "response": "no, the grass is a plant."}
-{"prompt": "again. the wind is a food?", "response": "no, the wind is a thing."}
-{"prompt": "again. the snow is a person?", "response": "no, the snow is water."}
-{"prompt": "again. the rain is a food?", "response": "no, the rain is water."}
-{"prompt": "again. the sky is a person?", "response": "no, the sky is a place."}
-{"prompt": "again. give an example of an animal", "response": "the cat is an animal."}
-{"prompt": "again. give an example of a person", "response": "the mom is a person."}
-{"prompt": "again. give an example of a food", "response": "the bread is a food."}
-{"prompt": "again. give an example of an object", "response": "the book is an object."}
-{"prompt": "again. give an example of a place", "response": "the house is a place."}
-{"prompt": "again. give an example of a light", "response": "the sun is a light."}
-{"prompt": "again. give an example of a plant", "response": "the tree is a plant."}
-{"prompt": "again. give an example of a thing", "response": "the wind is a thing."}
-{"prompt": "again. what is a food?", "response": "a food is a thing."}
-{"prompt": "again. what is an object?", "response": "an object is a thing."}
-{"prompt": "again. what is an animal?", "response": "an animal is a living being."}
-{"prompt": "again. what is a plant?", "response": "a plant is a living being."}
-{"prompt": "again. what is a person?", "response": "a person is a living being."}
-{"prompt": "again. what is a light?", "response": "a light is a thing."}
-{"prompt": "again. what does the cat do?", "response": "the cat sleeps."}
-{"prompt": "again. what does the dog do?", "response": "the dog runs."}
-{"prompt": "again. what does the fish do?", "response": "the fish swims."}
-{"prompt": "again. what does the bird do?", "response": "the bird flies."}
-{"prompt": "again. what does the horse do?", "response": "the horse runs."}
-{"prompt": "again. what does the cow do?", "response": "the cow eats."}
-{"prompt": "again. what does the wolf do?", "response": "the wolf runs."}
-{"prompt": "again. what does the mouse do?", "response": "the mouse runs."}
-{"prompt": "again. what does the bee do?", "response": "the bee flies."}
-{"prompt": "again. what does the mom do?", "response": "the mom cooks."}
-{"prompt": "again. what does the dad do?", "response": "the dad reads."}
-{"prompt": "again. what does the boy do?", "response": "the boy plays."}
-{"prompt": "again. what does the girl do?", "response": "the girl sings."}
-{"prompt": "again. what does the baby do?", "response": "the baby sleeps."}
-{"prompt": "again. what does the child do?", "response": "the child plays."}
-{"prompt": "again. what does the friend do?", "response": "the friend laughs."}
-{"prompt": "again. what does the man do?", "response": "the man walks."}
-{"prompt": "again. what does the woman do?", "response": "the woman works."}
-{"prompt": "again. what does the teacher do?", "response": "the teacher reads."}
-{"prompt": "again. what does the sun do?", "response": "the sun shines."}
-{"prompt": "again. what does the moon do?", "response": "the moon shines."}
-{"prompt": "again. what does the star do?", "response": "the star shines."}
-{"prompt": "again. what does the tree do?", "response": "the tree grows."}
-{"prompt": "again. what does the flower do?", "response": "the flower grows."}
-{"prompt": "again. what does the grass do?", "response": "the grass grows."}
-{"prompt": "again. what does the snow do?", "response": "the snow falls."}
-{"prompt": "good! what is the cat?", "response": "the cat is an animal."}
-{"prompt": "good! what is a cat?", "response": "the cat is an animal."}
+{"prompt": "well done! what is the cat?", "response": "the cat is an animal."}
+{"prompt": "well done! what is a cat?", "response": "the cat is an animal."}
+{"prompt": "great! what is a cat?", "response": "the cat is an animal."}
 {"prompt": "good! what is the dog?", "response": "the dog is an animal."}
-{"prompt": "good! what is a dog?", "response": "the dog is an animal."}
-{"prompt": "good! what is the fish?", "response": "the fish is an animal."}
-{"prompt": "good! what is a fish?", "response": "the fish is an animal."}
-{"prompt": "good! what is the bird?", "response": "the bird is an animal."}
-{"prompt": "good! what is a bird?", "response": "the bird is an animal."}
-{"prompt": "good! what is the horse?", "response": "the horse is an animal."}
-{"prompt": "good! what is a horse?", "response": "the horse is an animal."}
-{"prompt": "good! what is the cow?", "response": "the cow is an animal."}
-{"prompt": "good! what is a cow?", "response": "the cow is an animal."}
+{"prompt": "nice! what is a dog?", "response": "the dog is an animal."}
+{"prompt": "very good! what is a fish?", "response": "the fish is an animal."}
+{"prompt": "well done! what is a horse?", "response": "the horse is an animal."}
+{"prompt": "again. what is a cow?", "response": "the cow is an animal."}
 {"prompt": "good! what is the wolf?", "response": "the wolf is an animal."}
-{"prompt": "good! what is a wolf?", "response": "the wolf is an animal."}
+{"prompt": "well done! what is a wolf?", "response": "the wolf is an animal."}
 {"prompt": "good! what is the mouse?", "response": "the mouse is an animal."}
-{"prompt": "good! what is a mouse?", "response": "the mouse is an animal."}
-{"prompt": "good! what is the bee?", "response": "the bee is an animal."}
-{"prompt": "good! what is a bee?", "response": "the bee is an animal."}
-{"prompt": "good! what is the mom?", "response": "the mom is a person."}
-{"prompt": "good! what is a mom?", "response": "the mom is a person."}
-{"prompt": "good! what is the dad?", "response": "the dad is a person."}
-{"prompt": "good! what is a dad?", "response": "the dad is a person."}
-{"prompt": "good! what is the boy?", "response": "the boy is a person."}
-{"prompt": "good! what is a boy?", "response": "the boy is a person."}
-{"prompt": "good! what is the girl?", "response": "the girl is a person."}
-{"prompt": "good! what is a girl?", "response": "the girl is a person."}
-{"prompt": "good! what is the baby?", "response": "the baby is a person."}
-{"prompt": "good! what is a baby?", "response": "the baby is a person."}
+{"prompt": "nice! what is a mouse?", "response": "the mouse is an animal."}
+{"prompt": "well done! what is the mom?", "response": "the mom is a person."}
+{"prompt": "nice! what is the mom?", "response": "the mom is a person."}
+{"prompt": "very good! what is a mom?", "response": "the mom is a person."}
+{"prompt": "great! what is a dad?", "response": "the dad is a person."}
+{"prompt": "great! what is the boy?", "response": "the boy is a person."}
+{"prompt": "great! what is a boy?", "response": "the boy is a person."}
+{"prompt": "nice! what is the girl?", "response": "the girl is a person."}
+{"prompt": "very good! what is a girl?", "response": "the girl is a person."}
+{"prompt": "well done! what is a baby?", "response": "the baby is a person."}
 {"prompt": "good! what is the child?", "response": "the child is a person."}
 {"prompt": "good! what is a child?", "response": "the child is a person."}
 {"prompt": "good! what is the friend?", "response": "the friend is a person."}
+{"prompt": "nice! what is the friend?", "response": "the friend is a person."}
 {"prompt": "good! what is a friend?", "response": "the friend is a person."}
-{"prompt": "good! what is the man?", "response": "the man is a person."}
-{"prompt": "good! what is a man?", "response": "the man is a person."}
+{"prompt": "nice! what is the man?", "response": "the man is a person."}
 {"prompt": "good! what is the woman?", "response": "the woman is a person."}
-{"prompt": "good! what is a woman?", "response": "the woman is a person."}
-{"prompt": "good! what is the teacher?", "response": "the teacher is a person."}
-{"prompt": "good! what is a teacher?", "response": "the teacher is a person."}
-{"prompt": "good! what is the bread?", "response": "the bread is a food."}
-{"prompt": "good! what is the milk?", "response": "the milk is a food."}
+{"prompt": "nice! what is the water?", "response": "the water is a food."}
 {"prompt": "good! what is the water?", "response": "the water is a food."}
-{"prompt": "good! what is the apple?", "response": "the apple is a food."}
-{"prompt": "good! what is an apple?", "response": "the apple is a food."}
 {"prompt": "good! what is the egg?", "response": "the egg is a food."}
-{"prompt": "good! what is an egg?", "response": "the egg is a food."}
-{"prompt": "good! what is the cake?", "response": "the cake is a food."}
-{"prompt": "good! what is a cake?", "response": "the cake is a food."}
-{"prompt": "good! what is the cheese?", "response": "the cheese is a food."}
-{"prompt": "good! what is the honey?", "response": "the honey is a food."}
-{"prompt": "good! what is the rice?", "response": "the rice is a food."}
-{"prompt": "good! what is the soup?", "response": "the soup is a food."}
-{"prompt": "good! what is a soup?", "response": "the soup is a food."}
-{"prompt": "good! what is the book?", "response": "the book is an object."}
-{"prompt": "good! what is a book?", "response": "the book is an object."}
-{"prompt": "good! what is the ball?", "response": "the ball is an object."}
-{"prompt": "good! what is a ball?", "response": "the ball is an object."}
-{"prompt": "good! what is the car?", "response": "the car is an object."}
-{"prompt": "good! what is a car?", "response": "the car is an object."}
-{"prompt": "good! what is the table?", "response": "the table is an object."}
-{"prompt": "good! what is a table?", "response": "the table is an object."}
-{"prompt": "good! what is the chair?", "response": "the chair is an object."}
-{"prompt": "good! what is a chair?", "response": "the chair is an object."}
-{"prompt": "good! what is the door?", "response": "the door is an object."}
-{"prompt": "good! what is a door?", "response": "the door is an object."}
-{"prompt": "good! what is the window?", "response": "the window is an object."}
-{"prompt": "good! what is a window?", "response": "the window is an object."}
+{"prompt": "great! what is an egg?", "response": "the egg is a food."}
+{"prompt": "well done! what is an egg?", "response": "the egg is a food."}
+{"prompt": "great! what is the cake?", "response": "the cake is a food."}
+{"prompt": "great! what is a cake?", "response": "the cake is a food."}
+{"prompt": "nice! what is a cake?", "response": "the cake is a food."}
+{"prompt": "great! what is the honey?", "response": "the honey is a food."}
+{"prompt": "nice! what is a book?", "response": "the book is an object."}
+{"prompt": "well done! what is the ball?", "response": "the ball is an object."}
+{"prompt": "well done! what is a ball?", "response": "the ball is an object."}
+{"prompt": "very good! what is the car?", "response": "the car is an object."}
+{"prompt": "well done! what is a car?", "response": "the car is an object."}
+{"prompt": "very good! what is a table?", "response": "the table is an object."}
+{"prompt": "great! what is the chair?", "response": "the chair is an object."}
+{"prompt": "nice! what is the door?", "response": "the door is an object."}
+{"prompt": "nice! what is a door?", "response": "the door is an object."}
+{"prompt": "great! what is a window?", "response": "the window is an object."}
 {"prompt": "good! what is the bed?", "response": "the bed is an object."}
-{"prompt": "good! what is a bed?", "response": "the bed is an object."}
-{"prompt": "good! what is the lamp?", "response": "the lamp is an object."}
-{"prompt": "good! what is a lamp?", "response": "the lamp is an object."}
-{"prompt": "good! what is the key?", "response": "the key is an object."}
-{"prompt": "good! what is a key?", "response": "the key is an object."}
-{"prompt": "good! what is the box?", "response": "the box is an object."}
+{"prompt": "nice! what is the lamp?", "response": "the lamp is an object."}
+{"prompt": "very good! what is a key?", "response": "the key is an object."}
+{"prompt": "nice! what is a key?", "response": "the key is an object."}
+{"prompt": "nice! what is the box?", "response": "the box is an object."}
 {"prompt": "good! what is a box?", "response": "the box is an object."}
-{"prompt": "good! what is the house?", "response": "the house is a place."}
-{"prompt": "good! what is a house?", "response": "the house is a place."}
+{"prompt": "great! what is a box?", "response": "the box is an object."}
+{"prompt": "great! what is the school?", "response": "the school is a place."}
 {"prompt": "good! what is the school?", "response": "the school is a place."}
-{"prompt": "good! what is a school?", "response": "the school is a place."}
-{"prompt": "good! what is the park?", "response": "the park is a place."}
+{"prompt": "very good! what is a school?", "response": "the school is a place."}
+{"prompt": "nice! what is a school?", "response": "the school is a place."}
+{"prompt": "well done! what is the park?", "response": "the park is a place."}
 {"prompt": "good! what is a park?", "response": "the park is a place."}
-{"prompt": "good! what is the garden?", "response": "the garden is a place."}
+{"prompt": "nice! what is a park?", "response": "the park is a place."}
 {"prompt": "good! what is a garden?", "response": "the garden is a place."}
-{"prompt": "good! what is the road?", "response": "the road is a place."}
-{"prompt": "good! what is a road?", "response": "the road is a place."}
-{"prompt": "good! what is the city?", "response": "the city is a place."}
-{"prompt": "good! what is a city?", "response": "the city is a place."}
-{"prompt": "good! what is the sun?", "response": "the sun is a light."}
-{"prompt": "good! what is the moon?", "response": "the moon is a light."}
+{"prompt": "very good! what is a road?", "response": "the road is a place."}
+{"prompt": "nice! what is a city?", "response": "the city is a place."}
+{"prompt": "great! what is the sun?", "response": "the sun is a light."}
+{"prompt": "very good! what is the moon?", "response": "the moon is a light."}
 {"prompt": "good! what is the star?", "response": "the star is a light."}
-{"prompt": "good! what is a star?", "response": "the star is a light."}
+{"prompt": "very good! what is the star?", "response": "the star is a light."}
+{"prompt": "nice! what is a star?", "response": "the star is a light."}
 {"prompt": "good! what is the sea?", "response": "the sea is a place."}
-{"prompt": "good! what is the tree?", "response": "the tree is a plant."}
+{"prompt": "great! what is the sea?", "response": "the sea is a place."}
+{"prompt": "nice! what is a tree?", "response": "the tree is a plant."}
+{"prompt": "very good! what is a tree?", "response": "the tree is a plant."}
+{"prompt": "nice! what is the flower?", "response": "the flower is a plant."}
+{"prompt": "good! what is the flower?", "response": "the flower is a plant."}
+{"prompt": "nice! what is a flower?", "response": "the flower is a plant."}
+{"prompt": "good! what is the grass?", "response": "the grass is a plant."}
+{"prompt": "great! what is the wind?", "response": "the wind is a thing."}
+{"prompt": "good! what is the wind?", "response": "the wind is a thing."}
+{"prompt": "nice! what is the snow?", "response": "the snow is water."}
+{"prompt": "well done! what is the sky?", "response": "the sky is a place."}
+{"prompt": "very good! what s the cat?", "response": "the cat is an animal."}
+{"prompt": "great! what s a cat?", "response": "the cat is an animal."}
+{"prompt": "well done! what s the bird?", "response": "the bird is an animal."}
+{"prompt": "good! what s the horse?", "response": "the horse is an animal."}
+{"prompt": "well done! what s a horse?", "response": "the horse is an animal."}
+{"prompt": "good! what s the wolf?", "response": "the wolf is an animal."}
+{"prompt": "very good! what s a wolf?", "response": "the wolf is an animal."}
+{"prompt": "well done! what s the mouse?", "response": "the mouse is an animal."}
+{"prompt": "good! what s a mouse?", "response": "the mouse is an animal."}
+{"prompt": "nice! what s the mom?", "response": "the mom is a person."}
+{"prompt": "very good! what s the mom?", "response": "the mom is a person."}
+{"prompt": "well done! what s a mom?", "response": "the mom is a person."}
+{"prompt": "good! what s a dad?", "response": "the dad is a person."}
+{"prompt": "very good! what s the boy?", "response": "the boy is a person."}
+{"prompt": "great! what s the baby?", "response": "the baby is a person."}
+{"prompt": "nice! what s a child?", "response": "the child is a person."}
+{"prompt": "very good! what s a child?", "response": "the child is a person."}
+{"prompt": "very good! what s the friend?", "response": "the friend is a person."}
+{"prompt": "great! what s the man?", "response": "the man is a person."}
+{"prompt": "very good! what s the woman?", "response": "the woman is a person."}
+{"prompt": "great! what s a woman?", "response": "the woman is a person."}
+{"prompt": "well done! what s the teacher?", "response": "the teacher is a person."}
+{"prompt": "good! what s the teacher?", "response": "the teacher is a person."}
+{"prompt": "well done! what s a teacher?", "response": "the teacher is a person."}
+{"prompt": "great! what s the bread?", "response": "the bread is a food."}
+{"prompt": "great! what s the milk?", "response": "the milk is a food."}
+{"prompt": "well done! what s the apple?", "response": "the apple is a food."}
+{"prompt": "well done! what s an apple?", "response": "the apple is a food."}
+{"prompt": "nice! what s an apple?", "response": "the apple is a food."}
+{"prompt": "well done! what s the egg?", "response": "the egg is a food."}
+{"prompt": "good! what s an egg?", "response": "the egg is a food."}
+{"prompt": "very good! what s the cheese?", "response": "the cheese is a food."}
+{"prompt": "nice! what s a soup?", "response": "the soup is a food."}
+{"prompt": "nice! what s the ball?", "response": "the ball is an object."}
+{"prompt": "great! what s a ball?", "response": "the ball is an object."}
+{"prompt": "great! what s the car?", "response": "the car is an object."}
+{"prompt": "well done! what s the table?", "response": "the table is an object."}
+{"prompt": "very good! what s the chair?", "response": "the chair is an object."}
+{"prompt": "well done! what s the chair?", "response": "the chair is an object."}
+{"prompt": "great! what s a chair?", "response": "the chair is an object."}
+{"prompt": "very good! what s a door?", "response": "the door is an object."}
+{"prompt": "very good! what s the window?", "response": "the window is an object."}
+{"prompt": "well done! what s a window?", "response": "the window is an object."}
+{"prompt": "nice! what s the bed?", "response": "the bed is an object."}
+{"prompt": "nice! what s a bed?", "response": "the bed is an object."}
+{"prompt": "great! what s the lamp?", "response": "the lamp is an object."}
+{"prompt": "great! what s a lamp?", "response": "the lamp is an object."}
+{"prompt": "great! what s the key?", "response": "the key is an object."}
+{"prompt": "very good! what s a key?", "response": "the key is an object."}
+{"prompt": "very good! what s the box?", "response": "the box is an object."}
+{"prompt": "good! what s a box?", "response": "the box is an object."}
+{"prompt": "very good! what s the house?", "response": "the house is a place."}
+{"prompt": "nice! what s the house?", "response": "the house is a place."}
+{"prompt": "very good! what s a house?", "response": "the house is a place."}
+{"prompt": "great! what s a house?", "response": "the house is a place."}
+{"prompt": "very good! what s a school?", "response": "the school is a place."}
+{"prompt": "very good! what s a garden?", "response": "the garden is a place."}
+{"prompt": "great! what s the road?", "response": "the road is a place."}
+{"prompt": "nice! what s the road?", "response": "the road is a place."}
+{"prompt": "well done! what s the sun?", "response": "the sun is a light."}
+{"prompt": "great! what s the sun?", "response": "the sun is a light."}
+{"prompt": "nice! what s the moon?", "response": "the moon is a light."}
+{"prompt": "good! what s the star?", "response": "the star is a light."}
+{"prompt": "nice! what s the star?", "response": "the star is a light."}
+{"prompt": "well done! what s the tree?", "response": "the tree is a plant."}
+{"prompt": "well done! what s a tree?", "response": "the tree is a plant."}
+{"prompt": "very good! what s the flower?", "response": "the flower is a plant."}
+{"prompt": "nice! what s a flower?", "response": "the flower is a plant."}
+{"prompt": "good! what s a flower?", "response": "the flower is a plant."}
+{"prompt": "good! what s the grass?", "response": "the grass is a plant."}
+{"prompt": "good! what s the snow?", "response": "the snow is water."}
+{"prompt": "very good! what s the rain?", "response": "the rain is water."}
+{"prompt": "nice! the fish is an animal?", "response": "yes, the fish is an animal."}
+{"prompt": "good! the bird is an animal?", "response": "yes, the bird is an animal."}
+{"prompt": "nice! the wolf is an animal?", "response": "yes, the wolf is an animal."}
+{"prompt": "good! the mouse is an animal?", "response": "yes, the mouse is an animal."}
+{"prompt": "nice! the bee is an animal?", "response": "yes, the bee is an animal."}
+{"prompt": "very good! the mom is a person?", "response": "yes, the mom is a person."}
+{"prompt": "nice! the mom is a person?", "response": "yes, the mom is a person."}
+{"prompt": "nice! the dad is a person?", "response": "yes, the dad is a person."}
+{"prompt": "good! the girl is a person?", "response": "yes, the girl is a person."}
+{"prompt": "great! the girl is a person?", "response": "yes, the girl is a person."}
+{"prompt": "great! the baby is a person?", "response": "yes, the baby is a person."}
+{"prompt": "good! the child is a person?", "response": "yes, the child is a person."}
+{"prompt": "very good! the man is a person?", "response": "yes, the man is a person."}
+{"prompt": "good! the woman is a person?", "response": "yes, the woman is a person."}
+{"prompt": "great! the woman is a person?", "response": "yes, the woman is a person."}
+{"prompt": "nice! the teacher is a person?", "response": "yes, the teacher is a person."}
+{"prompt": "well done! the bread is a food?", "response": "yes, the bread is a food."}
+{"prompt": "very good! the apple is a food?", "response": "yes, the apple is a food."}
+{"prompt": "nice! the apple is a food?", "response": "yes, the apple is a food."}
+{"prompt": "well done! the egg is a food?", "response": "yes, the egg is a food."}
+{"prompt": "nice! the cake is a food?", "response": "yes, the cake is a food."}
+{"prompt": "nice! the cheese is a food?", "response": "yes, the cheese is a food."}
+{"prompt": "great! the honey is a food?", "response": "yes, the honey is a food."}
+{"prompt": "well done! the book is an object?", "response": "yes, the book is an object."}
+{"prompt": "good! the book is an object?", "response": "yes, the book is an object."}
+{"prompt": "nice! the ball is an object?", "response": "yes, the ball is an object."}
+{"prompt": "very good! the car is an object?", "response": "yes, the car is an object."}
+{"prompt": "nice! the table is an object?", "response": "yes, the table is an object."}
+{"prompt": "good! the door is an object?", "response": "yes, the door is an object."}
+{"prompt": "nice! the door is an object?", "response": "yes, the door is an object."}
+{"prompt": "good! the bed is an object?", "response": "yes, the bed is an object."}
+{"prompt": "great! the box is an object?", "response": "yes, the box is an object."}
+{"prompt": "well done! the house is a place?", "response": "yes, the house is a place."}
+{"prompt": "very good! the park is a place?", "response": "yes, the park is a place."}
+{"prompt": "good! the garden is a place?", "response": "yes, the garden is a place."}
+{"prompt": "great! the road is a place?", "response": "yes, the road is a place."}
+{"prompt": "great! the star is a light?", "response": "yes, the star is a light."}
+{"prompt": "very good! the flower is a plant?", "response": "yes, the flower is a plant."}
+{"prompt": "great! the flower is a plant?", "response": "yes, the flower is a plant."}
+{"prompt": "very good! the grass is a plant?", "response": "yes, the grass is a plant."}
+{"prompt": "great! the wind is a thing?", "response": "yes, the wind is a thing."}
+{"prompt": "well done! the snow is water?", "response": "yes, the snow is water."}
+{"prompt": "very good! the snow is water?", "response": "yes, the snow is water."}
+{"prompt": "great! the rain is water?", "response": "yes, the rain is water."}
+{"prompt": "very good! the mouse is a plant?", "response": "no, the mouse is an animal."}
+{"prompt": "good! the boy is a place?", "response": "no, the boy is a person."}
+{"prompt": "good! the girl is an animal?", "response": "no, the girl is a person."}
+{"prompt": "nice! the baby is a light?", "response": "no, the baby is a person."}
+{"prompt": "well done! the child is an object?", "response": "no, the child is a person."}
+{"prompt": "nice! the friend is an object?", "response": "no, the friend is a person."}
+{"prompt": "great! the friend is an object?", "response": "no, the friend is a person."}
+{"prompt": "well done! the teacher is a plant?", "response": "no, the teacher is a person."}
+{"prompt": "nice! the bread is an object?", "response": "no, the bread is a food."}
+{"prompt": "very good! the milk is a place?", "response": "no, the milk is a food."}
+{"prompt": "very good! the water is a place?", "response": "no, the water is a food."}
+{"prompt": "great! the water is a place?", "response": "no, the water is a food."}
+{"prompt": "well done! the cake is a place?", "response": "no, the cake is a food."}
+{"prompt": "very good! the honey is a person?", "response": "no, the honey is a food."}
+{"prompt": "good! the honey is a person?", "response": "no, the honey is a food."}
+{"prompt": "very good! the rice is a place?", "response": "no, the rice is a food."}
+{"prompt": "good! the rice is a place?", "response": "no, the rice is a food."}
+{"prompt": "great! the soup is an animal?", "response": "no, the soup is a food."}
+{"prompt": "good! the book is a light?", "response": "no, the book is an object."}
+{"prompt": "well done! the door is a food?", "response": "no, the door is an object."}
+{"prompt": "great! the door is a food?", "response": "no, the door is an object."}
+{"prompt": "great! the window is a food?", "response": "no, the window is an object."}
+{"prompt": "great! the bed is a place?", "response": "no, the bed is an object."}
+{"prompt": "again. the lamp is a place?", "response": "no, the lamp is an object."}
+{"prompt": "very good! the lamp is a place?", "response": "no, the lamp is an object."}
+{"prompt": "good! the key is an animal?", "response": "no, the key is an object."}
+{"prompt": "nice! the key is an animal?", "response": "no, the key is an object."}
+{"prompt": "nice! the house is a plant?", "response": "no, the house is a place."}
+{"prompt": "great! the park is a light?", "response": "no, the park is a place."}
+{"prompt": "very good! the garden is a food?", "response": "no, the garden is a place."}
+{"prompt": "great! the road is a person?", "response": "no, the road is a place."}
+{"prompt": "well done! the city is a food?", "response": "no, the city is a place."}
+{"prompt": "well done! the sun is an object?", "response": "no, the sun is a light."}
+{"prompt": "great! the tree is a food?", "response": "no, the tree is a plant."}
+{"prompt": "great! the flower is an object?", "response": "no, the flower is a plant."}
+{"prompt": "good! the grass is a food?", "response": "no, the grass is a plant."}
+{"prompt": "good! the wind is a food?", "response": "no, the wind is a thing."}
+{"prompt": "very good! the snow is a person?", "response": "no, the snow is water."}
+{"prompt": "again. give an example of an animal", "response": "the cat is an animal."}
+{"prompt": "again. give an example of a food", "response": "the bread is a food."}
+{"prompt": "good! give an example of a food", "response": "the bread is a food."}
+{"prompt": "again. give an example of a light", "response": "the sun is a light."}
+{"prompt": "well done! give an example of a light", "response": "the sun is a light."}
+{"prompt": "again. give an example of a person", "response": "the mom is a person."}
+{"prompt": "very good! what is a cow?", "response": "the cow is an animal."}
+{"prompt": "nice! the cat is an animal?", "response": "yes, the cat is an animal."}
+{"prompt": "great! the cat is an animal?", "response": "yes, the cat is an animal."}
+{"prompt": "good! the dog is an animal?", "response": "yes, the dog is an animal."}
+{"prompt": "great! the horse is an animal?", "response": "yes, the horse is an animal."}
+{"prompt": "good! the cat is a plant?", "response": "no, the cat is an animal."}
+{"prompt": "great! the dog is an object?", "response": "no, the dog is an animal."}
+{"prompt": "great! the fish is a food?", "response": "no, the fish is an animal."}
+{"prompt": "great! the bird is a plant?", "response": "no, the bird is an animal."}
+{"prompt": "great! the lamp is a place?", "response": "no, the lamp is an object."}
+{"prompt": "good! give an example of an animal", "response": "the cat is an animal."}
+{"prompt": "nice! give an example of an animal", "response": "the cat is an animal."}
+{"prompt": "well done! give an example of an animal", "response": "the cat is an animal."}
+{"prompt": "great! give an example of a person", "response": "the mom is a person."}
+{"prompt": "nice! give an example of an object", "response": "the book is an object."}
+{"prompt": "again. give an example of an object", "response": "the book is an object."}
+{"prompt": "again. give an example of a place", "response": "the house is a place."}
+{"prompt": "again. give an example of a plant", "response": "the tree is a plant."}
+{"prompt": "again. give an example of a thing", "response": "the wind is a thing."}
+{"prompt": "very good! give an example of an object", "response": "the book is an object."}

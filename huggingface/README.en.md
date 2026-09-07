@@ -31,7 +31,7 @@ assistant and it will not behave like one.
 - 23.6M parameters — `d_model=512`, `n_layers=6`, `n_heads=8`, `d_ff=2048`
 - Context window: **128 tokens**
 - Tokenizer: byte-level BPE trained on the English curriculum, 9000 slots
-  allocated, **2559 active** (`<|EOS|>` at 2516; unused slots are masked to
+  allocated, **2562 active** (`<|EOS|>` at 2516; unused slots are masked to
   `-inf` at inference)
 - float32, runs on a CPU
 
@@ -43,8 +43,8 @@ finally the two ontology levels: **class membership** (`the dog is an animal`)
 and **admitting ignorance** (`what is a compass?` → `i do not know.`).
 
 They replace the 0-10 preview published on 2026-09-06 at this same repo. Levels
-11 and 12 added 477 graded targets, so the overall figure below is measured on
-1197 prompts against that card's 720 — a larger denominator, and a higher score.
+11 and 12 added 639 graded targets, so the overall figure below is measured on
+1359 prompts against that card's 720 — a larger denominator, and a higher score.
 
 ## ⚠️ The twelfth rung is reached; the thirteenth is not
 
@@ -52,16 +52,32 @@ The Italian model of this project runs an **autonomy loop** at level 13: it
 detects its own ignorance from an internal signal, asks the tutor, and learns
 the answer. **This English build does not**, and the reason is measured, not a
 matter of time: the epistemic trigger separates known from unknown nouns at
-**AUC 0.638** on these weights, where the loop's guardrail is 0.95. Its verdict
-is `OVERLAPPING` — 22 of 57 known nouns would trigger a spurious question. The
-likely cause is pool coverage: English declares one interrogative phrasing
-(`"ask_heads": ["what is"]`) where Italian declares two, so its levels 11 and 12
-are trained on roughly half as many targets (100 and 93, against 197 and 105).
+**AUC 0.788** on these weights, where the loop's guardrail is 0.95. Its verdict
+is `OVERLAPPING` — 18 of 57 known nouns would still trigger a spurious question.
+
+That 0.788 is the result of acting on the diagnosis the previous card carried.
+English declared one interrogative phrasing (`"ask_heads": ["what is"]`) where
+Italian declares two, so its ontology levels were trained on roughly half as
+many targets. Adding the second head (`what s`) grew the two pools from 254 and
+223 targets to **354 and 285**, and re-running levels 11 and 12 on them took the
+AUC from 0.638 to 0.788 — the gap to the guardrail halved, and did not close.
+
+Asking about the *right* referent has not moved. On the twelve prompts of the
+shape `the box is an object, this is a snail` these weights ask a question every
+time and name the noun in front of them 6 times out of 12 (the previous weights,
+5) — and all six are names level 12 taught. On the six names the curriculum
+never taught, both score **0 of 6**: `the box is an object, this is a snail` →
+`what is a bucket?` The model has learned to ask, and to recite a name it was
+given; it has not learned to read the name out of the prompt.
+
+The gain also came with a regression on level 11's affirmative confirmations
+that is documented in [Where it fails](#where-it-fails) and should be read
+before the results table.
 
 There is no retraction ledger for these weights either, and nothing here has
 been through an autonomy session.
 
-It is **English only**: the vocabulary is 2559 English BPE tokens and the model
+It is **English only**: the vocabulary is 2562 English BPE tokens and the model
 has never seen another language. It shares no weights and no vocabulary with the
 Italian preview — it is a second, independent run of the same method, which is
 the point of publishing it.
@@ -84,7 +100,7 @@ what did the boy eat?                   → the boy ate the bread.
 what will the boy eat tomorrow?         → tomorrow the boy will eat the bread.
 tell me the three days of the dog       → today it runs, yesterday it ran,
                                           tomorrow it will run.
-is the cat small?                       → I think the cat is small because it is fast.
+is the cat small?                       → the cat is small but good.
 which is better, the bread or the door? → the bread is better, because you eat it.
 what does the story say about the dog   → the story says that the dog runs.
 comment on the cat                      → the cat is fast, and this is nice.
@@ -97,37 +113,56 @@ the wolf is an animal, this is a drum   → what is a drum?
 ```
 
 The last four are level 12. On a name the curriculum never taught, the model
-declares ignorance or asks about it, instead of guessing a class. Measured on 21
+declares ignorance or asks about it, instead of guessing a class. Measured on 35
 held-out nouns with no gate of any kind (`scripts/curiosity_rate.py --gate off`):
-**76% honest** answers against **0%** on the twelve known nouns, which it
-classifies correctly. With the epistemic gate on, 100% and 0%. That policy is
-the behaviour; the *signal* behind it is the AUC 0.638 warned about above — the
-strings are right more often than the internal margin is.
+**77% honest** answers against **8%** on the twelve known nouns, which it
+otherwise classifies correctly (83%). With the epistemic gate on, 100% and 8%.
+
+The 8% is a cost, not a rounding: one known noun in twelve now draws a spurious
+question that the previous weights answered. It is the same over-asking the AUC
+verdict reports, and it is the price paid for the honesty on never-seen names
+rising from 49% to 77% on the same 35 prompts.
 
 ## Results
 
 Exact match against the curriculum's gold answers, greedy, on these weights (the
 post-dream level-12 checkpoint), replayed over **every target of every level** —
-1197 prompts, `scripts/measure_repetition.py`:
+1359 prompts, `scripts/measure_repetition.py`:
 
 | L0 | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | L11 | L12 | overall |
 |----|----|----|----|----|----|----|----|----|----|-----|-----|-----|---------|
-| 100% | 100% | 84% | 95% | 57% | 90% | 87% | 90% | 85% | 83% | 99% | 86% | 99% | **89.5%** |
+| 100% | 100% | 85% | 97% | 57% | 90% | 89% | 94% | 89% | 96% | 100% | 85% | 98% | **90%** |
 
-Self-repetition 1.5%. On the build's own frozen probe — 104 prompts, 8 per
-level, fingerprint `d8da0d3247cba2a0` — these weights score **88.5%**,
-self-repetition 3.8%.
+Self-repetition 1%. On the build's own frozen probe — 104 prompts, 8 per
+level, fingerprint `a173551267247f59` — these weights score **91.3%**,
+self-repetition 1.9%.
+
+**Do not read the L11 column as a summary of level 11.** Its 85% averages a
+level that answers `no` correctly almost always and `yes` correctly barely more
+than a quarter of the time, and on the affirmative half it is a sharp regression
+against the weights this release replaces. See [Where it fails](#where-it-fails).
+
+**Read that 91.3% as the top of a band, not as a level.** Consecutive dreams
+swing by up to three probe items in either direction (89.4 → 91.3 → 88.5 here),
+and the run publishes the best measured state. A re-run of the same recipe
+should be expected to land somewhere in 88-91%, not to reproduce 91.3%.
 
 **The two new levels bought retention rather than costing it.** Against the
 level-10 card (78.8% on the 720 targets that existed then), the low levels came
-*up*: L5 54% → 90%, L6 68% → 87%, L7 77% → 90%, L8 72% → 85%, L2 75% → 84%,
-L1 98% → 100%. Twelve extra dream cycles over a corpus that now includes L11 and
-L12 replayed everything else with it. Level 5 — the regression the previous card
-led with — is repaired.
+*up*: L5 54% → 90%, L6 68% → 89%, L7 77% → 94%, L8 72% → 89%, L9 75% → 96%,
+L2 75% → 85%, L1 98% → 100%. Twenty-two dream cycles — seven on level 11,
+fifteen on level 12 — over a corpus that now includes L11 and L12 replayed
+everything else with it. Level 5 — the regression
+the previous card led with — is repaired.
 
-Scored instead with **each level's own** checkpoint, the same 1197 prompts give
-**97.3%** (L11 100%, L12 99%). Everything this model gets wrong it once had
-right; the 8-point gap between the two rows is forgetting, not a pool it never
+Those L0-L10 pools are byte-identical to the ones the previous card was scored
+on, so the gains there are attributable to the extra dreams alone. The L11 and
+L12 columns are **not** comparable to the previous card's: those pools grew with
+the second interrogative head, and the older weights were never taught it.
+
+Scored instead with **each level's own** checkpoint, the same 1359 prompts give
+**97%** (L11 100%, L12 98%). Everything this model gets wrong it once had
+right; the 7-point gap between the two rows is forgetting, not a pool it never
 learned.
 
 The lever is the **dream**: a replay pass over every level's material with no
@@ -136,29 +171,70 @@ ships in the checkpoint directory as `dream_curve.json`. Level 11 stopped on its
 own after 7 dreams:
 
 ```
-36 → 47 → 49 → 60 → 65 → 66 → 66 %
+42 → 53 → 59 → 66 → 70 → 72 → 74 %
 ```
 
-Level 12 hit the cap of 12 dreams while still gaining (60 → 87%), so it was
-resumed for up to 8 more and stopped after 2:
+Level 12 stopped at 8 dreams on the build's own ε=2%, then was resumed for up to
+10 more with a tighter ε=1% and ran 7 of them:
 
 ```
-86.5 → 88.5 → 85.6 %      best kept: 88.5%
+82.7 → 79.8 → 85.6 → 89.4 → 89.4 → 91.3 → 88.5 → 88.5 %    best kept: 91.3%
 ```
 
 That sawtooth is why the run re-scores the probe after every cycle and restores
 the **best** measured state rather than the last one — the weights published
-here are dream 13's, not dream 14's. The two ontology levels took **5h55** on an
-Intel Arc A370M (L11 1h59, L12 3h24 plus 32 minutes of resumed dreams), on top
-of the 13h37 of levels 0-10 — about **19½ hours** for the whole ladder, entirely
-offline.
+here are dream 13's, not dream 15's.
+
+**The tighter ε is what bought the last six points, and the reason is
+arithmetic.** The probe has 104 items, so one item is 0.96%: at ε=2% a level
+must gain three items per dream to count as still gaining, and two-item gains
+read as a plateau. Level 12 stopped at 82.7% under that rule with six points
+still on the table. A negative swing costs a patience strike too — the -2.9% at
+dream 9 above is why the run ended at 15 rather than at the cap of 18.
+
+The two ontology levels took **7h41** on an Intel Arc A370M (L11 1h49, L12 2h04
+plus 3h48 of resumed dreams), on top of the 13h37 of levels 0-10 — about **21
+hours** for the whole ladder, entirely offline.
 
 ## Where it fails
 
+**Level 11's 85% hides a regression, and it is the number on this card to read
+before the others.** 54 of its 354 prompts are wrong, and 42 of those are
+polarity: the model names the right class and then denies it.
+
+```
+the cat is an animal?   → no, the cat is an animal.   ✗ (gold: yes, …)
+the mom is a person?    → no, the mom is a person.    ✗ (gold: yes, …)
+```
+
+Split by the sign of the gold answer, on the same 57 + 57 confirmations, against
+the weights this release replaces:
+
+| level-11 confirmations | previous weights | these weights |
+|---|---|---|
+| gold `yes` (57) | 44 exact | **16 exact** |
+| gold `no` (57) | 47 exact | **56 exact** |
+
+It answers `no` to 41 of the 57 questions whose answer is `yes`; the previous
+weights answered `no` to 13. The gain on the negative half is exactly what a
+blanket `no` would buy, so this is not sharper discrimination — affirmative
+confirmation has collapsed into negative. Level 12 shows the same failure at its
+own scale: 6 of its 7 misses are that identical flip. Nothing in this release
+targeted polarity, and the two changes that could have caused it — the wider
+`what s` pool and the seven extra dreams — arrived together, so nothing here
+isolates which one did it. The epistemic numbers above and this regression are
+from the same weights and cannot be taken apart.
+
+**The two steps that put a *class* where the other steps put a noun are still
+unlearned**, six targets each: `give an example of a plant` → `. the bread is a
+food.`, and `what is a plant?` → `the spider is an animal.` Asked about an
+individual it is nearly perfect; asked about a category it falls back on an
+instance.
+
 **One level did not move, and it is now the weakest of the thirteen.** Level 4
-teaches the locative question; twelve extra dream cycles took it from 54% to
-57%, and 24 of its 29 remaining failures are a single substitution — the
-locative frame collapsing into level 5's causal one:
+teaches the locative question; the twenty-two dream cycles of levels 11 and 12
+took it from 54% to 57%, and 24 of its 29 remaining failures are a single
+substitution — the locative frame collapsing into level 5's causal one:
 
 ```
 where does the cat sleep?  → the cat sleeps because it is tired.  ✗ (gold: … in the house.)
@@ -166,32 +242,19 @@ where does the fish swim?  → the fish swims because it is fast.   ✗ (gold: �
 ```
 
 The other five are the ordering step, which loses the question's second noun:
-`what comes first, the sun or the moon?` → `the moon is light. the moon.`
-
-**Level 11's misses are polarity, not ontology.** 35 of its 254 prompts are
-wrong and 23 of those pick the right class and the wrong sign — the model knows
-what a milk is and answers as though it had been contradicted:
-
-```
-the milk is a food?   → no, the milk is a food.    ✗ (gold: yes, the milk is a food.)
-```
-
-The remaining twelve are the two steps that put a *class* where the other steps
-put a noun, eight targets each: `give an example of a place` → `the honey is a
-food.`, and `what is an animal?` → `i do not know. the cat the cat is an
-animal.` Asked about an individual it is nearly perfect; asked about a category
-it falls back on an instance.
+`what comes first, the sun or the moon?` → `the sun is hotter than the moon.`
 
 **Elsewhere the frame is learned and the content word is not.** This remains the
-clearest pattern in what is left, and levels 8 and 9 show it plainly — syntax,
+clearest pattern in what is left, and levels 5 and 8 show it plainly — syntax,
 agreement and the comparative construction intact, the binding to the question's
 noun missing:
 
 ```
-who is bigger, the horse or the dog?     → the horse is stronger than the child.  ✗
-who is smaller, the bee or the cow?      → the bee is smaller than the bee.       ✗
-is the woman young?                      → I think the woman is good because it is good.  ✗
-say another way to say beautiful         → is like saying is like saying.         ✗
+who is bigger, the horse or the dog?          → the horse is stronger than the dog.       ✗
+what is sweeter, the honey or the apple?      → the apple is sweeter than the apple.      ✗
+what is more beautiful, the star or the lamp? → the star is more beautifuler than the lamp. ✗
+tell me two things about the woman            → the woman works and works.                ✗
+why does the bird sing?                       → the bird flies because it is fast.        ✗
 ```
 
 Seven of level 8's twelve failures are its preference steps (`what do you like
@@ -213,7 +276,7 @@ Also:
 - **No world knowledge.** A synthetic teaching curriculum of a few megabytes,
   plus a handful of public-domain books used only as raw text. Anything
   factual it produces is invention.
-- **Closed vocabulary** — 2559 active tokens; out-of-curriculum words break it.
+- **Closed vocabulary** — 2562 active tokens; out-of-curriculum words break it.
 - **128-token context**, single-turn only: it was never trained on
   conversations, and prior turns crowd out the question.
 - **No alignment or safety tuning of any kind.** No refusals, no filtering.
@@ -278,8 +341,8 @@ Two phases per level, repeated up the ladder:
 Each session ends in a **dream**: a consolidation pass that replays every
 level's question-answer corpus, with no new teaching. It is where cross-level
 retention comes from — in this build the level-12 dreams alone moved the probe
-from 60% to 88.5%, and the two ontology levels' dreams between them pulled
-levels 5-8 up by 13 to 36 points each.
+from 62% to 91.3%, and the two ontology levels' dreams between them pulled
+levels 5-9 up by 17 to 36 points each.
 
 **The whole English curriculum trains offline.** Every level ships its own
 local teacher configuration, so no API key is needed to reproduce these weights
@@ -308,12 +371,13 @@ about the English run required a change to the training code — that is the
 property the repository's language manifests exist to keep true.
 
 Both ladders now reach level 12, but they are not equally furnished. English
-declares one interrogative phrasing where Italian declares two, so its two
-ontology levels are trained on roughly half the targets (100 and 93, against
-197 and 105) — which is the most likely reason the epistemic trigger separates
-known from unknown nouns at AUC 0.638 here and above 0.98 there. Italian has
-also been through a retraction pass (`--retract`) and two autonomy runs;
-English has been through neither.
+used to declare one interrogative phrasing where Italian declares two, and its
+ontology levels were trained on roughly half the targets; this build closes that
+gap (`"ask_heads": ["what is", "what s"]`, pools of 354 and 285). The epistemic
+trigger moved with it, from AUC 0.638 to **0.788** — still short of the 0.95 the
+loop needs, and short of the above-0.98 Italian reaches. Italian has also been
+through a retraction pass (`--retract`) and two autonomy runs; English has been
+through neither.
 
 The comparison to draw between the two is therefore about method, not about
 scores: the levels are not equivalent tasks across languages, and the two runs
