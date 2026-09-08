@@ -11,6 +11,7 @@ Four modulators applied in sequence:
   3. Pain gate:              inhibits tokens associated with negative feedback
   4. Pleasure gate:          amplifies tokens associated with positive feedback
 """
+import json
 import torch
 import numpy as np
 from collections import deque
@@ -20,8 +21,21 @@ import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'tests', 'test_1'))
 
 from dynamic_model.exp_b.affect_state import AffectState
-from dynamic_model import language as _language
-from dynamic_model import surface as _surface
+
+# The ask head is declared in the language manifest
+# (training_files/<lang>/language.json) and read through dynamic_model.surface.
+# scripts/export_hf.py copies this file into the published package, which
+# ships WITHOUT the repository: there the two readers do not exist, and the
+# head is read from the config.json the export writes beside the package
+# instead. Neither path names a language in code. Importing this module must
+# never need the manifest — the first release that did shipped an inference
+# package whose affect system silently failed to load.
+try:
+    from dynamic_model import language as _language
+    from dynamic_model import surface as _surface
+except ImportError:                     # published package, no repository around
+    _language = None
+    _surface  = None
 
 
 # Special tokens — must be registered in the tokenizer before use
@@ -35,18 +49,58 @@ ASK_TEXT       = "<|ask|>"
 # class — see g_cos_e in scripts/expand_teacher_pools.py), 'what is' for
 # English. It is the manifest's first ask head, so a new language declares it
 # in training_files/<lang>/language.json and nothing here changes.
-def ask_form(lang: str = _language.DEFAULT_LANG) -> str:
-    heads = _surface.load(lang).ask_heads
+def ask_form(lang: Optional[str] = None) -> str:
+    if lang is None:
+        lang = default_lang()
+    if _surface is not None:
+        return _surface.load(lang).ask_heads[0]
+    cfg   = _published_config()
+    heads = cfg.get("ask_heads") or []
+    if cfg.get("language") != lang or not heads:
+        raise RuntimeError(
+            f"no ask head for language {lang!r}: this copy of modulator.py sits "
+            f"outside the repository and the config.json beside it declares "
+            f"language {cfg.get('language')!r} with ask_heads {heads!r}")
     return heads[0]
 
 
-# The Italian default, kept as a module constant because the tests and the
-# older call sites read it by name. Every caller that knows its language
-# should call ask_form(lang) instead.
-ASK_FORM = ask_form()
+def default_lang() -> str:
+    """The repository's default language, or the one language a published
+    export was made for (config.json, written by scripts/export_hf.py)."""
+    if _language is not None:
+        return _language.DEFAULT_LANG
+    lang = _published_config().get("language")
+    if not lang:
+        raise RuntimeError(
+            "no language manifest and no config.json with a 'language' key: "
+            "this copy of modulator.py is neither inside the repository nor "
+            "inside a scripts/export_hf.py export")
+    return lang
 
 
-def ask_token_id(tok, lang: str = _language.DEFAULT_LANG) -> "Optional[int]":
+def _published_config() -> dict:
+    """The config.json of a published export, which lays the package out as
+    <out>/physisml/ beside <out>/config.json. {} when there is none."""
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir,
+                        "config.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            cfg = json.load(f)
+    except (OSError, ValueError):
+        return {}
+    return cfg if isinstance(cfg, dict) else {}
+
+
+def __getattr__(name: str):
+    # ASK_FORM used to be a module constant evaluated at import time; the
+    # tests and older call sites still read it by name. Resolving it lazily
+    # (PEP 562) keeps the name and stops the import from needing the manifest.
+    if name == "ASK_FORM":
+        return ask_form()
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+
+def ask_token_id(tok, lang: Optional[str] = None) -> "Optional[int]":
     """The single logit the ask gate raises, or None if this vocabulary has no
     clean anchor for it.
 

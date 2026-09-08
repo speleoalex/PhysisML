@@ -49,6 +49,7 @@ if _ROOT not in sys.path:
 
 from dynamic_model.exp_b.none_token import SCORING_ONLY_TOKENS, scoring_cut  # noqa: E402
 from dynamic_model import language as lang_manifest                          # noqa: E402
+from dynamic_model import surface as lang_surface                            # noqa: E402
 
 # Files copied verbatim into the upload folder: the model card, the licence,
 # and the standalone inference code, which is the package the card imports.
@@ -190,6 +191,9 @@ def export_one(ckpt_path: str, out_dir: str, save_file,
             "special_tokens": tok.get("special_tokens", {}),
         },
         "language":          lang,
+        # The published physisml/modulator.py has no language manifest to read
+        # (the repository is not shipped): it takes the ask head from here.
+        "ask_heads":         lang_surface.load(lang).ask_heads,
     }
     with open(os.path.join(out_dir, "config.json"), "w", encoding="utf-8") as f:
         json.dump(out_cfg, f, indent=2, ensure_ascii=False)
@@ -203,6 +207,34 @@ def export_one(ckpt_path: str, out_dir: str, save_file,
         "sha256":            sha256(weights_path),
         "bytes":             os.path.getsize(weights_path),
     }
+
+
+def bundle_affect_system(pkg_dst: str) -> list:
+    """
+    Copy the affect system (dynamic_model/exp_b/) into the published package,
+    rewriting what only makes sense inside the repository. Returns the files
+    written. tests/test_export_bundle.py imports the result from an empty
+    directory: the package must load with nothing but torch and numpy around.
+    """
+    written = []
+    for src in AFFECT_SRCS:
+        if not os.path.exists(src):
+            print(f"  ⚠ {os.path.relpath(src, _ROOT)} missing — "
+                  f"the export will run without affective modulation.")
+            continue
+        code = open(src, encoding="utf-8").read()
+        # Rewrite the repo-absolute import and drop the sys.path hack, which
+        # points at a directory that does not exist outside the repository.
+        code = code.replace("from dynamic_model.exp_b.affect_state import",
+                            "from .affect_state import")
+        code = code.replace(
+            "sys.path.insert(0, os.path.join(os.path.dirname(__file__), "
+            "'..', '..', 'tests', 'test_1'))\n", "")
+        dst = os.path.join(pkg_dst, os.path.basename(src))
+        with open(dst, "w", encoding="utf-8") as f:
+            f.write(code)
+        written.append(dst)
+    return written
 
 
 def parse_levels(spec: str) -> list:
@@ -351,22 +383,7 @@ def main() -> None:
                     ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
     print(f"inference code  : {os.path.relpath(PKG_SRC, _ROOT)}/ → {PKG_NAME}/")
 
-    for src in AFFECT_SRCS:
-        if not os.path.exists(src):
-            print(f"  ⚠ {os.path.relpath(src, _ROOT)} missing — "
-                  f"the export will run without affective modulation.")
-            continue
-        code = open(src, encoding="utf-8").read()
-        # Rewrite the repo-absolute import and drop the sys.path hack, which
-        # points at a directory that does not exist outside the repository.
-        code = code.replace("from dynamic_model.exp_b.affect_state import",
-                            "from .affect_state import")
-        code = code.replace(
-            "sys.path.insert(0, os.path.join(os.path.dirname(__file__), "
-            "'..', '..', 'tests', 'test_1'))\n", "")
-        with open(os.path.join(pkg_dst, os.path.basename(src)), "w",
-                  encoding="utf-8") as f:
-            f.write(code)
+    bundle_affect_system(pkg_dst)
     print(f"affect system   : dynamic_model/exp_b/ → {PKG_NAME}/")
 
     for src, dst_name in ((card_src, "README.md"),
