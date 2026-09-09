@@ -1207,6 +1207,14 @@ def main() -> None:
                 print(f"  final dream: exact {post['exact_rate']:.1%} "
                       f"(baseline {baseline['exact_rate']:.1%})")
                 batch.snapshot(os.path.join(level_dir, "final_dreamed.pt"))
+            else:
+                # Without this the arm looks finished: final_dreamed.pt is the
+                # untouched start, every after-measure equals the before one,
+                # and the wrapper records exit 0 (seen 2026-09-09, seed 2,
+                # string arm: the dream died of host memory on the Arc).
+                print(f"  final dream FAILED: {batch.name} stays unconsolidated, "
+                      f"final_dreamed.pt untouched — this run is not a result")
+                sys.exit(3)
 
 
 def load_gold_bank(lang: str, level: int) -> dict:
